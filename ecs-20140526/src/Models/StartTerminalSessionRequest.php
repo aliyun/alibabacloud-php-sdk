@@ -4,24 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartTerminalSessionRequest extends Model
 {
     /**
-     * @description The command to run after the session is initiated. The command length cannot exceed 512 characters.
-     *
-     * >  If you specify the `CommandLine` parameter, you cannot specify the `PortNumber` or `TargetServer` parameter.
-     * @example ssh root@192.168.0.246
-     *
      * @var string
      */
     public $commandLine;
 
     /**
-     * @description The instance IDs.
-     *
-     * This parameter is required.
+     * @var string
+     */
+    public $connectionType;
+
+    /**
      * @var string[]
      */
     public $instanceId;
@@ -37,21 +34,11 @@ class StartTerminalSessionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The port number of the ECS instance. The port is used to forward data. After this parameter is configured, Cloud Assistant Agent forwards data to the specified port. For example, you can set this parameter to 22 for data forwarding over SSH.
-     *
-     * This parameter is empty by default, which indicates that no port is configured to forward data.
-     * @example 22
-     *
      * @var int
      */
     public $portNumber;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -67,70 +54,85 @@ class StartTerminalSessionRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The IP address of the instance. You can use the IP address to access the destination service in a virtual private cloud (VPC).
-     *
-     * >  If this parameter is not empty, `PortNumber` specifies the port number that is used by the managed instance to access the destination service in the VPC.
-     * @example 192.168.0.246
-     *
      * @var string
      */
     public $targetServer;
 
     /**
-     * @description The username used for connection establishment.
-     *
-     * @example testUser
-     *
      * @var string
      */
     public $username;
     protected $_name = [
-        'commandLine'          => 'CommandLine',
-        'instanceId'           => 'InstanceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'portNumber'           => 'PortNumber',
-        'regionId'             => 'RegionId',
+        'commandLine' => 'CommandLine',
+        'connectionType' => 'ConnectionType',
+        'instanceId' => 'InstanceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'portNumber' => 'PortNumber',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'targetServer'         => 'TargetServer',
-        'username'             => 'Username',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'targetServer' => 'TargetServer',
+        'username' => 'Username',
     ];
 
     public function validate()
     {
+        if (\is_array($this->instanceId)) {
+            Model::validateArray($this->instanceId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commandLine) {
             $res['CommandLine'] = $this->commandLine;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+
+        if (null !== $this->connectionType) {
+            $res['ConnectionType'] = $this->connectionType;
         }
+
+        if (null !== $this->instanceId) {
+            if (\is_array($this->instanceId)) {
+                $res['InstanceId'] = [];
+                $n1 = 0;
+                foreach ($this->instanceId as $item1) {
+                    $res['InstanceId'][$n1++] = $item1;
+                }
+            }
+        }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->portNumber) {
             $res['PortNumber'] = $this->portNumber;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->targetServer) {
             $res['TargetServer'] = $this->targetServer;
         }
+
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -138,43 +140,60 @@ class StartTerminalSessionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartTerminalSessionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommandLine'])) {
             $model->commandLine = $map['CommandLine'];
         }
+
+        if (isset($map['ConnectionType'])) {
+            $model->connectionType = $map['ConnectionType'];
+        }
+
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {
-                $model->instanceId = $map['InstanceId'];
+                $model->instanceId = [];
+                $n1 = 0;
+                foreach ($map['InstanceId'] as $item1) {
+                    $model->instanceId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PortNumber'])) {
             $model->portNumber = $map['PortNumber'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['TargetServer'])) {
             $model->targetServer = $map['TargetServer'];
         }
+
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }

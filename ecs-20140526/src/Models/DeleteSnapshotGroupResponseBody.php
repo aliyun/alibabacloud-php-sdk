@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteSnapshotGroupResponseBody\operationProgressSet;
-use AlibabaCloud\Tea\Model;
 
 class DeleteSnapshotGroupResponseBody extends Model
 {
     /**
-     * @description Details about the delete operation.
-     *
      * @var operationProgressSet
      */
     public $operationProgressSet;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 6EDE885A-FDC1-4FAE-BC44-6EACAEA6CC6E
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'operationProgressSet' => 'OperationProgressSet',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->operationProgressSet) {
+            $this->operationProgressSet->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operationProgressSet) {
-            $res['OperationProgressSet'] = null !== $this->operationProgressSet ? $this->operationProgressSet->toMap() : null;
+            $res['OperationProgressSet'] = null !== $this->operationProgressSet ? $this->operationProgressSet->toArray($noStream) : $this->operationProgressSet;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DeleteSnapshotGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSnapshotGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperationProgressSet'])) {
             $model->operationProgressSet = operationProgressSet::fromMap($map['OperationProgressSet']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

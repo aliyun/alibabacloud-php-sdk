@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesFullStatusResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesFullStatusResponseBody\instanceFullStatusSet\instanceFullStatusType;
-use AlibabaCloud\Tea\Model;
 
 class instanceFullStatusSet extends Model
 {
@@ -19,17 +19,21 @@ class instanceFullStatusSet extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceFullStatusType)) {
+            Model::validateArray($this->instanceFullStatusType);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceFullStatusType) {
-            $res['InstanceFullStatusType'] = [];
-            if (null !== $this->instanceFullStatusType && \is_array($this->instanceFullStatusType)) {
-                $n = 0;
-                foreach ($this->instanceFullStatusType as $item) {
-                    $res['InstanceFullStatusType'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceFullStatusType)) {
+                $res['InstanceFullStatusType'] = [];
+                $n1 = 0;
+                foreach ($this->instanceFullStatusType as $item1) {
+                    $res['InstanceFullStatusType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class instanceFullStatusSet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceFullStatusSet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceFullStatusType'])) {
             if (!empty($map['InstanceFullStatusType'])) {
                 $model->instanceFullStatusType = [];
-                $n                             = 0;
-                foreach ($map['InstanceFullStatusType'] as $item) {
-                    $model->instanceFullStatusType[$n++] = null !== $item ? instanceFullStatusType::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceFullStatusType'] as $item1) {
+                    $model->instanceFullStatusType[$n1++] = instanceFullStatusType::fromMap($item1);
                 }
             }
         }

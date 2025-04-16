@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssuranceAutoRenewAttributeResponseBody\elasticityAssuranceRenewAttributes;
-use AlibabaCloud\Tea\Model;
 
 class DescribeElasticityAssuranceAutoRenewAttributeResponseBody extends Model
 {
     /**
-     * @description The auto-renewal attribute of the elasticity assurances.
-     *
      * @var elasticityAssuranceRenewAttributes
      */
     public $elasticityAssuranceRenewAttributes;
 
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'elasticityAssuranceRenewAttributes' => 'ElasticityAssuranceRenewAttributes',
-        'requestId'                          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->elasticityAssuranceRenewAttributes) {
+            $this->elasticityAssuranceRenewAttributes->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->elasticityAssuranceRenewAttributes) {
-            $res['ElasticityAssuranceRenewAttributes'] = null !== $this->elasticityAssuranceRenewAttributes ? $this->elasticityAssuranceRenewAttributes->toMap() : null;
+            $res['ElasticityAssuranceRenewAttributes'] = null !== $this->elasticityAssuranceRenewAttributes ? $this->elasticityAssuranceRenewAttributes->toArray($noStream) : $this->elasticityAssuranceRenewAttributes;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DescribeElasticityAssuranceAutoRenewAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeElasticityAssuranceAutoRenewAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ElasticityAssuranceRenewAttributes'])) {
             $model->elasticityAssuranceRenewAttributes = elasticityAssuranceRenewAttributes::fromMap($map['ElasticityAssuranceRenewAttributes']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

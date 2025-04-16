@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class supportedBootModes extends Model
 {
@@ -18,29 +18,43 @@ class supportedBootModes extends Model
 
     public function validate()
     {
+        if (\is_array($this->supportedBootMode)) {
+            Model::validateArray($this->supportedBootMode);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->supportedBootMode) {
-            $res['SupportedBootMode'] = $this->supportedBootMode;
+            if (\is_array($this->supportedBootMode)) {
+                $res['SupportedBootMode'] = [];
+                $n1 = 0;
+                foreach ($this->supportedBootMode as $item1) {
+                    $res['SupportedBootMode'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedBootModes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedBootMode'])) {
             if (!empty($map['SupportedBootMode'])) {
-                $model->supportedBootMode = $map['SupportedBootMode'];
+                $model->supportedBootMode = [];
+                $n1 = 0;
+                foreach ($map['SupportedBootMode'] as $item1) {
+                    $model->supportedBootMode[$n1++] = $item1;
+                }
             }
         }
 

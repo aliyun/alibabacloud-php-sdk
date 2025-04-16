@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeResourcesModificationResponseBody\availableZones\availableZone\availableResources\availableResource;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeResourcesModificationResponseBody\availableZones\availableZone\availableResources\availableResource\conditionSupportedResources\conditionSupportedResource;
-use AlibabaCloud\Tea\Model;
 
 class conditionSupportedResources extends Model
 {
@@ -19,17 +19,21 @@ class conditionSupportedResources extends Model
 
     public function validate()
     {
+        if (\is_array($this->conditionSupportedResource)) {
+            Model::validateArray($this->conditionSupportedResource);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditionSupportedResource) {
-            $res['ConditionSupportedResource'] = [];
-            if (null !== $this->conditionSupportedResource && \is_array($this->conditionSupportedResource)) {
-                $n = 0;
-                foreach ($this->conditionSupportedResource as $item) {
-                    $res['ConditionSupportedResource'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->conditionSupportedResource)) {
+                $res['ConditionSupportedResource'] = [];
+                $n1 = 0;
+                foreach ($this->conditionSupportedResource as $item1) {
+                    $res['ConditionSupportedResource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class conditionSupportedResources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return conditionSupportedResources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConditionSupportedResource'])) {
             if (!empty($map['ConditionSupportedResource'])) {
                 $model->conditionSupportedResource = [];
-                $n                                 = 0;
-                foreach ($map['ConditionSupportedResource'] as $item) {
-                    $model->conditionSupportedResource[$n++] = null !== $item ? conditionSupportedResource::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConditionSupportedResource'] as $item1) {
+                    $model->conditionSupportedResource[$n1++] = conditionSupportedResource::fromMap($item1);
                 }
             }
         }

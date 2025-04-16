@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeVirtualBorderRoutersForPhysicalConnectionResponseBody\virtualBorderRouterForPhysicalConnectionSet;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class virtualBorderRouterForPhysicalConnectionType extends Model
 {
@@ -48,44 +48,52 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
      */
     public $vlanId;
     protected $_name = [
-        'activationTime'  => 'ActivationTime',
-        'circuitCode'     => 'CircuitCode',
-        'creationTime'    => 'CreationTime',
-        'recoveryTime'    => 'RecoveryTime',
+        'activationTime' => 'ActivationTime',
+        'circuitCode' => 'CircuitCode',
+        'creationTime' => 'CreationTime',
+        'recoveryTime' => 'RecoveryTime',
         'terminationTime' => 'TerminationTime',
-        'vbrId'           => 'VbrId',
-        'vbrOwnerUid'     => 'VbrOwnerUid',
-        'vlanId'          => 'VlanId',
+        'vbrId' => 'VbrId',
+        'vbrOwnerUid' => 'VbrOwnerUid',
+        'vlanId' => 'VlanId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->activationTime) {
             $res['ActivationTime'] = $this->activationTime;
         }
+
         if (null !== $this->circuitCode) {
             $res['CircuitCode'] = $this->circuitCode;
         }
+
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->recoveryTime) {
             $res['RecoveryTime'] = $this->recoveryTime;
         }
+
         if (null !== $this->terminationTime) {
             $res['TerminationTime'] = $this->terminationTime;
         }
+
         if (null !== $this->vbrId) {
             $res['VbrId'] = $this->vbrId;
         }
+
         if (null !== $this->vbrOwnerUid) {
             $res['VbrOwnerUid'] = $this->vbrOwnerUid;
         }
+
         if (null !== $this->vlanId) {
             $res['VlanId'] = $this->vlanId;
         }
@@ -93,35 +101,42 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return virtualBorderRouterForPhysicalConnectionType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActivationTime'])) {
             $model->activationTime = $map['ActivationTime'];
         }
+
         if (isset($map['CircuitCode'])) {
             $model->circuitCode = $map['CircuitCode'];
         }
+
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['RecoveryTime'])) {
             $model->recoveryTime = $map['RecoveryTime'];
         }
+
         if (isset($map['TerminationTime'])) {
             $model->terminationTime = $map['TerminationTime'];
         }
+
         if (isset($map['VbrId'])) {
             $model->vbrId = $map['VbrId'];
         }
+
         if (isset($map['VbrOwnerUid'])) {
             $model->vbrOwnerUid = $map['VbrOwnerUid'];
         }
+
         if (isset($map['VlanId'])) {
             $model->vlanId = $map['VlanId'];
         }

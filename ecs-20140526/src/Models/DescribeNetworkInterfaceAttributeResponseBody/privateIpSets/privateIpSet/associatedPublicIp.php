@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\privateIpSets\privateIpSet;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class associatedPublicIp extends Model
 {
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
-     *
-     * @example null
-     *
      * @var string
      */
     public $allocationId;
 
     /**
-     * @description The EIP.
-     *
-     * @example ``116.62.**.**``
-     *
      * @var string
      */
     public $publicIpAddress;
     protected $_name = [
-        'allocationId'    => 'AllocationId',
+        'allocationId' => 'AllocationId',
         'publicIpAddress' => 'PublicIpAddress',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allocationId) {
             $res['AllocationId'] = $this->allocationId;
         }
+
         if (null !== $this->publicIpAddress) {
             $res['PublicIpAddress'] = $this->publicIpAddress;
         }
@@ -47,17 +41,18 @@ class associatedPublicIp extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return associatedPublicIp
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllocationId'])) {
             $model->allocationId = $map['AllocationId'];
         }
+
         if (isset($map['PublicIpAddress'])) {
             $model->publicIpAddress = $map['PublicIpAddress'];
         }

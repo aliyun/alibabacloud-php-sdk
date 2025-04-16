@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssurancesResponseBody\elasticityAssuranceSet\elasticityAssuranceItem;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssurancesResponseBody\elasticityAssuranceSet\elasticityAssuranceItem\recurrenceRules\recurrenceRule;
-use AlibabaCloud\Tea\Model;
 
 class recurrenceRules extends Model
 {
@@ -19,17 +19,21 @@ class recurrenceRules extends Model
 
     public function validate()
     {
+        if (\is_array($this->recurrenceRule)) {
+            Model::validateArray($this->recurrenceRule);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recurrenceRule) {
-            $res['RecurrenceRule'] = [];
-            if (null !== $this->recurrenceRule && \is_array($this->recurrenceRule)) {
-                $n = 0;
-                foreach ($this->recurrenceRule as $item) {
-                    $res['RecurrenceRule'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->recurrenceRule)) {
+                $res['RecurrenceRule'] = [];
+                $n1 = 0;
+                foreach ($this->recurrenceRule as $item1) {
+                    $res['RecurrenceRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class recurrenceRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recurrenceRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecurrenceRule'])) {
             if (!empty($map['RecurrenceRule'])) {
                 $model->recurrenceRule = [];
-                $n                     = 0;
-                foreach ($map['RecurrenceRule'] as $item) {
-                    $model->recurrenceRule[$n++] = null !== $item ? recurrenceRule::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RecurrenceRule'] as $item1) {
+                    $model->recurrenceRule[$n1++] = recurrenceRule::fromMap($item1);
                 }
             }
         }

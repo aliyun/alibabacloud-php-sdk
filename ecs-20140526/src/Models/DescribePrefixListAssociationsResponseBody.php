@@ -4,54 +4,50 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePrefixListAssociationsResponseBody\prefixListAssociations;
-use AlibabaCloud\Tea\Model;
 
 class DescribePrefixListAssociationsResponseBody extends Model
 {
     /**
-     * @description The query token that is returned in this call. If the return value is empty, no more data is returned.
-     *
-     * @example AAAAAdDWBF2****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Details about the resources that are associated with the prefix list.
-     *
      * @var prefixListAssociations
      */
     public $prefixListAssociations;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 38793DB8-A4B2-4AEC-BFD3-111234E9188D
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'nextToken'              => 'NextToken',
+        'nextToken' => 'NextToken',
         'prefixListAssociations' => 'PrefixListAssociations',
-        'requestId'              => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->prefixListAssociations) {
+            $this->prefixListAssociations->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->prefixListAssociations) {
-            $res['PrefixListAssociations'] = null !== $this->prefixListAssociations ? $this->prefixListAssociations->toMap() : null;
+            $res['PrefixListAssociations'] = null !== $this->prefixListAssociations ? $this->prefixListAssociations->toArray($noStream) : $this->prefixListAssociations;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,20 +55,22 @@ class DescribePrefixListAssociationsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePrefixListAssociationsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['PrefixListAssociations'])) {
             $model->prefixListAssociations = prefixListAssociations::fromMap($map['PrefixListAssociations']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

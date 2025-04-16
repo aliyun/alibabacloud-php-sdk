@@ -4,54 +4,50 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiskMonitorDataResponseBody\monitorData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDiskMonitorDataResponseBody extends Model
 {
     /**
-     * @description The monitoring data of the disk.
-     *
      * @var monitorData
      */
     public $monitorData;
 
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of monitoring data entries returned.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'monitorData' => 'MonitorData',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (null !== $this->monitorData) {
+            $this->monitorData->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->monitorData) {
-            $res['MonitorData'] = null !== $this->monitorData ? $this->monitorData->toMap() : null;
+            $res['MonitorData'] = null !== $this->monitorData ? $this->monitorData->toArray($noStream) : $this->monitorData;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -59,20 +55,22 @@ class DescribeDiskMonitorDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDiskMonitorDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MonitorData'])) {
             $model->monitorData = monitorData::fromMap($map['MonitorData']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

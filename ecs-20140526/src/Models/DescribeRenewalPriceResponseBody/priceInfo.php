@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRenewalPriceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRenewalPriceResponseBody\priceInfo\price;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRenewalPriceResponseBody\priceInfo\rules;
-use AlibabaCloud\Tea\Model;
 
 class priceInfo extends Model
 {
     /**
-     * @description The price.
-     *
      * @var price
      */
     public $price;
 
     /**
-     * @description The information about the promotion rules.
-     *
      * @var rules
      */
     public $rules;
@@ -30,32 +26,41 @@ class priceInfo extends Model
 
     public function validate()
     {
+        if (null !== $this->price) {
+            $this->price->validate();
+        }
+        if (null !== $this->rules) {
+            $this->rules->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->price) {
-            $res['Price'] = null !== $this->price ? $this->price->toMap() : null;
+            $res['Price'] = null !== $this->price ? $this->price->toArray($noStream) : $this->price;
         }
+
         if (null !== $this->rules) {
-            $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
+            $res['Rules'] = null !== $this->rules ? $this->rules->toArray($noStream) : $this->rules;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return priceInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Price'])) {
             $model->price = price::fromMap($map['Price']);
         }
+
         if (isset($map['Rules'])) {
             $model->rules = rules::fromMap($map['Rules']);
         }

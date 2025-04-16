@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeEniMonitorDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeEniMonitorDataResponseBody\monitorData\eniMonitorData;
-use AlibabaCloud\Tea\Model;
 
 class monitorData extends Model
 {
@@ -19,17 +19,21 @@ class monitorData extends Model
 
     public function validate()
     {
+        if (\is_array($this->eniMonitorData)) {
+            Model::validateArray($this->eniMonitorData);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eniMonitorData) {
-            $res['EniMonitorData'] = [];
-            if (null !== $this->eniMonitorData && \is_array($this->eniMonitorData)) {
-                $n = 0;
-                foreach ($this->eniMonitorData as $item) {
-                    $res['EniMonitorData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->eniMonitorData)) {
+                $res['EniMonitorData'] = [];
+                $n1 = 0;
+                foreach ($this->eniMonitorData as $item1) {
+                    $res['EniMonitorData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class monitorData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return monitorData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EniMonitorData'])) {
             if (!empty($map['EniMonitorData'])) {
                 $model->eniMonitorData = [];
-                $n                     = 0;
-                foreach ($map['EniMonitorData'] as $item) {
-                    $model->eniMonitorData[$n++] = null !== $item ? eniMonitorData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EniMonitorData'] as $item1) {
+                    $model->eniMonitorData[$n1++] = eniMonitorData::fromMap($item1);
                 }
             }
         }

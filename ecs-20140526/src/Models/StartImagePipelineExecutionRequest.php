@@ -4,27 +4,18 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartImagePipelineExecutionRequest\tag;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartImagePipelineExecutionRequest\templateTag;
-use AlibabaCloud\Tea\Model;
 
 class StartImagePipelineExecutionRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among requests. **The token can contain only ASCII characters and cannot exceed 64 characters in length.** For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-     *
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description The ID of the image template.
-     *
-     * This parameter is required.
-     * @example ip-2ze5tsl5bp6nf2b3****
-     *
      * @var string
      */
     public $imagePipelineId;
@@ -40,11 +31,6 @@ class StartImagePipelineExecutionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -60,75 +46,84 @@ class StartImagePipelineExecutionRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags.
-     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description >  This parameter is deprecated.
-     *
-     * @deprecated
-     *
      * @var templateTag[]
      */
     public $templateTag;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'imagePipelineId'      => 'ImagePipelineId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'imagePipelineId' => 'ImagePipelineId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tag'                  => 'Tag',
-        'templateTag'          => 'TemplateTag',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
+        'templateTag' => 'TemplateTag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        if (\is_array($this->templateTag)) {
+            Model::validateArray($this->templateTag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->imagePipelineId) {
             $res['ImagePipelineId'] = $this->imagePipelineId;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->templateTag) {
-            $res['TemplateTag'] = [];
-            if (null !== $this->templateTag && \is_array($this->templateTag)) {
-                $n = 0;
-                foreach ($this->templateTag as $item) {
-                    $res['TemplateTag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->templateTag)) {
+                $res['TemplateTag'] = [];
+                $n1 = 0;
+                foreach ($this->templateTag as $item1) {
+                    $res['TemplateTag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -136,50 +131,58 @@ class StartImagePipelineExecutionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartImagePipelineExecutionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['ImagePipelineId'])) {
             $model->imagePipelineId = $map['ImagePipelineId'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TemplateTag'])) {
             if (!empty($map['TemplateTag'])) {
                 $model->templateTag = [];
-                $n                  = 0;
-                foreach ($map['TemplateTag'] as $item) {
-                    $model->templateTag[$n++] = null !== $item ? templateTag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TemplateTag'] as $item1) {
+                    $model->templateTag[$n1++] = templateTag::fromMap($item1);
                 }
             }
         }

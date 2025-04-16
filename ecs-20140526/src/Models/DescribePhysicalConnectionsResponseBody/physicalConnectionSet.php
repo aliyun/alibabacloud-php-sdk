@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePhysicalConnectionsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePhysicalConnectionsResponseBody\physicalConnectionSet\physicalConnectionType;
-use AlibabaCloud\Tea\Model;
 
 class physicalConnectionSet extends Model
 {
@@ -19,17 +19,21 @@ class physicalConnectionSet extends Model
 
     public function validate()
     {
+        if (\is_array($this->physicalConnectionType)) {
+            Model::validateArray($this->physicalConnectionType);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->physicalConnectionType) {
-            $res['PhysicalConnectionType'] = [];
-            if (null !== $this->physicalConnectionType && \is_array($this->physicalConnectionType)) {
-                $n = 0;
-                foreach ($this->physicalConnectionType as $item) {
-                    $res['PhysicalConnectionType'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->physicalConnectionType)) {
+                $res['PhysicalConnectionType'] = [];
+                $n1 = 0;
+                foreach ($this->physicalConnectionType as $item1) {
+                    $res['PhysicalConnectionType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class physicalConnectionSet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return physicalConnectionSet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PhysicalConnectionType'])) {
             if (!empty($map['PhysicalConnectionType'])) {
                 $model->physicalConnectionType = [];
-                $n                             = 0;
-                foreach ($map['PhysicalConnectionType'] as $item) {
-                    $model->physicalConnectionType[$n++] = null !== $item ? physicalConnectionType::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PhysicalConnectionType'] as $item1) {
+                    $model->physicalConnectionType[$n1++] = physicalConnectionType::fromMap($item1);
                 }
             }
         }

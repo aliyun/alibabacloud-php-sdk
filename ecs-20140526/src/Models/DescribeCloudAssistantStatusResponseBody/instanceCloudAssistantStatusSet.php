@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantStatusResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantStatusResponseBody\instanceCloudAssistantStatusSet\instanceCloudAssistantStatus;
-use AlibabaCloud\Tea\Model;
 
 class instanceCloudAssistantStatusSet extends Model
 {
@@ -19,17 +19,21 @@ class instanceCloudAssistantStatusSet extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceCloudAssistantStatus)) {
+            Model::validateArray($this->instanceCloudAssistantStatus);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceCloudAssistantStatus) {
-            $res['InstanceCloudAssistantStatus'] = [];
-            if (null !== $this->instanceCloudAssistantStatus && \is_array($this->instanceCloudAssistantStatus)) {
-                $n = 0;
-                foreach ($this->instanceCloudAssistantStatus as $item) {
-                    $res['InstanceCloudAssistantStatus'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceCloudAssistantStatus)) {
+                $res['InstanceCloudAssistantStatus'] = [];
+                $n1 = 0;
+                foreach ($this->instanceCloudAssistantStatus as $item1) {
+                    $res['InstanceCloudAssistantStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class instanceCloudAssistantStatusSet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceCloudAssistantStatusSet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceCloudAssistantStatus'])) {
             if (!empty($map['InstanceCloudAssistantStatus'])) {
                 $model->instanceCloudAssistantStatus = [];
-                $n                                   = 0;
-                foreach ($map['InstanceCloudAssistantStatus'] as $item) {
-                    $model->instanceCloudAssistantStatus[$n++] = null !== $item ? instanceCloudAssistantStatus::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceCloudAssistantStatus'] as $item1) {
+                    $model->instanceCloudAssistantStatus[$n1++] = instanceCloudAssistantStatus::fromMap($item1);
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSpotAdviceResponseBody\availableSpotZones\availableSpotZone;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSpotAdviceResponseBody\availableSpotZones\availableSpotZone\availableSpotResources\availableSpotResource;
-use AlibabaCloud\Tea\Model;
 
 class availableSpotResources extends Model
 {
@@ -19,17 +19,21 @@ class availableSpotResources extends Model
 
     public function validate()
     {
+        if (\is_array($this->availableSpotResource)) {
+            Model::validateArray($this->availableSpotResource);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableSpotResource) {
-            $res['AvailableSpotResource'] = [];
-            if (null !== $this->availableSpotResource && \is_array($this->availableSpotResource)) {
-                $n = 0;
-                foreach ($this->availableSpotResource as $item) {
-                    $res['AvailableSpotResource'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->availableSpotResource)) {
+                $res['AvailableSpotResource'] = [];
+                $n1 = 0;
+                foreach ($this->availableSpotResource as $item1) {
+                    $res['AvailableSpotResource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class availableSpotResources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableSpotResources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableSpotResource'])) {
             if (!empty($map['AvailableSpotResource'])) {
                 $model->availableSpotResource = [];
-                $n                            = 0;
-                foreach ($map['AvailableSpotResource'] as $item) {
-                    $model->availableSpotResource[$n++] = null !== $item ? availableSpotResource::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AvailableSpotResource'] as $item1) {
+                    $model->availableSpotResource[$n1++] = availableSpotResource::fromMap($item1);
                 }
             }
         }

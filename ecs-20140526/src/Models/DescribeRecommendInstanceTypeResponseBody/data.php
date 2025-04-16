@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRecommendInstanceTypeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRecommendInstanceTypeResponseBody\data\recommendInstanceType;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,21 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->recommendInstanceType)) {
+            Model::validateArray($this->recommendInstanceType);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recommendInstanceType) {
-            $res['RecommendInstanceType'] = [];
-            if (null !== $this->recommendInstanceType && \is_array($this->recommendInstanceType)) {
-                $n = 0;
-                foreach ($this->recommendInstanceType as $item) {
-                    $res['RecommendInstanceType'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->recommendInstanceType)) {
+                $res['RecommendInstanceType'] = [];
+                $n1 = 0;
+                foreach ($this->recommendInstanceType as $item1) {
+                    $res['RecommendInstanceType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecommendInstanceType'])) {
             if (!empty($map['RecommendInstanceType'])) {
                 $model->recommendInstanceType = [];
-                $n                            = 0;
-                foreach ($map['RecommendInstanceType'] as $item) {
-                    $model->recommendInstanceType[$n++] = null !== $item ? recommendInstanceType::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RecommendInstanceType'] as $item1) {
+                    $model->recommendInstanceType[$n1++] = recommendInstanceType::fromMap($item1);
                 }
             }
         }

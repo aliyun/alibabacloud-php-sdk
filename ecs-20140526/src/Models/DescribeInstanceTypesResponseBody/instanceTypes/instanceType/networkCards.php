@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\networkCards\networkCardInfo;
-use AlibabaCloud\Tea\Model;
 
 class networkCards extends Model
 {
@@ -19,17 +19,21 @@ class networkCards extends Model
 
     public function validate()
     {
+        if (\is_array($this->networkCardInfo)) {
+            Model::validateArray($this->networkCardInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkCardInfo) {
-            $res['NetworkCardInfo'] = [];
-            if (null !== $this->networkCardInfo && \is_array($this->networkCardInfo)) {
-                $n = 0;
-                foreach ($this->networkCardInfo as $item) {
-                    $res['NetworkCardInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->networkCardInfo)) {
+                $res['NetworkCardInfo'] = [];
+                $n1 = 0;
+                foreach ($this->networkCardInfo as $item1) {
+                    $res['NetworkCardInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class networkCards extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkCards
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkCardInfo'])) {
             if (!empty($map['NetworkCardInfo'])) {
                 $model->networkCardInfo = [];
-                $n                      = 0;
-                foreach ($map['NetworkCardInfo'] as $item) {
-                    $model->networkCardInfo[$n++] = null !== $item ? networkCardInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NetworkCardInfo'] as $item1) {
+                    $model->networkCardInfo[$n1++] = networkCardInfo::fromMap($item1);
                 }
             }
         }

@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostTypesResponseBody\dedicatedHostTypes;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDedicatedHostTypesResponseBody extends Model
 {
     /**
-     * @description Details about the dedicated host types.
-     *
      * @var dedicatedHostTypes
      */
     public $dedicatedHostTypes;
 
     /**
-     * @description The request ID.
-     *
-     * @example 5FE5FF06-3A33-4658-8495-6445FC54E327
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'dedicatedHostTypes' => 'DedicatedHostTypes',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->dedicatedHostTypes) {
+            $this->dedicatedHostTypes->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dedicatedHostTypes) {
-            $res['DedicatedHostTypes'] = null !== $this->dedicatedHostTypes ? $this->dedicatedHostTypes->toMap() : null;
+            $res['DedicatedHostTypes'] = null !== $this->dedicatedHostTypes ? $this->dedicatedHostTypes->toArray($noStream) : $this->dedicatedHostTypes;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DescribeDedicatedHostTypesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDedicatedHostTypesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DedicatedHostTypes'])) {
             $model->dedicatedHostTypes = dedicatedHostTypes::fromMap($map['DedicatedHostTypes']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

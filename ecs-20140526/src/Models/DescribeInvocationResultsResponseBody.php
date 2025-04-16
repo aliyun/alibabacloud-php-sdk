@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInvocationResultsResponseBody\invocation;
-use AlibabaCloud\Tea\Model;
 
 class DescribeInvocationResultsResponseBody extends Model
 {
     /**
-     * @description Details about the execution results.
-     *
      * @var invocation
      */
     public $invocation;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE*****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'invocation' => 'Invocation',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->invocation) {
+            $this->invocation->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->invocation) {
-            $res['Invocation'] = null !== $this->invocation ? $this->invocation->toMap() : null;
+            $res['Invocation'] = null !== $this->invocation ? $this->invocation->toArray($noStream) : $this->invocation;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DescribeInvocationResultsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInvocationResultsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Invocation'])) {
             $model->invocation = invocation::fromMap($map['Invocation']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostAutoRenewResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostAutoRenewResponseBody\dedicatedHostRenewAttributes\dedicatedHostRenewAttribute;
-use AlibabaCloud\Tea\Model;
 
 class dedicatedHostRenewAttributes extends Model
 {
@@ -19,17 +19,21 @@ class dedicatedHostRenewAttributes extends Model
 
     public function validate()
     {
+        if (\is_array($this->dedicatedHostRenewAttribute)) {
+            Model::validateArray($this->dedicatedHostRenewAttribute);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dedicatedHostRenewAttribute) {
-            $res['DedicatedHostRenewAttribute'] = [];
-            if (null !== $this->dedicatedHostRenewAttribute && \is_array($this->dedicatedHostRenewAttribute)) {
-                $n = 0;
-                foreach ($this->dedicatedHostRenewAttribute as $item) {
-                    $res['DedicatedHostRenewAttribute'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dedicatedHostRenewAttribute)) {
+                $res['DedicatedHostRenewAttribute'] = [];
+                $n1 = 0;
+                foreach ($this->dedicatedHostRenewAttribute as $item1) {
+                    $res['DedicatedHostRenewAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class dedicatedHostRenewAttributes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dedicatedHostRenewAttributes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DedicatedHostRenewAttribute'])) {
             if (!empty($map['DedicatedHostRenewAttribute'])) {
                 $model->dedicatedHostRenewAttribute = [];
-                $n                                  = 0;
-                foreach ($map['DedicatedHostRenewAttribute'] as $item) {
-                    $model->dedicatedHostRenewAttribute[$n++] = null !== $item ? dedicatedHostRenewAttribute::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DedicatedHostRenewAttribute'] as $item1) {
+                    $model->dedicatedHostRenewAttribute[$n1++] = dedicatedHostRenewAttribute::fromMap($item1);
                 }
             }
         }

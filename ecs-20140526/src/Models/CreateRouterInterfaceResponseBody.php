@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateRouterInterfaceResponseBody extends Model
 {
@@ -23,24 +23,27 @@ class CreateRouterInterfaceResponseBody extends Model
      */
     public $routerInterfaceId;
     protected $_name = [
-        'orderId'           => 'OrderId',
-        'requestId'         => 'RequestId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
         'routerInterfaceId' => 'RouterInterfaceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->routerInterfaceId) {
             $res['RouterInterfaceId'] = $this->routerInterfaceId;
         }
@@ -48,20 +51,22 @@ class CreateRouterInterfaceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRouterInterfaceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RouterInterfaceId'])) {
             $model->routerInterfaceId = $map['RouterInterfaceId'];
         }

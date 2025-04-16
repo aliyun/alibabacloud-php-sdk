@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHost\instances;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instance extends Model
 {
     /**
-     * @description The ID of the ECS instance.
-     *
-     * @example i-bp14ot0ykf8w13a1****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the ECS instance owner.
-     *
-     * @example 128************0
-     *
      * @var int
      */
     public $instanceOwnerId;
 
     /**
-     * @description The instance type of the ECS instance that was created on the dedicated host.
-     *
-     * @example ecs.g5.large
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description The ID of the socket to which the ECS instance belongs.
-     *
-     * @example 0,1
-     *
      * @var string
      */
     public $socketId;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceOwnerId' => 'InstanceOwnerId',
-        'instanceType'    => 'InstanceType',
-        'socketId'        => 'SocketId',
+        'instanceType' => 'InstanceType',
+        'socketId' => 'SocketId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceOwnerId) {
             $res['InstanceOwnerId'] = $this->instanceOwnerId;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->socketId) {
             $res['SocketId'] = $this->socketId;
         }
@@ -73,23 +61,26 @@ class instance extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instance
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceOwnerId'])) {
             $model->instanceOwnerId = $map['InstanceOwnerId'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['SocketId'])) {
             $model->socketId = $map['SocketId'];
         }

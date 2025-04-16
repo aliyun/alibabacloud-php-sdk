@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest\imageOptions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class imageFeatures extends Model
 {
     /**
-     * @description 构建的目标镜像是否支持 NVMe。可能值：
-     * - auto：自动检测。由系统自动检测您的镜像是否安装NVMe驱动，该行为发生在构建阶段前，若您在构建时安装或者卸载了NVMe驱动，可能会出现结果偏差，建议您根据构建内容设置为supported或unsupported。
-     * @example auto
-     *
      * @var string
      */
     public $nvmeSupport;
@@ -22,9 +18,10 @@ class imageFeatures extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nvmeSupport) {
@@ -34,11 +31,11 @@ class imageFeatures extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return imageFeatures
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

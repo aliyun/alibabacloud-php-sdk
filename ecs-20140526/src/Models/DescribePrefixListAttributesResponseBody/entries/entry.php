@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePrefixListAttributesResponseBody\entries;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class entry extends Model
 {
     /**
-     * @description The CIDR block in entry N.
-     *
-     * @example 192.168.1.0/24
-     *
      * @var string
      */
     public $cidr;
 
     /**
-     * @description The description in entry N.
-     *
-     * @example Description Sample 01
-     *
      * @var string
      */
     public $description;
     protected $_name = [
-        'cidr'        => 'Cidr',
+        'cidr' => 'Cidr',
         'description' => 'Description',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cidr) {
             $res['Cidr'] = $this->cidr;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -47,17 +41,18 @@ class entry extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return entry
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cidr'])) {
             $model->cidr = $map['Cidr'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

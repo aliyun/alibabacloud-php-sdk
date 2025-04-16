@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCapacityReservationInstancesResponseBody\capacityReservationItem;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceIdSet extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * @example i-bp67acfmxazb4****
-     *
      * @var string
      */
     public $instanceId;
@@ -22,9 +18,10 @@ class instanceIdSet extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -34,11 +31,11 @@ class instanceIdSet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceIdSet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

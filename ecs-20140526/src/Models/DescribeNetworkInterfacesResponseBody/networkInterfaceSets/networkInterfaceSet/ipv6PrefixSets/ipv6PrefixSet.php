@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfacesResponseBody\networkInterfaceSets\networkInterfaceSet\ipv6PrefixSets;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ipv6PrefixSet extends Model
 {
     /**
-     * @description The IPv6 prefix of the ENI.
-     *
-     * @example hide
-     *
      * @var string
      */
     public $ipv6Prefix;
@@ -22,9 +18,10 @@ class ipv6PrefixSet extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipv6Prefix) {
@@ -34,11 +31,11 @@ class ipv6PrefixSet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipv6PrefixSet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

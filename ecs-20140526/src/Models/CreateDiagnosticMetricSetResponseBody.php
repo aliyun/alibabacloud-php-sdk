@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDiagnosticMetricSetResponseBody extends Model
 {
     /**
-     * @description The ID of the diagnostic metric set, which is the unique identifier of the set.
-     *
-     * @example dms-o7ymuutup5l*****
-     *
      * @var string
      */
     public $metricSetId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE*****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'metricSetId' => 'MetricSetId',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metricSetId) {
             $res['MetricSetId'] = $this->metricSetId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class CreateDiagnosticMetricSetResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDiagnosticMetricSetResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MetricSetId'])) {
             $model->metricSetId = $map['MetricSetId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

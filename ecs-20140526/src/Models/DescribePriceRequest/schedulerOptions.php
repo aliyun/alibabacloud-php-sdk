@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class schedulerOptions extends Model
 {
     /**
-     * @description This parameter takes effect only when ResourceType is set to instance.
-     *
-     * The ID of the dedicated host. You can call the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/134242.html) operation to query the dedicated host list.
-     * @example dh-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $dedicatedHostId;
@@ -23,9 +18,10 @@ class schedulerOptions extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dedicatedHostId) {
@@ -35,11 +31,11 @@ class schedulerOptions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return schedulerOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

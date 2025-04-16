@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ecsCapacityReservationAttr extends Model
 {
     /**
-     * @description The ID of the capacity reservation.
-     *
-     * @example cr-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $capacityReservationId;
 
     /**
-     * @description The preference of the capacity reservation.
-     *
-     * @example cr-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $capacityReservationPreference;
     protected $_name = [
-        'capacityReservationId'         => 'CapacityReservationId',
+        'capacityReservationId' => 'CapacityReservationId',
         'capacityReservationPreference' => 'CapacityReservationPreference',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->capacityReservationId) {
             $res['CapacityReservationId'] = $this->capacityReservationId;
         }
+
         if (null !== $this->capacityReservationPreference) {
             $res['CapacityReservationPreference'] = $this->capacityReservationPreference;
         }
@@ -47,17 +41,18 @@ class ecsCapacityReservationAttr extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ecsCapacityReservationAttr
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CapacityReservationId'])) {
             $model->capacityReservationId = $map['CapacityReservationId'];
         }
+
         if (isset($map['CapacityReservationPreference'])) {
             $model->capacityReservationPreference = $map['CapacityReservationPreference'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeVRoutersResponseBody\VRouters\VRouter;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class routeTableIds extends Model
 {
@@ -18,29 +18,43 @@ class routeTableIds extends Model
 
     public function validate()
     {
+        if (\is_array($this->routeTableId)) {
+            Model::validateArray($this->routeTableId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->routeTableId) {
-            $res['RouteTableId'] = $this->routeTableId;
+            if (\is_array($this->routeTableId)) {
+                $res['RouteTableId'] = [];
+                $n1 = 0;
+                foreach ($this->routeTableId as $item1) {
+                    $res['RouteTableId'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routeTableIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RouteTableId'])) {
             if (!empty($map['RouteTableId'])) {
-                $model->routeTableId = $map['RouteTableId'];
+                $model->routeTableId = [];
+                $n1 = 0;
+                foreach ($map['RouteTableId'] as $item1) {
+                    $model->routeTableId[$n1++] = $item1;
+                }
             }
         }
 

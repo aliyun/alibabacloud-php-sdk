@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType\networkCards;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class networkCardInfo extends Model
 {
     /**
-     * @description The index of the network card.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $networkCardIndex;
@@ -22,9 +18,10 @@ class networkCardInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkCardIndex) {
@@ -34,11 +31,11 @@ class networkCardInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkCardInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

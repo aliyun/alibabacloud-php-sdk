@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceSpecRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class systemDisk extends Model
 {
     /**
-     * @description The new category of the system disk. Valid values:
-     *
-     *   cloud_efficiency: ultra disk
-     *   cloud_ssd: standard SSD
-     *
-     * >  This parameter takes effect only when you upgrade a non-I/O optimized instance of [a retired instance type](https://help.aliyun.com/document_detail/55263.html) to an I/O optimized instance of [an instance type available for purchase](https://help.aliyun.com/document_detail/25378.html).
-     * @example cloud_ssd
-     *
      * @var string
      */
     public $category;
@@ -26,9 +18,10 @@ class systemDisk extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
@@ -38,11 +31,11 @@ class systemDisk extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return systemDisk
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

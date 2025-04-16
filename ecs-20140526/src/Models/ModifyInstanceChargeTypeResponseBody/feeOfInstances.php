@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceChargeTypeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyInstanceChargeTypeResponseBody\feeOfInstances\feeOfInstance;
-use AlibabaCloud\Tea\Model;
 
 class feeOfInstances extends Model
 {
@@ -19,17 +19,21 @@ class feeOfInstances extends Model
 
     public function validate()
     {
+        if (\is_array($this->feeOfInstance)) {
+            Model::validateArray($this->feeOfInstance);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->feeOfInstance) {
-            $res['FeeOfInstance'] = [];
-            if (null !== $this->feeOfInstance && \is_array($this->feeOfInstance)) {
-                $n = 0;
-                foreach ($this->feeOfInstance as $item) {
-                    $res['FeeOfInstance'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->feeOfInstance)) {
+                $res['FeeOfInstance'] = [];
+                $n1 = 0;
+                foreach ($this->feeOfInstance as $item1) {
+                    $res['FeeOfInstance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class feeOfInstances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return feeOfInstances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FeeOfInstance'])) {
             if (!empty($map['FeeOfInstance'])) {
                 $model->feeOfInstance = [];
-                $n                    = 0;
-                foreach ($map['FeeOfInstance'] as $item) {
-                    $model->feeOfInstance[$n++] = null !== $item ? feeOfInstance::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FeeOfInstance'] as $item1) {
+                    $model->feeOfInstance[$n1++] = feeOfInstance::fromMap($item1);
                 }
             }
         }

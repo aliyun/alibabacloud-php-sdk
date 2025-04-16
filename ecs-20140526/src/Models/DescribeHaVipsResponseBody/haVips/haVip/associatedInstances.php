@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeHaVipsResponseBody\haVips\haVip;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class associatedInstances extends Model
 {
@@ -18,29 +18,43 @@ class associatedInstances extends Model
 
     public function validate()
     {
+        if (\is_array($this->associatedInstance)) {
+            Model::validateArray($this->associatedInstance);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->associatedInstance) {
-            $res['associatedInstance'] = $this->associatedInstance;
+            if (\is_array($this->associatedInstance)) {
+                $res['associatedInstance'] = [];
+                $n1 = 0;
+                foreach ($this->associatedInstance as $item1) {
+                    $res['associatedInstance'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return associatedInstances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['associatedInstance'])) {
             if (!empty($map['associatedInstance'])) {
-                $model->associatedInstance = $map['associatedInstance'];
+                $model->associatedInstance = [];
+                $n1 = 0;
+                foreach ($map['associatedInstance'] as $item1) {
+                    $model->associatedInstance[$n1++] = $item1;
+                }
             }
         }
 

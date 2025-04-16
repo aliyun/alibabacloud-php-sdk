@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteRouteEntryRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nextHopList extends Model
 {
@@ -18,20 +18,22 @@ class nextHopList extends Model
      */
     public $nextHopType;
     protected $_name = [
-        'nextHopId'   => 'NextHopId',
+        'nextHopId' => 'NextHopId',
         'nextHopType' => 'NextHopType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextHopId) {
             $res['NextHopId'] = $this->nextHopId;
         }
+
         if (null !== $this->nextHopType) {
             $res['NextHopType'] = $this->nextHopType;
         }
@@ -39,17 +41,18 @@ class nextHopList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nextHopList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextHopId'])) {
             $model->nextHopId = $map['NextHopId'];
         }
+
         if (isset($map['NextHopType'])) {
             $model->nextHopType = $map['NextHopType'];
         }

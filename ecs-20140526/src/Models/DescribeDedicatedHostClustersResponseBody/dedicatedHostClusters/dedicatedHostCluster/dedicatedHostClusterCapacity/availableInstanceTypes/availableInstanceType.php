@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostClustersResponseBody\dedicatedHostClusters\dedicatedHostCluster\dedicatedHostClusterCapacity\availableInstanceTypes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class availableInstanceType extends Model
 {
     /**
-     * @description The available capacity of the ECS instance type.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $availableInstanceCapacity;
 
     /**
-     * @description The ECS instance type.
-     *
-     * @example ecs.c6.26xlarge
-     *
      * @var string
      */
     public $instanceType;
     protected $_name = [
         'availableInstanceCapacity' => 'AvailableInstanceCapacity',
-        'instanceType'              => 'InstanceType',
+        'instanceType' => 'InstanceType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableInstanceCapacity) {
             $res['AvailableInstanceCapacity'] = $this->availableInstanceCapacity;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
@@ -47,17 +41,18 @@ class availableInstanceType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableInstanceType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableInstanceCapacity'])) {
             $model->availableInstanceCapacity = $map['AvailableInstanceCapacity'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }

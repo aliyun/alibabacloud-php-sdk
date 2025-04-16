@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDiagnosticReportAttributesRequest extends Model
 {
     /**
-     * @description The region ID of the diagnostic report. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the diagnostic report.
-     *
-     * This parameter is required.
-     * @example dr-i-uf6i0tv2refv8wz*****
-     *
      * @var string
      */
     public $reportId;
@@ -34,14 +24,16 @@ class DescribeDiagnosticReportAttributesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
         }
@@ -49,17 +41,18 @@ class DescribeDiagnosticReportAttributesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDiagnosticReportAttributesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
         }

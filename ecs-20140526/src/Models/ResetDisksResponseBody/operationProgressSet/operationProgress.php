@@ -4,93 +4,87 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ResetDisksResponseBody\operationProgressSet;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ResetDisksResponseBody\operationProgressSet\operationProgress\relatedItemSet;
-use AlibabaCloud\Tea\Model;
 
 class operationProgress extends Model
 {
     /**
-     * @description The error code that is returned if the request failed. This parameter is empty if the request is successful.
-     *
-     * For information about error codes and error messages, see [Service error codes](https://error-center.alibabacloud.com/status/product/Ecs).
-     * @example 400
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The error message that is returned if the request failed. This parameter is empty if the request is successful.
-     *
-     * For information about error codes and error messages, see [Service error codes](https://error-center.alibabacloud.com/status/product/Ecs).
-     * @example testErrorMsg
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @description Indicates whether the request is successful. If the request is successful, Success is returned. If the request failed, an error code and an error message are returned.
-     *
-     * @example Success
-     *
      * @var string
      */
     public $operationStatus;
 
     /**
-     * @description Details about the resources.
-     *
      * @var relatedItemSet
      */
     public $relatedItemSet;
     protected $_name = [
-        'errorCode'       => 'ErrorCode',
-        'errorMsg'        => 'ErrorMsg',
+        'errorCode' => 'ErrorCode',
+        'errorMsg' => 'ErrorMsg',
         'operationStatus' => 'OperationStatus',
-        'relatedItemSet'  => 'RelatedItemSet',
+        'relatedItemSet' => 'RelatedItemSet',
     ];
 
     public function validate()
     {
+        if (null !== $this->relatedItemSet) {
+            $this->relatedItemSet->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->operationStatus) {
             $res['OperationStatus'] = $this->operationStatus;
         }
+
         if (null !== $this->relatedItemSet) {
-            $res['RelatedItemSet'] = null !== $this->relatedItemSet ? $this->relatedItemSet->toMap() : null;
+            $res['RelatedItemSet'] = null !== $this->relatedItemSet ? $this->relatedItemSet->toArray($noStream) : $this->relatedItemSet;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return operationProgress
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
+
         if (isset($map['OperationStatus'])) {
             $model->operationStatus = $map['OperationStatus'];
         }
+
         if (isset($map['RelatedItemSet'])) {
             $model->relatedItemSet = relatedItemSet::fromMap($map['RelatedItemSet']);
         }

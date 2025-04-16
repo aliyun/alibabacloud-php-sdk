@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteLaunchTemplateVersionResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteLaunchTemplateVersionResponseBody\launchTemplateVersions\launchTemplateVersion;
-use AlibabaCloud\Tea\Model;
 
 class launchTemplateVersions extends Model
 {
@@ -19,17 +19,21 @@ class launchTemplateVersions extends Model
 
     public function validate()
     {
+        if (\is_array($this->launchTemplateVersion)) {
+            Model::validateArray($this->launchTemplateVersion);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->launchTemplateVersion) {
-            $res['LaunchTemplateVersion'] = [];
-            if (null !== $this->launchTemplateVersion && \is_array($this->launchTemplateVersion)) {
-                $n = 0;
-                foreach ($this->launchTemplateVersion as $item) {
-                    $res['LaunchTemplateVersion'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->launchTemplateVersion)) {
+                $res['LaunchTemplateVersion'] = [];
+                $n1 = 0;
+                foreach ($this->launchTemplateVersion as $item1) {
+                    $res['LaunchTemplateVersion'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class launchTemplateVersions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return launchTemplateVersions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LaunchTemplateVersion'])) {
             if (!empty($map['LaunchTemplateVersion'])) {
                 $model->launchTemplateVersion = [];
-                $n                            = 0;
-                foreach ($map['LaunchTemplateVersion'] as $item) {
-                    $model->launchTemplateVersion[$n++] = null !== $item ? launchTemplateVersion::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LaunchTemplateVersion'] as $item1) {
+                    $model->launchTemplateVersion[$n1++] = launchTemplateVersion::fromMap($item1);
                 }
             }
         }

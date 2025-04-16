@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeTerminalSessionsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeTerminalSessionsResponseBody\sessions\session;
-use AlibabaCloud\Tea\Model;
 
 class sessions extends Model
 {
@@ -19,17 +19,21 @@ class sessions extends Model
 
     public function validate()
     {
+        if (\is_array($this->session)) {
+            Model::validateArray($this->session);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->session) {
-            $res['Session'] = [];
-            if (null !== $this->session && \is_array($this->session)) {
-                $n = 0;
-                foreach ($this->session as $item) {
-                    $res['Session'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->session)) {
+                $res['Session'] = [];
+                $n1 = 0;
+                foreach ($this->session as $item1) {
+                    $res['Session'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class sessions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sessions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Session'])) {
             if (!empty($map['Session'])) {
                 $model->session = [];
-                $n              = 0;
-                foreach ($map['Session'] as $item) {
-                    $model->session[$n++] = null !== $item ? session::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Session'] as $item1) {
+                    $model->session[$n1++] = session::fromMap($item1);
                 }
             }
         }

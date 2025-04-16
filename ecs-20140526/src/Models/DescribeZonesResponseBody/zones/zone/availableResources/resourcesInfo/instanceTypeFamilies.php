@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeZonesResponseBody\zones\zone\availableResources\resourcesInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceTypeFamilies extends Model
 {
@@ -18,29 +18,43 @@ class instanceTypeFamilies extends Model
 
     public function validate()
     {
+        if (\is_array($this->supportedInstanceTypeFamily)) {
+            Model::validateArray($this->supportedInstanceTypeFamily);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->supportedInstanceTypeFamily) {
-            $res['supportedInstanceTypeFamily'] = $this->supportedInstanceTypeFamily;
+            if (\is_array($this->supportedInstanceTypeFamily)) {
+                $res['supportedInstanceTypeFamily'] = [];
+                $n1 = 0;
+                foreach ($this->supportedInstanceTypeFamily as $item1) {
+                    $res['supportedInstanceTypeFamily'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceTypeFamilies
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['supportedInstanceTypeFamily'])) {
             if (!empty($map['supportedInstanceTypeFamily'])) {
-                $model->supportedInstanceTypeFamily = $map['supportedInstanceTypeFamily'];
+                $model->supportedInstanceTypeFamily = [];
+                $n1 = 0;
+                foreach ($map['supportedInstanceTypeFamily'] as $item1) {
+                    $model->supportedInstanceTypeFamily[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSpotAdviceResponseBody\availableSpotZones;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSpotAdviceResponseBody\availableSpotZones\availableSpotZone\availableSpotResources;
-use AlibabaCloud\Tea\Model;
 
 class availableSpotZone extends Model
 {
     /**
-     * @description Details about preemptible instances in the previous 30 days, including the release rate of preemptible instances and percentages of average preemptible instance prices relative to pay-as-you-go instance prices.
-     *
      * @var availableSpotResources
      */
     public $availableSpotResources;
 
     /**
-     * @description The zone ID.
-     *
-     * @example cn-hangzhou-i
-     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'availableSpotResources' => 'AvailableSpotResources',
-        'zoneId'                 => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        if (null !== $this->availableSpotResources) {
+            $this->availableSpotResources->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableSpotResources) {
-            $res['AvailableSpotResources'] = null !== $this->availableSpotResources ? $this->availableSpotResources->toMap() : null;
+            $res['AvailableSpotResources'] = null !== $this->availableSpotResources ? $this->availableSpotResources->toArray($noStream) : $this->availableSpotResources;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -46,17 +45,18 @@ class availableSpotZone extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableSpotZone
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableSpotResources'])) {
             $model->availableSpotResources = availableSpotResources::fromMap($map['AvailableSpotResources']);
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

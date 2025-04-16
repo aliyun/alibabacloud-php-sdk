@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageSupportInstanceTypesResponseBody\instanceTypes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceType extends Model
 {
     /**
-     * @description The number of vCPUs of the instance type.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $cpuCoreCount;
 
     /**
-     * @description DescribeImageSupportInstanceTypes
-     *
-     * @example ecs.t1
-     *
      * @var string
      */
     public $instanceTypeFamily;
 
     /**
-     * @description Queries the instance types supported by an image.
-     *
-     * @example ecs.t1.xsmall
-     *
      * @var string
      */
     public $instanceTypeId;
 
     /**
-     * @description The memory size of the instance type. Unit: GiB.
-     *
-     * @example 1024
-     *
      * @var float
      */
     public $memorySize;
     protected $_name = [
-        'cpuCoreCount'       => 'CpuCoreCount',
+        'cpuCoreCount' => 'CpuCoreCount',
         'instanceTypeFamily' => 'InstanceTypeFamily',
-        'instanceTypeId'     => 'InstanceTypeId',
-        'memorySize'         => 'MemorySize',
+        'instanceTypeId' => 'InstanceTypeId',
+        'memorySize' => 'MemorySize',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpuCoreCount) {
             $res['CpuCoreCount'] = $this->cpuCoreCount;
         }
+
         if (null !== $this->instanceTypeFamily) {
             $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
         }
+
         if (null !== $this->instanceTypeId) {
             $res['InstanceTypeId'] = $this->instanceTypeId;
         }
+
         if (null !== $this->memorySize) {
             $res['MemorySize'] = $this->memorySize;
         }
@@ -73,23 +61,26 @@ class instanceType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CpuCoreCount'])) {
             $model->cpuCoreCount = $map['CpuCoreCount'];
         }
+
         if (isset($map['InstanceTypeFamily'])) {
             $model->instanceTypeFamily = $map['InstanceTypeFamily'];
         }
+
         if (isset($map['InstanceTypeId'])) {
             $model->instanceTypeId = $map['InstanceTypeId'];
         }
+
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];
         }

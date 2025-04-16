@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest\prePaidOptions\specifyCapacityDistribution;
-use AlibabaCloud\Tea\Model;
 
 class prePaidOptions extends Model
 {
@@ -19,17 +19,21 @@ class prePaidOptions extends Model
 
     public function validate()
     {
+        if (\is_array($this->specifyCapacityDistribution)) {
+            Model::validateArray($this->specifyCapacityDistribution);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->specifyCapacityDistribution) {
-            $res['SpecifyCapacityDistribution'] = [];
-            if (null !== $this->specifyCapacityDistribution && \is_array($this->specifyCapacityDistribution)) {
-                $n = 0;
-                foreach ($this->specifyCapacityDistribution as $item) {
-                    $res['SpecifyCapacityDistribution'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->specifyCapacityDistribution)) {
+                $res['SpecifyCapacityDistribution'] = [];
+                $n1 = 0;
+                foreach ($this->specifyCapacityDistribution as $item1) {
+                    $res['SpecifyCapacityDistribution'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class prePaidOptions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return prePaidOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SpecifyCapacityDistribution'])) {
             if (!empty($map['SpecifyCapacityDistribution'])) {
                 $model->specifyCapacityDistribution = [];
-                $n                                  = 0;
-                foreach ($map['SpecifyCapacityDistribution'] as $item) {
-                    $model->specifyCapacityDistribution[$n++] = null !== $item ? specifyCapacityDistribution::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SpecifyCapacityDistribution'] as $item1) {
+                    $model->specifyCapacityDistribution[$n1++] = specifyCapacityDistribution::fromMap($item1);
                 }
             }
         }
