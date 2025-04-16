@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupRequest\netRedirectPolicy\rules;
 
 class netRedirectPolicy extends Model
 {
@@ -42,6 +43,11 @@ class netRedirectPolicy extends Model
      * @var string
      */
     public $proxyUserName;
+
+    /**
+     * @var rules[]
+     */
+    public $rules;
     protected $_name = [
         'customProxy' => 'CustomProxy',
         'hostAddr' => 'HostAddr',
@@ -50,10 +56,14 @@ class netRedirectPolicy extends Model
         'proxyPassword' => 'ProxyPassword',
         'proxyType' => 'ProxyType',
         'proxyUserName' => 'ProxyUserName',
+        'rules' => 'Rules',
     ];
 
     public function validate()
     {
+        if (\is_array($this->rules)) {
+            Model::validateArray($this->rules);
+        }
         parent::validate();
     }
 
@@ -86,6 +96,16 @@ class netRedirectPolicy extends Model
 
         if (null !== $this->proxyUserName) {
             $res['ProxyUserName'] = $this->proxyUserName;
+        }
+
+        if (null !== $this->rules) {
+            if (\is_array($this->rules)) {
+                $res['Rules'] = [];
+                $n1 = 0;
+                foreach ($this->rules as $item1) {
+                    $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         return $res;
@@ -125,6 +145,16 @@ class netRedirectPolicy extends Model
 
         if (isset($map['ProxyUserName'])) {
             $model->proxyUserName = $map['ProxyUserName'];
+        }
+
+        if (isset($map['Rules'])) {
+            if (!empty($map['Rules'])) {
+                $model->rules = [];
+                $n1 = 0;
+                foreach ($map['Rules'] as $item1) {
+                    $model->rules[$n1++] = rules::fromMap($item1);
+                }
+            }
         }
 
         return $model;

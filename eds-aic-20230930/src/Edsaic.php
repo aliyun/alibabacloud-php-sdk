@@ -219,11 +219,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachKeyPairResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -295,11 +292,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AuthorizeAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AuthorizeAndroidInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return AuthorizeAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -394,11 +388,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BackupFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BackupFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return BackupFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -469,11 +460,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BatchGetAcpConnectionTicketResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchGetAcpConnectionTicketResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchGetAcpConnectionTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -537,11 +525,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeCloudPhoneNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeCloudPhoneNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeCloudPhoneNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -613,11 +598,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckResourceStockResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckResourceStockResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckResourceStockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -754,11 +736,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAndroidInstanceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -874,11 +853,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -913,7 +889,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 创建云机节点.
+     * Creates a cloud phone matrix.
      *
      * @param tmpReq - CreateCloudPhoneNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1027,15 +1003,12 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCloudPhoneNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCloudPhoneNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCloudPhoneNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 创建云机节点.
+     * Creates a cloud phone matrix.
      *
      * @param request - CreateCloudPhoneNodeRequest
      *
@@ -1099,11 +1072,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCustomImageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCustomImageResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCustomImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1163,11 +1133,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateKeyPairResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1269,11 +1236,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePolicyGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePolicyGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePolicyGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1340,11 +1304,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateScreenshotResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateScreenshotResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateScreenshotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1407,11 +1368,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAndroidInstanceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1471,11 +1429,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAppsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAppsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1534,11 +1489,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCloudPhoneNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCloudPhoneNodesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCloudPhoneNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1606,11 +1558,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteImagesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteImagesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteImagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1673,11 +1622,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteKeyPairsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteKeyPairsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteKeyPairsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1737,11 +1683,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeletePolicyGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePolicyGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePolicyGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1833,11 +1776,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAndroidInstanceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAndroidInstanceGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAndroidInstanceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1953,11 +1893,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAndroidInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAndroidInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAndroidInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2045,11 +1982,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAppsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAppsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2156,11 +2090,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBackupFilesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBackupFilesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBackupFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2185,7 +2116,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * 查询云手机节点.
+     * Queries the details of a cloud phone matrix.
      *
      * @param request - DescribeCloudPhoneNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2247,15 +2178,12 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCloudPhoneNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudPhoneNodesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudPhoneNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查询云手机节点.
+     * Queries the details of a cloud phone matrix.
      *
      * @param request - DescribeCloudPhoneNodesRequest
      *
@@ -2333,11 +2261,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeImageListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeImageListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeImageListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2397,11 +2322,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInvocationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInvocationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInvocationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2469,11 +2391,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeKeyPairsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeKeyPairsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeKeyPairsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2533,11 +2452,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2621,11 +2537,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSpecResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSpecResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2740,11 +2653,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2814,11 +2724,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetachKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachKeyPairResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2877,11 +2784,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisconnectAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisconnectAndroidInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisconnectAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2944,11 +2848,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DistributeImageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DistributeImageResponse::fromMap($this->execute($params, $req, $runtime));
+        return DistributeImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3018,11 +2919,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DowngradeAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DowngradeAndroidInstanceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DowngradeAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3089,11 +2987,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EndCoordinationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EndCoordinationResponse::fromMap($this->execute($params, $req, $runtime));
+        return EndCoordinationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3161,11 +3056,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExpandDataVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExpandDataVolumeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExpandDataVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3240,11 +3132,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return FetchFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FetchFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return FetchFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3310,11 +3199,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateCoordinationCodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateCoordinationCodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateCoordinationCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3380,11 +3266,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ImportKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ImportKeyPairResponse::fromMap($this->execute($params, $req, $runtime));
+        return ImportKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3454,11 +3337,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InstallAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InstallAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return InstallAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3533,11 +3413,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPolicyGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPolicyGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPolicyGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3597,11 +3474,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAndroidInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3665,11 +3539,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAndroidInstanceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3737,11 +3608,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3793,11 +3661,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyCloudPhoneNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyCloudPhoneNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyCloudPhoneNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3873,11 +3738,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceChargeTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3937,11 +3799,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyKeyPairNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyKeyPairNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyKeyPairNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4039,11 +3898,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyPolicyGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyPolicyGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyPolicyGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4110,11 +3966,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return OperateAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OperateAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return OperateAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4184,11 +4037,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RebootAndroidInstancesInGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RebootAndroidInstancesInGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return RebootAndroidInstancesInGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4270,11 +4120,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RecoveryFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RecoveryFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return RecoveryFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4345,11 +4192,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RenewAndroidInstanceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RenewAndroidInstanceGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return RenewAndroidInstanceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4417,11 +4261,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RenewCloudPhoneNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RenewCloudPhoneNodesResponse::fromMap($this->execute($params, $req, $runtime));
+        return RenewCloudPhoneNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4484,11 +4325,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResetAndroidInstancesInGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResetAndroidInstancesInGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResetAndroidInstancesInGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4559,11 +4397,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunCommandResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunCommandResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunCommandResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4642,11 +4477,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SendFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SendFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return SendFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4712,11 +4544,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetAdbSecureResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetAdbSecureResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetAdbSecureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4782,11 +4611,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartAndroidInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4856,11 +4682,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopAndroidInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopAndroidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4930,11 +4753,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UninstallAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UninstallAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return UninstallAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4997,11 +4817,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCustomImageNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCustomImageNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCustomImageNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5064,11 +4881,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateInstanceGroupImageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateInstanceGroupImageResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateInstanceGroupImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5138,11 +4952,8 @@ class Edsaic extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpgradeAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpgradeAndroidInstanceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpgradeAndroidInstanceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
