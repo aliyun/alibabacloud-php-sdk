@@ -12,13 +12,14 @@ class CreatePrivateAccessTagRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
         'description' => 'Description',
-        'name'        => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()

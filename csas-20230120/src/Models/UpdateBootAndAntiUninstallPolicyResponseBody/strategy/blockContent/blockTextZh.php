@@ -12,23 +12,26 @@ class blockTextZh extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $mainButtonText;
+
     /**
      * @var string
      */
     public $minorButtonText;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'content'         => 'Content',
-        'mainButtonText'  => 'MainButtonText',
+        'content' => 'Content',
+        'mainButtonText' => 'MainButtonText',
         'minorButtonText' => 'MinorButtonText',
-        'title'           => 'Title',
+        'title' => 'Title',
     ];
 
     public function validate()

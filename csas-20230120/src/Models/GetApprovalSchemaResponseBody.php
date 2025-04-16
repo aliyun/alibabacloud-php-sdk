@@ -13,13 +13,14 @@ class GetApprovalSchemaResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var schema
      */
     public $schema;
     protected $_name = [
         'requestId' => 'RequestId',
-        'schema'    => 'Schema',
+        'schema' => 'Schema',
     ];
 
     public function validate()

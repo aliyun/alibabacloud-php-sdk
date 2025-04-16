@@ -13,32 +13,37 @@ class approvalProgresses extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $executor;
+
     /**
      * @var operators[]
      */
     public $operators;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'action'    => 'Action',
-        'comment'   => 'Comment',
-        'executor'  => 'Executor',
+        'action' => 'Action',
+        'comment' => 'Comment',
+        'executor' => 'Executor',
         'operators' => 'Operators',
-        'status'    => 'Status',
+        'status' => 'Status',
         'timestamp' => 'Timestamp',
     ];
 
@@ -68,7 +73,7 @@ class approvalProgresses extends Model
         if (null !== $this->operators) {
             if (\is_array($this->operators)) {
                 $res['Operators'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->operators as $item1) {
                     $res['Operators'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +114,7 @@ class approvalProgresses extends Model
         if (isset($map['Operators'])) {
             if (!empty($map['Operators'])) {
                 $model->operators = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Operators'] as $item1) {
                     $model->operators[$n1++] = operators::fromMap($item1);
                 }

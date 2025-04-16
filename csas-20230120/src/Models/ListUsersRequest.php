@@ -12,38 +12,44 @@ class ListUsersRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $department;
+
     /**
      * @var string
      */
     public $fuzzyUsername;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $preciseUsername;
+
     /**
      * @var string[]
      */
     public $saseUserIds;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'currentPage'     => 'CurrentPage',
-        'department'      => 'Department',
-        'fuzzyUsername'   => 'FuzzyUsername',
-        'pageSize'        => 'PageSize',
+        'currentPage' => 'CurrentPage',
+        'department' => 'Department',
+        'fuzzyUsername' => 'FuzzyUsername',
+        'pageSize' => 'PageSize',
         'preciseUsername' => 'PreciseUsername',
-        'saseUserIds'     => 'SaseUserIds',
-        'status'          => 'Status',
+        'saseUserIds' => 'SaseUserIds',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -80,7 +86,7 @@ class ListUsersRequest extends Model
         if (null !== $this->saseUserIds) {
             if (\is_array($this->saseUserIds)) {
                 $res['SaseUserIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->saseUserIds as $item1) {
                     $res['SaseUserIds'][$n1++] = $item1;
                 }
@@ -125,7 +131,7 @@ class ListUsersRequest extends Model
         if (isset($map['SaseUserIds'])) {
             if (!empty($map['SaseUserIds'])) {
                 $model->saseUserIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['SaseUserIds'] as $item1) {
                     $model->saseUserIds[$n1++] = $item1;
                 }

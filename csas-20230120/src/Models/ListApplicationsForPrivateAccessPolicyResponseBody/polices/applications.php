@@ -13,43 +13,50 @@ class applications extends Model
      * @var string[]
      */
     public $addresses;
+
     /**
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var portRanges[]
      */
     public $portRanges;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'addresses'     => 'Addresses',
+        'addresses' => 'Addresses',
         'applicationId' => 'ApplicationId',
-        'createTime'    => 'CreateTime',
-        'description'   => 'Description',
-        'name'          => 'Name',
-        'portRanges'    => 'PortRanges',
-        'protocol'      => 'Protocol',
-        'status'        => 'Status',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'name' => 'Name',
+        'portRanges' => 'PortRanges',
+        'protocol' => 'Protocol',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -69,7 +76,7 @@ class applications extends Model
         if (null !== $this->addresses) {
             if (\is_array($this->addresses)) {
                 $res['Addresses'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->addresses as $item1) {
                     $res['Addresses'][$n1++] = $item1;
                 }
@@ -95,7 +102,7 @@ class applications extends Model
         if (null !== $this->portRanges) {
             if (\is_array($this->portRanges)) {
                 $res['PortRanges'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->portRanges as $item1) {
                     $res['PortRanges'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -124,7 +131,7 @@ class applications extends Model
         if (isset($map['Addresses'])) {
             if (!empty($map['Addresses'])) {
                 $model->addresses = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Addresses'] as $item1) {
                     $model->addresses[$n1++] = $item1;
                 }
@@ -150,7 +157,7 @@ class applications extends Model
         if (isset($map['PortRanges'])) {
             if (!empty($map['PortRanges'])) {
                 $model->portRanges = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['PortRanges'] as $item1) {
                     $model->portRanges[$n1++] = portRanges::fromMap($item1);
                 }

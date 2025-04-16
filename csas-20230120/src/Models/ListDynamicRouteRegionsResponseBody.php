@@ -12,18 +12,20 @@ class ListDynamicRouteRegionsResponseBody extends Model
      * @var string[]
      */
     public $regions;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalNum;
     protected $_name = [
-        'regions'   => 'Regions',
+        'regions' => 'Regions',
         'requestId' => 'RequestId',
-        'totalNum'  => 'TotalNum',
+        'totalNum' => 'TotalNum',
     ];
 
     public function validate()
@@ -40,7 +42,7 @@ class ListDynamicRouteRegionsResponseBody extends Model
         if (null !== $this->regions) {
             if (\is_array($this->regions)) {
                 $res['Regions'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->regions as $item1) {
                     $res['Regions'][$n1++] = $item1;
                 }
@@ -69,7 +71,7 @@ class ListDynamicRouteRegionsResponseBody extends Model
         if (isset($map['Regions'])) {
             if (!empty($map['Regions'])) {
                 $model->regions = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Regions'] as $item1) {
                     $model->regions[$n1++] = $item1;
                 }

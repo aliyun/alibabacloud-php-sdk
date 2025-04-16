@@ -12,12 +12,13 @@ class applications extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $applicationName;
     protected $_name = [
-        'applicationId'   => 'ApplicationId',
+        'applicationId' => 'ApplicationId',
         'applicationName' => 'ApplicationName',
     ];
 

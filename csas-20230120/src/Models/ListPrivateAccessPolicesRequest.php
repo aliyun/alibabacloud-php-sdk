@@ -12,58 +12,68 @@ class ListPrivateAccessPolicesRequest extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $applicationName;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $policyAction;
+
     /**
      * @var string[]
      */
     public $policyIds;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tagId;
+
     /**
      * @var string
      */
     public $tagName;
+
     /**
      * @var string
      */
     public $userGroupId;
     protected $_name = [
-        'applicationId'   => 'ApplicationId',
+        'applicationId' => 'ApplicationId',
         'applicationName' => 'ApplicationName',
-        'currentPage'     => 'CurrentPage',
-        'name'            => 'Name',
-        'pageSize'        => 'PageSize',
-        'policyAction'    => 'PolicyAction',
-        'policyIds'       => 'PolicyIds',
-        'status'          => 'Status',
-        'tagId'           => 'TagId',
-        'tagName'         => 'TagName',
-        'userGroupId'     => 'UserGroupId',
+        'currentPage' => 'CurrentPage',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'policyAction' => 'PolicyAction',
+        'policyIds' => 'PolicyIds',
+        'status' => 'Status',
+        'tagId' => 'TagId',
+        'tagName' => 'TagName',
+        'userGroupId' => 'UserGroupId',
     ];
 
     public function validate()
@@ -104,7 +114,7 @@ class ListPrivateAccessPolicesRequest extends Model
         if (null !== $this->policyIds) {
             if (\is_array($this->policyIds)) {
                 $res['PolicyIds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->policyIds as $item1) {
                     $res['PolicyIds'][$n1++] = $item1;
                 }
@@ -165,7 +175,7 @@ class ListPrivateAccessPolicesRequest extends Model
         if (isset($map['PolicyIds'])) {
             if (!empty($map['PolicyIds'])) {
                 $model->policyIds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['PolicyIds'] as $item1) {
                     $model->policyIds[$n1++] = $item1;
                 }

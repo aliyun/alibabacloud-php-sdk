@@ -12,42 +12,49 @@ class schemas extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var string
      */
     public $policyType;
+
     /**
      * @var string
      */
     public $schemaContent;
+
     /**
      * @var string
      */
     public $schemaId;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var int
      */
     public $schemaVersion;
     protected $_name = [
-        'createTime'    => 'CreateTime',
-        'description'   => 'Description',
-        'isDefault'     => 'IsDefault',
-        'policyType'    => 'PolicyType',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'isDefault' => 'IsDefault',
+        'policyType' => 'PolicyType',
         'schemaContent' => 'SchemaContent',
-        'schemaId'      => 'SchemaId',
-        'schemaName'    => 'SchemaName',
+        'schemaId' => 'SchemaId',
+        'schemaName' => 'SchemaName',
         'schemaVersion' => 'SchemaVersion',
     ];
 

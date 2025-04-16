@@ -12,13 +12,14 @@ class operators extends Model
      * @var string
      */
     public $saseUserId;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
         'saseUserId' => 'SaseUserId',
-        'username'   => 'Username',
+        'username' => 'Username',
     ];
 
     public function validate()

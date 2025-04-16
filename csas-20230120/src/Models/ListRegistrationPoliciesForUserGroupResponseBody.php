@@ -13,12 +13,13 @@ class ListRegistrationPoliciesForUserGroupResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var userGroups[]
      */
     public $userGroups;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'userGroups' => 'UserGroups',
     ];
 
@@ -40,7 +41,7 @@ class ListRegistrationPoliciesForUserGroupResponseBody extends Model
         if (null !== $this->userGroups) {
             if (\is_array($this->userGroups)) {
                 $res['UserGroups'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->userGroups as $item1) {
                     $res['UserGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class ListRegistrationPoliciesForUserGroupResponseBody extends Model
         if (isset($map['UserGroups'])) {
             if (!empty($map['UserGroups'])) {
                 $model->userGroups = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['UserGroups'] as $item1) {
                     $model->userGroups[$n1++] = userGroups::fromMap($item1);
                 }

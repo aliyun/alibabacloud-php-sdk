@@ -12,53 +12,62 @@ class ListPrivateAccessApplicationsRequest extends Model
      * @var string
      */
     public $accessModes;
+
     /**
      * @var string
      */
     public $address;
+
     /**
      * @var string[]
      */
     public $applicationIds;
+
     /**
      * @var string
      */
     public $connectorId;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tagId;
     protected $_name = [
-        'accessModes'    => 'AccessModes',
-        'address'        => 'Address',
+        'accessModes' => 'AccessModes',
+        'address' => 'Address',
         'applicationIds' => 'ApplicationIds',
-        'connectorId'    => 'ConnectorId',
-        'currentPage'    => 'CurrentPage',
-        'name'           => 'Name',
-        'pageSize'       => 'PageSize',
-        'policyId'       => 'PolicyId',
-        'status'         => 'Status',
-        'tagId'          => 'TagId',
+        'connectorId' => 'ConnectorId',
+        'currentPage' => 'CurrentPage',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'policyId' => 'PolicyId',
+        'status' => 'Status',
+        'tagId' => 'TagId',
     ];
 
     public function validate()
@@ -83,7 +92,7 @@ class ListPrivateAccessApplicationsRequest extends Model
         if (null !== $this->applicationIds) {
             if (\is_array($this->applicationIds)) {
                 $res['ApplicationIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->applicationIds as $item1) {
                     $res['ApplicationIds'][$n1++] = $item1;
                 }
@@ -140,7 +149,7 @@ class ListPrivateAccessApplicationsRequest extends Model
         if (isset($map['ApplicationIds'])) {
             if (!empty($map['ApplicationIds'])) {
                 $model->applicationIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ApplicationIds'] as $item1) {
                     $model->applicationIds[$n1++] = $item1;
                 }

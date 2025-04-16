@@ -13,12 +13,13 @@ class UpdateUserDevicesStatusResponseBody extends Model
      * @var devices[]
      */
     public $devices;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'devices'   => 'Devices',
+        'devices' => 'Devices',
         'requestId' => 'RequestId',
     ];
 
@@ -36,7 +37,7 @@ class UpdateUserDevicesStatusResponseBody extends Model
         if (null !== $this->devices) {
             if (\is_array($this->devices)) {
                 $res['Devices'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->devices as $item1) {
                     $res['Devices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class UpdateUserDevicesStatusResponseBody extends Model
         if (isset($map['Devices'])) {
             if (!empty($map['Devices'])) {
                 $model->devices = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Devices'] as $item1) {
                     $model->devices[$n1++] = devices::fromMap($item1);
                 }

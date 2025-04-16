@@ -13,12 +13,13 @@ class GetUserDeviceResponseBody extends Model
      * @var device
      */
     public $device;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'device'    => 'Device',
+        'device' => 'Device',
         'requestId' => 'RequestId',
     ];
 

@@ -12,32 +12,37 @@ class ListConnectorsRequest extends Model
      * @var string[]
      */
     public $connectorIds;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $switchStatus;
     protected $_name = [
         'connectorIds' => 'ConnectorIds',
-        'currentPage'  => 'CurrentPage',
-        'name'         => 'Name',
-        'pageSize'     => 'PageSize',
-        'status'       => 'Status',
+        'currentPage' => 'CurrentPage',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
         'switchStatus' => 'SwitchStatus',
     ];
 
@@ -55,7 +60,7 @@ class ListConnectorsRequest extends Model
         if (null !== $this->connectorIds) {
             if (\is_array($this->connectorIds)) {
                 $res['ConnectorIds'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->connectorIds as $item1) {
                     $res['ConnectorIds'][$n1++] = $item1;
                 }
@@ -96,7 +101,7 @@ class ListConnectorsRequest extends Model
         if (isset($map['ConnectorIds'])) {
             if (!empty($map['ConnectorIds'])) {
                 $model->connectorIds = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ConnectorIds'] as $item1) {
                     $model->connectorIds[$n1++] = $item1;
                 }

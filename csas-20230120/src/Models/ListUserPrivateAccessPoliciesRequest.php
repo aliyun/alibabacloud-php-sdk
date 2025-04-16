@@ -12,23 +12,26 @@ class ListUserPrivateAccessPoliciesRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $saseUserId;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'name'        => 'Name',
-        'pageSize'    => 'PageSize',
-        'saseUserId'  => 'SaseUserId',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'saseUserId' => 'SaseUserId',
     ];
 
     public function validate()

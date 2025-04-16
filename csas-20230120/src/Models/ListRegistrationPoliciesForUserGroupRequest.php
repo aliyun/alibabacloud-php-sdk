@@ -30,7 +30,7 @@ class ListRegistrationPoliciesForUserGroupRequest extends Model
         if (null !== $this->userGroupIds) {
             if (\is_array($this->userGroupIds)) {
                 $res['UserGroupIds'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->userGroupIds as $item1) {
                     $res['UserGroupIds'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class ListRegistrationPoliciesForUserGroupRequest extends Model
         if (isset($map['UserGroupIds'])) {
             if (!empty($map['UserGroupIds'])) {
                 $model->userGroupIds = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['UserGroupIds'] as $item1) {
                     $model->userGroupIds[$n1++] = $item1;
                 }

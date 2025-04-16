@@ -12,53 +12,62 @@ class bgVisibleControl extends Model
      * @var int
      */
     public $angle;
+
     /**
      * @var string
      */
     public $fontColor;
+
     /**
      * @var int
      */
     public $fontSize;
+
     /**
      * @var int
      */
     public $horizontalNumber;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var int
      */
     public $opacity;
+
     /**
      * @var string
      */
     public $posX;
+
     /**
      * @var string
      */
     public $posY;
+
     /**
      * @var int
      */
     public $verticalNumber;
+
     /**
      * @var string
      */
     public $visibleText;
     protected $_name = [
-        'angle'            => 'Angle',
-        'fontColor'        => 'FontColor',
-        'fontSize'         => 'FontSize',
+        'angle' => 'Angle',
+        'fontColor' => 'FontColor',
+        'fontSize' => 'FontSize',
         'horizontalNumber' => 'HorizontalNumber',
-        'mode'             => 'Mode',
-        'opacity'          => 'Opacity',
-        'posX'             => 'PosX',
-        'posY'             => 'PosY',
-        'verticalNumber'   => 'VerticalNumber',
-        'visibleText'      => 'VisibleText',
+        'mode' => 'Mode',
+        'opacity' => 'Opacity',
+        'posX' => 'PosX',
+        'posY' => 'PosY',
+        'verticalNumber' => 'VerticalNumber',
+        'visibleText' => 'VisibleText',
     ];
 
     public function validate()

@@ -13,13 +13,14 @@ class GetDynamicRouteResponseBody extends Model
      * @var dynamicRoute
      */
     public $dynamicRoute;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'dynamicRoute' => 'DynamicRoute',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,27 +12,31 @@ class PAL7ConfigRewriteOp extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $oldValue;
+
     /**
      * @var string
      */
     public $op;
+
     /**
      * @var string
      */
     public $value;
+
     /**
      * @var string
      */
     public $valueVariable;
     protected $_name = [
-        'key'           => 'Key',
-        'oldValue'      => 'OldValue',
-        'op'            => 'Op',
-        'value'         => 'Value',
+        'key' => 'Key',
+        'oldValue' => 'OldValue',
+        'op' => 'Op',
+        'value' => 'Value',
         'valueVariable' => 'ValueVariable',
     ];
 

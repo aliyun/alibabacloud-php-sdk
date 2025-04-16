@@ -12,43 +12,50 @@ class ListClientUsersRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $departmentId;
+
     /**
      * @var string
      */
     public $email;
+
     /**
      * @var string
      */
     public $idpConfigId;
+
     /**
      * @var string
      */
     public $mobileNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'currentPage'  => 'CurrentPage',
+        'currentPage' => 'CurrentPage',
         'departmentId' => 'DepartmentId',
-        'email'        => 'Email',
-        'idpConfigId'  => 'IdpConfigId',
+        'email' => 'Email',
+        'idpConfigId' => 'IdpConfigId',
         'mobileNumber' => 'MobileNumber',
-        'pageSize'     => 'PageSize',
-        'status'       => 'Status',
-        'username'     => 'Username',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
+        'username' => 'Username',
     ];
 
     public function validate()

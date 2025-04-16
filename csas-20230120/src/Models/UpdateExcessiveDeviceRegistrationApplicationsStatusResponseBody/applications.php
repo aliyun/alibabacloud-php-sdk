@@ -12,63 +12,74 @@ class applications extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $department;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $deviceTag;
+
     /**
      * @var string
      */
     public $deviceType;
+
     /**
      * @var string
      */
     public $hostname;
+
     /**
      * @var bool
      */
     public $isUsed;
+
     /**
      * @var string
      */
     public $mac;
+
     /**
      * @var string
      */
     public $saseUserId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
         'applicationId' => 'ApplicationId',
-        'createTime'    => 'CreateTime',
-        'department'    => 'Department',
-        'description'   => 'Description',
-        'deviceTag'     => 'DeviceTag',
-        'deviceType'    => 'DeviceType',
-        'hostname'      => 'Hostname',
-        'isUsed'        => 'IsUsed',
-        'mac'           => 'Mac',
-        'saseUserId'    => 'SaseUserId',
-        'status'        => 'Status',
-        'username'      => 'Username',
+        'createTime' => 'CreateTime',
+        'department' => 'Department',
+        'description' => 'Description',
+        'deviceTag' => 'DeviceTag',
+        'deviceType' => 'DeviceType',
+        'hostname' => 'Hostname',
+        'isUsed' => 'IsUsed',
+        'mac' => 'Mac',
+        'saseUserId' => 'SaseUserId',
+        'status' => 'Status',
+        'username' => 'Username',
     ];
 
     public function validate()

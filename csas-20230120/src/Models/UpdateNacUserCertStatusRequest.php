@@ -13,6 +13,7 @@ class UpdateNacUserCertStatusRequest extends Model
      * @var idList[]
      */
     public $idList;
+
     /**
      * @var string
      */
@@ -36,7 +37,7 @@ class UpdateNacUserCertStatusRequest extends Model
         if (null !== $this->idList) {
             if (\is_array($this->idList)) {
                 $res['IdList'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->idList as $item1) {
                     $res['IdList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class UpdateNacUserCertStatusRequest extends Model
         if (isset($map['IdList'])) {
             if (!empty($map['IdList'])) {
                 $model->idList = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['IdList'] as $item1) {
                     $model->idList[$n1++] = idList::fromMap($item1);
                 }

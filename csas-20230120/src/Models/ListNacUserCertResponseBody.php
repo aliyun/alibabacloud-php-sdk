@@ -13,28 +13,32 @@ class ListNacUserCertResponseBody extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var dataList[]
      */
     public $dataList;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalNum;
     protected $_name = [
-        'code'      => 'Code',
-        'dataList'  => 'DataList',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'dataList' => 'DataList',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'totalNum'  => 'TotalNum',
+        'totalNum' => 'TotalNum',
     ];
 
     public function validate()
@@ -55,7 +59,7 @@ class ListNacUserCertResponseBody extends Model
         if (null !== $this->dataList) {
             if (\is_array($this->dataList)) {
                 $res['DataList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->dataList as $item1) {
                     $res['DataList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -92,7 +96,7 @@ class ListNacUserCertResponseBody extends Model
         if (isset($map['DataList'])) {
             if (!empty($map['DataList'])) {
                 $model->dataList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['DataList'] as $item1) {
                     $model->dataList[$n1++] = dataList::fromMap($item1);
                 }

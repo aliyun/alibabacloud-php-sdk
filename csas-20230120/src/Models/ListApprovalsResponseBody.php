@@ -13,10 +13,12 @@ class ListApprovalsResponseBody extends Model
      * @var approvals[]
      */
     public $approvals;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
@@ -24,7 +26,7 @@ class ListApprovalsResponseBody extends Model
     protected $_name = [
         'approvals' => 'Approvals',
         'requestId' => 'RequestId',
-        'totalNum'  => 'TotalNum',
+        'totalNum' => 'TotalNum',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class ListApprovalsResponseBody extends Model
         if (null !== $this->approvals) {
             if (\is_array($this->approvals)) {
                 $res['Approvals'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->approvals as $item1) {
                     $res['Approvals'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListApprovalsResponseBody extends Model
         if (isset($map['Approvals'])) {
             if (!empty($map['Approvals'])) {
                 $model->approvals = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Approvals'] as $item1) {
                     $model->approvals[$n1++] = approvals::fromMap($item1);
                 }

@@ -13,17 +13,19 @@ class documentControl extends Model
      * @var backgroundControl
      */
     public $backgroundControl;
+
     /**
      * @var bool
      */
     public $invisibleAntiAllCopy;
+
     /**
      * @var bool
      */
     public $invisibleAntiTextCopy;
     protected $_name = [
-        'backgroundControl'     => 'BackgroundControl',
-        'invisibleAntiAllCopy'  => 'InvisibleAntiAllCopy',
+        'backgroundControl' => 'BackgroundControl',
+        'invisibleAntiAllCopy' => 'InvisibleAntiAllCopy',
         'invisibleAntiTextCopy' => 'InvisibleAntiTextCopy',
     ];
 

@@ -13,48 +13,56 @@ class policies extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var limitDetail[]
      */
     public $limitDetail;
+
     /**
      * @var string
      */
     public $matchMode;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string[]
      */
     public $whitelist;
     protected $_name = [
-        'createTime'  => 'CreateTime',
+        'createTime' => 'CreateTime',
         'description' => 'Description',
         'limitDetail' => 'LimitDetail',
-        'matchMode'   => 'MatchMode',
-        'name'        => 'Name',
-        'policyId'    => 'PolicyId',
-        'priority'    => 'Priority',
-        'status'      => 'Status',
-        'whitelist'   => 'Whitelist',
+        'matchMode' => 'MatchMode',
+        'name' => 'Name',
+        'policyId' => 'PolicyId',
+        'priority' => 'Priority',
+        'status' => 'Status',
+        'whitelist' => 'Whitelist',
     ];
 
     public function validate()
@@ -82,7 +90,7 @@ class policies extends Model
         if (null !== $this->limitDetail) {
             if (\is_array($this->limitDetail)) {
                 $res['LimitDetail'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->limitDetail as $item1) {
                     $res['LimitDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -112,7 +120,7 @@ class policies extends Model
         if (null !== $this->whitelist) {
             if (\is_array($this->whitelist)) {
                 $res['Whitelist'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->whitelist as $item1) {
                     $res['Whitelist'][$n1++] = $item1;
                 }
@@ -141,7 +149,7 @@ class policies extends Model
         if (isset($map['LimitDetail'])) {
             if (!empty($map['LimitDetail'])) {
                 $model->limitDetail = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['LimitDetail'] as $item1) {
                     $model->limitDetail[$n1++] = limitDetail::fromMap($item1);
                 }
@@ -171,7 +179,7 @@ class policies extends Model
         if (isset($map['Whitelist'])) {
             if (!empty($map['Whitelist'])) {
                 $model->whitelist = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Whitelist'] as $item1) {
                     $model->whitelist[$n1++] = $item1;
                 }

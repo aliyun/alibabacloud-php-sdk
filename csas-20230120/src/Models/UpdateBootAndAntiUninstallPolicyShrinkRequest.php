@@ -12,33 +12,38 @@ class UpdateBootAndAntiUninstallPolicyShrinkRequest extends Model
      * @var bool
      */
     public $allowReport;
+
     /**
      * @var string
      */
     public $blockContentShrink;
+
     /**
      * @var bool
      */
     public $isAntiUninstall;
+
     /**
      * @var bool
      */
     public $isBoot;
+
     /**
      * @var string[]
      */
     public $userGroupIds;
+
     /**
      * @var string[]
      */
     public $whitelistUsers;
     protected $_name = [
-        'allowReport'        => 'AllowReport',
+        'allowReport' => 'AllowReport',
         'blockContentShrink' => 'BlockContent',
-        'isAntiUninstall'    => 'IsAntiUninstall',
-        'isBoot'             => 'IsBoot',
-        'userGroupIds'       => 'UserGroupIds',
-        'whitelistUsers'     => 'WhitelistUsers',
+        'isAntiUninstall' => 'IsAntiUninstall',
+        'isBoot' => 'IsBoot',
+        'userGroupIds' => 'UserGroupIds',
+        'whitelistUsers' => 'WhitelistUsers',
     ];
 
     public function validate()
@@ -74,7 +79,7 @@ class UpdateBootAndAntiUninstallPolicyShrinkRequest extends Model
         if (null !== $this->userGroupIds) {
             if (\is_array($this->userGroupIds)) {
                 $res['UserGroupIds'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->userGroupIds as $item1) {
                     $res['UserGroupIds'][$n1++] = $item1;
                 }
@@ -84,7 +89,7 @@ class UpdateBootAndAntiUninstallPolicyShrinkRequest extends Model
         if (null !== $this->whitelistUsers) {
             if (\is_array($this->whitelistUsers)) {
                 $res['WhitelistUsers'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->whitelistUsers as $item1) {
                     $res['WhitelistUsers'][$n1++] = $item1;
                 }
@@ -121,7 +126,7 @@ class UpdateBootAndAntiUninstallPolicyShrinkRequest extends Model
         if (isset($map['UserGroupIds'])) {
             if (!empty($map['UserGroupIds'])) {
                 $model->userGroupIds = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['UserGroupIds'] as $item1) {
                     $model->userGroupIds[$n1++] = $item1;
                 }
@@ -131,7 +136,7 @@ class UpdateBootAndAntiUninstallPolicyShrinkRequest extends Model
         if (isset($map['WhitelistUsers'])) {
             if (!empty($map['WhitelistUsers'])) {
                 $model->whitelistUsers = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['WhitelistUsers'] as $item1) {
                     $model->whitelistUsers[$n1++] = $item1;
                 }

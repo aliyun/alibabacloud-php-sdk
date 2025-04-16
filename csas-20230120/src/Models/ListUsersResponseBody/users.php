@@ -12,38 +12,44 @@ class users extends Model
      * @var string
      */
     public $department;
+
     /**
      * @var string
      */
     public $email;
+
     /**
      * @var string
      */
     public $idpName;
+
     /**
      * @var string
      */
     public $phone;
+
     /**
      * @var string
      */
     public $saseUserId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
         'department' => 'Department',
-        'email'      => 'Email',
-        'idpName'    => 'IdpName',
-        'phone'      => 'Phone',
+        'email' => 'Email',
+        'idpName' => 'IdpName',
+        'phone' => 'Phone',
         'saseUserId' => 'SaseUserId',
-        'status'     => 'Status',
-        'username'   => 'Username',
+        'status' => 'Status',
+        'username' => 'Username',
     ];
 
     public function validate()

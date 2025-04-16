@@ -12,13 +12,14 @@ class CreatePrivateAccessApplicationResponseBody extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'applicationId' => 'ApplicationId',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

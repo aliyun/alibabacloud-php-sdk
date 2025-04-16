@@ -12,43 +12,50 @@ class data extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $filename;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $wmInfoBytesB64;
+
     /**
      * @var int
      */
     public $wmInfoSize;
+
     /**
      * @var int
      */
     public $wmInfoUint;
+
     /**
      * @var string
      */
     public $wmType;
     protected $_name = [
-        'createTime'     => 'CreateTime',
-        'filename'       => 'Filename',
-        'status'         => 'Status',
-        'taskId'         => 'TaskId',
+        'createTime' => 'CreateTime',
+        'filename' => 'Filename',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
         'wmInfoBytesB64' => 'WmInfoBytesB64',
-        'wmInfoSize'     => 'WmInfoSize',
-        'wmInfoUint'     => 'WmInfoUint',
-        'wmType'         => 'WmType',
+        'wmInfoSize' => 'WmInfoSize',
+        'wmInfoUint' => 'WmInfoUint',
+        'wmType' => 'WmType',
     ];
 
     public function validate()

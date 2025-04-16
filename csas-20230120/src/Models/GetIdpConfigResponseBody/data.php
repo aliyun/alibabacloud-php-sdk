@@ -12,93 +12,110 @@ class data extends Model
      * @var string
      */
     public $accessKey;
+
     /**
      * @var string
      */
     public $accessKeySecret;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $getGroupUrl;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $idpMetadata;
+
     /**
      * @var string
      */
     public $mfaConfigType;
+
     /**
      * @var string
      */
     public $mobileLoginType;
+
     /**
      * @var string
      */
     public $mobileMfaConfigType;
+
     /**
      * @var string
      */
     public $multiIdpInfo;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $pcLoginType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var string
      */
     public $verifyAesKey;
+
     /**
      * @var string
      */
     public $verifyToken;
+
     /**
      * @var string
      */
     public $verifyUrl;
     protected $_name = [
-        'accessKey'           => 'AccessKey',
-        'accessKeySecret'     => 'AccessKeySecret',
-        'description'         => 'Description',
-        'getGroupUrl'         => 'GetGroupUrl',
-        'id'                  => 'Id',
-        'idpMetadata'         => 'IdpMetadata',
-        'mfaConfigType'       => 'MfaConfigType',
-        'mobileLoginType'     => 'MobileLoginType',
+        'accessKey' => 'AccessKey',
+        'accessKeySecret' => 'AccessKeySecret',
+        'description' => 'Description',
+        'getGroupUrl' => 'GetGroupUrl',
+        'id' => 'Id',
+        'idpMetadata' => 'IdpMetadata',
+        'mfaConfigType' => 'MfaConfigType',
+        'mobileLoginType' => 'MobileLoginType',
         'mobileMfaConfigType' => 'MobileMfaConfigType',
-        'multiIdpInfo'        => 'MultiIdpInfo',
-        'name'                => 'Name',
-        'pcLoginType'         => 'PcLoginType',
-        'status'              => 'Status',
-        'type'                => 'Type',
-        'updateTime'          => 'UpdateTime',
-        'verifyAesKey'        => 'VerifyAesKey',
-        'verifyToken'         => 'VerifyToken',
-        'verifyUrl'           => 'VerifyUrl',
+        'multiIdpInfo' => 'MultiIdpInfo',
+        'name' => 'Name',
+        'pcLoginType' => 'PcLoginType',
+        'status' => 'Status',
+        'type' => 'Type',
+        'updateTime' => 'UpdateTime',
+        'verifyAesKey' => 'VerifyAesKey',
+        'verifyToken' => 'VerifyToken',
+        'verifyUrl' => 'VerifyUrl',
     ];
 
     public function validate()

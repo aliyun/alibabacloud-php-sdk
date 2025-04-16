@@ -12,13 +12,14 @@ class DeleteIdpDepartmentRequest extends Model
      * @var string
      */
     public $departmentId;
+
     /**
      * @var string
      */
     public $idpConfigId;
     protected $_name = [
         'departmentId' => 'DepartmentId',
-        'idpConfigId'  => 'IdpConfigId',
+        'idpConfigId' => 'IdpConfigId',
     ];
 
     public function validate()

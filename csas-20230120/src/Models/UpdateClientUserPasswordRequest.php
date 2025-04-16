@@ -12,16 +12,18 @@ class UpdateClientUserPasswordRequest extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'id'       => 'Id',
+        'id' => 'Id',
         'password' => 'Password',
         'username' => 'Username',
     ];

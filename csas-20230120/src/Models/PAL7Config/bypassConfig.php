@@ -13,17 +13,19 @@ class bypassConfig extends Model
      * @var string[]
      */
     public $appBypassFroms;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var urlBypassRules[]
      */
     public $urlBypassRules;
     protected $_name = [
         'appBypassFroms' => 'AppBypassFroms',
-        'mode'           => 'Mode',
+        'mode' => 'Mode',
         'urlBypassRules' => 'UrlBypassRules',
     ];
 
@@ -44,7 +46,7 @@ class bypassConfig extends Model
         if (null !== $this->appBypassFroms) {
             if (\is_array($this->appBypassFroms)) {
                 $res['AppBypassFroms'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->appBypassFroms as $item1) {
                     $res['AppBypassFroms'][$n1++] = $item1;
                 }
@@ -58,7 +60,7 @@ class bypassConfig extends Model
         if (null !== $this->urlBypassRules) {
             if (\is_array($this->urlBypassRules)) {
                 $res['UrlBypassRules'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->urlBypassRules as $item1) {
                     $res['UrlBypassRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +81,7 @@ class bypassConfig extends Model
         if (isset($map['AppBypassFroms'])) {
             if (!empty($map['AppBypassFroms'])) {
                 $model->appBypassFroms = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['AppBypassFroms'] as $item1) {
                     $model->appBypassFroms[$n1++] = $item1;
                 }
@@ -93,7 +95,7 @@ class bypassConfig extends Model
         if (isset($map['UrlBypassRules'])) {
             if (!empty($map['UrlBypassRules'])) {
                 $model->urlBypassRules = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['UrlBypassRules'] as $item1) {
                     $model->urlBypassRules[$n1++] = urlBypassRules::fromMap($item1);
                 }

@@ -12,38 +12,44 @@ class ListPrivateAccessTagsRequest extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var bool
      */
     public $simpleMode;
+
     /**
      * @var string[]
      */
     public $tagIds;
     protected $_name = [
         'applicationId' => 'ApplicationId',
-        'currentPage'   => 'CurrentPage',
-        'name'          => 'Name',
-        'pageSize'      => 'PageSize',
-        'policyId'      => 'PolicyId',
-        'simpleMode'    => 'SimpleMode',
-        'tagIds'        => 'TagIds',
+        'currentPage' => 'CurrentPage',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
+        'policyId' => 'PolicyId',
+        'simpleMode' => 'SimpleMode',
+        'tagIds' => 'TagIds',
     ];
 
     public function validate()
@@ -84,7 +90,7 @@ class ListPrivateAccessTagsRequest extends Model
         if (null !== $this->tagIds) {
             if (\is_array($this->tagIds)) {
                 $res['TagIds'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tagIds as $item1) {
                     $res['TagIds'][$n1++] = $item1;
                 }
@@ -129,7 +135,7 @@ class ListPrivateAccessTagsRequest extends Model
         if (isset($map['TagIds'])) {
             if (!empty($map['TagIds'])) {
                 $model->tagIds = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['TagIds'] as $item1) {
                     $model->tagIds[$n1++] = $item1;
                 }

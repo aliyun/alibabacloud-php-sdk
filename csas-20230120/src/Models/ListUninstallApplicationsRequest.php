@@ -12,43 +12,50 @@ class ListUninstallApplicationsRequest extends Model
      * @var string[]
      */
     public $applicationIds;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $department;
+
     /**
      * @var string
      */
     public $hostname;
+
     /**
      * @var string
      */
     public $mac;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string[]
      */
     public $statuses;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
         'applicationIds' => 'ApplicationIds',
-        'currentPage'    => 'CurrentPage',
-        'department'     => 'Department',
-        'hostname'       => 'Hostname',
-        'mac'            => 'Mac',
-        'pageSize'       => 'PageSize',
-        'statuses'       => 'Statuses',
-        'username'       => 'Username',
+        'currentPage' => 'CurrentPage',
+        'department' => 'Department',
+        'hostname' => 'Hostname',
+        'mac' => 'Mac',
+        'pageSize' => 'PageSize',
+        'statuses' => 'Statuses',
+        'username' => 'Username',
     ];
 
     public function validate()
@@ -68,7 +75,7 @@ class ListUninstallApplicationsRequest extends Model
         if (null !== $this->applicationIds) {
             if (\is_array($this->applicationIds)) {
                 $res['ApplicationIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->applicationIds as $item1) {
                     $res['ApplicationIds'][$n1++] = $item1;
                 }
@@ -98,7 +105,7 @@ class ListUninstallApplicationsRequest extends Model
         if (null !== $this->statuses) {
             if (\is_array($this->statuses)) {
                 $res['Statuses'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->statuses as $item1) {
                     $res['Statuses'][$n1++] = $item1;
                 }
@@ -123,7 +130,7 @@ class ListUninstallApplicationsRequest extends Model
         if (isset($map['ApplicationIds'])) {
             if (!empty($map['ApplicationIds'])) {
                 $model->applicationIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ApplicationIds'] as $item1) {
                     $model->applicationIds[$n1++] = $item1;
                 }
@@ -153,7 +160,7 @@ class ListUninstallApplicationsRequest extends Model
         if (isset($map['Statuses'])) {
             if (!empty($map['Statuses'])) {
                 $model->statuses = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Statuses'] as $item1) {
                     $model->statuses[$n1++] = $item1;
                 }

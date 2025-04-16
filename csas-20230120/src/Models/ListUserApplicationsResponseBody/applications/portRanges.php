@@ -12,13 +12,14 @@ class portRanges extends Model
      * @var string
      */
     public $begin;
+
     /**
      * @var string
      */
     public $end;
     protected $_name = [
         'begin' => 'Begin',
-        'end'   => 'End',
+        'end' => 'End',
     ];
 
     public function validate()

@@ -14,143 +14,170 @@ class device extends Model
      * @var string
      */
     public $appStatus;
+
     /**
      * @var string
      */
     public $appVersion;
+
     /**
      * @var string
      */
     public $CPU;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $department;
+
     /**
      * @var string
      */
     public $deviceBelong;
+
     /**
      * @var string
      */
     public $deviceModel;
+
     /**
      * @var string
      */
     public $deviceStatus;
+
     /**
      * @var string
      */
     public $deviceTag;
+
     /**
      * @var string
      */
     public $deviceType;
+
     /**
      * @var string
      */
     public $deviceVersion;
+
     /**
      * @var string
      */
     public $disk;
+
     /**
      * @var string
      */
     public $dlpStatus;
+
     /**
      * @var string
      */
     public $edrStatus;
+
     /**
      * @var historyUsers[]
      */
     public $historyUsers;
+
     /**
      * @var string
      */
     public $hostname;
+
     /**
      * @var string
      */
     public $iaStatus;
+
     /**
      * @var string
      */
     public $innerIP;
+
     /**
      * @var string
      */
     public $mac;
+
     /**
      * @var string
      */
     public $memory;
+
     /**
      * @var string
      */
     public $nacStatus;
+
     /**
      * @var netInterfaceInfo[]
      */
     public $netInterfaceInfo;
+
     /**
      * @var string
      */
     public $paStatus;
+
     /**
      * @var string
      */
     public $saseUserId;
+
     /**
      * @var bool
      */
     public $sharingStatus;
+
     /**
      * @var string
      */
     public $srcIP;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'appStatus'        => 'AppStatus',
-        'appVersion'       => 'AppVersion',
-        'CPU'              => 'CPU',
-        'createTime'       => 'CreateTime',
-        'department'       => 'Department',
-        'deviceBelong'     => 'DeviceBelong',
-        'deviceModel'      => 'DeviceModel',
-        'deviceStatus'     => 'DeviceStatus',
-        'deviceTag'        => 'DeviceTag',
-        'deviceType'       => 'DeviceType',
-        'deviceVersion'    => 'DeviceVersion',
-        'disk'             => 'Disk',
-        'dlpStatus'        => 'DlpStatus',
-        'edrStatus'        => 'EdrStatus',
-        'historyUsers'     => 'HistoryUsers',
-        'hostname'         => 'Hostname',
-        'iaStatus'         => 'IaStatus',
-        'innerIP'          => 'InnerIP',
-        'mac'              => 'Mac',
-        'memory'           => 'Memory',
-        'nacStatus'        => 'NacStatus',
+        'appStatus' => 'AppStatus',
+        'appVersion' => 'AppVersion',
+        'CPU' => 'CPU',
+        'createTime' => 'CreateTime',
+        'department' => 'Department',
+        'deviceBelong' => 'DeviceBelong',
+        'deviceModel' => 'DeviceModel',
+        'deviceStatus' => 'DeviceStatus',
+        'deviceTag' => 'DeviceTag',
+        'deviceType' => 'DeviceType',
+        'deviceVersion' => 'DeviceVersion',
+        'disk' => 'Disk',
+        'dlpStatus' => 'DlpStatus',
+        'edrStatus' => 'EdrStatus',
+        'historyUsers' => 'HistoryUsers',
+        'hostname' => 'Hostname',
+        'iaStatus' => 'IaStatus',
+        'innerIP' => 'InnerIP',
+        'mac' => 'Mac',
+        'memory' => 'Memory',
+        'nacStatus' => 'NacStatus',
         'netInterfaceInfo' => 'NetInterfaceInfo',
-        'paStatus'         => 'PaStatus',
-        'saseUserId'       => 'SaseUserId',
-        'sharingStatus'    => 'SharingStatus',
-        'srcIP'            => 'SrcIP',
-        'updateTime'       => 'UpdateTime',
-        'username'         => 'Username',
+        'paStatus' => 'PaStatus',
+        'saseUserId' => 'SaseUserId',
+        'sharingStatus' => 'SharingStatus',
+        'srcIP' => 'SrcIP',
+        'updateTime' => 'UpdateTime',
+        'username' => 'Username',
     ];
 
     public function validate()
@@ -226,7 +253,7 @@ class device extends Model
         if (null !== $this->historyUsers) {
             if (\is_array($this->historyUsers)) {
                 $res['HistoryUsers'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->historyUsers as $item1) {
                     $res['HistoryUsers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -260,7 +287,7 @@ class device extends Model
         if (null !== $this->netInterfaceInfo) {
             if (\is_array($this->netInterfaceInfo)) {
                 $res['NetInterfaceInfo'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->netInterfaceInfo as $item1) {
                     $res['NetInterfaceInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -361,7 +388,7 @@ class device extends Model
         if (isset($map['HistoryUsers'])) {
             if (!empty($map['HistoryUsers'])) {
                 $model->historyUsers = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['HistoryUsers'] as $item1) {
                     $model->historyUsers[$n1++] = historyUsers::fromMap($item1);
                 }
@@ -395,7 +422,7 @@ class device extends Model
         if (isset($map['NetInterfaceInfo'])) {
             if (!empty($map['NetInterfaceInfo'])) {
                 $model->netInterfaceInfo = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['NetInterfaceInfo'] as $item1) {
                     $model->netInterfaceInfo[$n1++] = netInterfaceInfo::fromMap($item1);
                 }

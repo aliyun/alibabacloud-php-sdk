@@ -12,23 +12,26 @@ class connectorClients extends Model
      * @var string
      */
     public $connectionStatus;
+
     /**
      * @var string
      */
     public $devTag;
+
     /**
      * @var string
      */
     public $hostname;
+
     /**
      * @var string
      */
     public $publicIp;
     protected $_name = [
         'connectionStatus' => 'ConnectionStatus',
-        'devTag'           => 'DevTag',
-        'hostname'         => 'Hostname',
-        'publicIp'         => 'PublicIp',
+        'devTag' => 'DevTag',
+        'hostname' => 'Hostname',
+        'publicIp' => 'PublicIp',
     ];
 
     public function validate()

@@ -13,88 +13,104 @@ class approval extends Model
      * @var string
      */
     public $approvalDetail;
+
     /**
      * @var string
      */
     public $approvalId;
+
     /**
      * @var approvalProgresses[]
      */
     public $approvalProgresses;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $creatorDepartment;
+
     /**
      * @var string
      */
     public $creatorDevTag;
+
     /**
      * @var string
      */
     public $creatorUserId;
+
     /**
      * @var string
      */
     public $creatorUsername;
+
     /**
      * @var int
      */
     public $endTimestamp;
+
     /**
      * @var string
      */
     public $policyType;
+
     /**
      * @var string
      */
     public $processId;
+
     /**
      * @var string
      */
     public $processName;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $schemaContent;
+
     /**
      * @var string
      */
     public $schemaId;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'approvalDetail'     => 'ApprovalDetail',
-        'approvalId'         => 'ApprovalId',
+        'approvalDetail' => 'ApprovalDetail',
+        'approvalId' => 'ApprovalId',
         'approvalProgresses' => 'ApprovalProgresses',
-        'createTime'         => 'CreateTime',
-        'creatorDepartment'  => 'CreatorDepartment',
-        'creatorDevTag'      => 'CreatorDevTag',
-        'creatorUserId'      => 'CreatorUserId',
-        'creatorUsername'    => 'CreatorUsername',
-        'endTimestamp'       => 'EndTimestamp',
-        'policyType'         => 'PolicyType',
-        'processId'          => 'ProcessId',
-        'processName'        => 'ProcessName',
-        'reason'             => 'Reason',
-        'schemaContent'      => 'SchemaContent',
-        'schemaId'           => 'SchemaId',
-        'schemaName'         => 'SchemaName',
-        'status'             => 'Status',
+        'createTime' => 'CreateTime',
+        'creatorDepartment' => 'CreatorDepartment',
+        'creatorDevTag' => 'CreatorDevTag',
+        'creatorUserId' => 'CreatorUserId',
+        'creatorUsername' => 'CreatorUsername',
+        'endTimestamp' => 'EndTimestamp',
+        'policyType' => 'PolicyType',
+        'processId' => 'ProcessId',
+        'processName' => 'ProcessName',
+        'reason' => 'Reason',
+        'schemaContent' => 'SchemaContent',
+        'schemaId' => 'SchemaId',
+        'schemaName' => 'SchemaName',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -119,7 +135,7 @@ class approval extends Model
         if (null !== $this->approvalProgresses) {
             if (\is_array($this->approvalProgresses)) {
                 $res['ApprovalProgresses'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->approvalProgresses as $item1) {
                     $res['ApprovalProgresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -204,7 +220,7 @@ class approval extends Model
         if (isset($map['ApprovalProgresses'])) {
             if (!empty($map['ApprovalProgresses'])) {
                 $model->approvalProgresses = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ApprovalProgresses'] as $item1) {
                     $model->approvalProgresses[$n1++] = approvalProgresses::fromMap($item1);
                 }

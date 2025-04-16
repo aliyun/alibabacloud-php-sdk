@@ -12,28 +12,32 @@ class tags extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $tagId;
+
     /**
      * @var string
      */
     public $tagType;
     protected $_name = [
-        'createTime'  => 'CreateTime',
+        'createTime' => 'CreateTime',
         'description' => 'Description',
-        'name'        => 'Name',
-        'tagId'       => 'TagId',
-        'tagType'     => 'TagType',
+        'name' => 'Name',
+        'tagId' => 'TagId',
+        'tagType' => 'TagType',
     ];
 
     public function validate()

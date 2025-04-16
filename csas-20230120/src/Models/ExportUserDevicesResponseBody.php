@@ -12,6 +12,7 @@ class ExportUserDevicesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */

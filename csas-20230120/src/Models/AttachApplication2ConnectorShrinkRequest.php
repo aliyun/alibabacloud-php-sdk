@@ -12,13 +12,14 @@ class AttachApplication2ConnectorShrinkRequest extends Model
      * @var string
      */
     public $applicationIdsShrink;
+
     /**
      * @var string
      */
     public $connectorId;
     protected $_name = [
         'applicationIdsShrink' => 'ApplicationIds',
-        'connectorId'          => 'ConnectorId',
+        'connectorId' => 'ConnectorId',
     ];
 
     public function validate()

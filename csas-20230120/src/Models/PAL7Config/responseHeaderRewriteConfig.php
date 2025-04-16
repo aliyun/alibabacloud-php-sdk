@@ -31,7 +31,7 @@ class responseHeaderRewriteConfig extends Model
         if (null !== $this->ops) {
             if (\is_array($this->ops)) {
                 $res['Ops'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->ops as $item1) {
                     $res['Ops'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class responseHeaderRewriteConfig extends Model
         if (isset($map['Ops'])) {
             if (!empty($map['Ops'])) {
                 $model->ops = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Ops'] as $item1) {
                     $model->ops[$n1++] = PAL7ConfigRewriteOp::fromMap($item1);
                 }

@@ -12,12 +12,13 @@ class CreatePrivateAccessPolicyResponseBody extends Model
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'policyId'  => 'PolicyId',
+        'policyId' => 'PolicyId',
         'requestId' => 'RequestId',
     ];
 

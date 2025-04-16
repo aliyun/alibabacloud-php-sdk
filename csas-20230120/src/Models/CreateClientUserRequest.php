@@ -12,38 +12,44 @@ class CreateClientUserRequest extends Model
      * @var string
      */
     public $departmentId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $email;
+
     /**
      * @var string
      */
     public $idpConfigId;
+
     /**
      * @var string
      */
     public $mobileNumber;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
         'departmentId' => 'DepartmentId',
-        'description'  => 'Description',
-        'email'        => 'Email',
-        'idpConfigId'  => 'IdpConfigId',
+        'description' => 'Description',
+        'email' => 'Email',
+        'idpConfigId' => 'IdpConfigId',
         'mobileNumber' => 'MobileNumber',
-        'password'     => 'Password',
-        'username'     => 'Username',
+        'password' => 'Password',
+        'username' => 'Username',
     ];
 
     public function validate()

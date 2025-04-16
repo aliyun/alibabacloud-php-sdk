@@ -13,12 +13,13 @@ class UpdateApprovalProcessResponseBody extends Model
      * @var process
      */
     public $process;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'process'   => 'Process',
+        'process' => 'Process',
         'requestId' => 'RequestId',
     ];
 

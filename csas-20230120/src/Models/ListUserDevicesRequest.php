@@ -12,103 +12,122 @@ class ListUserDevicesRequest extends Model
      * @var string[]
      */
     public $appStatuses;
+
     /**
      * @var string[]
      */
     public $appVersions;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $department;
+
     /**
      * @var string
      */
     public $deviceBelong;
+
     /**
      * @var string[]
      */
     public $deviceStatuses;
+
     /**
      * @var string[]
      */
     public $deviceTags;
+
     /**
      * @var string[]
      */
     public $deviceTypes;
+
     /**
      * @var string[]
      */
     public $dlpStatuses;
+
     /**
      * @var string
      */
     public $hostname;
+
     /**
      * @var string[]
      */
     public $iaStatuses;
+
     /**
      * @var string
      */
     public $innerIp;
+
     /**
      * @var string
      */
     public $mac;
+
     /**
      * @var string[]
      */
     public $nacStatuses;
+
     /**
      * @var string[]
      */
     public $paStatuses;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $saseUserId;
+
     /**
      * @var bool
      */
     public $sharingStatus;
+
     /**
      * @var string
      */
     public $sortBy;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'appStatuses'    => 'AppStatuses',
-        'appVersions'    => 'AppVersions',
-        'currentPage'    => 'CurrentPage',
-        'department'     => 'Department',
-        'deviceBelong'   => 'DeviceBelong',
+        'appStatuses' => 'AppStatuses',
+        'appVersions' => 'AppVersions',
+        'currentPage' => 'CurrentPage',
+        'department' => 'Department',
+        'deviceBelong' => 'DeviceBelong',
         'deviceStatuses' => 'DeviceStatuses',
-        'deviceTags'     => 'DeviceTags',
-        'deviceTypes'    => 'DeviceTypes',
-        'dlpStatuses'    => 'DlpStatuses',
-        'hostname'       => 'Hostname',
-        'iaStatuses'     => 'IaStatuses',
-        'innerIp'        => 'InnerIp',
-        'mac'            => 'Mac',
-        'nacStatuses'    => 'NacStatuses',
-        'paStatuses'     => 'PaStatuses',
-        'pageSize'       => 'PageSize',
-        'saseUserId'     => 'SaseUserId',
-        'sharingStatus'  => 'SharingStatus',
-        'sortBy'         => 'SortBy',
-        'username'       => 'Username',
+        'deviceTags' => 'DeviceTags',
+        'deviceTypes' => 'DeviceTypes',
+        'dlpStatuses' => 'DlpStatuses',
+        'hostname' => 'Hostname',
+        'iaStatuses' => 'IaStatuses',
+        'innerIp' => 'InnerIp',
+        'mac' => 'Mac',
+        'nacStatuses' => 'NacStatuses',
+        'paStatuses' => 'PaStatuses',
+        'pageSize' => 'PageSize',
+        'saseUserId' => 'SaseUserId',
+        'sharingStatus' => 'SharingStatus',
+        'sortBy' => 'SortBy',
+        'username' => 'Username',
     ];
 
     public function validate()
@@ -149,7 +168,7 @@ class ListUserDevicesRequest extends Model
         if (null !== $this->appStatuses) {
             if (\is_array($this->appStatuses)) {
                 $res['AppStatuses'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->appStatuses as $item1) {
                     $res['AppStatuses'][$n1++] = $item1;
                 }
@@ -159,7 +178,7 @@ class ListUserDevicesRequest extends Model
         if (null !== $this->appVersions) {
             if (\is_array($this->appVersions)) {
                 $res['AppVersions'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->appVersions as $item1) {
                     $res['AppVersions'][$n1++] = $item1;
                 }
@@ -181,7 +200,7 @@ class ListUserDevicesRequest extends Model
         if (null !== $this->deviceStatuses) {
             if (\is_array($this->deviceStatuses)) {
                 $res['DeviceStatuses'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->deviceStatuses as $item1) {
                     $res['DeviceStatuses'][$n1++] = $item1;
                 }
@@ -191,7 +210,7 @@ class ListUserDevicesRequest extends Model
         if (null !== $this->deviceTags) {
             if (\is_array($this->deviceTags)) {
                 $res['DeviceTags'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->deviceTags as $item1) {
                     $res['DeviceTags'][$n1++] = $item1;
                 }
@@ -201,7 +220,7 @@ class ListUserDevicesRequest extends Model
         if (null !== $this->deviceTypes) {
             if (\is_array($this->deviceTypes)) {
                 $res['DeviceTypes'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->deviceTypes as $item1) {
                     $res['DeviceTypes'][$n1++] = $item1;
                 }
@@ -211,7 +230,7 @@ class ListUserDevicesRequest extends Model
         if (null !== $this->dlpStatuses) {
             if (\is_array($this->dlpStatuses)) {
                 $res['DlpStatuses'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->dlpStatuses as $item1) {
                     $res['DlpStatuses'][$n1++] = $item1;
                 }
@@ -225,7 +244,7 @@ class ListUserDevicesRequest extends Model
         if (null !== $this->iaStatuses) {
             if (\is_array($this->iaStatuses)) {
                 $res['IaStatuses'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->iaStatuses as $item1) {
                     $res['IaStatuses'][$n1++] = $item1;
                 }
@@ -243,7 +262,7 @@ class ListUserDevicesRequest extends Model
         if (null !== $this->nacStatuses) {
             if (\is_array($this->nacStatuses)) {
                 $res['NacStatuses'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->nacStatuses as $item1) {
                     $res['NacStatuses'][$n1++] = $item1;
                 }
@@ -253,7 +272,7 @@ class ListUserDevicesRequest extends Model
         if (null !== $this->paStatuses) {
             if (\is_array($this->paStatuses)) {
                 $res['PaStatuses'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->paStatuses as $item1) {
                     $res['PaStatuses'][$n1++] = $item1;
                 }
@@ -294,7 +313,7 @@ class ListUserDevicesRequest extends Model
         if (isset($map['AppStatuses'])) {
             if (!empty($map['AppStatuses'])) {
                 $model->appStatuses = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['AppStatuses'] as $item1) {
                     $model->appStatuses[$n1++] = $item1;
                 }
@@ -304,7 +323,7 @@ class ListUserDevicesRequest extends Model
         if (isset($map['AppVersions'])) {
             if (!empty($map['AppVersions'])) {
                 $model->appVersions = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['AppVersions'] as $item1) {
                     $model->appVersions[$n1++] = $item1;
                 }
@@ -326,7 +345,7 @@ class ListUserDevicesRequest extends Model
         if (isset($map['DeviceStatuses'])) {
             if (!empty($map['DeviceStatuses'])) {
                 $model->deviceStatuses = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['DeviceStatuses'] as $item1) {
                     $model->deviceStatuses[$n1++] = $item1;
                 }
@@ -336,7 +355,7 @@ class ListUserDevicesRequest extends Model
         if (isset($map['DeviceTags'])) {
             if (!empty($map['DeviceTags'])) {
                 $model->deviceTags = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['DeviceTags'] as $item1) {
                     $model->deviceTags[$n1++] = $item1;
                 }
@@ -346,7 +365,7 @@ class ListUserDevicesRequest extends Model
         if (isset($map['DeviceTypes'])) {
             if (!empty($map['DeviceTypes'])) {
                 $model->deviceTypes = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DeviceTypes'] as $item1) {
                     $model->deviceTypes[$n1++] = $item1;
                 }
@@ -356,7 +375,7 @@ class ListUserDevicesRequest extends Model
         if (isset($map['DlpStatuses'])) {
             if (!empty($map['DlpStatuses'])) {
                 $model->dlpStatuses = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DlpStatuses'] as $item1) {
                     $model->dlpStatuses[$n1++] = $item1;
                 }
@@ -370,7 +389,7 @@ class ListUserDevicesRequest extends Model
         if (isset($map['IaStatuses'])) {
             if (!empty($map['IaStatuses'])) {
                 $model->iaStatuses = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['IaStatuses'] as $item1) {
                     $model->iaStatuses[$n1++] = $item1;
                 }
@@ -388,7 +407,7 @@ class ListUserDevicesRequest extends Model
         if (isset($map['NacStatuses'])) {
             if (!empty($map['NacStatuses'])) {
                 $model->nacStatuses = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['NacStatuses'] as $item1) {
                     $model->nacStatuses[$n1++] = $item1;
                 }
@@ -398,7 +417,7 @@ class ListUserDevicesRequest extends Model
         if (isset($map['PaStatuses'])) {
             if (!empty($map['PaStatuses'])) {
                 $model->paStatuses = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['PaStatuses'] as $item1) {
                     $model->paStatuses[$n1++] = $item1;
                 }

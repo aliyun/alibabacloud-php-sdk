@@ -12,18 +12,20 @@ class limitCount extends Model
      * @var string
      */
     public $all;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $PC;
     protected $_name = [
-        'all'    => 'All',
+        'all' => 'All',
         'mobile' => 'Mobile',
-        'PC'     => 'PC',
+        'PC' => 'PC',
     ];
 
     public function validate()

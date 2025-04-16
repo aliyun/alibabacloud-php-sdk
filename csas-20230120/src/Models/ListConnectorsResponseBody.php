@@ -13,18 +13,20 @@ class ListConnectorsResponseBody extends Model
      * @var connectors[]
      */
     public $connectors;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalNum;
     protected $_name = [
         'connectors' => 'Connectors',
-        'requestId'  => 'RequestId',
-        'totalNum'   => 'TotalNum',
+        'requestId' => 'RequestId',
+        'totalNum' => 'TotalNum',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class ListConnectorsResponseBody extends Model
         if (null !== $this->connectors) {
             if (\is_array($this->connectors)) {
                 $res['Connectors'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->connectors as $item1) {
                     $res['Connectors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListConnectorsResponseBody extends Model
         if (isset($map['Connectors'])) {
             if (!empty($map['Connectors'])) {
                 $model->connectors = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Connectors'] as $item1) {
                     $model->connectors[$n1++] = connectors::fromMap($item1);
                 }

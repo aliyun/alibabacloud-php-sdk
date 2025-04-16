@@ -12,13 +12,14 @@ class RecoveryContent extends Model
      * @var AuthReportInterval
      */
     public $authReportInterval;
+
     /**
      * @var string[]
      */
     public $recoveryActions;
     protected $_name = [
         'authReportInterval' => 'AuthReportInterval',
-        'recoveryActions'    => 'RecoveryActions',
+        'recoveryActions' => 'RecoveryActions',
     ];
 
     public function validate()
@@ -42,7 +43,7 @@ class RecoveryContent extends Model
         if (null !== $this->recoveryActions) {
             if (\is_array($this->recoveryActions)) {
                 $res['RecoveryActions'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->recoveryActions as $item1) {
                     $res['RecoveryActions'][$n1++] = $item1;
                 }
@@ -67,7 +68,7 @@ class RecoveryContent extends Model
         if (isset($map['RecoveryActions'])) {
             if (!empty($map['RecoveryActions'])) {
                 $model->recoveryActions = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['RecoveryActions'] as $item1) {
                     $model->recoveryActions[$n1++] = $item1;
                 }

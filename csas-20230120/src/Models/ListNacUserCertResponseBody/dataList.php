@@ -12,53 +12,62 @@ class dataList extends Model
      * @var string
      */
     public $aliuid;
+
     /**
      * @var string
      */
     public $department;
+
     /**
      * @var string
      */
     public $devTag;
+
     /**
      * @var string
      */
     public $deviceType;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $hostname;
+
     /**
      * @var string
      */
     public $mac;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'aliuid'      => 'Aliuid',
-        'department'  => 'Department',
-        'devTag'      => 'DevTag',
-        'deviceType'  => 'DeviceType',
+        'aliuid' => 'Aliuid',
+        'department' => 'Department',
+        'devTag' => 'DevTag',
+        'deviceType' => 'DeviceType',
         'expiredTime' => 'ExpiredTime',
-        'hostname'    => 'Hostname',
-        'mac'         => 'Mac',
-        'status'      => 'Status',
-        'userId'      => 'UserId',
-        'username'    => 'Username',
+        'hostname' => 'Hostname',
+        'mac' => 'Mac',
+        'status' => 'Status',
+        'userId' => 'UserId',
+        'username' => 'Username',
     ];
 
     public function validate()

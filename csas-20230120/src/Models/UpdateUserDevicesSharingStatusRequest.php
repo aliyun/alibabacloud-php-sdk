@@ -12,12 +12,13 @@ class UpdateUserDevicesSharingStatusRequest extends Model
      * @var string[]
      */
     public $deviceTags;
+
     /**
      * @var bool
      */
     public $sharingStatus;
     protected $_name = [
-        'deviceTags'    => 'DeviceTags',
+        'deviceTags' => 'DeviceTags',
         'sharingStatus' => 'SharingStatus',
     ];
 
@@ -35,7 +36,7 @@ class UpdateUserDevicesSharingStatusRequest extends Model
         if (null !== $this->deviceTags) {
             if (\is_array($this->deviceTags)) {
                 $res['DeviceTags'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->deviceTags as $item1) {
                     $res['DeviceTags'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class UpdateUserDevicesSharingStatusRequest extends Model
         if (isset($map['DeviceTags'])) {
             if (!empty($map['DeviceTags'])) {
                 $model->deviceTags = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['DeviceTags'] as $item1) {
                     $model->deviceTags[$n1++] = $item1;
                 }

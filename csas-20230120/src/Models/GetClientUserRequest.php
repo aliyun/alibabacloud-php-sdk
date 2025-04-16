@@ -12,13 +12,14 @@ class GetClientUserRequest extends Model
      * @var string
      */
     public $idpConfigId;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
         'idpConfigId' => 'IdpConfigId',
-        'username'    => 'Username',
+        'username' => 'Username',
     ];
 
     public function validate()

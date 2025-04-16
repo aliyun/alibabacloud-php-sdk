@@ -12,13 +12,14 @@ class UpdateApprovalStatusRequest extends Model
      * @var string
      */
     public $approvalId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'approvalId' => 'ApprovalId',
-        'status'     => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class CreateUserGroupResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $userGroupId;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'userGroupId' => 'UserGroupId',
     ];
 

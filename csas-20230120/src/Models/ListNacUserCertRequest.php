@@ -12,43 +12,50 @@ class ListNacUserCertRequest extends Model
      * @var string
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $department;
+
     /**
      * @var string
      */
     public $deviceType;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'department'  => 'Department',
-        'deviceType'  => 'DeviceType',
-        'endTime'     => 'EndTime',
-        'pageSize'    => 'PageSize',
-        'startTime'   => 'StartTime',
-        'status'      => 'Status',
-        'username'    => 'Username',
+        'department' => 'Department',
+        'deviceType' => 'DeviceType',
+        'endTime' => 'EndTime',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'username' => 'Username',
     ];
 
     public function validate()

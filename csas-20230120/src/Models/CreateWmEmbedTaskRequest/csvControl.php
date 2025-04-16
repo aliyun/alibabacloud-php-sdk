@@ -12,38 +12,44 @@ class csvControl extends Model
      * @var int
      */
     public $embedBitsNumberInEachTime;
+
     /**
      * @var int
      */
     public $embedColumn;
+
     /**
      * @var string
      */
     public $embedDensity;
+
     /**
      * @var int
      */
     public $embedPrecision;
+
     /**
      * @var string
      */
     public $embedTimePosition;
+
     /**
      * @var string
      */
     public $method;
+
     /**
      * @var string
      */
     public $timeFormat;
     protected $_name = [
         'embedBitsNumberInEachTime' => 'EmbedBitsNumberInEachTime',
-        'embedColumn'               => 'EmbedColumn',
-        'embedDensity'              => 'EmbedDensity',
-        'embedPrecision'            => 'EmbedPrecision',
-        'embedTimePosition'         => 'EmbedTimePosition',
-        'method'                    => 'Method',
-        'timeFormat'                => 'TimeFormat',
+        'embedColumn' => 'EmbedColumn',
+        'embedDensity' => 'EmbedDensity',
+        'embedPrecision' => 'EmbedPrecision',
+        'embedTimePosition' => 'EmbedTimePosition',
+        'method' => 'Method',
+        'timeFormat' => 'TimeFormat',
     ];
 
     public function validate()

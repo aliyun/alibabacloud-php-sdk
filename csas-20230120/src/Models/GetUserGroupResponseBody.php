@@ -13,6 +13,7 @@ class GetUserGroupResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var userGroup
      */

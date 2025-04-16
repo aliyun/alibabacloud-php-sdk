@@ -20,63 +20,74 @@ class processes extends Model
      * @var appUninstallPolicies
      */
     public $appUninstallPolicies;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var deviceRegistrationPolicies
      */
     public $deviceRegistrationPolicies;
+
     /**
      * @var dlpSendPolicies
      */
     public $dlpSendPolicies;
+
     /**
      * @var domainBlacklistPolicies
      */
     public $domainBlacklistPolicies;
+
     /**
      * @var domainWhitelistPolicies
      */
     public $domainWhitelistPolicies;
+
     /**
      * @var peripheralBlockPolicies
      */
     public $peripheralBlockPolicies;
+
     /**
      * @var string
      */
     public $processId;
+
     /**
      * @var string
      */
     public $processName;
+
     /**
      * @var processNodes[][]
      */
     public $processNodes;
+
     /**
      * @var softwareBlockPolicies
      */
     public $softwareBlockPolicies;
     protected $_name = [
-        'appUninstallPolicies'       => 'AppUninstallPolicies',
-        'createTime'                 => 'CreateTime',
-        'description'                => 'Description',
+        'appUninstallPolicies' => 'AppUninstallPolicies',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
         'deviceRegistrationPolicies' => 'DeviceRegistrationPolicies',
-        'dlpSendPolicies'            => 'DlpSendPolicies',
-        'domainBlacklistPolicies'    => 'DomainBlacklistPolicies',
-        'domainWhitelistPolicies'    => 'DomainWhitelistPolicies',
-        'peripheralBlockPolicies'    => 'PeripheralBlockPolicies',
-        'processId'                  => 'ProcessId',
-        'processName'                => 'ProcessName',
-        'processNodes'               => 'ProcessNodes',
-        'softwareBlockPolicies'      => 'SoftwareBlockPolicies',
+        'dlpSendPolicies' => 'DlpSendPolicies',
+        'domainBlacklistPolicies' => 'DomainBlacklistPolicies',
+        'domainWhitelistPolicies' => 'DomainWhitelistPolicies',
+        'peripheralBlockPolicies' => 'PeripheralBlockPolicies',
+        'processId' => 'ProcessId',
+        'processName' => 'ProcessName',
+        'processNodes' => 'ProcessNodes',
+        'softwareBlockPolicies' => 'SoftwareBlockPolicies',
     ];
 
     public function validate()
@@ -154,11 +165,11 @@ class processes extends Model
         if (null !== $this->processNodes) {
             if (\is_array($this->processNodes)) {
                 $res['ProcessNodes'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->processNodes as $item1) {
                     if (\is_array($item1)) {
                         $res['ProcessNodes'][$n1++] = [];
-                        $n2                         = 0;
+                        $n2 = 0;
                         foreach ($item1 as $item2) {
                             $res['ProcessNodes'][$n1++][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
                         }
@@ -225,11 +236,11 @@ class processes extends Model
         if (isset($map['ProcessNodes'])) {
             if (!empty($map['ProcessNodes'])) {
                 $model->processNodes = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ProcessNodes'] as $item1) {
                     if (!empty($item1)) {
                         $model->processNodes[$n1++] = [];
-                        $n2                         = 0;
+                        $n2 = 0;
                         foreach ($item1 as $item2) {
                             $model->processNodes[$n1++][$n2++] = processNodes::fromMap($item2);
                         }

@@ -13,53 +13,62 @@ class data extends Model
      * @var department
      */
     public $department;
+
     /**
      * @var string
      */
     public $departmentId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $email;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $idpConfigId;
+
     /**
      * @var string
      */
     public $mobileNumber;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'department'   => 'Department',
+        'department' => 'Department',
         'departmentId' => 'DepartmentId',
-        'description'  => 'Description',
-        'email'        => 'Email',
-        'id'           => 'Id',
-        'idpConfigId'  => 'IdpConfigId',
+        'description' => 'Description',
+        'email' => 'Email',
+        'id' => 'Id',
+        'idpConfigId' => 'IdpConfigId',
         'mobileNumber' => 'MobileNumber',
-        'status'       => 'Status',
-        'userId'       => 'UserId',
-        'username'     => 'Username',
+        'status' => 'Status',
+        'userId' => 'UserId',
+        'username' => 'Username',
     ];
 
     public function validate()

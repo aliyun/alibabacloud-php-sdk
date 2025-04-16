@@ -12,48 +12,56 @@ class UserCertificate extends Model
      * @var string
      */
     public $certId;
+
     /**
      * @var string
      */
     public $certificate;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string[]
      */
     public $dnsNames;
+
     /**
      * @var int
      */
     public $expTimeUnix;
+
     /**
      * @var int
      */
     public $gmtCreateUnix;
+
     /**
      * @var int
      */
     public $gmtModifiedUnix;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $privateKey;
     protected $_name = [
-        'certId'          => 'CertId',
-        'certificate'     => 'Certificate',
-        'description'     => 'Description',
-        'dnsNames'        => 'DnsNames',
-        'expTimeUnix'     => 'ExpTimeUnix',
-        'gmtCreateUnix'   => 'GmtCreateUnix',
+        'certId' => 'CertId',
+        'certificate' => 'Certificate',
+        'description' => 'Description',
+        'dnsNames' => 'DnsNames',
+        'expTimeUnix' => 'ExpTimeUnix',
+        'gmtCreateUnix' => 'GmtCreateUnix',
         'gmtModifiedUnix' => 'GmtModifiedUnix',
-        'name'            => 'Name',
-        'privateKey'      => 'PrivateKey',
+        'name' => 'Name',
+        'privateKey' => 'PrivateKey',
     ];
 
     public function validate()
@@ -82,7 +90,7 @@ class UserCertificate extends Model
         if (null !== $this->dnsNames) {
             if (\is_array($this->dnsNames)) {
                 $res['DnsNames'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->dnsNames as $item1) {
                     $res['DnsNames'][$n1++] = $item1;
                 }
@@ -135,7 +143,7 @@ class UserCertificate extends Model
         if (isset($map['DnsNames'])) {
             if (!empty($map['DnsNames'])) {
                 $model->dnsNames = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['DnsNames'] as $item1) {
                     $model->dnsNames[$n1++] = $item1;
                 }

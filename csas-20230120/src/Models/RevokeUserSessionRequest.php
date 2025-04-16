@@ -12,13 +12,14 @@ class RevokeUserSessionRequest extends Model
      * @var string
      */
     public $externalIds;
+
     /**
      * @var string
      */
     public $idpId;
     protected $_name = [
         'externalIds' => 'ExternalIds',
-        'idpId'       => 'IdpId',
+        'idpId' => 'IdpId',
     ];
 
     public function validate()

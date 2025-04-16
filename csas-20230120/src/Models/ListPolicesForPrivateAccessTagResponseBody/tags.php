@@ -13,13 +13,14 @@ class tags extends Model
      * @var polices[]
      */
     public $polices;
+
     /**
      * @var string
      */
     public $tagId;
     protected $_name = [
         'polices' => 'Polices',
-        'tagId'   => 'TagId',
+        'tagId' => 'TagId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class tags extends Model
         if (null !== $this->polices) {
             if (\is_array($this->polices)) {
                 $res['Polices'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->polices as $item1) {
                     $res['Polices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class tags extends Model
         if (isset($map['Polices'])) {
             if (!empty($map['Polices'])) {
                 $model->polices = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Polices'] as $item1) {
                     $model->polices[$n1++] = polices::fromMap($item1);
                 }

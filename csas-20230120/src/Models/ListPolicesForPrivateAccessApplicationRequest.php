@@ -30,7 +30,7 @@ class ListPolicesForPrivateAccessApplicationRequest extends Model
         if (null !== $this->applicationIds) {
             if (\is_array($this->applicationIds)) {
                 $res['ApplicationIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->applicationIds as $item1) {
                     $res['ApplicationIds'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class ListPolicesForPrivateAccessApplicationRequest extends Model
         if (isset($map['ApplicationIds'])) {
             if (!empty($map['ApplicationIds'])) {
                 $model->applicationIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ApplicationIds'] as $item1) {
                     $model->applicationIds[$n1++] = $item1;
                 }

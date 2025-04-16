@@ -13,83 +13,98 @@ class policy extends Model
      * @var string[]
      */
     public $applicationIds;
+
     /**
      * @var string
      */
     public $applicationType;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var customUserAttributes[]
      */
     public $customUserAttributes;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $deviceAttributeAction;
+
     /**
      * @var string
      */
     public $deviceAttributeId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $policyAction;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string[]
      */
     public $tagIds;
+
     /**
      * @var string
      */
     public $triggerTemplateId;
+
     /**
      * @var string[]
      */
     public $userGroupIds;
+
     /**
      * @var string
      */
     public $userGroupMode;
     protected $_name = [
-        'applicationIds'        => 'ApplicationIds',
-        'applicationType'       => 'ApplicationType',
-        'createTime'            => 'CreateTime',
-        'customUserAttributes'  => 'CustomUserAttributes',
-        'description'           => 'Description',
+        'applicationIds' => 'ApplicationIds',
+        'applicationType' => 'ApplicationType',
+        'createTime' => 'CreateTime',
+        'customUserAttributes' => 'CustomUserAttributes',
+        'description' => 'Description',
         'deviceAttributeAction' => 'DeviceAttributeAction',
-        'deviceAttributeId'     => 'DeviceAttributeId',
-        'name'                  => 'Name',
-        'policyAction'          => 'PolicyAction',
-        'policyId'              => 'PolicyId',
-        'priority'              => 'Priority',
-        'status'                => 'Status',
-        'tagIds'                => 'TagIds',
-        'triggerTemplateId'     => 'TriggerTemplateId',
-        'userGroupIds'          => 'UserGroupIds',
-        'userGroupMode'         => 'UserGroupMode',
+        'deviceAttributeId' => 'DeviceAttributeId',
+        'name' => 'Name',
+        'policyAction' => 'PolicyAction',
+        'policyId' => 'PolicyId',
+        'priority' => 'Priority',
+        'status' => 'Status',
+        'tagIds' => 'TagIds',
+        'triggerTemplateId' => 'TriggerTemplateId',
+        'userGroupIds' => 'UserGroupIds',
+        'userGroupMode' => 'UserGroupMode',
     ];
 
     public function validate()
@@ -115,7 +130,7 @@ class policy extends Model
         if (null !== $this->applicationIds) {
             if (\is_array($this->applicationIds)) {
                 $res['ApplicationIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->applicationIds as $item1) {
                     $res['ApplicationIds'][$n1++] = $item1;
                 }
@@ -133,7 +148,7 @@ class policy extends Model
         if (null !== $this->customUserAttributes) {
             if (\is_array($this->customUserAttributes)) {
                 $res['CustomUserAttributes'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->customUserAttributes as $item1) {
                     $res['CustomUserAttributes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -175,7 +190,7 @@ class policy extends Model
         if (null !== $this->tagIds) {
             if (\is_array($this->tagIds)) {
                 $res['TagIds'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tagIds as $item1) {
                     $res['TagIds'][$n1++] = $item1;
                 }
@@ -189,7 +204,7 @@ class policy extends Model
         if (null !== $this->userGroupIds) {
             if (\is_array($this->userGroupIds)) {
                 $res['UserGroupIds'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->userGroupIds as $item1) {
                     $res['UserGroupIds'][$n1++] = $item1;
                 }
@@ -214,7 +229,7 @@ class policy extends Model
         if (isset($map['ApplicationIds'])) {
             if (!empty($map['ApplicationIds'])) {
                 $model->applicationIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ApplicationIds'] as $item1) {
                     $model->applicationIds[$n1++] = $item1;
                 }
@@ -232,7 +247,7 @@ class policy extends Model
         if (isset($map['CustomUserAttributes'])) {
             if (!empty($map['CustomUserAttributes'])) {
                 $model->customUserAttributes = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['CustomUserAttributes'] as $item1) {
                     $model->customUserAttributes[$n1++] = customUserAttributes::fromMap($item1);
                 }
@@ -274,7 +289,7 @@ class policy extends Model
         if (isset($map['TagIds'])) {
             if (!empty($map['TagIds'])) {
                 $model->tagIds = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['TagIds'] as $item1) {
                     $model->tagIds[$n1++] = $item1;
                 }
@@ -288,7 +303,7 @@ class policy extends Model
         if (isset($map['UserGroupIds'])) {
             if (!empty($map['UserGroupIds'])) {
                 $model->userGroupIds = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['UserGroupIds'] as $item1) {
                     $model->userGroupIds[$n1++] = $item1;
                 }

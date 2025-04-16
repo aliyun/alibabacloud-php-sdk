@@ -12,12 +12,13 @@ class netInterfaceInfo extends Model
      * @var string
      */
     public $mac;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
-        'mac'  => 'Mac',
+        'mac' => 'Mac',
         'name' => 'Name',
     ];
 

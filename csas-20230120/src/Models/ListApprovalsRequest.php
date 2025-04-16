@@ -12,88 +12,104 @@ class ListApprovalsRequest extends Model
      * @var string[]
      */
     public $approvalIds;
+
     /**
      * @var int
      */
     public $createEndTime;
+
     /**
      * @var int
      */
     public $createStartTime;
+
     /**
      * @var string
      */
     public $creatorDepartment;
+
     /**
      * @var string
      */
     public $creatorDevTag;
+
     /**
      * @var string
      */
     public $creatorUserId;
+
     /**
      * @var string
      */
     public $creatorUsername;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $operatorUserId;
+
     /**
      * @var string
      */
     public $operatorUsername;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $policyType;
+
     /**
      * @var string
      */
     public $processId;
+
     /**
      * @var string
      */
     public $processName;
+
     /**
      * @var string
      */
     public $schemaId;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string[]
      */
     public $statuses;
     protected $_name = [
-        'approvalIds'       => 'ApprovalIds',
-        'createEndTime'     => 'CreateEndTime',
-        'createStartTime'   => 'CreateStartTime',
+        'approvalIds' => 'ApprovalIds',
+        'createEndTime' => 'CreateEndTime',
+        'createStartTime' => 'CreateStartTime',
         'creatorDepartment' => 'CreatorDepartment',
-        'creatorDevTag'     => 'CreatorDevTag',
-        'creatorUserId'     => 'CreatorUserId',
-        'creatorUsername'   => 'CreatorUsername',
-        'currentPage'       => 'CurrentPage',
-        'operatorUserId'    => 'OperatorUserId',
-        'operatorUsername'  => 'OperatorUsername',
-        'pageSize'          => 'PageSize',
-        'policyType'        => 'PolicyType',
-        'processId'         => 'ProcessId',
-        'processName'       => 'ProcessName',
-        'schemaId'          => 'SchemaId',
-        'schemaName'        => 'SchemaName',
-        'statuses'          => 'Statuses',
+        'creatorDevTag' => 'CreatorDevTag',
+        'creatorUserId' => 'CreatorUserId',
+        'creatorUsername' => 'CreatorUsername',
+        'currentPage' => 'CurrentPage',
+        'operatorUserId' => 'OperatorUserId',
+        'operatorUsername' => 'OperatorUsername',
+        'pageSize' => 'PageSize',
+        'policyType' => 'PolicyType',
+        'processId' => 'ProcessId',
+        'processName' => 'ProcessName',
+        'schemaId' => 'SchemaId',
+        'schemaName' => 'SchemaName',
+        'statuses' => 'Statuses',
     ];
 
     public function validate()
@@ -113,7 +129,7 @@ class ListApprovalsRequest extends Model
         if (null !== $this->approvalIds) {
             if (\is_array($this->approvalIds)) {
                 $res['ApprovalIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->approvalIds as $item1) {
                     $res['ApprovalIds'][$n1++] = $item1;
                 }
@@ -183,7 +199,7 @@ class ListApprovalsRequest extends Model
         if (null !== $this->statuses) {
             if (\is_array($this->statuses)) {
                 $res['Statuses'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->statuses as $item1) {
                     $res['Statuses'][$n1++] = $item1;
                 }
@@ -204,7 +220,7 @@ class ListApprovalsRequest extends Model
         if (isset($map['ApprovalIds'])) {
             if (!empty($map['ApprovalIds'])) {
                 $model->approvalIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ApprovalIds'] as $item1) {
                     $model->approvalIds[$n1++] = $item1;
                 }
@@ -274,7 +290,7 @@ class ListApprovalsRequest extends Model
         if (isset($map['Statuses'])) {
             if (!empty($map['Statuses'])) {
                 $model->statuses = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Statuses'] as $item1) {
                     $model->statuses[$n1++] = $item1;
                 }

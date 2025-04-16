@@ -12,18 +12,20 @@ class CreateWmInfoMappingRequest extends Model
      * @var string
      */
     public $wmInfoBytesB64;
+
     /**
      * @var int
      */
     public $wmInfoSize;
+
     /**
      * @var string
      */
     public $wmType;
     protected $_name = [
         'wmInfoBytesB64' => 'WmInfoBytesB64',
-        'wmInfoSize'     => 'WmInfoSize',
-        'wmType'         => 'WmType',
+        'wmInfoSize' => 'WmInfoSize',
+        'wmType' => 'WmType',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class CreateIdpDepartmentRequest extends Model
      * @var string
      */
     public $departmentName;
+
     /**
      * @var string
      */
     public $idpConfigId;
     protected $_name = [
         'departmentName' => 'DepartmentName',
-        'idpConfigId'    => 'IdpConfigId',
+        'idpConfigId' => 'IdpConfigId',
     ];
 
     public function validate()

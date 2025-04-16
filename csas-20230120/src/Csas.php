@@ -114,6 +114,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListClientUsersRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListClientUsersResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicDisposalProcessesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicDisposalProcessesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicRouteRegionsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicRoutesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicRoutesResponse;
@@ -257,6 +259,7 @@ class Csas extends OpenApiClient
      *
      * @param tmpReq - AttachApplication2ConnectorRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachApplication2ConnectorResponse
      *
      * @param AttachApplication2ConnectorRequest $tmpReq
@@ -286,27 +289,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AttachApplication2Connector',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachApplication2Connector',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachApplication2ConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachApplication2ConnectorResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachApplication2ConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 挂载connector的应用.
      *
      * @param request - AttachApplication2ConnectorRequest
+     *
      * @returns AttachApplication2ConnectorResponse
      *
      * @param AttachApplication2ConnectorRequest $request
@@ -325,6 +326,7 @@ class Csas extends OpenApiClient
      *
      * @param request - AttachPolicy2ApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachPolicy2ApprovalProcessResponse
      *
      * @param AttachPolicy2ApprovalProcessRequest $request
@@ -352,27 +354,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AttachPolicy2ApprovalProcess',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachPolicy2ApprovalProcess',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachPolicy2ApprovalProcessResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachPolicy2ApprovalProcessResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachPolicy2ApprovalProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 挂载业务策略至指定审批流程.
      *
      * @param request - AttachPolicy2ApprovalProcessRequest
+     *
      * @returns AttachPolicy2ApprovalProcessResponse
      *
      * @param AttachPolicy2ApprovalProcessRequest $request
@@ -391,6 +391,7 @@ class Csas extends OpenApiClient
      *
      * @param tmpReq - CreateApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateApprovalProcessResponse
      *
      * @param CreateApprovalProcessRequest $tmpReq
@@ -431,27 +432,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateApprovalProcess',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateApprovalProcess',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateApprovalProcessResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateApprovalProcessResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateApprovalProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建审批流程.
      *
      * @param request - CreateApprovalProcessRequest
+     *
      * @returns CreateApprovalProcessResponse
      *
      * @param CreateApprovalProcessRequest $request
@@ -470,6 +469,7 @@ class Csas extends OpenApiClient
      *
      * @param request - CreateClientUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateClientUserResponse
      *
      * @param CreateClientUserRequest $request
@@ -513,27 +513,25 @@ class Csas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateClientUser',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateClientUser',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateClientUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateClientUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateClientUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建自定义身份源用户.
      *
      * @param request - CreateClientUserRequest
+     *
      * @returns CreateClientUserResponse
      *
      * @param CreateClientUserRequest $request
@@ -552,6 +550,7 @@ class Csas extends OpenApiClient
      *
      * @param request - CreateDynamicRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDynamicRouteResponse
      *
      * @param CreateDynamicRouteRequest $request
@@ -562,7 +561,7 @@ class Csas extends OpenApiClient
     public function createDynamicRouteWithOptions($request, $runtime)
     {
         $request->validate();
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->applicationIds) {
             @$bodyFlat['ApplicationIds'] = $request->applicationIds;
@@ -610,27 +609,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDynamicRoute',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDynamicRoute',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDynamicRouteResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建动态路由.
      *
      * @param request - CreateDynamicRouteRequest
+     *
      * @returns CreateDynamicRouteResponse
      *
      * @param CreateDynamicRouteRequest $request
@@ -649,6 +646,7 @@ class Csas extends OpenApiClient
      *
      * @param request - CreateIdpDepartmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateIdpDepartmentResponse
      *
      * @param CreateIdpDepartmentRequest $request
@@ -672,27 +670,25 @@ class Csas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIdpDepartment',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateIdpDepartment',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateIdpDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIdpDepartmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIdpDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建自定义身份源部门.
      *
      * @param request - CreateIdpDepartmentRequest
+     *
      * @returns CreateIdpDepartmentResponse
      *
      * @param CreateIdpDepartmentRequest $request
@@ -711,6 +707,7 @@ class Csas extends OpenApiClient
      *
      * @param tmpReq - CreatePrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePrivateAccessApplicationResponse
      *
      * @param CreatePrivateAccessApplicationRequest $tmpReq
@@ -727,7 +724,7 @@ class Csas extends OpenApiClient
             $request->l7ConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->l7Config, 'L7Config', 'json');
         }
 
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->addresses) {
             @$bodyFlat['Addresses'] = $request->addresses;
@@ -779,27 +776,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreatePrivateAccessApplication',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePrivateAccessApplication',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePrivateAccessApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePrivateAccessApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePrivateAccessApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建内网访问应用.
      *
      * @param request - CreatePrivateAccessApplicationRequest
+     *
      * @returns CreatePrivateAccessApplicationResponse
      *
      * @param CreatePrivateAccessApplicationRequest $request
@@ -818,6 +813,7 @@ class Csas extends OpenApiClient
      *
      * @param request - CreatePrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePrivateAccessPolicyResponse
      *
      * @param CreatePrivateAccessPolicyRequest $request
@@ -828,7 +824,7 @@ class Csas extends OpenApiClient
     public function createPrivateAccessPolicyWithOptions($request, $runtime)
     {
         $request->validate();
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->applicationIds) {
             @$bodyFlat['ApplicationIds'] = $request->applicationIds;
@@ -892,27 +888,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreatePrivateAccessPolicy',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePrivateAccessPolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePrivateAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePrivateAccessPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePrivateAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建内网访问策略.
      *
      * @param request - CreatePrivateAccessPolicyRequest
+     *
      * @returns CreatePrivateAccessPolicyResponse
      *
      * @param CreatePrivateAccessPolicyRequest $request
@@ -931,6 +925,7 @@ class Csas extends OpenApiClient
      *
      * @param request - CreatePrivateAccessTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePrivateAccessTagResponse
      *
      * @param CreatePrivateAccessTagRequest $request
@@ -954,27 +949,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreatePrivateAccessTag',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePrivateAccessTag',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePrivateAccessTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePrivateAccessTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePrivateAccessTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建内网访问标签.
      *
      * @param request - CreatePrivateAccessTagRequest
+     *
      * @returns CreatePrivateAccessTagResponse
      *
      * @param CreatePrivateAccessTagRequest $request
@@ -993,6 +986,7 @@ class Csas extends OpenApiClient
      *
      * @param tmpReq - CreateRegistrationPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateRegistrationPolicyResponse
      *
      * @param CreateRegistrationPolicyRequest $tmpReq
@@ -1065,27 +1059,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateRegistrationPolicy',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRegistrationPolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateRegistrationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRegistrationPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRegistrationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建设备注册策略.
      *
      * @param request - CreateRegistrationPolicyRequest
+     *
      * @returns CreateRegistrationPolicyResponse
      *
      * @param CreateRegistrationPolicyRequest $request
@@ -1104,6 +1096,7 @@ class Csas extends OpenApiClient
      *
      * @param request - CreateUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateUserGroupResponse
      *
      * @param CreateUserGroupRequest $request
@@ -1114,7 +1107,7 @@ class Csas extends OpenApiClient
     public function createUserGroupWithOptions($request, $runtime)
     {
         $request->validate();
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->attributes) {
             @$bodyFlat['Attributes'] = $request->attributes;
@@ -1134,27 +1127,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateUserGroup',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateUserGroup',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建用户组.
      *
      * @param request - CreateUserGroupRequest
+     *
      * @returns CreateUserGroupResponse
      *
      * @param CreateUserGroupRequest $request
@@ -1173,6 +1164,7 @@ class Csas extends OpenApiClient
      *
      * @param request - CreateWmBaseImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateWmBaseImageResponse
      *
      * @param CreateWmBaseImageRequest $request
@@ -1220,27 +1212,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateWmBaseImage',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateWmBaseImage',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateWmBaseImageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateWmBaseImageResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateWmBaseImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建数字水印暗水印透明底图.
      *
      * @param request - CreateWmBaseImageRequest
+     *
      * @returns CreateWmBaseImageResponse
      *
      * @param CreateWmBaseImageRequest $request
@@ -1259,6 +1249,7 @@ class Csas extends OpenApiClient
      *
      * @param tmpReq - CreateWmEmbedTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateWmEmbedTaskResponse
      *
      * @param CreateWmEmbedTaskRequest $tmpReq
@@ -1331,30 +1322,28 @@ class Csas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateWmEmbedTask',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateWmEmbedTask',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateWmEmbedTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateWmEmbedTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateWmEmbedTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建嵌入水印任务
      *
      * @param request - CreateWmEmbedTaskRequest
+     *
      * @returns CreateWmEmbedTaskResponse
      *
      * @param CreateWmEmbedTaskRequest $request
@@ -1373,6 +1362,7 @@ class Csas extends OpenApiClient
      *
      * @param tmpReq - CreateWmExtractTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateWmExtractTaskResponse
      *
      * @param CreateWmExtractTaskRequest $tmpReq
@@ -1425,30 +1415,28 @@ class Csas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateWmExtractTask',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateWmExtractTask',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateWmExtractTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateWmExtractTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateWmExtractTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建文件水印提取任务
      *
      * @param request - CreateWmExtractTaskRequest
+     *
      * @returns CreateWmExtractTaskResponse
      *
      * @param CreateWmExtractTaskRequest $request
@@ -1467,6 +1455,7 @@ class Csas extends OpenApiClient
      *
      * @param request - CreateWmInfoMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateWmInfoMappingResponse
      *
      * @param CreateWmInfoMappingRequest $request
@@ -1494,27 +1483,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateWmInfoMapping',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateWmInfoMapping',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateWmInfoMappingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateWmInfoMappingResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateWmInfoMappingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建一条字符串水印信息到数字水印信息的映射记录.
      *
      * @param request - CreateWmInfoMappingRequest
+     *
      * @returns CreateWmInfoMappingResponse
      *
      * @param CreateWmInfoMappingRequest $request
@@ -1533,6 +1520,7 @@ class Csas extends OpenApiClient
      *
      * @param request - DeleteApprovalProcessesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteApprovalProcessesResponse
      *
      * @param DeleteApprovalProcessesRequest $request
@@ -1543,7 +1531,7 @@ class Csas extends OpenApiClient
     public function deleteApprovalProcessesWithOptions($request, $runtime)
     {
         $request->validate();
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->processIds) {
             @$bodyFlat['ProcessIds'] = $request->processIds;
@@ -1555,27 +1543,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteApprovalProcesses',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteApprovalProcesses',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteApprovalProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteApprovalProcessesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteApprovalProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量删除审批流程.
      *
      * @param request - DeleteApprovalProcessesRequest
+     *
      * @returns DeleteApprovalProcessesResponse
      *
      * @param DeleteApprovalProcessesRequest $request
@@ -1594,6 +1580,7 @@ class Csas extends OpenApiClient
      *
      * @param request - DeleteClientUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteClientUserResponse
      *
      * @param DeleteClientUserRequest $request
@@ -1613,27 +1600,25 @@ class Csas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteClientUser',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteClientUser',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteClientUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteClientUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteClientUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除自定义身份源指定用户.
      *
      * @param request - DeleteClientUserRequest
+     *
      * @returns DeleteClientUserResponse
      *
      * @param DeleteClientUserRequest $request
@@ -1652,6 +1637,7 @@ class Csas extends OpenApiClient
      *
      * @param request - DeleteDynamicRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDynamicRouteResponse
      *
      * @param DeleteDynamicRouteRequest $request
@@ -1671,27 +1657,25 @@ class Csas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDynamicRoute',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDynamicRoute',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDynamicRouteResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除动态路由.
      *
      * @param request - DeleteDynamicRouteRequest
+     *
      * @returns DeleteDynamicRouteResponse
      *
      * @param DeleteDynamicRouteRequest $request
@@ -1710,6 +1694,7 @@ class Csas extends OpenApiClient
      *
      * @param request - DeleteIdpDepartmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteIdpDepartmentResponse
      *
      * @param DeleteIdpDepartmentRequest $request
@@ -1733,27 +1718,25 @@ class Csas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIdpDepartment',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIdpDepartment',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIdpDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIdpDepartmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIdpDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除指定自定义身份源部门.
      *
      * @param request - DeleteIdpDepartmentRequest
+     *
      * @returns DeleteIdpDepartmentResponse
      *
      * @param DeleteIdpDepartmentRequest $request
@@ -1772,6 +1755,7 @@ class Csas extends OpenApiClient
      *
      * @param request - DeletePrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeletePrivateAccessApplicationResponse
      *
      * @param DeletePrivateAccessApplicationRequest $request
@@ -1791,27 +1775,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeletePrivateAccessApplication',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePrivateAccessApplication',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeletePrivateAccessApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePrivateAccessApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePrivateAccessApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除内网访问应用.
      *
      * @param request - DeletePrivateAccessApplicationRequest
+     *
      * @returns DeletePrivateAccessApplicationResponse
      *
      * @param DeletePrivateAccessApplicationRequest $request
@@ -1830,6 +1812,7 @@ class Csas extends OpenApiClient
      *
      * @param request - DeletePrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeletePrivateAccessPolicyResponse
      *
      * @param DeletePrivateAccessPolicyRequest $request
@@ -1849,27 +1832,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeletePrivateAccessPolicy',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePrivateAccessPolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeletePrivateAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePrivateAccessPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePrivateAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除内网访问策略.
      *
      * @param request - DeletePrivateAccessPolicyRequest
+     *
      * @returns DeletePrivateAccessPolicyResponse
      *
      * @param DeletePrivateAccessPolicyRequest $request
@@ -1888,6 +1869,7 @@ class Csas extends OpenApiClient
      *
      * @param request - DeletePrivateAccessTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeletePrivateAccessTagResponse
      *
      * @param DeletePrivateAccessTagRequest $request
@@ -1907,27 +1889,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeletePrivateAccessTag',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePrivateAccessTag',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeletePrivateAccessTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePrivateAccessTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePrivateAccessTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除内网访问标签.
      *
      * @param request - DeletePrivateAccessTagRequest
+     *
      * @returns DeletePrivateAccessTagResponse
      *
      * @param DeletePrivateAccessTagRequest $request
@@ -1946,6 +1926,7 @@ class Csas extends OpenApiClient
      *
      * @param request - DeleteRegistrationPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRegistrationPoliciesResponse
      *
      * @param DeleteRegistrationPoliciesRequest $request
@@ -1956,7 +1937,7 @@ class Csas extends OpenApiClient
     public function deleteRegistrationPoliciesWithOptions($request, $runtime)
     {
         $request->validate();
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->policyIds) {
             @$bodyFlat['PolicyIds'] = $request->policyIds;
@@ -1968,27 +1949,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRegistrationPolicies',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRegistrationPolicies',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteRegistrationPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteRegistrationPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteRegistrationPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除设备注册策略.
      *
      * @param request - DeleteRegistrationPoliciesRequest
+     *
      * @returns DeleteRegistrationPoliciesResponse
      *
      * @param DeleteRegistrationPoliciesRequest $request
@@ -2007,6 +1986,7 @@ class Csas extends OpenApiClient
      *
      * @param request - DeleteUserDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteUserDevicesResponse
      *
      * @param DeleteUserDevicesRequest $request
@@ -2017,7 +1997,7 @@ class Csas extends OpenApiClient
     public function deleteUserDevicesWithOptions($request, $runtime)
     {
         $request->validate();
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->deviceTags) {
             @$bodyFlat['DeviceTags'] = $request->deviceTags;
@@ -2029,27 +2009,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUserDevices',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUserDevices',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteUserDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteUserDevicesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteUserDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量删除用户非在线设备.
      *
      * @param request - DeleteUserDevicesRequest
+     *
      * @returns DeleteUserDevicesResponse
      *
      * @param DeleteUserDevicesRequest $request
@@ -2068,6 +2046,7 @@ class Csas extends OpenApiClient
      *
      * @param request - DeleteUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteUserGroupResponse
      *
      * @param DeleteUserGroupRequest $request
@@ -2087,27 +2066,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUserGroup',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUserGroup',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除用户组.
      *
      * @param request - DeleteUserGroupRequest
+     *
      * @returns DeleteUserGroupResponse
      *
      * @param DeleteUserGroupRequest $request
@@ -2126,6 +2103,7 @@ class Csas extends OpenApiClient
      *
      * @param tmpReq - DetachApplication2ConnectorRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetachApplication2ConnectorResponse
      *
      * @param DetachApplication2ConnectorRequest $tmpReq
@@ -2155,27 +2133,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DetachApplication2Connector',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachApplication2Connector',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetachApplication2ConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachApplication2ConnectorResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachApplication2ConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 卸载connector的应用.
      *
      * @param request - DetachApplication2ConnectorRequest
+     *
      * @returns DetachApplication2ConnectorResponse
      *
      * @param DetachApplication2ConnectorRequest $request
@@ -2194,6 +2170,7 @@ class Csas extends OpenApiClient
      *
      * @param request - DetachPolicy2ApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetachPolicy2ApprovalProcessResponse
      *
      * @param DetachPolicy2ApprovalProcessRequest $request
@@ -2221,27 +2198,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DetachPolicy2ApprovalProcess',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachPolicy2ApprovalProcess',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetachPolicy2ApprovalProcessResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachPolicy2ApprovalProcessResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachPolicy2ApprovalProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 解绑业务策略与审批流程.
      *
      * @param request - DetachPolicy2ApprovalProcessRequest
+     *
      * @returns DetachPolicy2ApprovalProcessResponse
      *
      * @param DetachPolicy2ApprovalProcessRequest $request
@@ -2260,6 +2235,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ExportUserDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExportUserDevicesResponse
      *
      * @param ExportUserDevicesRequest $request
@@ -2270,7 +2246,7 @@ class Csas extends OpenApiClient
     public function exportUserDevicesWithOptions($request, $runtime)
     {
         $request->validate();
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->appStatuses) {
             @$bodyFlat['AppStatuses'] = $request->appStatuses;
@@ -2338,27 +2314,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExportUserDevices',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExportUserDevices',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExportUserDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExportUserDevicesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExportUserDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询用户设备列表.
      *
      * @param request - ExportUserDevicesRequest
+     *
      * @returns ExportUserDevicesResponse
      *
      * @param ExportUserDevicesRequest $request
@@ -2377,6 +2351,7 @@ class Csas extends OpenApiClient
      *
      * @param request - GetActiveIdpConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetActiveIdpConfigResponse
      *
      * @param RuntimeOptions $runtime
@@ -2385,23 +2360,20 @@ class Csas extends OpenApiClient
      */
     public function getActiveIdpConfigWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetActiveIdpConfig',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetActiveIdpConfig',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetActiveIdpConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetActiveIdpConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetActiveIdpConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2423,6 +2395,7 @@ class Csas extends OpenApiClient
      *
      * @param request - GetApprovalRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetApprovalResponse
      *
      * @param GetApprovalRequest $request
@@ -2434,31 +2407,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetApproval',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetApproval',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApprovalResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询审批.
      *
      * @param request - GetApprovalRequest
+     *
      * @returns GetApprovalResponse
      *
      * @param GetApprovalRequest $request
@@ -2477,6 +2448,7 @@ class Csas extends OpenApiClient
      *
      * @param request - GetApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetApprovalProcessResponse
      *
      * @param GetApprovalProcessRequest $request
@@ -2488,31 +2460,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetApprovalProcess',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetApprovalProcess',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetApprovalProcessResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApprovalProcessResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApprovalProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询审批流程.
      *
      * @param request - GetApprovalProcessRequest
+     *
      * @returns GetApprovalProcessResponse
      *
      * @param GetApprovalProcessRequest $request
@@ -2531,6 +2501,7 @@ class Csas extends OpenApiClient
      *
      * @param request - GetApprovalSchemaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetApprovalSchemaResponse
      *
      * @param GetApprovalSchemaRequest $request
@@ -2542,31 +2513,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetApprovalSchema',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetApprovalSchema',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetApprovalSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApprovalSchemaResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApprovalSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询审批动态模板
      *
      * @param request - GetApprovalSchemaRequest
+     *
      * @returns GetApprovalSchemaResponse
      *
      * @param GetApprovalSchemaRequest $request
@@ -2585,6 +2554,7 @@ class Csas extends OpenApiClient
      *
      * @param request - GetBootAndAntiUninstallPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetBootAndAntiUninstallPolicyResponse
      *
      * @param RuntimeOptions $runtime
@@ -2593,23 +2563,20 @@ class Csas extends OpenApiClient
      */
     public function getBootAndAntiUninstallPolicyWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetBootAndAntiUninstallPolicy',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBootAndAntiUninstallPolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetBootAndAntiUninstallPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetBootAndAntiUninstallPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetBootAndAntiUninstallPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2631,6 +2598,7 @@ class Csas extends OpenApiClient
      *
      * @param request - GetClientUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetClientUserResponse
      *
      * @param GetClientUserRequest $request
@@ -2642,31 +2610,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetClientUser',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetClientUser',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetClientUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetClientUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetClientUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询自定义身份源指定用户.
      *
      * @param request - GetClientUserRequest
+     *
      * @returns GetClientUserResponse
      *
      * @param GetClientUserRequest $request
@@ -2685,6 +2651,7 @@ class Csas extends OpenApiClient
      *
      * @param request - GetDynamicRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDynamicRouteResponse
      *
      * @param GetDynamicRouteRequest $request
@@ -2696,31 +2663,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDynamicRoute',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDynamicRoute',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDynamicRouteResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询动态路由详情.
      *
      * @param request - GetDynamicRouteRequest
+     *
      * @returns GetDynamicRouteResponse
      *
      * @param GetDynamicRouteRequest $request
@@ -2739,6 +2704,7 @@ class Csas extends OpenApiClient
      *
      * @param request - GetIdpConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetIdpConfigResponse
      *
      * @param GetIdpConfigRequest $request
@@ -2750,31 +2716,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetIdpConfig',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetIdpConfig',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetIdpConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIdpConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIdpConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询身份源配置详情.
      *
      * @param request - GetIdpConfigRequest
+     *
      * @returns GetIdpConfigResponse
      *
      * @param GetIdpConfigRequest $request
@@ -2793,6 +2757,7 @@ class Csas extends OpenApiClient
      *
      * @param request - GetPrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPrivateAccessApplicationResponse
      *
      * @param GetPrivateAccessApplicationRequest $request
@@ -2804,31 +2769,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPrivateAccessApplication',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPrivateAccessApplication',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPrivateAccessApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPrivateAccessApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPrivateAccessApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询内网访问应用详情.
      *
      * @param request - GetPrivateAccessApplicationRequest
+     *
      * @returns GetPrivateAccessApplicationResponse
      *
      * @param GetPrivateAccessApplicationRequest $request
@@ -2847,6 +2810,7 @@ class Csas extends OpenApiClient
      *
      * @param request - GetPrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPrivateAccessPolicyResponse
      *
      * @param GetPrivateAccessPolicyRequest $request
@@ -2858,31 +2822,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPrivateAccessPolicy',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPrivateAccessPolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPrivateAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPrivateAccessPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPrivateAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询内网访问策略详情.
      *
      * @param request - GetPrivateAccessPolicyRequest
+     *
      * @returns GetPrivateAccessPolicyResponse
      *
      * @param GetPrivateAccessPolicyRequest $request
@@ -2901,6 +2863,7 @@ class Csas extends OpenApiClient
      *
      * @param request - GetRegistrationPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRegistrationPolicyResponse
      *
      * @param GetRegistrationPolicyRequest $request
@@ -2912,31 +2875,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRegistrationPolicy',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRegistrationPolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRegistrationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRegistrationPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRegistrationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询设备注册策略详情.
      *
      * @param request - GetRegistrationPolicyRequest
+     *
      * @returns GetRegistrationPolicyResponse
      *
      * @param GetRegistrationPolicyRequest $request
@@ -2955,6 +2916,7 @@ class Csas extends OpenApiClient
      *
      * @param request - GetUserDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetUserDeviceResponse
      *
      * @param GetUserDeviceRequest $request
@@ -2966,31 +2928,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUserDevice',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUserDevice',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetUserDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUserDeviceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUserDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询用户设备详情.
      *
      * @param request - GetUserDeviceRequest
+     *
      * @returns GetUserDeviceResponse
      *
      * @param GetUserDeviceRequest $request
@@ -3009,6 +2969,7 @@ class Csas extends OpenApiClient
      *
      * @param request - GetUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetUserGroupResponse
      *
      * @param GetUserGroupRequest $request
@@ -3020,31 +2981,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUserGroup',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUserGroup',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询用户组详情.
      *
      * @param request - GetUserGroupRequest
+     *
      * @returns GetUserGroupResponse
      *
      * @param GetUserGroupRequest $request
@@ -3063,6 +3022,7 @@ class Csas extends OpenApiClient
      *
      * @param request - GetWmEmbedTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetWmEmbedTaskResponse
      *
      * @param GetWmEmbedTaskRequest $request
@@ -3074,31 +3034,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetWmEmbedTask',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetWmEmbedTask',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetWmEmbedTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetWmEmbedTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetWmEmbedTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询嵌入水印任务
      *
      * @param request - GetWmEmbedTaskRequest
+     *
      * @returns GetWmEmbedTaskResponse
      *
      * @param GetWmEmbedTaskRequest $request
@@ -3117,6 +3075,7 @@ class Csas extends OpenApiClient
      *
      * @param request - GetWmExtractTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetWmExtractTaskResponse
      *
      * @param GetWmExtractTaskRequest $request
@@ -3128,31 +3087,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetWmExtractTask',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetWmExtractTask',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetWmExtractTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetWmExtractTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetWmExtractTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询文件水印提取任务详情.
      *
      * @param request - GetWmExtractTaskRequest
+     *
      * @returns GetWmExtractTaskResponse
      *
      * @param GetWmExtractTaskRequest $request
@@ -3171,6 +3128,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListApplicationsForPrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListApplicationsForPrivateAccessPolicyResponse
      *
      * @param ListApplicationsForPrivateAccessPolicyRequest $request
@@ -3182,31 +3140,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListApplicationsForPrivateAccessPolicy',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApplicationsForPrivateAccessPolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListApplicationsForPrivateAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApplicationsForPrivateAccessPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApplicationsForPrivateAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询内网访问策略的应用.
      *
      * @param request - ListApplicationsForPrivateAccessPolicyRequest
+     *
      * @returns ListApplicationsForPrivateAccessPolicyResponse
      *
      * @param ListApplicationsForPrivateAccessPolicyRequest $request
@@ -3225,6 +3181,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListApplicationsForPrivateAccessTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListApplicationsForPrivateAccessTagResponse
      *
      * @param ListApplicationsForPrivateAccessTagRequest $request
@@ -3236,31 +3193,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListApplicationsForPrivateAccessTag',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApplicationsForPrivateAccessTag',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListApplicationsForPrivateAccessTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApplicationsForPrivateAccessTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApplicationsForPrivateAccessTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询内网访问标签的应用.
      *
      * @param request - ListApplicationsForPrivateAccessTagRequest
+     *
      * @returns ListApplicationsForPrivateAccessTagResponse
      *
      * @param ListApplicationsForPrivateAccessTagRequest $request
@@ -3279,6 +3234,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListApprovalProcessesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListApprovalProcessesResponse
      *
      * @param ListApprovalProcessesRequest $request
@@ -3290,31 +3246,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListApprovalProcesses',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApprovalProcesses',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListApprovalProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApprovalProcessesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApprovalProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 列表查询审批流程.
      *
      * @param request - ListApprovalProcessesRequest
+     *
      * @returns ListApprovalProcessesResponse
      *
      * @param ListApprovalProcessesRequest $request
@@ -3333,6 +3287,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListApprovalProcessesForApprovalSchemasRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListApprovalProcessesForApprovalSchemasResponse
      *
      * @param ListApprovalProcessesForApprovalSchemasRequest $request
@@ -3344,31 +3299,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListApprovalProcessesForApprovalSchemas',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApprovalProcessesForApprovalSchemas',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListApprovalProcessesForApprovalSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApprovalProcessesForApprovalSchemasResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApprovalProcessesForApprovalSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询审批渲染模板关联的流程.
      *
      * @param request - ListApprovalProcessesForApprovalSchemasRequest
+     *
      * @returns ListApprovalProcessesForApprovalSchemasResponse
      *
      * @param ListApprovalProcessesForApprovalSchemasRequest $request
@@ -3387,6 +3340,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListApprovalSchemasRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListApprovalSchemasResponse
      *
      * @param ListApprovalSchemasRequest $request
@@ -3398,31 +3352,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListApprovalSchemas',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApprovalSchemas',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListApprovalSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApprovalSchemasResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApprovalSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 列表查询审批动态模板
      *
      * @param request - ListApprovalSchemasRequest
+     *
      * @returns ListApprovalSchemasResponse
      *
      * @param ListApprovalSchemasRequest $request
@@ -3441,6 +3393,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListApprovalSchemasForApprovalProcessesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListApprovalSchemasForApprovalProcessesResponse
      *
      * @param ListApprovalSchemasForApprovalProcessesRequest $request
@@ -3452,31 +3405,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListApprovalSchemasForApprovalProcesses',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApprovalSchemasForApprovalProcesses',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListApprovalSchemasForApprovalProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApprovalSchemasForApprovalProcessesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApprovalSchemasForApprovalProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询审批流程关联的渲染模板
      *
      * @param request - ListApprovalSchemasForApprovalProcessesRequest
+     *
      * @returns ListApprovalSchemasForApprovalProcessesResponse
      *
      * @param ListApprovalSchemasForApprovalProcessesRequest $request
@@ -3495,6 +3446,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListApprovalsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListApprovalsResponse
      *
      * @param ListApprovalsRequest $request
@@ -3506,31 +3458,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListApprovals',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApprovals',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListApprovalsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApprovalsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApprovalsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询审批.
      *
      * @param request - ListApprovalsRequest
+     *
      * @returns ListApprovalsResponse
      *
      * @param ListApprovalsRequest $request
@@ -3549,6 +3499,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListClientUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListClientUsersResponse
      *
      * @param ListClientUsersRequest $request
@@ -3560,31 +3511,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListClientUsers',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListClientUsers',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListClientUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListClientUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListClientUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询自定义身份源用户.
      *
      * @param request - ListClientUsersRequest
+     *
      * @returns ListClientUsersResponse
      *
      * @param ListClientUsersRequest $request
@@ -3603,6 +3552,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListConnectorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListConnectorsResponse
      *
      * @param ListConnectorsRequest $request
@@ -3614,31 +3564,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListConnectors',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListConnectors',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListConnectorsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListConnectorsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListConnectorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询connector.
      *
      * @param request - ListConnectorsRequest
+     *
      * @returns ListConnectorsResponse
      *
      * @param ListConnectorsRequest $request
@@ -3653,10 +3601,64 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * 批量查询动态策略处置流程.
+     *
+     * @param request - ListDynamicDisposalProcessesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDynamicDisposalProcessesResponse
+     *
+     * @param ListDynamicDisposalProcessesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListDynamicDisposalProcessesResponse
+     */
+    public function listDynamicDisposalProcessesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDynamicDisposalProcesses',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDynamicDisposalProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量查询动态策略处置流程.
+     *
+     * @param request - ListDynamicDisposalProcessesRequest
+     *
+     * @returns ListDynamicDisposalProcessesResponse
+     *
+     * @param ListDynamicDisposalProcessesRequest $request
+     *
+     * @return ListDynamicDisposalProcessesResponse
+     */
+    public function listDynamicDisposalProcesses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDynamicDisposalProcessesWithOptions($request, $runtime);
+    }
+
+    /**
      * 批量查询动态路由的地域
      *
      * @param request - ListDynamicRouteRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDynamicRouteRegionsResponse
      *
      * @param RuntimeOptions $runtime
@@ -3665,23 +3667,20 @@ class Csas extends OpenApiClient
      */
     public function listDynamicRouteRegionsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListDynamicRouteRegions',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDynamicRouteRegions',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDynamicRouteRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDynamicRouteRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDynamicRouteRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3703,6 +3702,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListDynamicRoutesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDynamicRoutesResponse
      *
      * @param ListDynamicRoutesRequest $request
@@ -3714,31 +3714,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDynamicRoutes',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDynamicRoutes',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDynamicRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDynamicRoutesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDynamicRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询动态路由.
      *
      * @param request - ListDynamicRoutesRequest
+     *
      * @returns ListDynamicRoutesResponse
      *
      * @param ListDynamicRoutesRequest $request
@@ -3757,6 +3755,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListExcessiveDeviceRegistrationApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListExcessiveDeviceRegistrationApplicationsResponse
      *
      * @param ListExcessiveDeviceRegistrationApplicationsRequest $request
@@ -3768,31 +3767,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListExcessiveDeviceRegistrationApplications',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListExcessiveDeviceRegistrationApplications',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListExcessiveDeviceRegistrationApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListExcessiveDeviceRegistrationApplicationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListExcessiveDeviceRegistrationApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询超额注册申请列表.
      *
      * @param request - ListExcessiveDeviceRegistrationApplicationsRequest
+     *
      * @returns ListExcessiveDeviceRegistrationApplicationsResponse
      *
      * @param ListExcessiveDeviceRegistrationApplicationsRequest $request
@@ -3811,6 +3808,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListIdpConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIdpConfigsResponse
      *
      * @param ListIdpConfigsRequest $request
@@ -3822,31 +3820,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIdpConfigs',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIdpConfigs',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIdpConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIdpConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIdpConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询IDP配置.
      *
      * @param request - ListIdpConfigsRequest
+     *
      * @returns ListIdpConfigsResponse
      *
      * @param ListIdpConfigsRequest $request
@@ -3865,6 +3861,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListIdpDepartmentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIdpDepartmentsResponse
      *
      * @param ListIdpDepartmentsRequest $request
@@ -3876,31 +3873,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIdpDepartments',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIdpDepartments',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIdpDepartmentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIdpDepartmentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIdpDepartmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询自定义身份源部门.
      *
      * @param request - ListIdpDepartmentsRequest
+     *
      * @returns ListIdpDepartmentsResponse
      *
      * @param ListIdpDepartmentsRequest $request
@@ -3919,6 +3914,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListNacUserCertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListNacUserCertResponse
      *
      * @param ListNacUserCertRequest $request
@@ -3966,27 +3962,25 @@ class Csas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListNacUserCert',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNacUserCert',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListNacUserCertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNacUserCertResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNacUserCertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 入网用户列表.
      *
      * @param request - ListNacUserCertRequest
+     *
      * @returns ListNacUserCertResponse
      *
      * @param ListNacUserCertRequest $request
@@ -4005,6 +3999,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListPolicesForPrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPolicesForPrivateAccessApplicationResponse
      *
      * @param ListPolicesForPrivateAccessApplicationRequest $request
@@ -4016,31 +4011,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPolicesForPrivateAccessApplication',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPolicesForPrivateAccessApplication',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPolicesForPrivateAccessApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPolicesForPrivateAccessApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPolicesForPrivateAccessApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询内网访问应用的策略.
      *
      * @param request - ListPolicesForPrivateAccessApplicationRequest
+     *
      * @returns ListPolicesForPrivateAccessApplicationResponse
      *
      * @param ListPolicesForPrivateAccessApplicationRequest $request
@@ -4059,6 +4052,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListPolicesForPrivateAccessTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPolicesForPrivateAccessTagResponse
      *
      * @param ListPolicesForPrivateAccessTagRequest $request
@@ -4070,31 +4064,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPolicesForPrivateAccessTag',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPolicesForPrivateAccessTag',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPolicesForPrivateAccessTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPolicesForPrivateAccessTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPolicesForPrivateAccessTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询内网访问标签的策略.
      *
      * @param request - ListPolicesForPrivateAccessTagRequest
+     *
      * @returns ListPolicesForPrivateAccessTagResponse
      *
      * @param ListPolicesForPrivateAccessTagRequest $request
@@ -4113,6 +4105,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListPolicesForUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPolicesForUserGroupResponse
      *
      * @param ListPolicesForUserGroupRequest $request
@@ -4124,31 +4117,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPolicesForUserGroup',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPolicesForUserGroup',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPolicesForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPolicesForUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPolicesForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询用户组的策略.
      *
      * @param request - ListPolicesForUserGroupRequest
+     *
      * @returns ListPolicesForUserGroupResponse
      *
      * @param ListPolicesForUserGroupRequest $request
@@ -4167,6 +4158,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListPopTrafficStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPopTrafficStatisticsResponse
      *
      * @param ListPopTrafficStatisticsRequest $request
@@ -4178,31 +4170,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPopTrafficStatistics',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPopTrafficStatistics',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPopTrafficStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPopTrafficStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPopTrafficStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * pop节点流量统计
      *
      * @param request - ListPopTrafficStatisticsRequest
+     *
      * @returns ListPopTrafficStatisticsResponse
      *
      * @param ListPopTrafficStatisticsRequest $request
@@ -4221,6 +4211,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListPrivateAccessApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPrivateAccessApplicationsResponse
      *
      * @param ListPrivateAccessApplicationsRequest $request
@@ -4232,31 +4223,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPrivateAccessApplications',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPrivateAccessApplications',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPrivateAccessApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPrivateAccessApplicationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPrivateAccessApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询内网访问应用.
      *
      * @param request - ListPrivateAccessApplicationsRequest
+     *
      * @returns ListPrivateAccessApplicationsResponse
      *
      * @param ListPrivateAccessApplicationsRequest $request
@@ -4275,6 +4264,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListPrivateAccessApplicationsForDynamicRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPrivateAccessApplicationsForDynamicRouteResponse
      *
      * @param ListPrivateAccessApplicationsForDynamicRouteRequest $request
@@ -4286,31 +4276,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPrivateAccessApplicationsForDynamicRoute',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPrivateAccessApplicationsForDynamicRoute',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPrivateAccessApplicationsForDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPrivateAccessApplicationsForDynamicRouteResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPrivateAccessApplicationsForDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询动态路由的内网访问应用.
      *
      * @param request - ListPrivateAccessApplicationsForDynamicRouteRequest
+     *
      * @returns ListPrivateAccessApplicationsForDynamicRouteResponse
      *
      * @param ListPrivateAccessApplicationsForDynamicRouteRequest $request
@@ -4325,10 +4313,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询内网访问策略.
+     * Queries the private access policies within the current Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessPolicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPrivateAccessPolicesResponse
      *
      * @param ListPrivateAccessPolicesRequest $request
@@ -4340,31 +4329,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPrivateAccessPolices',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPrivateAccessPolices',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPrivateAccessPolicesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPrivateAccessPolicesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPrivateAccessPolicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 批量查询内网访问策略.
+     * Queries the private access policies within the current Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessPolicesRequest
+     *
      * @returns ListPrivateAccessPolicesResponse
      *
      * @param ListPrivateAccessPolicesRequest $request
@@ -4383,6 +4370,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListPrivateAccessTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPrivateAccessTagsResponse
      *
      * @param ListPrivateAccessTagsRequest $request
@@ -4394,31 +4382,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPrivateAccessTags',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPrivateAccessTags',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPrivateAccessTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPrivateAccessTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPrivateAccessTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the information about all internal access tags within the current Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessTagsRequest
+     *
      * @returns ListPrivateAccessTagsResponse
      *
      * @param ListPrivateAccessTagsRequest $request
@@ -4437,6 +4423,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListPrivateAccessTagsForDynamicRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPrivateAccessTagsForDynamicRouteResponse
      *
      * @param ListPrivateAccessTagsForDynamicRouteRequest $request
@@ -4448,31 +4435,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPrivateAccessTagsForDynamicRoute',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPrivateAccessTagsForDynamicRoute',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPrivateAccessTagsForDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPrivateAccessTagsForDynamicRouteResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPrivateAccessTagsForDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询动态路由的内网访问标签.
      *
      * @param request - ListPrivateAccessTagsForDynamicRouteRequest
+     *
      * @returns ListPrivateAccessTagsForDynamicRouteResponse
      *
      * @param ListPrivateAccessTagsForDynamicRouteRequest $request
@@ -4491,6 +4476,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListRegistrationPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRegistrationPoliciesResponse
      *
      * @param ListRegistrationPoliciesRequest $request
@@ -4502,31 +4488,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRegistrationPolicies',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRegistrationPolicies',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRegistrationPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRegistrationPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRegistrationPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询用户设备注册策略列表.
      *
      * @param request - ListRegistrationPoliciesRequest
+     *
      * @returns ListRegistrationPoliciesResponse
      *
      * @param ListRegistrationPoliciesRequest $request
@@ -4545,6 +4529,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListRegistrationPoliciesForUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRegistrationPoliciesForUserGroupResponse
      *
      * @param ListRegistrationPoliciesForUserGroupRequest $request
@@ -4556,31 +4541,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRegistrationPoliciesForUserGroup',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRegistrationPoliciesForUserGroup',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRegistrationPoliciesForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRegistrationPoliciesForUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRegistrationPoliciesForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询用户组相关的设备注册策略.
      *
      * @param request - ListRegistrationPoliciesForUserGroupRequest
+     *
      * @returns ListRegistrationPoliciesForUserGroupResponse
      *
      * @param ListRegistrationPoliciesForUserGroupRequest $request
@@ -4599,6 +4582,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListSoftwareForUserDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSoftwareForUserDeviceResponse
      *
      * @param ListSoftwareForUserDeviceRequest $request
@@ -4610,31 +4594,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSoftwareForUserDevice',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSoftwareForUserDevice',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSoftwareForUserDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSoftwareForUserDeviceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSoftwareForUserDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询终端安装软件列表.
      *
      * @param request - ListSoftwareForUserDeviceRequest
+     *
      * @returns ListSoftwareForUserDeviceResponse
      *
      * @param ListSoftwareForUserDeviceRequest $request
@@ -4653,6 +4635,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListTagsForPrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagsForPrivateAccessApplicationResponse
      *
      * @param ListTagsForPrivateAccessApplicationRequest $request
@@ -4664,31 +4647,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagsForPrivateAccessApplication',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagsForPrivateAccessApplication',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagsForPrivateAccessApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagsForPrivateAccessApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagsForPrivateAccessApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询内网访问应用的标签.
      *
      * @param request - ListTagsForPrivateAccessApplicationRequest
+     *
      * @returns ListTagsForPrivateAccessApplicationResponse
      *
      * @param ListTagsForPrivateAccessApplicationRequest $request
@@ -4707,6 +4688,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListTagsForPrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagsForPrivateAccessPolicyResponse
      *
      * @param ListTagsForPrivateAccessPolicyRequest $request
@@ -4718,31 +4700,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagsForPrivateAccessPolicy',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagsForPrivateAccessPolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagsForPrivateAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagsForPrivateAccessPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagsForPrivateAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询内网访问策略的标签.
      *
      * @param request - ListTagsForPrivateAccessPolicyRequest
+     *
      * @returns ListTagsForPrivateAccessPolicyResponse
      *
      * @param ListTagsForPrivateAccessPolicyRequest $request
@@ -4761,6 +4741,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListUninstallApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListUninstallApplicationsResponse
      *
      * @param ListUninstallApplicationsRequest $request
@@ -4772,31 +4753,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUninstallApplications',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUninstallApplications',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListUninstallApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUninstallApplicationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUninstallApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 列表查询卸载申请列表.
      *
      * @param request - ListUninstallApplicationsRequest
+     *
      * @returns ListUninstallApplicationsResponse
      *
      * @param ListUninstallApplicationsRequest $request
@@ -4815,6 +4794,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListUserApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListUserApplicationsResponse
      *
      * @param ListUserApplicationsRequest $request
@@ -4826,31 +4806,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserApplications',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUserApplications',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListUserApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUserApplicationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUserApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 列表查询用户应用权限.
      *
      * @param request - ListUserApplicationsRequest
+     *
      * @returns ListUserApplicationsResponse
      *
      * @param ListUserApplicationsRequest $request
@@ -4869,6 +4847,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListUserDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListUserDevicesResponse
      *
      * @param ListUserDevicesRequest $request
@@ -4880,31 +4859,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserDevices',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUserDevices',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListUserDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUserDevicesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUserDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询用户设备列表.
      *
      * @param request - ListUserDevicesRequest
+     *
      * @returns ListUserDevicesResponse
      *
      * @param ListUserDevicesRequest $request
@@ -4923,6 +4900,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListUserGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListUserGroupsResponse
      *
      * @param ListUserGroupsRequest $request
@@ -4934,31 +4912,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserGroups',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUserGroups',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListUserGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUserGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUserGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询用户组.
      *
      * @param request - ListUserGroupsRequest
+     *
      * @returns ListUserGroupsResponse
      *
      * @param ListUserGroupsRequest $request
@@ -4977,6 +4953,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListUserGroupsForPrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListUserGroupsForPrivateAccessPolicyResponse
      *
      * @param ListUserGroupsForPrivateAccessPolicyRequest $request
@@ -4988,31 +4965,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserGroupsForPrivateAccessPolicy',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUserGroupsForPrivateAccessPolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListUserGroupsForPrivateAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUserGroupsForPrivateAccessPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUserGroupsForPrivateAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量查询内网访问策略的用户组.
      *
      * @param request - ListUserGroupsForPrivateAccessPolicyRequest
+     *
      * @returns ListUserGroupsForPrivateAccessPolicyResponse
      *
      * @param ListUserGroupsForPrivateAccessPolicyRequest $request
@@ -5031,6 +5006,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListUserGroupsForRegistrationPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListUserGroupsForRegistrationPolicyResponse
      *
      * @param ListUserGroupsForRegistrationPolicyRequest $request
@@ -5042,31 +5018,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserGroupsForRegistrationPolicy',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUserGroupsForRegistrationPolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListUserGroupsForRegistrationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUserGroupsForRegistrationPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUserGroupsForRegistrationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询设备注册策略相关用户组.
      *
      * @param request - ListUserGroupsForRegistrationPolicyRequest
+     *
      * @returns ListUserGroupsForRegistrationPolicyResponse
      *
      * @param ListUserGroupsForRegistrationPolicyRequest $request
@@ -5085,6 +5059,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListUserPrivateAccessPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListUserPrivateAccessPoliciesResponse
      *
      * @param ListUserPrivateAccessPoliciesRequest $request
@@ -5096,31 +5071,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserPrivateAccessPolicies',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUserPrivateAccessPolicies',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListUserPrivateAccessPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUserPrivateAccessPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUserPrivateAccessPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 列表查询用户零信任策略.
      *
      * @param request - ListUserPrivateAccessPoliciesRequest
+     *
      * @returns ListUserPrivateAccessPoliciesResponse
      *
      * @param ListUserPrivateAccessPoliciesRequest $request
@@ -5139,6 +5112,7 @@ class Csas extends OpenApiClient
      *
      * @param request - ListUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListUsersResponse
      *
      * @param ListUsersRequest $request
@@ -5150,31 +5124,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUsers',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUsers',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 列表查询登陆用户.
      *
      * @param request - ListUsersRequest
+     *
      * @returns ListUsersResponse
      *
      * @param ListUsersRequest $request
@@ -5193,6 +5165,7 @@ class Csas extends OpenApiClient
      *
      * @param request - LookupWmInfoMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns LookupWmInfoMappingResponse
      *
      * @param LookupWmInfoMappingRequest $request
@@ -5204,31 +5177,29 @@ class Csas extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'LookupWmInfoMapping',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LookupWmInfoMapping',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return LookupWmInfoMappingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return LookupWmInfoMappingResponse::fromMap($this->execute($params, $req, $runtime));
+        return LookupWmInfoMappingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 根据数字水印信息查询字符串水印信息.
      *
      * @param request - LookupWmInfoMappingRequest
+     *
      * @returns LookupWmInfoMappingResponse
      *
      * @param LookupWmInfoMappingRequest $request
@@ -5242,11 +5213,15 @@ class Csas extends OpenApiClient
         return $this->lookupWmInfoMappingWithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
      * 吊销用户登录会话.
      *
+     * @deprecated OpenAPI RevokeUserSession is deprecated
+     *
      * @param request - RevokeUserSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RevokeUserSessionResponse
      *
      * @param RevokeUserSessionRequest $request
@@ -5270,27 +5245,28 @@ class Csas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RevokeUserSession',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RevokeUserSession',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RevokeUserSessionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevokeUserSessionResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevokeUserSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * 吊销用户登录会话.
      *
+     * @deprecated OpenAPI RevokeUserSession is deprecated
+     *
      * @param request - RevokeUserSessionRequest
+     *
      * @returns RevokeUserSessionResponse
      *
      * @param RevokeUserSessionRequest $request
@@ -5309,6 +5285,7 @@ class Csas extends OpenApiClient
      *
      * @param tmpReq - UpdateApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateApprovalProcessResponse
      *
      * @param UpdateApprovalProcessRequest $tmpReq
@@ -5353,27 +5330,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateApprovalProcess',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateApprovalProcess',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateApprovalProcessResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateApprovalProcessResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateApprovalProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新审批流程.
      *
      * @param request - UpdateApprovalProcessRequest
+     *
      * @returns UpdateApprovalProcessResponse
      *
      * @param UpdateApprovalProcessRequest $request
@@ -5392,6 +5367,7 @@ class Csas extends OpenApiClient
      *
      * @param request - UpdateApprovalStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateApprovalStatusResponse
      *
      * @param UpdateApprovalStatusRequest $request
@@ -5415,27 +5391,25 @@ class Csas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateApprovalStatus',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateApprovalStatus',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateApprovalStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateApprovalStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateApprovalStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改审批状态
      *
      * @param request - UpdateApprovalStatusRequest
+     *
      * @returns UpdateApprovalStatusResponse
      *
      * @param UpdateApprovalStatusRequest $request
@@ -5454,6 +5428,7 @@ class Csas extends OpenApiClient
      *
      * @param tmpReq - UpdateBootAndAntiUninstallPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateBootAndAntiUninstallPolicyResponse
      *
      * @param UpdateBootAndAntiUninstallPolicyRequest $tmpReq
@@ -5502,27 +5477,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateBootAndAntiUninstallPolicy',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateBootAndAntiUninstallPolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateBootAndAntiUninstallPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateBootAndAntiUninstallPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateBootAndAntiUninstallPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新自启动与防卸载策略配置.
      *
      * @param request - UpdateBootAndAntiUninstallPolicyRequest
+     *
      * @returns UpdateBootAndAntiUninstallPolicyResponse
      *
      * @param UpdateBootAndAntiUninstallPolicyRequest $request
@@ -5541,6 +5514,7 @@ class Csas extends OpenApiClient
      *
      * @param request - UpdateClientUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateClientUserResponse
      *
      * @param UpdateClientUserRequest $request
@@ -5576,27 +5550,25 @@ class Csas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateClientUser',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateClientUser',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateClientUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateClientUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateClientUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改自定义身份源指定用户.
      *
      * @param request - UpdateClientUserRequest
+     *
      * @returns UpdateClientUserResponse
      *
      * @param UpdateClientUserRequest $request
@@ -5615,6 +5587,7 @@ class Csas extends OpenApiClient
      *
      * @param request - UpdateClientUserPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateClientUserPasswordResponse
      *
      * @param UpdateClientUserPasswordRequest $request
@@ -5642,27 +5615,25 @@ class Csas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateClientUserPassword',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateClientUserPassword',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateClientUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateClientUserPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateClientUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改自定义身份源指定用户密码
      *
      * @param request - UpdateClientUserPasswordRequest
+     *
      * @returns UpdateClientUserPasswordResponse
      *
      * @param UpdateClientUserPasswordRequest $request
@@ -5681,6 +5652,7 @@ class Csas extends OpenApiClient
      *
      * @param request - UpdateClientUserStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateClientUserStatusResponse
      *
      * @param UpdateClientUserStatusRequest $request
@@ -5704,27 +5676,25 @@ class Csas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateClientUserStatus',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateClientUserStatus',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateClientUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateClientUserStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateClientUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改自定义身份源指定用户启用状态
      *
      * @param request - UpdateClientUserStatusRequest
+     *
      * @returns UpdateClientUserStatusResponse
      *
      * @param UpdateClientUserStatusRequest $request
@@ -5743,6 +5713,7 @@ class Csas extends OpenApiClient
      *
      * @param request - UpdateDynamicRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDynamicRouteResponse
      *
      * @param UpdateDynamicRouteRequest $request
@@ -5753,7 +5724,7 @@ class Csas extends OpenApiClient
     public function updateDynamicRouteWithOptions($request, $runtime)
     {
         $request->validate();
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->applicationIds) {
             @$bodyFlat['ApplicationIds'] = $request->applicationIds;
@@ -5809,27 +5780,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDynamicRoute',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDynamicRoute',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDynamicRouteResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改动态路由.
      *
      * @param request - UpdateDynamicRouteRequest
+     *
      * @returns UpdateDynamicRouteResponse
      *
      * @param UpdateDynamicRouteRequest $request
@@ -5848,6 +5817,7 @@ class Csas extends OpenApiClient
      *
      * @param request - UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
      *
      * @param UpdateExcessiveDeviceRegistrationApplicationsStatusRequest $request
@@ -5858,7 +5828,7 @@ class Csas extends OpenApiClient
     public function updateExcessiveDeviceRegistrationApplicationsStatusWithOptions($request, $runtime)
     {
         $request->validate();
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->applicationIds) {
             @$bodyFlat['ApplicationIds'] = $request->applicationIds;
@@ -5874,27 +5844,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateExcessiveDeviceRegistrationApplicationsStatus',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateExcessiveDeviceRegistrationApplicationsStatus',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量更新超额注册申请状态
      *
      * @param request - UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
+     *
      * @returns UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
      *
      * @param UpdateExcessiveDeviceRegistrationApplicationsStatusRequest $request
@@ -5913,6 +5881,7 @@ class Csas extends OpenApiClient
      *
      * @param request - UpdateIdpDepartmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateIdpDepartmentResponse
      *
      * @param UpdateIdpDepartmentRequest $request
@@ -5940,27 +5909,25 @@ class Csas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateIdpDepartment',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateIdpDepartment',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateIdpDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateIdpDepartmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateIdpDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改指定自定义身份源部门.
      *
      * @param request - UpdateIdpDepartmentRequest
+     *
      * @returns UpdateIdpDepartmentResponse
      *
      * @param UpdateIdpDepartmentRequest $request
@@ -5979,6 +5946,7 @@ class Csas extends OpenApiClient
      *
      * @param request - UpdateNacUserCertStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateNacUserCertStatusResponse
      *
      * @param UpdateNacUserCertStatusRequest $request
@@ -5989,7 +5957,7 @@ class Csas extends OpenApiClient
     public function updateNacUserCertStatusWithOptions($request, $runtime)
     {
         $request->validate();
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->idList) {
             @$bodyFlat['IdList'] = $request->idList;
@@ -6005,27 +5973,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateNacUserCertStatus',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateNacUserCertStatus',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateNacUserCertStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateNacUserCertStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateNacUserCertStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 更新NAC User 状态
      *
      * @param request - UpdateNacUserCertStatusRequest
+     *
      * @returns UpdateNacUserCertStatusResponse
      *
      * @param UpdateNacUserCertStatusRequest $request
@@ -6044,6 +6010,7 @@ class Csas extends OpenApiClient
      *
      * @param tmpReq - UpdatePrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdatePrivateAccessApplicationResponse
      *
      * @param UpdatePrivateAccessApplicationRequest $tmpReq
@@ -6060,7 +6027,7 @@ class Csas extends OpenApiClient
             $request->l7ConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->l7Config, 'L7Config', 'json');
         }
 
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->addresses) {
             @$bodyFlat['Addresses'] = $request->addresses;
@@ -6116,27 +6083,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdatePrivateAccessApplication',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdatePrivateAccessApplication',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdatePrivateAccessApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdatePrivateAccessApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdatePrivateAccessApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改内网访问应用.
      *
      * @param request - UpdatePrivateAccessApplicationRequest
+     *
      * @returns UpdatePrivateAccessApplicationResponse
      *
      * @param UpdatePrivateAccessApplicationRequest $request
@@ -6155,6 +6120,7 @@ class Csas extends OpenApiClient
      *
      * @param request - UpdatePrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdatePrivateAccessPolicyResponse
      *
      * @param UpdatePrivateAccessPolicyRequest $request
@@ -6165,7 +6131,7 @@ class Csas extends OpenApiClient
     public function updatePrivateAccessPolicyWithOptions($request, $runtime)
     {
         $request->validate();
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->applicationIds) {
             @$bodyFlat['ApplicationIds'] = $request->applicationIds;
@@ -6233,27 +6199,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdatePrivateAccessPolicy',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdatePrivateAccessPolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdatePrivateAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdatePrivateAccessPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdatePrivateAccessPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改内网访问策略.
      *
      * @param request - UpdatePrivateAccessPolicyRequest
+     *
      * @returns UpdatePrivateAccessPolicyResponse
      *
      * @param UpdatePrivateAccessPolicyRequest $request
@@ -6272,6 +6236,7 @@ class Csas extends OpenApiClient
      *
      * @param tmpReq - UpdateRegistrationPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateRegistrationPolicyResponse
      *
      * @param UpdateRegistrationPolicyRequest $tmpReq
@@ -6348,27 +6313,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRegistrationPolicy',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRegistrationPolicy',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateRegistrationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateRegistrationPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateRegistrationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改设备注册策略.
      *
      * @param request - UpdateRegistrationPolicyRequest
+     *
      * @returns UpdateRegistrationPolicyResponse
      *
      * @param UpdateRegistrationPolicyRequest $request
@@ -6387,6 +6350,7 @@ class Csas extends OpenApiClient
      *
      * @param request - UpdateUninstallApplicationsStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateUninstallApplicationsStatusResponse
      *
      * @param UpdateUninstallApplicationsStatusRequest $request
@@ -6397,7 +6361,7 @@ class Csas extends OpenApiClient
     public function updateUninstallApplicationsStatusWithOptions($request, $runtime)
     {
         $request->validate();
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->applicationIds) {
             @$bodyFlat['ApplicationIds'] = $request->applicationIds;
@@ -6413,27 +6377,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUninstallApplicationsStatus',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateUninstallApplicationsStatus',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateUninstallApplicationsStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUninstallApplicationsStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUninstallApplicationsStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量修改卸载申请状态
      *
      * @param request - UpdateUninstallApplicationsStatusRequest
+     *
      * @returns UpdateUninstallApplicationsStatusResponse
      *
      * @param UpdateUninstallApplicationsStatusRequest $request
@@ -6452,6 +6414,7 @@ class Csas extends OpenApiClient
      *
      * @param request - UpdateUserDevicesSharingStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateUserDevicesSharingStatusResponse
      *
      * @param UpdateUserDevicesSharingStatusRequest $request
@@ -6462,7 +6425,7 @@ class Csas extends OpenApiClient
     public function updateUserDevicesSharingStatusWithOptions($request, $runtime)
     {
         $request->validate();
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->deviceTags) {
             @$bodyFlat['DeviceTags'] = $request->deviceTags;
@@ -6478,27 +6441,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUserDevicesSharingStatus',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateUserDevicesSharingStatus',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateUserDevicesSharingStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUserDevicesSharingStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUserDevicesSharingStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量更新用户设备共享状态
      *
      * @param request - UpdateUserDevicesSharingStatusRequest
+     *
      * @returns UpdateUserDevicesSharingStatusResponse
      *
      * @param UpdateUserDevicesSharingStatusRequest $request
@@ -6517,6 +6478,7 @@ class Csas extends OpenApiClient
      *
      * @param request - UpdateUserDevicesStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateUserDevicesStatusResponse
      *
      * @param UpdateUserDevicesStatusRequest $request
@@ -6543,27 +6505,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUserDevicesStatus',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateUserDevicesStatus',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateUserDevicesStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUserDevicesStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUserDevicesStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量更新用户设备状态
      *
      * @param request - UpdateUserDevicesStatusRequest
+     *
      * @returns UpdateUserDevicesStatusResponse
      *
      * @param UpdateUserDevicesStatusRequest $request
@@ -6582,6 +6542,7 @@ class Csas extends OpenApiClient
      *
      * @param request - UpdateUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateUserGroupResponse
      *
      * @param UpdateUserGroupRequest $request
@@ -6592,7 +6553,7 @@ class Csas extends OpenApiClient
     public function updateUserGroupWithOptions($request, $runtime)
     {
         $request->validate();
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->attributes) {
             @$bodyFlat['Attributes'] = $request->attributes;
@@ -6616,27 +6577,25 @@ class Csas extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUserGroup',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateUserGroup',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改用户组.
      *
      * @param request - UpdateUserGroupRequest
+     *
      * @returns UpdateUserGroupResponse
      *
      * @param UpdateUserGroupRequest $request
@@ -6655,6 +6614,7 @@ class Csas extends OpenApiClient
      *
      * @param request - UpdateUsersStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateUsersStatusResponse
      *
      * @param UpdateUsersStatusRequest $request
@@ -6678,27 +6638,25 @@ class Csas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUsersStatus',
-            'version'     => '2023-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateUsersStatus',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateUsersStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUsersStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUsersStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 批量修改登陆用户状态
      *
      * @param request - UpdateUsersStatusRequest
+     *
      * @returns UpdateUsersStatusResponse
      *
      * @param UpdateUsersStatusRequest $request

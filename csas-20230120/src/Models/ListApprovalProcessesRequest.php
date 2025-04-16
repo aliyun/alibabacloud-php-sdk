@@ -12,43 +12,50 @@ class ListApprovalProcessesRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $policyType;
+
     /**
      * @var string[]
      */
     public $processIds;
+
     /**
      * @var string
      */
     public $processName;
+
     /**
      * @var string
      */
     public $saseUserId;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'policyId'    => 'PolicyId',
-        'policyType'  => 'PolicyType',
-        'processIds'  => 'ProcessIds',
+        'pageSize' => 'PageSize',
+        'policyId' => 'PolicyId',
+        'policyType' => 'PolicyType',
+        'processIds' => 'ProcessIds',
         'processName' => 'ProcessName',
-        'saseUserId'  => 'SaseUserId',
-        'username'    => 'Username',
+        'saseUserId' => 'SaseUserId',
+        'username' => 'Username',
     ];
 
     public function validate()
@@ -81,7 +88,7 @@ class ListApprovalProcessesRequest extends Model
         if (null !== $this->processIds) {
             if (\is_array($this->processIds)) {
                 $res['ProcessIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->processIds as $item1) {
                     $res['ProcessIds'][$n1++] = $item1;
                 }
@@ -130,7 +137,7 @@ class ListApprovalProcessesRequest extends Model
         if (isset($map['ProcessIds'])) {
             if (!empty($map['ProcessIds'])) {
                 $model->processIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ProcessIds'] as $item1) {
                     $model->processIds[$n1++] = $item1;
                 }

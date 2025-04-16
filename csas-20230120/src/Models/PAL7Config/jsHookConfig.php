@@ -13,12 +13,13 @@ class jsHookConfig extends Model
      * @var string
      */
     public $mode;
+
     /**
      * @var PAL7ConfigReplaceRule[]
      */
     public $replaceRules;
     protected $_name = [
-        'mode'         => 'Mode',
+        'mode' => 'Mode',
         'replaceRules' => 'ReplaceRules',
     ];
 
@@ -40,7 +41,7 @@ class jsHookConfig extends Model
         if (null !== $this->replaceRules) {
             if (\is_array($this->replaceRules)) {
                 $res['ReplaceRules'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->replaceRules as $item1) {
                     $res['ReplaceRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class jsHookConfig extends Model
         if (isset($map['ReplaceRules'])) {
             if (!empty($map['ReplaceRules'])) {
                 $model->replaceRules = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ReplaceRules'] as $item1) {
                     $model->replaceRules[$n1++] = PAL7ConfigReplaceRule::fromMap($item1);
                 }

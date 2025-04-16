@@ -13,6 +13,7 @@ class trafficData extends Model
      * @var datapoints[]
      */
     public $datapoints;
+
     /**
      * @var string
      */
@@ -36,7 +37,7 @@ class trafficData extends Model
         if (null !== $this->datapoints) {
             if (\is_array($this->datapoints)) {
                 $res['Datapoints'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->datapoints as $item1) {
                     $res['Datapoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class trafficData extends Model
         if (isset($map['Datapoints'])) {
             if (!empty($map['Datapoints'])) {
                 $model->datapoints = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Datapoints'] as $item1) {
                     $model->datapoints[$n1++] = datapoints::fromMap($item1);
                 }

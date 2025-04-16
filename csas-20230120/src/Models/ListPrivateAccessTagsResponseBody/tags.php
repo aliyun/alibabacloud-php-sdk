@@ -12,38 +12,44 @@ class tags extends Model
      * @var string[]
      */
     public $applicationIds;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string[]
      */
     public $policyIds;
+
     /**
      * @var string
      */
     public $tagId;
+
     /**
      * @var string
      */
     public $tagType;
     protected $_name = [
         'applicationIds' => 'ApplicationIds',
-        'createTime'     => 'CreateTime',
-        'description'    => 'Description',
-        'name'           => 'Name',
-        'policyIds'      => 'PolicyIds',
-        'tagId'          => 'TagId',
-        'tagType'        => 'TagType',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'name' => 'Name',
+        'policyIds' => 'PolicyIds',
+        'tagId' => 'TagId',
+        'tagType' => 'TagType',
     ];
 
     public function validate()
@@ -63,7 +69,7 @@ class tags extends Model
         if (null !== $this->applicationIds) {
             if (\is_array($this->applicationIds)) {
                 $res['ApplicationIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->applicationIds as $item1) {
                     $res['ApplicationIds'][$n1++] = $item1;
                 }
@@ -85,7 +91,7 @@ class tags extends Model
         if (null !== $this->policyIds) {
             if (\is_array($this->policyIds)) {
                 $res['PolicyIds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->policyIds as $item1) {
                     $res['PolicyIds'][$n1++] = $item1;
                 }
@@ -114,7 +120,7 @@ class tags extends Model
         if (isset($map['ApplicationIds'])) {
             if (!empty($map['ApplicationIds'])) {
                 $model->applicationIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ApplicationIds'] as $item1) {
                     $model->applicationIds[$n1++] = $item1;
                 }
@@ -136,7 +142,7 @@ class tags extends Model
         if (isset($map['PolicyIds'])) {
             if (!empty($map['PolicyIds'])) {
                 $model->policyIds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['PolicyIds'] as $item1) {
                     $model->policyIds[$n1++] = $item1;
                 }

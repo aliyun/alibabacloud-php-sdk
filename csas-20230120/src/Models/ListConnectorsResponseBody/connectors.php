@@ -15,48 +15,56 @@ class connectors extends Model
      * @var applications[]
      */
     public $applications;
+
     /**
      * @var connectorClients[]
      */
     public $connectorClients;
+
     /**
      * @var string
      */
     public $connectorId;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $switchStatus;
+
     /**
      * @var upgradeTime
      */
     public $upgradeTime;
     protected $_name = [
-        'applications'     => 'Applications',
+        'applications' => 'Applications',
         'connectorClients' => 'ConnectorClients',
-        'connectorId'      => 'ConnectorId',
-        'createTime'       => 'CreateTime',
-        'name'             => 'Name',
-        'regionId'         => 'RegionId',
-        'status'           => 'Status',
-        'switchStatus'     => 'SwitchStatus',
-        'upgradeTime'      => 'UpgradeTime',
+        'connectorId' => 'ConnectorId',
+        'createTime' => 'CreateTime',
+        'name' => 'Name',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
+        'switchStatus' => 'SwitchStatus',
+        'upgradeTime' => 'UpgradeTime',
     ];
 
     public function validate()
@@ -79,7 +87,7 @@ class connectors extends Model
         if (null !== $this->applications) {
             if (\is_array($this->applications)) {
                 $res['Applications'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->applications as $item1) {
                     $res['Applications'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -89,7 +97,7 @@ class connectors extends Model
         if (null !== $this->connectorClients) {
             if (\is_array($this->connectorClients)) {
                 $res['ConnectorClients'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->connectorClients as $item1) {
                     $res['ConnectorClients'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -138,7 +146,7 @@ class connectors extends Model
         if (isset($map['Applications'])) {
             if (!empty($map['Applications'])) {
                 $model->applications = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['Applications'] as $item1) {
                     $model->applications[$n1++] = applications::fromMap($item1);
                 }
@@ -148,7 +156,7 @@ class connectors extends Model
         if (isset($map['ConnectorClients'])) {
             if (!empty($map['ConnectorClients'])) {
                 $model->connectorClients = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ConnectorClients'] as $item1) {
                     $model->connectorClients[$n1++] = connectorClients::fromMap($item1);
                 }

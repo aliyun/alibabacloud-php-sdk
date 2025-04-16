@@ -13,53 +13,62 @@ class polices extends Model
      * @var string
      */
     public $applicationType;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var customUserAttributes[]
      */
     public $customUserAttributes;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $policyAction;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $userGroupType;
     protected $_name = [
-        'applicationType'      => 'ApplicationType',
-        'createTime'           => 'CreateTime',
+        'applicationType' => 'ApplicationType',
+        'createTime' => 'CreateTime',
         'customUserAttributes' => 'CustomUserAttributes',
-        'description'          => 'Description',
-        'name'                 => 'Name',
-        'policyAction'         => 'PolicyAction',
-        'policyId'             => 'PolicyId',
-        'priority'             => 'Priority',
-        'status'               => 'Status',
-        'userGroupType'        => 'UserGroupType',
+        'description' => 'Description',
+        'name' => 'Name',
+        'policyAction' => 'PolicyAction',
+        'policyId' => 'PolicyId',
+        'priority' => 'Priority',
+        'status' => 'Status',
+        'userGroupType' => 'UserGroupType',
     ];
 
     public function validate()
@@ -84,7 +93,7 @@ class polices extends Model
         if (null !== $this->customUserAttributes) {
             if (\is_array($this->customUserAttributes)) {
                 $res['CustomUserAttributes'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->customUserAttributes as $item1) {
                     $res['CustomUserAttributes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -141,7 +150,7 @@ class polices extends Model
         if (isset($map['CustomUserAttributes'])) {
             if (!empty($map['CustomUserAttributes'])) {
                 $model->customUserAttributes = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['CustomUserAttributes'] as $item1) {
                     $model->customUserAttributes[$n1++] = customUserAttributes::fromMap($item1);
                 }

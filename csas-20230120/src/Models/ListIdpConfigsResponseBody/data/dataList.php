@@ -12,58 +12,68 @@ class dataList extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $mfa;
+
     /**
      * @var string
      */
     public $mobileLoginType;
+
     /**
      * @var string
      */
     public $mobileMfaConfigType;
+
     /**
      * @var string
      */
     public $multiIdpInfo;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $pcLoginType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'description'         => 'Description',
-        'id'                  => 'Id',
-        'mfa'                 => 'Mfa',
-        'mobileLoginType'     => 'MobileLoginType',
+        'description' => 'Description',
+        'id' => 'Id',
+        'mfa' => 'Mfa',
+        'mobileLoginType' => 'MobileLoginType',
         'mobileMfaConfigType' => 'MobileMfaConfigType',
-        'multiIdpInfo'        => 'MultiIdpInfo',
-        'name'                => 'Name',
-        'pcLoginType'         => 'PcLoginType',
-        'status'              => 'Status',
-        'type'                => 'Type',
-        'updateTime'          => 'UpdateTime',
+        'multiIdpInfo' => 'MultiIdpInfo',
+        'name' => 'Name',
+        'pcLoginType' => 'PcLoginType',
+        'status' => 'Status',
+        'type' => 'Type',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

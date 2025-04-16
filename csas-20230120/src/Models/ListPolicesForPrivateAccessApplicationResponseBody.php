@@ -13,13 +13,14 @@ class ListPolicesForPrivateAccessApplicationResponseBody extends Model
      * @var applications[]
      */
     public $applications;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'applications' => 'Applications',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class ListPolicesForPrivateAccessApplicationResponseBody extends Model
         if (null !== $this->applications) {
             if (\is_array($this->applications)) {
                 $res['Applications'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->applications as $item1) {
                     $res['Applications'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class ListPolicesForPrivateAccessApplicationResponseBody extends Model
         if (isset($map['Applications'])) {
             if (!empty($map['Applications'])) {
                 $model->applications = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['Applications'] as $item1) {
                     $model->applications[$n1++] = applications::fromMap($item1);
                 }

@@ -14,6 +14,7 @@ class blockContent extends Model
      * @var blockTextEn
      */
     public $blockTextEn;
+
     /**
      * @var blockTextZh
      */

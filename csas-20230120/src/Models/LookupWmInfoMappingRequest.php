@@ -12,10 +12,12 @@ class LookupWmInfoMappingRequest extends Model
      * @var int
      */
     public $wmInfoSize;
+
     /**
      * @var string
      */
     public $wmInfoUint;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class LookupWmInfoMappingRequest extends Model
     protected $_name = [
         'wmInfoSize' => 'WmInfoSize',
         'wmInfoUint' => 'WmInfoUint',
-        'wmType'     => 'WmType',
+        'wmType' => 'WmType',
     ];
 
     public function validate()

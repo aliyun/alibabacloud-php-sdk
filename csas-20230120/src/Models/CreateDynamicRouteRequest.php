@@ -12,53 +12,62 @@ class CreateDynamicRouteRequest extends Model
      * @var string[]
      */
     public $applicationIds;
+
     /**
      * @var string
      */
     public $applicationType;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $dynamicRouteType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nextHop;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string[]
      */
     public $regionIds;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string[]
      */
     public $tagIds;
     protected $_name = [
-        'applicationIds'   => 'ApplicationIds',
-        'applicationType'  => 'ApplicationType',
-        'description'      => 'Description',
+        'applicationIds' => 'ApplicationIds',
+        'applicationType' => 'ApplicationType',
+        'description' => 'Description',
         'dynamicRouteType' => 'DynamicRouteType',
-        'name'             => 'Name',
-        'nextHop'          => 'NextHop',
-        'priority'         => 'Priority',
-        'regionIds'        => 'RegionIds',
-        'status'           => 'Status',
-        'tagIds'           => 'TagIds',
+        'name' => 'Name',
+        'nextHop' => 'NextHop',
+        'priority' => 'Priority',
+        'regionIds' => 'RegionIds',
+        'status' => 'Status',
+        'tagIds' => 'TagIds',
     ];
 
     public function validate()
@@ -81,7 +90,7 @@ class CreateDynamicRouteRequest extends Model
         if (null !== $this->applicationIds) {
             if (\is_array($this->applicationIds)) {
                 $res['ApplicationIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->applicationIds as $item1) {
                     $res['ApplicationIds'][$n1++] = $item1;
                 }
@@ -115,7 +124,7 @@ class CreateDynamicRouteRequest extends Model
         if (null !== $this->regionIds) {
             if (\is_array($this->regionIds)) {
                 $res['RegionIds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->regionIds as $item1) {
                     $res['RegionIds'][$n1++] = $item1;
                 }
@@ -129,7 +138,7 @@ class CreateDynamicRouteRequest extends Model
         if (null !== $this->tagIds) {
             if (\is_array($this->tagIds)) {
                 $res['TagIds'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tagIds as $item1) {
                     $res['TagIds'][$n1++] = $item1;
                 }
@@ -150,7 +159,7 @@ class CreateDynamicRouteRequest extends Model
         if (isset($map['ApplicationIds'])) {
             if (!empty($map['ApplicationIds'])) {
                 $model->applicationIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ApplicationIds'] as $item1) {
                     $model->applicationIds[$n1++] = $item1;
                 }
@@ -184,7 +193,7 @@ class CreateDynamicRouteRequest extends Model
         if (isset($map['RegionIds'])) {
             if (!empty($map['RegionIds'])) {
                 $model->regionIds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['RegionIds'] as $item1) {
                     $model->regionIds[$n1++] = $item1;
                 }
@@ -198,7 +207,7 @@ class CreateDynamicRouteRequest extends Model
         if (isset($map['TagIds'])) {
             if (!empty($map['TagIds'])) {
                 $model->tagIds = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['TagIds'] as $item1) {
                     $model->tagIds[$n1++] = $item1;
                 }

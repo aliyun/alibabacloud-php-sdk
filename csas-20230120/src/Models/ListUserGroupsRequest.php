@@ -12,33 +12,38 @@ class ListUserGroupsRequest extends Model
      * @var string
      */
     public $attributeValue;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $PAPolicyId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string[]
      */
     public $userGroupIds;
     protected $_name = [
         'attributeValue' => 'AttributeValue',
-        'currentPage'    => 'CurrentPage',
-        'name'           => 'Name',
-        'PAPolicyId'     => 'PAPolicyId',
-        'pageSize'       => 'PageSize',
-        'userGroupIds'   => 'UserGroupIds',
+        'currentPage' => 'CurrentPage',
+        'name' => 'Name',
+        'PAPolicyId' => 'PAPolicyId',
+        'pageSize' => 'PageSize',
+        'userGroupIds' => 'UserGroupIds',
     ];
 
     public function validate()
@@ -75,7 +80,7 @@ class ListUserGroupsRequest extends Model
         if (null !== $this->userGroupIds) {
             if (\is_array($this->userGroupIds)) {
                 $res['UserGroupIds'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->userGroupIds as $item1) {
                     $res['UserGroupIds'][$n1++] = $item1;
                 }
@@ -116,7 +121,7 @@ class ListUserGroupsRequest extends Model
         if (isset($map['UserGroupIds'])) {
             if (!empty($map['UserGroupIds'])) {
                 $model->userGroupIds = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['UserGroupIds'] as $item1) {
                     $model->userGroupIds[$n1++] = $item1;
                 }

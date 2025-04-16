@@ -13,18 +13,20 @@ class ListSoftwareForUserDeviceResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var software[]
      */
     public $software;
+
     /**
      * @var int
      */
     public $totalNum;
     protected $_name = [
         'requestId' => 'RequestId',
-        'software'  => 'Software',
-        'totalNum'  => 'TotalNum',
+        'software' => 'Software',
+        'totalNum' => 'TotalNum',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class ListSoftwareForUserDeviceResponseBody extends Model
         if (null !== $this->software) {
             if (\is_array($this->software)) {
                 $res['Software'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->software as $item1) {
                     $res['Software'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class ListSoftwareForUserDeviceResponseBody extends Model
         if (isset($map['Software'])) {
             if (!empty($map['Software'])) {
                 $model->software = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Software'] as $item1) {
                     $model->software[$n1++] = software::fromMap($item1);
                 }

@@ -12,12 +12,13 @@ class UpdateClientUserStatusRequest extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'id'     => 'Id',
+        'id' => 'Id',
         'status' => 'Status',
     ];
 

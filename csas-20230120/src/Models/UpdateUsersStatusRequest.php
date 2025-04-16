@@ -12,13 +12,14 @@ class UpdateUsersStatusRequest extends Model
      * @var string[]
      */
     public $saseUserIds;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'saseUserIds' => 'SaseUserIds',
-        'status'      => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class UpdateUsersStatusRequest extends Model
         if (null !== $this->saseUserIds) {
             if (\is_array($this->saseUserIds)) {
                 $res['SaseUserIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->saseUserIds as $item1) {
                     $res['SaseUserIds'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class UpdateUsersStatusRequest extends Model
         if (isset($map['SaseUserIds'])) {
             if (!empty($map['SaseUserIds'])) {
                 $model->saseUserIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['SaseUserIds'] as $item1) {
                     $model->saseUserIds[$n1++] = $item1;
                 }

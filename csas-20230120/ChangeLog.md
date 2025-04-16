@@ -1,3 +1,7 @@
+2025-04-16 Version: 1.12.0
+- Support API ListDynamicDisposalProcesses.
+
+
 2025-02-24 Version: 1.11.3
 - Update API CreatePrivateAccessApplication: add param L7Config.
 

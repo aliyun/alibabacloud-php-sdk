@@ -13,18 +13,20 @@ class ListRegistrationPoliciesResponseBody extends Model
      * @var policies[]
      */
     public $policies;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalNum;
     protected $_name = [
-        'policies'  => 'Policies',
+        'policies' => 'Policies',
         'requestId' => 'RequestId',
-        'totalNum'  => 'TotalNum',
+        'totalNum' => 'TotalNum',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class ListRegistrationPoliciesResponseBody extends Model
         if (null !== $this->policies) {
             if (\is_array($this->policies)) {
                 $res['Policies'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->policies as $item1) {
                     $res['Policies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListRegistrationPoliciesResponseBody extends Model
         if (isset($map['Policies'])) {
             if (!empty($map['Policies'])) {
                 $model->policies = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Policies'] as $item1) {
                     $model->policies[$n1++] = policies::fromMap($item1);
                 }

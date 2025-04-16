@@ -12,63 +12,74 @@ class UpdateRegistrationPolicyShrinkRequest extends Model
      * @var string
      */
     public $companyLimitCountShrink;
+
     /**
      * @var string
      */
     public $companyLimitType;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $matchMode;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $personalLimitCountShrink;
+
     /**
      * @var string
      */
     public $personalLimitType;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string[]
      */
     public $userGroupIds;
+
     /**
      * @var string[]
      */
     public $whitelist;
     protected $_name = [
-        'companyLimitCountShrink'  => 'CompanyLimitCount',
-        'companyLimitType'         => 'CompanyLimitType',
-        'description'              => 'Description',
-        'matchMode'                => 'MatchMode',
-        'name'                     => 'Name',
+        'companyLimitCountShrink' => 'CompanyLimitCount',
+        'companyLimitType' => 'CompanyLimitType',
+        'description' => 'Description',
+        'matchMode' => 'MatchMode',
+        'name' => 'Name',
         'personalLimitCountShrink' => 'PersonalLimitCount',
-        'personalLimitType'        => 'PersonalLimitType',
-        'policyId'                 => 'PolicyId',
-        'priority'                 => 'Priority',
-        'status'                   => 'Status',
-        'userGroupIds'             => 'UserGroupIds',
-        'whitelist'                => 'Whitelist',
+        'personalLimitType' => 'PersonalLimitType',
+        'policyId' => 'PolicyId',
+        'priority' => 'Priority',
+        'status' => 'Status',
+        'userGroupIds' => 'UserGroupIds',
+        'whitelist' => 'Whitelist',
     ];
 
     public function validate()
@@ -128,7 +139,7 @@ class UpdateRegistrationPolicyShrinkRequest extends Model
         if (null !== $this->userGroupIds) {
             if (\is_array($this->userGroupIds)) {
                 $res['UserGroupIds'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->userGroupIds as $item1) {
                     $res['UserGroupIds'][$n1++] = $item1;
                 }
@@ -138,7 +149,7 @@ class UpdateRegistrationPolicyShrinkRequest extends Model
         if (null !== $this->whitelist) {
             if (\is_array($this->whitelist)) {
                 $res['Whitelist'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->whitelist as $item1) {
                     $res['Whitelist'][$n1++] = $item1;
                 }
@@ -199,7 +210,7 @@ class UpdateRegistrationPolicyShrinkRequest extends Model
         if (isset($map['UserGroupIds'])) {
             if (!empty($map['UserGroupIds'])) {
                 $model->userGroupIds = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['UserGroupIds'] as $item1) {
                     $model->userGroupIds[$n1++] = $item1;
                 }
@@ -209,7 +220,7 @@ class UpdateRegistrationPolicyShrinkRequest extends Model
         if (isset($map['Whitelist'])) {
             if (!empty($map['Whitelist'])) {
                 $model->whitelist = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Whitelist'] as $item1) {
                     $model->whitelist[$n1++] = $item1;
                 }

@@ -13,18 +13,20 @@ class ListDynamicRoutesResponseBody extends Model
      * @var dynamicRoutes[]
      */
     public $dynamicRoutes;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalNum;
     protected $_name = [
         'dynamicRoutes' => 'DynamicRoutes',
-        'requestId'     => 'RequestId',
-        'totalNum'      => 'TotalNum',
+        'requestId' => 'RequestId',
+        'totalNum' => 'TotalNum',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class ListDynamicRoutesResponseBody extends Model
         if (null !== $this->dynamicRoutes) {
             if (\is_array($this->dynamicRoutes)) {
                 $res['DynamicRoutes'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->dynamicRoutes as $item1) {
                     $res['DynamicRoutes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListDynamicRoutesResponseBody extends Model
         if (isset($map['DynamicRoutes'])) {
             if (!empty($map['DynamicRoutes'])) {
                 $model->dynamicRoutes = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['DynamicRoutes'] as $item1) {
                     $model->dynamicRoutes[$n1++] = dynamicRoutes::fromMap($item1);
                 }

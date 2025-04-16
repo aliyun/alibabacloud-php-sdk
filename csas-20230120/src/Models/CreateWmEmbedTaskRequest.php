@@ -14,63 +14,74 @@ class CreateWmEmbedTaskRequest extends Model
      * @var csvControl
      */
     public $csvControl;
+
     /**
      * @var documentControl
      */
     public $documentControl;
+
     /**
      * @var string
      */
     public $fileUrl;
+
     /**
      * @var string
      */
     public $filename;
+
     /**
      * @var int
      */
     public $imageEmbedJpegQuality;
+
     /**
      * @var int
      */
     public $imageEmbedLevel;
+
     /**
      * @var string
      */
     public $videoBitrate;
+
     /**
      * @var bool
      */
     public $videoIsLong;
+
     /**
      * @var string
      */
     public $wmInfoBytesB64;
+
     /**
      * @var int
      */
     public $wmInfoSize;
+
     /**
      * @var string
      */
     public $wmInfoUint;
+
     /**
      * @var string
      */
     public $wmType;
     protected $_name = [
-        'csvControl'            => 'CsvControl',
-        'documentControl'       => 'DocumentControl',
-        'fileUrl'               => 'FileUrl',
-        'filename'              => 'Filename',
+        'csvControl' => 'CsvControl',
+        'documentControl' => 'DocumentControl',
+        'fileUrl' => 'FileUrl',
+        'filename' => 'Filename',
         'imageEmbedJpegQuality' => 'ImageEmbedJpegQuality',
-        'imageEmbedLevel'       => 'ImageEmbedLevel',
-        'videoBitrate'          => 'VideoBitrate',
-        'videoIsLong'           => 'VideoIsLong',
-        'wmInfoBytesB64'        => 'WmInfoBytesB64',
-        'wmInfoSize'            => 'WmInfoSize',
-        'wmInfoUint'            => 'WmInfoUint',
-        'wmType'                => 'WmType',
+        'imageEmbedLevel' => 'ImageEmbedLevel',
+        'videoBitrate' => 'VideoBitrate',
+        'videoIsLong' => 'VideoIsLong',
+        'wmInfoBytesB64' => 'WmInfoBytesB64',
+        'wmInfoSize' => 'WmInfoSize',
+        'wmInfoUint' => 'WmInfoUint',
+        'wmType' => 'WmType',
     ];
 
     public function validate()

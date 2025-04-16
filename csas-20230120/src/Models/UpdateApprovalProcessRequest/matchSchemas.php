@@ -12,38 +12,44 @@ class matchSchemas extends Model
      * @var string
      */
     public $appUninstallSchemaId;
+
     /**
      * @var string
      */
     public $deviceRegistrationSchemaId;
+
     /**
      * @var string
      */
     public $dlpSendSchemaId;
+
     /**
      * @var string
      */
     public $domainBlacklistSchemaId;
+
     /**
      * @var string
      */
     public $domainWhitelistSchemaId;
+
     /**
      * @var string
      */
     public $peripheralBlockSchemaId;
+
     /**
      * @var string
      */
     public $softwareBlockSchemaId;
     protected $_name = [
-        'appUninstallSchemaId'       => 'AppUninstallSchemaId',
+        'appUninstallSchemaId' => 'AppUninstallSchemaId',
         'deviceRegistrationSchemaId' => 'DeviceRegistrationSchemaId',
-        'dlpSendSchemaId'            => 'DlpSendSchemaId',
-        'domainBlacklistSchemaId'    => 'DomainBlacklistSchemaId',
-        'domainWhitelistSchemaId'    => 'DomainWhitelistSchemaId',
-        'peripheralBlockSchemaId'    => 'PeripheralBlockSchemaId',
-        'softwareBlockSchemaId'      => 'SoftwareBlockSchemaId',
+        'dlpSendSchemaId' => 'DlpSendSchemaId',
+        'domainBlacklistSchemaId' => 'DomainBlacklistSchemaId',
+        'domainWhitelistSchemaId' => 'DomainWhitelistSchemaId',
+        'peripheralBlockSchemaId' => 'PeripheralBlockSchemaId',
+        'softwareBlockSchemaId' => 'SoftwareBlockSchemaId',
     ];
 
     public function validate()

@@ -13,10 +13,12 @@ class ListApprovalProcessesResponseBody extends Model
      * @var processes[]
      */
     public $processes;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
@@ -24,7 +26,7 @@ class ListApprovalProcessesResponseBody extends Model
     protected $_name = [
         'processes' => 'Processes',
         'requestId' => 'RequestId',
-        'totalNum'  => 'TotalNum',
+        'totalNum' => 'TotalNum',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class ListApprovalProcessesResponseBody extends Model
         if (null !== $this->processes) {
             if (\is_array($this->processes)) {
                 $res['Processes'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->processes as $item1) {
                     $res['Processes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListApprovalProcessesResponseBody extends Model
         if (isset($map['Processes'])) {
             if (!empty($map['Processes'])) {
                 $model->processes = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Processes'] as $item1) {
                     $model->processes[$n1++] = processes::fromMap($item1);
                 }

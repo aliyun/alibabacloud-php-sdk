@@ -13,18 +13,20 @@ class ListApprovalSchemasResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var schemas[]
      */
     public $schemas;
+
     /**
      * @var string
      */
     public $totalNum;
     protected $_name = [
         'requestId' => 'RequestId',
-        'schemas'   => 'Schemas',
-        'totalNum'  => 'TotalNum',
+        'schemas' => 'Schemas',
+        'totalNum' => 'TotalNum',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class ListApprovalSchemasResponseBody extends Model
         if (null !== $this->schemas) {
             if (\is_array($this->schemas)) {
                 $res['Schemas'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->schemas as $item1) {
                     $res['Schemas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class ListApprovalSchemasResponseBody extends Model
         if (isset($map['Schemas'])) {
             if (!empty($map['Schemas'])) {
                 $model->schemas = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Schemas'] as $item1) {
                     $model->schemas[$n1++] = schemas::fromMap($item1);
                 }

@@ -12,13 +12,14 @@ class CreatePrivateAccessTagResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $tagId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'tagId'     => 'TagId',
+        'tagId' => 'TagId',
     ];
 
     public function validate()

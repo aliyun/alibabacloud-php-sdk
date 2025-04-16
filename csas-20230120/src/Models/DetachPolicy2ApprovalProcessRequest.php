@@ -12,18 +12,20 @@ class DetachPolicy2ApprovalProcessRequest extends Model
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $policyType;
+
     /**
      * @var string
      */
     public $processId;
     protected $_name = [
-        'policyId'   => 'PolicyId',
+        'policyId' => 'PolicyId',
         'policyType' => 'PolicyType',
-        'processId'  => 'ProcessId',
+        'processId' => 'ProcessId',
     ];
 
     public function validate()

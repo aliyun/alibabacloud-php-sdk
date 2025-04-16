@@ -13,6 +13,7 @@ class data extends Model
      * @var dataList[]
      */
     public $dataList;
+
     /**
      * @var int
      */
@@ -36,7 +37,7 @@ class data extends Model
         if (null !== $this->dataList) {
             if (\is_array($this->dataList)) {
                 $res['DataList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->dataList as $item1) {
                     $res['DataList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class data extends Model
         if (isset($map['DataList'])) {
             if (!empty($map['DataList'])) {
                 $model->dataList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['DataList'] as $item1) {
                     $model->dataList[$n1++] = dataList::fromMap($item1);
                 }

@@ -12,43 +12,50 @@ class Rule extends Model
      * @var string
      */
     public $combinator;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $operator;
+
     /**
      * @var string
      */
     public $ruleSubType;
+
     /**
      * @var string
      */
     public $ruleType;
+
     /**
      * @var Rule[]
      */
     public $rules;
+
     /**
      * @var string[]
      */
     public $values;
     protected $_name = [
-        'combinator'  => 'Combinator',
-        'id'          => 'Id',
-        'name'        => 'Name',
-        'operator'    => 'Operator',
+        'combinator' => 'Combinator',
+        'id' => 'Id',
+        'name' => 'Name',
+        'operator' => 'Operator',
         'ruleSubType' => 'RuleSubType',
-        'ruleType'    => 'RuleType',
-        'rules'       => 'Rules',
-        'values'      => 'Values',
+        'ruleType' => 'RuleType',
+        'rules' => 'Rules',
+        'values' => 'Values',
     ];
 
     public function validate()
@@ -92,7 +99,7 @@ class Rule extends Model
         if (null !== $this->rules) {
             if (\is_array($this->rules)) {
                 $res['Rules'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->rules as $item1) {
                     $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -102,7 +109,7 @@ class Rule extends Model
         if (null !== $this->values) {
             if (\is_array($this->values)) {
                 $res['Values'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->values as $item1) {
                     $res['Values'][$n1++] = $item1;
                 }
@@ -147,7 +154,7 @@ class Rule extends Model
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Rules'] as $item1) {
                     $model->rules[$n1++] = self::fromMap($item1);
                 }
@@ -157,7 +164,7 @@ class Rule extends Model
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Values'] as $item1) {
                     $model->values[$n1++] = $item1;
                 }

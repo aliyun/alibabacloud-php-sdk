@@ -13,12 +13,13 @@ class GetApprovalResponseBody extends Model
      * @var approval[]
      */
     public $approval;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'approval'  => 'Approval',
+        'approval' => 'Approval',
         'requestId' => 'RequestId',
     ];
 
@@ -36,7 +37,7 @@ class GetApprovalResponseBody extends Model
         if (null !== $this->approval) {
             if (\is_array($this->approval)) {
                 $res['Approval'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->approval as $item1) {
                     $res['Approval'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class GetApprovalResponseBody extends Model
         if (isset($map['Approval'])) {
             if (!empty($map['Approval'])) {
                 $model->approval = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Approval'] as $item1) {
                     $model->approval[$n1++] = approval::fromMap($item1);
                 }

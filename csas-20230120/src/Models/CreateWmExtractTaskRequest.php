@@ -13,43 +13,50 @@ class CreateWmExtractTaskRequest extends Model
      * @var csvControl
      */
     public $csvControl;
+
     /**
      * @var bool
      */
     public $documentIsCapture;
+
     /**
      * @var string
      */
     public $fileUrl;
+
     /**
      * @var string
      */
     public $filename;
+
     /**
      * @var bool
      */
     public $videoIsLong;
+
     /**
      * @var string
      */
     public $videoSpeed;
+
     /**
      * @var int
      */
     public $wmInfoSize;
+
     /**
      * @var string
      */
     public $wmType;
     protected $_name = [
-        'csvControl'        => 'CsvControl',
+        'csvControl' => 'CsvControl',
         'documentIsCapture' => 'DocumentIsCapture',
-        'fileUrl'           => 'FileUrl',
-        'filename'          => 'Filename',
-        'videoIsLong'       => 'VideoIsLong',
-        'videoSpeed'        => 'VideoSpeed',
-        'wmInfoSize'        => 'WmInfoSize',
-        'wmType'            => 'WmType',
+        'fileUrl' => 'FileUrl',
+        'filename' => 'Filename',
+        'videoIsLong' => 'VideoIsLong',
+        'videoSpeed' => 'VideoSpeed',
+        'wmInfoSize' => 'WmInfoSize',
+        'wmType' => 'WmType',
     ];
 
     public function validate()

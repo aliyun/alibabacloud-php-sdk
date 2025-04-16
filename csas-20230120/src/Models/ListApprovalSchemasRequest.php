@@ -12,28 +12,32 @@ class ListApprovalSchemasRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $policyType;
+
     /**
      * @var string[]
      */
     public $schemaIds;
+
     /**
      * @var string
      */
     public $schemaName;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'pageSize'    => 'PageSize',
-        'policyType'  => 'PolicyType',
-        'schemaIds'   => 'SchemaIds',
-        'schemaName'  => 'SchemaName',
+        'pageSize' => 'PageSize',
+        'policyType' => 'PolicyType',
+        'schemaIds' => 'SchemaIds',
+        'schemaName' => 'SchemaName',
     ];
 
     public function validate()
@@ -62,7 +66,7 @@ class ListApprovalSchemasRequest extends Model
         if (null !== $this->schemaIds) {
             if (\is_array($this->schemaIds)) {
                 $res['SchemaIds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->schemaIds as $item1) {
                     $res['SchemaIds'][$n1++] = $item1;
                 }
@@ -99,7 +103,7 @@ class ListApprovalSchemasRequest extends Model
         if (isset($map['SchemaIds'])) {
             if (!empty($map['SchemaIds'])) {
                 $model->schemaIds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['SchemaIds'] as $item1) {
                     $model->schemaIds[$n1++] = $item1;
                 }

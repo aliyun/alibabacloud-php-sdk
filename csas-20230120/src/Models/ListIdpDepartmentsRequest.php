@@ -12,10 +12,12 @@ class ListIdpDepartmentsRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $idpConfigId;
+
     /**
      * @var int
      */
@@ -23,7 +25,7 @@ class ListIdpDepartmentsRequest extends Model
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'idpConfigId' => 'IdpConfigId',
-        'pageSize'    => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

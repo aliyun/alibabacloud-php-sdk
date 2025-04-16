@@ -12,17 +12,19 @@ class ListPopTrafficStatisticsRequest extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'region'    => 'Region',
+        'endTime' => 'EndTime',
+        'region' => 'Region',
         'startTime' => 'StartTime',
     ];
 

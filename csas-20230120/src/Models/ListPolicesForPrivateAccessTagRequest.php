@@ -30,7 +30,7 @@ class ListPolicesForPrivateAccessTagRequest extends Model
         if (null !== $this->tagIds) {
             if (\is_array($this->tagIds)) {
                 $res['TagIds'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tagIds as $item1) {
                     $res['TagIds'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class ListPolicesForPrivateAccessTagRequest extends Model
         if (isset($map['TagIds'])) {
             if (!empty($map['TagIds'])) {
                 $model->tagIds = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['TagIds'] as $item1) {
                     $model->tagIds[$n1++] = $item1;
                 }

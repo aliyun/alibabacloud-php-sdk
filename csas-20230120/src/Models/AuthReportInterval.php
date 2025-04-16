@@ -12,13 +12,14 @@ class AuthReportInterval extends Model
      * @var string
      */
     public $timeUnit;
+
     /**
      * @var int
      */
     public $value;
     protected $_name = [
         'timeUnit' => 'TimeUnit',
-        'value'    => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

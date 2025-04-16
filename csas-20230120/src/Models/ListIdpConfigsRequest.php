@@ -12,18 +12,20 @@ class ListIdpConfigsRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $include;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'include'     => 'Include',
-        'pageSize'    => 'PageSize',
+        'include' => 'Include',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

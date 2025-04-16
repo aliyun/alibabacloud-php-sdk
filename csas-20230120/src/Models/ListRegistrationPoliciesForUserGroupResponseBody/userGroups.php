@@ -13,12 +13,13 @@ class userGroups extends Model
      * @var policies[]
      */
     public $policies;
+
     /**
      * @var string
      */
     public $userGroupId;
     protected $_name = [
-        'policies'    => 'Policies',
+        'policies' => 'Policies',
         'userGroupId' => 'UserGroupId',
     ];
 
@@ -36,7 +37,7 @@ class userGroups extends Model
         if (null !== $this->policies) {
             if (\is_array($this->policies)) {
                 $res['Policies'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->policies as $item1) {
                     $res['Policies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class userGroups extends Model
         if (isset($map['Policies'])) {
             if (!empty($map['Policies'])) {
                 $model->policies = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Policies'] as $item1) {
                     $model->policies[$n1++] = policies::fromMap($item1);
                 }

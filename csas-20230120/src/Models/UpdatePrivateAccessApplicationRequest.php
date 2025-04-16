@@ -13,63 +13,74 @@ class UpdatePrivateAccessApplicationRequest extends Model
      * @var string[]
      */
     public $addresses;
+
     /**
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var PAL7Config
      */
     public $l7Config;
+
     /**
      * @var string
      */
     public $l7ProxyDomainAutomaticPrefix;
+
     /**
      * @var string
      */
     public $l7ProxyDomainCustom;
+
     /**
      * @var string
      */
     public $l7ProxyDomainPrivate;
+
     /**
      * @var string
      */
     public $modifyType;
+
     /**
      * @var portRanges[]
      */
     public $portRanges;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string[]
      */
     public $tagIds;
     protected $_name = [
-        'addresses'                    => 'Addresses',
-        'applicationId'                => 'ApplicationId',
-        'description'                  => 'Description',
-        'l7Config'                     => 'L7Config',
+        'addresses' => 'Addresses',
+        'applicationId' => 'ApplicationId',
+        'description' => 'Description',
+        'l7Config' => 'L7Config',
         'l7ProxyDomainAutomaticPrefix' => 'L7ProxyDomainAutomaticPrefix',
-        'l7ProxyDomainCustom'          => 'L7ProxyDomainCustom',
-        'l7ProxyDomainPrivate'         => 'L7ProxyDomainPrivate',
-        'modifyType'                   => 'ModifyType',
-        'portRanges'                   => 'PortRanges',
-        'protocol'                     => 'Protocol',
-        'status'                       => 'Status',
-        'tagIds'                       => 'TagIds',
+        'l7ProxyDomainCustom' => 'L7ProxyDomainCustom',
+        'l7ProxyDomainPrivate' => 'L7ProxyDomainPrivate',
+        'modifyType' => 'ModifyType',
+        'portRanges' => 'PortRanges',
+        'protocol' => 'Protocol',
+        'status' => 'Status',
+        'tagIds' => 'TagIds',
     ];
 
     public function validate()
@@ -95,7 +106,7 @@ class UpdatePrivateAccessApplicationRequest extends Model
         if (null !== $this->addresses) {
             if (\is_array($this->addresses)) {
                 $res['Addresses'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->addresses as $item1) {
                     $res['Addresses'][$n1++] = $item1;
                 }
@@ -133,7 +144,7 @@ class UpdatePrivateAccessApplicationRequest extends Model
         if (null !== $this->portRanges) {
             if (\is_array($this->portRanges)) {
                 $res['PortRanges'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->portRanges as $item1) {
                     $res['PortRanges'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -151,7 +162,7 @@ class UpdatePrivateAccessApplicationRequest extends Model
         if (null !== $this->tagIds) {
             if (\is_array($this->tagIds)) {
                 $res['TagIds'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tagIds as $item1) {
                     $res['TagIds'][$n1++] = $item1;
                 }
@@ -172,7 +183,7 @@ class UpdatePrivateAccessApplicationRequest extends Model
         if (isset($map['Addresses'])) {
             if (!empty($map['Addresses'])) {
                 $model->addresses = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Addresses'] as $item1) {
                     $model->addresses[$n1++] = $item1;
                 }
@@ -210,7 +221,7 @@ class UpdatePrivateAccessApplicationRequest extends Model
         if (isset($map['PortRanges'])) {
             if (!empty($map['PortRanges'])) {
                 $model->portRanges = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['PortRanges'] as $item1) {
                     $model->portRanges[$n1++] = portRanges::fromMap($item1);
                 }
@@ -228,7 +239,7 @@ class UpdatePrivateAccessApplicationRequest extends Model
         if (isset($map['TagIds'])) {
             if (!empty($map['TagIds'])) {
                 $model->tagIds = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['TagIds'] as $item1) {
                     $model->tagIds[$n1++] = $item1;
                 }

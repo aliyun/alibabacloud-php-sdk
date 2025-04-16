@@ -12,13 +12,14 @@ class domainWhitelistPolicies extends Model
      * @var string[]
      */
     public $policyIds;
+
     /**
      * @var string
      */
     public $schemaId;
     protected $_name = [
         'policyIds' => 'PolicyIds',
-        'schemaId'  => 'SchemaId',
+        'schemaId' => 'SchemaId',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class domainWhitelistPolicies extends Model
         if (null !== $this->policyIds) {
             if (\is_array($this->policyIds)) {
                 $res['PolicyIds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->policyIds as $item1) {
                     $res['PolicyIds'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class domainWhitelistPolicies extends Model
         if (isset($map['PolicyIds'])) {
             if (!empty($map['PolicyIds'])) {
                 $model->policyIds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['PolicyIds'] as $item1) {
                     $model->policyIds[$n1++] = $item1;
                 }

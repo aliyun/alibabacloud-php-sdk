@@ -12,68 +12,80 @@ class applications extends Model
      * @var string
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $department;
+
     /**
      * @var string
      */
     public $devTag;
+
     /**
      * @var string
      */
     public $devType;
+
     /**
      * @var string
      */
     public $hostname;
+
     /**
      * @var string
      */
     public $idpName;
+
     /**
      * @var bool
      */
     public $isUninstall;
+
     /**
      * @var string
      */
     public $mac;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $saseUserId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
         'applicationId' => 'ApplicationId',
-        'createTime'    => 'CreateTime',
-        'department'    => 'Department',
-        'devTag'        => 'DevTag',
-        'devType'       => 'DevType',
-        'hostname'      => 'Hostname',
-        'idpName'       => 'IdpName',
-        'isUninstall'   => 'IsUninstall',
-        'mac'           => 'Mac',
-        'reason'        => 'Reason',
-        'saseUserId'    => 'SaseUserId',
-        'status'        => 'Status',
-        'username'      => 'Username',
+        'createTime' => 'CreateTime',
+        'department' => 'Department',
+        'devTag' => 'DevTag',
+        'devType' => 'DevType',
+        'hostname' => 'Hostname',
+        'idpName' => 'IdpName',
+        'isUninstall' => 'IsUninstall',
+        'mac' => 'Mac',
+        'reason' => 'Reason',
+        'saseUserId' => 'SaseUserId',
+        'status' => 'Status',
+        'username' => 'Username',
     ];
 
     public function validate()

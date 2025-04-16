@@ -12,12 +12,13 @@ class upgradeTime extends Model
      * @var string
      */
     public $end;
+
     /**
      * @var string
      */
     public $start;
     protected $_name = [
-        'end'   => 'End',
+        'end' => 'End',
         'start' => 'Start',
     ];
 

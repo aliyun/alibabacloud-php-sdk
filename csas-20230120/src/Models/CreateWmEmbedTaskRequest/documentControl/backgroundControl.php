@@ -14,23 +14,26 @@ class backgroundControl extends Model
      * @var bool
      */
     public $bgAddInvisible;
+
     /**
      * @var bool
      */
     public $bgAddVisible;
+
     /**
      * @var bgInvisibleControl
      */
     public $bgInvisibleControl;
+
     /**
      * @var bgVisibleControl
      */
     public $bgVisibleControl;
     protected $_name = [
-        'bgAddInvisible'     => 'BgAddInvisible',
-        'bgAddVisible'       => 'BgAddVisible',
+        'bgAddInvisible' => 'BgAddInvisible',
+        'bgAddVisible' => 'BgAddVisible',
         'bgInvisibleControl' => 'BgInvisibleControl',
-        'bgVisibleControl'   => 'BgVisibleControl',
+        'bgVisibleControl' => 'BgVisibleControl',
     ];
 
     public function validate()

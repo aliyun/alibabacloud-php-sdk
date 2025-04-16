@@ -6,9 +6,6 @@ namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config\bypassConfig;
-use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config\clientIpConfig;
-use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config\clientIpRestrictConfig;
-use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config\clientTypeRestrictConfig;
 use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config\dnsConfig;
 use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config\jsHookConfig;
 use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config\requestHeaderRewriteConfig;
@@ -22,83 +19,62 @@ class PAL7Config extends Model
      * @var bypassConfig
      */
     public $bypassConfig;
+
     /**
      * @var string
      */
     public $certId;
-    /**
-     * @var clientIpConfig
-     */
-    public $clientIpConfig;
-    /**
-     * @var clientIpRestrictConfig
-     */
-    public $clientIpRestrictConfig;
-    /**
-     * @var clientTypeRestrictConfig
-     */
-    public $clientTypeRestrictConfig;
+
     /**
      * @var dnsConfig
      */
     public $dnsConfig;
-    /**
-     * @var bool
-     */
-    public $isNtlm;
+
     /**
      * @var jsHookConfig
      */
     public $jsHookConfig;
+
     /**
      * @var int[]
      */
     public $proxyDomainTypes;
+
     /**
      * @var requestHeaderRewriteConfig
      */
     public $requestHeaderRewriteConfig;
+
     /**
      * @var requestQueryRewriteConfig
      */
     public $requestQueryRewriteConfig;
+
     /**
      * @var responseHeaderRewriteConfig
      */
     public $responseHeaderRewriteConfig;
+
     /**
      * @var responseRewriteConfig
      */
     public $responseRewriteConfig;
     protected $_name = [
-        'bypassConfig'                => 'BypassConfig',
-        'certId'                      => 'CertId',
-        'clientIpConfig'              => 'ClientIpConfig',
-        'clientIpRestrictConfig'      => 'ClientIpRestrictConfig',
-        'clientTypeRestrictConfig'    => 'ClientTypeRestrictConfig',
-        'dnsConfig'                   => 'DnsConfig',
-        'isNtlm'                      => 'IsNtlm',
-        'jsHookConfig'                => 'JsHookConfig',
-        'proxyDomainTypes'            => 'ProxyDomainTypes',
-        'requestHeaderRewriteConfig'  => 'RequestHeaderRewriteConfig',
-        'requestQueryRewriteConfig'   => 'RequestQueryRewriteConfig',
+        'bypassConfig' => 'BypassConfig',
+        'certId' => 'CertId',
+        'dnsConfig' => 'DnsConfig',
+        'jsHookConfig' => 'JsHookConfig',
+        'proxyDomainTypes' => 'ProxyDomainTypes',
+        'requestHeaderRewriteConfig' => 'RequestHeaderRewriteConfig',
+        'requestQueryRewriteConfig' => 'RequestQueryRewriteConfig',
         'responseHeaderRewriteConfig' => 'ResponseHeaderRewriteConfig',
-        'responseRewriteConfig'       => 'ResponseRewriteConfig',
+        'responseRewriteConfig' => 'ResponseRewriteConfig',
     ];
 
     public function validate()
     {
         if (null !== $this->bypassConfig) {
             $this->bypassConfig->validate();
-        }
-        if (null !== $this->clientIpConfig) {
-            $this->clientIpConfig->validate();
-        }
-        if (null !== $this->clientIpRestrictConfig) {
-            $this->clientIpRestrictConfig->validate();
-        }
-        if (null !== $this->clientTypeRestrictConfig) {
-            $this->clientTypeRestrictConfig->validate();
         }
         if (null !== $this->dnsConfig) {
             $this->dnsConfig->validate();
@@ -132,24 +108,8 @@ class PAL7Config extends Model
             $res['CertId'] = $this->certId;
         }
 
-        if (null !== $this->clientIpConfig) {
-            $res['ClientIpConfig'] = null !== $this->clientIpConfig ? $this->clientIpConfig->toArray($noStream) : $this->clientIpConfig;
-        }
-
-        if (null !== $this->clientIpRestrictConfig) {
-            $res['ClientIpRestrictConfig'] = null !== $this->clientIpRestrictConfig ? $this->clientIpRestrictConfig->toArray($noStream) : $this->clientIpRestrictConfig;
-        }
-
-        if (null !== $this->clientTypeRestrictConfig) {
-            $res['ClientTypeRestrictConfig'] = null !== $this->clientTypeRestrictConfig ? $this->clientTypeRestrictConfig->toArray($noStream) : $this->clientTypeRestrictConfig;
-        }
-
         if (null !== $this->dnsConfig) {
             $res['DnsConfig'] = null !== $this->dnsConfig ? $this->dnsConfig->toArray($noStream) : $this->dnsConfig;
-        }
-
-        if (null !== $this->isNtlm) {
-            $res['IsNtlm'] = $this->isNtlm;
         }
 
         if (null !== $this->jsHookConfig) {
@@ -195,24 +155,8 @@ class PAL7Config extends Model
             $model->certId = $map['CertId'];
         }
 
-        if (isset($map['ClientIpConfig'])) {
-            $model->clientIpConfig = clientIpConfig::fromMap($map['ClientIpConfig']);
-        }
-
-        if (isset($map['ClientIpRestrictConfig'])) {
-            $model->clientIpRestrictConfig = clientIpRestrictConfig::fromMap($map['ClientIpRestrictConfig']);
-        }
-
-        if (isset($map['ClientTypeRestrictConfig'])) {
-            $model->clientTypeRestrictConfig = clientTypeRestrictConfig::fromMap($map['ClientTypeRestrictConfig']);
-        }
-
         if (isset($map['DnsConfig'])) {
             $model->dnsConfig = dnsConfig::fromMap($map['DnsConfig']);
-        }
-
-        if (isset($map['IsNtlm'])) {
-            $model->isNtlm = $map['IsNtlm'];
         }
 
         if (isset($map['JsHookConfig'])) {

@@ -12,18 +12,20 @@ class ListSoftwareForUserDeviceRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $deviceTag;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'deviceTag'   => 'DeviceTag',
-        'pageSize'    => 'PageSize',
+        'deviceTag' => 'DeviceTag',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

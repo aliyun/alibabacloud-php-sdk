@@ -13,12 +13,13 @@ class ListPopTrafficStatisticsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var trafficData[]
      */
     public $trafficData;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'trafficData' => 'TrafficData',
     ];
 
@@ -40,7 +41,7 @@ class ListPopTrafficStatisticsResponseBody extends Model
         if (null !== $this->trafficData) {
             if (\is_array($this->trafficData)) {
                 $res['TrafficData'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->trafficData as $item1) {
                     $res['TrafficData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class ListPopTrafficStatisticsResponseBody extends Model
         if (isset($map['TrafficData'])) {
             if (!empty($map['TrafficData'])) {
                 $model->trafficData = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['TrafficData'] as $item1) {
                     $model->trafficData[$n1++] = trafficData::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class dataList extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $idpConfigId;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
-        'id'          => 'Id',
+        'id' => 'Id',
         'idpConfigId' => 'IdpConfigId',
-        'name'        => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()

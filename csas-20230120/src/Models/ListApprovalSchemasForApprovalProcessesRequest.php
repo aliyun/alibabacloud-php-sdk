@@ -30,7 +30,7 @@ class ListApprovalSchemasForApprovalProcessesRequest extends Model
         if (null !== $this->processIds) {
             if (\is_array($this->processIds)) {
                 $res['ProcessIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->processIds as $item1) {
                     $res['ProcessIds'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class ListApprovalSchemasForApprovalProcessesRequest extends Model
         if (isset($map['ProcessIds'])) {
             if (!empty($map['ProcessIds'])) {
                 $model->processIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ProcessIds'] as $item1) {
                     $model->processIds[$n1++] = $item1;
                 }

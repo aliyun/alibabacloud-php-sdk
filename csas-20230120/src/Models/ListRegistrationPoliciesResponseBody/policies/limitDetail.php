@@ -13,18 +13,20 @@ class limitDetail extends Model
      * @var string
      */
     public $deviceBelong;
+
     /**
      * @var limitCount
      */
     public $limitCount;
+
     /**
      * @var string
      */
     public $limitType;
     protected $_name = [
         'deviceBelong' => 'DeviceBelong',
-        'limitCount'   => 'LimitCount',
-        'limitType'    => 'LimitType',
+        'limitCount' => 'LimitCount',
+        'limitType' => 'LimitType',
     ];
 
     public function validate()

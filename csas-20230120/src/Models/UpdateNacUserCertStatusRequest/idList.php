@@ -12,6 +12,7 @@ class idList extends Model
      * @var string
      */
     public $devTag;
+
     /**
      * @var string
      */

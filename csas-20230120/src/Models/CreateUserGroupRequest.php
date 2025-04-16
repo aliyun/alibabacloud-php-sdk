@@ -13,18 +13,20 @@ class CreateUserGroupRequest extends Model
      * @var attributes[]
      */
     public $attributes;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
-        'attributes'  => 'Attributes',
+        'attributes' => 'Attributes',
         'description' => 'Description',
-        'name'        => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class CreateUserGroupRequest extends Model
         if (null !== $this->attributes) {
             if (\is_array($this->attributes)) {
                 $res['Attributes'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->attributes as $item1) {
                     $res['Attributes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class CreateUserGroupRequest extends Model
         if (isset($map['Attributes'])) {
             if (!empty($map['Attributes'])) {
                 $model->attributes = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Attributes'] as $item1) {
                     $model->attributes[$n1++] = attributes::fromMap($item1);
                 }

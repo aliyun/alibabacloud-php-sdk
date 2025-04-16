@@ -12,22 +12,25 @@ class processes extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $processId;
+
     /**
      * @var string
      */
     public $processName;
     protected $_name = [
-        'createTime'  => 'CreateTime',
+        'createTime' => 'CreateTime',
         'description' => 'Description',
-        'processId'   => 'ProcessId',
+        'processId' => 'ProcessId',
         'processName' => 'ProcessName',
     ];
 

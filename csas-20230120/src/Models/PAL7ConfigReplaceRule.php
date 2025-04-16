@@ -12,13 +12,14 @@ class PAL7ConfigReplaceRule extends Model
      * @var string
      */
     public $from;
+
     /**
      * @var string
      */
     public $to;
     protected $_name = [
         'from' => 'From',
-        'to'   => 'To',
+        'to' => 'To',
     ];
 
     public function validate()

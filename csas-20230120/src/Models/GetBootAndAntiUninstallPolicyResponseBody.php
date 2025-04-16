@@ -13,13 +13,14 @@ class GetBootAndAntiUninstallPolicyResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var strategy
      */
     public $strategy;
     protected $_name = [
         'requestId' => 'RequestId',
-        'strategy'  => 'Strategy',
+        'strategy' => 'Strategy',
     ];
 
     public function validate()

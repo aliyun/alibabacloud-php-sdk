@@ -12,6 +12,7 @@ class urlBypassRules extends Model
      * @var string[]
      */
     public $froms;
+
     /**
      * @var string[]
      */
@@ -38,7 +39,7 @@ class urlBypassRules extends Model
         if (null !== $this->froms) {
             if (\is_array($this->froms)) {
                 $res['Froms'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->froms as $item1) {
                     $res['Froms'][$n1++] = $item1;
                 }
@@ -48,7 +49,7 @@ class urlBypassRules extends Model
         if (null !== $this->paths) {
             if (\is_array($this->paths)) {
                 $res['Paths'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->paths as $item1) {
                     $res['Paths'][$n1++] = $item1;
                 }
@@ -69,7 +70,7 @@ class urlBypassRules extends Model
         if (isset($map['Froms'])) {
             if (!empty($map['Froms'])) {
                 $model->froms = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Froms'] as $item1) {
                     $model->froms[$n1++] = $item1;
                 }
@@ -79,7 +80,7 @@ class urlBypassRules extends Model
         if (isset($map['Paths'])) {
             if (!empty($map['Paths'])) {
                 $model->paths = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Paths'] as $item1) {
                     $model->paths[$n1++] = $item1;
                 }

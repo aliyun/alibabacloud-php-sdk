@@ -12,38 +12,44 @@ class data extends Model
      * @var string
      */
     public $fileUrl;
+
     /**
      * @var string
      */
     public $fileUrlExp;
+
     /**
      * @var string
      */
     public $filename;
+
     /**
      * @var string
      */
     public $outFileHashMd5;
+
     /**
      * @var int
      */
     public $outFileSize;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskStatus;
     protected $_name = [
-        'fileUrl'        => 'FileUrl',
-        'fileUrlExp'     => 'FileUrlExp',
-        'filename'       => 'Filename',
+        'fileUrl' => 'FileUrl',
+        'fileUrlExp' => 'FileUrlExp',
+        'filename' => 'Filename',
         'outFileHashMd5' => 'OutFileHashMd5',
-        'outFileSize'    => 'OutFileSize',
-        'taskId'         => 'TaskId',
-        'taskStatus'     => 'TaskStatus',
+        'outFileSize' => 'OutFileSize',
+        'taskId' => 'TaskId',
+        'taskStatus' => 'TaskStatus',
     ];
 
     public function validate()

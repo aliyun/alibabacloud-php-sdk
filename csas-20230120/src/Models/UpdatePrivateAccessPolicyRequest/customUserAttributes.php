@@ -12,23 +12,26 @@ class customUserAttributes extends Model
      * @var int
      */
     public $idpId;
+
     /**
      * @var string
      */
     public $relation;
+
     /**
      * @var string
      */
     public $userGroupType;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'idpId'         => 'IdpId',
-        'relation'      => 'Relation',
+        'idpId' => 'IdpId',
+        'relation' => 'Relation',
         'userGroupType' => 'UserGroupType',
-        'value'         => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

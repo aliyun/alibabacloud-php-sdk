@@ -12,23 +12,26 @@ class software extends Model
      * @var string
      */
     public $inc;
+
     /**
      * @var string
      */
     public $installTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string[]
      */
     public $versions;
     protected $_name = [
-        'inc'         => 'Inc',
+        'inc' => 'Inc',
         'installTime' => 'InstallTime',
-        'name'        => 'Name',
-        'versions'    => 'Versions',
+        'name' => 'Name',
+        'versions' => 'Versions',
     ];
 
     public function validate()
@@ -57,7 +60,7 @@ class software extends Model
         if (null !== $this->versions) {
             if (\is_array($this->versions)) {
                 $res['Versions'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->versions as $item1) {
                     $res['Versions'][$n1++] = $item1;
                 }
@@ -90,7 +93,7 @@ class software extends Model
         if (isset($map['Versions'])) {
             if (!empty($map['Versions'])) {
                 $model->versions = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Versions'] as $item1) {
                     $model->versions[$n1++] = $item1;
                 }

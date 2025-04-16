@@ -13,13 +13,14 @@ class processes extends Model
      * @var string
      */
     public $processId;
+
     /**
      * @var schemas[]
      */
     public $schemas;
     protected $_name = [
         'processId' => 'ProcessId',
-        'schemas'   => 'Schemas',
+        'schemas' => 'Schemas',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class processes extends Model
         if (null !== $this->schemas) {
             if (\is_array($this->schemas)) {
                 $res['Schemas'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->schemas as $item1) {
                     $res['Schemas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class processes extends Model
         if (isset($map['Schemas'])) {
             if (!empty($map['Schemas'])) {
                 $model->schemas = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Schemas'] as $item1) {
                     $model->schemas[$n1++] = schemas::fromMap($item1);
                 }

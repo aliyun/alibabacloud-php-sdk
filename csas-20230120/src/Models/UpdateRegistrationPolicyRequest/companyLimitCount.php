@@ -12,18 +12,20 @@ class companyLimitCount extends Model
      * @var int
      */
     public $all;
+
     /**
      * @var int
      */
     public $mobile;
+
     /**
      * @var int
      */
     public $PC;
     protected $_name = [
-        'all'    => 'All',
+        'all' => 'All',
         'mobile' => 'Mobile',
-        'PC'     => 'PC',
+        'PC' => 'PC',
     ];
 
     public function validate()

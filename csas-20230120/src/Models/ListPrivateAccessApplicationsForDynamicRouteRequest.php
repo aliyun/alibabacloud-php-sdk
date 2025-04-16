@@ -30,7 +30,7 @@ class ListPrivateAccessApplicationsForDynamicRouteRequest extends Model
         if (null !== $this->dynamicRouteIds) {
             if (\is_array($this->dynamicRouteIds)) {
                 $res['DynamicRouteIds'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->dynamicRouteIds as $item1) {
                     $res['DynamicRouteIds'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class ListPrivateAccessApplicationsForDynamicRouteRequest extends Model
         if (isset($map['DynamicRouteIds'])) {
             if (!empty($map['DynamicRouteIds'])) {
                 $model->dynamicRouteIds = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['DynamicRouteIds'] as $item1) {
                     $model->dynamicRouteIds[$n1++] = $item1;
                 }

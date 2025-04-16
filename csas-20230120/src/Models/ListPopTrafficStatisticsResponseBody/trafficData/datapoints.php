@@ -12,12 +12,13 @@ class datapoints extends Model
      * @var float
      */
     public $average;
+
     /**
      * @var string
      */
     public $dateTime;
     protected $_name = [
-        'average'  => 'Average',
+        'average' => 'Average',
         'dateTime' => 'DateTime',
     ];
 

@@ -12,48 +12,56 @@ class ListRegistrationPoliciesRequest extends Model
      * @var string
      */
     public $companyLimitType;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $matchMode;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $personalLimitType;
+
     /**
      * @var string[]
      */
     public $policyIds;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $userGroupId;
     protected $_name = [
-        'companyLimitType'  => 'CompanyLimitType',
-        'currentPage'       => 'CurrentPage',
-        'matchMode'         => 'MatchMode',
-        'name'              => 'Name',
-        'pageSize'          => 'PageSize',
+        'companyLimitType' => 'CompanyLimitType',
+        'currentPage' => 'CurrentPage',
+        'matchMode' => 'MatchMode',
+        'name' => 'Name',
+        'pageSize' => 'PageSize',
         'personalLimitType' => 'PersonalLimitType',
-        'policyIds'         => 'PolicyIds',
-        'status'            => 'Status',
-        'userGroupId'       => 'UserGroupId',
+        'policyIds' => 'PolicyIds',
+        'status' => 'Status',
+        'userGroupId' => 'UserGroupId',
     ];
 
     public function validate()
@@ -94,7 +102,7 @@ class ListRegistrationPoliciesRequest extends Model
         if (null !== $this->policyIds) {
             if (\is_array($this->policyIds)) {
                 $res['PolicyIds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->policyIds as $item1) {
                     $res['PolicyIds'][$n1++] = $item1;
                 }
@@ -147,7 +155,7 @@ class ListRegistrationPoliciesRequest extends Model
         if (isset($map['PolicyIds'])) {
             if (!empty($map['PolicyIds'])) {
                 $model->policyIds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['PolicyIds'] as $item1) {
                     $model->policyIds[$n1++] = $item1;
                 }

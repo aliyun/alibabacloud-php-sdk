@@ -12,43 +12,50 @@ class CreateWmBaseImageRequest extends Model
      * @var int
      */
     public $height;
+
     /**
      * @var int
      */
     public $opacity;
+
     /**
      * @var int
      */
     public $scale;
+
     /**
      * @var int
      */
     public $width;
+
     /**
      * @var string
      */
     public $wmInfoBytesB64;
+
     /**
      * @var int
      */
     public $wmInfoSize;
+
     /**
      * @var string
      */
     public $wmInfoUint;
+
     /**
      * @var string
      */
     public $wmType;
     protected $_name = [
-        'height'         => 'Height',
-        'opacity'        => 'Opacity',
-        'scale'          => 'Scale',
-        'width'          => 'Width',
+        'height' => 'Height',
+        'opacity' => 'Opacity',
+        'scale' => 'Scale',
+        'width' => 'Width',
         'wmInfoBytesB64' => 'WmInfoBytesB64',
-        'wmInfoSize'     => 'WmInfoSize',
-        'wmInfoUint'     => 'WmInfoUint',
-        'wmType'         => 'WmType',
+        'wmInfoSize' => 'WmInfoSize',
+        'wmInfoUint' => 'WmInfoUint',
+        'wmType' => 'WmType',
     ];
 
     public function validate()

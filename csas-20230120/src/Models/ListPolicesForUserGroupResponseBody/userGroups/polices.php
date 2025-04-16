@@ -12,17 +12,19 @@ class polices extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $policyType;
     protected $_name = [
-        'name'       => 'Name',
-        'policyId'   => 'PolicyId',
+        'name' => 'Name',
+        'policyId' => 'PolicyId',
         'policyType' => 'PolicyType',
     ];
 

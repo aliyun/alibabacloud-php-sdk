@@ -12,17 +12,19 @@ class data extends Model
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $imageUrl;
+
     /**
      * @var int
      */
     public $imageUrlExp;
     protected $_name = [
-        'imageId'     => 'ImageId',
-        'imageUrl'    => 'ImageUrl',
+        'imageId' => 'ImageId',
+        'imageUrl' => 'ImageUrl',
         'imageUrlExp' => 'ImageUrlExp',
     ];
 

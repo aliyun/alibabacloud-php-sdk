@@ -12,27 +12,31 @@ class UpdateClientUserRequest extends Model
      * @var string
      */
     public $departmentId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $email;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $mobileNumber;
     protected $_name = [
         'departmentId' => 'DepartmentId',
-        'description'  => 'Description',
-        'email'        => 'Email',
-        'id'           => 'Id',
+        'description' => 'Description',
+        'email' => 'Email',
+        'id' => 'Id',
         'mobileNumber' => 'MobileNumber',
     ];
 
