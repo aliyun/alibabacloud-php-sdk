@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckVerifyLogRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckVerifyLogResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeepfakeDetectIntlRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeepfakeDetectIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteVerifyResultRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteVerifyResultResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrRequest;
@@ -301,6 +303,85 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkVerifyLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * 人脸凭证核验.
+     *
+     * @param request - DeepfakeDetectIntlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeepfakeDetectIntlResponse
+     *
+     * @param DeepfakeDetectIntlRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeepfakeDetectIntlResponse
+     */
+    public function deepfakeDetectIntlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->faceInputType) {
+            @$query['FaceInputType'] = $request->faceInputType;
+        }
+
+        if (null !== $request->faceUrl) {
+            @$query['FaceUrl'] = $request->faceUrl;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$query['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->sceneCode) {
+            @$query['SceneCode'] = $request->sceneCode;
+        }
+
+        $body = [];
+        if (null !== $request->faceBase64) {
+            @$body['FaceBase64'] = $request->faceBase64;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeepfakeDetectIntl',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeepfakeDetectIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 人脸凭证核验.
+     *
+     * @param request - DeepfakeDetectIntlRequest
+     *
+     * @returns DeepfakeDetectIntlResponse
+     *
+     * @param DeepfakeDetectIntlRequest $request
+     *
+     * @return DeepfakeDetectIntlResponse
+     */
+    public function deepfakeDetectIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deepfakeDetectIntlWithOptions($request, $runtime);
     }
 
     /**
