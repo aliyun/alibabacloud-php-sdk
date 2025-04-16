@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class WorkspaceSpec extends Model
 {
@@ -52,29 +52,41 @@ class WorkspaceSpec extends Model
         'specName' => 'SpecName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->spec) {
+            $this->spec->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->codeType) {
             $res['CodeType'] = $this->codeType;
         }
+
         if (null !== $this->isGuaranteedValid) {
             $res['IsGuaranteedValid'] = $this->isGuaranteedValid;
         }
+
         if (null !== $this->isOverSoldValid) {
             $res['IsOverSoldValid'] = $this->isOverSoldValid;
         }
+
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
+
         if (null !== $this->spec) {
-            $res['Spec'] = null !== $this->spec ? $this->spec->toMap() : null;
+            $res['Spec'] = null !== $this->spec ? $this->spec->toArray($noStream) : $this->spec;
         }
+
         if (null !== $this->specName) {
             $res['SpecName'] = $this->specName;
         }
@@ -82,32 +94,38 @@ class WorkspaceSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return WorkspaceSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['CodeType'])) {
             $model->codeType = $map['CodeType'];
         }
+
         if (isset($map['IsGuaranteedValid'])) {
             $model->isGuaranteedValid = $map['IsGuaranteedValid'];
         }
+
         if (isset($map['IsOverSoldValid'])) {
             $model->isOverSoldValid = $map['IsOverSoldValid'];
         }
+
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }
+
         if (isset($map['Spec'])) {
             $model->spec = ResourceAmount::fromMap($map['Spec']);
         }
+
         if (isset($map['SpecName'])) {
             $model->specName = $map['SpecName'];
         }

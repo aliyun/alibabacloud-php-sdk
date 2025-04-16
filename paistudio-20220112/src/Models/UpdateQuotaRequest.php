@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateQuotaRequest extends Model
 {
     /**
-     * @example this is a test quota
-     *
      * @var string
      */
     public $description;
@@ -42,29 +40,42 @@ class UpdateQuotaRequest extends Model
         'quotaName' => 'QuotaName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        if (null !== $this->quotaConfig) {
+            $this->quotaConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->labels) {
-            $res['Labels'] = [];
-            if (null !== $this->labels && \is_array($this->labels)) {
-                $n = 0;
-                foreach ($this->labels as $item) {
-                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1 = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->queueStrategy) {
             $res['QueueStrategy'] = $this->queueStrategy;
         }
+
         if (null !== $this->quotaConfig) {
-            $res['QuotaConfig'] = null !== $this->quotaConfig ? $this->quotaConfig->toMap() : null;
+            $res['QuotaConfig'] = null !== $this->quotaConfig ? $this->quotaConfig->toArray($noStream) : $this->quotaConfig;
         }
+
         if (null !== $this->quotaName) {
             $res['QuotaName'] = $this->quotaName;
         }
@@ -72,32 +83,36 @@ class UpdateQuotaRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateQuotaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n = 0;
-                foreach ($map['Labels'] as $item) {
-                    $model->labels[$n++] = null !== $item ? Label::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1++] = Label::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['QueueStrategy'])) {
             $model->queueStrategy = $map['QueueStrategy'];
         }
+
         if (isset($map['QuotaConfig'])) {
             $model->quotaConfig = QuotaConfig::fromMap($map['QuotaConfig']);
         }
+
         if (isset($map['QuotaName'])) {
             $model->quotaName = $map['QuotaName'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTrainingJobLatestMetricsRequest extends Model
 {
     /**
-     * @example loss
-     *
      * @var string
      */
     public $names;
@@ -18,9 +16,12 @@ class GetTrainingJobLatestMetricsRequest extends Model
         'names' => 'Names',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->names) {
@@ -30,11 +31,11 @@ class GetTrainingJobLatestMetricsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTrainingJobLatestMetricsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

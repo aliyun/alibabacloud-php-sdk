@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QuotaJob extends Model
 {
@@ -28,17 +28,22 @@ class QuotaJob extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->queuing) {
             $res['Queuing'] = $this->queuing;
         }
+
         if (null !== $this->running) {
             $res['Running'] = $this->running;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -46,20 +51,22 @@ class QuotaJob extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QuotaJob
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Queuing'])) {
             $model->queuing = $map['Queuing'];
         }
+
         if (isset($map['Running'])) {
             $model->running = $map['Running'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

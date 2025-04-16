@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CheckInstanceWebTerminalRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CheckInstanceWebTerminalResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateAlgorithmRequest;
@@ -98,11 +98,10 @@ use AlibabaCloud\SDK\PaiStudio\V20220112\Models\UpdateResourceGroupRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\UpdateResourceGroupResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\UpdateTrainingJobLabelsRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\UpdateTrainingJobLabelsResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class PaiStudio extends OpenApiClient
 {
@@ -145,64 +144,73 @@ class PaiStudio extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 检查WebTerminal
-     *  *
+     * 检查WebTerminal.
+     *
+     * @param request - CheckInstanceWebTerminalRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckInstanceWebTerminalResponse
+     *
      * @param string                          $TrainingJobId
      * @param string                          $InstanceId
-     * @param CheckInstanceWebTerminalRequest $request       CheckInstanceWebTerminalRequest
-     * @param string[]                        $headers       map
-     * @param RuntimeOptions                  $runtime       runtime options for this request RuntimeOptions
+     * @param CheckInstanceWebTerminalRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
-     * @return CheckInstanceWebTerminalResponse CheckInstanceWebTerminalResponse
+     * @return CheckInstanceWebTerminalResponse
      */
     public function checkInstanceWebTerminalWithOptions($TrainingJobId, $InstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->checkInfo)) {
-            $body['CheckInfo'] = $request->checkInfo;
+        if (null !== $request->checkInfo) {
+            @$body['CheckInfo'] = $request->checkInfo;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CheckInstanceWebTerminal',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/webterminals/action/check',
+            'pathname' => '/api/v1/trainingjobs/' . Url::percentEncode($TrainingJobId) . '/instances/' . Url::percentEncode($InstanceId) . '/webterminals/action/check',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CheckInstanceWebTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckInstanceWebTerminalResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckInstanceWebTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 检查WebTerminal
-     *  *
+     * 检查WebTerminal.
+     *
+     * @param request - CheckInstanceWebTerminalRequest
+     *
+     * @returns CheckInstanceWebTerminalResponse
+     *
      * @param string                          $TrainingJobId
      * @param string                          $InstanceId
-     * @param CheckInstanceWebTerminalRequest $request       CheckInstanceWebTerminalRequest
+     * @param CheckInstanceWebTerminalRequest $request
      *
-     * @return CheckInstanceWebTerminalResponse CheckInstanceWebTerminalResponse
+     * @return CheckInstanceWebTerminalResponse
      */
     public function checkInstanceWebTerminal($TrainingJobId, $InstanceId, $request)
     {
@@ -213,33 +221,43 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 创建新的算法
-     *  *
-     * @param CreateAlgorithmRequest $request CreateAlgorithmRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 创建新的算法.
      *
-     * @return CreateAlgorithmResponse CreateAlgorithmResponse
+     * @param request - CreateAlgorithmRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAlgorithmResponse
+     *
+     * @param CreateAlgorithmRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateAlgorithmResponse
      */
     public function createAlgorithmWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->algorithmDescription)) {
-            $body['AlgorithmDescription'] = $request->algorithmDescription;
+        if (null !== $request->algorithmDescription) {
+            @$body['AlgorithmDescription'] = $request->algorithmDescription;
         }
-        if (!Utils::isUnset($request->algorithmName)) {
-            $body['AlgorithmName'] = $request->algorithmName;
+
+        if (null !== $request->algorithmName) {
+            @$body['AlgorithmName'] = $request->algorithmName;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateAlgorithm',
@@ -252,19 +270,20 @@ class PaiStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateAlgorithmResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAlgorithmResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAlgorithmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建新的算法
-     *  *
-     * @param CreateAlgorithmRequest $request CreateAlgorithmRequest
+     * 创建新的算法.
      *
-     * @return CreateAlgorithmResponse CreateAlgorithmResponse
+     * @param request - CreateAlgorithmRequest
+     *
+     * @returns CreateAlgorithmResponse
+     *
+     * @param CreateAlgorithmRequest $request
+     *
+     * @return CreateAlgorithmResponse
      */
     public function createAlgorithm($request)
     {
@@ -275,58 +294,67 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 创建一个新的算法版本
-     *  *
+     * 创建一个新的算法版本.
+     *
+     * @param tmpReq - CreateAlgorithmVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAlgorithmVersionResponse
+     *
      * @param string                        $AlgorithmId
      * @param string                        $AlgorithmVersion
-     * @param CreateAlgorithmVersionRequest $tmpReq           CreateAlgorithmVersionRequest
-     * @param string[]                      $headers          map
-     * @param RuntimeOptions                $runtime          runtime options for this request RuntimeOptions
+     * @param CreateAlgorithmVersionRequest $tmpReq
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return CreateAlgorithmVersionResponse CreateAlgorithmVersionResponse
+     * @return CreateAlgorithmVersionResponse
      */
     public function createAlgorithmVersionWithOptions($AlgorithmId, $AlgorithmVersion, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateAlgorithmVersionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->algorithmSpec)) {
-            $request->algorithmSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->algorithmSpec, 'AlgorithmSpec', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->algorithmSpec) {
+            $request->algorithmSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->algorithmSpec, 'AlgorithmSpec', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->algorithmSpecShrink)) {
-            $body['AlgorithmSpec'] = $request->algorithmSpecShrink;
+        if (null !== $request->algorithmSpecShrink) {
+            @$body['AlgorithmSpec'] = $request->algorithmSpecShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateAlgorithmVersion',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/algorithms/' . OpenApiUtilClient::getEncodeParam($AlgorithmId) . '/versions/' . OpenApiUtilClient::getEncodeParam($AlgorithmVersion) . '',
+            'pathname' => '/api/v1/algorithms/' . Url::percentEncode($AlgorithmId) . '/versions/' . Url::percentEncode($AlgorithmVersion) . '',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateAlgorithmVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAlgorithmVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAlgorithmVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建一个新的算法版本
-     *  *
+     * 创建一个新的算法版本.
+     *
+     * @param request - CreateAlgorithmVersionRequest
+     *
+     * @returns CreateAlgorithmVersionResponse
+     *
      * @param string                        $AlgorithmId
      * @param string                        $AlgorithmVersion
-     * @param CreateAlgorithmVersionRequest $request          CreateAlgorithmVersionRequest
+     * @param CreateAlgorithmVersionRequest $request
      *
-     * @return CreateAlgorithmVersionResponse CreateAlgorithmVersionResponse
+     * @return CreateAlgorithmVersionResponse
      */
     public function createAlgorithmVersion($AlgorithmId, $AlgorithmVersion, $request)
     {
@@ -337,14 +365,19 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 创建WebTerminal
-     *  *
+     * 创建WebTerminal.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceWebTerminalResponse
+     *
      * @param string         $TrainingJobId
      * @param string         $InstanceId
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return CreateInstanceWebTerminalResponse CreateInstanceWebTerminalResponse
+     * @return CreateInstanceWebTerminalResponse
      */
     public function createInstanceWebTerminalWithOptions($TrainingJobId, $InstanceId, $headers, $runtime)
     {
@@ -355,27 +388,26 @@ class PaiStudio extends OpenApiClient
             'action' => 'CreateInstanceWebTerminal',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/webterminals',
+            'pathname' => '/api/v1/trainingjobs/' . Url::percentEncode($TrainingJobId) . '/instances/' . Url::percentEncode($InstanceId) . '/webterminals',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateInstanceWebTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateInstanceWebTerminalResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateInstanceWebTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建WebTerminal
-     *  *
+     * 创建WebTerminal.
+     *
+     * @returns CreateInstanceWebTerminalResponse
+     *
      * @param string $TrainingJobId
      * @param string $InstanceId
      *
-     * @return CreateInstanceWebTerminalResponse CreateInstanceWebTerminalResponse
+     * @return CreateInstanceWebTerminalResponse
      */
     public function createInstanceWebTerminal($TrainingJobId, $InstanceId)
     {
@@ -386,51 +418,67 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 创建Quota
-     *  *
-     * @param CreateQuotaRequest $request CreateQuotaRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 创建Quota.
      *
-     * @return CreateQuotaResponse CreateQuotaResponse
+     * @param request - CreateQuotaRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateQuotaResponse
+     *
+     * @param CreateQuotaRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateQuotaResponse
      */
     public function createQuotaWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->allocateStrategy)) {
-            $body['AllocateStrategy'] = $request->allocateStrategy;
+        if (null !== $request->allocateStrategy) {
+            @$body['AllocateStrategy'] = $request->allocateStrategy;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->labels)) {
-            $body['Labels'] = $request->labels;
+
+        if (null !== $request->labels) {
+            @$body['Labels'] = $request->labels;
         }
-        if (!Utils::isUnset($request->min)) {
-            $body['Min'] = $request->min;
+
+        if (null !== $request->min) {
+            @$body['Min'] = $request->min;
         }
-        if (!Utils::isUnset($request->parentQuotaId)) {
-            $body['ParentQuotaId'] = $request->parentQuotaId;
+
+        if (null !== $request->parentQuotaId) {
+            @$body['ParentQuotaId'] = $request->parentQuotaId;
         }
-        if (!Utils::isUnset($request->queueStrategy)) {
-            $body['QueueStrategy'] = $request->queueStrategy;
+
+        if (null !== $request->queueStrategy) {
+            @$body['QueueStrategy'] = $request->queueStrategy;
         }
-        if (!Utils::isUnset($request->quotaConfig)) {
-            $body['QuotaConfig'] = $request->quotaConfig;
+
+        if (null !== $request->quotaConfig) {
+            @$body['QuotaConfig'] = $request->quotaConfig;
         }
-        if (!Utils::isUnset($request->quotaName)) {
-            $body['QuotaName'] = $request->quotaName;
+
+        if (null !== $request->quotaName) {
+            @$body['QuotaName'] = $request->quotaName;
         }
-        if (!Utils::isUnset($request->resourceGroupIds)) {
-            $body['ResourceGroupIds'] = $request->resourceGroupIds;
+
+        if (null !== $request->resourceGroupIds) {
+            @$body['ResourceGroupIds'] = $request->resourceGroupIds;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateQuota',
@@ -443,19 +491,20 @@ class PaiStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateQuotaResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建Quota
-     *  *
-     * @param CreateQuotaRequest $request CreateQuotaRequest
+     * 创建Quota.
      *
-     * @return CreateQuotaResponse CreateQuotaResponse
+     * @param request - CreateQuotaRequest
+     *
+     * @returns CreateQuotaResponse
+     *
+     * @param CreateQuotaRequest $request
+     *
+     * @return CreateQuotaResponse
      */
     public function createQuota($request)
     {
@@ -466,39 +515,51 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 创建资源组
-     *  *
-     * @param CreateResourceGroupRequest $request CreateResourceGroupRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 创建资源组.
      *
-     * @return CreateResourceGroupResponse CreateResourceGroupResponse
+     * @param request - CreateResourceGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateResourceGroupResponse
+     *
+     * @param CreateResourceGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateResourceGroupResponse
      */
     public function createResourceGroupWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->computingResourceProvider)) {
-            $body['ComputingResourceProvider'] = $request->computingResourceProvider;
+        if (null !== $request->computingResourceProvider) {
+            @$body['ComputingResourceProvider'] = $request->computingResourceProvider;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $body['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->userVpc)) {
-            $body['UserVpc'] = $request->userVpc;
+
+        if (null !== $request->userVpc) {
+            @$body['UserVpc'] = $request->userVpc;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateResourceGroup',
@@ -511,19 +572,20 @@ class PaiStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建资源组
-     *  *
-     * @param CreateResourceGroupRequest $request CreateResourceGroupRequest
+     * 创建资源组.
      *
-     * @return CreateResourceGroupResponse CreateResourceGroupResponse
+     * @param request - CreateResourceGroupRequest
+     *
+     * @returns CreateResourceGroupResponse
+     *
+     * @param CreateResourceGroupRequest $request
+     *
+     * @return CreateResourceGroupResponse
      */
     public function createResourceGroup($request)
     {
@@ -534,84 +596,111 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 创建TrainingJob
-     *  *
-     * @param CreateTrainingJobRequest $request CreateTrainingJobRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 创建TrainingJob.
      *
-     * @return CreateTrainingJobResponse CreateTrainingJobResponse
+     * @param request - CreateTrainingJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTrainingJobResponse
+     *
+     * @param CreateTrainingJobRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateTrainingJobResponse
      */
     public function createTrainingJobWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->algorithmName)) {
-            $body['AlgorithmName'] = $request->algorithmName;
+        if (null !== $request->algorithmName) {
+            @$body['AlgorithmName'] = $request->algorithmName;
         }
-        if (!Utils::isUnset($request->algorithmProvider)) {
-            $body['AlgorithmProvider'] = $request->algorithmProvider;
+
+        if (null !== $request->algorithmProvider) {
+            @$body['AlgorithmProvider'] = $request->algorithmProvider;
         }
-        if (!Utils::isUnset($request->algorithmSpec)) {
-            $body['AlgorithmSpec'] = $request->algorithmSpec;
+
+        if (null !== $request->algorithmSpec) {
+            @$body['AlgorithmSpec'] = $request->algorithmSpec;
         }
-        if (!Utils::isUnset($request->algorithmVersion)) {
-            $body['AlgorithmVersion'] = $request->algorithmVersion;
+
+        if (null !== $request->algorithmVersion) {
+            @$body['AlgorithmVersion'] = $request->algorithmVersion;
         }
-        if (!Utils::isUnset($request->codeDir)) {
-            $body['CodeDir'] = $request->codeDir;
+
+        if (null !== $request->codeDir) {
+            @$body['CodeDir'] = $request->codeDir;
         }
-        if (!Utils::isUnset($request->computeResource)) {
-            $body['ComputeResource'] = $request->computeResource;
+
+        if (null !== $request->computeResource) {
+            @$body['ComputeResource'] = $request->computeResource;
         }
-        if (!Utils::isUnset($request->environments)) {
-            $body['Environments'] = $request->environments;
+
+        if (null !== $request->environments) {
+            @$body['Environments'] = $request->environments;
         }
-        if (!Utils::isUnset($request->experimentConfig)) {
-            $body['ExperimentConfig'] = $request->experimentConfig;
+
+        if (null !== $request->experimentConfig) {
+            @$body['ExperimentConfig'] = $request->experimentConfig;
         }
-        if (!Utils::isUnset($request->hyperParameters)) {
-            $body['HyperParameters'] = $request->hyperParameters;
+
+        if (null !== $request->hyperParameters) {
+            @$body['HyperParameters'] = $request->hyperParameters;
         }
-        if (!Utils::isUnset($request->inputChannels)) {
-            $body['InputChannels'] = $request->inputChannels;
+
+        if (null !== $request->inputChannels) {
+            @$body['InputChannels'] = $request->inputChannels;
         }
-        if (!Utils::isUnset($request->labels)) {
-            $body['Labels'] = $request->labels;
+
+        if (null !== $request->labels) {
+            @$body['Labels'] = $request->labels;
         }
-        if (!Utils::isUnset($request->outputChannels)) {
-            $body['OutputChannels'] = $request->outputChannels;
+
+        if (null !== $request->outputChannels) {
+            @$body['OutputChannels'] = $request->outputChannels;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $body['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$body['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->pythonRequirements)) {
-            $body['PythonRequirements'] = $request->pythonRequirements;
+
+        if (null !== $request->pythonRequirements) {
+            @$body['PythonRequirements'] = $request->pythonRequirements;
         }
-        if (!Utils::isUnset($request->roleArn)) {
-            $body['RoleArn'] = $request->roleArn;
+
+        if (null !== $request->roleArn) {
+            @$body['RoleArn'] = $request->roleArn;
         }
-        if (!Utils::isUnset($request->scheduler)) {
-            $body['Scheduler'] = $request->scheduler;
+
+        if (null !== $request->scheduler) {
+            @$body['Scheduler'] = $request->scheduler;
         }
-        if (!Utils::isUnset($request->settings)) {
-            $body['Settings'] = $request->settings;
+
+        if (null !== $request->settings) {
+            @$body['Settings'] = $request->settings;
         }
-        if (!Utils::isUnset($request->trainingJobDescription)) {
-            $body['TrainingJobDescription'] = $request->trainingJobDescription;
+
+        if (null !== $request->trainingJobDescription) {
+            @$body['TrainingJobDescription'] = $request->trainingJobDescription;
         }
-        if (!Utils::isUnset($request->trainingJobName)) {
-            $body['TrainingJobName'] = $request->trainingJobName;
+
+        if (null !== $request->trainingJobName) {
+            @$body['TrainingJobName'] = $request->trainingJobName;
         }
-        if (!Utils::isUnset($request->userVpc)) {
-            $body['UserVpc'] = $request->userVpc;
+
+        if (null !== $request->userVpc) {
+            @$body['UserVpc'] = $request->userVpc;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateTrainingJob',
@@ -624,19 +713,20 @@ class PaiStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTrainingJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建TrainingJob
-     *  *
-     * @param CreateTrainingJobRequest $request CreateTrainingJobRequest
+     * 创建TrainingJob.
      *
-     * @return CreateTrainingJobResponse CreateTrainingJobResponse
+     * @param request - CreateTrainingJobRequest
+     *
+     * @returns CreateTrainingJobResponse
+     *
+     * @param CreateTrainingJobRequest $request
+     *
+     * @return CreateTrainingJobResponse
      */
     public function createTrainingJob($request)
     {
@@ -647,13 +737,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 删除算法
-     *  *
-     * @param string         $AlgorithmId
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * 删除算法.
      *
-     * @return DeleteAlgorithmResponse DeleteAlgorithmResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAlgorithmResponse
+     *
+     * @param string         $AlgorithmId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteAlgorithmResponse
      */
     public function deleteAlgorithmWithOptions($AlgorithmId, $headers, $runtime)
     {
@@ -664,26 +759,25 @@ class PaiStudio extends OpenApiClient
             'action' => 'DeleteAlgorithm',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/algorithms/' . OpenApiUtilClient::getEncodeParam($AlgorithmId) . '',
+            'pathname' => '/api/v1/algorithms/' . Url::percentEncode($AlgorithmId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteAlgorithmResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAlgorithmResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAlgorithmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除算法
-     *  *
+     * 删除算法.
+     *
+     * @returns DeleteAlgorithmResponse
+     *
      * @param string $AlgorithmId
      *
-     * @return DeleteAlgorithmResponse DeleteAlgorithmResponse
+     * @return DeleteAlgorithmResponse
      */
     public function deleteAlgorithm($AlgorithmId)
     {
@@ -694,14 +788,19 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 删除算法版本
-     *  *
+     * 删除算法版本.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAlgorithmVersionResponse
+     *
      * @param string         $AlgorithmId
      * @param string         $AlgorithmVersion
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteAlgorithmVersionResponse DeleteAlgorithmVersionResponse
+     * @return DeleteAlgorithmVersionResponse
      */
     public function deleteAlgorithmVersionWithOptions($AlgorithmId, $AlgorithmVersion, $headers, $runtime)
     {
@@ -712,27 +811,26 @@ class PaiStudio extends OpenApiClient
             'action' => 'DeleteAlgorithmVersion',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/algorithms/' . OpenApiUtilClient::getEncodeParam($AlgorithmId) . '/versions/' . OpenApiUtilClient::getEncodeParam($AlgorithmVersion) . '',
+            'pathname' => '/api/v1/algorithms/' . Url::percentEncode($AlgorithmId) . '/versions/' . Url::percentEncode($AlgorithmVersion) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteAlgorithmVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAlgorithmVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAlgorithmVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除算法版本
-     *  *
+     * 删除算法版本.
+     *
+     * @returns DeleteAlgorithmVersionResponse
+     *
      * @param string $AlgorithmId
      * @param string $AlgorithmVersion
      *
-     * @return DeleteAlgorithmVersionResponse DeleteAlgorithmVersionResponse
+     * @return DeleteAlgorithmVersionResponse
      */
     public function deleteAlgorithmVersion($AlgorithmId, $AlgorithmVersion)
     {
@@ -742,18 +840,22 @@ class PaiStudio extends OpenApiClient
         return $this->deleteAlgorithmVersionWithOptions($AlgorithmId, $AlgorithmVersion, $headers, $runtime);
     }
 
+    // Deprecated
     /**
+     * delete machine group.
+     *
      * @deprecated OpenAPI DeleteMachineGroup is deprecated
-     *  *
-     * @summary delete machine group
-     *  *
-     * Deprecated
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMachineGroupResponse
      *
      * @param string         $MachineGroupID
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteMachineGroupResponse DeleteMachineGroupResponse
+     * @return DeleteMachineGroupResponse
      */
     public function deleteMachineGroupWithOptions($MachineGroupID, $headers, $runtime)
     {
@@ -764,30 +866,28 @@ class PaiStudio extends OpenApiClient
             'action' => 'DeleteMachineGroup',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/resources/machinegroups/' . OpenApiUtilClient::getEncodeParam($MachineGroupID) . '',
+            'pathname' => '/api/v1/resources/machinegroups/' . Url::percentEncode($MachineGroupID) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteMachineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteMachineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * delete machine group.
+     *
      * @deprecated OpenAPI DeleteMachineGroup is deprecated
-     *  *
-     * @summary delete machine group
-     *  *
-     * Deprecated
+     *
+     * @returns DeleteMachineGroupResponse
      *
      * @param string $MachineGroupID
      *
-     * @return DeleteMachineGroupResponse DeleteMachineGroupResponse
+     * @return DeleteMachineGroupResponse
      */
     public function deleteMachineGroup($MachineGroupID)
     {
@@ -798,13 +898,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 删除Quota
-     *  *
-     * @param string         $QuotaId
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 删除Quota.
      *
-     * @return DeleteQuotaResponse DeleteQuotaResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteQuotaResponse
+     *
+     * @param string         $QuotaId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteQuotaResponse
      */
     public function deleteQuotaWithOptions($QuotaId, $headers, $runtime)
     {
@@ -815,26 +920,25 @@ class PaiStudio extends OpenApiClient
             'action' => 'DeleteQuota',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($QuotaId) . '',
+            'pathname' => '/api/v1/quotas/' . Url::percentEncode($QuotaId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteQuotaResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除Quota
-     *  *
+     * 删除Quota.
+     *
+     * @returns DeleteQuotaResponse
+     *
      * @param string $QuotaId
      *
-     * @return DeleteQuotaResponse DeleteQuotaResponse
+     * @return DeleteQuotaResponse
      */
     public function deleteQuota($QuotaId)
     {
@@ -845,13 +949,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 删除资源组
-     *  *
-     * @param string         $ResourceGroupID
-     * @param string[]       $headers         map
-     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
+     * 删除资源组.
      *
-     * @return DeleteResourceGroupResponse DeleteResourceGroupResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteResourceGroupResponse
+     *
+     * @param string         $ResourceGroupID
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteResourceGroupResponse
      */
     public function deleteResourceGroupWithOptions($ResourceGroupID, $headers, $runtime)
     {
@@ -862,26 +971,25 @@ class PaiStudio extends OpenApiClient
             'action' => 'DeleteResourceGroup',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/resources/' . OpenApiUtilClient::getEncodeParam($ResourceGroupID) . '',
+            'pathname' => '/api/v1/resources/' . Url::percentEncode($ResourceGroupID) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除资源组
-     *  *
+     * 删除资源组.
+     *
+     * @returns DeleteResourceGroupResponse
+     *
      * @param string $ResourceGroupID
      *
-     * @return DeleteResourceGroupResponse DeleteResourceGroupResponse
+     * @return DeleteResourceGroupResponse
      */
     public function deleteResourceGroup($ResourceGroupID)
     {
@@ -891,19 +999,23 @@ class PaiStudio extends OpenApiClient
         return $this->deleteResourceGroupWithOptions($ResourceGroupID, $headers, $runtime);
     }
 
+    // Deprecated
     /**
+     * delete machine group.
+     *
      * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
-     *  *
-     * @summary delete machine group
-     *  *
-     * Deprecated
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteResourceGroupMachineGroupResponse
      *
      * @param string         $MachineGroupID
      * @param string         $ResourceGroupID
-     * @param string[]       $headers         map
-     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteResourceGroupMachineGroupResponse DeleteResourceGroupMachineGroupResponse
+     * @return DeleteResourceGroupMachineGroupResponse
      */
     public function deleteResourceGroupMachineGroupWithOptions($MachineGroupID, $ResourceGroupID, $headers, $runtime)
     {
@@ -914,31 +1026,29 @@ class PaiStudio extends OpenApiClient
             'action' => 'DeleteResourceGroupMachineGroup',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/resources/' . OpenApiUtilClient::getEncodeParam($ResourceGroupID) . '/machinegroups/' . OpenApiUtilClient::getEncodeParam($MachineGroupID) . '',
+            'pathname' => '/api/v1/resources/' . Url::percentEncode($ResourceGroupID) . '/machinegroups/' . Url::percentEncode($MachineGroupID) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteResourceGroupMachineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteResourceGroupMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteResourceGroupMachineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * delete machine group.
+     *
      * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
-     *  *
-     * @summary delete machine group
-     *  *
-     * Deprecated
+     *
+     * @returns DeleteResourceGroupMachineGroupResponse
      *
      * @param string $MachineGroupID
      * @param string $ResourceGroupID
      *
-     * @return DeleteResourceGroupMachineGroupResponse DeleteResourceGroupMachineGroupResponse
+     * @return DeleteResourceGroupMachineGroupResponse
      */
     public function deleteResourceGroupMachineGroup($MachineGroupID, $ResourceGroupID)
     {
@@ -949,13 +1059,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 删除一个TrainingJob
-     *  *
-     * @param string         $TrainingJobId
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * 删除一个TrainingJob.
      *
-     * @return DeleteTrainingJobResponse DeleteTrainingJobResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTrainingJobResponse
+     *
+     * @param string         $TrainingJobId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteTrainingJobResponse
      */
     public function deleteTrainingJobWithOptions($TrainingJobId, $headers, $runtime)
     {
@@ -966,26 +1081,25 @@ class PaiStudio extends OpenApiClient
             'action' => 'DeleteTrainingJob',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '',
+            'pathname' => '/api/v1/trainingjobs/' . Url::percentEncode($TrainingJobId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTrainingJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除一个TrainingJob
-     *  *
+     * 删除一个TrainingJob.
+     *
+     * @returns DeleteTrainingJobResponse
+     *
      * @param string $TrainingJobId
      *
-     * @return DeleteTrainingJobResponse DeleteTrainingJobResponse
+     * @return DeleteTrainingJobResponse
      */
     public function deleteTrainingJob($TrainingJobId)
     {
@@ -996,51 +1110,59 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 删除TrainingJob的Labels
-     *  *
-     * @param string                         $TrainingJobId
-     * @param DeleteTrainingJobLabelsRequest $request       DeleteTrainingJobLabelsRequest
-     * @param string[]                       $headers       map
-     * @param RuntimeOptions                 $runtime       runtime options for this request RuntimeOptions
+     * 删除TrainingJob的Labels.
      *
-     * @return DeleteTrainingJobLabelsResponse DeleteTrainingJobLabelsResponse
+     * @param request - DeleteTrainingJobLabelsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTrainingJobLabelsResponse
+     *
+     * @param string                         $TrainingJobId
+     * @param DeleteTrainingJobLabelsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteTrainingJobLabelsResponse
      */
     public function deleteTrainingJobLabelsWithOptions($TrainingJobId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keys)) {
-            $query['Keys'] = $request->keys;
+        if (null !== $request->keys) {
+            @$query['Keys'] = $request->keys;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteTrainingJobLabels',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/labels',
+            'pathname' => '/api/v1/trainingjobs/' . Url::percentEncode($TrainingJobId) . '/labels',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteTrainingJobLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTrainingJobLabelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTrainingJobLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除TrainingJob的Labels
-     *  *
-     * @param string                         $TrainingJobId
-     * @param DeleteTrainingJobLabelsRequest $request       DeleteTrainingJobLabelsRequest
+     * 删除TrainingJob的Labels.
      *
-     * @return DeleteTrainingJobLabelsResponse DeleteTrainingJobLabelsResponse
+     * @param request - DeleteTrainingJobLabelsRequest
+     *
+     * @returns DeleteTrainingJobLabelsResponse
+     *
+     * @param string                         $TrainingJobId
+     * @param DeleteTrainingJobLabelsRequest $request
+     *
+     * @return DeleteTrainingJobLabelsResponse
      */
     public function deleteTrainingJobLabels($TrainingJobId, $request)
     {
@@ -1051,13 +1173,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取一个算法信息
-     *  *
-     * @param string         $AlgorithmId
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * 获取一个算法信息.
      *
-     * @return GetAlgorithmResponse GetAlgorithmResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlgorithmResponse
+     *
+     * @param string         $AlgorithmId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAlgorithmResponse
      */
     public function getAlgorithmWithOptions($AlgorithmId, $headers, $runtime)
     {
@@ -1068,26 +1195,25 @@ class PaiStudio extends OpenApiClient
             'action' => 'GetAlgorithm',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/algorithms/' . OpenApiUtilClient::getEncodeParam($AlgorithmId) . '',
+            'pathname' => '/api/v1/algorithms/' . Url::percentEncode($AlgorithmId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAlgorithmResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAlgorithmResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAlgorithmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取一个算法信息
-     *  *
+     * 获取一个算法信息.
+     *
+     * @returns GetAlgorithmResponse
+     *
      * @param string $AlgorithmId
      *
-     * @return GetAlgorithmResponse GetAlgorithmResponse
+     * @return GetAlgorithmResponse
      */
     public function getAlgorithm($AlgorithmId)
     {
@@ -1098,14 +1224,19 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 创建一个新的算法版本
-     *  *
+     * 创建一个新的算法版本.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlgorithmVersionResponse
+     *
      * @param string         $AlgorithmId
      * @param string         $AlgorithmVersion
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetAlgorithmVersionResponse GetAlgorithmVersionResponse
+     * @return GetAlgorithmVersionResponse
      */
     public function getAlgorithmVersionWithOptions($AlgorithmId, $AlgorithmVersion, $headers, $runtime)
     {
@@ -1116,27 +1247,26 @@ class PaiStudio extends OpenApiClient
             'action' => 'GetAlgorithmVersion',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/algorithms/' . OpenApiUtilClient::getEncodeParam($AlgorithmId) . '/versions/' . OpenApiUtilClient::getEncodeParam($AlgorithmVersion) . '',
+            'pathname' => '/api/v1/algorithms/' . Url::percentEncode($AlgorithmId) . '/versions/' . Url::percentEncode($AlgorithmVersion) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAlgorithmVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAlgorithmVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAlgorithmVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建一个新的算法版本
-     *  *
+     * 创建一个新的算法版本.
+     *
+     * @returns GetAlgorithmVersionResponse
+     *
      * @param string $AlgorithmId
      * @param string $AlgorithmVersion
      *
-     * @return GetAlgorithmVersionResponse GetAlgorithmVersionResponse
+     * @return GetAlgorithmVersionResponse
      */
     public function getAlgorithmVersion($AlgorithmId, $AlgorithmVersion)
     {
@@ -1146,18 +1276,22 @@ class PaiStudio extends OpenApiClient
         return $this->getAlgorithmVersionWithOptions($AlgorithmId, $AlgorithmVersion, $headers, $runtime);
     }
 
+    // Deprecated
     /**
+     * get machine group.
+     *
      * @deprecated OpenAPI GetMachineGroup is deprecated
-     *  *
-     * @summary get machine group
-     *  *
-     * Deprecated
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMachineGroupResponse
      *
      * @param string         $MachineGroupID
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetMachineGroupResponse GetMachineGroupResponse
+     * @return GetMachineGroupResponse
      */
     public function getMachineGroupWithOptions($MachineGroupID, $headers, $runtime)
     {
@@ -1168,30 +1302,28 @@ class PaiStudio extends OpenApiClient
             'action' => 'GetMachineGroup',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/resources/machinegroups/' . OpenApiUtilClient::getEncodeParam($MachineGroupID) . '',
+            'pathname' => '/api/v1/resources/machinegroups/' . Url::percentEncode($MachineGroupID) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetMachineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMachineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * get machine group.
+     *
      * @deprecated OpenAPI GetMachineGroup is deprecated
-     *  *
-     * @summary get machine group
-     *  *
-     * Deprecated
+     *
+     * @returns GetMachineGroupResponse
      *
      * @param string $MachineGroupID
      *
-     * @return GetMachineGroupResponse GetMachineGroupResponse
+     * @return GetMachineGroupResponse
      */
     public function getMachineGroup($MachineGroupID)
     {
@@ -1201,74 +1333,84 @@ class PaiStudio extends OpenApiClient
         return $this->getMachineGroupWithOptions($MachineGroupID, $headers, $runtime);
     }
 
+    // Deprecated
     /**
+     * get resource group node metrics.
+     *
      * @deprecated OpenAPI GetNodeMetrics is deprecated
-     *  *
-     * @summary get resource group node metrics
-     *  *
-     * Deprecated
+     *
+     * @param request - GetNodeMetricsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNodeMetricsResponse
      *
      * @param string                $ResourceGroupID
      * @param string                $MetricType
-     * @param GetNodeMetricsRequest $request         GetNodeMetricsRequest
-     * @param string[]              $headers         map
-     * @param RuntimeOptions        $runtime         runtime options for this request RuntimeOptions
+     * @param GetNodeMetricsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return GetNodeMetricsResponse GetNodeMetricsResponse
+     * @return GetNodeMetricsResponse
      */
     public function getNodeMetricsWithOptions($ResourceGroupID, $MetricType, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->GPUType)) {
-            $query['GPUType'] = $request->GPUType;
+
+        if (null !== $request->GPUType) {
+            @$query['GPUType'] = $request->GPUType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->timeStep)) {
-            $query['TimeStep'] = $request->timeStep;
+
+        if (null !== $request->timeStep) {
+            @$query['TimeStep'] = $request->timeStep;
         }
-        if (!Utils::isUnset($request->verbose)) {
-            $query['Verbose'] = $request->verbose;
+
+        if (null !== $request->verbose) {
+            @$query['Verbose'] = $request->verbose;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetNodeMetrics',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/resources/' . OpenApiUtilClient::getEncodeParam($ResourceGroupID) . '/nodemetrics/' . OpenApiUtilClient::getEncodeParam($MetricType) . '',
+            'pathname' => '/api/v1/resources/' . Url::percentEncode($ResourceGroupID) . '/nodemetrics/' . Url::percentEncode($MetricType) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetNodeMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNodeMetricsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNodeMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * get resource group node metrics.
+     *
      * @deprecated OpenAPI GetNodeMetrics is deprecated
-     *  *
-     * @summary get resource group node metrics
-     *  *
-     * Deprecated
+     *
+     * @param request - GetNodeMetricsRequest
+     *
+     * @returns GetNodeMetricsResponse
      *
      * @param string                $ResourceGroupID
      * @param string                $MetricType
-     * @param GetNodeMetricsRequest $request         GetNodeMetricsRequest
+     * @param GetNodeMetricsRequest $request
      *
-     * @return GetNodeMetricsResponse GetNodeMetricsResponse
+     * @return GetNodeMetricsResponse
      */
     public function getNodeMetrics($ResourceGroupID, $MetricType, $request)
     {
@@ -1279,51 +1421,59 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取Quota
-     *  *
-     * @param string          $QuotaId
-     * @param GetQuotaRequest $request GetQuotaRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 获取Quota.
      *
-     * @return GetQuotaResponse GetQuotaResponse
+     * @param request - GetQuotaRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQuotaResponse
+     *
+     * @param string          $QuotaId
+     * @param GetQuotaRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetQuotaResponse
      */
     public function getQuotaWithOptions($QuotaId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->verbose)) {
-            $query['Verbose'] = $request->verbose;
+        if (null !== $request->verbose) {
+            @$query['Verbose'] = $request->verbose;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetQuota',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($QuotaId) . '',
+            'pathname' => '/api/v1/quotas/' . Url::percentEncode($QuotaId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetQuotaResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取Quota
-     *  *
-     * @param string          $QuotaId
-     * @param GetQuotaRequest $request GetQuotaRequest
+     * 获取Quota.
      *
-     * @return GetQuotaResponse GetQuotaResponse
+     * @param request - GetQuotaRequest
+     *
+     * @returns GetQuotaResponse
+     *
+     * @param string          $QuotaId
+     * @param GetQuotaRequest $request
+     *
+     * @return GetQuotaResponse
      */
     public function getQuota($QuotaId, $request)
     {
@@ -1334,59 +1484,69 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary get resource group by group id
-     *  *
-     * @param string                  $ResourceGroupID
-     * @param GetResourceGroupRequest $tmpReq          GetResourceGroupRequest
-     * @param string[]                $headers         map
-     * @param RuntimeOptions          $runtime         runtime options for this request RuntimeOptions
+     * get resource group by group id.
      *
-     * @return GetResourceGroupResponse GetResourceGroupResponse
+     * @param tmpReq - GetResourceGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceGroupResponse
+     *
+     * @param string                  $ResourceGroupID
+     * @param GetResourceGroupRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetResourceGroupResponse
      */
     public function getResourceGroupWithOptions($ResourceGroupID, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetResourceGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->isAIWorkspaceDataEnabled)) {
-            $query['IsAIWorkspaceDataEnabled'] = $request->isAIWorkspaceDataEnabled;
+        if (null !== $request->isAIWorkspaceDataEnabled) {
+            @$query['IsAIWorkspaceDataEnabled'] = $request->isAIWorkspaceDataEnabled;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['Tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetResourceGroup',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/resources/' . OpenApiUtilClient::getEncodeParam($ResourceGroupID) . '',
+            'pathname' => '/api/v1/resources/' . Url::percentEncode($ResourceGroupID) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary get resource group by group id
-     *  *
-     * @param string                  $ResourceGroupID
-     * @param GetResourceGroupRequest $request         GetResourceGroupRequest
+     * get resource group by group id.
      *
-     * @return GetResourceGroupResponse GetResourceGroupResponse
+     * @param request - GetResourceGroupRequest
+     *
+     * @returns GetResourceGroupResponse
+     *
+     * @param string                  $ResourceGroupID
+     * @param GetResourceGroupRequest $request
+     *
+     * @return GetResourceGroupResponse
      */
     public function getResourceGroup($ResourceGroupID, $request)
     {
@@ -1397,58 +1557,67 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary get machine group
-     *  *
+     * get machine group.
+     *
+     * @param tmpReq - GetResourceGroupMachineGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceGroupMachineGroupResponse
+     *
      * @param string                              $MachineGroupID
      * @param string                              $ResourceGroupID
-     * @param GetResourceGroupMachineGroupRequest $tmpReq          GetResourceGroupMachineGroupRequest
-     * @param string[]                            $headers         map
-     * @param RuntimeOptions                      $runtime         runtime options for this request RuntimeOptions
+     * @param GetResourceGroupMachineGroupRequest $tmpReq
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
      *
-     * @return GetResourceGroupMachineGroupResponse GetResourceGroupMachineGroupResponse
+     * @return GetResourceGroupMachineGroupResponse
      */
     public function getResourceGroupMachineGroupWithOptions($MachineGroupID, $ResourceGroupID, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetResourceGroupMachineGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['Tag'] = $request->tagShrink;
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetResourceGroupMachineGroup',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/resources/' . OpenApiUtilClient::getEncodeParam($ResourceGroupID) . '/machinegroups/' . OpenApiUtilClient::getEncodeParam($MachineGroupID) . '',
+            'pathname' => '/api/v1/resources/' . Url::percentEncode($ResourceGroupID) . '/machinegroups/' . Url::percentEncode($MachineGroupID) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetResourceGroupMachineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceGroupMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceGroupMachineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary get machine group
-     *  *
+     * get machine group.
+     *
+     * @param request - GetResourceGroupMachineGroupRequest
+     *
+     * @returns GetResourceGroupMachineGroupResponse
+     *
      * @param string                              $MachineGroupID
      * @param string                              $ResourceGroupID
-     * @param GetResourceGroupMachineGroupRequest $request         GetResourceGroupMachineGroupRequest
+     * @param GetResourceGroupMachineGroupRequest $request
      *
-     * @return GetResourceGroupMachineGroupResponse GetResourceGroupMachineGroupResponse
+     * @return GetResourceGroupMachineGroupResponse
      */
     public function getResourceGroupMachineGroup($MachineGroupID, $ResourceGroupID, $request)
     {
@@ -1458,32 +1627,39 @@ class PaiStudio extends OpenApiClient
         return $this->getResourceGroupMachineGroupWithOptions($MachineGroupID, $ResourceGroupID, $request, $headers, $runtime);
     }
 
+    // Deprecated
     /**
+     * get resource group requested resource by resource group id.
+     *
      * @deprecated OpenAPI GetResourceGroupRequest is deprecated
-     *  *
-     * @summary get resource group requested resource by resource group id
-     *  *
-     * Deprecated
      *
-     * @param GetResourceGroupRequestRequest $request GetResourceGroupRequestRequest
-     * @param string[]                       $headers map
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - GetResourceGroupRequestRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetResourceGroupRequestResponse GetResourceGroupRequestResponse
+     * @returns GetResourceGroupRequestResponse
+     *
+     * @param GetResourceGroupRequestRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetResourceGroupRequestResponse
      */
     public function getResourceGroupRequestWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->podStatus)) {
-            $query['PodStatus'] = $request->podStatus;
+        if (null !== $request->podStatus) {
+            @$query['PodStatus'] = $request->podStatus;
         }
-        if (!Utils::isUnset($request->resourceGroupID)) {
-            $query['ResourceGroupID'] = $request->resourceGroupID;
+
+        if (null !== $request->resourceGroupID) {
+            @$query['ResourceGroupID'] = $request->resourceGroupID;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetResourceGroupRequest',
@@ -1496,23 +1672,23 @@ class PaiStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetResourceGroupRequestResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceGroupRequestResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceGroupRequestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * get resource group requested resource by resource group id.
+     *
      * @deprecated OpenAPI GetResourceGroupRequest is deprecated
-     *  *
-     * @summary get resource group requested resource by resource group id
-     *  *
-     * Deprecated
      *
-     * @param GetResourceGroupRequestRequest $request GetResourceGroupRequestRequest
+     * @param request - GetResourceGroupRequestRequest
      *
-     * @return GetResourceGroupRequestResponse GetResourceGroupRequestResponse
+     * @returns GetResourceGroupRequestResponse
+     *
+     * @param GetResourceGroupRequestRequest $request
+     *
+     * @return GetResourceGroupRequestResponse
      */
     public function getResourceGroupRequest($request)
     {
@@ -1523,24 +1699,31 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary get resource group total resource by group id
-     *  *
-     * @param GetResourceGroupTotalRequest $request GetResourceGroupTotalRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * get resource group total resource by group id.
      *
-     * @return GetResourceGroupTotalResponse GetResourceGroupTotalResponse
+     * @param request - GetResourceGroupTotalRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceGroupTotalResponse
+     *
+     * @param GetResourceGroupTotalRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetResourceGroupTotalResponse
      */
     public function getResourceGroupTotalWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupID)) {
-            $query['ResourceGroupID'] = $request->resourceGroupID;
+        if (null !== $request->resourceGroupID) {
+            @$query['ResourceGroupID'] = $request->resourceGroupID;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetResourceGroupTotal',
@@ -1553,19 +1736,20 @@ class PaiStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetResourceGroupTotalResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceGroupTotalResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceGroupTotalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary get resource group total resource by group id
-     *  *
-     * @param GetResourceGroupTotalRequest $request GetResourceGroupTotalRequest
+     * get resource group total resource by group id.
      *
-     * @return GetResourceGroupTotalResponse GetResourceGroupTotalResponse
+     * @param request - GetResourceGroupTotalRequest
+     *
+     * @returns GetResourceGroupTotalResponse
+     *
+     * @param GetResourceGroupTotalRequest $request
+     *
+     * @return GetResourceGroupTotalResponse
      */
     public function getResourceGroupTotal($request)
     {
@@ -1576,69 +1760,83 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取抢占式实例历史价格
-     *  *
-     * @param string                     $InstanceType
-     * @param GetSpotPriceHistoryRequest $request      GetSpotPriceHistoryRequest
-     * @param string[]                   $headers      map
-     * @param RuntimeOptions             $runtime      runtime options for this request RuntimeOptions
+     * 获取抢占式实例历史价格
      *
-     * @return GetSpotPriceHistoryResponse GetSpotPriceHistoryResponse
+     * @param request - GetSpotPriceHistoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSpotPriceHistoryResponse
+     *
+     * @param string                     $InstanceType
+     * @param GetSpotPriceHistoryRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetSpotPriceHistoryResponse
      */
     public function getSpotPriceHistoryWithOptions($InstanceType, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->spotDuration)) {
-            $query['SpotDuration'] = $request->spotDuration;
+
+        if (null !== $request->spotDuration) {
+            @$query['SpotDuration'] = $request->spotDuration;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSpotPriceHistory',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/spots/' . OpenApiUtilClient::getEncodeParam($InstanceType) . '/pricehistory',
+            'pathname' => '/api/v1/spots/' . Url::percentEncode($InstanceType) . '/pricehistory',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetSpotPriceHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSpotPriceHistoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSpotPriceHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取抢占式实例历史价格
-     *  *
-     * @param string                     $InstanceType
-     * @param GetSpotPriceHistoryRequest $request      GetSpotPriceHistoryRequest
+     * 获取抢占式实例历史价格
      *
-     * @return GetSpotPriceHistoryResponse GetSpotPriceHistoryResponse
+     * @param request - GetSpotPriceHistoryRequest
+     *
+     * @returns GetSpotPriceHistoryResponse
+     *
+     * @param string                     $InstanceType
+     * @param GetSpotPriceHistoryRequest $request
+     *
+     * @return GetSpotPriceHistoryResponse
      */
     public function getSpotPriceHistory($InstanceType, $request)
     {
@@ -1649,27 +1847,35 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 调用GetToken获取临时鉴权信息
-     *  *
-     * @param GetTokenRequest $request GetTokenRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 调用GetToken获取临时鉴权信息.
      *
-     * @return GetTokenResponse GetTokenResponse
+     * @param request - GetTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTokenResponse
+     *
+     * @param GetTokenRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetTokenResponse
      */
     public function getTokenWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->expireTime)) {
-            $query['ExpireTime'] = $request->expireTime;
+        if (null !== $request->expireTime) {
+            @$query['ExpireTime'] = $request->expireTime;
         }
-        if (!Utils::isUnset($request->trainingJobId)) {
-            $query['TrainingJobId'] = $request->trainingJobId;
+
+        if (null !== $request->trainingJobId) {
+            @$query['TrainingJobId'] = $request->trainingJobId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetToken',
@@ -1682,19 +1888,20 @@ class PaiStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 调用GetToken获取临时鉴权信息
-     *  *
-     * @param GetTokenRequest $request GetTokenRequest
+     * 调用GetToken获取临时鉴权信息.
      *
-     * @return GetTokenResponse GetTokenResponse
+     * @param request - GetTokenRequest
+     *
+     * @returns GetTokenResponse
+     *
+     * @param GetTokenRequest $request
+     *
+     * @return GetTokenResponse
      */
     public function getToken($request)
     {
@@ -1705,13 +1912,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取TrainingJob的详情
-     *  *
-     * @param string         $TrainingJobId
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * 获取TrainingJob的详情.
      *
-     * @return GetTrainingJobResponse GetTrainingJobResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTrainingJobResponse
+     *
+     * @param string         $TrainingJobId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTrainingJobResponse
      */
     public function getTrainingJobWithOptions($TrainingJobId, $headers, $runtime)
     {
@@ -1722,26 +1934,25 @@ class PaiStudio extends OpenApiClient
             'action' => 'GetTrainingJob',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '',
+            'pathname' => '/api/v1/trainingjobs/' . Url::percentEncode($TrainingJobId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTrainingJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取TrainingJob的详情
-     *  *
+     * 获取TrainingJob的详情.
+     *
+     * @returns GetTrainingJobResponse
+     *
      * @param string $TrainingJobId
      *
-     * @return GetTrainingJobResponse GetTrainingJobResponse
+     * @return GetTrainingJobResponse
      */
     public function getTrainingJob($TrainingJobId)
     {
@@ -1752,13 +1963,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取Training Job的算法错误信息
-     *  *
-     * @param string         $TrainingJobId
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * 获取Training Job的算法错误信息.
      *
-     * @return GetTrainingJobErrorInfoResponse GetTrainingJobErrorInfoResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTrainingJobErrorInfoResponse
+     *
+     * @param string         $TrainingJobId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTrainingJobErrorInfoResponse
      */
     public function getTrainingJobErrorInfoWithOptions($TrainingJobId, $headers, $runtime)
     {
@@ -1769,26 +1985,25 @@ class PaiStudio extends OpenApiClient
             'action' => 'GetTrainingJobErrorInfo',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/errorinfo',
+            'pathname' => '/api/v1/trainingjobs/' . Url::percentEncode($TrainingJobId) . '/errorinfo',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTrainingJobErrorInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTrainingJobErrorInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTrainingJobErrorInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取Training Job的算法错误信息
-     *  *
+     * 获取Training Job的算法错误信息.
+     *
+     * @returns GetTrainingJobErrorInfoResponse
+     *
      * @param string $TrainingJobId
      *
-     * @return GetTrainingJobErrorInfoResponse GetTrainingJobErrorInfoResponse
+     * @return GetTrainingJobErrorInfoResponse
      */
     public function getTrainingJobErrorInfo($TrainingJobId)
     {
@@ -1799,51 +2014,59 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取TrainingJob最近的Metrics
-     *  *
-     * @param string                             $TrainingJobId
-     * @param GetTrainingJobLatestMetricsRequest $request       GetTrainingJobLatestMetricsRequest
-     * @param string[]                           $headers       map
-     * @param RuntimeOptions                     $runtime       runtime options for this request RuntimeOptions
+     * 获取TrainingJob最近的Metrics.
      *
-     * @return GetTrainingJobLatestMetricsResponse GetTrainingJobLatestMetricsResponse
+     * @param request - GetTrainingJobLatestMetricsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTrainingJobLatestMetricsResponse
+     *
+     * @param string                             $TrainingJobId
+     * @param GetTrainingJobLatestMetricsRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetTrainingJobLatestMetricsResponse
      */
     public function getTrainingJobLatestMetricsWithOptions($TrainingJobId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->names)) {
-            $query['Names'] = $request->names;
+        if (null !== $request->names) {
+            @$query['Names'] = $request->names;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetTrainingJobLatestMetrics',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/latestmetrics',
+            'pathname' => '/api/v1/trainingjobs/' . Url::percentEncode($TrainingJobId) . '/latestmetrics',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTrainingJobLatestMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTrainingJobLatestMetricsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTrainingJobLatestMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取TrainingJob最近的Metrics
-     *  *
-     * @param string                             $TrainingJobId
-     * @param GetTrainingJobLatestMetricsRequest $request       GetTrainingJobLatestMetricsRequest
+     * 获取TrainingJob最近的Metrics.
      *
-     * @return GetTrainingJobLatestMetricsResponse GetTrainingJobLatestMetricsResponse
+     * @param request - GetTrainingJobLatestMetricsRequest
+     *
+     * @returns GetTrainingJobLatestMetricsResponse
+     *
+     * @param string                             $TrainingJobId
+     * @param GetTrainingJobLatestMetricsRequest $request
+     *
+     * @return GetTrainingJobLatestMetricsResponse
      */
     public function getTrainingJobLatestMetrics($TrainingJobId, $request)
     {
@@ -1853,78 +2076,90 @@ class PaiStudio extends OpenApiClient
         return $this->getTrainingJobLatestMetricsWithOptions($TrainingJobId, $request, $headers, $runtime);
     }
 
+    // Deprecated
     /**
+     * get user view  metrics.
+     *
      * @deprecated OpenAPI GetUserViewMetrics is deprecated
-     *  *
-     * @summary get user view  metrics
-     *  *
-     * Deprecated
+     *
+     * @param request - GetUserViewMetricsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserViewMetricsResponse
      *
      * @param string                    $ResourceGroupID
-     * @param GetUserViewMetricsRequest $request         GetUserViewMetricsRequest
-     * @param string[]                  $headers         map
-     * @param RuntimeOptions            $runtime         runtime options for this request RuntimeOptions
+     * @param GetUserViewMetricsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return GetUserViewMetricsResponse GetUserViewMetricsResponse
+     * @return GetUserViewMetricsResponse
      */
     public function getUserViewMetricsWithOptions($ResourceGroupID, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->timeStep)) {
-            $query['TimeStep'] = $request->timeStep;
+
+        if (null !== $request->timeStep) {
+            @$query['TimeStep'] = $request->timeStep;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetUserViewMetrics',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/resources/' . OpenApiUtilClient::getEncodeParam($ResourceGroupID) . '/usermetrics',
+            'pathname' => '/api/v1/resources/' . Url::percentEncode($ResourceGroupID) . '/usermetrics',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetUserViewMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUserViewMetricsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUserViewMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * get user view  metrics.
+     *
      * @deprecated OpenAPI GetUserViewMetrics is deprecated
-     *  *
-     * @summary get user view  metrics
-     *  *
-     * Deprecated
+     *
+     * @param request - GetUserViewMetricsRequest
+     *
+     * @returns GetUserViewMetricsResponse
      *
      * @param string                    $ResourceGroupID
-     * @param GetUserViewMetricsRequest $request         GetUserViewMetricsRequest
+     * @param GetUserViewMetricsRequest $request
      *
-     * @return GetUserViewMetricsResponse GetUserViewMetricsResponse
+     * @return GetUserViewMetricsResponse
      */
     public function getUserViewMetrics($ResourceGroupID, $request)
     {
@@ -1935,54 +2170,63 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取算法的所有版本信息
-     *  *
-     * @param string                       $AlgorithmId
-     * @param ListAlgorithmVersionsRequest $request     ListAlgorithmVersionsRequest
-     * @param string[]                     $headers     map
-     * @param RuntimeOptions               $runtime     runtime options for this request RuntimeOptions
+     * 获取算法的所有版本信息.
      *
-     * @return ListAlgorithmVersionsResponse ListAlgorithmVersionsResponse
+     * @param request - ListAlgorithmVersionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlgorithmVersionsResponse
+     *
+     * @param string                       $AlgorithmId
+     * @param ListAlgorithmVersionsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListAlgorithmVersionsResponse
      */
     public function listAlgorithmVersionsWithOptions($AlgorithmId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAlgorithmVersions',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/algorithms/' . OpenApiUtilClient::getEncodeParam($AlgorithmId) . '/versions',
+            'pathname' => '/api/v1/algorithms/' . Url::percentEncode($AlgorithmId) . '/versions',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAlgorithmVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAlgorithmVersionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAlgorithmVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取算法的所有版本信息
-     *  *
-     * @param string                       $AlgorithmId
-     * @param ListAlgorithmVersionsRequest $request     ListAlgorithmVersionsRequest
+     * 获取算法的所有版本信息.
      *
-     * @return ListAlgorithmVersionsResponse ListAlgorithmVersionsResponse
+     * @param request - ListAlgorithmVersionsRequest
+     *
+     * @returns ListAlgorithmVersionsResponse
+     *
+     * @param string                       $AlgorithmId
+     * @param ListAlgorithmVersionsRequest $request
+     *
+     * @return ListAlgorithmVersionsResponse
      */
     public function listAlgorithmVersions($AlgorithmId, $request)
     {
@@ -1993,39 +2237,51 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取算法列表
-     *  *
-     * @param ListAlgorithmsRequest $request ListAlgorithmsRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 获取算法列表.
      *
-     * @return ListAlgorithmsResponse ListAlgorithmsResponse
+     * @param request - ListAlgorithmsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlgorithmsResponse
+     *
+     * @param ListAlgorithmsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAlgorithmsResponse
      */
     public function listAlgorithmsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->algorithmId)) {
-            $query['AlgorithmId'] = $request->algorithmId;
+        if (null !== $request->algorithmId) {
+            @$query['AlgorithmId'] = $request->algorithmId;
         }
-        if (!Utils::isUnset($request->algorithmName)) {
-            $query['AlgorithmName'] = $request->algorithmName;
+
+        if (null !== $request->algorithmName) {
+            @$query['AlgorithmName'] = $request->algorithmName;
         }
-        if (!Utils::isUnset($request->algorithmProvider)) {
-            $query['AlgorithmProvider'] = $request->algorithmProvider;
+
+        if (null !== $request->algorithmProvider) {
+            @$query['AlgorithmProvider'] = $request->algorithmProvider;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAlgorithms',
@@ -2038,19 +2294,20 @@ class PaiStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAlgorithmsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAlgorithmsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAlgorithmsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取算法列表
-     *  *
-     * @param ListAlgorithmsRequest $request ListAlgorithmsRequest
+     * 获取算法列表.
      *
-     * @return ListAlgorithmsResponse ListAlgorithmsResponse
+     * @param request - ListAlgorithmsRequest
+     *
+     * @returns ListAlgorithmsResponse
+     *
+     * @param ListAlgorithmsRequest $request
+     *
+     * @return ListAlgorithmsResponse
      */
     public function listAlgorithms($request)
     {
@@ -2061,69 +2318,95 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取资源节点列表
-     *  *
-     * @param ListNodesRequest $request ListNodesRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 获取资源节点列表.
      *
-     * @return ListNodesResponse ListNodesResponse
+     * @param request - ListNodesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNodesResponse
+     *
+     * @param ListNodesRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListNodesResponse
      */
     public function listNodesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceleratorType)) {
-            $query['AcceleratorType'] = $request->acceleratorType;
+        if (null !== $request->acceleratorType) {
+            @$query['AcceleratorType'] = $request->acceleratorType;
         }
-        if (!Utils::isUnset($request->filterByQuotaId)) {
-            $query['FilterByQuotaId'] = $request->filterByQuotaId;
+
+        if (null !== $request->filterByQuotaId) {
+            @$query['FilterByQuotaId'] = $request->filterByQuotaId;
         }
-        if (!Utils::isUnset($request->filterByResourceGroupIds)) {
-            $query['FilterByResourceGroupIds'] = $request->filterByResourceGroupIds;
+
+        if (null !== $request->filterByResourceGroupIds) {
+            @$query['FilterByResourceGroupIds'] = $request->filterByResourceGroupIds;
         }
-        if (!Utils::isUnset($request->GPUType)) {
-            $query['GPUType'] = $request->GPUType;
+
+        if (null !== $request->GPUType) {
+            @$query['GPUType'] = $request->GPUType;
         }
-        if (!Utils::isUnset($request->machineGroupIds)) {
-            $query['MachineGroupIds'] = $request->machineGroupIds;
+
+        if (null !== $request->machineGroupIds) {
+            @$query['MachineGroupIds'] = $request->machineGroupIds;
         }
-        if (!Utils::isUnset($request->nodeNames)) {
-            $query['NodeNames'] = $request->nodeNames;
+
+        if (null !== $request->nodeNames) {
+            @$query['NodeNames'] = $request->nodeNames;
         }
-        if (!Utils::isUnset($request->nodeStatuses)) {
-            $query['NodeStatuses'] = $request->nodeStatuses;
+
+        if (null !== $request->nodeStatuses) {
+            @$query['NodeStatuses'] = $request->nodeStatuses;
         }
-        if (!Utils::isUnset($request->nodeTypes)) {
-            $query['NodeTypes'] = $request->nodeTypes;
+
+        if (null !== $request->nodeTypes) {
+            @$query['NodeTypes'] = $request->nodeTypes;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->orderStatuses)) {
-            $query['OrderStatuses'] = $request->orderStatuses;
+
+        if (null !== $request->orderStatuses) {
+            @$query['OrderStatuses'] = $request->orderStatuses;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->quotaId)) {
-            $query['QuotaId'] = $request->quotaId;
+
+        if (null !== $request->quotaId) {
+            @$query['QuotaId'] = $request->quotaId;
         }
-        if (!Utils::isUnset($request->resourceGroupIds)) {
-            $query['ResourceGroupIds'] = $request->resourceGroupIds;
+
+        if (null !== $request->reasonCodes) {
+            @$query['ReasonCodes'] = $request->reasonCodes;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->resourceGroupIds) {
+            @$query['ResourceGroupIds'] = $request->resourceGroupIds;
         }
-        if (!Utils::isUnset($request->verbose)) {
-            $query['Verbose'] = $request->verbose;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
+
+        if (null !== $request->verbose) {
+            @$query['Verbose'] = $request->verbose;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListNodes',
@@ -2136,19 +2419,20 @@ class PaiStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNodesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取资源节点列表
-     *  *
-     * @param ListNodesRequest $request ListNodesRequest
+     * 获取资源节点列表.
      *
-     * @return ListNodesResponse ListNodesResponse
+     * @param request - ListNodesRequest
+     *
+     * @returns ListNodesResponse
+     *
+     * @param ListNodesRequest $request
+     *
+     * @return ListNodesResponse
      */
     public function listNodes($request)
     {
@@ -2159,105 +2443,131 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 您可以通过此API获取Quota上的任务信息列表
-     *  *
-     * @param string                    $QuotaId
-     * @param ListQuotaWorkloadsRequest $request ListQuotaWorkloadsRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 您可以通过此API获取Quota上的任务信息列表.
      *
-     * @return ListQuotaWorkloadsResponse ListQuotaWorkloadsResponse
+     * @param request - ListQuotaWorkloadsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQuotaWorkloadsResponse
+     *
+     * @param string                    $QuotaId
+     * @param ListQuotaWorkloadsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListQuotaWorkloadsResponse
      */
     public function listQuotaWorkloadsWithOptions($QuotaId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beforeWorkloadId)) {
-            $query['BeforeWorkloadId'] = $request->beforeWorkloadId;
+        if (null !== $request->beforeWorkloadId) {
+            @$query['BeforeWorkloadId'] = $request->beforeWorkloadId;
         }
-        if (!Utils::isUnset($request->gmtDequeuedTimeRange)) {
-            $query['GmtDequeuedTimeRange'] = $request->gmtDequeuedTimeRange;
+
+        if (null !== $request->gmtDequeuedTimeRange) {
+            @$query['GmtDequeuedTimeRange'] = $request->gmtDequeuedTimeRange;
         }
-        if (!Utils::isUnset($request->gmtEnqueuedTimeRange)) {
-            $query['GmtEnqueuedTimeRange'] = $request->gmtEnqueuedTimeRange;
+
+        if (null !== $request->gmtEnqueuedTimeRange) {
+            @$query['GmtEnqueuedTimeRange'] = $request->gmtEnqueuedTimeRange;
         }
-        if (!Utils::isUnset($request->gmtPositionModifiedTimeRange)) {
-            $query['GmtPositionModifiedTimeRange'] = $request->gmtPositionModifiedTimeRange;
+
+        if (null !== $request->gmtPositionModifiedTimeRange) {
+            @$query['GmtPositionModifiedTimeRange'] = $request->gmtPositionModifiedTimeRange;
         }
-        if (!Utils::isUnset($request->nodeName)) {
-            $query['NodeName'] = $request->nodeName;
+
+        if (null !== $request->nodeName) {
+            @$query['NodeName'] = $request->nodeName;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->showOwn)) {
-            $query['ShowOwn'] = $request->showOwn;
+
+        if (null !== $request->showOwn) {
+            @$query['ShowOwn'] = $request->showOwn;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->subQuotaIds)) {
-            $query['SubQuotaIds'] = $request->subQuotaIds;
+
+        if (null !== $request->subQuotaIds) {
+            @$query['SubQuotaIds'] = $request->subQuotaIds;
         }
-        if (!Utils::isUnset($request->userIds)) {
-            $query['UserIds'] = $request->userIds;
+
+        if (null !== $request->userIds) {
+            @$query['UserIds'] = $request->userIds;
         }
-        if (!Utils::isUnset($request->withHistoricalData)) {
-            $query['WithHistoricalData'] = $request->withHistoricalData;
+
+        if (null !== $request->withHistoricalData) {
+            @$query['WithHistoricalData'] = $request->withHistoricalData;
         }
-        if (!Utils::isUnset($request->workloadCreatedTimeRange)) {
-            $query['WorkloadCreatedTimeRange'] = $request->workloadCreatedTimeRange;
+
+        if (null !== $request->workloadCreatedTimeRange) {
+            @$query['WorkloadCreatedTimeRange'] = $request->workloadCreatedTimeRange;
         }
-        if (!Utils::isUnset($request->workloadIds)) {
-            $query['WorkloadIds'] = $request->workloadIds;
+
+        if (null !== $request->workloadIds) {
+            @$query['WorkloadIds'] = $request->workloadIds;
         }
-        if (!Utils::isUnset($request->workloadStatuses)) {
-            $query['WorkloadStatuses'] = $request->workloadStatuses;
+
+        if (null !== $request->workloadStatuses) {
+            @$query['WorkloadStatuses'] = $request->workloadStatuses;
         }
-        if (!Utils::isUnset($request->workloadType)) {
-            $query['WorkloadType'] = $request->workloadType;
+
+        if (null !== $request->workloadType) {
+            @$query['WorkloadType'] = $request->workloadType;
         }
-        if (!Utils::isUnset($request->workspaceIds)) {
-            $query['WorkspaceIds'] = $request->workspaceIds;
+
+        if (null !== $request->workspaceIds) {
+            @$query['WorkspaceIds'] = $request->workspaceIds;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListQuotaWorkloads',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($QuotaId) . '/workloads',
+            'pathname' => '/api/v1/quotas/' . Url::percentEncode($QuotaId) . '/workloads',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListQuotaWorkloadsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListQuotaWorkloadsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListQuotaWorkloadsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 您可以通过此API获取Quota上的任务信息列表
-     *  *
-     * @param string                    $QuotaId
-     * @param ListQuotaWorkloadsRequest $request ListQuotaWorkloadsRequest
+     * 您可以通过此API获取Quota上的任务信息列表.
      *
-     * @return ListQuotaWorkloadsResponse ListQuotaWorkloadsResponse
+     * @param request - ListQuotaWorkloadsRequest
+     *
+     * @returns ListQuotaWorkloadsResponse
+     *
+     * @param string                    $QuotaId
+     * @param ListQuotaWorkloadsRequest $request
+     *
+     * @return ListQuotaWorkloadsResponse
      */
     public function listQuotaWorkloads($QuotaId, $request)
     {
@@ -2268,63 +2578,83 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取Quota列表
-     *  *
-     * @param ListQuotasRequest $request ListQuotasRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 获取Quota列表.
      *
-     * @return ListQuotasResponse ListQuotasResponse
+     * @param request - ListQuotasRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQuotasResponse
+     *
+     * @param ListQuotasRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListQuotasResponse
      */
     public function listQuotasWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->labels)) {
-            $query['Labels'] = $request->labels;
+        if (null !== $request->labels) {
+            @$query['Labels'] = $request->labels;
         }
-        if (!Utils::isUnset($request->layoutMode)) {
-            $query['LayoutMode'] = $request->layoutMode;
+
+        if (null !== $request->layoutMode) {
+            @$query['LayoutMode'] = $request->layoutMode;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->parentQuotaId)) {
-            $query['ParentQuotaId'] = $request->parentQuotaId;
+
+        if (null !== $request->parentQuotaId) {
+            @$query['ParentQuotaId'] = $request->parentQuotaId;
         }
-        if (!Utils::isUnset($request->quotaIds)) {
-            $query['QuotaIds'] = $request->quotaIds;
+
+        if (null !== $request->quotaIds) {
+            @$query['QuotaIds'] = $request->quotaIds;
         }
-        if (!Utils::isUnset($request->quotaName)) {
-            $query['QuotaName'] = $request->quotaName;
+
+        if (null !== $request->quotaName) {
+            @$query['QuotaName'] = $request->quotaName;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->statuses)) {
-            $query['Statuses'] = $request->statuses;
+
+        if (null !== $request->statuses) {
+            @$query['Statuses'] = $request->statuses;
         }
-        if (!Utils::isUnset($request->verbose)) {
-            $query['Verbose'] = $request->verbose;
+
+        if (null !== $request->verbose) {
+            @$query['Verbose'] = $request->verbose;
         }
-        if (!Utils::isUnset($request->workspaceIds)) {
-            $query['WorkspaceIds'] = $request->workspaceIds;
+
+        if (null !== $request->workspaceIds) {
+            @$query['WorkspaceIds'] = $request->workspaceIds;
         }
-        if (!Utils::isUnset($request->workspaceName)) {
-            $query['WorkspaceName'] = $request->workspaceName;
+
+        if (null !== $request->workspaceName) {
+            @$query['WorkspaceName'] = $request->workspaceName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListQuotas',
@@ -2337,19 +2667,20 @@ class PaiStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListQuotasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListQuotasResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListQuotasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取Quota列表
-     *  *
-     * @param ListQuotasRequest $request ListQuotasRequest
+     * 获取Quota列表.
      *
-     * @return ListQuotasResponse ListQuotasResponse
+     * @param request - ListQuotasRequest
+     *
+     * @returns ListQuotasResponse
+     *
+     * @param ListQuotasRequest $request
+     *
+     * @return ListQuotasResponse
      */
     public function listQuotas($request)
     {
@@ -2360,87 +2691,107 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary list machine groups
-     *  *
-     * @param string                                $ResourceGroupID
-     * @param ListResourceGroupMachineGroupsRequest $request         ListResourceGroupMachineGroupsRequest
-     * @param string[]                              $headers         map
-     * @param RuntimeOptions                        $runtime         runtime options for this request RuntimeOptions
+     * list machine groups.
      *
-     * @return ListResourceGroupMachineGroupsResponse ListResourceGroupMachineGroupsResponse
+     * @param request - ListResourceGroupMachineGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourceGroupMachineGroupsResponse
+     *
+     * @param string                                $ResourceGroupID
+     * @param ListResourceGroupMachineGroupsRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListResourceGroupMachineGroupsResponse
      */
     public function listResourceGroupMachineGroupsWithOptions($ResourceGroupID, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->creatorID)) {
-            $query['CreatorID'] = $request->creatorID;
+        if (null !== $request->creatorID) {
+            @$query['CreatorID'] = $request->creatorID;
         }
-        if (!Utils::isUnset($request->ecsSpec)) {
-            $query['EcsSpec'] = $request->ecsSpec;
+
+        if (null !== $request->ecsSpec) {
+            @$query['EcsSpec'] = $request->ecsSpec;
         }
-        if (!Utils::isUnset($request->machineGroupIDs)) {
-            $query['MachineGroupIDs'] = $request->machineGroupIDs;
+
+        if (null !== $request->machineGroupIDs) {
+            @$query['MachineGroupIDs'] = $request->machineGroupIDs;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->orderInstanceId)) {
-            $query['OrderInstanceId'] = $request->orderInstanceId;
+
+        if (null !== $request->orderInstanceId) {
+            @$query['OrderInstanceId'] = $request->orderInstanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->paymentDuration)) {
-            $query['PaymentDuration'] = $request->paymentDuration;
+
+        if (null !== $request->paymentDuration) {
+            @$query['PaymentDuration'] = $request->paymentDuration;
         }
-        if (!Utils::isUnset($request->paymentDurationUnit)) {
-            $query['PaymentDurationUnit'] = $request->paymentDurationUnit;
+
+        if (null !== $request->paymentDurationUnit) {
+            @$query['PaymentDurationUnit'] = $request->paymentDurationUnit;
         }
-        if (!Utils::isUnset($request->paymentType)) {
-            $query['PaymentType'] = $request->paymentType;
+
+        if (null !== $request->paymentType) {
+            @$query['PaymentType'] = $request->paymentType;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListResourceGroupMachineGroups',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/resources/' . OpenApiUtilClient::getEncodeParam($ResourceGroupID) . '/machinegroups',
+            'pathname' => '/api/v1/resources/' . Url::percentEncode($ResourceGroupID) . '/machinegroups',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListResourceGroupMachineGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourceGroupMachineGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourceGroupMachineGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary list machine groups
-     *  *
-     * @param string                                $ResourceGroupID
-     * @param ListResourceGroupMachineGroupsRequest $request         ListResourceGroupMachineGroupsRequest
+     * list machine groups.
      *
-     * @return ListResourceGroupMachineGroupsResponse ListResourceGroupMachineGroupsResponse
+     * @param request - ListResourceGroupMachineGroupsRequest
+     *
+     * @returns ListResourceGroupMachineGroupsResponse
+     *
+     * @param string                                $ResourceGroupID
+     * @param ListResourceGroupMachineGroupsRequest $request
+     *
+     * @return ListResourceGroupMachineGroupsResponse
      */
     public function listResourceGroupMachineGroups($ResourceGroupID, $request)
     {
@@ -2451,48 +2802,63 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary list resource group
-     *  *
-     * @param ListResourceGroupsRequest $request ListResourceGroupsRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * list resource group.
      *
-     * @return ListResourceGroupsResponse ListResourceGroupsResponse
+     * @param request - ListResourceGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourceGroupsResponse
+     *
+     * @param ListResourceGroupsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListResourceGroupsResponse
      */
     public function listResourceGroupsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->computingResourceProvider)) {
-            $query['ComputingResourceProvider'] = $request->computingResourceProvider;
+        if (null !== $request->computingResourceProvider) {
+            @$query['ComputingResourceProvider'] = $request->computingResourceProvider;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->showAll)) {
-            $query['ShowAll'] = $request->showAll;
+
+        if (null !== $request->showAll) {
+            @$query['ShowAll'] = $request->showAll;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListResourceGroups',
@@ -2505,19 +2871,20 @@ class PaiStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourceGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary list resource group
-     *  *
-     * @param ListResourceGroupsRequest $request ListResourceGroupsRequest
+     * list resource group.
      *
-     * @return ListResourceGroupsResponse ListResourceGroupsResponse
+     * @param request - ListResourceGroupsRequest
+     *
+     * @returns ListResourceGroupsResponse
+     *
+     * @param ListResourceGroupsRequest $request
+     *
+     * @return ListResourceGroupsResponse
      */
     public function listResourceGroups($request)
     {
@@ -2528,60 +2895,71 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定TrainingJob的事件。
-     *  *
-     * @param string                       $TrainingJobId
-     * @param ListTrainingJobEventsRequest $request       ListTrainingJobEventsRequest
-     * @param string[]                     $headers       map
-     * @param RuntimeOptions               $runtime       runtime options for this request RuntimeOptions
+     * 获取指定TrainingJob的事件。
      *
-     * @return ListTrainingJobEventsResponse ListTrainingJobEventsResponse
+     * @param request - ListTrainingJobEventsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTrainingJobEventsResponse
+     *
+     * @param string                       $TrainingJobId
+     * @param ListTrainingJobEventsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListTrainingJobEventsResponse
      */
     public function listTrainingJobEventsWithOptions($TrainingJobId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTrainingJobEvents',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/events',
+            'pathname' => '/api/v1/trainingjobs/' . Url::percentEncode($TrainingJobId) . '/events',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTrainingJobEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTrainingJobEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTrainingJobEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取指定TrainingJob的事件。
-     *  *
-     * @param string                       $TrainingJobId
-     * @param ListTrainingJobEventsRequest $request       ListTrainingJobEventsRequest
+     * 获取指定TrainingJob的事件。
      *
-     * @return ListTrainingJobEventsResponse ListTrainingJobEventsResponse
+     * @param request - ListTrainingJobEventsRequest
+     *
+     * @returns ListTrainingJobEventsResponse
+     *
+     * @param string                       $TrainingJobId
+     * @param ListTrainingJobEventsRequest $request
+     *
+     * @return ListTrainingJobEventsResponse
      */
     public function listTrainingJobEvents($TrainingJobId, $request)
     {
@@ -2592,62 +2970,73 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定Instance（TrainingJob的运行单元）的日志。
-     *  *
+     * 获取指定Instance（TrainingJob的运行单元）的日志。
+     *
+     * @param request - ListTrainingJobInstanceEventsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTrainingJobInstanceEventsResponse
+     *
      * @param string                               $TrainingJobId
      * @param string                               $InstanceId
-     * @param ListTrainingJobInstanceEventsRequest $request       ListTrainingJobInstanceEventsRequest
-     * @param string[]                             $headers       map
-     * @param RuntimeOptions                       $runtime       runtime options for this request RuntimeOptions
+     * @param ListTrainingJobInstanceEventsRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
      *
-     * @return ListTrainingJobInstanceEventsResponse ListTrainingJobInstanceEventsResponse
+     * @return ListTrainingJobInstanceEventsResponse
      */
     public function listTrainingJobInstanceEventsWithOptions($TrainingJobId, $InstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTrainingJobInstanceEvents',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/events',
+            'pathname' => '/api/v1/trainingjobs/' . Url::percentEncode($TrainingJobId) . '/instances/' . Url::percentEncode($InstanceId) . '/events',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTrainingJobInstanceEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTrainingJobInstanceEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTrainingJobInstanceEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取指定Instance（TrainingJob的运行单元）的日志。
-     *  *
+     * 获取指定Instance（TrainingJob的运行单元）的日志。
+     *
+     * @param request - ListTrainingJobInstanceEventsRequest
+     *
+     * @returns ListTrainingJobInstanceEventsResponse
+     *
      * @param string                               $TrainingJobId
      * @param string                               $InstanceId
-     * @param ListTrainingJobInstanceEventsRequest $request       ListTrainingJobInstanceEventsRequest
+     * @param ListTrainingJobInstanceEventsRequest $request
      *
-     * @return ListTrainingJobInstanceEventsResponse ListTrainingJobInstanceEventsResponse
+     * @return ListTrainingJobInstanceEventsResponse
      */
     public function listTrainingJobInstanceEvents($TrainingJobId, $InstanceId, $request)
     {
@@ -2658,63 +3047,75 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取Training Job实例的Metrics
-     *  *
-     * @param string                                $TrainingJobId
-     * @param ListTrainingJobInstanceMetricsRequest $request       ListTrainingJobInstanceMetricsRequest
-     * @param string[]                              $headers       map
-     * @param RuntimeOptions                        $runtime       runtime options for this request RuntimeOptions
+     * 获取Training Job实例的Metrics.
      *
-     * @return ListTrainingJobInstanceMetricsResponse ListTrainingJobInstanceMetricsResponse
+     * @param request - ListTrainingJobInstanceMetricsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTrainingJobInstanceMetricsResponse
+     *
+     * @param string                                $TrainingJobId
+     * @param ListTrainingJobInstanceMetricsRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListTrainingJobInstanceMetricsResponse
      */
     public function listTrainingJobInstanceMetricsWithOptions($TrainingJobId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->metricType)) {
-            $query['MetricType'] = $request->metricType;
+
+        if (null !== $request->metricType) {
+            @$query['MetricType'] = $request->metricType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->timeStep)) {
-            $query['TimeStep'] = $request->timeStep;
+
+        if (null !== $request->timeStep) {
+            @$query['TimeStep'] = $request->timeStep;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTrainingJobInstanceMetrics',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/instancemetrics',
+            'pathname' => '/api/v1/trainingjobs/' . Url::percentEncode($TrainingJobId) . '/instancemetrics',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTrainingJobInstanceMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTrainingJobInstanceMetricsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTrainingJobInstanceMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取Training Job实例的Metrics
-     *  *
-     * @param string                                $TrainingJobId
-     * @param ListTrainingJobInstanceMetricsRequest $request       ListTrainingJobInstanceMetricsRequest
+     * 获取Training Job实例的Metrics.
      *
-     * @return ListTrainingJobInstanceMetricsResponse ListTrainingJobInstanceMetricsResponse
+     * @param request - ListTrainingJobInstanceMetricsRequest
+     *
+     * @returns ListTrainingJobInstanceMetricsResponse
+     *
+     * @param string                                $TrainingJobId
+     * @param ListTrainingJobInstanceMetricsRequest $request
+     *
+     * @return ListTrainingJobInstanceMetricsResponse
      */
     public function listTrainingJobInstanceMetrics($TrainingJobId, $request)
     {
@@ -2725,66 +3126,79 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取Training Job的日志
-     *  *
-     * @param string                     $TrainingJobId
-     * @param ListTrainingJobLogsRequest $request       ListTrainingJobLogsRequest
-     * @param string[]                   $headers       map
-     * @param RuntimeOptions             $runtime       runtime options for this request RuntimeOptions
+     * 获取Training Job的日志.
      *
-     * @return ListTrainingJobLogsResponse ListTrainingJobLogsResponse
+     * @param request - ListTrainingJobLogsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTrainingJobLogsResponse
+     *
+     * @param string                     $TrainingJobId
+     * @param ListTrainingJobLogsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListTrainingJobLogsResponse
      */
     public function listTrainingJobLogsWithOptions($TrainingJobId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->workerId)) {
-            $query['WorkerId'] = $request->workerId;
+
+        if (null !== $request->workerId) {
+            @$query['WorkerId'] = $request->workerId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTrainingJobLogs',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/logs',
+            'pathname' => '/api/v1/trainingjobs/' . Url::percentEncode($TrainingJobId) . '/logs',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTrainingJobLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTrainingJobLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTrainingJobLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取Training Job的日志
-     *  *
-     * @param string                     $TrainingJobId
-     * @param ListTrainingJobLogsRequest $request       ListTrainingJobLogsRequest
+     * 获取Training Job的日志.
      *
-     * @return ListTrainingJobLogsResponse ListTrainingJobLogsResponse
+     * @param request - ListTrainingJobLogsRequest
+     *
+     * @returns ListTrainingJobLogsResponse
+     *
+     * @param string                     $TrainingJobId
+     * @param ListTrainingJobLogsRequest $request
+     *
+     * @return ListTrainingJobLogsResponse
      */
     public function listTrainingJobLogs($TrainingJobId, $request)
     {
@@ -2795,66 +3209,79 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取Training Job的Metrics
-     *  *
-     * @param string                        $TrainingJobId
-     * @param ListTrainingJobMetricsRequest $request       ListTrainingJobMetricsRequest
-     * @param string[]                      $headers       map
-     * @param RuntimeOptions                $runtime       runtime options for this request RuntimeOptions
+     * 获取Training Job的Metrics.
      *
-     * @return ListTrainingJobMetricsResponse ListTrainingJobMetricsResponse
+     * @param request - ListTrainingJobMetricsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTrainingJobMetricsResponse
+     *
+     * @param string                        $TrainingJobId
+     * @param ListTrainingJobMetricsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListTrainingJobMetricsResponse
      */
     public function listTrainingJobMetricsWithOptions($TrainingJobId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTrainingJobMetrics',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/metrics',
+            'pathname' => '/api/v1/trainingjobs/' . Url::percentEncode($TrainingJobId) . '/metrics',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTrainingJobMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTrainingJobMetricsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTrainingJobMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取Training Job的Metrics
-     *  *
-     * @param string                        $TrainingJobId
-     * @param ListTrainingJobMetricsRequest $request       ListTrainingJobMetricsRequest
+     * 获取Training Job的Metrics.
      *
-     * @return ListTrainingJobMetricsResponse ListTrainingJobMetricsResponse
+     * @param request - ListTrainingJobMetricsRequest
+     *
+     * @returns ListTrainingJobMetricsResponse
+     *
+     * @param string                        $TrainingJobId
+     * @param ListTrainingJobMetricsRequest $request
+     *
+     * @return ListTrainingJobMetricsResponse
      */
     public function listTrainingJobMetrics($TrainingJobId, $request)
     {
@@ -2865,13 +3292,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取Training Job 产出的所有模型信息
-     *  *
-     * @param string         $TrainingJobId
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * 获取Training Job 产出的所有模型信息.
      *
-     * @return ListTrainingJobOutputModelsResponse ListTrainingJobOutputModelsResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTrainingJobOutputModelsResponse
+     *
+     * @param string         $TrainingJobId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListTrainingJobOutputModelsResponse
      */
     public function listTrainingJobOutputModelsWithOptions($TrainingJobId, $headers, $runtime)
     {
@@ -2882,26 +3314,25 @@ class PaiStudio extends OpenApiClient
             'action' => 'ListTrainingJobOutputModels',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/outputmodels',
+            'pathname' => '/api/v1/trainingjobs/' . Url::percentEncode($TrainingJobId) . '/outputmodels',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTrainingJobOutputModelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTrainingJobOutputModelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTrainingJobOutputModelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取Training Job 产出的所有模型信息
-     *  *
+     * 获取Training Job 产出的所有模型信息.
+     *
+     * @returns ListTrainingJobOutputModelsResponse
+     *
      * @param string $TrainingJobId
      *
-     * @return ListTrainingJobOutputModelsResponse ListTrainingJobOutputModelsResponse
+     * @return ListTrainingJobOutputModelsResponse
      */
     public function listTrainingJobOutputModels($TrainingJobId)
     {
@@ -2912,68 +3343,89 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 获取TrainingJob的列表
-     *  *
-     * @param ListTrainingJobsRequest $tmpReq  ListTrainingJobsRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取TrainingJob的列表.
      *
-     * @return ListTrainingJobsResponse ListTrainingJobsResponse
+     * @param tmpReq - ListTrainingJobsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTrainingJobsResponse
+     *
+     * @param ListTrainingJobsRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTrainingJobsResponse
      */
     public function listTrainingJobsWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTrainingJobsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->labels)) {
-            $request->labelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->labels, 'Labels', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->labels) {
+            $request->labelsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labels, 'Labels', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->algorithmName)) {
-            $query['AlgorithmName'] = $request->algorithmName;
+        if (null !== $request->algorithmName) {
+            @$query['AlgorithmName'] = $request->algorithmName;
         }
-        if (!Utils::isUnset($request->algorithmProvider)) {
-            $query['AlgorithmProvider'] = $request->algorithmProvider;
+
+        if (null !== $request->algorithmProvider) {
+            @$query['AlgorithmProvider'] = $request->algorithmProvider;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->isTempAlgo)) {
-            $query['IsTempAlgo'] = $request->isTempAlgo;
+
+        if (null !== $request->isTempAlgo) {
+            @$query['IsTempAlgo'] = $request->isTempAlgo;
         }
-        if (!Utils::isUnset($request->labelsShrink)) {
-            $query['Labels'] = $request->labelsShrink;
+
+        if (null !== $request->labelsShrink) {
+            @$query['Labels'] = $request->labelsShrink;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->trainingJobId)) {
-            $query['TrainingJobId'] = $request->trainingJobId;
+
+        if (null !== $request->trainingJobId) {
+            @$query['TrainingJobId'] = $request->trainingJobId;
         }
-        if (!Utils::isUnset($request->trainingJobName)) {
-            $query['TrainingJobName'] = $request->trainingJobName;
+
+        if (null !== $request->trainingJobName) {
+            @$query['TrainingJobName'] = $request->trainingJobName;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $query['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTrainingJobs',
@@ -2986,19 +3438,20 @@ class PaiStudio extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTrainingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTrainingJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTrainingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取TrainingJob的列表
-     *  *
-     * @param ListTrainingJobsRequest $request ListTrainingJobsRequest
+     * 获取TrainingJob的列表.
      *
-     * @return ListTrainingJobsResponse ListTrainingJobsResponse
+     * @param request - ListTrainingJobsRequest
+     *
+     * @returns ListTrainingJobsResponse
+     *
+     * @param ListTrainingJobsRequest $request
+     *
+     * @return ListTrainingJobsResponse
      */
     public function listTrainingJobs($request)
     {
@@ -3009,54 +3462,63 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 扩缩容Quota
-     *  *
-     * @param string            $QuotaId
-     * @param ScaleQuotaRequest $request ScaleQuotaRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 扩缩容Quota.
      *
-     * @return ScaleQuotaResponse ScaleQuotaResponse
+     * @param request - ScaleQuotaRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ScaleQuotaResponse
+     *
+     * @param string            $QuotaId
+     * @param ScaleQuotaRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ScaleQuotaResponse
      */
     public function scaleQuotaWithOptions($QuotaId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->min)) {
-            $body['Min'] = $request->min;
+        if (null !== $request->min) {
+            @$body['Min'] = $request->min;
         }
-        if (!Utils::isUnset($request->resourceGroupIds)) {
-            $body['ResourceGroupIds'] = $request->resourceGroupIds;
+
+        if (null !== $request->resourceGroupIds) {
+            @$body['ResourceGroupIds'] = $request->resourceGroupIds;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ScaleQuota',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($QuotaId) . '/action/scale',
+            'pathname' => '/api/v1/quotas/' . Url::percentEncode($QuotaId) . '/action/scale',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ScaleQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ScaleQuotaResponse::fromMap($this->execute($params, $req, $runtime));
+        return ScaleQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 扩缩容Quota
-     *  *
-     * @param string            $QuotaId
-     * @param ScaleQuotaRequest $request ScaleQuotaRequest
+     * 扩缩容Quota.
      *
-     * @return ScaleQuotaResponse ScaleQuotaResponse
+     * @param request - ScaleQuotaRequest
+     *
+     * @returns ScaleQuotaResponse
+     *
+     * @param string            $QuotaId
+     * @param ScaleQuotaRequest $request
+     *
+     * @return ScaleQuotaResponse
      */
     public function scaleQuota($QuotaId, $request)
     {
@@ -3067,13 +3529,18 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 停止一个TrainingJob
-     *  *
-     * @param string         $TrainingJobId
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * 停止一个TrainingJob.
      *
-     * @return StopTrainingJobResponse StopTrainingJobResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopTrainingJobResponse
+     *
+     * @param string         $TrainingJobId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopTrainingJobResponse
      */
     public function stopTrainingJobWithOptions($TrainingJobId, $headers, $runtime)
     {
@@ -3084,26 +3551,25 @@ class PaiStudio extends OpenApiClient
             'action' => 'StopTrainingJob',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/stop',
+            'pathname' => '/api/v1/trainingjobs/' . Url::percentEncode($TrainingJobId) . '/stop',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return StopTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopTrainingJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 停止一个TrainingJob
-     *  *
+     * 停止一个TrainingJob.
+     *
+     * @returns StopTrainingJobResponse
+     *
      * @param string $TrainingJobId
      *
-     * @return StopTrainingJobResponse StopTrainingJobResponse
+     * @return StopTrainingJobResponse
      */
     public function stopTrainingJob($TrainingJobId)
     {
@@ -3114,54 +3580,63 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 更新算法
-     *  *
-     * @param string                 $AlgorithmId
-     * @param UpdateAlgorithmRequest $request     UpdateAlgorithmRequest
-     * @param string[]               $headers     map
-     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
+     * 更新算法.
      *
-     * @return UpdateAlgorithmResponse UpdateAlgorithmResponse
+     * @param request - UpdateAlgorithmRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAlgorithmResponse
+     *
+     * @param string                 $AlgorithmId
+     * @param UpdateAlgorithmRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateAlgorithmResponse
      */
     public function updateAlgorithmWithOptions($AlgorithmId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->algorithmDescription)) {
-            $body['AlgorithmDescription'] = $request->algorithmDescription;
+        if (null !== $request->algorithmDescription) {
+            @$body['AlgorithmDescription'] = $request->algorithmDescription;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateAlgorithm',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/algorithms/' . OpenApiUtilClient::getEncodeParam($AlgorithmId) . '',
+            'pathname' => '/api/v1/algorithms/' . Url::percentEncode($AlgorithmId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateAlgorithmResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAlgorithmResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAlgorithmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新算法
-     *  *
-     * @param string                 $AlgorithmId
-     * @param UpdateAlgorithmRequest $request     UpdateAlgorithmRequest
+     * 更新算法.
      *
-     * @return UpdateAlgorithmResponse UpdateAlgorithmResponse
+     * @param request - UpdateAlgorithmRequest
+     *
+     * @returns UpdateAlgorithmResponse
+     *
+     * @param string                 $AlgorithmId
+     * @param UpdateAlgorithmRequest $request
+     *
+     * @return UpdateAlgorithmResponse
      */
     public function updateAlgorithm($AlgorithmId, $request)
     {
@@ -3172,58 +3647,67 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 更新算法
-     *  *
+     * 更新算法.
+     *
+     * @param tmpReq - UpdateAlgorithmVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAlgorithmVersionResponse
+     *
      * @param string                        $AlgorithmId
      * @param string                        $AlgorithmVersion
-     * @param UpdateAlgorithmVersionRequest $tmpReq           UpdateAlgorithmVersionRequest
-     * @param string[]                      $headers          map
-     * @param RuntimeOptions                $runtime          runtime options for this request RuntimeOptions
+     * @param UpdateAlgorithmVersionRequest $tmpReq
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return UpdateAlgorithmVersionResponse UpdateAlgorithmVersionResponse
+     * @return UpdateAlgorithmVersionResponse
      */
     public function updateAlgorithmVersionWithOptions($AlgorithmId, $AlgorithmVersion, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateAlgorithmVersionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->algorithmSpec)) {
-            $request->algorithmSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->algorithmSpec, 'AlgorithmSpec', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->algorithmSpec) {
+            $request->algorithmSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->algorithmSpec, 'AlgorithmSpec', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->algorithmSpecShrink)) {
-            $body['AlgorithmSpec'] = $request->algorithmSpecShrink;
+        if (null !== $request->algorithmSpecShrink) {
+            @$body['AlgorithmSpec'] = $request->algorithmSpecShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateAlgorithmVersion',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/algorithms/' . OpenApiUtilClient::getEncodeParam($AlgorithmId) . '/versions/' . OpenApiUtilClient::getEncodeParam($AlgorithmVersion) . '',
+            'pathname' => '/api/v1/algorithms/' . Url::percentEncode($AlgorithmId) . '/versions/' . Url::percentEncode($AlgorithmVersion) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateAlgorithmVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAlgorithmVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAlgorithmVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新算法
-     *  *
+     * 更新算法.
+     *
+     * @param request - UpdateAlgorithmVersionRequest
+     *
+     * @returns UpdateAlgorithmVersionResponse
+     *
      * @param string                        $AlgorithmId
      * @param string                        $AlgorithmVersion
-     * @param UpdateAlgorithmVersionRequest $request          UpdateAlgorithmVersionRequest
+     * @param UpdateAlgorithmVersionRequest $request
      *
-     * @return UpdateAlgorithmVersionResponse UpdateAlgorithmVersionResponse
+     * @return UpdateAlgorithmVersionResponse
      */
     public function updateAlgorithmVersion($AlgorithmId, $AlgorithmVersion, $request)
     {
@@ -3234,63 +3718,75 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 更新Quota
-     *  *
-     * @param string             $QuotaId
-     * @param UpdateQuotaRequest $request UpdateQuotaRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 更新Quota.
      *
-     * @return UpdateQuotaResponse UpdateQuotaResponse
+     * @param request - UpdateQuotaRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateQuotaResponse
+     *
+     * @param string             $QuotaId
+     * @param UpdateQuotaRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateQuotaResponse
      */
     public function updateQuotaWithOptions($QuotaId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->labels)) {
-            $body['Labels'] = $request->labels;
+
+        if (null !== $request->labels) {
+            @$body['Labels'] = $request->labels;
         }
-        if (!Utils::isUnset($request->queueStrategy)) {
-            $body['QueueStrategy'] = $request->queueStrategy;
+
+        if (null !== $request->queueStrategy) {
+            @$body['QueueStrategy'] = $request->queueStrategy;
         }
-        if (!Utils::isUnset($request->quotaConfig)) {
-            $body['QuotaConfig'] = $request->quotaConfig;
+
+        if (null !== $request->quotaConfig) {
+            @$body['QuotaConfig'] = $request->quotaConfig;
         }
-        if (!Utils::isUnset($request->quotaName)) {
-            $body['QuotaName'] = $request->quotaName;
+
+        if (null !== $request->quotaName) {
+            @$body['QuotaName'] = $request->quotaName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateQuota',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($QuotaId) . '',
+            'pathname' => '/api/v1/quotas/' . Url::percentEncode($QuotaId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateQuotaResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新Quota
-     *  *
-     * @param string             $QuotaId
-     * @param UpdateQuotaRequest $request UpdateQuotaRequest
+     * 更新Quota.
      *
-     * @return UpdateQuotaResponse UpdateQuotaResponse
+     * @param request - UpdateQuotaRequest
+     *
+     * @returns UpdateQuotaResponse
+     *
+     * @param string             $QuotaId
+     * @param UpdateQuotaRequest $request
+     *
+     * @return UpdateQuotaResponse
      */
     public function updateQuota($QuotaId, $request)
     {
@@ -3301,60 +3797,71 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 更新Resource Group
-     *  *
-     * @param string                     $ResourceGroupID
-     * @param UpdateResourceGroupRequest $request         UpdateResourceGroupRequest
-     * @param string[]                   $headers         map
-     * @param RuntimeOptions             $runtime         runtime options for this request RuntimeOptions
+     * 更新Resource Group.
      *
-     * @return UpdateResourceGroupResponse UpdateResourceGroupResponse
+     * @param request - UpdateResourceGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateResourceGroupResponse
+     *
+     * @param string                     $ResourceGroupID
+     * @param UpdateResourceGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateResourceGroupResponse
      */
     public function updateResourceGroupWithOptions($ResourceGroupID, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->unbind)) {
-            $body['Unbind'] = $request->unbind;
+
+        if (null !== $request->unbind) {
+            @$body['Unbind'] = $request->unbind;
         }
-        if (!Utils::isUnset($request->userVpc)) {
-            $body['UserVpc'] = $request->userVpc;
+
+        if (null !== $request->userVpc) {
+            @$body['UserVpc'] = $request->userVpc;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateResourceGroup',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/resources/' . OpenApiUtilClient::getEncodeParam($ResourceGroupID) . '',
+            'pathname' => '/api/v1/resources/' . Url::percentEncode($ResourceGroupID) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新Resource Group
-     *  *
-     * @param string                     $ResourceGroupID
-     * @param UpdateResourceGroupRequest $request         UpdateResourceGroupRequest
+     * 更新Resource Group.
      *
-     * @return UpdateResourceGroupResponse UpdateResourceGroupResponse
+     * @param request - UpdateResourceGroupRequest
+     *
+     * @returns UpdateResourceGroupResponse
+     *
+     * @param string                     $ResourceGroupID
+     * @param UpdateResourceGroupRequest $request
+     *
+     * @return UpdateResourceGroupResponse
      */
     public function updateResourceGroup($ResourceGroupID, $request)
     {
@@ -3365,51 +3872,59 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
-     * @summary 更新一个TrainingJob的Labels
-     *  *
-     * @param string                         $TrainingJobId
-     * @param UpdateTrainingJobLabelsRequest $request       UpdateTrainingJobLabelsRequest
-     * @param string[]                       $headers       map
-     * @param RuntimeOptions                 $runtime       runtime options for this request RuntimeOptions
+     * 更新一个TrainingJob的Labels.
      *
-     * @return UpdateTrainingJobLabelsResponse UpdateTrainingJobLabelsResponse
+     * @param request - UpdateTrainingJobLabelsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTrainingJobLabelsResponse
+     *
+     * @param string                         $TrainingJobId
+     * @param UpdateTrainingJobLabelsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateTrainingJobLabelsResponse
      */
     public function updateTrainingJobLabelsWithOptions($TrainingJobId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->labels)) {
-            $body['Labels'] = $request->labels;
+        if (null !== $request->labels) {
+            @$body['Labels'] = $request->labels;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateTrainingJobLabels',
             'version' => '2022-01-12',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/trainingjobs/' . OpenApiUtilClient::getEncodeParam($TrainingJobId) . '/labels',
+            'pathname' => '/api/v1/trainingjobs/' . Url::percentEncode($TrainingJobId) . '/labels',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateTrainingJobLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTrainingJobLabelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTrainingJobLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新一个TrainingJob的Labels
-     *  *
-     * @param string                         $TrainingJobId
-     * @param UpdateTrainingJobLabelsRequest $request       UpdateTrainingJobLabelsRequest
+     * 更新一个TrainingJob的Labels.
      *
-     * @return UpdateTrainingJobLabelsResponse UpdateTrainingJobLabelsResponse
+     * @param request - UpdateTrainingJobLabelsRequest
+     *
+     * @returns UpdateTrainingJobLabelsResponse
+     *
+     * @param string                         $TrainingJobId
+     * @param UpdateTrainingJobLabelsRequest $request
+     *
+     * @return UpdateTrainingJobLabelsResponse
      */
     public function updateTrainingJobLabels($TrainingJobId, $request)
     {

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UserQuotaPermission extends Model
 {
@@ -22,14 +22,27 @@ class UserQuotaPermission extends Model
         'quotaId' => 'QuotaId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->permissions)) {
+            Model::validateArray($this->permissions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->permissions) {
-            $res['Permissions'] = $this->permissions;
+            if (\is_array($this->permissions)) {
+                $res['Permissions'] = [];
+                $n1 = 0;
+                foreach ($this->permissions as $item1) {
+                    $res['Permissions'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->quotaId) {
             $res['QuotaId'] = $this->quotaId;
         }
@@ -37,19 +50,24 @@ class UserQuotaPermission extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UserQuotaPermission
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Permissions'])) {
             if (!empty($map['Permissions'])) {
-                $model->permissions = $map['Permissions'];
+                $model->permissions = [];
+                $n1 = 0;
+                foreach ($map['Permissions'] as $item1) {
+                    $model->permissions[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['QuotaId'])) {
             $model->quotaId = $map['QuotaId'];
         }

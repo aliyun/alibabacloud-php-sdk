@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMachineGroupResponseBody extends Model
 {
@@ -118,131 +118,181 @@ class GetMachineGroupResponseBody extends Model
         'supportedDrivers' => 'SupportedDrivers',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->supportedDrivers)) {
+            Model::validateArray($this->supportedDrivers);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->defaultDriver) {
             $res['DefaultDriver'] = $this->defaultDriver;
         }
+
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+
         if (null !== $this->ecsType) {
             $res['EcsType'] = $this->ecsType;
         }
+
         if (null !== $this->gmtCreated) {
             $res['GmtCreated'] = $this->gmtCreated;
         }
+
         if (null !== $this->gmtExpired) {
             $res['GmtExpired'] = $this->gmtExpired;
         }
+
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+
         if (null !== $this->gmtStarted) {
             $res['GmtStarted'] = $this->gmtStarted;
         }
+
         if (null !== $this->machineGroupID) {
             $res['MachineGroupID'] = $this->machineGroupID;
         }
+
         if (null !== $this->orderID) {
             $res['OrderID'] = $this->orderID;
         }
+
         if (null !== $this->orderInstanceId) {
             $res['OrderInstanceId'] = $this->orderInstanceId;
         }
+
         if (null !== $this->PAIResourceID) {
             $res['PAIResourceID'] = $this->PAIResourceID;
         }
+
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
+
         if (null !== $this->pricingCycle) {
             $res['PricingCycle'] = $this->pricingCycle;
         }
+
         if (null !== $this->regionID) {
             $res['RegionID'] = $this->regionID;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->supportedDrivers) {
-            $res['SupportedDrivers'] = $this->supportedDrivers;
+            if (\is_array($this->supportedDrivers)) {
+                $res['SupportedDrivers'] = [];
+                $n1 = 0;
+                foreach ($this->supportedDrivers as $item1) {
+                    $res['SupportedDrivers'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMachineGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['DefaultDriver'])) {
             $model->defaultDriver = $map['DefaultDriver'];
         }
+
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+
         if (isset($map['EcsType'])) {
             $model->ecsType = $map['EcsType'];
         }
+
         if (isset($map['GmtCreated'])) {
             $model->gmtCreated = $map['GmtCreated'];
         }
+
         if (isset($map['GmtExpired'])) {
             $model->gmtExpired = $map['GmtExpired'];
         }
+
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+
         if (isset($map['GmtStarted'])) {
             $model->gmtStarted = $map['GmtStarted'];
         }
+
         if (isset($map['MachineGroupID'])) {
             $model->machineGroupID = $map['MachineGroupID'];
         }
+
         if (isset($map['OrderID'])) {
             $model->orderID = $map['OrderID'];
         }
+
         if (isset($map['OrderInstanceId'])) {
             $model->orderInstanceId = $map['OrderInstanceId'];
         }
+
         if (isset($map['PAIResourceID'])) {
             $model->PAIResourceID = $map['PAIResourceID'];
         }
+
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }
+
         if (isset($map['PricingCycle'])) {
             $model->pricingCycle = $map['PricingCycle'];
         }
+
         if (isset($map['RegionID'])) {
             $model->regionID = $map['RegionID'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['SupportedDrivers'])) {
             if (!empty($map['SupportedDrivers'])) {
-                $model->supportedDrivers = $map['SupportedDrivers'];
+                $model->supportedDrivers = [];
+                $n1 = 0;
+                foreach ($map['SupportedDrivers'] as $item1) {
+                    $model->supportedDrivers[$n1++] = $item1;
+                }
             }
         }
 

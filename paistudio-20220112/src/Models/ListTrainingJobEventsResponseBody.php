@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTrainingJobEventsResponseBody extends Model
 {
@@ -14,15 +14,11 @@ class ListTrainingJobEventsResponseBody extends Model
     public $events;
 
     /**
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 23
-     *
      * @var string
      */
     public $totalCount;
@@ -32,17 +28,31 @@ class ListTrainingJobEventsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->events)) {
+            Model::validateArray($this->events);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->events) {
-            $res['Events'] = $this->events;
+            if (\is_array($this->events)) {
+                $res['Events'] = [];
+                $n1 = 0;
+                foreach ($this->events as $item1) {
+                    $res['Events'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -50,22 +60,28 @@ class ListTrainingJobEventsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTrainingJobEventsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Events'])) {
             if (!empty($map['Events'])) {
-                $model->events = $map['Events'];
+                $model->events = [];
+                $n1 = 0;
+                foreach ($map['Events'] as $item1) {
+                    $model->events[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

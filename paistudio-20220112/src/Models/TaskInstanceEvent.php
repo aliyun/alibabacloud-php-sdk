@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TaskInstanceEvent extends Model
 {
@@ -46,26 +46,34 @@ class TaskInstanceEvent extends Model
         'workloadType' => 'WorkloadType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gmtEndTime) {
             $res['GmtEndTime'] = $this->gmtEndTime;
         }
+
         if (null !== $this->gmtStartTime) {
             $res['GmtStartTime'] = $this->gmtStartTime;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->podName) {
             $res['PodName'] = $this->podName;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->workloadType) {
             $res['WorkloadType'] = $this->workloadType;
         }
@@ -73,29 +81,34 @@ class TaskInstanceEvent extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TaskInstanceEvent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GmtEndTime'])) {
             $model->gmtEndTime = $map['GmtEndTime'];
         }
+
         if (isset($map['GmtStartTime'])) {
             $model->gmtStartTime = $map['GmtStartTime'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['PodName'])) {
             $model->podName = $map['PodName'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['WorkloadType'])) {
             $model->workloadType = $map['WorkloadType'];
         }

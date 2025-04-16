@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QuotaConfig extends Model
 {
@@ -14,15 +14,11 @@ class QuotaConfig extends Model
     public $ACS;
 
     /**
-     * @example ceeb37xxxx
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example 470.199.02
-     *
      * @var string
      */
     public $defaultGPUDriver;
@@ -53,8 +49,6 @@ class QuotaConfig extends Model
     public $supportGPUDrivers;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $supportRDMA;
@@ -76,94 +70,140 @@ class QuotaConfig extends Model
         'userVpc' => 'UserVpc',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->ACS) {
+            $this->ACS->validate();
+        }
+        if (\is_array($this->resourceSpecs)) {
+            Model::validateArray($this->resourceSpecs);
+        }
+        if (null !== $this->subQuotaPreemptionConfig) {
+            $this->subQuotaPreemptionConfig->validate();
+        }
+        if (\is_array($this->supportGPUDrivers)) {
+            Model::validateArray($this->supportGPUDrivers);
+        }
+        if (null !== $this->userVpc) {
+            $this->userVpc->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ACS) {
-            $res['ACS'] = null !== $this->ACS ? $this->ACS->toMap() : null;
+            $res['ACS'] = null !== $this->ACS ? $this->ACS->toArray($noStream) : $this->ACS;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->defaultGPUDriver) {
             $res['DefaultGPUDriver'] = $this->defaultGPUDriver;
         }
+
         if (null !== $this->enablePreemptSubquotaWorkloads) {
             $res['EnablePreemptSubquotaWorkloads'] = $this->enablePreemptSubquotaWorkloads;
         }
+
         if (null !== $this->enableSubQuotaPreemption) {
             $res['EnableSubQuotaPreemption'] = $this->enableSubQuotaPreemption;
         }
+
         if (null !== $this->resourceSpecs) {
-            $res['ResourceSpecs'] = [];
-            if (null !== $this->resourceSpecs && \is_array($this->resourceSpecs)) {
-                $n = 0;
-                foreach ($this->resourceSpecs as $item) {
-                    $res['ResourceSpecs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceSpecs)) {
+                $res['ResourceSpecs'] = [];
+                $n1 = 0;
+                foreach ($this->resourceSpecs as $item1) {
+                    $res['ResourceSpecs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->subQuotaPreemptionConfig) {
-            $res['SubQuotaPreemptionConfig'] = null !== $this->subQuotaPreemptionConfig ? $this->subQuotaPreemptionConfig->toMap() : null;
+            $res['SubQuotaPreemptionConfig'] = null !== $this->subQuotaPreemptionConfig ? $this->subQuotaPreemptionConfig->toArray($noStream) : $this->subQuotaPreemptionConfig;
         }
+
         if (null !== $this->supportGPUDrivers) {
-            $res['SupportGPUDrivers'] = $this->supportGPUDrivers;
+            if (\is_array($this->supportGPUDrivers)) {
+                $res['SupportGPUDrivers'] = [];
+                $n1 = 0;
+                foreach ($this->supportGPUDrivers as $item1) {
+                    $res['SupportGPUDrivers'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->supportRDMA) {
             $res['SupportRDMA'] = $this->supportRDMA;
         }
+
         if (null !== $this->userVpc) {
-            $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toMap() : null;
+            $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toArray($noStream) : $this->userVpc;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QuotaConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ACS'])) {
             $model->ACS = ACS::fromMap($map['ACS']);
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['DefaultGPUDriver'])) {
             $model->defaultGPUDriver = $map['DefaultGPUDriver'];
         }
+
         if (isset($map['EnablePreemptSubquotaWorkloads'])) {
             $model->enablePreemptSubquotaWorkloads = $map['EnablePreemptSubquotaWorkloads'];
         }
+
         if (isset($map['EnableSubQuotaPreemption'])) {
             $model->enableSubQuotaPreemption = $map['EnableSubQuotaPreemption'];
         }
+
         if (isset($map['ResourceSpecs'])) {
             if (!empty($map['ResourceSpecs'])) {
                 $model->resourceSpecs = [];
-                $n = 0;
-                foreach ($map['ResourceSpecs'] as $item) {
-                    $model->resourceSpecs[$n++] = null !== $item ? WorkspaceSpecs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResourceSpecs'] as $item1) {
+                    $model->resourceSpecs[$n1++] = WorkspaceSpecs::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['SubQuotaPreemptionConfig'])) {
             $model->subQuotaPreemptionConfig = SubQuotaPreemptionConfig::fromMap($map['SubQuotaPreemptionConfig']);
         }
+
         if (isset($map['SupportGPUDrivers'])) {
             if (!empty($map['SupportGPUDrivers'])) {
-                $model->supportGPUDrivers = $map['SupportGPUDrivers'];
+                $model->supportGPUDrivers = [];
+                $n1 = 0;
+                foreach ($map['SupportGPUDrivers'] as $item1) {
+                    $model->supportGPUDrivers[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SupportRDMA'])) {
             $model->supportRDMA = $map['SupportRDMA'];
         }
+
         if (isset($map['UserVpc'])) {
             $model->userVpc = UserVpc::fromMap($map['UserVpc']);
         }

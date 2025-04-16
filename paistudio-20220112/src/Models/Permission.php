@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Permission extends Model
 {
@@ -22,14 +22,18 @@ class Permission extends Model
         'resourceType' => 'ResourceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isEnabled) {
             $res['IsEnabled'] = $this->isEnabled;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -37,17 +41,18 @@ class Permission extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Permission
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsEnabled'])) {
             $model->isEnabled = $map['IsEnabled'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
