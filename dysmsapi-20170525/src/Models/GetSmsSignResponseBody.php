@@ -20,6 +20,16 @@ class GetSmsSignResponseBody extends Model
     public $auditInfo;
 
     /**
+     * @var bool
+     */
+    public $authorizationLetterAuditPass;
+
+    /**
+     * @var string
+     */
+    public $authorizationLetterId;
+
+    /**
      * @var string
      */
     public $code;
@@ -96,6 +106,8 @@ class GetSmsSignResponseBody extends Model
     protected $_name = [
         'applyScene' => 'ApplyScene',
         'auditInfo' => 'AuditInfo',
+        'authorizationLetterAuditPass' => 'AuthorizationLetterAuditPass',
+        'authorizationLetterId' => 'AuthorizationLetterId',
         'code' => 'Code',
         'createDate' => 'CreateDate',
         'fileUrlList' => 'FileUrlList',
@@ -133,6 +145,14 @@ class GetSmsSignResponseBody extends Model
 
         if (null !== $this->auditInfo) {
             $res['AuditInfo'] = null !== $this->auditInfo ? $this->auditInfo->toArray($noStream) : $this->auditInfo;
+        }
+
+        if (null !== $this->authorizationLetterAuditPass) {
+            $res['AuthorizationLetterAuditPass'] = $this->authorizationLetterAuditPass;
+        }
+
+        if (null !== $this->authorizationLetterId) {
+            $res['AuthorizationLetterId'] = $this->authorizationLetterId;
         }
 
         if (null !== $this->code) {
@@ -218,6 +238,14 @@ class GetSmsSignResponseBody extends Model
 
         if (isset($map['AuditInfo'])) {
             $model->auditInfo = auditInfo::fromMap($map['AuditInfo']);
+        }
+
+        if (isset($map['AuthorizationLetterAuditPass'])) {
+            $model->authorizationLetterAuditPass = $map['AuthorizationLetterAuditPass'];
+        }
+
+        if (isset($map['AuthorizationLetterId'])) {
+            $model->authorizationLetterId = $map['AuthorizationLetterId'];
         }
 
         if (isset($map['Code'])) {

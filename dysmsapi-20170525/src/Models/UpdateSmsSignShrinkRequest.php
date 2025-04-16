@@ -16,6 +16,11 @@ class UpdateSmsSignShrinkRequest extends Model
     /**
      * @var string
      */
+    public $authorizationLetterId;
+
+    /**
+     * @var string
+     */
     public $moreDataShrink;
 
     /**
@@ -64,6 +69,7 @@ class UpdateSmsSignShrinkRequest extends Model
     public $thirdParty;
     protected $_name = [
         'applySceneContent' => 'ApplySceneContent',
+        'authorizationLetterId' => 'AuthorizationLetterId',
         'moreDataShrink' => 'MoreData',
         'ownerId' => 'OwnerId',
         'qualificationId' => 'QualificationId',
@@ -86,6 +92,10 @@ class UpdateSmsSignShrinkRequest extends Model
         $res = [];
         if (null !== $this->applySceneContent) {
             $res['ApplySceneContent'] = $this->applySceneContent;
+        }
+
+        if (null !== $this->authorizationLetterId) {
+            $res['AuthorizationLetterId'] = $this->authorizationLetterId;
         }
 
         if (null !== $this->moreDataShrink) {
@@ -141,6 +151,10 @@ class UpdateSmsSignShrinkRequest extends Model
         $model = new self();
         if (isset($map['ApplySceneContent'])) {
             $model->applySceneContent = $map['ApplySceneContent'];
+        }
+
+        if (isset($map['AuthorizationLetterId'])) {
+            $model->authorizationLetterId = $map['AuthorizationLetterId'];
         }
 
         if (isset($map['MoreData'])) {

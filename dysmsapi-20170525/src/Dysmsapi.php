@@ -200,11 +200,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddExtCodeSignResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddExtCodeSignResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddExtCodeSignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -287,11 +284,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddShortUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddShortUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddShortUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -394,11 +388,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddSmsSignResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -505,11 +496,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddSmsTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -588,11 +576,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckMobilesCardSupportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckMobilesCardSupportResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckMobilesCardSupportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -668,11 +653,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConversionDataIntlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConversionDataIntlResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConversionDataIntlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -753,11 +735,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCardSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCardSmsTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCardSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -840,11 +819,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSmartShortUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSmartShortUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSmartShortUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -896,6 +872,10 @@ class Dysmsapi extends OpenApiClient
         $query = [];
         if (null !== $request->applySceneContent) {
             @$query['ApplySceneContent'] = $request->applySceneContent;
+        }
+
+        if (null !== $request->authorizationLetterId) {
+            @$query['AuthorizationLetterId'] = $request->authorizationLetterId;
         }
 
         if (null !== $request->moreDataShrink) {
@@ -952,11 +932,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSmsSignResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1076,11 +1053,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSmsTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1160,11 +1134,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteExtCodeSignResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteExtCodeSignResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteExtCodeSignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1238,11 +1209,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteShortUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteShortUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteShortUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1320,11 +1288,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSmsSignResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1405,11 +1370,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSmsTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1508,11 +1470,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCardSmsDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCardSmsDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCardSmsDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1604,11 +1563,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCardSmsLinkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCardSmsLinkResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCardSmsLinkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1688,11 +1644,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMediaResourceIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMediaResourceIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMediaResourceIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1748,11 +1701,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetOSSInfoForCardTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOSSInfoForCardTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOSSInfoForCardTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1825,11 +1775,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetOSSInfoForUploadFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOSSInfoForUploadFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOSSInfoForUploadFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1906,11 +1853,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSmsSignResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1989,11 +1933,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSmsTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2095,11 +2036,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2199,11 +2137,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifySmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifySmsSignResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2307,11 +2242,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifySmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifySmsTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -2381,11 +2313,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryCardSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryCardSmsTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryCardSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2457,11 +2386,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryCardSmsTemplateReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryCardSmsTemplateReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryCardSmsTemplateReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2545,11 +2471,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryExtCodeSignResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryExtCodeSignResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryExtCodeSignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2615,11 +2538,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryMobilesCardSupportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryMobilesCardSupportResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryMobilesCardSupportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2707,11 +2627,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryPageSmartShortUrlLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryPageSmartShortUrlLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryPageSmartShortUrlLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2795,11 +2712,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QuerySendDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QuerySendDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        return QuerySendDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2896,11 +2810,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QuerySendStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QuerySendStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return QuerySendStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2979,11 +2890,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryShortUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryShortUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryShortUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3060,11 +2968,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QuerySmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QuerySmsSignResponse::fromMap($this->execute($params, $req, $runtime));
+        return QuerySmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3146,11 +3051,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QuerySmsSignListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QuerySmsSignListResponse::fromMap($this->execute($params, $req, $runtime));
+        return QuerySmsSignListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3231,11 +3133,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QuerySmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QuerySmsTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return QuerySmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -3320,11 +3219,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QuerySmsTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QuerySmsTemplateListResponse::fromMap($this->execute($params, $req, $runtime));
+        return QuerySmsTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3438,11 +3334,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SendBatchCardSmsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SendBatchCardSmsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SendBatchCardSmsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3540,11 +3433,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SendBatchSmsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SendBatchSmsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SendBatchSmsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3653,11 +3543,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SendCardSmsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SendCardSmsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SendCardSmsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3757,11 +3644,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SendSmsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SendSmsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SendSmsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3850,11 +3734,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SmsConversionIntlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SmsConversionIntlResponse::fromMap($this->execute($params, $req, $runtime));
+        return SmsConversionIntlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3949,11 +3830,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4049,11 +3927,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4133,11 +4008,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateExtCodeSignResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateExtCodeSignResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateExtCodeSignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4188,6 +4060,10 @@ class Dysmsapi extends OpenApiClient
         $query = [];
         if (null !== $request->applySceneContent) {
             @$query['ApplySceneContent'] = $request->applySceneContent;
+        }
+
+        if (null !== $request->authorizationLetterId) {
+            @$query['AuthorizationLetterId'] = $request->authorizationLetterId;
         }
 
         if (null !== $request->moreDataShrink) {
@@ -4244,11 +4120,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSmsSignResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4370,11 +4243,8 @@ class Dysmsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSmsTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSmsTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

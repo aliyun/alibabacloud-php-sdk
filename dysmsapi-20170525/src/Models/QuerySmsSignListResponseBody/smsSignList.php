@@ -17,6 +17,11 @@ class smsSignList extends Model
     /**
      * @var string
      */
+    public $authorizationLetterId;
+
+    /**
+     * @var string
+     */
     public $businessType;
 
     /**
@@ -38,13 +43,20 @@ class smsSignList extends Model
      * @var string
      */
     public $signName;
+
+    /**
+     * @var bool
+     */
+    public $authorizationLetterAuditPass;
     protected $_name = [
         'auditStatus' => 'AuditStatus',
+        'authorizationLetterId' => 'AuthorizationLetterId',
         'businessType' => 'BusinessType',
         'createDate' => 'CreateDate',
         'orderId' => 'OrderId',
         'reason' => 'Reason',
         'signName' => 'SignName',
+        'authorizationLetterAuditPass' => 'authorizationLetterAuditPass',
     ];
 
     public function validate()
@@ -60,6 +72,10 @@ class smsSignList extends Model
         $res = [];
         if (null !== $this->auditStatus) {
             $res['AuditStatus'] = $this->auditStatus;
+        }
+
+        if (null !== $this->authorizationLetterId) {
+            $res['AuthorizationLetterId'] = $this->authorizationLetterId;
         }
 
         if (null !== $this->businessType) {
@@ -82,6 +98,10 @@ class smsSignList extends Model
             $res['SignName'] = $this->signName;
         }
 
+        if (null !== $this->authorizationLetterAuditPass) {
+            $res['authorizationLetterAuditPass'] = $this->authorizationLetterAuditPass;
+        }
+
         return $res;
     }
 
@@ -95,6 +115,10 @@ class smsSignList extends Model
         $model = new self();
         if (isset($map['AuditStatus'])) {
             $model->auditStatus = $map['AuditStatus'];
+        }
+
+        if (isset($map['AuthorizationLetterId'])) {
+            $model->authorizationLetterId = $map['AuthorizationLetterId'];
         }
 
         if (isset($map['BusinessType'])) {
@@ -115,6 +139,10 @@ class smsSignList extends Model
 
         if (isset($map['SignName'])) {
             $model->signName = $map['SignName'];
+        }
+
+        if (isset($map['authorizationLetterAuditPass'])) {
+            $model->authorizationLetterAuditPass = $map['authorizationLetterAuditPass'];
         }
 
         return $model;

@@ -14,6 +14,11 @@ class CreateSmsSignRequest extends Model
     public $applySceneContent;
 
     /**
+     * @var string
+     */
+    public $authorizationLetterId;
+
+    /**
      * @var string[]
      */
     public $moreData;
@@ -64,6 +69,7 @@ class CreateSmsSignRequest extends Model
     public $thirdParty;
     protected $_name = [
         'applySceneContent' => 'ApplySceneContent',
+        'authorizationLetterId' => 'AuthorizationLetterId',
         'moreData' => 'MoreData',
         'ownerId' => 'OwnerId',
         'qualificationId' => 'QualificationId',
@@ -89,6 +95,10 @@ class CreateSmsSignRequest extends Model
         $res = [];
         if (null !== $this->applySceneContent) {
             $res['ApplySceneContent'] = $this->applySceneContent;
+        }
+
+        if (null !== $this->authorizationLetterId) {
+            $res['AuthorizationLetterId'] = $this->authorizationLetterId;
         }
 
         if (null !== $this->moreData) {
@@ -150,6 +160,10 @@ class CreateSmsSignRequest extends Model
         $model = new self();
         if (isset($map['ApplySceneContent'])) {
             $model->applySceneContent = $map['ApplySceneContent'];
+        }
+
+        if (isset($map['AuthorizationLetterId'])) {
+            $model->authorizationLetterId = $map['AuthorizationLetterId'];
         }
 
         if (isset($map['MoreData'])) {
