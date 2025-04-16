@@ -4,40 +4,45 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ResumePhysicalNodeRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resumeCommand extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $nodeIdList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 102011
-     *
      * @var int
      */
     public $projectId;
     protected $_name = [
         'nodeIdList' => 'NodeIdList',
-        'projectId'  => 'ProjectId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->nodeIdList)) {
+            Model::validateArray($this->nodeIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeIdList) {
-            $res['NodeIdList'] = $this->nodeIdList;
+            if (\is_array($this->nodeIdList)) {
+                $res['NodeIdList'] = [];
+                $n1 = 0;
+                foreach ($this->nodeIdList as $item1) {
+                    $res['NodeIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -45,19 +50,24 @@ class resumeCommand extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resumeCommand
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeIdList'])) {
             if (!empty($map['NodeIdList'])) {
-                $model->nodeIdList = $map['NodeIdList'];
+                $model->nodeIdList = [];
+                $n1 = 0;
+                foreach ($map['NodeIdList'] as $item1) {
+                    $model->nodeIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUserBySourceIdRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 323131
-     *
      * @var string
      */
     public $sourceId;
     protected $_name = [
         'opTenantId' => 'OpTenantId',
-        'sourceId'   => 'SourceId',
+        'sourceId' => 'SourceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
         }
@@ -47,17 +41,18 @@ class GetUserBySourceIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserBySourceIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];
         }

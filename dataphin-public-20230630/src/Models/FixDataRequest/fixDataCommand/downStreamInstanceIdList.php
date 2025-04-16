@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\FixDataRequest\fixDataCommand;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class downStreamInstanceIdList extends Model
 {
@@ -14,26 +14,35 @@ class downStreamInstanceIdList extends Model
     public $fieldInstanceIdList;
 
     /**
-     * @example t_2323421
-     *
      * @var string
      */
     public $id;
     protected $_name = [
         'fieldInstanceIdList' => 'FieldInstanceIdList',
-        'id'                  => 'Id',
+        'id' => 'Id',
     ];
 
     public function validate()
     {
+        if (\is_array($this->fieldInstanceIdList)) {
+            Model::validateArray($this->fieldInstanceIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fieldInstanceIdList) {
-            $res['FieldInstanceIdList'] = $this->fieldInstanceIdList;
+            if (\is_array($this->fieldInstanceIdList)) {
+                $res['FieldInstanceIdList'] = [];
+                $n1 = 0;
+                foreach ($this->fieldInstanceIdList as $item1) {
+                    $res['FieldInstanceIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -41,19 +50,24 @@ class downStreamInstanceIdList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return downStreamInstanceIdList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FieldInstanceIdList'])) {
             if (!empty($map['FieldInstanceIdList'])) {
-                $model->fieldInstanceIdList = $map['FieldInstanceIdList'];
+                $model->fieldInstanceIdList = [];
+                $n1 = 0;
+                foreach ($map['FieldInstanceIdList'] as $item1) {
+                    $model->fieldInstanceIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

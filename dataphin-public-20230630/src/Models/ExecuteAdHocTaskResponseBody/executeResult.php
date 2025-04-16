@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteAdHocTaskResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class executeResult extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $subTaskCount;
 
     /**
-     * @example MaxCompute_SQL_300000843_1611548758327
-     *
      * @var string
      */
     public $taskId;
     protected $_name = [
         'subTaskCount' => 'SubTaskCount',
-        'taskId'       => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subTaskCount) {
             $res['SubTaskCount'] = $this->subTaskCount;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -43,17 +41,18 @@ class executeResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return executeResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubTaskCount'])) {
             $model->subTaskCount = $map['SubTaskCount'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListBizUnitsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
@@ -22,9 +18,10 @@ class ListBizUnitsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->opTenantId) {
@@ -34,11 +31,11 @@ class ListBizUnitsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListBizUnitsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

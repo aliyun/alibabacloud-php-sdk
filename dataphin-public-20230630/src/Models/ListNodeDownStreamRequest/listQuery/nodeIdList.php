@@ -4,38 +4,45 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodeDownStreamRequest\listQuery;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nodeIdList extends Model
 {
     /**
-     * @example 112
-     *
      * @var string[]
      */
     public $fieldIdList;
 
     /**
-     * @example n_23431
-     *
      * @var string
      */
     public $id;
     protected $_name = [
         'fieldIdList' => 'FieldIdList',
-        'id'          => 'Id',
+        'id' => 'Id',
     ];
 
     public function validate()
     {
+        if (\is_array($this->fieldIdList)) {
+            Model::validateArray($this->fieldIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fieldIdList) {
-            $res['FieldIdList'] = $this->fieldIdList;
+            if (\is_array($this->fieldIdList)) {
+                $res['FieldIdList'] = [];
+                $n1 = 0;
+                foreach ($this->fieldIdList as $item1) {
+                    $res['FieldIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -43,19 +50,24 @@ class nodeIdList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodeIdList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FieldIdList'])) {
             if (!empty($map['FieldIdList'])) {
-                $model->fieldIdList = $map['FieldIdList'];
+                $model->fieldIdList = [];
+                $n1 = 0;
+                foreach ($map['FieldIdList'] as $item1) {
+                    $model->fieldIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAddableUsersRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class listQuery extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example xx
-     *
      * @var string
      */
     public $searchText;
     protected $_name = [
-        'page'       => 'Page',
-        'pageSize'   => 'PageSize',
+        'page' => 'Page',
+        'pageSize' => 'PageSize',
         'searchText' => 'SearchText',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->searchText) {
             $res['SearchText'] = $this->searchText;
         }
@@ -54,20 +51,22 @@ class listQuery extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listQuery
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SearchText'])) {
             $model->searchText = $map['SearchText'];
         }

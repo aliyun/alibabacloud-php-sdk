@@ -4,71 +4,66 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAuthorizedDataServiceApiDetailsResponseBody\result\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class authorizedProdReturnParameters extends Model
 {
     /**
-     * @example example1
-     *
      * @var string
      */
     public $exampleValue;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $isAuthorized;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $parameterDataType;
 
     /**
-     * @example description1
-     *
      * @var string
      */
     public $parameterDescription;
 
     /**
-     * @example param1
-     *
      * @var string
      */
     public $parameterName;
     protected $_name = [
-        'exampleValue'         => 'ExampleValue',
-        'isAuthorized'         => 'IsAuthorized',
-        'parameterDataType'    => 'ParameterDataType',
+        'exampleValue' => 'ExampleValue',
+        'isAuthorized' => 'IsAuthorized',
+        'parameterDataType' => 'ParameterDataType',
         'parameterDescription' => 'ParameterDescription',
-        'parameterName'        => 'ParameterName',
+        'parameterName' => 'ParameterName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exampleValue) {
             $res['ExampleValue'] = $this->exampleValue;
         }
+
         if (null !== $this->isAuthorized) {
             $res['IsAuthorized'] = $this->isAuthorized;
         }
+
         if (null !== $this->parameterDataType) {
             $res['ParameterDataType'] = $this->parameterDataType;
         }
+
         if (null !== $this->parameterDescription) {
             $res['ParameterDescription'] = $this->parameterDescription;
         }
+
         if (null !== $this->parameterName) {
             $res['ParameterName'] = $this->parameterName;
         }
@@ -76,26 +71,30 @@ class authorizedProdReturnParameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return authorizedProdReturnParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExampleValue'])) {
             $model->exampleValue = $map['ExampleValue'];
         }
+
         if (isset($map['IsAuthorized'])) {
             $model->isAuthorized = $map['IsAuthorized'];
         }
+
         if (isset($map['ParameterDataType'])) {
             $model->parameterDataType = $map['ParameterDataType'];
         }
+
         if (isset($map['ParameterDescription'])) {
             $model->parameterDescription = $map['ParameterDescription'];
         }
+
         if (isset($map['ParameterName'])) {
             $model->parameterName = $map['ParameterName'];
         }

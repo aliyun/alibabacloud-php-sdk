@@ -4,80 +4,70 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineNodeRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineNodeRequest\createPipelineNodeCommand\fileInfo;
-use AlibabaCloud\Tea\Model;
 
 class createPipelineNodeCommand extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var fileInfo
      */
     public $fileInfo;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example REAL_TIME
-     *
      * @var string
      */
     public $nodeType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example test_pipeline
-     *
      * @var string
      */
     public $pipelineName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example REAL_TIME_PIPELINE
-     *
      * @var string
      */
     public $pipelineType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 7091124176569088
-     *
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'fileInfo'     => 'FileInfo',
-        'nodeType'     => 'NodeType',
+        'fileInfo' => 'FileInfo',
+        'nodeType' => 'NodeType',
         'pipelineName' => 'PipelineName',
         'pipelineType' => 'PipelineType',
-        'projectId'    => 'ProjectId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()
     {
+        if (null !== $this->fileInfo) {
+            $this->fileInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileInfo) {
-            $res['FileInfo'] = null !== $this->fileInfo ? $this->fileInfo->toMap() : null;
+            $res['FileInfo'] = null !== $this->fileInfo ? $this->fileInfo->toArray($noStream) : $this->fileInfo;
         }
+
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
         }
+
         if (null !== $this->pipelineName) {
             $res['PipelineName'] = $this->pipelineName;
         }
+
         if (null !== $this->pipelineType) {
             $res['PipelineType'] = $this->pipelineType;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -85,26 +75,30 @@ class createPipelineNodeCommand extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return createPipelineNodeCommand
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileInfo'])) {
             $model->fileInfo = fileInfo::fromMap($map['FileInfo']);
         }
+
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }
+
         if (isset($map['PipelineName'])) {
             $model->pipelineName = $map['PipelineName'];
         }
+
         if (isset($map['PipelineType'])) {
             $model->pipelineType = $map['PipelineType'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

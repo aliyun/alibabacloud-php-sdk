@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPublishRecordsRequest\listQuery;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class searchFilter extends Model
 {
@@ -14,40 +14,26 @@ class searchFilter extends Model
     public $changeTypeList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int[]
      */
     public $projectIdList;
 
     /**
-     * @example 2024-10-10 10:00:00
-     *
      * @var string
      */
     public $publishEndTime;
 
     /**
-     * @example 2024-10-10 10:00:00
-     *
      * @var string
      */
     public $publishStartTime;
@@ -62,89 +48,156 @@ class searchFilter extends Model
      */
     public $submitterList;
     protected $_name = [
-        'changeTypeList'    => 'ChangeTypeList',
-        'page'              => 'Page',
-        'pageSize'          => 'PageSize',
-        'projectIdList'     => 'ProjectIdList',
-        'publishEndTime'    => 'PublishEndTime',
-        'publishStartTime'  => 'PublishStartTime',
+        'changeTypeList' => 'ChangeTypeList',
+        'page' => 'Page',
+        'pageSize' => 'PageSize',
+        'projectIdList' => 'ProjectIdList',
+        'publishEndTime' => 'PublishEndTime',
+        'publishStartTime' => 'PublishStartTime',
         'publishStatusList' => 'PublishStatusList',
-        'submitterList'     => 'SubmitterList',
+        'submitterList' => 'SubmitterList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->changeTypeList)) {
+            Model::validateArray($this->changeTypeList);
+        }
+        if (\is_array($this->projectIdList)) {
+            Model::validateArray($this->projectIdList);
+        }
+        if (\is_array($this->publishStatusList)) {
+            Model::validateArray($this->publishStatusList);
+        }
+        if (\is_array($this->submitterList)) {
+            Model::validateArray($this->submitterList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeTypeList) {
-            $res['ChangeTypeList'] = $this->changeTypeList;
+            if (\is_array($this->changeTypeList)) {
+                $res['ChangeTypeList'] = [];
+                $n1 = 0;
+                foreach ($this->changeTypeList as $item1) {
+                    $res['ChangeTypeList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->projectIdList) {
-            $res['ProjectIdList'] = $this->projectIdList;
+            if (\is_array($this->projectIdList)) {
+                $res['ProjectIdList'] = [];
+                $n1 = 0;
+                foreach ($this->projectIdList as $item1) {
+                    $res['ProjectIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->publishEndTime) {
             $res['PublishEndTime'] = $this->publishEndTime;
         }
+
         if (null !== $this->publishStartTime) {
             $res['PublishStartTime'] = $this->publishStartTime;
         }
+
         if (null !== $this->publishStatusList) {
-            $res['PublishStatusList'] = $this->publishStatusList;
+            if (\is_array($this->publishStatusList)) {
+                $res['PublishStatusList'] = [];
+                $n1 = 0;
+                foreach ($this->publishStatusList as $item1) {
+                    $res['PublishStatusList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->submitterList) {
-            $res['SubmitterList'] = $this->submitterList;
+            if (\is_array($this->submitterList)) {
+                $res['SubmitterList'] = [];
+                $n1 = 0;
+                foreach ($this->submitterList as $item1) {
+                    $res['SubmitterList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return searchFilter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChangeTypeList'])) {
             if (!empty($map['ChangeTypeList'])) {
-                $model->changeTypeList = $map['ChangeTypeList'];
+                $model->changeTypeList = [];
+                $n1 = 0;
+                foreach ($map['ChangeTypeList'] as $item1) {
+                    $model->changeTypeList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ProjectIdList'])) {
             if (!empty($map['ProjectIdList'])) {
-                $model->projectIdList = $map['ProjectIdList'];
+                $model->projectIdList = [];
+                $n1 = 0;
+                foreach ($map['ProjectIdList'] as $item1) {
+                    $model->projectIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['PublishEndTime'])) {
             $model->publishEndTime = $map['PublishEndTime'];
         }
+
         if (isset($map['PublishStartTime'])) {
             $model->publishStartTime = $map['PublishStartTime'];
         }
+
         if (isset($map['PublishStatusList'])) {
             if (!empty($map['PublishStatusList'])) {
-                $model->publishStatusList = $map['PublishStatusList'];
+                $model->publishStatusList = [];
+                $n1 = 0;
+                foreach ($map['PublishStatusList'] as $item1) {
+                    $model->publishStatusList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SubmitterList'])) {
             if (!empty($map['SubmitterList'])) {
-                $model->submitterList = $map['SubmitterList'];
+                $model->submitterList = [];
+                $n1 = 0;
+                foreach ($map['SubmitterList'] as $item1) {
+                    $model->submitterList[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ParseBatchTaskDependencyResponseBody\parseResult;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ParseBatchTaskDependencyResponseBody\parseResult\dependNodeList\scheduleNodeInfoList;
-use AlibabaCloud\Tea\Model;
 
 class dependNodeList extends Model
 {
     /**
-     * @example input
-     *
      * @var string
      */
     public $nodeIoType;
@@ -21,26 +19,31 @@ class dependNodeList extends Model
      */
     public $scheduleNodeInfoList;
     protected $_name = [
-        'nodeIoType'           => 'NodeIoType',
+        'nodeIoType' => 'NodeIoType',
         'scheduleNodeInfoList' => 'ScheduleNodeInfoList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->scheduleNodeInfoList)) {
+            Model::validateArray($this->scheduleNodeInfoList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeIoType) {
             $res['NodeIoType'] = $this->nodeIoType;
         }
+
         if (null !== $this->scheduleNodeInfoList) {
-            $res['ScheduleNodeInfoList'] = [];
-            if (null !== $this->scheduleNodeInfoList && \is_array($this->scheduleNodeInfoList)) {
-                $n = 0;
-                foreach ($this->scheduleNodeInfoList as $item) {
-                    $res['ScheduleNodeInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->scheduleNodeInfoList)) {
+                $res['ScheduleNodeInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->scheduleNodeInfoList as $item1) {
+                    $res['ScheduleNodeInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -48,23 +51,24 @@ class dependNodeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dependNodeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeIoType'])) {
             $model->nodeIoType = $map['NodeIoType'];
         }
+
         if (isset($map['ScheduleNodeInfoList'])) {
             if (!empty($map['ScheduleNodeInfoList'])) {
                 $model->scheduleNodeInfoList = [];
-                $n                           = 0;
-                foreach ($map['ScheduleNodeInfoList'] as $item) {
-                    $model->scheduleNodeInfoList[$n++] = null !== $item ? scheduleNodeInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ScheduleNodeInfoList'] as $item1) {
+                    $model->scheduleNodeInfoList[$n1++] = scheduleNodeInfoList::fromMap($item1);
                 }
             }
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetProjectProduceUserResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class user extends Model
 {
     /**
-     * @example 123131
-     *
      * @var string
      */
     public $id;
@@ -20,9 +18,10 @@ class user extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
@@ -32,11 +31,11 @@ class user extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return user
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

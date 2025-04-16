@@ -4,52 +4,56 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskUdfLineagesRequest\updateCommand;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskUdfLineagesRequest\updateCommand\lineageGroupList\inputLineageList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskUdfLineagesRequest\updateCommand\lineageGroupList\outputLineageList;
-use AlibabaCloud\Tea\Model;
 
 class lineageGroupList extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var inputLineageList[]
      */
     public $inputLineageList;
 
     /**
-     * @description This parameter is required.
-     *
      * @var outputLineageList[]
      */
     public $outputLineageList;
     protected $_name = [
-        'inputLineageList'  => 'InputLineageList',
+        'inputLineageList' => 'InputLineageList',
         'outputLineageList' => 'OutputLineageList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->inputLineageList)) {
+            Model::validateArray($this->inputLineageList);
+        }
+        if (\is_array($this->outputLineageList)) {
+            Model::validateArray($this->outputLineageList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputLineageList) {
-            $res['InputLineageList'] = [];
-            if (null !== $this->inputLineageList && \is_array($this->inputLineageList)) {
-                $n = 0;
-                foreach ($this->inputLineageList as $item) {
-                    $res['InputLineageList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->inputLineageList)) {
+                $res['InputLineageList'] = [];
+                $n1 = 0;
+                foreach ($this->inputLineageList as $item1) {
+                    $res['InputLineageList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->outputLineageList) {
-            $res['OutputLineageList'] = [];
-            if (null !== $this->outputLineageList && \is_array($this->outputLineageList)) {
-                $n = 0;
-                foreach ($this->outputLineageList as $item) {
-                    $res['OutputLineageList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->outputLineageList)) {
+                $res['OutputLineageList'] = [];
+                $n1 = 0;
+                foreach ($this->outputLineageList as $item1) {
+                    $res['OutputLineageList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -57,29 +61,30 @@ class lineageGroupList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return lineageGroupList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InputLineageList'])) {
             if (!empty($map['InputLineageList'])) {
                 $model->inputLineageList = [];
-                $n                       = 0;
-                foreach ($map['InputLineageList'] as $item) {
-                    $model->inputLineageList[$n++] = null !== $item ? inputLineageList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InputLineageList'] as $item1) {
+                    $model->inputLineageList[$n1++] = inputLineageList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['OutputLineageList'])) {
             if (!empty($map['OutputLineageList'])) {
                 $model->outputLineageList = [];
-                $n                        = 0;
-                foreach ($map['OutputLineageList'] as $item) {
-                    $model->outputLineageList[$n++] = null !== $item ? outputLineageList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OutputLineageList'] as $item1) {
+                    $model->outputLineageList[$n1++] = outputLineageList::fromMap($item1);
                 }
             }
         }

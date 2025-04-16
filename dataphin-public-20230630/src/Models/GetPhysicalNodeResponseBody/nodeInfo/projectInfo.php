@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetPhysicalNodeResponseBody\nodeInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class projectInfo extends Model
 {
     /**
-     * @example 102132
-     *
      * @var string
      */
     public $id;
@@ -20,20 +18,22 @@ class projectInfo extends Model
      */
     public $name;
     protected $_name = [
-        'id'   => 'Id',
+        'id' => 'Id',
         'name' => 'Name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -41,17 +41,18 @@ class projectInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return projectInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveTenantMemberRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class removeCommand extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 123@xx.com
-     *
      * @var string
      */
     public $sourceId;
@@ -22,9 +18,10 @@ class removeCommand extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sourceId) {
@@ -34,11 +31,11 @@ class removeCommand extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return removeCommand
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

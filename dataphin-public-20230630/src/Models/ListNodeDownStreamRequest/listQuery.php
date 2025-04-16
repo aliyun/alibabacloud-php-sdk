@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodeDownStreamRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodeDownStreamRequest\listQuery\filterList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodeDownStreamRequest\listQuery\nodeIdList;
-use AlibabaCloud\Tea\Model;
 
 class listQuery extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $downStreamDepth;
@@ -23,53 +21,59 @@ class listQuery extends Model
     public $filterList;
 
     /**
-     * @description This parameter is required.
-     *
      * @var nodeIdList[]
      */
     public $nodeIdList;
 
     /**
-     * @example 123011
-     *
      * @var int
      */
     public $projectId;
     protected $_name = [
         'downStreamDepth' => 'DownStreamDepth',
-        'filterList'      => 'FilterList',
-        'nodeIdList'      => 'NodeIdList',
-        'projectId'       => 'ProjectId',
+        'filterList' => 'FilterList',
+        'nodeIdList' => 'NodeIdList',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->filterList)) {
+            Model::validateArray($this->filterList);
+        }
+        if (\is_array($this->nodeIdList)) {
+            Model::validateArray($this->nodeIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->downStreamDepth) {
             $res['DownStreamDepth'] = $this->downStreamDepth;
         }
+
         if (null !== $this->filterList) {
-            $res['FilterList'] = [];
-            if (null !== $this->filterList && \is_array($this->filterList)) {
-                $n = 0;
-                foreach ($this->filterList as $item) {
-                    $res['FilterList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->filterList)) {
+                $res['FilterList'] = [];
+                $n1 = 0;
+                foreach ($this->filterList as $item1) {
+                    $res['FilterList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nodeIdList) {
-            $res['NodeIdList'] = [];
-            if (null !== $this->nodeIdList && \is_array($this->nodeIdList)) {
-                $n = 0;
-                foreach ($this->nodeIdList as $item) {
-                    $res['NodeIdList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodeIdList)) {
+                $res['NodeIdList'] = [];
+                $n1 = 0;
+                foreach ($this->nodeIdList as $item1) {
+                    $res['NodeIdList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -77,35 +81,38 @@ class listQuery extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listQuery
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DownStreamDepth'])) {
             $model->downStreamDepth = $map['DownStreamDepth'];
         }
+
         if (isset($map['FilterList'])) {
             if (!empty($map['FilterList'])) {
                 $model->filterList = [];
-                $n                 = 0;
-                foreach ($map['FilterList'] as $item) {
-                    $model->filterList[$n++] = null !== $item ? filterList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FilterList'] as $item1) {
+                    $model->filterList[$n1++] = filterList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NodeIdList'])) {
             if (!empty($map['NodeIdList'])) {
                 $model->nodeIdList = [];
-                $n                 = 0;
-                foreach ($map['NodeIdList'] as $item) {
-                    $model->nodeIdList[$n++] = null !== $item ? nodeIdList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NodeIdList'] as $item1) {
+                    $model->nodeIdList[$n1++] = nodeIdList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

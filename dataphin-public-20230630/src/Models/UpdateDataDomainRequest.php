@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataDomainRequest\updateCommand;
-use AlibabaCloud\Tea\Model;
 
 class UpdateDataDomainRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var updateCommand
      */
     public $updateCommand;
     protected $_name = [
-        'opTenantId'    => 'OpTenantId',
+        'opTenantId' => 'OpTenantId',
         'updateCommand' => 'UpdateCommand',
     ];
 
     public function validate()
     {
+        if (null !== $this->updateCommand) {
+            $this->updateCommand->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->updateCommand) {
-            $res['UpdateCommand'] = null !== $this->updateCommand ? $this->updateCommand->toMap() : null;
+            $res['UpdateCommand'] = null !== $this->updateCommand ? $this->updateCommand->toArray($noStream) : $this->updateCommand;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDataDomainRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['UpdateCommand'])) {
             $model->updateCommand = updateCommand::fromMap($map['UpdateCommand']);
         }

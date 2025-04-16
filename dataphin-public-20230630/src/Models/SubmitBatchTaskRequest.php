@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest\submitCommand;
-use AlibabaCloud\Tea\Model;
 
 class SubmitBatchTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var submitCommand
      */
     public $submitCommand;
     protected $_name = [
-        'opTenantId'    => 'OpTenantId',
+        'opTenantId' => 'OpTenantId',
         'submitCommand' => 'SubmitCommand',
     ];
 
     public function validate()
     {
+        if (null !== $this->submitCommand) {
+            $this->submitCommand->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->submitCommand) {
-            $res['SubmitCommand'] = null !== $this->submitCommand ? $this->submitCommand->toMap() : null;
+            $res['SubmitCommand'] = null !== $this->submitCommand ? $this->submitCommand->toArray($noStream) : $this->submitCommand;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitBatchTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['SubmitCommand'])) {
             $model->submitCommand = submitCommand::fromMap($map['SubmitCommand']);
         }

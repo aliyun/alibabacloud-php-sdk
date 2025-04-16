@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ParseBatchTaskDependencyResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ParseBatchTaskDependencyResponseBody\parseResult\dependNodeList;
-use AlibabaCloud\Tea\Model;
 
 class parseResult extends Model
 {
@@ -19,17 +19,21 @@ class parseResult extends Model
 
     public function validate()
     {
+        if (\is_array($this->dependNodeList)) {
+            Model::validateArray($this->dependNodeList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dependNodeList) {
-            $res['DependNodeList'] = [];
-            if (null !== $this->dependNodeList && \is_array($this->dependNodeList)) {
-                $n = 0;
-                foreach ($this->dependNodeList as $item) {
-                    $res['DependNodeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dependNodeList)) {
+                $res['DependNodeList'] = [];
+                $n1 = 0;
+                foreach ($this->dependNodeList as $item1) {
+                    $res['DependNodeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class parseResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return parseResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DependNodeList'])) {
             if (!empty($map['DependNodeList'])) {
                 $model->dependNodeList = [];
-                $n                     = 0;
-                foreach ($map['DependNodeList'] as $item) {
-                    $model->dependNodeList[$n++] = null !== $item ? dependNodeList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DependNodeList'] as $item1) {
+                    $model->dependNodeList[$n1++] = dependNodeList::fromMap($item1);
                 }
             }
         }

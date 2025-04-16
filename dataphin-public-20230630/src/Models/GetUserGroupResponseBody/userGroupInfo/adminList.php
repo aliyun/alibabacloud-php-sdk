@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUserGroupResponseBody\userGroupInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class adminList extends Model
 {
     /**
-     * @example xx
-     *
      * @var string
      */
     public $accountName;
@@ -21,30 +19,31 @@ class adminList extends Model
     public $displayName;
 
     /**
-     * @example 131313
-     *
      * @var string
      */
     public $id;
     protected $_name = [
         'accountName' => 'AccountName',
         'displayName' => 'DisplayName',
-        'id'          => 'Id',
+        'id' => 'Id',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -52,20 +51,22 @@ class adminList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return adminList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceRequest\createCommand;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceRequest\createCommand\devDataSourceCreate\dataSourceCreate;
-use AlibabaCloud\Tea\Model;
 
 class devDataSourceCreate extends Model
 {
     /**
-     * @description 数据源创建结构体
-     *
      * @var dataSourceCreate
      */
     public $dataSourceCreate;
 
     /**
-     * @example 1011
-     *
      * @var int
      */
     public $prodDataSourceId;
@@ -29,14 +25,19 @@ class devDataSourceCreate extends Model
 
     public function validate()
     {
+        if (null !== $this->dataSourceCreate) {
+            $this->dataSourceCreate->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSourceCreate) {
-            $res['DataSourceCreate'] = null !== $this->dataSourceCreate ? $this->dataSourceCreate->toMap() : null;
+            $res['DataSourceCreate'] = null !== $this->dataSourceCreate ? $this->dataSourceCreate->toArray($noStream) : $this->dataSourceCreate;
         }
+
         if (null !== $this->prodDataSourceId) {
             $res['ProdDataSourceId'] = $this->prodDataSourceId;
         }
@@ -44,17 +45,18 @@ class devDataSourceCreate extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return devDataSourceCreate
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSourceCreate'])) {
             $model->dataSourceCreate = dataSourceCreate::fromMap($map['DataSourceCreate']);
         }
+
         if (isset($map['ProdDataSourceId'])) {
             $model->prodDataSourceId = $map['ProdDataSourceId'];
         }

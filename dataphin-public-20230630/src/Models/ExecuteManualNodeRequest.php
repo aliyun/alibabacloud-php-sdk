@@ -4,52 +4,50 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteManualNodeRequest\executeCommand;
-use AlibabaCloud\Tea\Model;
 
 class ExecuteManualNodeRequest extends Model
 {
     /**
-     * @example PROD
-     *
      * @var string
      */
     public $env;
 
     /**
-     * @description This parameter is required.
-     *
      * @var executeCommand
      */
     public $executeCommand;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
     protected $_name = [
-        'env'            => 'Env',
+        'env' => 'Env',
         'executeCommand' => 'ExecuteCommand',
-        'opTenantId'     => 'OpTenantId',
+        'opTenantId' => 'OpTenantId',
     ];
 
     public function validate()
     {
+        if (null !== $this->executeCommand) {
+            $this->executeCommand->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
+
         if (null !== $this->executeCommand) {
-            $res['ExecuteCommand'] = null !== $this->executeCommand ? $this->executeCommand->toMap() : null;
+            $res['ExecuteCommand'] = null !== $this->executeCommand ? $this->executeCommand->toArray($noStream) : $this->executeCommand;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -57,20 +55,22 @@ class ExecuteManualNodeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExecuteManualNodeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
         }
+
         if (isset($map['ExecuteCommand'])) {
             $model->executeCommand = executeCommand::fromMap($map['ExecuteCommand']);
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

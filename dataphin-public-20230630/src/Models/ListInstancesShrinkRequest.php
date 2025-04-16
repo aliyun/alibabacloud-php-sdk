@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListInstancesShrinkRequest extends Model
 {
     /**
-     * @example PROD
-     *
      * @var string
      */
     public $env;
@@ -21,32 +19,31 @@ class ListInstancesShrinkRequest extends Model
     public $listQueryShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
     protected $_name = [
-        'env'             => 'Env',
+        'env' => 'Env',
         'listQueryShrink' => 'ListQuery',
-        'opTenantId'      => 'OpTenantId',
+        'opTenantId' => 'OpTenantId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
+
         if (null !== $this->listQueryShrink) {
             $res['ListQuery'] = $this->listQueryShrink;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -54,20 +51,22 @@ class ListInstancesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstancesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
         }
+
         if (isset($map['ListQuery'])) {
             $model->listQueryShrink = $map['ListQuery'];
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

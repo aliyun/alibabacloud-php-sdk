@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocTaskLogResponseBody\logInfo;
-use AlibabaCloud\Tea\Model;
 
 class GetAdHocTaskLogResponseBody extends Model
 {
     /**
-     * @example OK
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
@@ -29,15 +25,11 @@ class GetAdHocTaskLogResponseBody extends Model
     public $logInfo;
 
     /**
-     * @example successful
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example 75DD06F8-1661-5A6E-B0A6-7E23133BDC60
-     *
      * @var string
      */
     public $requestId;
@@ -47,36 +39,45 @@ class GetAdHocTaskLogResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
+        'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
-        'logInfo'        => 'LogInfo',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'logInfo' => 'LogInfo',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (null !== $this->logInfo) {
+            $this->logInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->logInfo) {
-            $res['LogInfo'] = null !== $this->logInfo ? $this->logInfo->toMap() : null;
+            $res['LogInfo'] = null !== $this->logInfo ? $this->logInfo->toArray($noStream) : $this->logInfo;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -84,29 +85,34 @@ class GetAdHocTaskLogResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAdHocTaskLogResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['LogInfo'])) {
             $model->logInfo = logInfo::fromMap($map['LogInfo']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

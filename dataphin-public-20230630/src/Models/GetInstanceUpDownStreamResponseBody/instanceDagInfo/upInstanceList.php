@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceUpDownStreamResponseBody\instanceDagInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class upInstanceList extends Model
 {
@@ -14,59 +14,65 @@ class upInstanceList extends Model
     public $fieldInstanceIdList;
 
     /**
-     * @example t_1234567
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example xx测试
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example n_1234567
-     *
      * @var string
      */
     public $nodeId;
 
     /**
-     * @example DATA_PROCESS
-     *
      * @var string
      */
     public $nodeType;
     protected $_name = [
         'fieldInstanceIdList' => 'FieldInstanceIdList',
-        'id'                  => 'Id',
-        'name'                => 'Name',
-        'nodeId'              => 'NodeId',
-        'nodeType'            => 'NodeType',
+        'id' => 'Id',
+        'name' => 'Name',
+        'nodeId' => 'NodeId',
+        'nodeType' => 'NodeType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->fieldInstanceIdList)) {
+            Model::validateArray($this->fieldInstanceIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fieldInstanceIdList) {
-            $res['FieldInstanceIdList'] = $this->fieldInstanceIdList;
+            if (\is_array($this->fieldInstanceIdList)) {
+                $res['FieldInstanceIdList'] = [];
+                $n1 = 0;
+                foreach ($this->fieldInstanceIdList as $item1) {
+                    $res['FieldInstanceIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
         }
@@ -74,28 +80,36 @@ class upInstanceList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return upInstanceList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FieldInstanceIdList'])) {
             if (!empty($map['FieldInstanceIdList'])) {
-                $model->fieldInstanceIdList = $map['FieldInstanceIdList'];
+                $model->fieldInstanceIdList = [];
+                $n1 = 0;
+                foreach ($map['FieldInstanceIdList'] as $item1) {
+                    $model->fieldInstanceIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }

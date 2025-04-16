@@ -4,51 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateNodeSupplementShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $createCommandShrink;
 
     /**
-     * @example DEV/PROD
-     *
      * @var string
      */
     public $env;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
     protected $_name = [
         'createCommandShrink' => 'CreateCommand',
-        'env'                 => 'Env',
-        'opTenantId'          => 'OpTenantId',
+        'env' => 'Env',
+        'opTenantId' => 'OpTenantId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createCommandShrink) {
             $res['CreateCommand'] = $this->createCommandShrink;
         }
+
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -56,20 +51,22 @@ class CreateNodeSupplementShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateNodeSupplementShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateCommand'])) {
             $model->createCommandShrink = $map['CreateCommand'];
         }
+
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

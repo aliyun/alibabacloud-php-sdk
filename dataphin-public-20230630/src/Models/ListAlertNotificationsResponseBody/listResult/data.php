@@ -4,17 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsResponseBody\listResult;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsResponseBody\listResult\data\alertObject;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsResponseBody\listResult\data\alertReason;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsResponseBody\listResult\data\alertReceiver;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsResponseBody\listResult\data\alertSend;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 12345
-     *
      * @var string
      */
     public $alertEventId;
@@ -39,59 +37,80 @@ class data extends Model
      */
     public $alertSend;
     protected $_name = [
-        'alertEventId'  => 'AlertEventId',
-        'alertObject'   => 'AlertObject',
-        'alertReason'   => 'AlertReason',
+        'alertEventId' => 'AlertEventId',
+        'alertObject' => 'AlertObject',
+        'alertReason' => 'AlertReason',
         'alertReceiver' => 'AlertReceiver',
-        'alertSend'     => 'AlertSend',
+        'alertSend' => 'AlertSend',
     ];
 
     public function validate()
     {
+        if (null !== $this->alertObject) {
+            $this->alertObject->validate();
+        }
+        if (null !== $this->alertReason) {
+            $this->alertReason->validate();
+        }
+        if (null !== $this->alertReceiver) {
+            $this->alertReceiver->validate();
+        }
+        if (null !== $this->alertSend) {
+            $this->alertSend->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertEventId) {
             $res['AlertEventId'] = $this->alertEventId;
         }
+
         if (null !== $this->alertObject) {
-            $res['AlertObject'] = null !== $this->alertObject ? $this->alertObject->toMap() : null;
+            $res['AlertObject'] = null !== $this->alertObject ? $this->alertObject->toArray($noStream) : $this->alertObject;
         }
+
         if (null !== $this->alertReason) {
-            $res['AlertReason'] = null !== $this->alertReason ? $this->alertReason->toMap() : null;
+            $res['AlertReason'] = null !== $this->alertReason ? $this->alertReason->toArray($noStream) : $this->alertReason;
         }
+
         if (null !== $this->alertReceiver) {
-            $res['AlertReceiver'] = null !== $this->alertReceiver ? $this->alertReceiver->toMap() : null;
+            $res['AlertReceiver'] = null !== $this->alertReceiver ? $this->alertReceiver->toArray($noStream) : $this->alertReceiver;
         }
+
         if (null !== $this->alertSend) {
-            $res['AlertSend'] = null !== $this->alertSend ? $this->alertSend->toMap() : null;
+            $res['AlertSend'] = null !== $this->alertSend ? $this->alertSend->toArray($noStream) : $this->alertSend;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertEventId'])) {
             $model->alertEventId = $map['AlertEventId'];
         }
+
         if (isset($map['AlertObject'])) {
             $model->alertObject = alertObject::fromMap($map['AlertObject']);
         }
+
         if (isset($map['AlertReason'])) {
             $model->alertReason = alertReason::fromMap($map['AlertReason']);
         }
+
         if (isset($map['AlertReceiver'])) {
             $model->alertReceiver = alertReceiver::fromMap($map['AlertReceiver']);
         }
+
         if (isset($map['AlertSend'])) {
             $model->alertSend = alertSend::fromMap($map['AlertSend']);
         }

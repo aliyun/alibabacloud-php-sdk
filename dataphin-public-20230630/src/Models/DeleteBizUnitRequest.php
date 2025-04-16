@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteBizUnitRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 6798087749072704
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
     protected $_name = [
-        'id'         => 'Id',
+        'id' => 'Id',
         'opTenantId' => 'OpTenantId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -47,17 +41,18 @@ class DeleteBizUnitRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteBizUnitRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

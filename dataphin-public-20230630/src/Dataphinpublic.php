@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddTenantMembersBySourceUserRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddTenantMembersBySourceUserResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddTenantMembersBySourceUserShrinkRequest;
@@ -295,11 +294,10 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateUserGroupResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateUserGroupShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateUserGroupSwitchRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateUserGroupSwitchResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Dataphinpublic extends OpenApiClient
 {
@@ -324,68 +322,78 @@ class Dataphinpublic extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 新增租户成员
-     *  *
-     * @param AddTenantMembersRequest $tmpReq  AddTenantMembersRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 新增租户成员.
      *
-     * @return AddTenantMembersResponse AddTenantMembersResponse
+     * @param tmpReq - AddTenantMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddTenantMembersResponse
+     *
+     * @param AddTenantMembersRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddTenantMembersResponse
      */
     public function addTenantMembersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddTenantMembersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->addCommand)) {
-            $request->addCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addCommand, 'AddCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->addCommandShrink)) {
-            $body['AddCommand'] = $request->addCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'AddTenantMembers',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddTenantMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addCommand) {
+            $request->addCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addCommand, 'AddCommand', 'json');
         }
 
-        return AddTenantMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->addCommandShrink) {
+            @$body['AddCommand'] = $request->addCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddTenantMembers',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddTenantMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新增租户成员
-     *  *
-     * @param AddTenantMembersRequest $request AddTenantMembersRequest
+     * 新增租户成员.
      *
-     * @return AddTenantMembersResponse AddTenantMembersResponse
+     * @param request - AddTenantMembersRequest
+     *
+     * @returns AddTenantMembersResponse
+     *
+     * @param AddTenantMembersRequest $request
+     *
+     * @return AddTenantMembersResponse
      */
     public function addTenantMembers($request)
     {
@@ -395,57 +403,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 通过原始用户添加租户成员.
-     *  *
-     * @param AddTenantMembersBySourceUserRequest $tmpReq  AddTenantMembersBySourceUserRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 通过原始用户添加租户成员.
      *
-     * @return AddTenantMembersBySourceUserResponse AddTenantMembersBySourceUserResponse
+     * @param tmpReq - AddTenantMembersBySourceUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddTenantMembersBySourceUserResponse
+     *
+     * @param AddTenantMembersBySourceUserRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return AddTenantMembersBySourceUserResponse
      */
     public function addTenantMembersBySourceUserWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddTenantMembersBySourceUserShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->addCommand)) {
-            $request->addCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addCommand, 'AddCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->addCommandShrink)) {
-            $body['AddCommand'] = $request->addCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'AddTenantMembersBySourceUser',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddTenantMembersBySourceUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addCommand) {
+            $request->addCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addCommand, 'AddCommand', 'json');
         }
 
-        return AddTenantMembersBySourceUserResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->addCommandShrink) {
+            @$body['AddCommand'] = $request->addCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddTenantMembersBySourceUser',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddTenantMembersBySourceUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过原始用户添加租户成员.
-     *  *
-     * @param AddTenantMembersBySourceUserRequest $request AddTenantMembersBySourceUserRequest
+     * 通过原始用户添加租户成员.
      *
-     * @return AddTenantMembersBySourceUserResponse AddTenantMembersBySourceUserResponse
+     * @param request - AddTenantMembersBySourceUserRequest
+     *
+     * @returns AddTenantMembersBySourceUserResponse
+     *
+     * @param AddTenantMembersBySourceUserRequest $request
+     *
+     * @return AddTenantMembersBySourceUserResponse
      */
     public function addTenantMembersBySourceUser($request)
     {
@@ -455,57 +472,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 添加用户组成员.
-     *  *
-     * @param AddUserGroupMemberRequest $tmpReq  AddUserGroupMemberRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 添加用户组成员.
      *
-     * @return AddUserGroupMemberResponse AddUserGroupMemberResponse
+     * @param tmpReq - AddUserGroupMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddUserGroupMemberResponse
+     *
+     * @param AddUserGroupMemberRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddUserGroupMemberResponse
      */
     public function addUserGroupMemberWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddUserGroupMemberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->addCommand)) {
-            $request->addCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addCommand, 'AddCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->addCommandShrink)) {
-            $body['AddCommand'] = $request->addCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'AddUserGroupMember',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addCommand) {
+            $request->addCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addCommand, 'AddCommand', 'json');
         }
 
-        return AddUserGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->addCommandShrink) {
+            @$body['AddCommand'] = $request->addCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddUserGroupMember',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加用户组成员.
-     *  *
-     * @param AddUserGroupMemberRequest $request AddUserGroupMemberRequest
+     * 添加用户组成员.
      *
-     * @return AddUserGroupMemberResponse AddUserGroupMemberResponse
+     * @param request - AddUserGroupMemberRequest
+     *
+     * @returns AddUserGroupMemberResponse
+     *
+     * @param AddUserGroupMemberRequest $request
+     *
+     * @return AddUserGroupMemberResponse
      */
     public function addUserGroupMember($request)
     {
@@ -515,57 +541,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 检查数据源连通性
-     *  *
-     * @param CheckDataSourceConnectivityRequest $tmpReq  CheckDataSourceConnectivityRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 检查数据源连通性.
      *
-     * @return CheckDataSourceConnectivityResponse CheckDataSourceConnectivityResponse
+     * @param tmpReq - CheckDataSourceConnectivityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckDataSourceConnectivityResponse
+     *
+     * @param CheckDataSourceConnectivityRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CheckDataSourceConnectivityResponse
      */
     public function checkDataSourceConnectivityWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CheckDataSourceConnectivityShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->checkCommand)) {
-            $request->checkCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->checkCommand, 'CheckCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->checkCommandShrink)) {
-            $body['CheckCommand'] = $request->checkCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckDataSourceConnectivity',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CheckDataSourceConnectivityResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->checkCommand) {
+            $request->checkCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->checkCommand, 'CheckCommand', 'json');
         }
 
-        return CheckDataSourceConnectivityResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->checkCommandShrink) {
+            @$body['CheckCommand'] = $request->checkCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CheckDataSourceConnectivity',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckDataSourceConnectivityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 检查数据源连通性
-     *  *
-     * @param CheckDataSourceConnectivityRequest $request CheckDataSourceConnectivityRequest
+     * 检查数据源连通性.
      *
-     * @return CheckDataSourceConnectivityResponse CheckDataSourceConnectivityResponse
+     * @param request - CheckDataSourceConnectivityRequest
+     *
+     * @returns CheckDataSourceConnectivityResponse
+     *
+     * @param CheckDataSourceConnectivityRequest $request
+     *
+     * @return CheckDataSourceConnectivityResponse
      */
     public function checkDataSourceConnectivity($request)
     {
@@ -575,50 +610,58 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 检查已创建的数据源是否正常连通
-     *  *
-     * @param CheckDataSourceConnectivityByIdRequest $request CheckDataSourceConnectivityByIdRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 检查已创建的数据源是否正常连通.
      *
-     * @return CheckDataSourceConnectivityByIdResponse CheckDataSourceConnectivityByIdResponse
+     * @param request - CheckDataSourceConnectivityByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckDataSourceConnectivityByIdResponse
+     *
+     * @param CheckDataSourceConnectivityByIdRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CheckDataSourceConnectivityByIdResponse
      */
     public function checkDataSourceConnectivityByIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckDataSourceConnectivityById',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CheckDataSourceConnectivityByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
 
-        return CheckDataSourceConnectivityByIdResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckDataSourceConnectivityById',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckDataSourceConnectivityByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 检查已创建的数据源是否正常连通
-     *  *
-     * @param CheckDataSourceConnectivityByIdRequest $request CheckDataSourceConnectivityByIdRequest
+     * 检查已创建的数据源是否正常连通.
      *
-     * @return CheckDataSourceConnectivityByIdResponse CheckDataSourceConnectivityByIdResponse
+     * @param request - CheckDataSourceConnectivityByIdRequest
+     *
+     * @returns CheckDataSourceConnectivityByIdResponse
+     *
+     * @param CheckDataSourceConnectivityByIdRequest $request
+     *
+     * @return CheckDataSourceConnectivityByIdResponse
      */
     public function checkDataSourceConnectivityById($request)
     {
@@ -628,57 +671,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 校验用户是否有指定资源权限点.
-     *  *
-     * @param CheckResourcePermissionRequest $tmpReq  CheckResourcePermissionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 校验用户是否有指定资源权限点.
      *
-     * @return CheckResourcePermissionResponse CheckResourcePermissionResponse
+     * @param tmpReq - CheckResourcePermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckResourcePermissionResponse
+     *
+     * @param CheckResourcePermissionRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CheckResourcePermissionResponse
      */
     public function checkResourcePermissionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CheckResourcePermissionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->checkCommand)) {
-            $request->checkCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->checkCommand, 'CheckCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->checkCommandShrink)) {
-            $body['CheckCommand'] = $request->checkCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckResourcePermission',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CheckResourcePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->checkCommand) {
+            $request->checkCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->checkCommand, 'CheckCommand', 'json');
         }
 
-        return CheckResourcePermissionResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->checkCommandShrink) {
+            @$body['CheckCommand'] = $request->checkCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CheckResourcePermission',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckResourcePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 校验用户是否有指定资源权限点.
-     *  *
-     * @param CheckResourcePermissionRequest $request CheckResourcePermissionRequest
+     * 校验用户是否有指定资源权限点.
      *
-     * @return CheckResourcePermissionResponse CheckResourcePermissionResponse
+     * @param request - CheckResourcePermissionRequest
+     *
+     * @returns CheckResourcePermissionResponse
+     *
+     * @param CheckResourcePermissionRequest $request
+     *
+     * @return CheckResourcePermissionResponse
      */
     public function checkResourcePermission($request)
     {
@@ -688,57 +740,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建即席查询文件
-     *  *
-     * @param CreateAdHocFileRequest $tmpReq  CreateAdHocFileRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 创建即席查询文件.
      *
-     * @return CreateAdHocFileResponse CreateAdHocFileResponse
+     * @param tmpReq - CreateAdHocFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAdHocFileResponse
+     *
+     * @param CreateAdHocFileRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateAdHocFileResponse
      */
     public function createAdHocFileWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateAdHocFileShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateAdHocFile',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateAdHocFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
 
-        return CreateAdHocFileResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAdHocFile',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAdHocFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建即席查询文件
-     *  *
-     * @param CreateAdHocFileRequest $request CreateAdHocFileRequest
+     * 创建即席查询文件.
      *
-     * @return CreateAdHocFileResponse CreateAdHocFileResponse
+     * @param request - CreateAdHocFileRequest
+     *
+     * @returns CreateAdHocFileResponse
+     *
+     * @param CreateAdHocFileRequest $request
+     *
+     * @return CreateAdHocFileResponse
      */
     public function createAdHocFile($request)
     {
@@ -748,57 +809,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建离线计算任务。
-     *  *
-     * @param CreateBatchTaskRequest $tmpReq  CreateBatchTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 创建离线计算任务。
      *
-     * @return CreateBatchTaskResponse CreateBatchTaskResponse
+     * @param tmpReq - CreateBatchTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBatchTaskResponse
+     *
+     * @param CreateBatchTaskRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateBatchTaskResponse
      */
     public function createBatchTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateBatchTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateBatchTask',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
 
-        return CreateBatchTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBatchTask',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建离线计算任务。
-     *  *
-     * @param CreateBatchTaskRequest $request CreateBatchTaskRequest
+     * 创建离线计算任务。
      *
-     * @return CreateBatchTaskResponse CreateBatchTaskResponse
+     * @param request - CreateBatchTaskRequest
+     *
+     * @returns CreateBatchTaskResponse
+     *
+     * @param CreateBatchTaskRequest $request
+     *
+     * @return CreateBatchTaskResponse
      */
     public function createBatchTask($request)
     {
@@ -808,57 +878,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建业务实体。
-     *  *
-     * @param CreateBizEntityRequest $tmpReq  CreateBizEntityRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 创建业务实体。
      *
-     * @return CreateBizEntityResponse CreateBizEntityResponse
+     * @param tmpReq - CreateBizEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBizEntityResponse
+     *
+     * @param CreateBizEntityRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateBizEntityResponse
      */
     public function createBizEntityWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateBizEntityShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateBizEntity',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
 
-        return CreateBizEntityResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBizEntity',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建业务实体。
-     *  *
-     * @param CreateBizEntityRequest $request CreateBizEntityRequest
+     * 创建业务实体。
      *
-     * @return CreateBizEntityResponse CreateBizEntityResponse
+     * @param request - CreateBizEntityRequest
+     *
+     * @returns CreateBizEntityResponse
+     *
+     * @param CreateBizEntityRequest $request
+     *
+     * @return CreateBizEntityResponse
      */
     public function createBizEntity($request)
     {
@@ -868,57 +947,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建数据板块。
-     *  *
-     * @param CreateBizUnitRequest $tmpReq  CreateBizUnitRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 创建数据板块。
      *
-     * @return CreateBizUnitResponse CreateBizUnitResponse
+     * @param tmpReq - CreateBizUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBizUnitResponse
+     *
+     * @param CreateBizUnitRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateBizUnitResponse
      */
     public function createBizUnitWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateBizUnitShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateBizUnit',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateBizUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
 
-        return CreateBizUnitResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBizUnit',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBizUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建数据板块。
-     *  *
-     * @param CreateBizUnitRequest $request CreateBizUnitRequest
+     * 创建数据板块。
      *
-     * @return CreateBizUnitResponse CreateBizUnitResponse
+     * @param request - CreateBizUnitRequest
+     *
+     * @returns CreateBizUnitResponse
+     *
+     * @param CreateBizUnitRequest $request
+     *
+     * @return CreateBizUnitResponse
      */
     public function createBizUnit($request)
     {
@@ -928,57 +1016,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建主题域。
-     *  *
-     * @param CreateDataDomainRequest $tmpReq  CreateDataDomainRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 创建主题域。
      *
-     * @return CreateDataDomainResponse CreateDataDomainResponse
+     * @param tmpReq - CreateDataDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataDomainResponse
+     *
+     * @param CreateDataDomainRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDataDomainResponse
      */
     public function createDataDomainWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataDomainShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDataDomain',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDataDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
 
-        return CreateDataDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataDomain',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建主题域。
-     *  *
-     * @param CreateDataDomainRequest $request CreateDataDomainRequest
+     * 创建主题域。
      *
-     * @return CreateDataDomainResponse CreateDataDomainResponse
+     * @param request - CreateDataDomainRequest
+     *
+     * @returns CreateDataDomainResponse
+     *
+     * @param CreateDataDomainRequest $request
+     *
+     * @return CreateDataDomainResponse
      */
     public function createDataDomain($request)
     {
@@ -988,57 +1085,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 新建数据源
-     *  *
-     * @param CreateDataSourceRequest $tmpReq  CreateDataSourceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 新建数据源.
      *
-     * @return CreateDataSourceResponse CreateDataSourceResponse
+     * @param tmpReq - CreateDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataSourceResponse
+     *
+     * @param CreateDataSourceRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDataSourceResponse
      */
     public function createDataSourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDataSourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDataSource',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
 
-        return CreateDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataSource',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新建数据源
-     *  *
-     * @param CreateDataSourceRequest $request CreateDataSourceRequest
+     * 新建数据源.
      *
-     * @return CreateDataSourceResponse CreateDataSourceResponse
+     * @param request - CreateDataSourceRequest
+     *
+     * @returns CreateDataSourceResponse
+     *
+     * @param CreateDataSourceRequest $request
+     *
+     * @return CreateDataSourceResponse
      */
     public function createDataSource($request)
     {
@@ -1048,57 +1154,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建菜单树文件目录
-     *  *
-     * @param CreateDirectoryRequest $tmpReq  CreateDirectoryRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 创建菜单树文件目录.
      *
-     * @return CreateDirectoryResponse CreateDirectoryResponse
+     * @param tmpReq - CreateDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDirectoryResponse
+     *
+     * @param CreateDirectoryRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateDirectoryResponse
      */
     public function createDirectoryWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDirectoryShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDirectory',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
 
-        return CreateDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDirectory',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建菜单树文件目录
-     *  *
-     * @param CreateDirectoryRequest $request CreateDirectoryRequest
+     * 创建菜单树文件目录.
      *
-     * @return CreateDirectoryResponse CreateDirectoryResponse
+     * @param request - CreateDirectoryRequest
+     *
+     * @returns CreateDirectoryResponse
+     *
+     * @param CreateDirectoryRequest $request
+     *
+     * @return CreateDirectoryResponse
      */
     public function createDirectory($request)
     {
@@ -1108,60 +1223,70 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 通用补数据接口 1.会生成补数据实例运行：影响相关产产出表数据 2.会进行任务运行：造成计算的费用以及存储的费用
-     *  *
-     * @param CreateNodeSupplementRequest $tmpReq  CreateNodeSupplementRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 通用补数据接口 1.会生成补数据实例运行：影响相关产产出表数据 2.会进行任务运行：造成计算的费用以及存储的费用.
      *
-     * @return CreateNodeSupplementResponse CreateNodeSupplementResponse
+     * @param tmpReq - CreateNodeSupplementRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNodeSupplementResponse
+     *
+     * @param CreateNodeSupplementRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateNodeSupplementResponse
      */
     public function createNodeSupplementWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateNodeSupplementShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateNodeSupplement',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateNodeSupplementResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
 
-        return CreateNodeSupplementResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateNodeSupplement',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateNodeSupplementResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通用补数据接口 1.会生成补数据实例运行：影响相关产产出表数据 2.会进行任务运行：造成计算的费用以及存储的费用
-     *  *
-     * @param CreateNodeSupplementRequest $request CreateNodeSupplementRequest
+     * 通用补数据接口 1.会生成补数据实例运行：影响相关产产出表数据 2.会进行任务运行：造成计算的费用以及存储的费用.
      *
-     * @return CreateNodeSupplementResponse CreateNodeSupplementResponse
+     * @param request - CreateNodeSupplementRequest
+     *
+     * @returns CreateNodeSupplementResponse
+     *
+     * @param CreateNodeSupplementRequest $request
+     *
+     * @return CreateNodeSupplementResponse
      */
     public function createNodeSupplement($request)
     {
@@ -1171,57 +1296,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建数据集成任务。
-     *  *
-     * @param CreatePipelineNodeRequest $tmpReq  CreatePipelineNodeRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 创建数据集成任务。
      *
-     * @return CreatePipelineNodeResponse CreatePipelineNodeResponse
+     * @param tmpReq - CreatePipelineNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePipelineNodeResponse
+     *
+     * @param CreatePipelineNodeRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreatePipelineNodeResponse
      */
     public function createPipelineNodeWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreatePipelineNodeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createPipelineNodeCommand)) {
-            $request->createPipelineNodeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createPipelineNodeCommand, 'CreatePipelineNodeCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->createPipelineNodeCommandShrink)) {
-            $body['CreatePipelineNodeCommand'] = $request->createPipelineNodeCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreatePipelineNode',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreatePipelineNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createPipelineNodeCommand) {
+            $request->createPipelineNodeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createPipelineNodeCommand, 'CreatePipelineNodeCommand', 'json');
         }
 
-        return CreatePipelineNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createPipelineNodeCommandShrink) {
+            @$body['CreatePipelineNodeCommand'] = $request->createPipelineNodeCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePipelineNode',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePipelineNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建数据集成任务。
-     *  *
-     * @param CreatePipelineNodeRequest $request CreatePipelineNodeRequest
+     * 创建数据集成任务。
      *
-     * @return CreatePipelineNodeResponse CreatePipelineNodeResponse
+     * @param request - CreatePipelineNodeRequest
+     *
+     * @returns CreatePipelineNodeResponse
+     *
+     * @param CreatePipelineNodeRequest $request
+     *
+     * @return CreatePipelineNodeResponse
      */
     public function createPipelineNode($request)
     {
@@ -1231,57 +1365,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建流批一体任务
-     *  *
-     * @param CreateStreamBatchJobMappingRequest $tmpReq  CreateStreamBatchJobMappingRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 创建流批一体任务
      *
-     * @return CreateStreamBatchJobMappingResponse CreateStreamBatchJobMappingResponse
+     * @param tmpReq - CreateStreamBatchJobMappingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStreamBatchJobMappingResponse
+     *
+     * @param CreateStreamBatchJobMappingRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateStreamBatchJobMappingResponse
      */
     public function createStreamBatchJobMappingWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateStreamBatchJobMappingShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->streamBatchJobMappingCreateCommand)) {
-            $request->streamBatchJobMappingCreateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->streamBatchJobMappingCreateCommand, 'StreamBatchJobMappingCreateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->streamBatchJobMappingCreateCommandShrink)) {
-            $body['StreamBatchJobMappingCreateCommand'] = $request->streamBatchJobMappingCreateCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateStreamBatchJobMapping',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateStreamBatchJobMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->streamBatchJobMappingCreateCommand) {
+            $request->streamBatchJobMappingCreateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->streamBatchJobMappingCreateCommand, 'StreamBatchJobMappingCreateCommand', 'json');
         }
 
-        return CreateStreamBatchJobMappingResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->streamBatchJobMappingCreateCommandShrink) {
+            @$body['StreamBatchJobMappingCreateCommand'] = $request->streamBatchJobMappingCreateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateStreamBatchJobMapping',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateStreamBatchJobMappingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建流批一体任务
-     *  *
-     * @param CreateStreamBatchJobMappingRequest $request CreateStreamBatchJobMappingRequest
+     * 创建流批一体任务
      *
-     * @return CreateStreamBatchJobMappingResponse CreateStreamBatchJobMappingResponse
+     * @param request - CreateStreamBatchJobMappingRequest
+     *
+     * @returns CreateStreamBatchJobMappingResponse
+     *
+     * @param CreateStreamBatchJobMappingRequest $request
+     *
+     * @return CreateStreamBatchJobMappingResponse
      */
     public function createStreamBatchJobMapping($request)
     {
@@ -1291,57 +1434,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 新建用户组.
-     *  *
-     * @param CreateUserGroupRequest $tmpReq  CreateUserGroupRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 新建用户组.
      *
-     * @return CreateUserGroupResponse CreateUserGroupResponse
+     * @param tmpReq - CreateUserGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUserGroupResponse
+     *
+     * @param CreateUserGroupRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateUserGroupResponse
      */
     public function createUserGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateUserGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createCommand)) {
-            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->createCommandShrink)) {
-            $body['CreateCommand'] = $request->createCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateUserGroup',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
         }
 
-        return CreateUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateUserGroup',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 新建用户组.
-     *  *
-     * @param CreateUserGroupRequest $request CreateUserGroupRequest
+     * 新建用户组.
      *
-     * @return CreateUserGroupResponse CreateUserGroupResponse
+     * @param request - CreateUserGroupRequest
+     *
+     * @returns CreateUserGroupResponse
+     *
+     * @param CreateUserGroupRequest $request
+     *
+     * @return CreateUserGroupResponse
      */
     public function createUserGroup($request)
     {
@@ -1351,53 +1503,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除菜单树即席查询文件
-     *  *
-     * @param DeleteAdHocFileRequest $request DeleteAdHocFileRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 删除菜单树即席查询文件.
      *
-     * @return DeleteAdHocFileResponse DeleteAdHocFileResponse
+     * @param request - DeleteAdHocFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAdHocFileResponse
+     *
+     * @param DeleteAdHocFileRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteAdHocFileResponse
      */
     public function deleteAdHocFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteAdHocFile',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteAdHocFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
 
-        return DeleteAdHocFileResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAdHocFile',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAdHocFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除菜单树即席查询文件
-     *  *
-     * @param DeleteAdHocFileRequest $request DeleteAdHocFileRequest
+     * 删除菜单树即席查询文件.
      *
-     * @return DeleteAdHocFileResponse DeleteAdHocFileResponse
+     * @param request - DeleteAdHocFileRequest
+     *
+     * @returns DeleteAdHocFileResponse
+     *
+     * @param DeleteAdHocFileRequest $request
+     *
+     * @return DeleteAdHocFileResponse
      */
     public function deleteAdHocFile($request)
     {
@@ -1407,57 +1568,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除离线计算任务，如果任务还没下线需要先下线再删除。
-     *  *
-     * @param DeleteBatchTaskRequest $tmpReq  DeleteBatchTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 删除离线计算任务，如果任务还没下线需要先下线再删除。
      *
-     * @return DeleteBatchTaskResponse DeleteBatchTaskResponse
+     * @param tmpReq - DeleteBatchTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBatchTaskResponse
+     *
+     * @param DeleteBatchTaskRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteBatchTaskResponse
      */
     public function deleteBatchTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteBatchTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deleteCommand)) {
-            $request->deleteCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->deleteCommandShrink)) {
-            $body['DeleteCommand'] = $request->deleteCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteBatchTask',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteCommand) {
+            $request->deleteCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
         }
 
-        return DeleteBatchTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->deleteCommandShrink) {
+            @$body['DeleteCommand'] = $request->deleteCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBatchTask',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除离线计算任务，如果任务还没下线需要先下线再删除。
-     *  *
-     * @param DeleteBatchTaskRequest $request DeleteBatchTaskRequest
+     * 删除离线计算任务，如果任务还没下线需要先下线再删除。
      *
-     * @return DeleteBatchTaskResponse DeleteBatchTaskResponse
+     * @param request - DeleteBatchTaskRequest
+     *
+     * @returns DeleteBatchTaskResponse
+     *
+     * @param DeleteBatchTaskRequest $request
+     *
+     * @return DeleteBatchTaskResponse
      */
     public function deleteBatchTask($request)
     {
@@ -1467,56 +1637,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除业务实体。
-     *  *
-     * @param DeleteBizEntityRequest $request DeleteBizEntityRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 删除业务实体。
      *
-     * @return DeleteBizEntityResponse DeleteBizEntityResponse
+     * @param request - DeleteBizEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBizEntityResponse
+     *
+     * @param DeleteBizEntityRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteBizEntityResponse
      */
     public function deleteBizEntityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizUnitId)) {
-            $query['BizUnitId'] = $request->bizUnitId;
-        }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteBizEntity',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->bizUnitId) {
+            @$query['BizUnitId'] = $request->bizUnitId;
         }
 
-        return DeleteBizEntityResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBizEntity',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除业务实体。
-     *  *
-     * @param DeleteBizEntityRequest $request DeleteBizEntityRequest
+     * 删除业务实体。
      *
-     * @return DeleteBizEntityResponse DeleteBizEntityResponse
+     * @param request - DeleteBizEntityRequest
+     *
+     * @returns DeleteBizEntityResponse
+     *
+     * @param DeleteBizEntityRequest $request
+     *
+     * @return DeleteBizEntityResponse
      */
     public function deleteBizEntity($request)
     {
@@ -1526,50 +1706,58 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除数据板块。
-     *  *
-     * @param DeleteBizUnitRequest $request DeleteBizUnitRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 删除数据板块。
      *
-     * @return DeleteBizUnitResponse DeleteBizUnitResponse
+     * @param request - DeleteBizUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBizUnitResponse
+     *
+     * @param DeleteBizUnitRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteBizUnitResponse
      */
     public function deleteBizUnitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteBizUnit',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteBizUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
 
-        return DeleteBizUnitResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBizUnit',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBizUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除数据板块。
-     *  *
-     * @param DeleteBizUnitRequest $request DeleteBizUnitRequest
+     * 删除数据板块。
      *
-     * @return DeleteBizUnitResponse DeleteBizUnitResponse
+     * @param request - DeleteBizUnitRequest
+     *
+     * @returns DeleteBizUnitResponse
+     *
+     * @param DeleteBizUnitRequest $request
+     *
+     * @return DeleteBizUnitResponse
      */
     public function deleteBizUnit($request)
     {
@@ -1579,53 +1767,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除主题域。
-     *  *
-     * @param DeleteDataDomainRequest $request DeleteDataDomainRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 删除主题域。
      *
-     * @return DeleteDataDomainResponse DeleteDataDomainResponse
+     * @param request - DeleteDataDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataDomainResponse
+     *
+     * @param DeleteDataDomainRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDataDomainResponse
      */
     public function deleteDataDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizUnitId)) {
-            $query['BizUnitId'] = $request->bizUnitId;
-        }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDataDomain',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteDataDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->bizUnitId) {
+            @$query['BizUnitId'] = $request->bizUnitId;
         }
 
-        return DeleteDataDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataDomain',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除主题域。
-     *  *
-     * @param DeleteDataDomainRequest $request DeleteDataDomainRequest
+     * 删除主题域。
      *
-     * @return DeleteDataDomainResponse DeleteDataDomainResponse
+     * @param request - DeleteDataDomainRequest
+     *
+     * @returns DeleteDataDomainResponse
+     *
+     * @param DeleteDataDomainRequest $request
+     *
+     * @return DeleteDataDomainResponse
      */
     public function deleteDataDomain($request)
     {
@@ -1635,57 +1832,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除数据源
-     *  *
-     * @param DeleteDataSourceRequest $tmpReq  DeleteDataSourceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 删除数据源.
      *
-     * @return DeleteDataSourceResponse DeleteDataSourceResponse
+     * @param tmpReq - DeleteDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataSourceResponse
+     *
+     * @param DeleteDataSourceRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDataSourceResponse
      */
     public function deleteDataSourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteDataSourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deleteCommand)) {
-            $request->deleteCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->deleteCommandShrink)) {
-            $body['DeleteCommand'] = $request->deleteCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDataSource',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteCommand) {
+            $request->deleteCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
         }
 
-        return DeleteDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->deleteCommandShrink) {
+            @$body['DeleteCommand'] = $request->deleteCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataSource',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除数据源
-     *  *
-     * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
+     * 删除数据源.
      *
-     * @return DeleteDataSourceResponse DeleteDataSourceResponse
+     * @param request - DeleteDataSourceRequest
+     *
+     * @returns DeleteDataSourceResponse
+     *
+     * @param DeleteDataSourceRequest $request
+     *
+     * @return DeleteDataSourceResponse
      */
     public function deleteDataSource($request)
     {
@@ -1695,53 +1901,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除菜单树文件目录
-     *  *
-     * @param DeleteDirectoryRequest $request DeleteDirectoryRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 删除菜单树文件目录.
      *
-     * @return DeleteDirectoryResponse DeleteDirectoryResponse
+     * @param request - DeleteDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDirectoryResponse
+     *
+     * @param DeleteDirectoryRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteDirectoryResponse
      */
     public function deleteDirectoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDirectory',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
 
-        return DeleteDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDirectory',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除菜单树文件目录
-     *  *
-     * @param DeleteDirectoryRequest $request DeleteDirectoryRequest
+     * 删除菜单树文件目录.
      *
-     * @return DeleteDirectoryResponse DeleteDirectoryResponse
+     * @param request - DeleteDirectoryRequest
+     *
+     * @returns DeleteDirectoryResponse
+     *
+     * @param DeleteDirectoryRequest $request
+     *
+     * @return DeleteDirectoryResponse
      */
     public function deleteDirectory($request)
     {
@@ -1751,50 +1966,58 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除用户组.
-     *  *
-     * @param DeleteUserGroupRequest $request DeleteUserGroupRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 删除用户组.
      *
-     * @return DeleteUserGroupResponse DeleteUserGroupResponse
+     * @param request - DeleteUserGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUserGroupResponse
+     *
+     * @param DeleteUserGroupRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteUserGroupResponse
      */
     public function deleteUserGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->userGroupId)) {
-            $query['UserGroupId'] = $request->userGroupId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteUserGroup',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
 
-        return DeleteUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->userGroupId) {
+            @$query['UserGroupId'] = $request->userGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteUserGroup',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除用户组.
-     *  *
-     * @param DeleteUserGroupRequest $request DeleteUserGroupRequest
+     * 删除用户组.
      *
-     * @return DeleteUserGroupResponse DeleteUserGroupResponse
+     * @param request - DeleteUserGroupRequest
+     *
+     * @returns DeleteUserGroupResponse
+     *
+     * @param DeleteUserGroupRequest $request
+     *
+     * @return DeleteUserGroupResponse
      */
     public function deleteUserGroup($request)
     {
@@ -1804,57 +2027,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 执行即席查询任务。
-     *  *
-     * @param ExecuteAdHocTaskRequest $tmpReq  ExecuteAdHocTaskRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 执行即席查询任务。
      *
-     * @return ExecuteAdHocTaskResponse ExecuteAdHocTaskResponse
+     * @param tmpReq - ExecuteAdHocTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteAdHocTaskResponse
+     *
+     * @param ExecuteAdHocTaskRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ExecuteAdHocTaskResponse
      */
     public function executeAdHocTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ExecuteAdHocTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->executeCommand)) {
-            $request->executeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->executeCommand, 'ExecuteCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->executeCommandShrink)) {
-            $body['ExecuteCommand'] = $request->executeCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ExecuteAdHocTask',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ExecuteAdHocTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->executeCommand) {
+            $request->executeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->executeCommand, 'ExecuteCommand', 'json');
         }
 
-        return ExecuteAdHocTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->executeCommandShrink) {
+            @$body['ExecuteCommand'] = $request->executeCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteAdHocTask',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecuteAdHocTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 执行即席查询任务。
-     *  *
-     * @param ExecuteAdHocTaskRequest $request ExecuteAdHocTaskRequest
+     * 执行即席查询任务。
      *
-     * @return ExecuteAdHocTaskResponse ExecuteAdHocTaskResponse
+     * @param request - ExecuteAdHocTaskRequest
+     *
+     * @returns ExecuteAdHocTaskResponse
+     *
+     * @param ExecuteAdHocTaskRequest $request
+     *
+     * @return ExecuteAdHocTaskResponse
      */
     public function executeAdHocTask($request)
     {
@@ -1864,60 +2096,70 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 运行手动调度节点。
-     *  *
-     * @param ExecuteManualNodeRequest $tmpReq  ExecuteManualNodeRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 运行手动调度节点。
      *
-     * @return ExecuteManualNodeResponse ExecuteManualNodeResponse
+     * @param tmpReq - ExecuteManualNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteManualNodeResponse
+     *
+     * @param ExecuteManualNodeRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ExecuteManualNodeResponse
      */
     public function executeManualNodeWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ExecuteManualNodeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->executeCommand)) {
-            $request->executeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->executeCommand, 'ExecuteCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->executeCommandShrink)) {
-            $body['ExecuteCommand'] = $request->executeCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ExecuteManualNode',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ExecuteManualNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->executeCommand) {
+            $request->executeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->executeCommand, 'ExecuteCommand', 'json');
         }
 
-        return ExecuteManualNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->executeCommandShrink) {
+            @$body['ExecuteCommand'] = $request->executeCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteManualNode',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecuteManualNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 运行手动调度节点。
-     *  *
-     * @param ExecuteManualNodeRequest $request ExecuteManualNodeRequest
+     * 运行手动调度节点。
      *
-     * @return ExecuteManualNodeResponse ExecuteManualNodeResponse
+     * @param request - ExecuteManualNodeRequest
+     *
+     * @returns ExecuteManualNodeResponse
+     *
+     * @param ExecuteManualNodeRequest $request
+     *
+     * @return ExecuteManualNodeResponse
      */
     public function executeManualNode($request)
     {
@@ -1927,60 +2169,70 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 重跑下游(修复链路数据), 支持强制重跑下游。影响范围: 1. 会产生计算成本；2. 会影响数据产出
-     *  *
-     * @param FixDataRequest $tmpReq  FixDataRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 重跑下游(修复链路数据), 支持强制重跑下游。影响范围: 1. 会产生计算成本；2. 会影响数据产出.
      *
-     * @return FixDataResponse FixDataResponse
+     * @param tmpReq - FixDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FixDataResponse
+     *
+     * @param FixDataRequest $tmpReq
+     * @param RuntimeOptions $runtime
+     *
+     * @return FixDataResponse
      */
     public function fixDataWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FixDataShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->fixDataCommand)) {
-            $request->fixDataCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fixDataCommand, 'FixDataCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->fixDataCommandShrink)) {
-            $body['FixDataCommand'] = $request->fixDataCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'FixData',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return FixDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fixDataCommand) {
+            $request->fixDataCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fixDataCommand, 'FixDataCommand', 'json');
         }
 
-        return FixDataResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->fixDataCommandShrink) {
+            @$body['FixDataCommand'] = $request->fixDataCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'FixData',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return FixDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 重跑下游(修复链路数据), 支持强制重跑下游。影响范围: 1. 会产生计算成本；2. 会影响数据产出
-     *  *
-     * @param FixDataRequest $request FixDataRequest
+     * 重跑下游(修复链路数据), 支持强制重跑下游。影响范围: 1. 会产生计算成本；2. 会影响数据产出.
      *
-     * @return FixDataResponse FixDataResponse
+     * @param request - FixDataRequest
+     *
+     * @returns FixDataResponse
+     *
+     * @param FixDataRequest $request
+     *
+     * @return FixDataResponse
      */
     public function fixData($request)
     {
@@ -1990,53 +2242,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询即席查询文件。
-     *  *
-     * @param GetAdHocFileRequest $request GetAdHocFileRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 查询即席查询文件。
      *
-     * @return GetAdHocFileResponse GetAdHocFileResponse
+     * @param request - GetAdHocFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAdHocFileResponse
+     *
+     * @param GetAdHocFileRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAdHocFileResponse
      */
     public function getAdHocFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetAdHocFile',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAdHocFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
 
-        return GetAdHocFileResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAdHocFile',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAdHocFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询即席查询文件。
-     *  *
-     * @param GetAdHocFileRequest $request GetAdHocFileRequest
+     * 查询即席查询文件。
      *
-     * @return GetAdHocFileResponse GetAdHocFileResponse
+     * @param request - GetAdHocFileRequest
+     *
+     * @returns GetAdHocFileResponse
+     *
+     * @param GetAdHocFileRequest $request
+     *
+     * @return GetAdHocFileResponse
      */
     public function getAdHocFile($request)
     {
@@ -2046,59 +2307,70 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取即席查询任务运行日志。
-     *  *
-     * @param GetAdHocTaskLogRequest $request GetAdHocTaskLogRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 获取即席查询任务运行日志。
      *
-     * @return GetAdHocTaskLogResponse GetAdHocTaskLogResponse
+     * @param request - GetAdHocTaskLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAdHocTaskLogResponse
+     *
+     * @param GetAdHocTaskLogRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetAdHocTaskLogResponse
      */
     public function getAdHocTaskLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->offset)) {
-            $query['Offset'] = $request->offset;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->subTaskId)) {
-            $query['SubTaskId'] = $request->subTaskId;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetAdHocTaskLog',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAdHocTaskLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
         }
 
-        return GetAdHocTaskLogResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->subTaskId) {
+            @$query['SubTaskId'] = $request->subTaskId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAdHocTaskLog',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAdHocTaskLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取即席查询任务运行日志。
-     *  *
-     * @param GetAdHocTaskLogRequest $request GetAdHocTaskLogRequest
+     * 获取即席查询任务运行日志。
      *
-     * @return GetAdHocTaskLogResponse GetAdHocTaskLogResponse
+     * @param request - GetAdHocTaskLogRequest
+     *
+     * @returns GetAdHocTaskLogResponse
+     *
+     * @param GetAdHocTaskLogRequest $request
+     *
+     * @return GetAdHocTaskLogResponse
      */
     public function getAdHocTaskLog($request)
     {
@@ -2108,56 +2380,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取即席查询的任务运行结果。
-     *  *
-     * @param GetAdHocTaskResultRequest $request GetAdHocTaskResultRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取即席查询的任务运行结果。
      *
-     * @return GetAdHocTaskResultResponse GetAdHocTaskResultResponse
+     * @param request - GetAdHocTaskResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAdHocTaskResultResponse
+     *
+     * @param GetAdHocTaskResultRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAdHocTaskResultResponse
      */
     public function getAdHocTaskResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->subTaskId)) {
-            $query['SubTaskId'] = $request->subTaskId;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetAdHocTaskResult',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAdHocTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
 
-        return GetAdHocTaskResultResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->subTaskId) {
+            @$query['SubTaskId'] = $request->subTaskId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAdHocTaskResult',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAdHocTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取即席查询的任务运行结果。
-     *  *
-     * @param GetAdHocTaskResultRequest $request GetAdHocTaskResultRequest
+     * 获取即席查询的任务运行结果。
      *
-     * @return GetAdHocTaskResultResponse GetAdHocTaskResultResponse
+     * @param request - GetAdHocTaskResultRequest
+     *
+     * @returns GetAdHocTaskResultResponse
+     *
+     * @param GetAdHocTaskResultRequest $request
+     *
+     * @return GetAdHocTaskResultResponse
      */
     public function getAdHocTaskResult($request)
     {
@@ -2167,50 +2449,58 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取告警事件详情
-     *  *
-     * @param GetAlertEventRequest $request GetAlertEventRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 获取告警事件详情.
      *
-     * @return GetAlertEventResponse GetAlertEventResponse
+     * @param request - GetAlertEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlertEventResponse
+     *
+     * @param GetAlertEventRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetAlertEventResponse
      */
     public function getAlertEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetAlertEvent',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAlertEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
 
-        return GetAlertEventResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAlertEvent',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAlertEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取告警事件详情
-     *  *
-     * @param GetAlertEventRequest $request GetAlertEventRequest
+     * 获取告警事件详情.
      *
-     * @return GetAlertEventResponse GetAlertEventResponse
+     * @param request - GetAlertEventRequest
+     *
+     * @returns GetAlertEventResponse
+     *
+     * @param GetAlertEventRequest $request
+     *
+     * @return GetAlertEventResponse
      */
     public function getAlertEvent($request)
     {
@@ -2220,59 +2510,70 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取离线计算任务详情。
-     *  *
-     * @param GetBatchTaskInfoRequest $request GetBatchTaskInfoRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取离线计算任务详情。
      *
-     * @return GetBatchTaskInfoResponse GetBatchTaskInfoResponse
+     * @param request - GetBatchTaskInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBatchTaskInfoResponse
+     *
+     * @param GetBatchTaskInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetBatchTaskInfoResponse
      */
     public function getBatchTaskInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
-        }
-        if (!Utils::isUnset($request->includeAllUpStreams)) {
-            $query['IncludeAllUpStreams'] = $request->includeAllUpStreams;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetBatchTaskInfo',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetBatchTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
 
-        return GetBatchTaskInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->includeAllUpStreams) {
+            @$query['IncludeAllUpStreams'] = $request->includeAllUpStreams;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetBatchTaskInfo',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBatchTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取离线计算任务详情。
-     *  *
-     * @param GetBatchTaskInfoRequest $request GetBatchTaskInfoRequest
+     * 获取离线计算任务详情。
      *
-     * @return GetBatchTaskInfoResponse GetBatchTaskInfoResponse
+     * @param request - GetBatchTaskInfoRequest
+     *
+     * @returns GetBatchTaskInfoResponse
+     *
+     * @param GetBatchTaskInfoRequest $request
+     *
+     * @return GetBatchTaskInfoResponse
      */
     public function getBatchTaskInfo($request)
     {
@@ -2282,56 +2583,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取离线计算任务指定版本任务详情。
-     *  *
-     * @param GetBatchTaskInfoByVersionRequest $request GetBatchTaskInfoByVersionRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 获取离线计算任务指定版本任务详情。
      *
-     * @return GetBatchTaskInfoByVersionResponse GetBatchTaskInfoByVersionResponse
+     * @param request - GetBatchTaskInfoByVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBatchTaskInfoByVersionResponse
+     *
+     * @param GetBatchTaskInfoByVersionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetBatchTaskInfoByVersionResponse
      */
     public function getBatchTaskInfoByVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetBatchTaskInfoByVersion',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetBatchTaskInfoByVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
 
-        return GetBatchTaskInfoByVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetBatchTaskInfoByVersion',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBatchTaskInfoByVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取离线计算任务指定版本任务详情。
-     *  *
-     * @param GetBatchTaskInfoByVersionRequest $request GetBatchTaskInfoByVersionRequest
+     * 获取离线计算任务指定版本任务详情。
      *
-     * @return GetBatchTaskInfoByVersionResponse GetBatchTaskInfoByVersionResponse
+     * @param request - GetBatchTaskInfoByVersionRequest
+     *
+     * @returns GetBatchTaskInfoByVersionResponse
+     *
+     * @param GetBatchTaskInfoByVersionRequest $request
+     *
+     * @return GetBatchTaskInfoByVersionResponse
      */
     public function getBatchTaskInfoByVersion($request)
     {
@@ -2341,53 +2652,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取离线任务自定义血缘。
-     *  *
-     * @param GetBatchTaskUdfLineagesRequest $request GetBatchTaskUdfLineagesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 获取离线任务自定义血缘。
      *
-     * @return GetBatchTaskUdfLineagesResponse GetBatchTaskUdfLineagesResponse
+     * @param request - GetBatchTaskUdfLineagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBatchTaskUdfLineagesResponse
+     *
+     * @param GetBatchTaskUdfLineagesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetBatchTaskUdfLineagesResponse
      */
     public function getBatchTaskUdfLineagesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetBatchTaskUdfLineages',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetBatchTaskUdfLineagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
 
-        return GetBatchTaskUdfLineagesResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetBatchTaskUdfLineages',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBatchTaskUdfLineagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取离线任务自定义血缘。
-     *  *
-     * @param GetBatchTaskUdfLineagesRequest $request GetBatchTaskUdfLineagesRequest
+     * 获取离线任务自定义血缘。
      *
-     * @return GetBatchTaskUdfLineagesResponse GetBatchTaskUdfLineagesResponse
+     * @param request - GetBatchTaskUdfLineagesRequest
+     *
+     * @returns GetBatchTaskUdfLineagesResponse
+     *
+     * @param GetBatchTaskUdfLineagesRequest $request
+     *
+     * @return GetBatchTaskUdfLineagesResponse
      */
     public function getBatchTaskUdfLineages($request)
     {
@@ -2397,53 +2717,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取离线计算任务版本列表。
-     *  *
-     * @param GetBatchTaskVersionsRequest $request GetBatchTaskVersionsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取离线计算任务版本列表。
      *
-     * @return GetBatchTaskVersionsResponse GetBatchTaskVersionsResponse
+     * @param request - GetBatchTaskVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBatchTaskVersionsResponse
+     *
+     * @param GetBatchTaskVersionsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetBatchTaskVersionsResponse
      */
     public function getBatchTaskVersionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetBatchTaskVersions',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetBatchTaskVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
 
-        return GetBatchTaskVersionsResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetBatchTaskVersions',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBatchTaskVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取离线计算任务版本列表。
-     *  *
-     * @param GetBatchTaskVersionsRequest $request GetBatchTaskVersionsRequest
+     * 获取离线计算任务版本列表。
      *
-     * @return GetBatchTaskVersionsResponse GetBatchTaskVersionsResponse
+     * @param request - GetBatchTaskVersionsRequest
+     *
+     * @returns GetBatchTaskVersionsResponse
+     *
+     * @param GetBatchTaskVersionsRequest $request
+     *
+     * @return GetBatchTaskVersionsResponse
      */
     public function getBatchTaskVersions($request)
     {
@@ -2453,53 +2782,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取业务实体详情。
-     *  *
-     * @param GetBizEntityInfoRequest $request GetBizEntityInfoRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取业务实体详情。
      *
-     * @return GetBizEntityInfoResponse GetBizEntityInfoResponse
+     * @param request - GetBizEntityInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBizEntityInfoResponse
+     *
+     * @param GetBizEntityInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetBizEntityInfoResponse
      */
     public function getBizEntityInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetBizEntityInfo',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetBizEntityInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
 
-        return GetBizEntityInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetBizEntityInfo',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBizEntityInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取业务实体详情。
-     *  *
-     * @param GetBizEntityInfoRequest $request GetBizEntityInfoRequest
+     * 获取业务实体详情。
      *
-     * @return GetBizEntityInfoResponse GetBizEntityInfoResponse
+     * @param request - GetBizEntityInfoRequest
+     *
+     * @returns GetBizEntityInfoResponse
+     *
+     * @param GetBizEntityInfoRequest $request
+     *
+     * @return GetBizEntityInfoResponse
      */
     public function getBizEntityInfo($request)
     {
@@ -2509,56 +2847,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询指定版本的业务实体的详情。
-     *  *
-     * @param GetBizEntityInfoByVersionRequest $request GetBizEntityInfoByVersionRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 查询指定版本的业务实体的详情。
      *
-     * @return GetBizEntityInfoByVersionResponse GetBizEntityInfoByVersionResponse
+     * @param request - GetBizEntityInfoByVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBizEntityInfoByVersionResponse
+     *
+     * @param GetBizEntityInfoByVersionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetBizEntityInfoByVersionResponse
      */
     public function getBizEntityInfoByVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetBizEntityInfoByVersion',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetBizEntityInfoByVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
 
-        return GetBizEntityInfoByVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetBizEntityInfoByVersion',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBizEntityInfoByVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询指定版本的业务实体的详情。
-     *  *
-     * @param GetBizEntityInfoByVersionRequest $request GetBizEntityInfoByVersionRequest
+     * 查询指定版本的业务实体的详情。
      *
-     * @return GetBizEntityInfoByVersionResponse GetBizEntityInfoByVersionResponse
+     * @param request - GetBizEntityInfoByVersionRequest
+     *
+     * @returns GetBizEntityInfoByVersionResponse
+     *
+     * @param GetBizEntityInfoByVersionRequest $request
+     *
+     * @return GetBizEntityInfoByVersionResponse
      */
     public function getBizEntityInfoByVersion($request)
     {
@@ -2568,50 +2916,58 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据板块详情。
-     *  *
-     * @param GetBizUnitInfoRequest $request GetBizUnitInfoRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 获取数据板块详情。
      *
-     * @return GetBizUnitInfoResponse GetBizUnitInfoResponse
+     * @param request - GetBizUnitInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBizUnitInfoResponse
+     *
+     * @param GetBizUnitInfoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetBizUnitInfoResponse
      */
     public function getBizUnitInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetBizUnitInfo',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetBizUnitInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
 
-        return GetBizUnitInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetBizUnitInfo',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBizUnitInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据板块详情。
-     *  *
-     * @param GetBizUnitInfoRequest $request GetBizUnitInfoRequest
+     * 获取数据板块详情。
      *
-     * @return GetBizUnitInfoResponse GetBizUnitInfoResponse
+     * @param request - GetBizUnitInfoRequest
+     *
+     * @returns GetBizUnitInfoResponse
+     *
+     * @param GetBizUnitInfoRequest $request
+     *
+     * @return GetBizUnitInfoResponse
      */
     public function getBizUnitInfo($request)
     {
@@ -2621,56 +2977,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据环境获取集群信息
-     *  *
-     * @param GetClusterQueueInfoByEnvRequest $request GetClusterQueueInfoByEnvRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 根据环境获取集群信息.
      *
-     * @return GetClusterQueueInfoByEnvResponse GetClusterQueueInfoByEnvResponse
+     * @param request - GetClusterQueueInfoByEnvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetClusterQueueInfoByEnvResponse
+     *
+     * @param GetClusterQueueInfoByEnvRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetClusterQueueInfoByEnvResponse
      */
     public function getClusterQueueInfoByEnvWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->streamBatchMode)) {
-            $query['StreamBatchMode'] = $request->streamBatchMode;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetClusterQueueInfoByEnv',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetClusterQueueInfoByEnvResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
 
-        return GetClusterQueueInfoByEnvResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->streamBatchMode) {
+            @$query['StreamBatchMode'] = $request->streamBatchMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetClusterQueueInfoByEnv',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetClusterQueueInfoByEnvResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据环境获取集群信息
-     *  *
-     * @param GetClusterQueueInfoByEnvRequest $request GetClusterQueueInfoByEnvRequest
+     * 根据环境获取集群信息.
      *
-     * @return GetClusterQueueInfoByEnvResponse GetClusterQueueInfoByEnvResponse
+     * @param request - GetClusterQueueInfoByEnvRequest
+     *
+     * @returns GetClusterQueueInfoByEnvResponse
+     *
+     * @param GetClusterQueueInfoByEnvRequest $request
+     *
+     * @return GetClusterQueueInfoByEnvResponse
      */
     public function getClusterQueueInfoByEnv($request)
     {
@@ -2680,50 +3046,58 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取主题域详情。
-     *  *
-     * @param GetDataDomainInfoRequest $request GetDataDomainInfoRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取主题域详情。
      *
-     * @return GetDataDomainInfoResponse GetDataDomainInfoResponse
+     * @param request - GetDataDomainInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataDomainInfoResponse
+     *
+     * @param GetDataDomainInfoRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetDataDomainInfoResponse
      */
     public function getDataDomainInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDataDomainInfo',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataDomainInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
 
-        return GetDataDomainInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataDomainInfo',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataDomainInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取主题域详情。
-     *  *
-     * @param GetDataDomainInfoRequest $request GetDataDomainInfoRequest
+     * 获取主题域详情。
      *
-     * @return GetDataDomainInfoResponse GetDataDomainInfoResponse
+     * @param request - GetDataDomainInfoRequest
+     *
+     * @returns GetDataDomainInfoResponse
+     *
+     * @param GetDataDomainInfoRequest $request
+     *
+     * @return GetDataDomainInfoResponse
      */
     public function getDataDomainInfo($request)
     {
@@ -2733,59 +3107,70 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询开发态对象上游依赖。
-     *  *
-     * @param GetDevObjectDependencyRequest $request GetDevObjectDependencyRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 查询开发态对象上游依赖。
      *
-     * @return GetDevObjectDependencyResponse GetDevObjectDependencyResponse
+     * @param request - GetDevObjectDependencyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDevObjectDependencyResponse
+     *
+     * @param GetDevObjectDependencyRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetDevObjectDependencyResponse
      */
     public function getDevObjectDependencyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->objectFrom)) {
-            $query['ObjectFrom'] = $request->objectFrom;
-        }
-        if (!Utils::isUnset($request->objectId)) {
-            $query['ObjectId'] = $request->objectId;
-        }
-        if (!Utils::isUnset($request->objectType)) {
-            $query['ObjectType'] = $request->objectType;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDevObjectDependency',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDevObjectDependencyResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->objectFrom) {
+            @$query['ObjectFrom'] = $request->objectFrom;
         }
 
-        return GetDevObjectDependencyResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->objectId) {
+            @$query['ObjectId'] = $request->objectId;
+        }
+
+        if (null !== $request->objectType) {
+            @$query['ObjectType'] = $request->objectType;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDevObjectDependency',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDevObjectDependencyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询开发态对象上游依赖。
-     *  *
-     * @param GetDevObjectDependencyRequest $request GetDevObjectDependencyRequest
+     * 查询开发态对象上游依赖。
      *
-     * @return GetDevObjectDependencyResponse GetDevObjectDependencyResponse
+     * @param request - GetDevObjectDependencyRequest
+     *
+     * @returns GetDevObjectDependencyResponse
+     *
+     * @param GetDevObjectDependencyRequest $request
+     *
+     * @return GetDevObjectDependencyResponse
      */
     public function getDevObjectDependency($request)
     {
@@ -2795,53 +3180,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取文件夹目录树
-     *  *
-     * @param GetDirectoryTreeRequest $request GetDirectoryTreeRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取文件夹目录树.
      *
-     * @return GetDirectoryTreeResponse GetDirectoryTreeResponse
+     * @param request - GetDirectoryTreeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDirectoryTreeResponse
+     *
+     * @param GetDirectoryTreeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetDirectoryTreeResponse
      */
     public function getDirectoryTreeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDirectoryTree',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDirectoryTreeResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
 
-        return GetDirectoryTreeResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDirectoryTree',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDirectoryTreeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取文件夹目录树
-     *  *
-     * @param GetDirectoryTreeRequest $request GetDirectoryTreeRequest
+     * 获取文件夹目录树.
      *
-     * @return GetDirectoryTreeResponse GetDirectoryTreeResponse
+     * @param request - GetDirectoryTreeRequest
+     *
+     * @returns GetDirectoryTreeResponse
+     *
+     * @param GetDirectoryTreeRequest $request
+     *
+     * @return GetDirectoryTreeResponse
      */
     public function getDirectoryTree($request)
     {
@@ -2851,66 +3245,78 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据起始的实例查询该实例的下游
-     *  *
-     * @param GetInstanceDownStreamRequest $tmpReq  GetInstanceDownStreamRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 根据起始的实例查询该实例的下游.
      *
-     * @return GetInstanceDownStreamResponse GetInstanceDownStreamResponse
+     * @param tmpReq - GetInstanceDownStreamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceDownStreamResponse
+     *
+     * @param GetInstanceDownStreamRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetInstanceDownStreamResponse
      */
     public function getInstanceDownStreamWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetInstanceDownStreamShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instanceGet)) {
-            $request->instanceGetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceGet, 'InstanceGet', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->downStreamDepth)) {
-            $query['DownStreamDepth'] = $request->downStreamDepth;
-        }
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->runStatus)) {
-            $query['RunStatus'] = $request->runStatus;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->instanceGetShrink)) {
-            $body['InstanceGet'] = $request->instanceGetShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetInstanceDownStream',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetInstanceDownStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceGet) {
+            $request->instanceGetShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceGet, 'InstanceGet', 'json');
         }
 
-        return GetInstanceDownStreamResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->downStreamDepth) {
+            @$query['DownStreamDepth'] = $request->downStreamDepth;
+        }
+
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->runStatus) {
+            @$query['RunStatus'] = $request->runStatus;
+        }
+
+        $body = [];
+        if (null !== $request->instanceGetShrink) {
+            @$body['InstanceGet'] = $request->instanceGetShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceDownStream',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceDownStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据起始的实例查询该实例的下游
-     *  *
-     * @param GetInstanceDownStreamRequest $request GetInstanceDownStreamRequest
+     * 根据起始的实例查询该实例的下游.
      *
-     * @return GetInstanceDownStreamResponse GetInstanceDownStreamResponse
+     * @param request - GetInstanceDownStreamRequest
+     *
+     * @returns GetInstanceDownStreamResponse
+     *
+     * @param GetInstanceDownStreamRequest $request
+     *
+     * @return GetInstanceDownStreamResponse
      */
     public function getInstanceDownStream($request)
     {
@@ -2920,69 +3326,82 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例的上下游，支持逻辑表和代码任务。
-     *  *
-     * @param GetInstanceUpDownStreamRequest $tmpReq  GetInstanceUpDownStreamRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 查询实例的上下游，支持逻辑表和代码任务。
      *
-     * @return GetInstanceUpDownStreamResponse GetInstanceUpDownStreamResponse
+     * @param tmpReq - GetInstanceUpDownStreamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceUpDownStreamResponse
+     *
+     * @param GetInstanceUpDownStreamRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetInstanceUpDownStreamResponse
      */
     public function getInstanceUpDownStreamWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetInstanceUpDownStreamShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instanceId)) {
-            $request->instanceIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceId, 'InstanceId', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->downStreamDepth)) {
-            $query['DownStreamDepth'] = $request->downStreamDepth;
-        }
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->upStreamDepth)) {
-            $query['UpStreamDepth'] = $request->upStreamDepth;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->instanceIdShrink)) {
-            $body['InstanceId'] = $request->instanceIdShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetInstanceUpDownStream',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetInstanceUpDownStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceId) {
+            $request->instanceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceId, 'InstanceId', 'json');
         }
 
-        return GetInstanceUpDownStreamResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->downStreamDepth) {
+            @$query['DownStreamDepth'] = $request->downStreamDepth;
+        }
+
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->upStreamDepth) {
+            @$query['UpStreamDepth'] = $request->upStreamDepth;
+        }
+
+        $body = [];
+        if (null !== $request->instanceIdShrink) {
+            @$body['InstanceId'] = $request->instanceIdShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceUpDownStream',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceUpDownStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询实例的上下游，支持逻辑表和代码任务。
-     *  *
-     * @param GetInstanceUpDownStreamRequest $request GetInstanceUpDownStreamRequest
+     * 查询实例的上下游，支持逻辑表和代码任务。
      *
-     * @return GetInstanceUpDownStreamResponse GetInstanceUpDownStreamResponse
+     * @param request - GetInstanceUpDownStreamRequest
+     *
+     * @returns GetInstanceUpDownStreamResponse
+     *
+     * @param GetInstanceUpDownStreamRequest $request
+     *
+     * @return GetInstanceUpDownStreamResponse
      */
     public function getInstanceUpDownStream($request)
     {
@@ -2992,57 +3411,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取最新的待发布记录详情
-     *  *
-     * @param GetLatestSubmitDetailRequest $tmpReq  GetLatestSubmitDetailRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 获取最新的待发布记录详情.
      *
-     * @return GetLatestSubmitDetailResponse GetLatestSubmitDetailResponse
+     * @param tmpReq - GetLatestSubmitDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLatestSubmitDetailResponse
+     *
+     * @param GetLatestSubmitDetailRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetLatestSubmitDetailResponse
      */
     public function getLatestSubmitDetailWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetLatestSubmitDetailShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->submitDetailQuery)) {
-            $request->submitDetailQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->submitDetailQuery, 'SubmitDetailQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->submitDetailQueryShrink)) {
-            $body['SubmitDetailQuery'] = $request->submitDetailQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetLatestSubmitDetail',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetLatestSubmitDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->submitDetailQuery) {
+            $request->submitDetailQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->submitDetailQuery, 'SubmitDetailQuery', 'json');
         }
 
-        return GetLatestSubmitDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->submitDetailQueryShrink) {
+            @$body['SubmitDetailQuery'] = $request->submitDetailQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetLatestSubmitDetail',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLatestSubmitDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取最新的待发布记录详情
-     *  *
-     * @param GetLatestSubmitDetailRequest $request GetLatestSubmitDetailRequest
+     * 获取最新的待发布记录详情.
      *
-     * @return GetLatestSubmitDetailResponse GetLatestSubmitDetailResponse
+     * @param request - GetLatestSubmitDetailRequest
+     *
+     * @returns GetLatestSubmitDetailResponse
+     *
+     * @param GetLatestSubmitDetailRequest $request
+     *
+     * @return GetLatestSubmitDetailResponse
      */
     public function getLatestSubmitDetail($request)
     {
@@ -3052,47 +3480,54 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户角色列表
-     *  *
-     * @param GetMyRolesRequest $request GetMyRolesRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 获取用户角色列表.
      *
-     * @return GetMyRolesResponse GetMyRolesResponse
+     * @param request - GetMyRolesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMyRolesResponse
+     *
+     * @param GetMyRolesRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetMyRolesResponse
      */
     public function getMyRolesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetMyRoles',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetMyRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
 
-        return GetMyRolesResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMyRoles',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMyRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取用户角色列表
-     *  *
-     * @param GetMyRolesRequest $request GetMyRolesRequest
+     * 获取用户角色列表.
      *
-     * @return GetMyRolesResponse GetMyRolesResponse
+     * @param request - GetMyRolesRequest
+     *
+     * @returns GetMyRolesResponse
+     *
+     * @param GetMyRolesRequest $request
+     *
+     * @return GetMyRolesResponse
      */
     public function getMyRoles($request)
     {
@@ -3102,57 +3537,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取当前用户归属租户.
-     *  *
-     * @param GetMyTenantsRequest $tmpReq  GetMyTenantsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取当前用户归属租户.
      *
-     * @return GetMyTenantsResponse GetMyTenantsResponse
+     * @param tmpReq - GetMyTenantsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMyTenantsResponse
+     *
+     * @param GetMyTenantsRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetMyTenantsResponse
      */
     public function getMyTenantsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetMyTenantsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->featureCodeList)) {
-            $request->featureCodeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->featureCodeList, 'FeatureCodeList', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->featureCodeListShrink)) {
-            $body['FeatureCodeList'] = $request->featureCodeListShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetMyTenants',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetMyTenantsResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->featureCodeList) {
+            $request->featureCodeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->featureCodeList, 'FeatureCodeList', 'json');
         }
 
-        return GetMyTenantsResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->featureCodeListShrink) {
+            @$body['FeatureCodeList'] = $request->featureCodeListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetMyTenants',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMyTenantsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取当前用户归属租户.
-     *  *
-     * @param GetMyTenantsRequest $request GetMyTenantsRequest
+     * 获取当前用户归属租户.
      *
-     * @return GetMyTenantsResponse GetMyTenantsResponse
+     * @param request - GetMyTenantsRequest
+     *
+     * @returns GetMyTenantsResponse
+     *
+     * @param GetMyTenantsRequest $request
+     *
+     * @return GetMyTenantsResponse
      */
     public function getMyTenants($request)
     {
@@ -3162,69 +3606,82 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 通用查询节点上下游接口
-     *  *
-     * @param GetNodeUpDownStreamRequest $tmpReq  GetNodeUpDownStreamRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 通用查询节点上下游接口.
      *
-     * @return GetNodeUpDownStreamResponse GetNodeUpDownStreamResponse
+     * @param tmpReq - GetNodeUpDownStreamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNodeUpDownStreamResponse
+     *
+     * @param GetNodeUpDownStreamRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetNodeUpDownStreamResponse
      */
     public function getNodeUpDownStreamWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetNodeUpDownStreamShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->nodeId)) {
-            $request->nodeIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeId, 'NodeId', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->downStreamDepth)) {
-            $query['DownStreamDepth'] = $request->downStreamDepth;
-        }
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->upStreamDepth)) {
-            $query['UpStreamDepth'] = $request->upStreamDepth;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->nodeIdShrink)) {
-            $body['NodeId'] = $request->nodeIdShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetNodeUpDownStream',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetNodeUpDownStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodeId) {
+            $request->nodeIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeId, 'NodeId', 'json');
         }
 
-        return GetNodeUpDownStreamResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->downStreamDepth) {
+            @$query['DownStreamDepth'] = $request->downStreamDepth;
+        }
+
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->upStreamDepth) {
+            @$query['UpStreamDepth'] = $request->upStreamDepth;
+        }
+
+        $body = [];
+        if (null !== $request->nodeIdShrink) {
+            @$body['NodeId'] = $request->nodeIdShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetNodeUpDownStream',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNodeUpDownStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通用查询节点上下游接口
-     *  *
-     * @param GetNodeUpDownStreamRequest $request GetNodeUpDownStreamRequest
+     * 通用查询节点上下游接口.
      *
-     * @return GetNodeUpDownStreamResponse GetNodeUpDownStreamResponse
+     * @param request - GetNodeUpDownStreamRequest
+     *
+     * @returns GetNodeUpDownStreamResponse
+     *
+     * @param GetNodeUpDownStreamRequest $request
+     *
+     * @return GetNodeUpDownStreamResponse
      */
     public function getNodeUpDownStream($request)
     {
@@ -3234,53 +3691,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询补数据提交的状态
-     *  *
-     * @param GetOperationSubmitStatusRequest $request GetOperationSubmitStatusRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 查询补数据提交的状态
      *
-     * @return GetOperationSubmitStatusResponse GetOperationSubmitStatusResponse
+     * @param request - GetOperationSubmitStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOperationSubmitStatusResponse
+     *
+     * @param GetOperationSubmitStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetOperationSubmitStatusResponse
      */
     public function getOperationSubmitStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetOperationSubmitStatus',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetOperationSubmitStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
 
-        return GetOperationSubmitStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetOperationSubmitStatus',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOperationSubmitStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询补数据提交的状态
-     *  *
-     * @param GetOperationSubmitStatusRequest $request GetOperationSubmitStatusRequest
+     * 查询补数据提交的状态
      *
-     * @return GetOperationSubmitStatusResponse GetOperationSubmitStatusResponse
+     * @param request - GetOperationSubmitStatusRequest
+     *
+     * @returns GetOperationSubmitStatusResponse
+     *
+     * @param GetOperationSubmitStatusRequest $request
+     *
+     * @return GetOperationSubmitStatusResponse
      */
     public function getOperationSubmitStatus($request)
     {
@@ -3290,56 +3756,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询脚本的实例信息, 包括实例状态、运行时间等信息.
-     *  *
-     * @param GetPhysicalInstanceRequest $request GetPhysicalInstanceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询脚本的实例信息, 包括实例状态、运行时间等信息.
      *
-     * @return GetPhysicalInstanceResponse GetPhysicalInstanceResponse
+     * @param request - GetPhysicalInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPhysicalInstanceResponse
+     *
+     * @param GetPhysicalInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetPhysicalInstanceResponse
      */
     public function getPhysicalInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetPhysicalInstance',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPhysicalInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
 
-        return GetPhysicalInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPhysicalInstance',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPhysicalInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询脚本的实例信息, 包括实例状态、运行时间等信息.
-     *  *
-     * @param GetPhysicalInstanceRequest $request GetPhysicalInstanceRequest
+     * 查询脚本的实例信息, 包括实例状态、运行时间等信息.
      *
-     * @return GetPhysicalInstanceResponse GetPhysicalInstanceResponse
+     * @param request - GetPhysicalInstanceRequest
+     *
+     * @returns GetPhysicalInstanceResponse
+     *
+     * @param GetPhysicalInstanceRequest $request
+     *
+     * @return GetPhysicalInstanceResponse
      */
     public function getPhysicalInstance($request)
     {
@@ -3349,56 +3825,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取实例执行的日志，如果实例重跑了多次，则会有多条日志
-     *  *
-     * @param GetPhysicalInstanceLogRequest $request GetPhysicalInstanceLogRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 获取实例执行的日志，如果实例重跑了多次，则会有多条日志.
      *
-     * @return GetPhysicalInstanceLogResponse GetPhysicalInstanceLogResponse
+     * @param request - GetPhysicalInstanceLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPhysicalInstanceLogResponse
+     *
+     * @param GetPhysicalInstanceLogRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetPhysicalInstanceLogResponse
      */
     public function getPhysicalInstanceLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetPhysicalInstanceLog',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPhysicalInstanceLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
 
-        return GetPhysicalInstanceLogResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPhysicalInstanceLog',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPhysicalInstanceLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取实例执行的日志，如果实例重跑了多次，则会有多条日志
-     *  *
-     * @param GetPhysicalInstanceLogRequest $request GetPhysicalInstanceLogRequest
+     * 获取实例执行的日志，如果实例重跑了多次，则会有多条日志.
      *
-     * @return GetPhysicalInstanceLogResponse GetPhysicalInstanceLogResponse
+     * @param request - GetPhysicalInstanceLogRequest
+     *
+     * @returns GetPhysicalInstanceLogResponse
+     *
+     * @param GetPhysicalInstanceLogRequest $request
+     *
+     * @return GetPhysicalInstanceLogResponse
      */
     public function getPhysicalInstanceLog($request)
     {
@@ -3408,53 +3894,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询物理调度节点。
-     *  *
-     * @param GetPhysicalNodeRequest $request GetPhysicalNodeRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询物理调度节点。
      *
-     * @return GetPhysicalNodeResponse GetPhysicalNodeResponse
+     * @param request - GetPhysicalNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPhysicalNodeResponse
+     *
+     * @param GetPhysicalNodeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetPhysicalNodeResponse
      */
     public function getPhysicalNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetPhysicalNode',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPhysicalNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
 
-        return GetPhysicalNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPhysicalNode',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPhysicalNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询物理调度节点。
-     *  *
-     * @param GetPhysicalNodeRequest $request GetPhysicalNodeRequest
+     * 查询物理调度节点。
      *
-     * @return GetPhysicalNodeResponse GetPhysicalNodeResponse
+     * @param request - GetPhysicalNodeRequest
+     *
+     * @returns GetPhysicalNodeResponse
+     *
+     * @param GetPhysicalNodeRequest $request
+     *
+     * @return GetPhysicalNodeResponse
      */
     public function getPhysicalNode($request)
     {
@@ -3464,53 +3959,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据输出名查询对应的物理节点。
-     *  *
-     * @param GetPhysicalNodeByOutputNameRequest $request GetPhysicalNodeByOutputNameRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 根据输出名查询对应的物理节点。
      *
-     * @return GetPhysicalNodeByOutputNameResponse GetPhysicalNodeByOutputNameResponse
+     * @param request - GetPhysicalNodeByOutputNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPhysicalNodeByOutputNameResponse
+     *
+     * @param GetPhysicalNodeByOutputNameRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetPhysicalNodeByOutputNameResponse
      */
     public function getPhysicalNodeByOutputNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->outputName)) {
-            $query['OutputName'] = $request->outputName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetPhysicalNodeByOutputName',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPhysicalNodeByOutputNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
 
-        return GetPhysicalNodeByOutputNameResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->outputName) {
+            @$query['OutputName'] = $request->outputName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPhysicalNodeByOutputName',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPhysicalNodeByOutputNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据输出名查询对应的物理节点。
-     *  *
-     * @param GetPhysicalNodeByOutputNameRequest $request GetPhysicalNodeByOutputNameRequest
+     * 根据输出名查询对应的物理节点。
      *
-     * @return GetPhysicalNodeByOutputNameResponse GetPhysicalNodeByOutputNameResponse
+     * @param request - GetPhysicalNodeByOutputNameRequest
+     *
+     * @returns GetPhysicalNodeByOutputNameResponse
+     *
+     * @param GetPhysicalNodeByOutputNameRequest $request
+     *
+     * @return GetPhysicalNodeByOutputNameResponse
      */
     public function getPhysicalNodeByOutputName($request)
     {
@@ -3520,53 +4024,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询调度节点代码内容。
-     *  *
-     * @param GetPhysicalNodeContentRequest $request GetPhysicalNodeContentRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 查询调度节点代码内容。
      *
-     * @return GetPhysicalNodeContentResponse GetPhysicalNodeContentResponse
+     * @param request - GetPhysicalNodeContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPhysicalNodeContentResponse
+     *
+     * @param GetPhysicalNodeContentRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetPhysicalNodeContentResponse
      */
     public function getPhysicalNodeContentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetPhysicalNodeContent',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPhysicalNodeContentResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
 
-        return GetPhysicalNodeContentResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPhysicalNodeContent',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPhysicalNodeContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询调度节点代码内容。
-     *  *
-     * @param GetPhysicalNodeContentRequest $request GetPhysicalNodeContentRequest
+     * 查询调度节点代码内容。
      *
-     * @return GetPhysicalNodeContentResponse GetPhysicalNodeContentResponse
+     * @param request - GetPhysicalNodeContentRequest
+     *
+     * @returns GetPhysicalNodeContentResponse
+     *
+     * @param GetPhysicalNodeContentRequest $request
+     *
+     * @return GetPhysicalNodeContentResponse
      */
     public function getPhysicalNodeContent($request)
     {
@@ -3576,53 +4089,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询节点的操作日志。
-     *  *
-     * @param GetPhysicalNodeOperationLogRequest $request GetPhysicalNodeOperationLogRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 查询节点的操作日志。
      *
-     * @return GetPhysicalNodeOperationLogResponse GetPhysicalNodeOperationLogResponse
+     * @param request - GetPhysicalNodeOperationLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPhysicalNodeOperationLogResponse
+     *
+     * @param GetPhysicalNodeOperationLogRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetPhysicalNodeOperationLogResponse
      */
     public function getPhysicalNodeOperationLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetPhysicalNodeOperationLog',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPhysicalNodeOperationLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
 
-        return GetPhysicalNodeOperationLogResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPhysicalNodeOperationLog',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPhysicalNodeOperationLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询节点的操作日志。
-     *  *
-     * @param GetPhysicalNodeOperationLogRequest $request GetPhysicalNodeOperationLogRequest
+     * 查询节点的操作日志。
      *
-     * @return GetPhysicalNodeOperationLogResponse GetPhysicalNodeOperationLogResponse
+     * @param request - GetPhysicalNodeOperationLogRequest
+     *
+     * @returns GetPhysicalNodeOperationLogResponse
+     *
+     * @param GetPhysicalNodeOperationLogRequest $request
+     *
+     * @return GetPhysicalNodeOperationLogResponse
      */
     public function getPhysicalNodeOperationLog($request)
     {
@@ -3632,50 +4154,58 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目生产账号
-     *  *
-     * @param GetProjectProduceUserRequest $request GetProjectProduceUserRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 获取项目生产账号.
      *
-     * @return GetProjectProduceUserResponse GetProjectProduceUserResponse
+     * @param request - GetProjectProduceUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProjectProduceUserResponse
+     *
+     * @param GetProjectProduceUserRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetProjectProduceUserResponse
      */
     public function getProjectProduceUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetProjectProduceUser',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetProjectProduceUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
 
-        return GetProjectProduceUserResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetProjectProduceUser',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetProjectProduceUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取项目生产账号
-     *  *
-     * @param GetProjectProduceUserRequest $request GetProjectProduceUserRequest
+     * 获取项目生产账号.
      *
-     * @return GetProjectProduceUserResponse GetProjectProduceUserResponse
+     * @param request - GetProjectProduceUserRequest
+     *
+     * @returns GetProjectProduceUserResponse
+     *
+     * @param GetProjectProduceUserRequest $request
+     *
+     * @return GetProjectProduceUserResponse
      */
     public function getProjectProduceUser($request)
     {
@@ -3685,62 +4215,74 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据集群ID获取集群版本
-     *  *
-     * @param GetQueueEngineVersionByEnvRequest $request GetQueueEngineVersionByEnvRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 根据集群ID获取集群版本.
      *
-     * @return GetQueueEngineVersionByEnvResponse GetQueueEngineVersionByEnvResponse
+     * @param request - GetQueueEngineVersionByEnvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQueueEngineVersionByEnvResponse
+     *
+     * @param GetQueueEngineVersionByEnvRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetQueueEngineVersionByEnvResponse
      */
     public function getQueueEngineVersionByEnvWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->queueName)) {
-            $query['QueueName'] = $request->queueName;
-        }
-        if (!Utils::isUnset($request->streamBatchMode)) {
-            $query['StreamBatchMode'] = $request->streamBatchMode;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetQueueEngineVersionByEnv',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetQueueEngineVersionByEnvResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
 
-        return GetQueueEngineVersionByEnvResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->queueName) {
+            @$query['QueueName'] = $request->queueName;
+        }
+
+        if (null !== $request->streamBatchMode) {
+            @$query['StreamBatchMode'] = $request->streamBatchMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetQueueEngineVersionByEnv',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetQueueEngineVersionByEnvResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据集群ID获取集群版本
-     *  *
-     * @param GetQueueEngineVersionByEnvRequest $request GetQueueEngineVersionByEnvRequest
+     * 根据集群ID获取集群版本.
      *
-     * @return GetQueueEngineVersionByEnvResponse GetQueueEngineVersionByEnvResponse
+     * @param request - GetQueueEngineVersionByEnvRequest
+     *
+     * @returns GetQueueEngineVersionByEnvResponse
+     *
+     * @param GetQueueEngineVersionByEnvRequest $request
+     *
+     * @return GetQueueEngineVersionByEnvResponse
      */
     public function getQueueEngineVersionByEnv($request)
     {
@@ -3750,53 +4292,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取计算源对应集群的spark客户信息
-     *  *
-     * @param GetSparkLocalClientInfoRequest $request GetSparkLocalClientInfoRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 获取计算源对应集群的spark客户信息.
      *
-     * @return GetSparkLocalClientInfoResponse GetSparkLocalClientInfoResponse
+     * @param request - GetSparkLocalClientInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSparkLocalClientInfoResponse
+     *
+     * @param GetSparkLocalClientInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetSparkLocalClientInfoResponse
      */
     public function getSparkLocalClientInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->envEnum)) {
-            $query['EnvEnum'] = $request->envEnum;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetSparkLocalClientInfo',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetSparkLocalClientInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->envEnum) {
+            @$query['EnvEnum'] = $request->envEnum;
         }
 
-        return GetSparkLocalClientInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSparkLocalClientInfo',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSparkLocalClientInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取计算源对应集群的spark客户信息
-     *  *
-     * @param GetSparkLocalClientInfoRequest $request GetSparkLocalClientInfoRequest
+     * 获取计算源对应集群的spark客户信息.
      *
-     * @return GetSparkLocalClientInfoResponse GetSparkLocalClientInfoResponse
+     * @param request - GetSparkLocalClientInfoRequest
+     *
+     * @returns GetSparkLocalClientInfoResponse
+     *
+     * @param GetSparkLocalClientInfoRequest $request
+     *
+     * @return GetSparkLocalClientInfoResponse
      */
     public function getSparkLocalClientInfo($request)
     {
@@ -3806,53 +4357,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取补数据工作流所有业务日期的Dagrun信息。
-     *  *
-     * @param GetSupplementDagrunRequest $request GetSupplementDagrunRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 获取补数据工作流所有业务日期的Dagrun信息。
      *
-     * @return GetSupplementDagrunResponse GetSupplementDagrunResponse
+     * @param request - GetSupplementDagrunRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSupplementDagrunResponse
+     *
+     * @param GetSupplementDagrunRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetSupplementDagrunResponse
      */
     public function getSupplementDagrunWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->supplementId)) {
-            $query['SupplementId'] = $request->supplementId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetSupplementDagrun',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetSupplementDagrunResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
 
-        return GetSupplementDagrunResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->supplementId) {
+            @$query['SupplementId'] = $request->supplementId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSupplementDagrun',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSupplementDagrunResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取补数据工作流所有业务日期的Dagrun信息。
-     *  *
-     * @param GetSupplementDagrunRequest $request GetSupplementDagrunRequest
+     * 获取补数据工作流所有业务日期的Dagrun信息。
      *
-     * @return GetSupplementDagrunResponse GetSupplementDagrunResponse
+     * @param request - GetSupplementDagrunRequest
+     *
+     * @returns GetSupplementDagrunResponse
+     *
+     * @param GetSupplementDagrunRequest $request
+     *
+     * @return GetSupplementDagrunResponse
      */
     public function getSupplementDagrun($request)
     {
@@ -3862,53 +4422,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 列出补数据工作流下具体一个业务日期的所有节点的实例。
-     *  *
-     * @param GetSupplementDagrunInstanceRequest $request GetSupplementDagrunInstanceRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 列出补数据工作流下具体一个业务日期的所有节点的实例。
      *
-     * @return GetSupplementDagrunInstanceResponse GetSupplementDagrunInstanceResponse
+     * @param request - GetSupplementDagrunInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSupplementDagrunInstanceResponse
+     *
+     * @param GetSupplementDagrunInstanceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetSupplementDagrunInstanceResponse
      */
     public function getSupplementDagrunInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dagrunId)) {
-            $query['DagrunId'] = $request->dagrunId;
-        }
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetSupplementDagrunInstance',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetSupplementDagrunInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->dagrunId) {
+            @$query['DagrunId'] = $request->dagrunId;
         }
 
-        return GetSupplementDagrunInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSupplementDagrunInstance',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSupplementDagrunInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 列出补数据工作流下具体一个业务日期的所有节点的实例。
-     *  *
-     * @param GetSupplementDagrunInstanceRequest $request GetSupplementDagrunInstanceRequest
+     * 列出补数据工作流下具体一个业务日期的所有节点的实例。
      *
-     * @return GetSupplementDagrunInstanceResponse GetSupplementDagrunInstanceResponse
+     * @param request - GetSupplementDagrunInstanceRequest
+     *
+     * @returns GetSupplementDagrunInstanceResponse
+     *
+     * @param GetSupplementDagrunInstanceRequest $request
+     *
+     * @return GetSupplementDagrunInstanceResponse
      */
     public function getSupplementDagrunInstance($request)
     {
@@ -3918,50 +4487,58 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 通过用户原始Id（如阿里云Id）获取用户详情
-     *  *
-     * @param GetUserBySourceIdRequest $request GetUserBySourceIdRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 通过用户原始Id（如阿里云Id）获取用户详情.
      *
-     * @return GetUserBySourceIdResponse GetUserBySourceIdResponse
+     * @param request - GetUserBySourceIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserBySourceIdResponse
+     *
+     * @param GetUserBySourceIdRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetUserBySourceIdResponse
      */
     public function getUserBySourceIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->sourceId)) {
-            $query['SourceId'] = $request->sourceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetUserBySourceId',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetUserBySourceIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
 
-        return GetUserBySourceIdResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->sourceId) {
+            @$query['SourceId'] = $request->sourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUserBySourceId',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUserBySourceIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过用户原始Id（如阿里云Id）获取用户详情
-     *  *
-     * @param GetUserBySourceIdRequest $request GetUserBySourceIdRequest
+     * 通过用户原始Id（如阿里云Id）获取用户详情.
      *
-     * @return GetUserBySourceIdResponse GetUserBySourceIdResponse
+     * @param request - GetUserBySourceIdRequest
+     *
+     * @returns GetUserBySourceIdResponse
+     *
+     * @param GetUserBySourceIdRequest $request
+     *
+     * @return GetUserBySourceIdResponse
      */
     public function getUserBySourceId($request)
     {
@@ -3971,50 +4548,58 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户组详情.
-     *  *
-     * @param GetUserGroupRequest $request GetUserGroupRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取用户组详情.
      *
-     * @return GetUserGroupResponse GetUserGroupResponse
+     * @param request - GetUserGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserGroupResponse
+     *
+     * @param GetUserGroupRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetUserGroupResponse
      */
     public function getUserGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->userGroupId)) {
-            $query['UserGroupId'] = $request->userGroupId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetUserGroup',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
 
-        return GetUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->userGroupId) {
+            @$query['UserGroupId'] = $request->userGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUserGroup',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取用户组详情.
-     *  *
-     * @param GetUserGroupRequest $request GetUserGroupRequest
+     * 获取用户组详情.
      *
-     * @return GetUserGroupResponse GetUserGroupResponse
+     * @param request - GetUserGroupRequest
+     *
+     * @returns GetUserGroupResponse
+     *
+     * @param GetUserGroupRequest $request
+     *
+     * @return GetUserGroupResponse
      */
     public function getUserGroup($request)
     {
@@ -4024,57 +4609,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户详情
-     *  *
-     * @param GetUsersRequest $tmpReq  GetUsersRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 获取用户详情.
      *
-     * @return GetUsersResponse GetUsersResponse
+     * @param tmpReq - GetUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUsersResponse
+     *
+     * @param GetUsersRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetUsersResponse
      */
     public function getUsersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetUsersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userIdList)) {
-            $request->userIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userIdList, 'UserIdList', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->userIdListShrink)) {
-            $body['UserIdList'] = $request->userIdListShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetUsers',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userIdList) {
+            $request->userIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userIdList, 'UserIdList', 'json');
         }
 
-        return GetUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->userIdListShrink) {
+            @$body['UserIdList'] = $request->userIdListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetUsers',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取用户详情
-     *  *
-     * @param GetUsersRequest $request GetUsersRequest
+     * 获取用户详情.
      *
-     * @return GetUsersResponse GetUsersResponse
+     * @param request - GetUsersRequest
+     *
+     * @returns GetUsersResponse
+     *
+     * @param GetUsersRequest $request
+     *
+     * @return GetUsersResponse
      */
     public function getUsers($request)
     {
@@ -4084,57 +4678,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 通过资源点对用户授权
-     *  *
-     * @param GrantResourcePermissionRequest $tmpReq  GrantResourcePermissionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 通过资源点对用户授权.
      *
-     * @return GrantResourcePermissionResponse GrantResourcePermissionResponse
+     * @param tmpReq - GrantResourcePermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GrantResourcePermissionResponse
+     *
+     * @param GrantResourcePermissionRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GrantResourcePermissionResponse
      */
     public function grantResourcePermissionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GrantResourcePermissionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->grantCommand)) {
-            $request->grantCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->grantCommand, 'GrantCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->grantCommandShrink)) {
-            $body['GrantCommand'] = $request->grantCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GrantResourcePermission',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GrantResourcePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->grantCommand) {
+            $request->grantCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->grantCommand, 'GrantCommand', 'json');
         }
 
-        return GrantResourcePermissionResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->grantCommandShrink) {
+            @$body['GrantCommand'] = $request->grantCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GrantResourcePermission',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GrantResourcePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过资源点对用户授权
-     *  *
-     * @param GrantResourcePermissionRequest $request GrantResourcePermissionRequest
+     * 通过资源点对用户授权.
      *
-     * @return GrantResourcePermissionResponse GrantResourcePermissionResponse
+     * @param request - GrantResourcePermissionRequest
+     *
+     * @returns GrantResourcePermissionResponse
+     *
+     * @param GrantResourcePermissionRequest $request
+     *
+     * @return GrantResourcePermissionResponse
      */
     public function grantResourcePermission($request)
     {
@@ -4144,47 +4747,54 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户角色列表
-     *  *
-     * @param ListAddableRolesRequest $request ListAddableRolesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取用户角色列表.
      *
-     * @return ListAddableRolesResponse ListAddableRolesResponse
+     * @param request - ListAddableRolesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAddableRolesResponse
+     *
+     * @param ListAddableRolesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAddableRolesResponse
      */
     public function listAddableRolesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListAddableRoles',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAddableRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
 
-        return ListAddableRolesResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAddableRoles',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAddableRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取用户角色列表
-     *  *
-     * @param ListAddableRolesRequest $request ListAddableRolesRequest
+     * 获取用户角色列表.
      *
-     * @return ListAddableRolesResponse ListAddableRolesResponse
+     * @param request - ListAddableRolesRequest
+     *
+     * @returns ListAddableRolesResponse
+     *
+     * @param ListAddableRolesRequest $request
+     *
+     * @return ListAddableRolesResponse
      */
     public function listAddableRoles($request)
     {
@@ -4194,57 +4804,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取可加入租户成员列表的用户
-     *  *
-     * @param ListAddableUsersRequest $tmpReq  ListAddableUsersRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取可加入租户成员列表的用户.
      *
-     * @return ListAddableUsersResponse ListAddableUsersResponse
+     * @param tmpReq - ListAddableUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAddableUsersResponse
+     *
+     * @param ListAddableUsersRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAddableUsersResponse
      */
     public function listAddableUsersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListAddableUsersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListAddableUsers',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAddableUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListAddableUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAddableUsers',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAddableUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取可加入租户成员列表的用户
-     *  *
-     * @param ListAddableUsersRequest $request ListAddableUsersRequest
+     * 获取可加入租户成员列表的用户.
      *
-     * @return ListAddableUsersResponse ListAddableUsersResponse
+     * @param request - ListAddableUsersRequest
+     *
+     * @returns ListAddableUsersResponse
+     *
+     * @param ListAddableUsersRequest $request
+     *
+     * @return ListAddableUsersResponse
      */
     public function listAddableUsers($request)
     {
@@ -4254,57 +4873,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据条件查询多个告警事件
-     *  *
-     * @param ListAlertEventsRequest $tmpReq  ListAlertEventsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 根据条件查询多个告警事件.
      *
-     * @return ListAlertEventsResponse ListAlertEventsResponse
+     * @param tmpReq - ListAlertEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlertEventsResponse
+     *
+     * @param ListAlertEventsRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListAlertEventsResponse
      */
     public function listAlertEventsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListAlertEventsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListAlertEvents',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAlertEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListAlertEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAlertEvents',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAlertEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据条件查询多个告警事件
-     *  *
-     * @param ListAlertEventsRequest $request ListAlertEventsRequest
+     * 根据条件查询多个告警事件.
      *
-     * @return ListAlertEventsResponse ListAlertEventsResponse
+     * @param request - ListAlertEventsRequest
+     *
+     * @returns ListAlertEventsResponse
+     *
+     * @param ListAlertEventsRequest $request
+     *
+     * @return ListAlertEventsResponse
      */
     public function listAlertEvents($request)
     {
@@ -4314,57 +4942,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据条件查询多个推送记录
-     *  *
-     * @param ListAlertNotificationsRequest $tmpReq  ListAlertNotificationsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 根据条件查询多个推送记录.
      *
-     * @return ListAlertNotificationsResponse ListAlertNotificationsResponse
+     * @param tmpReq - ListAlertNotificationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlertNotificationsResponse
+     *
+     * @param ListAlertNotificationsRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAlertNotificationsResponse
      */
     public function listAlertNotificationsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListAlertNotificationsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListAlertNotifications',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAlertNotificationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListAlertNotificationsResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAlertNotifications',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAlertNotificationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据条件查询多个推送记录
-     *  *
-     * @param ListAlertNotificationsRequest $request ListAlertNotificationsRequest
+     * 根据条件查询多个推送记录.
      *
-     * @return ListAlertNotificationsResponse ListAlertNotificationsResponse
+     * @param request - ListAlertNotificationsRequest
+     *
+     * @returns ListAlertNotificationsResponse
+     *
+     * @param ListAlertNotificationsRequest $request
+     *
+     * @return ListAlertNotificationsResponse
      */
     public function listAlertNotifications($request)
     {
@@ -4374,57 +5011,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询应用已申请的API的具体的字段列表
-     *  *
-     * @param ListAuthorizedDataServiceApiDetailsRequest $tmpReq  ListAuthorizedDataServiceApiDetailsRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * 查询应用已申请的API的具体的字段列表.
      *
-     * @return ListAuthorizedDataServiceApiDetailsResponse ListAuthorizedDataServiceApiDetailsResponse
+     * @param tmpReq - ListAuthorizedDataServiceApiDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuthorizedDataServiceApiDetailsResponse
+     *
+     * @param ListAuthorizedDataServiceApiDetailsRequest $tmpReq
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ListAuthorizedDataServiceApiDetailsResponse
      */
     public function listAuthorizedDataServiceApiDetailsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListAuthorizedDataServiceApiDetailsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListAuthorizedDataServiceApiDetails',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAuthorizedDataServiceApiDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListAuthorizedDataServiceApiDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAuthorizedDataServiceApiDetails',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAuthorizedDataServiceApiDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询应用已申请的API的具体的字段列表
-     *  *
-     * @param ListAuthorizedDataServiceApiDetailsRequest $request ListAuthorizedDataServiceApiDetailsRequest
+     * 查询应用已申请的API的具体的字段列表.
      *
-     * @return ListAuthorizedDataServiceApiDetailsResponse ListAuthorizedDataServiceApiDetailsResponse
+     * @param request - ListAuthorizedDataServiceApiDetailsRequest
+     *
+     * @returns ListAuthorizedDataServiceApiDetailsResponse
+     *
+     * @param ListAuthorizedDataServiceApiDetailsRequest $request
+     *
+     * @return ListAuthorizedDataServiceApiDetailsResponse
      */
     public function listAuthorizedDataServiceApiDetails($request)
     {
@@ -4434,57 +5080,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询业务实体列表。
-     *  *
-     * @param ListBizEntitiesRequest $tmpReq  ListBizEntitiesRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询业务实体列表。
      *
-     * @return ListBizEntitiesResponse ListBizEntitiesResponse
+     * @param tmpReq - ListBizEntitiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBizEntitiesResponse
+     *
+     * @param ListBizEntitiesRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListBizEntitiesResponse
      */
     public function listBizEntitiesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListBizEntitiesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListBizEntities',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListBizEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListBizEntitiesResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListBizEntities',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBizEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询业务实体列表。
-     *  *
-     * @param ListBizEntitiesRequest $request ListBizEntitiesRequest
+     * 查询业务实体列表。
      *
-     * @return ListBizEntitiesResponse ListBizEntitiesResponse
+     * @param request - ListBizEntitiesRequest
+     *
+     * @returns ListBizEntitiesResponse
+     *
+     * @param ListBizEntitiesRequest $request
+     *
+     * @return ListBizEntitiesResponse
      */
     public function listBizEntities($request)
     {
@@ -4494,47 +5149,54 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取当前租户下的所有数据板块
-     *  *
-     * @param ListBizUnitsRequest $request ListBizUnitsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取当前租户下的所有数据板块.
      *
-     * @return ListBizUnitsResponse ListBizUnitsResponse
+     * @param request - ListBizUnitsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBizUnitsResponse
+     *
+     * @param ListBizUnitsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListBizUnitsResponse
      */
     public function listBizUnitsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListBizUnits',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListBizUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
 
-        return ListBizUnitsResponse::fromMap($this->execute($params, $req, $runtime));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBizUnits',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBizUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取当前租户下的所有数据板块
-     *  *
-     * @param ListBizUnitsRequest $request ListBizUnitsRequest
+     * 获取当前租户下的所有数据板块.
      *
-     * @return ListBizUnitsResponse ListBizUnitsResponse
+     * @param request - ListBizUnitsRequest
+     *
+     * @returns ListBizUnitsResponse
+     *
+     * @param ListBizUnitsRequest $request
+     *
+     * @return ListBizUnitsResponse
      */
     public function listBizUnits($request)
     {
@@ -4544,57 +5206,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取主题域列表。
-     *  *
-     * @param ListDataDomainsRequest $tmpReq  ListDataDomainsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 获取主题域列表。
      *
-     * @return ListDataDomainsResponse ListDataDomainsResponse
+     * @param tmpReq - ListDataDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataDomainsResponse
+     *
+     * @param ListDataDomainsRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDataDomainsResponse
      */
     public function listDataDomainsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDataDomainsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDataDomains',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDataDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListDataDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataDomains',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取主题域列表。
-     *  *
-     * @param ListDataDomainsRequest $request ListDataDomainsRequest
+     * 获取主题域列表。
      *
-     * @return ListDataDomainsResponse ListDataDomainsResponse
+     * @param request - ListDataDomainsRequest
+     *
+     * @returns ListDataDomainsResponse
+     *
+     * @param ListDataDomainsRequest $request
+     *
+     * @return ListDataDomainsResponse
      */
     public function listDataDomains($request)
     {
@@ -4604,57 +5275,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 搜索数据源，所属结果包含数据源配置项
-     *  *
-     * @param ListDataSourceWithConfigRequest $tmpReq  ListDataSourceWithConfigRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 搜索数据源，所属结果包含数据源配置项.
      *
-     * @return ListDataSourceWithConfigResponse ListDataSourceWithConfigResponse
+     * @param tmpReq - ListDataSourceWithConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataSourceWithConfigResponse
+     *
+     * @param ListDataSourceWithConfigRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListDataSourceWithConfigResponse
      */
     public function listDataSourceWithConfigWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListDataSourceWithConfigShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDataSourceWithConfig',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDataSourceWithConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListDataSourceWithConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataSourceWithConfig',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataSourceWithConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 搜索数据源，所属结果包含数据源配置项
-     *  *
-     * @param ListDataSourceWithConfigRequest $request ListDataSourceWithConfigRequest
+     * 搜索数据源，所属结果包含数据源配置项.
      *
-     * @return ListDataSourceWithConfigResponse ListDataSourceWithConfigResponse
+     * @param request - ListDataSourceWithConfigRequest
+     *
+     * @returns ListDataSourceWithConfigResponse
+     *
+     * @param ListDataSourceWithConfigRequest $request
+     *
+     * @return ListDataSourceWithConfigResponse
      */
     public function listDataSourceWithConfig($request)
     {
@@ -4664,57 +5344,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 遍历菜单树目录文件。
-     *  *
-     * @param ListFilesRequest $tmpReq  ListFilesRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 遍历菜单树目录文件。
      *
-     * @return ListFilesResponse ListFilesResponse
+     * @param tmpReq - ListFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFilesResponse
+     *
+     * @param ListFilesRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListFilesResponse
      */
     public function listFilesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListFilesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListFiles',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListFilesResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListFiles',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 遍历菜单树目录文件。
-     *  *
-     * @param ListFilesRequest $request ListFilesRequest
+     * 遍历菜单树目录文件。
      *
-     * @return ListFilesResponse ListFilesResponse
+     * @param request - ListFilesRequest
+     *
+     * @returns ListFilesResponse
+     *
+     * @param ListFilesRequest $request
+     *
+     * @return ListFilesResponse
      */
     public function listFiles($request)
     {
@@ -4724,60 +5413,70 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询实例。
-     *  *
-     * @param ListInstancesRequest $tmpReq  ListInstancesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 分页查询实例。
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param tmpReq - ListInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
      */
     public function listInstancesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListInstancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListInstances',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstances',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 分页查询实例。
-     *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
+     * 分页查询实例。
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param request - ListInstancesRequest
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -4787,60 +5486,70 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询节点下游，创建补数据工作流时可以作为数据参考
-     *  *
-     * @param ListNodeDownStreamRequest $tmpReq  ListNodeDownStreamRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询节点下游，创建补数据工作流时可以作为数据参考.
      *
-     * @return ListNodeDownStreamResponse ListNodeDownStreamResponse
+     * @param tmpReq - ListNodeDownStreamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNodeDownStreamResponse
+     *
+     * @param ListNodeDownStreamRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListNodeDownStreamResponse
      */
     public function listNodeDownStreamWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListNodeDownStreamShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListNodeDownStream',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListNodeDownStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListNodeDownStreamResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListNodeDownStream',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNodeDownStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询节点下游，创建补数据工作流时可以作为数据参考
-     *  *
-     * @param ListNodeDownStreamRequest $request ListNodeDownStreamRequest
+     * 查询节点下游，创建补数据工作流时可以作为数据参考.
      *
-     * @return ListNodeDownStreamResponse ListNodeDownStreamResponse
+     * @param request - ListNodeDownStreamRequest
+     *
+     * @returns ListNodeDownStreamResponse
+     *
+     * @param ListNodeDownStreamRequest $request
+     *
+     * @return ListNodeDownStreamResponse
      */
     public function listNodeDownStream($request)
     {
@@ -4850,60 +5559,70 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询调度节点列表。
-     *  *
-     * @param ListNodesRequest $tmpReq  ListNodesRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 查询调度节点列表。
      *
-     * @return ListNodesResponse ListNodesResponse
+     * @param tmpReq - ListNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNodesResponse
+     *
+     * @param ListNodesRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListNodesResponse
      */
     public function listNodesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListNodesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListNodes',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListNodesResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListNodes',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询调度节点列表。
-     *  *
-     * @param ListNodesRequest $request ListNodesRequest
+     * 查询调度节点列表。
      *
-     * @return ListNodesResponse ListNodesResponse
+     * @param request - ListNodesRequest
+     *
+     * @returns ListNodesResponse
+     *
+     * @param ListNodesRequest $request
+     *
+     * @return ListNodesResponse
      */
     public function listNodes($request)
     {
@@ -4913,57 +5632,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取发布记录列表
-     *  *
-     * @param ListPublishRecordsRequest $tmpReq  ListPublishRecordsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 分页获取发布记录列表.
      *
-     * @return ListPublishRecordsResponse ListPublishRecordsResponse
+     * @param tmpReq - ListPublishRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPublishRecordsResponse
+     *
+     * @param ListPublishRecordsRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListPublishRecordsResponse
      */
     public function listPublishRecordsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListPublishRecordsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListPublishRecords',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListPublishRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListPublishRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListPublishRecords',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPublishRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 分页获取发布记录列表
-     *  *
-     * @param ListPublishRecordsRequest $request ListPublishRecordsRequest
+     * 分页获取发布记录列表.
      *
-     * @return ListPublishRecordsResponse ListPublishRecordsResponse
+     * @param request - ListPublishRecordsRequest
+     *
+     * @returns ListPublishRecordsResponse
+     *
+     * @param ListPublishRecordsRequest $request
+     *
+     * @return ListPublishRecordsResponse
      */
     public function listPublishRecords($request)
     {
@@ -4973,57 +5701,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取权限操作列表
-     *  *
-     * @param ListResourcePermissionOperationLogRequest $tmpReq  ListResourcePermissionOperationLogRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * 分页获取权限操作列表.
      *
-     * @return ListResourcePermissionOperationLogResponse ListResourcePermissionOperationLogResponse
+     * @param tmpReq - ListResourcePermissionOperationLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourcePermissionOperationLogResponse
+     *
+     * @param ListResourcePermissionOperationLogRequest $tmpReq
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ListResourcePermissionOperationLogResponse
      */
     public function listResourcePermissionOperationLogWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListResourcePermissionOperationLogShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListResourcePermissionOperationLog',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListResourcePermissionOperationLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListResourcePermissionOperationLogResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListResourcePermissionOperationLog',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListResourcePermissionOperationLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 分页获取权限操作列表
-     *  *
-     * @param ListResourcePermissionOperationLogRequest $request ListResourcePermissionOperationLogRequest
+     * 分页获取权限操作列表.
      *
-     * @return ListResourcePermissionOperationLogResponse ListResourcePermissionOperationLogResponse
+     * @param request - ListResourcePermissionOperationLogRequest
+     *
+     * @returns ListResourcePermissionOperationLogResponse
+     *
+     * @param ListResourcePermissionOperationLogRequest $request
+     *
+     * @return ListResourcePermissionOperationLogResponse
      */
     public function listResourcePermissionOperationLog($request)
     {
@@ -5033,57 +5770,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取权限记录列表
-     *  *
-     * @param ListResourcePermissionsRequest $tmpReq  ListResourcePermissionsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 分页获取权限记录列表.
      *
-     * @return ListResourcePermissionsResponse ListResourcePermissionsResponse
+     * @param tmpReq - ListResourcePermissionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourcePermissionsResponse
+     *
+     * @param ListResourcePermissionsRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListResourcePermissionsResponse
      */
     public function listResourcePermissionsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListResourcePermissionsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListResourcePermissions',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListResourcePermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListResourcePermissionsResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListResourcePermissions',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListResourcePermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 分页获取权限记录列表
-     *  *
-     * @param ListResourcePermissionsRequest $request ListResourcePermissionsRequest
+     * 分页获取权限记录列表.
      *
-     * @return ListResourcePermissionsResponse ListResourcePermissionsResponse
+     * @param request - ListResourcePermissionsRequest
+     *
+     * @returns ListResourcePermissionsResponse
+     *
+     * @param ListResourcePermissionsRequest $request
+     *
+     * @return ListResourcePermissionsResponse
      */
     public function listResourcePermissions($request)
     {
@@ -5093,57 +5839,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取待发布记录列表
-     *  *
-     * @param ListSubmitRecordsRequest $tmpReq  ListSubmitRecordsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 分页获取待发布记录列表.
      *
-     * @return ListSubmitRecordsResponse ListSubmitRecordsResponse
+     * @param tmpReq - ListSubmitRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSubmitRecordsResponse
+     *
+     * @param ListSubmitRecordsRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListSubmitRecordsResponse
      */
     public function listSubmitRecordsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListSubmitRecordsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListSubmitRecords',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListSubmitRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListSubmitRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListSubmitRecords',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSubmitRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 分页获取待发布记录列表
-     *  *
-     * @param ListSubmitRecordsRequest $request ListSubmitRecordsRequest
+     * 分页获取待发布记录列表.
      *
-     * @return ListSubmitRecordsResponse ListSubmitRecordsResponse
+     * @param request - ListSubmitRecordsRequest
+     *
+     * @returns ListSubmitRecordsResponse
+     *
+     * @param ListSubmitRecordsRequest $request
+     *
+     * @return ListSubmitRecordsResponse
      */
     public function listSubmitRecords($request)
     {
@@ -5153,57 +5908,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询租户成员列表
-     *  *
-     * @param ListTenantMembersRequest $tmpReq  ListTenantMembersRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询租户成员列表.
      *
-     * @return ListTenantMembersResponse ListTenantMembersResponse
+     * @param tmpReq - ListTenantMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTenantMembersResponse
+     *
+     * @param ListTenantMembersRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListTenantMembersResponse
      */
     public function listTenantMembersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTenantMembersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListTenantMembers',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTenantMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListTenantMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListTenantMembers',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTenantMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询租户成员列表
-     *  *
-     * @param ListTenantMembersRequest $request ListTenantMembersRequest
+     * 查询租户成员列表.
      *
-     * @return ListTenantMembersResponse ListTenantMembersResponse
+     * @param request - ListTenantMembersRequest
+     *
+     * @returns ListTenantMembersResponse
+     *
+     * @param ListTenantMembersRequest $request
+     *
+     * @return ListTenantMembersResponse
      */
     public function listTenantMembers($request)
     {
@@ -5213,57 +5977,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 用户组成员列表分页查询.
-     *  *
-     * @param ListUserGroupMembersRequest $tmpReq  ListUserGroupMembersRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 用户组成员列表分页查询.
      *
-     * @return ListUserGroupMembersResponse ListUserGroupMembersResponse
+     * @param tmpReq - ListUserGroupMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserGroupMembersResponse
+     *
+     * @param ListUserGroupMembersRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListUserGroupMembersResponse
      */
     public function listUserGroupMembersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListUserGroupMembersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListUserGroupMembers',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListUserGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListUserGroupMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListUserGroupMembers',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUserGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 用户组成员列表分页查询.
-     *  *
-     * @param ListUserGroupMembersRequest $request ListUserGroupMembersRequest
+     * 用户组成员列表分页查询.
      *
-     * @return ListUserGroupMembersResponse ListUserGroupMembersResponse
+     * @param request - ListUserGroupMembersRequest
+     *
+     * @returns ListUserGroupMembersResponse
+     *
+     * @param ListUserGroupMembersRequest $request
+     *
+     * @return ListUserGroupMembersResponse
      */
     public function listUserGroupMembers($request)
     {
@@ -5273,57 +6046,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 用户组列表分页查询.
-     *  *
-     * @param ListUserGroupsRequest $tmpReq  ListUserGroupsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 用户组列表分页查询.
      *
-     * @return ListUserGroupsResponse ListUserGroupsResponse
+     * @param tmpReq - ListUserGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserGroupsResponse
+     *
+     * @param ListUserGroupsRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListUserGroupsResponse
      */
     public function listUserGroupsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListUserGroupsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listQuery)) {
-            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->listQueryShrink)) {
-            $body['ListQuery'] = $request->listQueryShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListUserGroups',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListUserGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
         }
 
-        return ListUserGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListUserGroups',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUserGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 用户组列表分页查询.
-     *  *
-     * @param ListUserGroupsRequest $request ListUserGroupsRequest
+     * 用户组列表分页查询.
      *
-     * @return ListUserGroupsResponse ListUserGroupsResponse
+     * @param request - ListUserGroupsRequest
+     *
+     * @returns ListUserGroupsResponse
+     *
+     * @param ListUserGroupsRequest $request
+     *
+     * @return ListUserGroupsResponse
      */
     public function listUserGroups($request)
     {
@@ -5333,56 +6115,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 下线离线计算任务。
-     *  *
-     * @param OfflineBatchTaskRequest $request OfflineBatchTaskRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 下线离线计算任务。
      *
-     * @return OfflineBatchTaskResponse OfflineBatchTaskResponse
+     * @param request - OfflineBatchTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OfflineBatchTaskResponse
+     *
+     * @param OfflineBatchTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return OfflineBatchTaskResponse
      */
     public function offlineBatchTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
-        }
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'OfflineBatchTask',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return OfflineBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
 
-        return OfflineBatchTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OfflineBatchTask',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OfflineBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 下线离线计算任务。
-     *  *
-     * @param OfflineBatchTaskRequest $request OfflineBatchTaskRequest
+     * 下线离线计算任务。
      *
-     * @return OfflineBatchTaskResponse OfflineBatchTaskResponse
+     * @param request - OfflineBatchTaskRequest
+     *
+     * @returns OfflineBatchTaskResponse
+     *
+     * @param OfflineBatchTaskRequest $request
+     *
+     * @return OfflineBatchTaskResponse
      */
     public function offlineBatchTask($request)
     {
@@ -5392,57 +6184,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 下线业务实体、
-     *  *
-     * @param OfflineBizEntityRequest $tmpReq  OfflineBizEntityRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 下线业务实体、
      *
-     * @return OfflineBizEntityResponse OfflineBizEntityResponse
+     * @param tmpReq - OfflineBizEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OfflineBizEntityResponse
+     *
+     * @param OfflineBizEntityRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return OfflineBizEntityResponse
      */
     public function offlineBizEntityWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new OfflineBizEntityShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->offlineCommand)) {
-            $request->offlineCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->offlineCommand, 'OfflineCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->offlineCommandShrink)) {
-            $body['OfflineCommand'] = $request->offlineCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'OfflineBizEntity',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return OfflineBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->offlineCommand) {
+            $request->offlineCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->offlineCommand, 'OfflineCommand', 'json');
         }
 
-        return OfflineBizEntityResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->offlineCommandShrink) {
+            @$body['OfflineCommand'] = $request->offlineCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'OfflineBizEntity',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OfflineBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 下线业务实体、
-     *  *
-     * @param OfflineBizEntityRequest $request OfflineBizEntityRequest
+     * 下线业务实体、
      *
-     * @return OfflineBizEntityResponse OfflineBizEntityResponse
+     * @param request - OfflineBizEntityRequest
+     *
+     * @returns OfflineBizEntityResponse
+     *
+     * @param OfflineBizEntityRequest $request
+     *
+     * @return OfflineBizEntityResponse
      */
     public function offlineBizEntity($request)
     {
@@ -5452,57 +6253,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 上线业务实体。
-     *  *
-     * @param OnlineBizEntityRequest $tmpReq  OnlineBizEntityRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 上线业务实体。
      *
-     * @return OnlineBizEntityResponse OnlineBizEntityResponse
+     * @param tmpReq - OnlineBizEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OnlineBizEntityResponse
+     *
+     * @param OnlineBizEntityRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return OnlineBizEntityResponse
      */
     public function onlineBizEntityWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new OnlineBizEntityShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->onlineCommand)) {
-            $request->onlineCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->onlineCommand, 'OnlineCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->onlineCommandShrink)) {
-            $body['OnlineCommand'] = $request->onlineCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'OnlineBizEntity',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return OnlineBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->onlineCommand) {
+            $request->onlineCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->onlineCommand, 'OnlineCommand', 'json');
         }
 
-        return OnlineBizEntityResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->onlineCommandShrink) {
+            @$body['OnlineCommand'] = $request->onlineCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'OnlineBizEntity',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OnlineBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 上线业务实体。
-     *  *
-     * @param OnlineBizEntityRequest $request OnlineBizEntityRequest
+     * 上线业务实体。
      *
-     * @return OnlineBizEntityResponse OnlineBizEntityResponse
+     * @param request - OnlineBizEntityRequest
+     *
+     * @returns OnlineBizEntityResponse
+     *
+     * @param OnlineBizEntityRequest $request
+     *
+     * @return OnlineBizEntityResponse
      */
     public function onlineBizEntity($request)
     {
@@ -5512,60 +6322,70 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 运维实例。
-     *  *
-     * @param OperateInstanceRequest $tmpReq  OperateInstanceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 运维实例。
      *
-     * @return OperateInstanceResponse OperateInstanceResponse
+     * @param tmpReq - OperateInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateInstanceResponse
+     *
+     * @param OperateInstanceRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return OperateInstanceResponse
      */
     public function operateInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new OperateInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->operateCommand)) {
-            $request->operateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operateCommand, 'OperateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->operateCommandShrink)) {
-            $body['OperateCommand'] = $request->operateCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'OperateInstance',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return OperateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->operateCommand) {
+            $request->operateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->operateCommand, 'OperateCommand', 'json');
         }
 
-        return OperateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->operateCommandShrink) {
+            @$body['OperateCommand'] = $request->operateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'OperateInstance',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OperateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 运维实例。
-     *  *
-     * @param OperateInstanceRequest $request OperateInstanceRequest
+     * 运维实例。
      *
-     * @return OperateInstanceResponse OperateInstanceResponse
+     * @param request - OperateInstanceRequest
+     *
+     * @returns OperateInstanceResponse
+     *
+     * @param OperateInstanceRequest $request
+     *
+     * @return OperateInstanceResponse
      */
     public function operateInstance($request)
     {
@@ -5575,57 +6395,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
-     *  *
-     * @param ParseBatchTaskDependencyRequest $tmpReq  ParseBatchTaskDependencyRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
      *
-     * @return ParseBatchTaskDependencyResponse ParseBatchTaskDependencyResponse
+     * @param tmpReq - ParseBatchTaskDependencyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ParseBatchTaskDependencyResponse
+     *
+     * @param ParseBatchTaskDependencyRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ParseBatchTaskDependencyResponse
      */
     public function parseBatchTaskDependencyWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ParseBatchTaskDependencyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->parseCommand)) {
-            $request->parseCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parseCommand, 'ParseCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->parseCommandShrink)) {
-            $body['ParseCommand'] = $request->parseCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ParseBatchTaskDependency',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ParseBatchTaskDependencyResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->parseCommand) {
+            $request->parseCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parseCommand, 'ParseCommand', 'json');
         }
 
-        return ParseBatchTaskDependencyResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->parseCommandShrink) {
+            @$body['ParseCommand'] = $request->parseCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ParseBatchTaskDependency',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ParseBatchTaskDependencyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
-     *  *
-     * @param ParseBatchTaskDependencyRequest $request ParseBatchTaskDependencyRequest
+     * 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
      *
-     * @return ParseBatchTaskDependencyResponse ParseBatchTaskDependencyResponse
+     * @param request - ParseBatchTaskDependencyRequest
+     *
+     * @returns ParseBatchTaskDependencyResponse
+     *
+     * @param ParseBatchTaskDependencyRequest $request
+     *
+     * @return ParseBatchTaskDependencyResponse
      */
     public function parseBatchTaskDependency($request)
     {
@@ -5635,60 +6464,70 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 暂停物理节点调度。
-     *  *
-     * @param PausePhysicalNodeRequest $tmpReq  PausePhysicalNodeRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 暂停物理节点调度。
      *
-     * @return PausePhysicalNodeResponse PausePhysicalNodeResponse
+     * @param tmpReq - PausePhysicalNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PausePhysicalNodeResponse
+     *
+     * @param PausePhysicalNodeRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return PausePhysicalNodeResponse
      */
     public function pausePhysicalNodeWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PausePhysicalNodeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->pauseCommand)) {
-            $request->pauseCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pauseCommand, 'PauseCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->pauseCommandShrink)) {
-            $body['PauseCommand'] = $request->pauseCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'PausePhysicalNode',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PausePhysicalNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->pauseCommand) {
+            $request->pauseCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pauseCommand, 'PauseCommand', 'json');
         }
 
-        return PausePhysicalNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->pauseCommandShrink) {
+            @$body['PauseCommand'] = $request->pauseCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PausePhysicalNode',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PausePhysicalNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 暂停物理节点调度。
-     *  *
-     * @param PausePhysicalNodeRequest $request PausePhysicalNodeRequest
+     * 暂停物理节点调度。
      *
-     * @return PausePhysicalNodeResponse PausePhysicalNodeResponse
+     * @param request - PausePhysicalNodeRequest
+     *
+     * @returns PausePhysicalNodeResponse
+     *
+     * @param PausePhysicalNodeRequest $request
+     *
+     * @return PausePhysicalNodeResponse
      */
     public function pausePhysicalNode($request)
     {
@@ -5698,57 +6537,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 批量发布对象
-     *  *
-     * @param PublishObjectListRequest $tmpReq  PublishObjectListRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 批量发布对象
      *
-     * @return PublishObjectListResponse PublishObjectListResponse
+     * @param tmpReq - PublishObjectListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishObjectListResponse
+     *
+     * @param PublishObjectListRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return PublishObjectListResponse
      */
     public function publishObjectListWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PublishObjectListShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->publishCommand)) {
-            $request->publishCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->publishCommand, 'PublishCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->publishCommandShrink)) {
-            $body['PublishCommand'] = $request->publishCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'PublishObjectList',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PublishObjectListResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->publishCommand) {
+            $request->publishCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->publishCommand, 'PublishCommand', 'json');
         }
 
-        return PublishObjectListResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->publishCommandShrink) {
+            @$body['PublishCommand'] = $request->publishCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PublishObjectList',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PublishObjectListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量发布对象
-     *  *
-     * @param PublishObjectListRequest $request PublishObjectListRequest
+     * 批量发布对象
      *
-     * @return PublishObjectListResponse PublishObjectListResponse
+     * @param request - PublishObjectListRequest
+     *
+     * @returns PublishObjectListResponse
+     *
+     * @param PublishObjectListRequest $request
+     *
+     * @return PublishObjectListResponse
      */
     public function publishObjectList($request)
     {
@@ -5758,57 +6606,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除租户成员
-     *  *
-     * @param RemoveTenantMemberRequest $tmpReq  RemoveTenantMemberRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 删除租户成员.
      *
-     * @return RemoveTenantMemberResponse RemoveTenantMemberResponse
+     * @param tmpReq - RemoveTenantMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveTenantMemberResponse
+     *
+     * @param RemoveTenantMemberRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RemoveTenantMemberResponse
      */
     public function removeTenantMemberWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RemoveTenantMemberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->removeCommand)) {
-            $request->removeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->removeCommand, 'RemoveCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->removeCommandShrink)) {
-            $body['RemoveCommand'] = $request->removeCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'RemoveTenantMember',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveTenantMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->removeCommand) {
+            $request->removeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->removeCommand, 'RemoveCommand', 'json');
         }
 
-        return RemoveTenantMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->removeCommandShrink) {
+            @$body['RemoveCommand'] = $request->removeCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveTenantMember',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveTenantMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除租户成员
-     *  *
-     * @param RemoveTenantMemberRequest $request RemoveTenantMemberRequest
+     * 删除租户成员.
      *
-     * @return RemoveTenantMemberResponse RemoveTenantMemberResponse
+     * @param request - RemoveTenantMemberRequest
+     *
+     * @returns RemoveTenantMemberResponse
+     *
+     * @param RemoveTenantMemberRequest $request
+     *
+     * @return RemoveTenantMemberResponse
      */
     public function removeTenantMember($request)
     {
@@ -5818,57 +6675,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 移除用户组成员.
-     *  *
-     * @param RemoveUserGroupMemberRequest $tmpReq  RemoveUserGroupMemberRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 移除用户组成员.
      *
-     * @return RemoveUserGroupMemberResponse RemoveUserGroupMemberResponse
+     * @param tmpReq - RemoveUserGroupMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveUserGroupMemberResponse
+     *
+     * @param RemoveUserGroupMemberRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RemoveUserGroupMemberResponse
      */
     public function removeUserGroupMemberWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RemoveUserGroupMemberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->removeCommand)) {
-            $request->removeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->removeCommand, 'RemoveCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->removeCommandShrink)) {
-            $body['RemoveCommand'] = $request->removeCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'RemoveUserGroupMember',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->removeCommand) {
+            $request->removeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->removeCommand, 'RemoveCommand', 'json');
         }
 
-        return RemoveUserGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->removeCommandShrink) {
+            @$body['RemoveCommand'] = $request->removeCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveUserGroupMember',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 移除用户组成员.
-     *  *
-     * @param RemoveUserGroupMemberRequest $request RemoveUserGroupMemberRequest
+     * 移除用户组成员.
      *
-     * @return RemoveUserGroupMemberResponse RemoveUserGroupMemberResponse
+     * @param request - RemoveUserGroupMemberRequest
+     *
+     * @returns RemoveUserGroupMemberResponse
+     *
+     * @param RemoveUserGroupMemberRequest $request
+     *
+     * @return RemoveUserGroupMemberResponse
      */
     public function removeUserGroupMember($request)
     {
@@ -5878,60 +6744,70 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 恢复物理节点调度。
-     *  *
-     * @param ResumePhysicalNodeRequest $tmpReq  ResumePhysicalNodeRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 恢复物理节点调度。
      *
-     * @return ResumePhysicalNodeResponse ResumePhysicalNodeResponse
+     * @param tmpReq - ResumePhysicalNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumePhysicalNodeResponse
+     *
+     * @param ResumePhysicalNodeRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ResumePhysicalNodeResponse
      */
     public function resumePhysicalNodeWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ResumePhysicalNodeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resumeCommand)) {
-            $request->resumeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resumeCommand, 'ResumeCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->resumeCommandShrink)) {
-            $body['ResumeCommand'] = $request->resumeCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ResumePhysicalNode',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ResumePhysicalNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resumeCommand) {
+            $request->resumeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resumeCommand, 'ResumeCommand', 'json');
         }
 
-        return ResumePhysicalNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->resumeCommandShrink) {
+            @$body['ResumeCommand'] = $request->resumeCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ResumePhysicalNode',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResumePhysicalNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 恢复物理节点调度。
-     *  *
-     * @param ResumePhysicalNodeRequest $request ResumePhysicalNodeRequest
+     * 恢复物理节点调度。
      *
-     * @return ResumePhysicalNodeResponse ResumePhysicalNodeResponse
+     * @param request - ResumePhysicalNodeRequest
+     *
+     * @returns ResumePhysicalNodeResponse
+     *
+     * @param ResumePhysicalNodeRequest $request
+     *
+     * @return ResumePhysicalNodeResponse
      */
     public function resumePhysicalNode($request)
     {
@@ -5941,57 +6817,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 回收用户资源授权
-     *  *
-     * @param RevokeResourcePermissionRequest $tmpReq  RevokeResourcePermissionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 回收用户资源授权.
      *
-     * @return RevokeResourcePermissionResponse RevokeResourcePermissionResponse
+     * @param tmpReq - RevokeResourcePermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeResourcePermissionResponse
+     *
+     * @param RevokeResourcePermissionRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RevokeResourcePermissionResponse
      */
     public function revokeResourcePermissionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RevokeResourcePermissionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->revokeCommand)) {
-            $request->revokeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->revokeCommand, 'RevokeCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->revokeCommandShrink)) {
-            $body['RevokeCommand'] = $request->revokeCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'RevokeResourcePermission',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RevokeResourcePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->revokeCommand) {
+            $request->revokeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->revokeCommand, 'RevokeCommand', 'json');
         }
 
-        return RevokeResourcePermissionResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->revokeCommandShrink) {
+            @$body['RevokeCommand'] = $request->revokeCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeResourcePermission',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeResourcePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 回收用户资源授权
-     *  *
-     * @param RevokeResourcePermissionRequest $request RevokeResourcePermissionRequest
+     * 回收用户资源授权.
      *
-     * @return RevokeResourcePermissionResponse RevokeResourcePermissionResponse
+     * @param request - RevokeResourcePermissionRequest
+     *
+     * @returns RevokeResourcePermissionResponse
+     *
+     * @param RevokeResourcePermissionRequest $request
+     *
+     * @return RevokeResourcePermissionResponse
      */
     public function revokeResourcePermission($request)
     {
@@ -6001,53 +6886,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 终止即席查询任务。
-     *  *
-     * @param StopAdHocTaskRequest $request StopAdHocTaskRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 终止即席查询任务。
      *
-     * @return StopAdHocTaskResponse StopAdHocTaskResponse
+     * @param request - StopAdHocTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopAdHocTaskResponse
+     *
+     * @param StopAdHocTaskRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StopAdHocTaskResponse
      */
     public function stopAdHocTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'StopAdHocTask',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return StopAdHocTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
         }
 
-        return StopAdHocTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StopAdHocTask',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopAdHocTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 终止即席查询任务。
-     *  *
-     * @param StopAdHocTaskRequest $request StopAdHocTaskRequest
+     * 终止即席查询任务。
      *
-     * @return StopAdHocTaskResponse StopAdHocTaskResponse
+     * @param request - StopAdHocTaskRequest
+     *
+     * @returns StopAdHocTaskResponse
+     *
+     * @param StopAdHocTaskRequest $request
+     *
+     * @return StopAdHocTaskResponse
      */
     public function stopAdHocTask($request)
     {
@@ -6057,57 +6951,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 提交离线计算任务。
-     *  *
-     * @param SubmitBatchTaskRequest $tmpReq  SubmitBatchTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 提交离线计算任务。
      *
-     * @return SubmitBatchTaskResponse SubmitBatchTaskResponse
+     * @param tmpReq - SubmitBatchTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitBatchTaskResponse
+     *
+     * @param SubmitBatchTaskRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SubmitBatchTaskResponse
      */
     public function submitBatchTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitBatchTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->submitCommand)) {
-            $request->submitCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->submitCommand, 'SubmitCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->submitCommandShrink)) {
-            $body['SubmitCommand'] = $request->submitCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitBatchTask',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->submitCommand) {
+            $request->submitCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->submitCommand, 'SubmitCommand', 'json');
         }
 
-        return SubmitBatchTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->submitCommandShrink) {
+            @$body['SubmitCommand'] = $request->submitCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitBatchTask',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 提交离线计算任务。
-     *  *
-     * @param SubmitBatchTaskRequest $request SubmitBatchTaskRequest
+     * 提交离线计算任务。
      *
-     * @return SubmitBatchTaskResponse SubmitBatchTaskResponse
+     * @param request - SubmitBatchTaskRequest
+     *
+     * @returns SubmitBatchTaskResponse
+     *
+     * @param SubmitBatchTaskRequest $request
+     *
+     * @return SubmitBatchTaskResponse
      */
     public function submitBatchTask($request)
     {
@@ -6117,57 +7020,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑即席查询文件。
-     *  *
-     * @param UpdateAdHocFileRequest $tmpReq  UpdateAdHocFileRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 编辑即席查询文件。
      *
-     * @return UpdateAdHocFileResponse UpdateAdHocFileResponse
+     * @param tmpReq - UpdateAdHocFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAdHocFileResponse
+     *
+     * @param UpdateAdHocFileRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateAdHocFileResponse
      */
     public function updateAdHocFileWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateAdHocFileShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateAdHocFile',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateAdHocFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
 
-        return UpdateAdHocFileResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAdHocFile',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAdHocFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 编辑即席查询文件。
-     *  *
-     * @param UpdateAdHocFileRequest $request UpdateAdHocFileRequest
+     * 编辑即席查询文件。
      *
-     * @return UpdateAdHocFileResponse UpdateAdHocFileResponse
+     * @param request - UpdateAdHocFileRequest
+     *
+     * @returns UpdateAdHocFileResponse
+     *
+     * @param UpdateAdHocFileRequest $request
+     *
+     * @return UpdateAdHocFileResponse
      */
     public function updateAdHocFile($request)
     {
@@ -6177,57 +7089,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑离线计算任务。
-     *  *
-     * @param UpdateBatchTaskRequest $tmpReq  UpdateBatchTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 编辑离线计算任务。
      *
-     * @return UpdateBatchTaskResponse UpdateBatchTaskResponse
+     * @param tmpReq - UpdateBatchTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBatchTaskResponse
+     *
+     * @param UpdateBatchTaskRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateBatchTaskResponse
      */
     public function updateBatchTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateBatchTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateBatchTask',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
 
-        return UpdateBatchTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateBatchTask',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 编辑离线计算任务。
-     *  *
-     * @param UpdateBatchTaskRequest $request UpdateBatchTaskRequest
+     * 编辑离线计算任务。
      *
-     * @return UpdateBatchTaskResponse UpdateBatchTaskResponse
+     * @param request - UpdateBatchTaskRequest
+     *
+     * @returns UpdateBatchTaskResponse
+     *
+     * @param UpdateBatchTaskRequest $request
+     *
+     * @return UpdateBatchTaskResponse
      */
     public function updateBatchTask($request)
     {
@@ -6237,57 +7158,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑离线计算任务自定义血缘。
-     *  *
-     * @param UpdateBatchTaskUdfLineagesRequest $tmpReq  UpdateBatchTaskUdfLineagesRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 编辑离线计算任务自定义血缘。
      *
-     * @return UpdateBatchTaskUdfLineagesResponse UpdateBatchTaskUdfLineagesResponse
+     * @param tmpReq - UpdateBatchTaskUdfLineagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBatchTaskUdfLineagesResponse
+     *
+     * @param UpdateBatchTaskUdfLineagesRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateBatchTaskUdfLineagesResponse
      */
     public function updateBatchTaskUdfLineagesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateBatchTaskUdfLineagesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateBatchTaskUdfLineages',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateBatchTaskUdfLineagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
 
-        return UpdateBatchTaskUdfLineagesResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateBatchTaskUdfLineages',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateBatchTaskUdfLineagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 编辑离线计算任务自定义血缘。
-     *  *
-     * @param UpdateBatchTaskUdfLineagesRequest $request UpdateBatchTaskUdfLineagesRequest
+     * 编辑离线计算任务自定义血缘。
      *
-     * @return UpdateBatchTaskUdfLineagesResponse UpdateBatchTaskUdfLineagesResponse
+     * @param request - UpdateBatchTaskUdfLineagesRequest
+     *
+     * @returns UpdateBatchTaskUdfLineagesResponse
+     *
+     * @param UpdateBatchTaskUdfLineagesRequest $request
+     *
+     * @return UpdateBatchTaskUdfLineagesResponse
      */
     public function updateBatchTaskUdfLineages($request)
     {
@@ -6297,57 +7227,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新业务实体、
-     *  *
-     * @param UpdateBizEntityRequest $tmpReq  UpdateBizEntityRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 更新业务实体、
      *
-     * @return UpdateBizEntityResponse UpdateBizEntityResponse
+     * @param tmpReq - UpdateBizEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBizEntityResponse
+     *
+     * @param UpdateBizEntityRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateBizEntityResponse
      */
     public function updateBizEntityWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateBizEntityShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateBizEntity',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
 
-        return UpdateBizEntityResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateBizEntity',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新业务实体、
-     *  *
-     * @param UpdateBizEntityRequest $request UpdateBizEntityRequest
+     * 更新业务实体、
      *
-     * @return UpdateBizEntityResponse UpdateBizEntityResponse
+     * @param request - UpdateBizEntityRequest
+     *
+     * @returns UpdateBizEntityResponse
+     *
+     * @param UpdateBizEntityRequest $request
+     *
+     * @return UpdateBizEntityResponse
      */
     public function updateBizEntity($request)
     {
@@ -6357,57 +7296,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新数据板块。
-     *  *
-     * @param UpdateBizUnitRequest $tmpReq  UpdateBizUnitRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 更新数据板块。
      *
-     * @return UpdateBizUnitResponse UpdateBizUnitResponse
+     * @param tmpReq - UpdateBizUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBizUnitResponse
+     *
+     * @param UpdateBizUnitRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateBizUnitResponse
      */
     public function updateBizUnitWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateBizUnitShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateBizUnit',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateBizUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
 
-        return UpdateBizUnitResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateBizUnit',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateBizUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新数据板块。
-     *  *
-     * @param UpdateBizUnitRequest $request UpdateBizUnitRequest
+     * 更新数据板块。
      *
-     * @return UpdateBizUnitResponse UpdateBizUnitResponse
+     * @param request - UpdateBizUnitRequest
+     *
+     * @returns UpdateBizUnitResponse
+     *
+     * @param UpdateBizUnitRequest $request
+     *
+     * @return UpdateBizUnitResponse
      */
     public function updateBizUnit($request)
     {
@@ -6417,57 +7365,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新主题域。
-     *  *
-     * @param UpdateDataDomainRequest $tmpReq  UpdateDataDomainRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 更新主题域。
      *
-     * @return UpdateDataDomainResponse UpdateDataDomainResponse
+     * @param tmpReq - UpdateDataDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataDomainResponse
+     *
+     * @param UpdateDataDomainRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateDataDomainResponse
      */
     public function updateDataDomainWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDataDomainShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateDataDomain',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateDataDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
 
-        return UpdateDataDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataDomain',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新主题域。
-     *  *
-     * @param UpdateDataDomainRequest $request UpdateDataDomainRequest
+     * 更新主题域。
      *
-     * @return UpdateDataDomainResponse UpdateDataDomainResponse
+     * @param request - UpdateDataDomainRequest
+     *
+     * @returns UpdateDataDomainResponse
+     *
+     * @param UpdateDataDomainRequest $request
+     *
+     * @return UpdateDataDomainResponse
      */
     public function updateDataDomain($request)
     {
@@ -6477,57 +7434,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑数据源基本信息
-     *  *
-     * @param UpdateDataSourceBasicInfoRequest $tmpReq  UpdateDataSourceBasicInfoRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 编辑数据源基本信息.
      *
-     * @return UpdateDataSourceBasicInfoResponse UpdateDataSourceBasicInfoResponse
+     * @param tmpReq - UpdateDataSourceBasicInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataSourceBasicInfoResponse
+     *
+     * @param UpdateDataSourceBasicInfoRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateDataSourceBasicInfoResponse
      */
     public function updateDataSourceBasicInfoWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDataSourceBasicInfoShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateDataSourceBasicInfo',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateDataSourceBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
 
-        return UpdateDataSourceBasicInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataSourceBasicInfo',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataSourceBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 编辑数据源基本信息
-     *  *
-     * @param UpdateDataSourceBasicInfoRequest $request UpdateDataSourceBasicInfoRequest
+     * 编辑数据源基本信息.
      *
-     * @return UpdateDataSourceBasicInfoResponse UpdateDataSourceBasicInfoResponse
+     * @param request - UpdateDataSourceBasicInfoRequest
+     *
+     * @returns UpdateDataSourceBasicInfoResponse
+     *
+     * @param UpdateDataSourceBasicInfoRequest $request
+     *
+     * @return UpdateDataSourceBasicInfoResponse
      */
     public function updateDataSourceBasicInfo($request)
     {
@@ -6537,57 +7503,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑数据源连接配置项
-     *  *
-     * @param UpdateDataSourceConfigRequest $tmpReq  UpdateDataSourceConfigRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 编辑数据源连接配置项.
      *
-     * @return UpdateDataSourceConfigResponse UpdateDataSourceConfigResponse
+     * @param tmpReq - UpdateDataSourceConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataSourceConfigResponse
+     *
+     * @param UpdateDataSourceConfigRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateDataSourceConfigResponse
      */
     public function updateDataSourceConfigWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateDataSourceConfigShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateDataSourceConfig',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateDataSourceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
 
-        return UpdateDataSourceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataSourceConfig',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataSourceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 编辑数据源连接配置项
-     *  *
-     * @param UpdateDataSourceConfigRequest $request UpdateDataSourceConfigRequest
+     * 编辑数据源连接配置项.
      *
-     * @return UpdateDataSourceConfigResponse UpdateDataSourceConfigResponse
+     * @param request - UpdateDataSourceConfigRequest
+     *
+     * @returns UpdateDataSourceConfigResponse
+     *
+     * @param UpdateDataSourceConfigRequest $request
+     *
+     * @return UpdateDataSourceConfigResponse
      */
     public function updateDataSourceConfig($request)
     {
@@ -6597,56 +7572,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 修改菜单树文件所在目录
-     *  *
-     * @param UpdateFileDirectoryRequest $request UpdateFileDirectoryRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 修改菜单树文件所在目录.
      *
-     * @return UpdateFileDirectoryResponse UpdateFileDirectoryResponse
+     * @param request - UpdateFileDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFileDirectoryResponse
+     *
+     * @param UpdateFileDirectoryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateFileDirectoryResponse
      */
     public function updateFileDirectoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->directory)) {
-            $query['Directory'] = $request->directory;
-        }
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateFileDirectory',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateFileDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->directory) {
+            @$query['Directory'] = $request->directory;
         }
 
-        return UpdateFileDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFileDirectory',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFileDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改菜单树文件所在目录
-     *  *
-     * @param UpdateFileDirectoryRequest $request UpdateFileDirectoryRequest
+     * 修改菜单树文件所在目录.
      *
-     * @return UpdateFileDirectoryResponse UpdateFileDirectoryResponse
+     * @param request - UpdateFileDirectoryRequest
+     *
+     * @returns UpdateFileDirectoryResponse
+     *
+     * @param UpdateFileDirectoryRequest $request
+     *
+     * @return UpdateFileDirectoryResponse
      */
     public function updateFileDirectory($request)
     {
@@ -6656,56 +7641,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 修改菜单树文件名称
-     *  *
-     * @param UpdateFileNameRequest $request UpdateFileNameRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 修改菜单树文件名称.
      *
-     * @return UpdateFileNameResponse UpdateFileNameResponse
+     * @param request - UpdateFileNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFileNameResponse
+     *
+     * @param UpdateFileNameRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateFileNameResponse
      */
     public function updateFileNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateFileName',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateFileNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
         }
 
-        return UpdateFileNameResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFileName',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFileNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改菜单树文件名称
-     *  *
-     * @param UpdateFileNameRequest $request UpdateFileNameRequest
+     * 修改菜单树文件名称.
      *
-     * @return UpdateFileNameResponse UpdateFileNameResponse
+     * @param request - UpdateFileNameRequest
+     *
+     * @returns UpdateFileNameResponse
+     *
+     * @param UpdateFileNameRequest $request
+     *
+     * @return UpdateFileNameResponse
      */
     public function updateFileName($request)
     {
@@ -6715,57 +7710,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑租户成员
-     *  *
-     * @param UpdateTenantMemberRequest $tmpReq  UpdateTenantMemberRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 编辑租户成员.
      *
-     * @return UpdateTenantMemberResponse UpdateTenantMemberResponse
+     * @param tmpReq - UpdateTenantMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTenantMemberResponse
+     *
+     * @param UpdateTenantMemberRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateTenantMemberResponse
      */
     public function updateTenantMemberWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateTenantMemberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateTenantMember',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateTenantMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
 
-        return UpdateTenantMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateTenantMember',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateTenantMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 编辑租户成员
-     *  *
-     * @param UpdateTenantMemberRequest $request UpdateTenantMemberRequest
+     * 编辑租户成员.
      *
-     * @return UpdateTenantMemberResponse UpdateTenantMemberResponse
+     * @param request - UpdateTenantMemberRequest
+     *
+     * @returns UpdateTenantMemberResponse
+     *
+     * @param UpdateTenantMemberRequest $request
+     *
+     * @return UpdateTenantMemberResponse
      */
     public function updateTenantMember($request)
     {
@@ -6775,57 +7779,66 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑用户组.
-     *  *
-     * @param UpdateUserGroupRequest $tmpReq  UpdateUserGroupRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 编辑用户组.
      *
-     * @return UpdateUserGroupResponse UpdateUserGroupResponse
+     * @param tmpReq - UpdateUserGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUserGroupResponse
+     *
+     * @param UpdateUserGroupRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateUserGroupResponse
      */
     public function updateUserGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateUserGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->updateCommand)) {
-            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->updateCommandShrink)) {
-            $body['UpdateCommand'] = $request->updateCommandShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateUserGroup',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
         }
 
-        return UpdateUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateUserGroup',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 编辑用户组.
-     *  *
-     * @param UpdateUserGroupRequest $request UpdateUserGroupRequest
+     * 编辑用户组.
      *
-     * @return UpdateUserGroupResponse UpdateUserGroupResponse
+     * @param request - UpdateUserGroupRequest
+     *
+     * @returns UpdateUserGroupResponse
+     *
+     * @param UpdateUserGroupRequest $request
+     *
+     * @return UpdateUserGroupResponse
      */
     public function updateUserGroup($request)
     {
@@ -6835,53 +7848,62 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * @summary 编辑用户组启用开关.
-     *  *
-     * @param UpdateUserGroupSwitchRequest $request UpdateUserGroupSwitchRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 编辑用户组启用开关.
      *
-     * @return UpdateUserGroupSwitchResponse UpdateUserGroupSwitchResponse
+     * @param request - UpdateUserGroupSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUserGroupSwitchResponse
+     *
+     * @param UpdateUserGroupSwitchRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateUserGroupSwitchResponse
      */
     public function updateUserGroupSwitchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->active)) {
-            $query['Active'] = $request->active;
-        }
-        if (!Utils::isUnset($request->opTenantId)) {
-            $query['OpTenantId'] = $request->opTenantId;
-        }
-        if (!Utils::isUnset($request->userGroupId)) {
-            $query['UserGroupId'] = $request->userGroupId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateUserGroupSwitch',
-            'version'     => '2023-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateUserGroupSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        if (null !== $request->active) {
+            @$query['Active'] = $request->active;
         }
 
-        return UpdateUserGroupSwitchResponse::fromMap($this->execute($params, $req, $runtime));
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->userGroupId) {
+            @$query['UserGroupId'] = $request->userGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateUserGroupSwitch',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateUserGroupSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 编辑用户组启用开关.
-     *  *
-     * @param UpdateUserGroupSwitchRequest $request UpdateUserGroupSwitchRequest
+     * 编辑用户组启用开关.
      *
-     * @return UpdateUserGroupSwitchResponse UpdateUserGroupSwitchResponse
+     * @param request - UpdateUserGroupSwitchRequest
+     *
+     * @returns UpdateUserGroupSwitchResponse
+     *
+     * @param UpdateUserGroupSwitchRequest $request
+     *
+     * @return UpdateUserGroupSwitchResponse
      */
     public function updateUserGroupSwitch($request)
     {

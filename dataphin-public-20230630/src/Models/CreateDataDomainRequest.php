@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataDomainRequest\createCommand;
-use AlibabaCloud\Tea\Model;
 
 class CreateDataDomainRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var createCommand
      */
     public $createCommand;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
     protected $_name = [
         'createCommand' => 'CreateCommand',
-        'opTenantId'    => 'OpTenantId',
+        'opTenantId' => 'OpTenantId',
     ];
 
     public function validate()
     {
+        if (null !== $this->createCommand) {
+            $this->createCommand->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createCommand) {
-            $res['CreateCommand'] = null !== $this->createCommand ? $this->createCommand->toMap() : null;
+            $res['CreateCommand'] = null !== $this->createCommand ? $this->createCommand->toArray($noStream) : $this->createCommand;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -46,17 +45,18 @@ class CreateDataDomainRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDataDomainRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateCommand'])) {
             $model->createCommand = createCommand::fromMap($map['CreateCommand']);
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

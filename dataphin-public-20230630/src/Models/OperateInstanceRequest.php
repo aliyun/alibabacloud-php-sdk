@@ -4,73 +4,73 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OperateInstanceRequest\operateCommand;
-use AlibabaCloud\Tea\Model;
 
 class OperateInstanceRequest extends Model
 {
     /**
-     * @example PROD
-     *
      * @var string
      */
     public $env;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var operateCommand
      */
     public $operateCommand;
     protected $_name = [
-        'env'            => 'Env',
-        'opTenantId'     => 'OpTenantId',
+        'env' => 'Env',
+        'opTenantId' => 'OpTenantId',
         'operateCommand' => 'OperateCommand',
     ];
 
     public function validate()
     {
+        if (null !== $this->operateCommand) {
+            $this->operateCommand->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
+
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->operateCommand) {
-            $res['OperateCommand'] = null !== $this->operateCommand ? $this->operateCommand->toMap() : null;
+            $res['OperateCommand'] = null !== $this->operateCommand ? $this->operateCommand->toArray($noStream) : $this->operateCommand;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OperateInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
         }
+
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['OperateCommand'])) {
             $model->operateCommand = operateCommand::fromMap($map['OperateCommand']);
         }

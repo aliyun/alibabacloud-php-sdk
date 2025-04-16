@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveUserGroupMemberRequest\removeCommand;
-use AlibabaCloud\Tea\Model;
 
 class RemoveUserGroupMemberRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var removeCommand
      */
     public $removeCommand;
     protected $_name = [
-        'opTenantId'    => 'OpTenantId',
+        'opTenantId' => 'OpTenantId',
         'removeCommand' => 'RemoveCommand',
     ];
 
     public function validate()
     {
+        if (null !== $this->removeCommand) {
+            $this->removeCommand->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->removeCommand) {
-            $res['RemoveCommand'] = null !== $this->removeCommand ? $this->removeCommand->toMap() : null;
+            $res['RemoveCommand'] = null !== $this->removeCommand ? $this->removeCommand->toArray($noStream) : $this->removeCommand;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveUserGroupMemberRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['RemoveCommand'])) {
             $model->removeCommand = removeCommand::fromMap($map['RemoveCommand']);
         }

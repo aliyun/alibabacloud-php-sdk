@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUsersRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 30001011
-     *
      * @var int
      */
     public $opTenantId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $userIdList;
@@ -30,35 +24,51 @@ class GetUsersRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->userIdList)) {
+            Model::validateArray($this->userIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
+
         if (null !== $this->userIdList) {
-            $res['UserIdList'] = $this->userIdList;
+            if (\is_array($this->userIdList)) {
+                $res['UserIdList'] = [];
+                $n1 = 0;
+                foreach ($this->userIdList as $item1) {
+                    $res['UserIdList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUsersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
+
         if (isset($map['UserIdList'])) {
             if (!empty($map['UserIdList'])) {
-                $model->userIdList = $map['UserIdList'];
+                $model->userIdList = [];
+                $n1 = 0;
+                foreach ($map['UserIdList'] as $item1) {
+                    $model->userIdList[$n1++] = $item1;
+                }
             }
         }
 
