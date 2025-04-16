@@ -15,11 +15,21 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\AddDriveSpaceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddDriveSpaceResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddDriveSpaceShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddDriveSpaceShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddFolderHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddFolderRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddFolderResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddFolderShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddFolderShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddPermissionHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddPermissionRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddPermissionResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddPermissionShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddPermissionShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddRecordPermissionHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddRecordPermissionRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddRecordPermissionResponse;
@@ -240,6 +250,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteColumnsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteColumnsResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteColumnsShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteColumnsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteDentryHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteDentryRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteDentryResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteDentryShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteDentryShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteDriveSpaceHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteDriveSpaceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteDriveSpaceResponse;
@@ -272,6 +287,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMeetingRoomRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMeetingRoomResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMeetingRoomShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteMeetingRoomShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeletePermissionHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeletePermissionRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeletePermissionResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeletePermissionShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeletePermissionShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteRowsHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteRowsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteRowsResponse;
@@ -305,6 +325,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocUpdateContentHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocUpdateContentRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocUpdateContentResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocUpdateContentShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DocUpdateContentShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ExecuteBatchTaskHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ExecuteBatchTaskRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ExecuteBatchTaskResponse;
@@ -691,6 +716,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\ListNodesRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListNodesResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListNodesShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListNodesShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListPermissionsHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListPermissionsRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListPermissionsResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListPermissionsShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListPermissionsShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListReportHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListReportRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListReportResponse;
@@ -1042,6 +1072,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMeetingRoomRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMeetingRoomResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMeetingRoomShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateMeetingRoomShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdatePermissionHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdatePermissionRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdatePermissionResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdatePermissionShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdatePermissionShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateRangeHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateRangeRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateRangeResponse;
@@ -1220,11 +1255,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddAttendeeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddAttendeeResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddAttendeeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1309,11 +1341,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddDriveSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDriveSpaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDriveSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1333,6 +1362,108 @@ class Aliding extends OpenApiClient
         $headers = new AddDriveSpaceHeaders([]);
 
         return $this->addDriveSpaceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 添加文件夹.
+     *
+     * @param tmpReq - AddFolderRequest
+     * @param tmpHeader - AddFolderHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddFolderResponse
+     *
+     * @param AddFolderRequest $tmpReq
+     * @param AddFolderHeaders $tmpHeader
+     * @param RuntimeOptions   $runtime
+     *
+     * @return AddFolderResponse
+     */
+    public function addFolderWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddFolderShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new AddFolderShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->option) {
+            $request->optionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->option, 'Option', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->optionShrink) {
+            @$body['Option'] = $request->optionShrink;
+        }
+
+        if (null !== $request->parentId) {
+            @$body['ParentId'] = $request->parentId;
+        }
+
+        if (null !== $request->spaceId) {
+            @$body['SpaceId'] = $request->spaceId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddFolder',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/addFolder',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加文件夹.
+     *
+     * @param request - AddFolderRequest
+     *
+     * @returns AddFolderResponse
+     *
+     * @param AddFolderRequest $request
+     *
+     * @return AddFolderResponse
+     */
+    public function addFolder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AddFolderHeaders([]);
+
+        return $this->addFolderWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1402,11 +1533,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddMeetingRoomsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddMeetingRoomsResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddMeetingRoomsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1426,6 +1554,112 @@ class Aliding extends OpenApiClient
         $headers = new AddMeetingRoomsHeaders([]);
 
         return $this->addMeetingRoomsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 添加文件权限.
+     *
+     * @param tmpReq - AddPermissionRequest
+     * @param tmpHeader - AddPermissionHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddPermissionResponse
+     *
+     * @param AddPermissionRequest $tmpReq
+     * @param AddPermissionHeaders $tmpHeader
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddPermissionResponse
+     */
+    public function addPermissionWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddPermissionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new AddPermissionShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->members) {
+            $request->membersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->members, 'Members', 'json');
+        }
+
+        if (null !== $tmpReq->option) {
+            $request->optionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->option, 'Option', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->dentryUuid) {
+            @$body['DentryUuid'] = $request->dentryUuid;
+        }
+
+        if (null !== $request->membersShrink) {
+            @$body['Members'] = $request->membersShrink;
+        }
+
+        if (null !== $request->optionShrink) {
+            @$body['Option'] = $request->optionShrink;
+        }
+
+        if (null !== $request->roleId) {
+            @$body['RoleId'] = $request->roleId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddPermission',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/addPermission',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加文件权限.
+     *
+     * @param request - AddPermissionRequest
+     *
+     * @returns AddPermissionResponse
+     *
+     * @param AddPermissionRequest $request
+     *
+     * @return AddPermissionResponse
+     */
+    public function addPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AddPermissionHeaders([]);
+
+        return $this->addPermissionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1499,11 +1733,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddRecordPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddRecordPermissionResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddRecordPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1582,11 +1813,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddScenegroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddScenegroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddScenegroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1683,11 +1911,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddTicketMemoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddTicketMemoResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddTicketMemoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1780,11 +2005,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1881,11 +2103,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddWorkspaceDocMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddWorkspaceDocMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddWorkspaceDocMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1978,11 +2197,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddWorkspaceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddWorkspaceMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddWorkspaceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2095,11 +2311,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssignTicketResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssignTicketResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssignTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2196,11 +2409,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BatchGetFormDataByIdListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchGetFormDataByIdListResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchGetFormDataByIdListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2301,11 +2511,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BatchRemovalByFormInstanceIdListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchRemovalByFormInstanceIdListResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchRemovalByFormInstanceIdListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2410,11 +2617,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BatchSaveFormDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchSaveFormDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchSaveFormDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2527,11 +2731,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BatchUpdateFormDataByInstanceIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchUpdateFormDataByInstanceIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchUpdateFormDataByInstanceIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2640,11 +2841,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BatchUpdateFormDataByInstanceMapResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchUpdateFormDataByInstanceMapResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchUpdateFormDataByInstanceMapResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2729,11 +2927,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelScheduleConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelScheduleConferenceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelScheduleConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2818,11 +3013,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckAlibabaStaffResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckAlibabaStaffResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckAlibabaStaffResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2897,11 +3089,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckUserIsGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckUserIsGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckUserIsGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2994,11 +3183,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ClearResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ClearResponse::fromMap($this->execute($params, $req, $runtime));
+        return ClearResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3091,11 +3277,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ClearDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ClearDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return ClearDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3180,11 +3363,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CloseVideoConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CloseVideoConferenceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CloseVideoConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3277,11 +3457,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CommentListReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CommentListReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return CommentListReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3382,11 +3559,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CommitFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CommitFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return CommitFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3495,11 +3669,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CopyDentryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CopyDentryResponse::fromMap($this->execute($params, $req, $runtime));
+        return CopyDentryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3608,11 +3779,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDeliveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDeliveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDeliveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3733,11 +3901,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDingtalkPersonalTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDingtalkPersonalTodoTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDingtalkPersonalTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3914,11 +4079,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateEventResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateEventResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4023,11 +4185,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateLiveResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateLiveResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateLiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4160,11 +4319,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateMeetingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateMeetingRoomResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateMeetingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4253,11 +4409,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateMeetingRoomGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateMeetingRoomGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateMeetingRoomGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4346,11 +4499,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateMessageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateMessageResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateMessageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4449,11 +4599,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateOrUpdateFormDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateOrUpdateFormDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateOrUpdateFormDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4562,11 +4709,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateOrgHonorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateOrgHonorTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateOrgHonorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4687,11 +4831,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePersonalTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePersonalTodoTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePersonalTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4808,11 +4949,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4901,11 +5039,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateRunResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRunResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRunResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5056,11 +5191,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateScenegroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateScenegroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateScenegroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5161,11 +5293,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateScheduleConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateScheduleConferenceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateScheduleConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5270,11 +5399,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSearchDomeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSearchDomeResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSearchDomeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5379,11 +5505,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSearchKeywordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSearchKeywordResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSearchKeywordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5472,11 +5595,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSheetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSheetResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSheetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5573,11 +5693,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSubscribedCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSubscribedCalendarResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSubscribedCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5654,11 +5771,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateThreadResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateThreadResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateThreadResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5783,11 +5897,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTicketResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5950,11 +6061,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTodoTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6043,11 +6151,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVideoConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVideoConferenceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVideoConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6136,11 +6241,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6245,11 +6347,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateWorkspaceDocResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateWorkspaceDocResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateWorkspaceDocResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6346,11 +6445,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteColumnsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6370,6 +6466,100 @@ class Aliding extends OpenApiClient
         $headers = new DeleteColumnsHeaders([]);
 
         return $this->deleteColumnsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除文件或文件夹.
+     *
+     * @param tmpReq - DeleteDentryRequest
+     * @param tmpHeader - DeleteDentryHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDentryResponse
+     *
+     * @param DeleteDentryRequest $tmpReq
+     * @param DeleteDentryHeaders $tmpHeader
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteDentryResponse
+     */
+    public function deleteDentryWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteDentryShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new DeleteDentryShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->dentryId) {
+            @$body['DentryId'] = $request->dentryId;
+        }
+
+        if (null !== $request->spaceId) {
+            @$body['SpaceId'] = $request->spaceId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->toRecycleBin) {
+            @$body['ToRecycleBin'] = $request->toRecycleBin;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDentry',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/deleteDentry',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDentryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除文件或文件夹.
+     *
+     * @param request - DeleteDentryRequest
+     *
+     * @returns DeleteDentryResponse
+     *
+     * @param DeleteDentryRequest $request
+     *
+     * @return DeleteDentryResponse
+     */
+    public function deleteDentry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteDentryHeaders([]);
+
+        return $this->deleteDentryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6435,11 +6625,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDriveSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDriveSpaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDriveSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6522,11 +6709,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteEventResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteEventResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6613,11 +6797,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteFormDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteFormDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteFormDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6702,11 +6883,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6789,11 +6967,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteLiveResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteLiveResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteLiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6878,11 +7053,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteMeetingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteMeetingRoomResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteMeetingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6967,11 +7139,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteMeetingRoomGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteMeetingRoomGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteMeetingRoomGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6991,6 +7160,104 @@ class Aliding extends OpenApiClient
         $headers = new DeleteMeetingRoomGroupHeaders([]);
 
         return $this->deleteMeetingRoomGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除文件权限.
+     *
+     * @param tmpReq - DeletePermissionRequest
+     * @param tmpHeader - DeletePermissionHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePermissionResponse
+     *
+     * @param DeletePermissionRequest $tmpReq
+     * @param DeletePermissionHeaders $tmpHeader
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeletePermissionResponse
+     */
+    public function deletePermissionWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeletePermissionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new DeletePermissionShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->members) {
+            $request->membersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->members, 'Members', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->dentryUuid) {
+            @$body['DentryUuid'] = $request->dentryUuid;
+        }
+
+        if (null !== $request->membersShrink) {
+            @$body['Members'] = $request->membersShrink;
+        }
+
+        if (null !== $request->roleId) {
+            @$body['RoleId'] = $request->roleId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePermission',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/deletePermission',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除文件权限.
+     *
+     * @param request - DeletePermissionRequest
+     *
+     * @returns DeletePermissionResponse
+     *
+     * @param DeletePermissionRequest $request
+     *
+     * @return DeletePermissionResponse
+     */
+    public function deletePermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeletePermissionHeaders([]);
+
+        return $this->deletePermissionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7068,11 +7335,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteRowsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteRowsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteRowsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7151,11 +7415,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteScenegroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteScenegroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteScenegroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7244,11 +7505,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSheetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSheetResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSheetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7323,11 +7581,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSubscribedCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSubscribedCalendarResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSubscribedCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7416,11 +7671,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTodoTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7517,11 +7769,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteWorkspaceDocMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteWorkspaceDocMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteWorkspaceDocMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7614,11 +7863,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteWorkspaceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteWorkspaceMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteWorkspaceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7638,6 +7884,100 @@ class Aliding extends OpenApiClient
         $headers = new DeleteWorkspaceMembersHeaders([]);
 
         return $this->deleteWorkspaceMembersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 覆写文档.
+     *
+     * @param tmpReq - DocUpdateContentRequest
+     * @param tmpHeader - DocUpdateContentHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DocUpdateContentResponse
+     *
+     * @param DocUpdateContentRequest $tmpReq
+     * @param DocUpdateContentHeaders $tmpHeader
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DocUpdateContentResponse
+     */
+    public function docUpdateContentWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DocUpdateContentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new DocUpdateContentShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
+        }
+
+        if (null !== $request->dataType) {
+            @$body['DataType'] = $request->dataType;
+        }
+
+        if (null !== $request->docKey) {
+            @$body['DocKey'] = $request->docKey;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DocUpdateContent',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/docUpdateContent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DocUpdateContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 覆写文档.
+     *
+     * @param request - DocUpdateContentRequest
+     *
+     * @returns DocUpdateContentResponse
+     *
+     * @param DocUpdateContentRequest $request
+     *
+     * @return DocUpdateContentResponse
+     */
+    public function docUpdateContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DocUpdateContentHeaders([]);
+
+        return $this->docUpdateContentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7709,11 +8049,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteBatchTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7816,11 +8153,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecutePlatformTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecutePlatformTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecutePlatformTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7931,11 +8265,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8020,11 +8351,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExpandGroupCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExpandGroupCapacityResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExpandGroupCapacityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8129,11 +8457,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return FinishTicketResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FinishTicketResponse::fromMap($this->execute($params, $req, $runtime));
+        return FinishTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8220,11 +8545,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetActivityListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetActivityListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetActivityListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8309,11 +8631,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAllSheetsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAllSheetsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAllSheetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8410,11 +8729,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAssistantCapabilityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAssistantCapabilityResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAssistantCapabilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8499,11 +8815,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetConversaionSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConversaionSpaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConversaionSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8614,11 +8927,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCorpAccomplishmentTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCorpAccomplishmentTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCorpAccomplishmentTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8729,11 +9039,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCorpTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCorpTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCorpTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8816,11 +9123,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDeptNoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDeptNoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDeptNoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8911,11 +9215,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDocContentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDocContentResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDocContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9008,11 +9309,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDocContentTakIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDocContentTakIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDocContentTakIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9097,11 +9395,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetEventResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetEventResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9184,11 +9479,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFieldDefByUuidResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFieldDefByUuidResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFieldDefByUuidResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9285,11 +9577,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFileDownloadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFileDownloadInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFileDownloadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9386,11 +9675,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFileUploadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFileUploadInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFileUploadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9477,11 +9763,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFormComponentDefinitionListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFormComponentDefinitionListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFormComponentDefinitionListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9568,11 +9851,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFormDataByIDResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFormDataByIDResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFormDataByIDResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9663,11 +9943,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFormListInAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFormListInAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFormListInAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9760,11 +10037,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetGroupLiveListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetGroupLiveListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetGroupLiveListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9847,11 +10121,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetInnerGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInnerGroupMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInnerGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9938,11 +10209,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetInstanceByIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstanceByIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstanceByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10073,11 +10341,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetInstanceIdListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstanceIdListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstanceIdListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10212,11 +10477,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10303,11 +10565,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetInstancesByIdListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstancesByIdListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstancesByIdListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10392,11 +10651,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetLiveReplayUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetLiveReplayUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetLiveReplayUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10507,11 +10763,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMeCorpSubmissionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMeCorpSubmissionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMeCorpSubmissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10600,11 +10853,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMeetingRoomsScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMeetingRoomsScheduleResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMeetingRoomsScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10693,11 +10943,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMineWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMineWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMineWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10786,11 +11033,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMultiDimTableAllFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMultiDimTableAllFieldsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMultiDimTableAllFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10875,11 +11119,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMultiDimTableAllSheetsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMultiDimTableAllSheetsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMultiDimTableAllSheetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10972,11 +11213,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMultiDimTableRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMultiDimTableRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMultiDimTableRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11065,11 +11303,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMultiDimTableSheetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMultiDimTableSheetResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMultiDimTableSheetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11170,11 +11405,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMultipartFileUploadInfosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMultipartFileUploadInfosResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMultipartFileUploadInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11255,11 +11487,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetNewestInnerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNewestInnerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNewestInnerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11352,11 +11581,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11449,11 +11675,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetNodeByUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNodeByUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNodeByUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11550,11 +11773,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNodesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11673,11 +11893,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetNotifyMeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNotifyMeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNotifyMeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11768,11 +11985,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetOpenUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOpenUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOpenUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11859,11 +12073,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetOperationRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOperationRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOperationRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11966,11 +12177,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetOrgLiveListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOrgLiveListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOrgLiveListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12065,11 +12273,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetOrgOrWebOpenDocContentTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOrgOrWebOpenDocContentTaskIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOrgOrWebOpenDocContentTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12176,11 +12381,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetProcessDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetProcessDefinitionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetProcessDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12277,11 +12479,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRangeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRangeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRangeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12366,11 +12565,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRelatedWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRelatedWorkspacesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRelatedWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12455,11 +12651,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetReportTemplateByNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetReportTemplateByNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetReportTemplateByNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12548,11 +12741,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetReportUnReadCountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetReportUnReadCountResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetReportUnReadCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12643,11 +12833,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRunningTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRunningTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRunningTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12744,11 +12931,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetScheduleResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12837,11 +13021,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSheetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSheetResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSheetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12930,11 +13111,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSheetContentJobIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSheetContentJobIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSheetContentJobIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13031,11 +13209,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSpaceDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSpaceDirectoriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSpaceDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13110,11 +13285,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSubscribedCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSubscribedCalendarResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSubscribedCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13221,11 +13393,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTaskCopiesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTaskCopiesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTaskCopiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13314,11 +13483,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTemplateListByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTemplateListByUserIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTemplateListByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13407,11 +13573,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTicketResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTicketResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13496,11 +13659,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTodoTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13585,11 +13745,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13674,11 +13831,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUserIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13763,11 +13917,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetUserIdByOrgIdAndStaffIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUserIdByOrgIdAndStaffIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUserIdByOrgIdAndStaffIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13848,11 +13999,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetUserLatestPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUserLatestPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUserLatestPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13941,11 +14089,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14042,11 +14187,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetWorkspacesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14175,11 +14317,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GrantHonorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GrantHonorResponse::fromMap($this->execute($params, $req, $runtime));
+        return GrantHonorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14272,11 +14411,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InitMultipartFileUploadResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InitMultipartFileUploadResponse::fromMap($this->execute($params, $req, $runtime));
+        return InitMultipartFileUploadResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14373,11 +14509,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InsertColumnsBeforeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InsertColumnsBeforeResponse::fromMap($this->execute($params, $req, $runtime));
+        return InsertColumnsBeforeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14474,11 +14607,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InsertRowsBeforeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InsertRowsBeforeResponse::fromMap($this->execute($params, $req, $runtime));
+        return InsertRowsBeforeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14579,11 +14709,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InviteUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InviteUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return InviteUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14668,11 +14795,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InvokeAssistantResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InvokeAssistantResponse::fromMap($this->execute($params, $req, $runtime));
+        return InvokeAssistantResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14757,11 +14881,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InvokeSkillResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InvokeSkillResponse::fromMap($this->execute($params, $req, $runtime));
+        return InvokeSkillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14856,11 +14977,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14941,11 +15059,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCalendarsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCalendarsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCalendarsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15054,11 +15169,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDentriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDentriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDentriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15151,11 +15263,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDriveSpacesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDriveSpacesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDriveSpacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15262,11 +15371,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15361,11 +15467,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListEventsViewResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEventsViewResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEventsViewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15458,11 +15561,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListFormRemarksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListFormRemarksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListFormRemarksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15551,11 +15651,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListMessageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListMessageResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListMessageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15660,11 +15757,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListMultiDimTableRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListMultiDimTableRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListMultiDimTableRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15751,11 +15845,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListNavigationByFormTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNavigationByFormTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNavigationByFormTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15852,11 +15943,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNodesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15876,6 +15964,100 @@ class Aliding extends OpenApiClient
         $headers = new ListNodesHeaders([]);
 
         return $this->listNodesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取文件权限列表.
+     *
+     * @param tmpReq - ListPermissionsRequest
+     * @param tmpHeader - ListPermissionsHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPermissionsResponse
+     *
+     * @param ListPermissionsRequest $tmpReq
+     * @param ListPermissionsHeaders $tmpHeader
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListPermissionsResponse
+     */
+    public function listPermissionsWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListPermissionsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new ListPermissionsShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->option) {
+            $request->optionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->option, 'Option', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->dentryUuid) {
+            @$body['DentryUuid'] = $request->dentryUuid;
+        }
+
+        if (null !== $request->optionShrink) {
+            @$body['Option'] = $request->optionShrink;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListPermissions',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/listPermissions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文件权限列表.
+     *
+     * @param request - ListPermissionsRequest
+     *
+     * @returns ListPermissionsResponse
+     *
+     * @param ListPermissionsRequest $request
+     *
+     * @return ListPermissionsResponse
+     */
+    public function listPermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListPermissionsHeaders([]);
+
+        return $this->listPermissionsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -15965,11 +16147,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16068,11 +16247,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTableDataByFormInstanceIdTableIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTableDataByFormInstanceIdTableIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTableDataByFormInstanceIdTableIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16161,11 +16337,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTeamsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTeamsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTeamsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16262,11 +16435,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16355,11 +16525,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTicketOperateRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTicketOperateRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTicketOperateRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16460,11 +16627,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWorkspacesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16621,11 +16785,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PatchEventResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PatchEventResponse::fromMap($this->execute($params, $req, $runtime));
+        return PatchEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16726,11 +16887,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryCloudRecordTextResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryCloudRecordTextResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryCloudRecordTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16815,11 +16973,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryCloudRecordVideoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryCloudRecordVideoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryCloudRecordVideoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16912,11 +17067,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryCloudRecordVideoPlayInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryCloudRecordVideoPlayInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryCloudRecordVideoPlayInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -16991,11 +17143,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryConferenceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryConferenceInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryConferenceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17088,11 +17237,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryConferenceInfoByRoomCodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryConferenceInfoByRoomCodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryConferenceInfoByRoomCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17185,11 +17331,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryConferenceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryConferenceMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryConferenceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17282,11 +17425,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryDentryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDentryResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDentryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17375,11 +17515,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryGroupLiveInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryGroupLiveInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryGroupLiveInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17464,11 +17601,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryLiveInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryLiveInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryLiveInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17553,11 +17687,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryLiveWatchDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryLiveWatchDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryLiveWatchDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17650,11 +17781,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryLiveWatchUserListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryLiveWatchUserListResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryLiveWatchUserListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17739,11 +17867,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryMeetingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryMeetingRoomResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryMeetingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17828,11 +17953,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryMeetingRoomGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryMeetingRoomGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryMeetingRoomGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -17921,11 +18043,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryMeetingRoomGroupListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryMeetingRoomGroupListResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryMeetingRoomGroupListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18014,11 +18133,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryMeetingRoomListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryMeetingRoomListResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryMeetingRoomListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18103,11 +18219,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryMinutesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryMinutesResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryMinutesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18200,11 +18313,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryMinutesSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryMinutesSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryMinutesSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18301,11 +18411,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryMinutesTextResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryMinutesTextResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryMinutesTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18398,11 +18505,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryOrgHonorsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryOrgHonorsResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryOrgHonorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18491,11 +18595,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryOrgTodoTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryOrgTodoTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryOrgTodoTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18584,11 +18685,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryRecordMinutesUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryRecordMinutesUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryRecordMinutesUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18673,11 +18771,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryReportDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryReportDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryReportDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18762,11 +18857,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryScheduleConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryScheduleConferenceResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryScheduleConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18859,11 +18951,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryScheduleConferenceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryScheduleConferenceInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryScheduleConferenceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -18960,11 +19049,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryUserHonorsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryUserHonorsResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryUserHonorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19057,11 +19143,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RecallHonorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RecallHonorResponse::fromMap($this->execute($params, $req, $runtime));
+        return RecallHonorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19154,11 +19237,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReceiverListReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReceiverListReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReceiverListReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19261,11 +19341,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RedirectTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RedirectTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return RedirectTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19354,11 +19431,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveAttendeeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveAttendeeResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveAttendeeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19447,11 +19521,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveMeetingRoomsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveMeetingRoomsResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveMeetingRoomsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19544,11 +19615,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RespondEventResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RespondEventResponse::fromMap($this->execute($params, $req, $runtime));
+        return RespondEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19629,11 +19697,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RetrieveRunResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RetrieveRunResponse::fromMap($this->execute($params, $req, $runtime));
+        return RetrieveRunResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19730,11 +19795,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SaveContentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SaveContentResponse::fromMap($this->execute($params, $req, $runtime));
+        return SaveContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19825,11 +19887,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SaveFormDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SaveFormDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return SaveFormDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -19928,11 +19987,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SaveFormRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SaveFormRemarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return SaveFormRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -20047,11 +20103,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SearchEmployeeFieldValuesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchEmployeeFieldValuesResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchEmployeeFieldValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -20170,11 +20223,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SearchFormDataIdListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchFormDataIdListResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchFormDataIdListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -20293,11 +20343,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SearchFormDataSecondGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchFormDataSecondGenerationResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchFormDataSecondGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -20416,11 +20463,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SearchFormDataSecondGenerationNoTableFieldResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchFormDataSecondGenerationNoTableFieldResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchFormDataSecondGenerationNoTableFieldResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -20543,11 +20587,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SearchFormDatasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchFormDatasResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchFormDatasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -20626,11 +20667,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SearchInnerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchInnerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchInnerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -20727,11 +20765,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SendBannerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SendBannerResponse::fromMap($this->execute($params, $req, $runtime));
+        return SendBannerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -20828,11 +20863,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SendPopupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SendPopupResponse::fromMap($this->execute($params, $req, $runtime));
+        return SendPopupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -20929,11 +20961,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SendSearchShadeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SendSearchShadeResponse::fromMap($this->execute($params, $req, $runtime));
+        return SendSearchShadeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21034,11 +21063,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetColumnsVisibilityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetColumnsVisibilityResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetColumnsVisibilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21135,11 +21161,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetConferenceHostsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetConferenceHostsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetConferenceHostsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21240,11 +21263,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetRowsVisibilityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetRowsVisibilityResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetRowsVisibilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21345,11 +21365,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SimpleListReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SimpleListReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return SimpleListReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21442,11 +21459,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartCloudRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartCloudRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartCloudRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21549,11 +21563,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21646,11 +21657,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartMinutesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartMinutesResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartMinutesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21747,11 +21755,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StatisticsListByTypeReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StatisticsListByTypeReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return StatisticsListByTypeReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21836,11 +21841,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StatisticsReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StatisticsReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return StatisticsReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -21925,11 +21927,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopCloudRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopCloudRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopCloudRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22014,11 +22013,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopMinutesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopMinutesResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopMinutesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22093,11 +22089,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubscribeCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubscribeCalendarResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubscribeCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22186,11 +22179,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubscribeEventResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubscribeEventResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubscribeEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22287,11 +22277,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SyncDingTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SyncDingTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return SyncDingTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22378,11 +22365,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TerminateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TerminateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return TerminateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22495,11 +22479,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TransferTicketResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TransferTicketResponse::fromMap($this->execute($params, $req, $runtime));
+        return TransferTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22574,11 +22555,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnsubscribeCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnsubscribeCalendarResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnsubscribeCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22667,11 +22645,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnsubscribeEventResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnsubscribeEventResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnsubscribeEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22766,11 +22741,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateFormDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateFormDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateFormDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22861,11 +22833,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -22970,11 +22939,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateLiveResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateLiveResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateLiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23111,11 +23077,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateMeetingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateMeetingRoomResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateMeetingRoomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23204,11 +23167,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateMeetingRoomGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateMeetingRoomGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateMeetingRoomGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23228,6 +23188,112 @@ class Aliding extends OpenApiClient
         $headers = new UpdateMeetingRoomGroupHeaders([]);
 
         return $this->updateMeetingRoomGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新文件权限.
+     *
+     * @param tmpReq - UpdatePermissionRequest
+     * @param tmpHeader - UpdatePermissionHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePermissionResponse
+     *
+     * @param UpdatePermissionRequest $tmpReq
+     * @param UpdatePermissionHeaders $tmpHeader
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdatePermissionResponse
+     */
+    public function updatePermissionWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdatePermissionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new UpdatePermissionShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->members) {
+            $request->membersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->members, 'Members', 'json');
+        }
+
+        if (null !== $tmpReq->option) {
+            $request->optionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->option, 'Option', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->dentryUuid) {
+            @$body['DentryUuid'] = $request->dentryUuid;
+        }
+
+        if (null !== $request->membersShrink) {
+            @$body['Members'] = $request->membersShrink;
+        }
+
+        if (null !== $request->optionShrink) {
+            @$body['Option'] = $request->optionShrink;
+        }
+
+        if (null !== $request->roleId) {
+            @$body['RoleId'] = $request->roleId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePermission',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/documents/updatePermission',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新文件权限.
+     *
+     * @param request - UpdatePermissionRequest
+     *
+     * @returns UpdatePermissionResponse
+     *
+     * @param UpdatePermissionRequest $request
+     *
+     * @return UpdatePermissionResponse
+     */
+    public function updatePermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdatePermissionHeaders([]);
+
+        return $this->updatePermissionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -23329,11 +23395,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateRangeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateRangeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateRangeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23426,11 +23489,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateScheduleConfSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateScheduleConfSettingsResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateScheduleConfSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23527,11 +23587,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateScheduleConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateScheduleConferenceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateScheduleConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23632,11 +23689,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23737,11 +23791,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateSubscribedCalendarsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSubscribedCalendarsResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSubscribedCalendarsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23858,11 +23909,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTodoTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -23959,11 +24007,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTodoTaskExecutorStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTodoTaskExecutorStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTodoTaskExecutorStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -24038,11 +24083,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateUserAvatarResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUserAvatarResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUserAvatarResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -24151,11 +24193,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateVideoConferenceSettingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVideoConferenceSettingResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVideoConferenceSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -24252,11 +24291,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateWorkspaceDocMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateWorkspaceDocMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateWorkspaceDocMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -24349,11 +24385,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateWorkspaceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateWorkspaceMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateWorkspaceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -24450,11 +24483,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UploadMediaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UploadMediaResponse::fromMap($this->execute($params, $req, $runtime));
+        return UploadMediaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -24551,11 +24581,8 @@ class Aliding extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return WearOrgHonorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return WearOrgHonorResponse::fromMap($this->execute($params, $req, $runtime));
+        return WearOrgHonorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
