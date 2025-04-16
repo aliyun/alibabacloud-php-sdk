@@ -49,7 +49,7 @@ class images extends Model
     public $releaseFileMd5;
 
     /**
-     * @var int
+     * @var string
      */
     public $releaseFileSize;
 

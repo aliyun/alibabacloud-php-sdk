@@ -51,7 +51,7 @@ class DescribeClusterResponseBody extends Model
     public $hpnZone;
 
     /**
-     * @var networks[]
+     * @var networks
      */
     public $networks;
 
@@ -125,8 +125,8 @@ class DescribeClusterResponseBody extends Model
         if (\is_array($this->components)) {
             Model::validateArray($this->components);
         }
-        if (\is_array($this->networks)) {
-            Model::validateArray($this->networks);
+        if (null !== $this->networks) {
+            $this->networks->validate();
         }
         parent::validate();
     }
@@ -173,13 +173,7 @@ class DescribeClusterResponseBody extends Model
         }
 
         if (null !== $this->networks) {
-            if (\is_array($this->networks)) {
-                $res['Networks'] = [];
-                $n1 = 0;
-                foreach ($this->networks as $item1) {
-                    $res['Networks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                }
-            }
+            $res['Networks'] = null !== $this->networks ? $this->networks->toArray($noStream) : $this->networks;
         }
 
         if (null !== $this->nodeCount) {
@@ -268,13 +262,7 @@ class DescribeClusterResponseBody extends Model
         }
 
         if (isset($map['Networks'])) {
-            if (!empty($map['Networks'])) {
-                $model->networks = [];
-                $n1 = 0;
-                foreach ($map['Networks'] as $item1) {
-                    $model->networks[$n1++] = networks::fromMap($item1);
-                }
-            }
+            $model->networks = networks::fromMap($map['Networks']);
         }
 
         if (isset($map['NodeCount'])) {
