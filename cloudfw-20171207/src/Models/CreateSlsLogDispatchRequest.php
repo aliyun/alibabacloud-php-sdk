@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSlsLogDispatchRequest extends Model
 {
     /**
-     * @description The region ID of the Simple Log Service project.
-     *
-     * @example ap-southeast-1
-     *
      * @var string
      */
     public $slsRegionId;
 
     /**
-     * @description The log retention period. Unit: days.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $ttl;
     protected $_name = [
         'slsRegionId' => 'SlsRegionId',
-        'ttl'         => 'Ttl',
+        'ttl' => 'Ttl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->slsRegionId) {
             $res['SlsRegionId'] = $this->slsRegionId;
         }
+
         if (null !== $this->ttl) {
             $res['Ttl'] = $this->ttl;
         }
@@ -47,17 +41,18 @@ class CreateSlsLogDispatchRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSlsLogDispatchRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SlsRegionId'])) {
             $model->slsRegionId = $map['SlsRegionId'];
         }
+
         if (isset($map['Ttl'])) {
             $model->ttl = $map['Ttl'];
         }

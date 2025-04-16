@@ -4,75 +4,66 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeVpcFirewallAclGroupListRequest extends Model
 {
     /**
-     * @description The number of the page to return. Default value: 1.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $currentPage;
 
     /**
-     * @description Specifies whether VPC firewalls are configured. Valid values:
-     *
-     *   **notconfigured**: VPC firewalls are not configured.
-     *   **configured**: VPC firewalls are configured.
-     *   If you do not specify this parameter, the access control policies of all VPC firewalls are queried.
-     *
-     * @example configured
-     *
      * @var string
      */
     public $firewallConfigureStatus;
 
     /**
-     * @description The language of the content within the response. Valid values:
-     *
-     *   **zh**: Chinese (default)
-     *   **en**: English
-     *
-     * @example zh
-     *
+     * @var string
+     */
+    public $firewallId;
+
+    /**
      * @var string
      */
     public $lang;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 50.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $pageSize;
     protected $_name = [
-        'currentPage'             => 'CurrentPage',
+        'currentPage' => 'CurrentPage',
         'firewallConfigureStatus' => 'FirewallConfigureStatus',
-        'lang'                    => 'Lang',
-        'pageSize'                => 'PageSize',
+        'firewallId' => 'FirewallId',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->firewallConfigureStatus) {
             $res['FirewallConfigureStatus'] = $this->firewallConfigureStatus;
         }
+
+        if (null !== $this->firewallId) {
+            $res['FirewallId'] = $this->firewallId;
+        }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -80,23 +71,30 @@ class DescribeVpcFirewallAclGroupListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVpcFirewallAclGroupListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['FirewallConfigureStatus'])) {
             $model->firewallConfigureStatus = $map['FirewallConfigureStatus'];
         }
+
+        if (isset($map['FirewallId'])) {
+            $model->firewallId = $map['FirewallId'];
+        }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

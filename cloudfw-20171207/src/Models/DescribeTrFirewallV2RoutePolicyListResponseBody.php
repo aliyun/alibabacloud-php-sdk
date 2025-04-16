@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallV2RoutePolicyListResponseBody\trFirewallRoutePolicies;
-use AlibabaCloud\Tea\Model;
 
 class DescribeTrFirewallV2RoutePolicyListResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 95EB5F3A-67FE-5780-92BD-5ECBA772AB7E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $totalCount;
 
     /**
-     * @description The routing policies.
-     *
      * @var trFirewallRoutePolicies[]
      */
     public $trFirewallRoutePolicies;
     protected $_name = [
-        'requestId'               => 'RequestId',
-        'totalCount'              => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'trFirewallRoutePolicies' => 'TrFirewallRoutePolicies',
     ];
 
     public function validate()
     {
+        if (\is_array($this->trFirewallRoutePolicies)) {
+            Model::validateArray($this->trFirewallRoutePolicies);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->trFirewallRoutePolicies) {
-            $res['TrFirewallRoutePolicies'] = [];
-            if (null !== $this->trFirewallRoutePolicies && \is_array($this->trFirewallRoutePolicies)) {
-                $n = 0;
-                foreach ($this->trFirewallRoutePolicies as $item) {
-                    $res['TrFirewallRoutePolicies'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->trFirewallRoutePolicies)) {
+                $res['TrFirewallRoutePolicies'] = [];
+                $n1 = 0;
+                foreach ($this->trFirewallRoutePolicies as $item1) {
+                    $res['TrFirewallRoutePolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -65,26 +61,28 @@ class DescribeTrFirewallV2RoutePolicyListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTrFirewallV2RoutePolicyListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['TrFirewallRoutePolicies'])) {
             if (!empty($map['TrFirewallRoutePolicies'])) {
                 $model->trFirewallRoutePolicies = [];
-                $n                              = 0;
-                foreach ($map['TrFirewallRoutePolicies'] as $item) {
-                    $model->trFirewallRoutePolicies[$n++] = null !== $item ? trFirewallRoutePolicies::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TrFirewallRoutePolicies'] as $item1) {
+                    $model->trFirewallRoutePolicies[$n1++] = trFirewallRoutePolicies::fromMap($item1);
                 }
             }
         }

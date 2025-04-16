@@ -4,46 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSecurityProxyRequest extends Model
 {
     /**
-     * @description The language of the content within the response. Valid values:
-     *
-     *   **zh** (default): Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The ID of the NAT firewall.
-     *
-     * This parameter is required.
-     * @example proxy-nat00ab412ef93d4275a6b5
-     *
      * @var string
      */
     public $proxyId;
     protected $_name = [
-        'lang'    => 'Lang',
+        'lang' => 'Lang',
         'proxyId' => 'ProxyId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->proxyId) {
             $res['ProxyId'] = $this->proxyId;
         }
@@ -51,17 +41,18 @@ class DeleteSecurityProxyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSecurityProxyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['ProxyId'])) {
             $model->proxyId = $map['ProxyId'];
         }

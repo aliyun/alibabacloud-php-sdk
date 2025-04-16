@@ -4,15 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyInstanceMemberAttributesRequest\members;
-use AlibabaCloud\Tea\Model;
 
 class ModifyInstanceMemberAttributesRequest extends Model
 {
     /**
-     * @description The members that to be modified.
-     *
-     * This parameter is required.
      * @var members[]
      */
     public $members;
@@ -22,17 +19,21 @@ class ModifyInstanceMemberAttributesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->members)) {
+            Model::validateArray($this->members);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->members) {
-            $res['Members'] = [];
-            if (null !== $this->members && \is_array($this->members)) {
-                $n = 0;
-                foreach ($this->members as $item) {
-                    $res['Members'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->members)) {
+                $res['Members'] = [];
+                $n1 = 0;
+                foreach ($this->members as $item1) {
+                    $res['Members'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -40,20 +41,20 @@ class ModifyInstanceMemberAttributesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyInstanceMemberAttributesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Members'])) {
             if (!empty($map['Members'])) {
                 $model->members = [];
-                $n              = 0;
-                foreach ($map['Members'] as $item) {
-                    $model->members[$n++] = null !== $item ? members::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Members'] as $item1) {
+                    $model->members[$n1++] = members::fromMap($item1);
                 }
             }
         }

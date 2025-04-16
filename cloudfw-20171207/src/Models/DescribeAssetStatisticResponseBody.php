@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetStatisticResponseBody\resourceSpecStatistic;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAssetStatisticResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 850A84******25g4d2
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The statistics on specifications.
-     *
      * @var resourceSpecStatistic
      */
     public $resourceSpecStatistic;
     protected $_name = [
-        'requestId'             => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceSpecStatistic' => 'ResourceSpecStatistic',
     ];
 
     public function validate()
     {
+        if (null !== $this->resourceSpecStatistic) {
+            $this->resourceSpecStatistic->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceSpecStatistic) {
-            $res['ResourceSpecStatistic'] = null !== $this->resourceSpecStatistic ? $this->resourceSpecStatistic->toMap() : null;
+            $res['ResourceSpecStatistic'] = null !== $this->resourceSpecStatistic ? $this->resourceSpecStatistic->toArray($noStream) : $this->resourceSpecStatistic;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAssetStatisticResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceSpecStatistic'])) {
             $model->resourceSpecStatistic = resourceSpecStatistic::fromMap($map['ResourceSpecStatistic']);
         }

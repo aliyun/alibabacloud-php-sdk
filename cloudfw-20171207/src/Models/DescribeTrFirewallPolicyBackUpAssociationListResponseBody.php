@@ -4,47 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallPolicyBackUpAssociationListResponseBody\policyAssociationBackupConfigs;
-use AlibabaCloud\Tea\Model;
 
 class DescribeTrFirewallPolicyBackUpAssociationListResponseBody extends Model
 {
     /**
-     * @description The route tables.
-     *
      * @var policyAssociationBackupConfigs[]
      */
     public $policyAssociationBackupConfigs;
 
     /**
-     * @description The request ID.
-     *
-     * @example C264A756-9B48-57E3-B312-716941E146C6
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'policyAssociationBackupConfigs' => 'PolicyAssociationBackupConfigs',
-        'requestId'                      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->policyAssociationBackupConfigs)) {
+            Model::validateArray($this->policyAssociationBackupConfigs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyAssociationBackupConfigs) {
-            $res['PolicyAssociationBackupConfigs'] = [];
-            if (null !== $this->policyAssociationBackupConfigs && \is_array($this->policyAssociationBackupConfigs)) {
-                $n = 0;
-                foreach ($this->policyAssociationBackupConfigs as $item) {
-                    $res['PolicyAssociationBackupConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->policyAssociationBackupConfigs)) {
+                $res['PolicyAssociationBackupConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->policyAssociationBackupConfigs as $item1) {
+                    $res['PolicyAssociationBackupConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +51,24 @@ class DescribeTrFirewallPolicyBackUpAssociationListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTrFirewallPolicyBackUpAssociationListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyAssociationBackupConfigs'])) {
             if (!empty($map['PolicyAssociationBackupConfigs'])) {
                 $model->policyAssociationBackupConfigs = [];
-                $n                                     = 0;
-                foreach ($map['PolicyAssociationBackupConfigs'] as $item) {
-                    $model->policyAssociationBackupConfigs[$n++] = null !== $item ? policyAssociationBackupConfigs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PolicyAssociationBackupConfigs'] as $item1) {
+                    $model->policyAssociationBackupConfigs[$n1++] = policyAssociationBackupConfigs::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

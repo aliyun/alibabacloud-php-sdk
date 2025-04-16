@@ -4,58 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteFirewallV2RoutePoliciesRequest extends Model
 {
     /**
-     * @description The instance ID of the VPC firewall.
-     *
-     * @example vfw-tr-d5ba592ac6c84aff****
-     *
      * @var string
      */
     public $firewallId;
 
     /**
-     * @description The language of the content within the response. Valid values:
-     *
-     *   **zh** (default): Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The ID of the routing policy.
-     *
-     * @example policy-2d06d3568fd74d60****
-     *
      * @var string
      */
     public $trFirewallRoutePolicyId;
     protected $_name = [
-        'firewallId'              => 'FirewallId',
-        'lang'                    => 'Lang',
+        'firewallId' => 'FirewallId',
+        'lang' => 'Lang',
         'trFirewallRoutePolicyId' => 'TrFirewallRoutePolicyId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->firewallId) {
             $res['FirewallId'] = $this->firewallId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->trFirewallRoutePolicyId) {
             $res['TrFirewallRoutePolicyId'] = $this->trFirewallRoutePolicyId;
         }
@@ -63,20 +51,22 @@ class DeleteFirewallV2RoutePoliciesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteFirewallV2RoutePoliciesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FirewallId'])) {
             $model->firewallId = $map['FirewallId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['TrFirewallRoutePolicyId'])) {
             $model->trFirewallRoutePolicyId = $map['TrFirewallRoutePolicyId'];
         }

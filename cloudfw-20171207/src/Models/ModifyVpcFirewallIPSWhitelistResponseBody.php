@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyVpcFirewallIPSWhitelistResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example F2E8D49A-E5AA-5FF8-8822-25282DCF4BE8
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyVpcFirewallIPSWhitelistResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyVpcFirewallIPSWhitelistResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyVpcFirewallIPSWhitelistResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

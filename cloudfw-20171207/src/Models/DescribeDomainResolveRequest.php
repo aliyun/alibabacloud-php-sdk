@@ -4,79 +4,56 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDomainResolveRequest extends Model
 {
     /**
-     * @description The domain name whose DNS record you want to query.
-     *
-     * This parameter is required.
-     * @example www.aliyundoc.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description The IP version of the asset that is protected by Cloud Firewall. Valid values:
-     *
-     *   **4**: IPv4 (default)
-     *   **6**: IPv6
-     *
-     * @example 6
-     *
      * @var string
      */
     public $ipVersion;
 
     /**
-     * @description The language of the content within the response.
-     *
-     * Valid values:
-     *
-     *   **zh**: Chinese (default)
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 192.0.XX.XX
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $sourceIp;
     protected $_name = [
-        'domain'    => 'Domain',
+        'domain' => 'Domain',
         'ipVersion' => 'IpVersion',
-        'lang'      => 'Lang',
-        'sourceIp'  => 'SourceIp',
+        'lang' => 'Lang',
+        'sourceIp' => 'SourceIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -84,23 +61,26 @@ class DescribeDomainResolveRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainResolveRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

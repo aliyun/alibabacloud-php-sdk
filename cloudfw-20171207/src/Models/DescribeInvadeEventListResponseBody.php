@@ -4,98 +4,90 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventListResponseBody\eventList;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventListResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeInvadeEventListResponseBody extends Model
 {
     /**
-     * @description An array that consists of breach awareness events.
-     *
      * @var eventList[]
      */
     public $eventList;
 
     /**
-     * @description The percentage of high-risk events.
-     *
-     * @example 40
-     *
      * @var int
      */
     public $highLevelPercent;
 
     /**
-     * @description The percentage of low-risk events.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $lowLevelPercent;
 
     /**
-     * @description The percentage of medium-risk events.
-     *
-     * @example 40
-     *
      * @var int
      */
     public $middleLevelPercent;
 
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example F0F82705-CFC7-5F83-86C8-A063892F****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'eventList'          => 'EventList',
-        'highLevelPercent'   => 'HighLevelPercent',
-        'lowLevelPercent'    => 'LowLevelPercent',
+        'eventList' => 'EventList',
+        'highLevelPercent' => 'HighLevelPercent',
+        'lowLevelPercent' => 'LowLevelPercent',
         'middleLevelPercent' => 'MiddleLevelPercent',
-        'pageInfo'           => 'PageInfo',
-        'requestId'          => 'RequestId',
+        'pageInfo' => 'PageInfo',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->eventList)) {
+            Model::validateArray($this->eventList);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventList) {
-            $res['EventList'] = [];
-            if (null !== $this->eventList && \is_array($this->eventList)) {
-                $n = 0;
-                foreach ($this->eventList as $item) {
-                    $res['EventList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->eventList)) {
+                $res['EventList'] = [];
+                $n1 = 0;
+                foreach ($this->eventList as $item1) {
+                    $res['EventList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->highLevelPercent) {
             $res['HighLevelPercent'] = $this->highLevelPercent;
         }
+
         if (null !== $this->lowLevelPercent) {
             $res['LowLevelPercent'] = $this->lowLevelPercent;
         }
+
         if (null !== $this->middleLevelPercent) {
             $res['MiddleLevelPercent'] = $this->middleLevelPercent;
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -103,35 +95,40 @@ class DescribeInvadeEventListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInvadeEventListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventList'])) {
             if (!empty($map['EventList'])) {
                 $model->eventList = [];
-                $n                = 0;
-                foreach ($map['EventList'] as $item) {
-                    $model->eventList[$n++] = null !== $item ? eventList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EventList'] as $item1) {
+                    $model->eventList[$n1++] = eventList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['HighLevelPercent'])) {
             $model->highLevelPercent = $map['HighLevelPercent'];
         }
+
         if (isset($map['LowLevelPercent'])) {
             $model->lowLevelPercent = $map['LowLevelPercent'];
         }
+
         if (isset($map['MiddleLevelPercent'])) {
             $model->middleLevelPercent = $map['MiddleLevelPercent'];
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

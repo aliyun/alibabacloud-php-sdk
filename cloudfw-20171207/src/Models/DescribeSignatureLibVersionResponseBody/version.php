@@ -4,51 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSignatureLibVersionResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class version extends Model
 {
     /**
-     * @description The type.
-     *
-     * Valid values:
-     *
-     *   ips
-     *
-     * .
-     *
-     *   intelligence
-     *
-     * <!-- -->
-     * @example ips
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The version number.
-     *
-     * @example IPS-2307-02
-     *
+     * @var int
+     */
+    public $updateTime;
+
+    /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'type'    => 'Type',
+        'type' => 'Type',
+        'updateTime' => 'UpdateTime',
         'version' => 'Version',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -56,17 +51,22 @@ class version extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return version
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

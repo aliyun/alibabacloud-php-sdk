@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyVpcFirewallDefaultIPSConfigResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 3B51B5BF-3C26-5009-ADAB-190E58DE4D6E
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyVpcFirewallDefaultIPSConfigResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyVpcFirewallDefaultIPSConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyVpcFirewallDefaultIPSConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

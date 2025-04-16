@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallCenDetailResponseBody\localVpc;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class eniList extends Model
 {
     /**
-     * @description The ID of the ENI that belongs to the VPC.
-     *
-     * @example eni-8vbhfosfqv2rff42****
-     *
      * @var string
      */
     public $eniId;
 
     /**
-     * @description The private IP address of the ENI that belongs to the VPC.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $eniPrivateIpAddress;
 
     /**
-     * @description The ID of the vSwitch to which the ENI is connected.
-     *
-     * @example vsw-wz9viido7j436b0n1****
-     *
      * @var string
      */
     public $eniVSwitchId;
     protected $_name = [
-        'eniId'               => 'EniId',
+        'eniId' => 'EniId',
         'eniPrivateIpAddress' => 'EniPrivateIpAddress',
-        'eniVSwitchId'        => 'EniVSwitchId',
+        'eniVSwitchId' => 'EniVSwitchId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eniId) {
             $res['EniId'] = $this->eniId;
         }
+
         if (null !== $this->eniPrivateIpAddress) {
             $res['EniPrivateIpAddress'] = $this->eniPrivateIpAddress;
         }
+
         if (null !== $this->eniVSwitchId) {
             $res['EniVSwitchId'] = $this->eniVSwitchId;
         }
@@ -60,20 +51,22 @@ class eniList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return eniList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EniId'])) {
             $model->eniId = $map['EniId'];
         }
+
         if (isset($map['EniPrivateIpAddress'])) {
             $model->eniPrivateIpAddress = $map['EniPrivateIpAddress'];
         }
+
         if (isset($map['EniVSwitchId'])) {
             $model->eniVSwitchId = $map['EniVSwitchId'];
         }

@@ -4,73 +4,65 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteNatFirewallControlPolicyBatchRequest extends Model
 {
     /**
-     * @description The UUIDs of access control policies.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $aclUuidList;
 
     /**
-     * @description The direction of the traffic to which the access control policy applies. Valid values:
-     *
-     *   **out**: outbound traffic
-     *
-     * @example out
-     *
      * @var string
      */
     public $direction;
 
     /**
-     * @description The language of the content within the request and response. Valid values:
-     *
-     *   **zh** (default): Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The ID of the NAT gateway.
-     *
-     * This parameter is required.
-     * @example ngw-uf6j0426ap74vd6vrb676
-     *
      * @var string
      */
     public $natGatewayId;
     protected $_name = [
-        'aclUuidList'  => 'AclUuidList',
-        'direction'    => 'Direction',
-        'lang'         => 'Lang',
+        'aclUuidList' => 'AclUuidList',
+        'direction' => 'Direction',
+        'lang' => 'Lang',
         'natGatewayId' => 'NatGatewayId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->aclUuidList)) {
+            Model::validateArray($this->aclUuidList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclUuidList) {
-            $res['AclUuidList'] = $this->aclUuidList;
+            if (\is_array($this->aclUuidList)) {
+                $res['AclUuidList'] = [];
+                $n1 = 0;
+                foreach ($this->aclUuidList as $item1) {
+                    $res['AclUuidList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
@@ -78,25 +70,32 @@ class DeleteNatFirewallControlPolicyBatchRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteNatFirewallControlPolicyBatchRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclUuidList'])) {
             if (!empty($map['AclUuidList'])) {
-                $model->aclUuidList = $map['AclUuidList'];
+                $model->aclUuidList = [];
+                $n1 = 0;
+                foreach ($map['AclUuidList'] as $item1) {
+                    $model->aclUuidList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }

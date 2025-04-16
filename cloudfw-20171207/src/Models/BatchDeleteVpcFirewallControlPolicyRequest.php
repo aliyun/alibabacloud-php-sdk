@@ -4,42 +4,45 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchDeleteVpcFirewallControlPolicyRequest extends Model
 {
     /**
-     * @description The UUIDs of access control policies.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $aclUuidList;
 
     /**
-     * @description The instance ID of the VPC firewall.
-     *
-     * This parameter is required.
-     * @example vfw-m5e7dbc4y****
-     *
      * @var string
      */
     public $vpcFirewallId;
     protected $_name = [
-        'aclUuidList'   => 'AclUuidList',
+        'aclUuidList' => 'AclUuidList',
         'vpcFirewallId' => 'VpcFirewallId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->aclUuidList)) {
+            Model::validateArray($this->aclUuidList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclUuidList) {
-            $res['AclUuidList'] = $this->aclUuidList;
+            if (\is_array($this->aclUuidList)) {
+                $res['AclUuidList'] = [];
+                $n1 = 0;
+                foreach ($this->aclUuidList as $item1) {
+                    $res['AclUuidList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->vpcFirewallId) {
             $res['VpcFirewallId'] = $this->vpcFirewallId;
         }
@@ -47,19 +50,24 @@ class BatchDeleteVpcFirewallControlPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchDeleteVpcFirewallControlPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclUuidList'])) {
             if (!empty($map['AclUuidList'])) {
-                $model->aclUuidList = $map['AclUuidList'];
+                $model->aclUuidList = [];
+                $n1 = 0;
+                foreach ($map['AclUuidList'] as $item1) {
+                    $model->aclUuidList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['VpcFirewallId'])) {
             $model->vpcFirewallId = $map['VpcFirewallId'];
         }

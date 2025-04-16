@@ -4,81 +4,56 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteControlPolicyRequest extends Model
 {
     /**
-     * @description The UUID of the access control policy.
-     *
-     * This parameter is required.
-     * @example 00281255-d220-4db1-8f4f-c4df221ad84c
-     *
      * @var string
      */
     public $aclUuid;
 
     /**
-     * @description The direction of the traffic to which the access control policy applies.
-     *
-     * Valid values:
-     *
-     *   **in**: inbound.
-     *   **out**: outbound.
-     *
-     * @example in
-     *
      * @var string
      */
     public $direction;
 
     /**
-     * @description The language of the content within the request and response.
-     *
-     * Valid values:
-     *
-     *   **zh** (default)
-     *   **en**
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description The source IP address of the traffic.
-     *
-     * @example 192.0.XX.XX
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $sourceIp;
     protected $_name = [
-        'aclUuid'   => 'AclUuid',
+        'aclUuid' => 'AclUuid',
         'direction' => 'Direction',
-        'lang'      => 'Lang',
-        'sourceIp'  => 'SourceIp',
+        'lang' => 'Lang',
+        'sourceIp' => 'SourceIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclUuid) {
             $res['AclUuid'] = $this->aclUuid;
         }
+
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -86,23 +61,26 @@ class DeleteControlPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteControlPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclUuid'])) {
             $model->aclUuid = $map['AclUuid'];
         }
+
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

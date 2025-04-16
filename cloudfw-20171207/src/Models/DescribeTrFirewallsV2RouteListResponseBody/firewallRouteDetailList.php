@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallsV2RouteListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class firewallRouteDetailList extends Model
 {
     /**
-     * @description The destination address of the route.
-     *
-     * @example 192.168.10.0/25
-     *
      * @var string
      */
     public $trFirewallRouteDestination;
 
     /**
-     * @description The ID of the next hop for the route.
-     *
-     * @example tr-attach-hnxab1y0pxn16p****
-     *
      * @var string
      */
     public $trFirewallRouteNexthop;
 
     /**
-     * @description The ID of the routing policy.
-     *
-     * @example policy-04ecbbc6720d4f90****
-     *
      * @var string
      */
     public $trFirewallRoutePolicyId;
 
     /**
-     * @description The ID of the route table to which the route entry belongs.
-     *
-     * @example vtb-2zeockxxxorv0mnhz****
-     *
      * @var string
      */
     public $trFirewallRouteTableId;
     protected $_name = [
         'trFirewallRouteDestination' => 'TrFirewallRouteDestination',
-        'trFirewallRouteNexthop'     => 'TrFirewallRouteNexthop',
-        'trFirewallRoutePolicyId'    => 'TrFirewallRoutePolicyId',
-        'trFirewallRouteTableId'     => 'TrFirewallRouteTableId',
+        'trFirewallRouteNexthop' => 'TrFirewallRouteNexthop',
+        'trFirewallRoutePolicyId' => 'TrFirewallRoutePolicyId',
+        'trFirewallRouteTableId' => 'TrFirewallRouteTableId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->trFirewallRouteDestination) {
             $res['TrFirewallRouteDestination'] = $this->trFirewallRouteDestination;
         }
+
         if (null !== $this->trFirewallRouteNexthop) {
             $res['TrFirewallRouteNexthop'] = $this->trFirewallRouteNexthop;
         }
+
         if (null !== $this->trFirewallRoutePolicyId) {
             $res['TrFirewallRoutePolicyId'] = $this->trFirewallRoutePolicyId;
         }
+
         if (null !== $this->trFirewallRouteTableId) {
             $res['TrFirewallRouteTableId'] = $this->trFirewallRouteTableId;
         }
@@ -73,23 +61,26 @@ class firewallRouteDetailList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return firewallRouteDetailList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TrFirewallRouteDestination'])) {
             $model->trFirewallRouteDestination = $map['TrFirewallRouteDestination'];
         }
+
         if (isset($map['TrFirewallRouteNexthop'])) {
             $model->trFirewallRouteNexthop = $map['TrFirewallRouteNexthop'];
         }
+
         if (isset($map['TrFirewallRoutePolicyId'])) {
             $model->trFirewallRoutePolicyId = $map['TrFirewallRoutePolicyId'];
         }
+
         if (isset($map['TrFirewallRouteTableId'])) {
             $model->trFirewallRouteTableId = $map['TrFirewallRouteTableId'];
         }

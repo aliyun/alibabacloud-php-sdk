@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResetVpcFirewallRuleHitCountResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example A918B4F6-482F-5A91-8F65-AFFFF1FC04EA
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ResetVpcFirewallRuleHitCountResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ResetVpcFirewallRuleHitCountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResetVpcFirewallRuleHitCountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

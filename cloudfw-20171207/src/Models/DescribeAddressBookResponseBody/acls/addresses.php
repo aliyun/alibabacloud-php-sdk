@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponseBody\acls;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class addresses extends Model
 {
@@ -19,19 +19,21 @@ class addresses extends Model
     public $note;
     protected $_name = [
         'address' => 'Address',
-        'note'    => 'Note',
+        'note' => 'Note',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
+
         if (null !== $this->note) {
             $res['Note'] = $this->note;
         }
@@ -39,17 +41,18 @@ class addresses extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return addresses
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
+
         if (isset($map['Note'])) {
             $model->note = $map['Note'];
         }
