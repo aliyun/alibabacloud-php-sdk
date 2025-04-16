@@ -43,6 +43,11 @@ class RunCompletionRequest extends Model
     public $templateIds;
 
     /**
+     * @var string
+     */
+    public $responseFormatType;
+
+    /**
      * @var variables[]
      */
     public $variables;
@@ -53,6 +58,7 @@ class RunCompletionRequest extends Model
         'serviceInspection' => 'ServiceInspection',
         'stream' => 'Stream',
         'templateIds' => 'TemplateIds',
+        'responseFormatType' => 'responseFormatType',
         'variables' => 'variables',
     ];
 
@@ -115,6 +121,10 @@ class RunCompletionRequest extends Model
             }
         }
 
+        if (null !== $this->responseFormatType) {
+            $res['responseFormatType'] = $this->responseFormatType;
+        }
+
         if (null !== $this->variables) {
             if (\is_array($this->variables)) {
                 $res['variables'] = [];
@@ -170,6 +180,10 @@ class RunCompletionRequest extends Model
                     $model->templateIds[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['responseFormatType'])) {
+            $model->responseFormatType = $map['responseFormatType'];
         }
 
         if (isset($map['variables'])) {

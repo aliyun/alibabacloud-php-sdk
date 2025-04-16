@@ -45,6 +45,11 @@ class AnalyzeConversationRequest extends Model
     public $modelCode;
 
     /**
+     * @var string
+     */
+    public $responseFormatType;
+
+    /**
      * @var string[]
      */
     public $resultTypes;
@@ -85,6 +90,7 @@ class AnalyzeConversationRequest extends Model
         'examples' => 'examples',
         'fields' => 'fields',
         'modelCode' => 'modelCode',
+        'responseFormatType' => 'responseFormatType',
         'resultTypes' => 'resultTypes',
         'sceneName' => 'sceneName',
         'serviceInspection' => 'serviceInspection',
@@ -166,6 +172,10 @@ class AnalyzeConversationRequest extends Model
 
         if (null !== $this->modelCode) {
             $res['modelCode'] = $this->modelCode;
+        }
+
+        if (null !== $this->responseFormatType) {
+            $res['responseFormatType'] = $this->responseFormatType;
         }
 
         if (null !== $this->resultTypes) {
@@ -265,6 +275,10 @@ class AnalyzeConversationRequest extends Model
 
         if (isset($map['modelCode'])) {
             $model->modelCode = $map['modelCode'];
+        }
+
+        if (isset($map['responseFormatType'])) {
+            $model->responseFormatType = $map['responseFormatType'];
         }
 
         if (isset($map['resultTypes'])) {

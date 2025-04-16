@@ -23,10 +23,16 @@ class RunCompletionMessageRequest extends Model
      * @var bool
      */
     public $stream;
+
+    /**
+     * @var string
+     */
+    public $responseFormatType;
     protected $_name = [
         'messages' => 'Messages',
         'modelCode' => 'ModelCode',
         'stream' => 'Stream',
+        'responseFormatType' => 'responseFormatType',
     ];
 
     public function validate()
@@ -58,6 +64,10 @@ class RunCompletionMessageRequest extends Model
             $res['Stream'] = $this->stream;
         }
 
+        if (null !== $this->responseFormatType) {
+            $res['responseFormatType'] = $this->responseFormatType;
+        }
+
         return $res;
     }
 
@@ -85,6 +95,10 @@ class RunCompletionMessageRequest extends Model
 
         if (isset($map['Stream'])) {
             $model->stream = $map['Stream'];
+        }
+
+        if (isset($map['responseFormatType'])) {
+            $model->responseFormatType = $map['responseFormatType'];
         }
 
         return $model;

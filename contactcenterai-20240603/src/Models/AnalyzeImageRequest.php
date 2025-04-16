@@ -14,6 +14,11 @@ class AnalyzeImageRequest extends Model
     public $imageUrls;
 
     /**
+     * @var string
+     */
+    public $responseFormatType;
+
+    /**
      * @var string[]
      */
     public $resultTypes;
@@ -24,6 +29,7 @@ class AnalyzeImageRequest extends Model
     public $stream;
     protected $_name = [
         'imageUrls' => 'imageUrls',
+        'responseFormatType' => 'responseFormatType',
         'resultTypes' => 'resultTypes',
         'stream' => 'stream',
     ];
@@ -50,6 +56,10 @@ class AnalyzeImageRequest extends Model
                     $res['imageUrls'][$n1++] = $item1;
                 }
             }
+        }
+
+        if (null !== $this->responseFormatType) {
+            $res['responseFormatType'] = $this->responseFormatType;
         }
 
         if (null !== $this->resultTypes) {
@@ -85,6 +95,10 @@ class AnalyzeImageRequest extends Model
                     $model->imageUrls[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['responseFormatType'])) {
+            $model->responseFormatType = $map['responseFormatType'];
         }
 
         if (isset($map['resultTypes'])) {

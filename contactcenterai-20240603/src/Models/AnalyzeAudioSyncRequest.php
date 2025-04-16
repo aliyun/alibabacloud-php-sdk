@@ -5,15 +5,13 @@
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\categoryTags;
-use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\dialogue;
-use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\examples;
-use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\fields;
-use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\serviceInspection;
-use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\transcription;
-use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\variables;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeAudioSyncRequest\categoryTags;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeAudioSyncRequest\fields;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeAudioSyncRequest\serviceInspection;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeAudioSyncRequest\transcription;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeAudioSyncRequest\variables;
 
-class CreateTaskRequest extends Model
+class AnalyzeAudioSyncRequest extends Model
 {
     /**
      * @var categoryTags[]
@@ -24,16 +22,6 @@ class CreateTaskRequest extends Model
      * @var string
      */
     public $customPrompt;
-
-    /**
-     * @var dialogue
-     */
-    public $dialogue;
-
-    /**
-     * @var examples
-     */
-    public $examples;
 
     /**
      * @var fields[]
@@ -61,9 +49,9 @@ class CreateTaskRequest extends Model
     public $serviceInspection;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $taskType;
+    public $stream;
 
     /**
      * @var string[]
@@ -82,14 +70,12 @@ class CreateTaskRequest extends Model
     protected $_name = [
         'categoryTags' => 'categoryTags',
         'customPrompt' => 'customPrompt',
-        'dialogue' => 'dialogue',
-        'examples' => 'examples',
         'fields' => 'fields',
         'modelCode' => 'modelCode',
         'responseFormatType' => 'responseFormatType',
         'resultTypes' => 'resultTypes',
         'serviceInspection' => 'serviceInspection',
-        'taskType' => 'taskType',
+        'stream' => 'stream',
         'templateIds' => 'templateIds',
         'transcription' => 'transcription',
         'variables' => 'variables',
@@ -99,12 +85,6 @@ class CreateTaskRequest extends Model
     {
         if (\is_array($this->categoryTags)) {
             Model::validateArray($this->categoryTags);
-        }
-        if (null !== $this->dialogue) {
-            $this->dialogue->validate();
-        }
-        if (null !== $this->examples) {
-            $this->examples->validate();
         }
         if (\is_array($this->fields)) {
             Model::validateArray($this->fields);
@@ -144,14 +124,6 @@ class CreateTaskRequest extends Model
             $res['customPrompt'] = $this->customPrompt;
         }
 
-        if (null !== $this->dialogue) {
-            $res['dialogue'] = null !== $this->dialogue ? $this->dialogue->toArray($noStream) : $this->dialogue;
-        }
-
-        if (null !== $this->examples) {
-            $res['examples'] = null !== $this->examples ? $this->examples->toArray($noStream) : $this->examples;
-        }
-
         if (null !== $this->fields) {
             if (\is_array($this->fields)) {
                 $res['fields'] = [];
@@ -184,8 +156,8 @@ class CreateTaskRequest extends Model
             $res['serviceInspection'] = null !== $this->serviceInspection ? $this->serviceInspection->toArray($noStream) : $this->serviceInspection;
         }
 
-        if (null !== $this->taskType) {
-            $res['taskType'] = $this->taskType;
+        if (null !== $this->stream) {
+            $res['stream'] = $this->stream;
         }
 
         if (null !== $this->templateIds) {
@@ -237,14 +209,6 @@ class CreateTaskRequest extends Model
             $model->customPrompt = $map['customPrompt'];
         }
 
-        if (isset($map['dialogue'])) {
-            $model->dialogue = dialogue::fromMap($map['dialogue']);
-        }
-
-        if (isset($map['examples'])) {
-            $model->examples = examples::fromMap($map['examples']);
-        }
-
         if (isset($map['fields'])) {
             if (!empty($map['fields'])) {
                 $model->fields = [];
@@ -277,8 +241,8 @@ class CreateTaskRequest extends Model
             $model->serviceInspection = serviceInspection::fromMap($map['serviceInspection']);
         }
 
-        if (isset($map['taskType'])) {
-            $model->taskType = $map['taskType'];
+        if (isset($map['stream'])) {
+            $model->stream = $map['stream'];
         }
 
         if (isset($map['templateIds'])) {

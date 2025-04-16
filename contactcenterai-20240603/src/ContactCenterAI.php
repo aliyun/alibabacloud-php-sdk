@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\ContactCenterAI\V20240603;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeAudioSyncRequest;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeAudioSyncResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeImageRequest;
@@ -69,6 +71,111 @@ class ContactCenterAI extends OpenApiClient
     }
 
     /**
+     * 语音文件分析任务极速版.
+     *
+     * @param request - AnalyzeAudioSyncRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AnalyzeAudioSyncResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $appId
+     * @param AnalyzeAudioSyncRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AnalyzeAudioSyncResponse
+     */
+    public function analyzeAudioSyncWithOptions($workspaceId, $appId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->categoryTags) {
+            @$body['categoryTags'] = $request->categoryTags;
+        }
+
+        if (null !== $request->customPrompt) {
+            @$body['customPrompt'] = $request->customPrompt;
+        }
+
+        if (null !== $request->fields) {
+            @$body['fields'] = $request->fields;
+        }
+
+        if (null !== $request->modelCode) {
+            @$body['modelCode'] = $request->modelCode;
+        }
+
+        if (null !== $request->responseFormatType) {
+            @$body['responseFormatType'] = $request->responseFormatType;
+        }
+
+        if (null !== $request->resultTypes) {
+            @$body['resultTypes'] = $request->resultTypes;
+        }
+
+        if (null !== $request->serviceInspection) {
+            @$body['serviceInspection'] = $request->serviceInspection;
+        }
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
+        }
+
+        if (null !== $request->templateIds) {
+            @$body['templateIds'] = $request->templateIds;
+        }
+
+        if (null !== $request->transcription) {
+            @$body['transcription'] = $request->transcription;
+        }
+
+        if (null !== $request->variables) {
+            @$body['variables'] = $request->variables;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AnalyzeAudioSync',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/analyzeAudioSync',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AnalyzeAudioSyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 语音文件分析任务极速版.
+     *
+     * @param request - AnalyzeAudioSyncRequest
+     *
+     * @returns AnalyzeAudioSyncResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $appId
+     * @param AnalyzeAudioSyncRequest $request
+     *
+     * @return AnalyzeAudioSyncResponse
+     */
+    public function analyzeAudioSync($workspaceId, $appId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->analyzeAudioSyncWithOptions($workspaceId, $appId, $request, $headers, $runtime);
+    }
+
+    /**
      * 根据类型调用大模型.
      *
      * @param request - AnalyzeConversationRequest
@@ -111,6 +218,10 @@ class ContactCenterAI extends OpenApiClient
 
         if (null !== $request->modelCode) {
             @$body['modelCode'] = $request->modelCode;
+        }
+
+        if (null !== $request->responseFormatType) {
+            @$body['responseFormatType'] = $request->responseFormatType;
         }
 
         if (null !== $request->resultTypes) {
@@ -156,11 +267,8 @@ class ContactCenterAI extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AnalyzeConversationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AnalyzeConversationResponse::fromMap($this->execute($params, $req, $runtime));
+        return AnalyzeConversationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -209,6 +317,10 @@ class ContactCenterAI extends OpenApiClient
             @$body['imageUrls'] = $request->imageUrls;
         }
 
+        if (null !== $request->responseFormatType) {
+            @$body['responseFormatType'] = $request->responseFormatType;
+        }
+
         if (null !== $request->resultTypes) {
             @$body['resultTypes'] = $request->resultTypes;
         }
@@ -232,11 +344,8 @@ class ContactCenterAI extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AnalyzeImageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AnalyzeImageResponse::fromMap($this->execute($params, $req, $runtime));
+        return AnalyzeImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -305,6 +414,10 @@ class ContactCenterAI extends OpenApiClient
             @$body['modelCode'] = $request->modelCode;
         }
 
+        if (null !== $request->responseFormatType) {
+            @$body['responseFormatType'] = $request->responseFormatType;
+        }
+
         if (null !== $request->resultTypes) {
             @$body['resultTypes'] = $request->resultTypes;
         }
@@ -344,11 +457,8 @@ class ContactCenterAI extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -426,11 +536,8 @@ class ContactCenterAI extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVocabResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVocabResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVocabResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -494,11 +601,8 @@ class ContactCenterAI extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVocabResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVocabResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVocabResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -568,11 +672,8 @@ class ContactCenterAI extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTaskResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -636,11 +737,8 @@ class ContactCenterAI extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVocabResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVocabResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVocabResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -700,11 +798,8 @@ class ContactCenterAI extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVocabResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVocabResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVocabResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -771,6 +866,10 @@ class ContactCenterAI extends OpenApiClient
             @$body['TemplateIds'] = $request->templateIds;
         }
 
+        if (null !== $request->responseFormatType) {
+            @$body['responseFormatType'] = $request->responseFormatType;
+        }
+
         if (null !== $request->variables) {
             @$body['variables'] = $request->variables;
         }
@@ -790,11 +889,8 @@ class ContactCenterAI extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunCompletionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunCompletionResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunCompletionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -851,6 +947,10 @@ class ContactCenterAI extends OpenApiClient
             @$body['Stream'] = $request->stream;
         }
 
+        if (null !== $request->responseFormatType) {
+            @$body['responseFormatType'] = $request->responseFormatType;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::parseToMap($body),
@@ -866,11 +966,8 @@ class ContactCenterAI extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunCompletionMessageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunCompletionMessageResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunCompletionMessageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -948,11 +1045,8 @@ class ContactCenterAI extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateVocabResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVocabResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVocabResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
