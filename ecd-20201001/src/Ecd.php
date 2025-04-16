@@ -5,14 +5,24 @@
 namespace AlibabaCloud\SDK\Ecd\V20201001;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Ecd\V20201001\Models\CalMcpToolRequest;
+use AlibabaCloud\SDK\Ecd\V20201001\Models\CalMcpToolResponse;
+use AlibabaCloud\SDK\Ecd\V20201001\Models\CreateMcpSessionRequest;
+use AlibabaCloud\SDK\Ecd\V20201001\Models\CreateMcpSessionResponse;
 use AlibabaCloud\SDK\Ecd\V20201001\Models\DescribeDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20201001\Models\DescribeDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20201001\Models\DescribeDirectoriesRequest;
 use AlibabaCloud\SDK\Ecd\V20201001\Models\DescribeDirectoriesResponse;
 use AlibabaCloud\SDK\Ecd\V20201001\Models\GetConnectionTicketRequest;
 use AlibabaCloud\SDK\Ecd\V20201001\Models\GetConnectionTicketResponse;
+use AlibabaCloud\SDK\Ecd\V20201001\Models\GetMcpResourceRequest;
+use AlibabaCloud\SDK\Ecd\V20201001\Models\GetMcpResourceResponse;
+use AlibabaCloud\SDK\Ecd\V20201001\Models\ListMcpToolsRequest;
+use AlibabaCloud\SDK\Ecd\V20201001\Models\ListMcpToolsResponse;
 use AlibabaCloud\SDK\Ecd\V20201001\Models\RebootDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20201001\Models\RebootDesktopsResponse;
+use AlibabaCloud\SDK\Ecd\V20201001\Models\ReleaseMcpSessionRequest;
+use AlibabaCloud\SDK\Ecd\V20201001\Models\ReleaseMcpSessionResponse;
 use AlibabaCloud\SDK\Ecd\V20201001\Models\StartDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20201001\Models\StartDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20201001\Models\StopDesktopsRequest;
@@ -55,6 +65,152 @@ class Ecd extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 调用mcp工具.
+     *
+     * @param request - CalMcpToolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CalMcpToolResponse
+     *
+     * @param CalMcpToolRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CalMcpToolResponse
+     */
+    public function calMcpToolWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->args) {
+            @$body['Args'] = $request->args;
+        }
+
+        if (null !== $request->authorization) {
+            @$body['Authorization'] = $request->authorization;
+        }
+
+        if (null !== $request->externalUserId) {
+            @$body['ExternalUserId'] = $request->externalUserId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->server) {
+            @$body['Server'] = $request->server;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->tool) {
+            @$body['Tool'] = $request->tool;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CalMcpTool',
+            'version' => '2020-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CalMcpToolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 调用mcp工具.
+     *
+     * @param request - CalMcpToolRequest
+     *
+     * @returns CalMcpToolResponse
+     *
+     * @param CalMcpToolRequest $request
+     *
+     * @return CalMcpToolResponse
+     */
+    public function calMcpTool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->calMcpToolWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建 mcp session.
+     *
+     * @param request - CreateMcpSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMcpSessionResponse
+     *
+     * @param CreateMcpSessionRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateMcpSessionResponse
+     */
+    public function createMcpSessionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->authorization) {
+            @$body['Authorization'] = $request->authorization;
+        }
+
+        if (null !== $request->externalUserId) {
+            @$body['ExternalUserId'] = $request->externalUserId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMcpSession',
+            'version' => '2020-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMcpSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建 mcp session.
+     *
+     * @param request - CreateMcpSessionRequest
+     *
+     * @returns CreateMcpSessionResponse
+     *
+     * @param CreateMcpSessionRequest $request
+     *
+     * @return CreateMcpSessionResponse
+     */
+    public function createMcpSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMcpSessionWithOptions($request, $runtime);
     }
 
     /**
@@ -305,6 +461,124 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * GetMcpResource.
+     *
+     * @param request - GetMcpResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMcpResourceResponse
+     *
+     * @param GetMcpResourceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetMcpResourceResponse
+     */
+    public function getMcpResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->authorization) {
+            @$body['Authorization'] = $request->authorization;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetMcpResource',
+            'version' => '2020-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMcpResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetMcpResource.
+     *
+     * @param request - GetMcpResourceRequest
+     *
+     * @returns GetMcpResourceResponse
+     *
+     * @param GetMcpResourceRequest $request
+     *
+     * @return GetMcpResourceResponse
+     */
+    public function getMcpResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMcpResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取工具列表.
+     *
+     * @param request - ListMcpToolsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMcpToolsResponse
+     *
+     * @param ListMcpToolsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListMcpToolsResponse
+     */
+    public function listMcpToolsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->authorization) {
+            @$body['Authorization'] = $request->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListMcpTools',
+            'version' => '2020-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMcpToolsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取工具列表.
+     *
+     * @param request - ListMcpToolsRequest
+     *
+     * @returns ListMcpToolsResponse
+     *
+     * @param ListMcpToolsRequest $request
+     *
+     * @return ListMcpToolsResponse
+     */
+    public function listMcpTools($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMcpToolsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - RebootDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -367,6 +641,67 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rebootDesktopsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建 mcp session.
+     *
+     * @param request - ReleaseMcpSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReleaseMcpSessionResponse
+     *
+     * @param ReleaseMcpSessionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ReleaseMcpSessionResponse
+     */
+    public function releaseMcpSessionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->authorization) {
+            @$body['Authorization'] = $request->authorization;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReleaseMcpSession',
+            'version' => '2020-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReleaseMcpSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建 mcp session.
+     *
+     * @param request - ReleaseMcpSessionRequest
+     *
+     * @returns ReleaseMcpSessionResponse
+     *
+     * @param ReleaseMcpSessionRequest $request
+     *
+     * @return ReleaseMcpSessionResponse
+     */
+    public function releaseMcpSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseMcpSessionWithOptions($request, $runtime);
     }
 
     /**
