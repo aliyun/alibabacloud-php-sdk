@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class OpenStructFunctionRestriction extends Model
+class FunctionRestriction extends Model
 {
     /**
      * @var bool

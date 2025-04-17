@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\FC\V20230330\Models\OpenStructDescribeRegionsOutput\regions;
+use AlibabaCloud\SDK\FC\V20230330\Models\DescribeRegionsOutput\regions;
 
-class OpenStructDescribeRegionsOutput extends Model
+class DescribeRegionsOutput extends Model
 {
     /**
      * @var regions

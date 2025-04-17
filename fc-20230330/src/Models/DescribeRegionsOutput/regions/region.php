@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\FC\V20230330\Models\OpenStructDescribeRegionsOutput\regions;
+namespace AlibabaCloud\SDK\FC\V20230330\Models\DescribeRegionsOutput\regions;
 
 use AlibabaCloud\Dara\Model;
 

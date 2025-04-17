@@ -2,10 +2,10 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\FC\V20230330\Models\OpenStructDescribeRegionsOutput;
+namespace AlibabaCloud\SDK\FC\V20230330\Models\DescribeRegionsOutput;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\FC\V20230330\Models\OpenStructDescribeRegionsOutput\regions\region;
+use AlibabaCloud\SDK\FC\V20230330\Models\DescribeRegionsOutput\regions\region;
 
 class regions extends Model
 {

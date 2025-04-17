@@ -19,7 +19,7 @@ class DescribeRegionsResponse extends Model
     public $statusCode;
 
     /**
-     * @var OpenStructDescribeRegionsOutput
+     * @var DescribeRegionsOutput
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class DescribeRegionsResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = OpenStructDescribeRegionsOutput::fromMap($map['body']);
+            $model->body = DescribeRegionsOutput::fromMap($map['body']);
         }
 
         return $model;

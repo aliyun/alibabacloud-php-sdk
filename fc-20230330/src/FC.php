@@ -183,11 +183,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAliasResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -246,11 +243,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCustomDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -311,11 +305,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -374,11 +365,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateLayerVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -435,11 +423,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTriggerResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -496,11 +481,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVpcBindingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVpcBindingResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVpcBindingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -554,11 +536,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAliasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAliasResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -618,11 +597,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAsyncInvokeConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -675,11 +651,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteConcurrencyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteConcurrencyConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteConcurrencyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -729,11 +702,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCustomDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -783,11 +753,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -838,11 +805,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteFunctionVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteFunctionVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteFunctionVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -894,11 +858,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteLayerVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -958,11 +919,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteProvisionConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1016,11 +974,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTriggerResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1072,11 +1027,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVpcBindingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVpcBindingResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVpcBindingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1135,11 +1087,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1207,11 +1156,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableFunctionInvocationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableFunctionInvocationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableFunctionInvocationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1267,11 +1213,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableFunctionInvocationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableFunctionInvocationResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableFunctionInvocationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1322,11 +1265,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAliasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAliasResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1386,11 +1326,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAsyncInvokeConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1453,11 +1390,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAsyncTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1511,11 +1445,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetConcurrencyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConcurrencyConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConcurrencyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1565,11 +1496,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCustomDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1628,11 +1556,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1694,11 +1619,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFunctionCodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFunctionCodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFunctionCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1752,11 +1674,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetLayerVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1807,11 +1726,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetLayerVersionByArnResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetLayerVersionByArnResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetLayerVersionByArnResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1870,11 +1786,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetProvisionConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1928,11 +1841,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTriggerResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2098,11 +2008,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAliasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2171,11 +2078,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAsyncInvokeConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAsyncInvokeConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAsyncInvokeConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2268,11 +2172,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAsyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAsyncTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAsyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2341,11 +2242,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListConcurrencyConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListConcurrencyConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListConcurrencyConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2413,11 +2311,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCustomDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCustomDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCustomDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2486,11 +2381,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListFunctionVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListFunctionVersionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListFunctionVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2588,11 +2480,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListFunctionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2694,11 +2583,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2764,11 +2650,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListLayerVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListLayerVersionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListLayerVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2845,11 +2728,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListLayersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListLayersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListLayersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2917,11 +2797,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListProvisionConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListProvisionConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListProvisionConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3007,11 +2884,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3080,11 +2954,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTriggersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTriggersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTriggersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3137,11 +3008,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVpcBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVpcBindingsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVpcBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3195,11 +3063,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PublishFunctionVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PublishFunctionVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return PublishFunctionVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3262,11 +3127,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PutAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PutAsyncInvokeConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return PutAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3323,11 +3185,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PutConcurrencyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PutConcurrencyConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return PutConcurrencyConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3393,11 +3252,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PutLayerACLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PutLayerACLResponse::fromMap($this->execute($params, $req, $runtime));
+        return PutLayerACLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3460,11 +3316,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PutProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PutProvisionConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return PutProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3527,11 +3380,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopAsyncTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3591,11 +3441,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3680,11 +3527,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'none',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3741,11 +3585,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAliasResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3803,11 +3644,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCustomDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3864,11 +3702,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3926,11 +3761,8 @@ class FC extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTriggerResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

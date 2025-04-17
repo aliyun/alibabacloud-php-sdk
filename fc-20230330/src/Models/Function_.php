@@ -104,7 +104,7 @@ class Function_ extends Model
     public $internetAccess;
 
     /**
-     * @var OpenStructFunctionRestriction
+     * @var FunctionRestriction
      */
     public $invocationRestriction;
 
@@ -550,7 +550,7 @@ class Function_ extends Model
         }
 
         if (isset($map['invocationRestriction'])) {
-            $model->invocationRestriction = OpenStructFunctionRestriction::fromMap($map['invocationRestriction']);
+            $model->invocationRestriction = FunctionRestriction::fromMap($map['invocationRestriction']);
         }
 
         if (isset($map['lastModifiedTime'])) {
