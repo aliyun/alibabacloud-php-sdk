@@ -174,6 +174,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertEventsShrinkReques
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListApiByAppRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListApiByAppResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListApiByAppShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAuthorizedDataServiceApiDetailsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAuthorizedDataServiceApiDetailsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAuthorizedDataServiceApiDetailsShrinkRequest;
@@ -5008,6 +5011,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAlertNotificationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据app查询api列表.
+     *
+     * @param tmpReq - ListApiByAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApiByAppResponse
+     *
+     * @param ListApiByAppRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListApiByAppResponse
+     */
+    public function listApiByAppWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListApiByAppShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->pageQuery) {
+            $request->pageQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pageQuery, 'PageQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->pageQueryShrink) {
+            @$body['PageQuery'] = $request->pageQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListApiByApp',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApiByAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据app查询api列表.
+     *
+     * @param request - ListApiByAppRequest
+     *
+     * @returns ListApiByAppResponse
+     *
+     * @param ListApiByAppRequest $request
+     *
+     * @return ListApiByAppResponse
+     */
+    public function listApiByApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApiByAppWithOptions($request, $runtime);
     }
 
     /**
