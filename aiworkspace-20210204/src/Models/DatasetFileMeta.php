@@ -26,6 +26,11 @@ class DatasetFileMeta extends Model
     /**
      * @var string
      */
+    public $fileCreateTime;
+
+    /**
+     * @var string
+     */
     public $fileFingerPrint;
 
     /**
@@ -39,9 +44,24 @@ class DatasetFileMeta extends Model
     public $fileUpdateTime;
 
     /**
+     * @var string
+     */
+    public $metaAttributes;
+
+    /**
      * @var float
      */
     public $score;
+
+    /**
+     * @var string
+     */
+    public $semanticIndexJobId;
+
+    /**
+     * @var string
+     */
+    public $semanticIndexUpdateTime;
 
     /**
      * @var string
@@ -51,16 +71,26 @@ class DatasetFileMeta extends Model
     /**
      * @var string
      */
+    public $thumbnailUrl;
+
+    /**
+     * @var string
+     */
     public $uri;
     protected $_name = [
         'dataSize' => 'DataSize',
         'datasetFileMetaId' => 'DatasetFileMetaId',
         'downloadUrl' => 'DownloadUrl',
+        'fileCreateTime' => 'FileCreateTime',
         'fileFingerPrint' => 'FileFingerPrint',
         'fileName' => 'FileName',
         'fileUpdateTime' => 'FileUpdateTime',
+        'metaAttributes' => 'MetaAttributes',
         'score' => 'Score',
+        'semanticIndexJobId' => 'SemanticIndexJobId',
+        'semanticIndexUpdateTime' => 'SemanticIndexUpdateTime',
         'tags' => 'Tags',
+        'thumbnailUrl' => 'ThumbnailUrl',
         'uri' => 'Uri',
     ];
 
@@ -84,6 +114,10 @@ class DatasetFileMeta extends Model
             $res['DownloadUrl'] = $this->downloadUrl;
         }
 
+        if (null !== $this->fileCreateTime) {
+            $res['FileCreateTime'] = $this->fileCreateTime;
+        }
+
         if (null !== $this->fileFingerPrint) {
             $res['FileFingerPrint'] = $this->fileFingerPrint;
         }
@@ -96,12 +130,28 @@ class DatasetFileMeta extends Model
             $res['FileUpdateTime'] = $this->fileUpdateTime;
         }
 
+        if (null !== $this->metaAttributes) {
+            $res['MetaAttributes'] = $this->metaAttributes;
+        }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
 
+        if (null !== $this->semanticIndexJobId) {
+            $res['SemanticIndexJobId'] = $this->semanticIndexJobId;
+        }
+
+        if (null !== $this->semanticIndexUpdateTime) {
+            $res['SemanticIndexUpdateTime'] = $this->semanticIndexUpdateTime;
+        }
+
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
+        }
+
+        if (null !== $this->thumbnailUrl) {
+            $res['ThumbnailUrl'] = $this->thumbnailUrl;
         }
 
         if (null !== $this->uri) {
@@ -131,6 +181,10 @@ class DatasetFileMeta extends Model
             $model->downloadUrl = $map['DownloadUrl'];
         }
 
+        if (isset($map['FileCreateTime'])) {
+            $model->fileCreateTime = $map['FileCreateTime'];
+        }
+
         if (isset($map['FileFingerPrint'])) {
             $model->fileFingerPrint = $map['FileFingerPrint'];
         }
@@ -143,12 +197,28 @@ class DatasetFileMeta extends Model
             $model->fileUpdateTime = $map['FileUpdateTime'];
         }
 
+        if (isset($map['MetaAttributes'])) {
+            $model->metaAttributes = $map['MetaAttributes'];
+        }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
 
+        if (isset($map['SemanticIndexJobId'])) {
+            $model->semanticIndexJobId = $map['SemanticIndexJobId'];
+        }
+
+        if (isset($map['SemanticIndexUpdateTime'])) {
+            $model->semanticIndexUpdateTime = $map['SemanticIndexUpdateTime'];
+        }
+
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
+        }
+
+        if (isset($map['ThumbnailUrl'])) {
+            $model->thumbnailUrl = $map['ThumbnailUrl'];
         }
 
         if (isset($map['Uri'])) {

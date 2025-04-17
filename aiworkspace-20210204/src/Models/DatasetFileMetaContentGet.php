@@ -36,6 +36,11 @@ class DatasetFileMetaContentGet extends Model
     /**
      * @var string
      */
+    public $fileDir;
+
+    /**
+     * @var string
+     */
     public $fileFingerPrint;
 
     /**
@@ -61,6 +66,21 @@ class DatasetFileMetaContentGet extends Model
     /**
      * @var string
      */
+    public $semanticIndexJobId;
+
+    /**
+     * @var string
+     */
+    public $semanticIndexUpdateTime;
+
+    /**
+     * @var string
+     */
+    public $tagUpdateTime;
+
+    /**
+     * @var string
+     */
     public $tags;
 
     /**
@@ -73,11 +93,15 @@ class DatasetFileMetaContentGet extends Model
         'dataSize' => 'DataSize',
         'datasetFileMetaId' => 'DatasetFileMetaId',
         'fileCreateTime' => 'FileCreateTime',
+        'fileDir' => 'FileDir',
         'fileFingerPrint' => 'FileFingerPrint',
         'fileName' => 'FileName',
         'fileType' => 'FileType',
         'fileUpdateTime' => 'FileUpdateTime',
         'metaAttributes' => 'MetaAttributes',
+        'semanticIndexJobId' => 'SemanticIndexJobId',
+        'semanticIndexUpdateTime' => 'SemanticIndexUpdateTime',
+        'tagUpdateTime' => 'TagUpdateTime',
         'tags' => 'Tags',
         'uri' => 'Uri',
     ];
@@ -110,6 +134,10 @@ class DatasetFileMetaContentGet extends Model
             $res['FileCreateTime'] = $this->fileCreateTime;
         }
 
+        if (null !== $this->fileDir) {
+            $res['FileDir'] = $this->fileDir;
+        }
+
         if (null !== $this->fileFingerPrint) {
             $res['FileFingerPrint'] = $this->fileFingerPrint;
         }
@@ -128,6 +156,18 @@ class DatasetFileMetaContentGet extends Model
 
         if (null !== $this->metaAttributes) {
             $res['MetaAttributes'] = $this->metaAttributes;
+        }
+
+        if (null !== $this->semanticIndexJobId) {
+            $res['SemanticIndexJobId'] = $this->semanticIndexJobId;
+        }
+
+        if (null !== $this->semanticIndexUpdateTime) {
+            $res['SemanticIndexUpdateTime'] = $this->semanticIndexUpdateTime;
+        }
+
+        if (null !== $this->tagUpdateTime) {
+            $res['TagUpdateTime'] = $this->tagUpdateTime;
         }
 
         if (null !== $this->tags) {
@@ -169,6 +209,10 @@ class DatasetFileMetaContentGet extends Model
             $model->fileCreateTime = $map['FileCreateTime'];
         }
 
+        if (isset($map['FileDir'])) {
+            $model->fileDir = $map['FileDir'];
+        }
+
         if (isset($map['FileFingerPrint'])) {
             $model->fileFingerPrint = $map['FileFingerPrint'];
         }
@@ -187,6 +231,18 @@ class DatasetFileMetaContentGet extends Model
 
         if (isset($map['MetaAttributes'])) {
             $model->metaAttributes = $map['MetaAttributes'];
+        }
+
+        if (isset($map['SemanticIndexJobId'])) {
+            $model->semanticIndexJobId = $map['SemanticIndexJobId'];
+        }
+
+        if (isset($map['SemanticIndexUpdateTime'])) {
+            $model->semanticIndexUpdateTime = $map['SemanticIndexUpdateTime'];
+        }
+
+        if (isset($map['TagUpdateTime'])) {
+            $model->tagUpdateTime = $map['TagUpdateTime'];
         }
 
         if (isset($map['Tags'])) {

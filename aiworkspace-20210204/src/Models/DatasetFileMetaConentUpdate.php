@@ -56,6 +56,16 @@ class DatasetFileMetaConentUpdate extends Model
     /**
      * @var string
      */
+    public $semanticIndexJobId;
+
+    /**
+     * @var string
+     */
+    public $semanticIndexUpdateTime;
+
+    /**
+     * @var string
+     */
     public $tags;
     protected $_name = [
         'comment' => 'Comment',
@@ -67,6 +77,8 @@ class DatasetFileMetaConentUpdate extends Model
         'fileType' => 'FileType',
         'fileUpdateTime' => 'FileUpdateTime',
         'metaAttributes' => 'MetaAttributes',
+        'semanticIndexJobId' => 'SemanticIndexJobId',
+        'semanticIndexUpdateTime' => 'SemanticIndexUpdateTime',
         'tags' => 'Tags',
     ];
 
@@ -112,6 +124,14 @@ class DatasetFileMetaConentUpdate extends Model
 
         if (null !== $this->metaAttributes) {
             $res['MetaAttributes'] = $this->metaAttributes;
+        }
+
+        if (null !== $this->semanticIndexJobId) {
+            $res['SemanticIndexJobId'] = $this->semanticIndexJobId;
+        }
+
+        if (null !== $this->semanticIndexUpdateTime) {
+            $res['SemanticIndexUpdateTime'] = $this->semanticIndexUpdateTime;
         }
 
         if (null !== $this->tags) {
@@ -163,6 +183,14 @@ class DatasetFileMetaConentUpdate extends Model
 
         if (isset($map['MetaAttributes'])) {
             $model->metaAttributes = $map['MetaAttributes'];
+        }
+
+        if (isset($map['SemanticIndexJobId'])) {
+            $model->semanticIndexJobId = $map['SemanticIndexJobId'];
+        }
+
+        if (isset($map['SemanticIndexUpdateTime'])) {
+            $model->semanticIndexUpdateTime = $map['SemanticIndexUpdateTime'];
         }
 
         if (isset($map['Tags'])) {

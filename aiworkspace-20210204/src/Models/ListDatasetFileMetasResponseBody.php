@@ -24,6 +24,11 @@ class ListDatasetFileMetasResponseBody extends Model
     public $datasetVersion;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -46,6 +51,7 @@ class ListDatasetFileMetasResponseBody extends Model
         'datasetFileMetas' => 'DatasetFileMetas',
         'datasetId' => 'DatasetId',
         'datasetVersion' => 'DatasetVersion',
+        'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'pageSize' => 'PageSize',
         'totalCount' => 'TotalCount',
@@ -79,6 +85,10 @@ class ListDatasetFileMetasResponseBody extends Model
 
         if (null !== $this->datasetVersion) {
             $res['DatasetVersion'] = $this->datasetVersion;
+        }
+
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
 
         if (null !== $this->nextToken) {
@@ -124,6 +134,10 @@ class ListDatasetFileMetasResponseBody extends Model
 
         if (isset($map['DatasetVersion'])) {
             $model->datasetVersion = $map['DatasetVersion'];
+        }
+
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
 
         if (isset($map['NextToken'])) {

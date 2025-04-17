@@ -75,6 +75,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelVersionLabelsRespon
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteModelVersionResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteRunLabelResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteRunResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteUserConfigRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteUserConfigResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResourceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResponse;
@@ -108,6 +110,7 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListCodeSourcesRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListCodeSourcesResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetFileMetasRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetFileMetasResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetFileMetasShrinkRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetJobConfigsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetJobConfigsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetJobsRequest;
@@ -140,6 +143,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListRunMetricsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListRunMetricsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListRunsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListRunsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListUserConfigsRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListUserConfigsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListWorkspaceUsersRequest;
@@ -154,6 +159,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\RemoveImageResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\RemoveMemberRoleResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\SetExperimentLabelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\SetExperimentLabelsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\SetUserConfigsRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\SetUserConfigsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\StopDatasetJobRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\StopDatasetJobResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateCodeSourceRequest;
@@ -263,11 +270,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AcceptDataworksEventResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AcceptDataworksEventResponse::fromMap($this->execute($params, $req, $runtime));
+        return AcceptDataworksEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -363,11 +367,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddImageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddImageResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -428,11 +429,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddImageLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddImageLabelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddImageLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -487,11 +485,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddMemberRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddMemberRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddMemberRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -559,11 +554,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -659,11 +651,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCodeSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -811,11 +800,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDatasetResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -884,11 +870,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDatasetFileMetasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDatasetFileMetasResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDatasetFileMetasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -970,11 +953,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDatasetJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDatasetJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDatasetJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1044,11 +1024,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDatasetJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDatasetJobConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDatasetJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1110,11 +1087,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDatasetLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDatasetLabelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDatasetLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1138,7 +1112,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建数据集版本.
+     * Creates a dataset version.
      *
      * @param request - CreateDatasetVersionRequest
      * @param headers - map
@@ -1216,15 +1190,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDatasetVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 创建数据集版本.
+     * Creates a dataset version.
      *
      * @param request - CreateDatasetVersionRequest
      *
@@ -1244,7 +1215,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建数据集版本的标签.
+     * Creates tags for a dataset version.
      *
      * @param request - CreateDatasetVersionLabelsRequest
      * @param headers - map
@@ -1283,15 +1254,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDatasetVersionLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDatasetVersionLabelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDatasetVersionLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 创建数据集版本的标签.
+     * Creates tags for a dataset version.
      *
      * @param request - CreateDatasetVersionLabelsRequest
      *
@@ -1365,11 +1333,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateExperimentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1430,11 +1395,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateMemberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1458,7 +1420,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建模型.
+     * Creates a model. A model is a collection of model versions. When you create a model, you must specify the model name and description.
      *
      * @param request - CreateModelRequest
      * @param headers - map
@@ -1539,15 +1501,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateModelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateModelResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 创建模型.
+     * Creates a model. A model is a collection of model versions. When you create a model, you must specify the model name and description.
      *
      * @param request - CreateModelRequest
      *
@@ -1566,7 +1525,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建或更新模型的标签.
+     * Creates a tag for a model.
      *
      * @param request - CreateModelLabelsRequest
      * @param headers - map
@@ -1604,15 +1563,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateModelLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateModelLabelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateModelLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 创建或更新模型的标签.
+     * Creates a tag for a model.
      *
      * @param request - CreateModelLabelsRequest
      *
@@ -1632,7 +1588,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建模型版本.
+     * Creates a new version for the specified model.
      *
      * @param request - CreateModelVersionRequest
      * @param headers - map
@@ -1730,15 +1686,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateModelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateModelVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateModelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 创建模型版本.
+     * Creates a new version for the specified model.
      *
      * @param request - CreateModelVersionRequest
      *
@@ -1797,11 +1750,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateModelVersionLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateModelVersionLabelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateModelVersionLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1826,7 +1776,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建产品订单.
+     * Creates a pay-as-you-go order for DataWorks, OSS, PAI, or MaxCompute.
      *
      * @param request - CreateProductOrdersRequest
      * @param headers - map
@@ -1867,15 +1817,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateProductOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateProductOrdersResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateProductOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 创建产品订单.
+     * Creates a pay-as-you-go order for DataWorks, OSS, PAI, or MaxCompute.
      *
      * @param request - CreateProductOrdersRequest
      *
@@ -1894,7 +1841,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建一次运行.
+     * Creates a run. A run is an experiment that can be associated with a specific workload or simply a code execution.
      *
      * @param request - CreateRunRequest
      * @param headers - map
@@ -1951,15 +1898,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateRunResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRunResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRunResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 创建一次运行.
+     * Creates a run. A run is an experiment that can be associated with a specific workload or simply a code execution.
      *
      * @param request - CreateRunRequest
      *
@@ -1978,7 +1922,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建工作空间.
+     * Creates a workspace.
      *
      * @param request - CreateWorkspaceRequest
      * @param headers - map
@@ -2031,15 +1975,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 创建工作空间.
+     * Creates a workspace.
      *
      * @param request - CreateWorkspaceRequest
      *
@@ -2100,11 +2041,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateWorkspaceResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateWorkspaceResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateWorkspaceResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2128,7 +2066,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除一个代码源配置.
+     * Deletes a code source based on the provided ID.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2157,15 +2095,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCodeSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 删除一个代码源配置.
+     * Deletes a code source based on the provided ID.
      *
      * @returns DeleteCodeSourceResponse
      *
@@ -2211,11 +2146,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDatasetResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2282,11 +2214,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDatasetFileMetasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDatasetFileMetasResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDatasetFileMetasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2340,11 +2269,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDatasetJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDatasetJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDatasetJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2405,11 +2331,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDatasetJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDatasetJobConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDatasetJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2472,11 +2395,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDatasetLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDatasetLabelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDatasetLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2500,7 +2420,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除指定版本的数据集信息，如果删除的版本是该数据集的仅存版本，版本删除后会联动删除dataset 表中的数据集信息.
+     * Deletes the information about a specified version of a dataset. Version v1 cannot be deleted by using this operation. When you call the DeleteDataset operation to delete a dataset, it can be deleted at the same time.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2530,15 +2450,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDatasetVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 删除指定版本的数据集信息，如果删除的版本是该数据集的仅存版本，版本删除后会联动删除dataset 表中的数据集信息.
+     * Deletes the information about a specified version of a dataset. Version v1 cannot be deleted by using this operation. When you call the DeleteDataset operation to delete a dataset, it can be deleted at the same time.
      *
      * @returns DeleteDatasetVersionResponse
      *
@@ -2595,11 +2512,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDatasetVersionLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDatasetVersionLabelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDatasetVersionLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2653,11 +2567,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteExperimentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2708,11 +2619,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteExperimentLabelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteExperimentLabelResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteExperimentLabelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2734,7 +2642,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除工作空间成员.
+     * Deletes a member from a workspace.
      *
      * @param request - DeleteMembersRequest
      * @param headers - map
@@ -2772,15 +2680,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 删除工作空间成员.
+     * Deletes a member from a workspace.
      *
      * @param request - DeleteMembersRequest
      *
@@ -2800,7 +2705,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除模型.
+     * Deletes a model.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2829,15 +2734,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteModelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteModelResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 删除模型.
+     * Deletes a model.
      *
      * @returns DeleteModelResponse
      *
@@ -2892,11 +2794,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteModelLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteModelLabelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteModelLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2950,11 +2849,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteModelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteModelVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteModelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2976,7 +2872,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除模型版本的标签.
+     * Delete a model version tag.
      *
      * @param request - DeleteModelVersionLabelsRequest
      * @param headers - map
@@ -3015,15 +2911,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteModelVersionLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteModelVersionLabelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteModelVersionLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 删除模型版本的标签.
+     * Delete a model version tag.
      *
      * @param request - DeleteModelVersionLabelsRequest
      *
@@ -3044,7 +2937,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除Run.
+     * Deletes a run.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3073,15 +2966,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteRunResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteRunResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteRunResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 删除Run.
+     * Deletes a run.
      *
      * @returns DeleteRunResponse
      *
@@ -3128,11 +3018,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteRunLabelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteRunLabelResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteRunLabelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3151,6 +3038,69 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->deleteRunLabelWithOptions($RunId, $Key, $headers, $runtime);
+    }
+
+    /**
+     * Deletes user configurations.
+     *
+     * @param request - DeleteUserConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUserConfigResponse
+     *
+     * @param string                  $CategoryName
+     * @param DeleteUserConfigRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteUserConfigResponse
+     */
+    public function deleteUserConfigWithOptions($CategoryName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configKey) {
+            @$query['ConfigKey'] = $request->configKey;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteUserConfig',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/userconfigs/' . Url::percentEncode($CategoryName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteUserConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes user configurations.
+     *
+     * @param request - DeleteUserConfigRequest
+     *
+     * @returns DeleteUserConfigResponse
+     *
+     * @param string                  $CategoryName
+     * @param DeleteUserConfigRequest $request
+     *
+     * @return DeleteUserConfigResponse
+     */
+    public function deleteUserConfig($CategoryName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteUserConfigWithOptions($CategoryName, $request, $headers, $runtime);
     }
 
     /**
@@ -3183,11 +3133,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3266,11 +3213,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteWorkspaceResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteWorkspaceResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteWorkspaceResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3294,7 +3238,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取一个代码源配置.
+     * Obtains the details of a code source.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3323,15 +3267,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCodeSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获取一个代码源配置.
+     * Obtains the details of a code source.
      *
      * @returns GetCodeSourceResponse
      *
@@ -3377,11 +3318,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDatasetResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3445,11 +3383,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDatasetFileMetaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDatasetFileMetaResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDatasetFileMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3517,11 +3452,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDatasetJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDatasetJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDatasetJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3585,11 +3517,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDatasetJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDatasetJobConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDatasetJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3644,11 +3573,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDatasetVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3707,11 +3633,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDefaultWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDefaultWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDefaultWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3734,7 +3657,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取实验.
+     * Obtains an experiment.
      *
      * @param request - GetExperimentRequest
      * @param headers - map
@@ -3772,15 +3695,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetExperimentResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获取实验.
+     * Obtains an experiment.
      *
      * @param request - GetExperimentRequest
      *
@@ -3838,11 +3758,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetImageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetImageResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3908,11 +3825,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMemberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMemberResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3965,11 +3879,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetModelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetModelResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4020,11 +3931,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetModelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetModelVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetModelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4107,11 +4015,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPermissionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4174,11 +4079,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRunResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRunResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRunResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4240,11 +4142,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4325,11 +4224,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCodeSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCodeSourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCodeSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4354,22 +4250,40 @@ class AIWorkSpace extends OpenApiClient
     /**
      * 查询数据集文件列表.
      *
-     * @param request - ListDatasetFileMetasRequest
+     * @param tmpReq - ListDatasetFileMetasRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListDatasetFileMetasResponse
      *
      * @param string                      $DatasetId
-     * @param ListDatasetFileMetasRequest $request
+     * @param ListDatasetFileMetasRequest $tmpReq
      * @param string[]                    $headers
      * @param RuntimeOptions              $runtime
      *
      * @return ListDatasetFileMetasResponse
      */
-    public function listDatasetFileMetasWithOptions($DatasetId, $request, $headers, $runtime)
+    public function listDatasetFileMetasWithOptions($DatasetId, $tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListDatasetFileMetasShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->queryFileTypeIncludeAny) {
+            $request->queryFileTypeIncludeAnyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryFileTypeIncludeAny, 'QueryFileTypeIncludeAny', 'simple');
+        }
+
+        if (null !== $tmpReq->queryTagsExclude) {
+            $request->queryTagsExcludeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryTagsExclude, 'QueryTagsExclude', 'simple');
+        }
+
+        if (null !== $tmpReq->queryTagsIncludeAll) {
+            $request->queryTagsIncludeAllShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryTagsIncludeAll, 'QueryTagsIncludeAll', 'simple');
+        }
+
+        if (null !== $tmpReq->queryTagsIncludeAny) {
+            $request->queryTagsIncludeAnyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryTagsIncludeAny, 'QueryTagsIncludeAny', 'simple');
+        }
+
         $query = [];
         if (null !== $request->datasetVersion) {
             @$query['DatasetVersion'] = $request->datasetVersion;
@@ -4377,6 +4291,14 @@ class AIWorkSpace extends OpenApiClient
 
         if (null !== $request->endFileUpdateTime) {
             @$query['EndFileUpdateTime'] = $request->endFileUpdateTime;
+        }
+
+        if (null !== $request->endTagUpdateTime) {
+            @$query['EndTagUpdateTime'] = $request->endTagUpdateTime;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
 
         if (null !== $request->nextToken) {
@@ -4389,6 +4311,34 @@ class AIWorkSpace extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->queryFileDir) {
+            @$query['QueryFileDir'] = $request->queryFileDir;
+        }
+
+        if (null !== $request->queryFileName) {
+            @$query['QueryFileName'] = $request->queryFileName;
+        }
+
+        if (null !== $request->queryFileTypeIncludeAnyShrink) {
+            @$query['QueryFileTypeIncludeAny'] = $request->queryFileTypeIncludeAnyShrink;
+        }
+
+        if (null !== $request->queryImage) {
+            @$query['QueryImage'] = $request->queryImage;
+        }
+
+        if (null !== $request->queryTagsExcludeShrink) {
+            @$query['QueryTagsExclude'] = $request->queryTagsExcludeShrink;
+        }
+
+        if (null !== $request->queryTagsIncludeAllShrink) {
+            @$query['QueryTagsIncludeAll'] = $request->queryTagsIncludeAllShrink;
+        }
+
+        if (null !== $request->queryTagsIncludeAnyShrink) {
+            @$query['QueryTagsIncludeAny'] = $request->queryTagsIncludeAnyShrink;
         }
 
         if (null !== $request->queryText) {
@@ -4409,6 +4359,14 @@ class AIWorkSpace extends OpenApiClient
 
         if (null !== $request->startFileUpdateTime) {
             @$query['StartFileUpdateTime'] = $request->startFileUpdateTime;
+        }
+
+        if (null !== $request->startTagUpdateTime) {
+            @$query['StartTagUpdateTime'] = $request->startTagUpdateTime;
+        }
+
+        if (null !== $request->thumbnailMode) {
+            @$query['ThumbnailMode'] = $request->thumbnailMode;
         }
 
         if (null !== $request->topK) {
@@ -4434,11 +4392,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDatasetFileMetasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDatasetFileMetasResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDatasetFileMetasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4512,11 +4467,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDatasetJobConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDatasetJobConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDatasetJobConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4594,11 +4546,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDatasetJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDatasetJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDatasetJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4692,11 +4641,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDatasetVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDatasetVersionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDatasetVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4809,11 +4755,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDatasetsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDatasetsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDatasetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4923,11 +4866,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListExperimentResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4950,7 +4890,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 列举标签.
+     * Lists all tags of an image.
      *
      * @param request - ListImageLabelsRequest
      * @param headers - map
@@ -5003,15 +4943,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListImageLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListImageLabelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListImageLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 列举标签.
+     * Lists all tags of an image.
      *
      * @param request - ListImageLabelsRequest
      *
@@ -5107,11 +5044,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListImagesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5184,11 +5118,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5290,11 +5221,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListModelVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListModelVersionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListModelVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5407,11 +5335,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListModelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListModelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListModelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5463,11 +5388,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPermissionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5533,11 +5455,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListProductsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListProductsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListProductsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5597,11 +5516,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListQuotasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListQuotasResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListQuotasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5705,11 +5621,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5778,11 +5691,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRunMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRunMetricsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRunMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5899,11 +5809,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRunsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRunsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRunsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5923,6 +5830,71 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->listRunsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Obtains the user configurations.
+     *
+     * @param request - ListUserConfigsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserConfigsResponse
+     *
+     * @param ListUserConfigsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListUserConfigsResponse
+     */
+    public function listUserConfigsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->categoryNames) {
+            @$query['CategoryNames'] = $request->categoryNames;
+        }
+
+        if (null !== $request->configKeys) {
+            @$query['ConfigKeys'] = $request->configKeys;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUserConfigs',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/userconfigs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUserConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Obtains the user configurations.
+     *
+     * @param request - ListUserConfigsRequest
+     *
+     * @returns ListUserConfigsResponse
+     *
+     * @param ListUserConfigsRequest $request
+     *
+     * @return ListUserConfigsResponse
+     */
+    public function listUserConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listUserConfigsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5964,11 +5936,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListWorkspaceUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWorkspaceUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWorkspaceUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5992,7 +5961,10 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获得工作空间列表.
+     * Lists all workspaces in a region.
+     *
+     * @remarks
+     * You can use the option parameter to specify query options, so as to obtain different information about the workspaces.
      *
      * @param request - ListWorkspacesRequest
      * @param headers - map
@@ -6073,15 +6045,15 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWorkspacesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 获得工作空间列表.
+     * Lists all workspaces in a region.
+     *
+     * @remarks
+     * You can use the option parameter to specify query options, so as to obtain different information about the workspaces.
      *
      * @param request - ListWorkspacesRequest
      *
@@ -6138,11 +6110,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return LogRunMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return LogRunMetricsResponse::fromMap($this->execute($params, $req, $runtime));
+        return LogRunMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6195,11 +6164,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PublishCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PublishCodeSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return PublishCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6249,11 +6215,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PublishDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PublishDatasetResponse::fromMap($this->execute($params, $req, $runtime));
+        return PublishDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6303,11 +6266,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PublishImageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PublishImageResponse::fromMap($this->execute($params, $req, $runtime));
+        return PublishImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6357,11 +6317,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveImageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveImageResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6412,11 +6369,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveImageLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveImageLabelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveImageLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6469,11 +6423,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveMemberRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveMemberRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveMemberRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6534,11 +6485,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetExperimentLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetExperimentLabelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetExperimentLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6559,6 +6507,67 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->setExperimentLabelsWithOptions($ExperimentId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the user configurations.
+     *
+     * @param request - SetUserConfigsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetUserConfigsResponse
+     *
+     * @param SetUserConfigsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SetUserConfigsResponse
+     */
+    public function setUserConfigsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->configs) {
+            @$body['Configs'] = $request->configs;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SetUserConfigs',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/userconfigs',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SetUserConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the user configurations.
+     *
+     * @param request - SetUserConfigsRequest
+     *
+     * @returns SetUserConfigsResponse
+     *
+     * @param SetUserConfigsRequest $request
+     *
+     * @return SetUserConfigsResponse
+     */
+    public function setUserConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->setUserConfigsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6605,11 +6614,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopDatasetJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopDatasetJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopDatasetJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6700,11 +6706,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCodeSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6778,11 +6781,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDatasetResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6856,11 +6856,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDatasetFileMetasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDatasetFileMetasResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDatasetFileMetasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6931,11 +6928,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDatasetJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDatasetJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDatasetJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7007,11 +7001,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDatasetJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDatasetJobConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDatasetJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7036,7 +7027,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新指定版本的数据集信息.
+     * Updates the information about a specified version of a dataset.
      *
      * @param request - UpdateDatasetVersionRequest
      * @param headers - map
@@ -7087,15 +7078,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDatasetVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 更新指定版本的数据集信息.
+     * Updates the information about a specified version of a dataset.
      *
      * @param request - UpdateDatasetVersionRequest
      *
@@ -7153,11 +7141,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDefaultWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDefaultWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDefaultWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7222,11 +7207,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateExperimentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7324,11 +7306,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateModelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateModelResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7431,11 +7410,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateModelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateModelVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateModelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7460,7 +7436,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新Run.
+     * Updates the run information.
      *
      * @param request - UpdateRunRequest
      * @param headers - map
@@ -7506,15 +7482,12 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateRunResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateRunResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateRunResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 更新Run.
+     * Updates the run information.
      *
      * @param request - UpdateRunRequest
      *
@@ -7576,11 +7549,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7666,11 +7636,8 @@ class AIWorkSpace extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateWorkspaceResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateWorkspaceResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateWorkspaceResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

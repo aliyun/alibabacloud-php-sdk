@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListDatasetFileMetasRequest extends Model
+class ListDatasetFileMetasShrinkRequest extends Model
 {
     /**
      * @var string
@@ -54,9 +54,9 @@ class ListDatasetFileMetasRequest extends Model
     public $queryFileName;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $queryFileTypeIncludeAny;
+    public $queryFileTypeIncludeAnyShrink;
 
     /**
      * @var string
@@ -64,19 +64,19 @@ class ListDatasetFileMetasRequest extends Model
     public $queryImage;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $queryTagsExclude;
+    public $queryTagsExcludeShrink;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $queryTagsIncludeAll;
+    public $queryTagsIncludeAllShrink;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $queryTagsIncludeAny;
+    public $queryTagsIncludeAnyShrink;
 
     /**
      * @var string
@@ -132,11 +132,11 @@ class ListDatasetFileMetasRequest extends Model
         'pageSize' => 'PageSize',
         'queryFileDir' => 'QueryFileDir',
         'queryFileName' => 'QueryFileName',
-        'queryFileTypeIncludeAny' => 'QueryFileTypeIncludeAny',
+        'queryFileTypeIncludeAnyShrink' => 'QueryFileTypeIncludeAny',
         'queryImage' => 'QueryImage',
-        'queryTagsExclude' => 'QueryTagsExclude',
-        'queryTagsIncludeAll' => 'QueryTagsIncludeAll',
-        'queryTagsIncludeAny' => 'QueryTagsIncludeAny',
+        'queryTagsExcludeShrink' => 'QueryTagsExclude',
+        'queryTagsIncludeAllShrink' => 'QueryTagsIncludeAll',
+        'queryTagsIncludeAnyShrink' => 'QueryTagsIncludeAny',
         'queryText' => 'QueryText',
         'queryType' => 'QueryType',
         'scoreThreshold' => 'ScoreThreshold',
@@ -150,18 +150,6 @@ class ListDatasetFileMetasRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->queryFileTypeIncludeAny)) {
-            Model::validateArray($this->queryFileTypeIncludeAny);
-        }
-        if (\is_array($this->queryTagsExclude)) {
-            Model::validateArray($this->queryTagsExclude);
-        }
-        if (\is_array($this->queryTagsIncludeAll)) {
-            Model::validateArray($this->queryTagsIncludeAll);
-        }
-        if (\is_array($this->queryTagsIncludeAny)) {
-            Model::validateArray($this->queryTagsIncludeAny);
-        }
         parent::validate();
     }
 
@@ -204,48 +192,24 @@ class ListDatasetFileMetasRequest extends Model
             $res['QueryFileName'] = $this->queryFileName;
         }
 
-        if (null !== $this->queryFileTypeIncludeAny) {
-            if (\is_array($this->queryFileTypeIncludeAny)) {
-                $res['QueryFileTypeIncludeAny'] = [];
-                $n1 = 0;
-                foreach ($this->queryFileTypeIncludeAny as $item1) {
-                    $res['QueryFileTypeIncludeAny'][$n1++] = $item1;
-                }
-            }
+        if (null !== $this->queryFileTypeIncludeAnyShrink) {
+            $res['QueryFileTypeIncludeAny'] = $this->queryFileTypeIncludeAnyShrink;
         }
 
         if (null !== $this->queryImage) {
             $res['QueryImage'] = $this->queryImage;
         }
 
-        if (null !== $this->queryTagsExclude) {
-            if (\is_array($this->queryTagsExclude)) {
-                $res['QueryTagsExclude'] = [];
-                $n1 = 0;
-                foreach ($this->queryTagsExclude as $item1) {
-                    $res['QueryTagsExclude'][$n1++] = $item1;
-                }
-            }
+        if (null !== $this->queryTagsExcludeShrink) {
+            $res['QueryTagsExclude'] = $this->queryTagsExcludeShrink;
         }
 
-        if (null !== $this->queryTagsIncludeAll) {
-            if (\is_array($this->queryTagsIncludeAll)) {
-                $res['QueryTagsIncludeAll'] = [];
-                $n1 = 0;
-                foreach ($this->queryTagsIncludeAll as $item1) {
-                    $res['QueryTagsIncludeAll'][$n1++] = $item1;
-                }
-            }
+        if (null !== $this->queryTagsIncludeAllShrink) {
+            $res['QueryTagsIncludeAll'] = $this->queryTagsIncludeAllShrink;
         }
 
-        if (null !== $this->queryTagsIncludeAny) {
-            if (\is_array($this->queryTagsIncludeAny)) {
-                $res['QueryTagsIncludeAny'] = [];
-                $n1 = 0;
-                foreach ($this->queryTagsIncludeAny as $item1) {
-                    $res['QueryTagsIncludeAny'][$n1++] = $item1;
-                }
-            }
+        if (null !== $this->queryTagsIncludeAnyShrink) {
+            $res['QueryTagsIncludeAny'] = $this->queryTagsIncludeAnyShrink;
         }
 
         if (null !== $this->queryText) {
@@ -332,13 +296,7 @@ class ListDatasetFileMetasRequest extends Model
         }
 
         if (isset($map['QueryFileTypeIncludeAny'])) {
-            if (!empty($map['QueryFileTypeIncludeAny'])) {
-                $model->queryFileTypeIncludeAny = [];
-                $n1 = 0;
-                foreach ($map['QueryFileTypeIncludeAny'] as $item1) {
-                    $model->queryFileTypeIncludeAny[$n1++] = $item1;
-                }
-            }
+            $model->queryFileTypeIncludeAnyShrink = $map['QueryFileTypeIncludeAny'];
         }
 
         if (isset($map['QueryImage'])) {
@@ -346,33 +304,15 @@ class ListDatasetFileMetasRequest extends Model
         }
 
         if (isset($map['QueryTagsExclude'])) {
-            if (!empty($map['QueryTagsExclude'])) {
-                $model->queryTagsExclude = [];
-                $n1 = 0;
-                foreach ($map['QueryTagsExclude'] as $item1) {
-                    $model->queryTagsExclude[$n1++] = $item1;
-                }
-            }
+            $model->queryTagsExcludeShrink = $map['QueryTagsExclude'];
         }
 
         if (isset($map['QueryTagsIncludeAll'])) {
-            if (!empty($map['QueryTagsIncludeAll'])) {
-                $model->queryTagsIncludeAll = [];
-                $n1 = 0;
-                foreach ($map['QueryTagsIncludeAll'] as $item1) {
-                    $model->queryTagsIncludeAll[$n1++] = $item1;
-                }
-            }
+            $model->queryTagsIncludeAllShrink = $map['QueryTagsIncludeAll'];
         }
 
         if (isset($map['QueryTagsIncludeAny'])) {
-            if (!empty($map['QueryTagsIncludeAny'])) {
-                $model->queryTagsIncludeAny = [];
-                $n1 = 0;
-                foreach ($map['QueryTagsIncludeAny'] as $item1) {
-                    $model->queryTagsIncludeAny[$n1++] = $item1;
-                }
-            }
+            $model->queryTagsIncludeAnyShrink = $map['QueryTagsIncludeAny'];
         }
 
         if (isset($map['QueryText'])) {
