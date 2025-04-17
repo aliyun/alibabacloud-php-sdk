@@ -11,6 +11,11 @@ class RunNetworkContentAuditShrinkRequest extends Model
     /**
      * @var string
      */
+    public $apiKey;
+
+    /**
+     * @var string
+     */
     public $businessType;
 
     /**
@@ -43,6 +48,7 @@ class RunNetworkContentAuditShrinkRequest extends Model
      */
     public $taskDescription;
     protected $_name = [
+        'apiKey' => 'apiKey',
         'businessType' => 'businessType',
         'content' => 'content',
         'extraInfo' => 'extraInfo',
@@ -60,6 +66,10 @@ class RunNetworkContentAuditShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiKey) {
+            $res['apiKey'] = $this->apiKey;
+        }
+
         if (null !== $this->businessType) {
             $res['businessType'] = $this->businessType;
         }
@@ -99,6 +109,10 @@ class RunNetworkContentAuditShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['apiKey'])) {
+            $model->apiKey = $map['apiKey'];
+        }
+
         if (isset($map['businessType'])) {
             $model->businessType = $map['businessType'];
         }

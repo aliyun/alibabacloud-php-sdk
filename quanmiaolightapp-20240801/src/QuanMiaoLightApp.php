@@ -746,6 +746,14 @@ class QuanMiaoLightApp extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->akProxy) {
+            @$body['akProxy'] = $request->akProxy;
+        }
+
+        if (null !== $request->apiKey) {
+            @$body['apiKey'] = $request->apiKey;
+        }
+
         if (null !== $request->content) {
             @$body['content'] = $request->content;
         }
@@ -1120,6 +1128,10 @@ class QuanMiaoLightApp extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->apiKey) {
+            @$body['apiKey'] = $request->apiKey;
+        }
+
         if (null !== $request->customLimitation) {
             @$body['customLimitation'] = $request->customLimitation;
         }
@@ -1213,6 +1225,10 @@ class QuanMiaoLightApp extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->apiKey) {
+            @$body['apiKey'] = $request->apiKey;
+        }
+
         if (null !== $request->businessType) {
             @$body['businessType'] = $request->businessType;
         }
@@ -1949,6 +1965,10 @@ class QuanMiaoLightApp extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->apiKey) {
+            @$body['apiKey'] = $request->apiKey;
+        }
+
         if (null !== $request->contentsShrink) {
             @$body['contents'] = $request->contentsShrink;
         }

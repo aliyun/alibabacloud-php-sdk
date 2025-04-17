@@ -12,6 +12,11 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitEnterpriseVocAnalys
 class SubmitEnterpriseVocAnalysisTaskRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $apiKey;
+
+    /**
      * @var contents[]
      */
     public $contents;
@@ -56,6 +61,7 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
      */
     public $url;
     protected $_name = [
+        'apiKey' => 'apiKey',
         'contents' => 'contents',
         'extraInfo' => 'extraInfo',
         'fileKey' => 'fileKey',
@@ -84,6 +90,10 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiKey) {
+            $res['apiKey'] = $this->apiKey;
+        }
+
         if (null !== $this->contents) {
             if (\is_array($this->contents)) {
                 $res['contents'] = [];
@@ -149,6 +159,10 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['apiKey'])) {
+            $model->apiKey = $map['apiKey'];
+        }
+
         if (isset($map['contents'])) {
             if (!empty($map['contents'])) {
                 $model->contents = [];

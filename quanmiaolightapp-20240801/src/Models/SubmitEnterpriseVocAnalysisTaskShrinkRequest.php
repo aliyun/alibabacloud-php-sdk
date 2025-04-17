@@ -11,6 +11,11 @@ class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $apiKey;
+
+    /**
+     * @var string
+     */
     public $contentsShrink;
 
     /**
@@ -53,6 +58,7 @@ class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends Model
      */
     public $url;
     protected $_name = [
+        'apiKey' => 'apiKey',
         'contentsShrink' => 'contents',
         'extraInfo' => 'extraInfo',
         'fileKey' => 'fileKey',
@@ -72,6 +78,10 @@ class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiKey) {
+            $res['apiKey'] = $this->apiKey;
+        }
+
         if (null !== $this->contentsShrink) {
             $res['contents'] = $this->contentsShrink;
         }
@@ -119,6 +129,10 @@ class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['apiKey'])) {
+            $model->apiKey = $map['apiKey'];
+        }
+
         if (isset($map['contents'])) {
             $model->contentsShrink = $map['contents'];
         }

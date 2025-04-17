@@ -11,6 +11,16 @@ class RunEnterpriseVocAnalysisShrinkRequest extends Model
     /**
      * @var string
      */
+    public $akProxy;
+
+    /**
+     * @var string
+     */
+    public $apiKey;
+
+    /**
+     * @var string
+     */
     public $content;
 
     /**
@@ -43,6 +53,8 @@ class RunEnterpriseVocAnalysisShrinkRequest extends Model
      */
     public $taskDescription;
     protected $_name = [
+        'akProxy' => 'akProxy',
+        'apiKey' => 'apiKey',
         'content' => 'content',
         'extraInfo' => 'extraInfo',
         'filterTagsShrink' => 'filterTags',
@@ -60,6 +72,14 @@ class RunEnterpriseVocAnalysisShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->akProxy) {
+            $res['akProxy'] = $this->akProxy;
+        }
+
+        if (null !== $this->apiKey) {
+            $res['apiKey'] = $this->apiKey;
+        }
+
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
@@ -99,6 +119,14 @@ class RunEnterpriseVocAnalysisShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['akProxy'])) {
+            $model->akProxy = $map['akProxy'];
+        }
+
+        if (isset($map['apiKey'])) {
+            $model->apiKey = $map['apiKey'];
+        }
+
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }

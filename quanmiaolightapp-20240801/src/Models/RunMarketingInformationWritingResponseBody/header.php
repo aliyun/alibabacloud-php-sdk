@@ -11,6 +11,11 @@ class header extends Model
     /**
      * @var string
      */
+    public $errorMessage;
+
+    /**
+     * @var string
+     */
     public $event;
 
     /**
@@ -38,6 +43,7 @@ class header extends Model
      */
     public $traceId;
     protected $_name = [
+        'errorMessage' => 'errorMessage',
         'event' => 'event',
         'eventInfo' => 'eventInfo',
         'requestId' => 'requestId',
@@ -54,6 +60,10 @@ class header extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->errorMessage) {
+            $res['errorMessage'] = $this->errorMessage;
+        }
+
         if (null !== $this->event) {
             $res['event'] = $this->event;
         }
@@ -89,6 +99,10 @@ class header extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['errorMessage'])) {
+            $model->errorMessage = $map['errorMessage'];
+        }
+
         if (isset($map['event'])) {
             $model->event = $map['event'];
         }

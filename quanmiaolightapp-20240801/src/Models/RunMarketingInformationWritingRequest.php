@@ -11,6 +11,11 @@ class RunMarketingInformationWritingRequest extends Model
     /**
      * @var string
      */
+    public $apiKey;
+
+    /**
+     * @var string
+     */
     public $customLimitation;
 
     /**
@@ -43,6 +48,7 @@ class RunMarketingInformationWritingRequest extends Model
      */
     public $writingType;
     protected $_name = [
+        'apiKey' => 'apiKey',
         'customLimitation' => 'customLimitation',
         'customPrompt' => 'customPrompt',
         'inputExample' => 'inputExample',
@@ -60,6 +66,10 @@ class RunMarketingInformationWritingRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiKey) {
+            $res['apiKey'] = $this->apiKey;
+        }
+
         if (null !== $this->customLimitation) {
             $res['customLimitation'] = $this->customLimitation;
         }
@@ -99,6 +109,10 @@ class RunMarketingInformationWritingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['apiKey'])) {
+            $model->apiKey = $map['apiKey'];
+        }
+
         if (isset($map['customLimitation'])) {
             $model->customLimitation = $map['customLimitation'];
         }
