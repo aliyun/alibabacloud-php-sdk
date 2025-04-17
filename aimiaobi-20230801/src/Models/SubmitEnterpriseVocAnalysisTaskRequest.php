@@ -12,6 +12,11 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitEnterpriseVocAnalysisTaskRe
 class SubmitEnterpriseVocAnalysisTaskRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $apiKey;
+
+    /**
      * @var contentTags[]
      */
     public $contentTags;
@@ -61,6 +66,7 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'apiKey' => 'ApiKey',
         'contentTags' => 'ContentTags',
         'contents' => 'Contents',
         'fileKey' => 'FileKey',
@@ -90,6 +96,10 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiKey) {
+            $res['ApiKey'] = $this->apiKey;
+        }
+
         if (null !== $this->contentTags) {
             if (\is_array($this->contentTags)) {
                 $res['ContentTags'] = [];
@@ -159,6 +169,10 @@ class SubmitEnterpriseVocAnalysisTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiKey'])) {
+            $model->apiKey = $map['ApiKey'];
+        }
+
         if (isset($map['ContentTags'])) {
             if (!empty($map['ContentTags'])) {
                 $model->contentTags = [];

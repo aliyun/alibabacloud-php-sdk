@@ -9382,6 +9382,10 @@ class AiMiaoBi extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->apiKey) {
+            @$body['ApiKey'] = $request->apiKey;
+        }
+
         if (null !== $request->contentTagsShrink) {
             @$body['ContentTags'] = $request->contentTagsShrink;
         }
