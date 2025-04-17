@@ -26,11 +26,17 @@ class data extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'billMonth' => 'BillMonth',
         'fileName' => 'FileName',
         'fileUrl' => 'FileUrl',
+        'status' => 'Status',
         'type' => 'Type',
     ];
 
@@ -52,6 +58,10 @@ class data extends Model
 
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->type) {
@@ -79,6 +89,10 @@ class data extends Model
 
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['Type'])) {

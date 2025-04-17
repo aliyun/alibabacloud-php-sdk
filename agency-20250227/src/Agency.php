@@ -137,6 +137,30 @@ class Agency extends OpenApiClient
             @$query['BillMonth'] = $request->billMonth;
         }
 
+        if (null !== $request->ossAccessKeyId) {
+            @$query['OssAccessKeyId'] = $request->ossAccessKeyId;
+        }
+
+        if (null !== $request->ossAccessKeySecret) {
+            @$query['OssAccessKeySecret'] = $request->ossAccessKeySecret;
+        }
+
+        if (null !== $request->ossBucketName) {
+            @$query['OssBucketName'] = $request->ossBucketName;
+        }
+
+        if (null !== $request->ossEndpoint) {
+            @$query['OssEndpoint'] = $request->ossEndpoint;
+        }
+
+        if (null !== $request->ossRegion) {
+            @$query['OssRegion'] = $request->ossRegion;
+        }
+
+        if (null !== $request->ossSecurityToken) {
+            @$query['OssSecurityToken'] = $request->ossSecurityToken;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -151,11 +175,8 @@ class Agency extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetBillDetailFileListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetBillDetailFileListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetBillDetailFileListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -211,11 +232,8 @@ class Agency extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCommissionDetailFileListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCommissionDetailFileListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCommissionDetailFileListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -345,11 +363,8 @@ class Agency extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCustomerOrderListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCustomerOrderListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCustomerOrderListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -405,11 +420,8 @@ class Agency extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRenewalRateListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRenewalRateListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRenewalRateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -477,11 +489,8 @@ class Agency extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSubPartnerListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSubPartnerListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSubPartnerListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -607,11 +616,8 @@ class Agency extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSubPartnerOrderListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSubPartnerOrderListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSubPartnerOrderListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
