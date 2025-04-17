@@ -17,7 +17,7 @@ class data extends Model
     public $labelStatChart;
 
     /**
-     * @var mixed[]
+     * @var mixed[][]
      */
     public $totalStat;
 
