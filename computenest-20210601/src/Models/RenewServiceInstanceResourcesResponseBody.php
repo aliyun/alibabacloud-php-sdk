@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\RenewServiceInstanceResourcesResponseBody\failureDetails;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\RenewServiceInstanceResourcesResponseBody\renewalResult;
-use AlibabaCloud\Tea\Model;
 
 class RenewServiceInstanceResourcesResponseBody extends Model
 {
     /**
-     * @description Details of failed renewals.
-     *
      * @var failureDetails[]
      */
     public $failureDetails;
 
     /**
-     * @description Renewal result.
-     *
      * @var renewalResult
      */
     public $renewalResult;
 
     /**
-     * @description Request ID.
-     *
-     * @example 13FE89A5-C036-56BF-A0FF-A31C59819FD7
-     *
      * @var string
      */
     public $requestId;
@@ -38,23 +30,34 @@ class RenewServiceInstanceResourcesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->failureDetails)) {
+            Model::validateArray($this->failureDetails);
+        }
+        if (null !== $this->renewalResult) {
+            $this->renewalResult->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failureDetails) {
-            $res['FailureDetails'] = [];
-            if (null !== $this->failureDetails && \is_array($this->failureDetails)) {
-                $n = 0;
-                foreach ($this->failureDetails as $item) {
-                    $res['FailureDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->failureDetails)) {
+                $res['FailureDetails'] = [];
+                $n1 = 0;
+                foreach ($this->failureDetails as $item1) {
+                    $res['FailureDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->renewalResult) {
-            $res['RenewalResult'] = null !== $this->renewalResult ? $this->renewalResult->toMap() : null;
+            $res['RenewalResult'] = null !== $this->renewalResult ? $this->renewalResult->toArray($noStream) : $this->renewalResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,26 +65,28 @@ class RenewServiceInstanceResourcesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RenewServiceInstanceResourcesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailureDetails'])) {
             if (!empty($map['FailureDetails'])) {
                 $model->failureDetails = [];
-                $n = 0;
-                foreach ($map['FailureDetails'] as $item) {
-                    $model->failureDetails[$n++] = null !== $item ? failureDetails::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FailureDetails'] as $item1) {
+                    $model->failureDetails[$n1++] = failureDetails::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RenewalResult'])) {
             $model->renewalResult = renewalResult::fromMap($map['RenewalResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

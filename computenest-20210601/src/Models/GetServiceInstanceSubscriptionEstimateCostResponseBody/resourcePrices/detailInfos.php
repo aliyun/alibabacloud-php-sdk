@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceInstanceSubscriptionEstimateCostResponseBody\resourcePrices;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class detailInfos extends Model
 {
     /**
-     * @description Discount amount.
-     *
-     * @example 100
-     *
      * @var float
      */
     public $discountAmount;
 
     /**
-     * @description Original price.
-     *
-     * @example 900
-     *
      * @var float
      */
     public $originalAmount;
 
     /**
-     * @description Pricing module identifier.
-     *
-     * @example instance
-     *
      * @var string
      */
     public $resource;
 
     /**
-     * @description Discounted price.
-     *
-     * @example 500
-     *
      * @var float
      */
     public $tradeAmount;
@@ -50,20 +34,26 @@ class detailInfos extends Model
         'tradeAmount' => 'TradeAmount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->discountAmount) {
             $res['DiscountAmount'] = $this->discountAmount;
         }
+
         if (null !== $this->originalAmount) {
             $res['OriginalAmount'] = $this->originalAmount;
         }
+
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
         }
+
         if (null !== $this->tradeAmount) {
             $res['TradeAmount'] = $this->tradeAmount;
         }
@@ -71,23 +61,26 @@ class detailInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return detailInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiscountAmount'])) {
             $model->discountAmount = $map['DiscountAmount'];
         }
+
         if (isset($map['OriginalAmount'])) {
             $model->originalAmount = $map['OriginalAmount'];
         }
+
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
         }
+
         if (isset($map['TradeAmount'])) {
             $model->tradeAmount = $map['TradeAmount'];
         }

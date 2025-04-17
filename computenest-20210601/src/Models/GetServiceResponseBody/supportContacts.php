@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\serviceInfos;
+namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
-class agreements extends Model
+class supportContacts extends Model
 {
     /**
      * @var string
      */
-    public $name;
+    public $type;
 
     /**
      * @var string
      */
-    public $url;
+    public $value;
     protected $_name = [
-        'name' => 'Name',
-        'url' => 'Url',
+        'type' => 'Type',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class agreements extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class agreements extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

@@ -4,58 +4,36 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetServiceRequest extends Model
 {
     /**
-     * @description Region Id.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The service ID.
-     *
-     * @example service-0e6fca6a51a544xxxxxx
-     *
      * @var string
      */
     public $serviceId;
 
     /**
-     * @description The service instance id.
-     *
-     * @example si-b58c874912fc4294****
-     *
      * @var string
      */
     public $serviceInstanceId;
 
     /**
-     * @description The service name.
-     *
-     * @example Wordpress
-     *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description The service version.
-     *
-     * @example 1.0
-     *
      * @var string
      */
     public $serviceVersion;
 
     /**
-     * @description Whether to disclose service details.
-     *
      * @var string[]
      */
     public $showDetails;
@@ -68,59 +46,85 @@ class GetServiceRequest extends Model
         'showDetails' => 'ShowDetails',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->showDetails)) {
+            Model::validateArray($this->showDetails);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
+
         if (null !== $this->serviceInstanceId) {
             $res['ServiceInstanceId'] = $this->serviceInstanceId;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
+
         if (null !== $this->serviceVersion) {
             $res['ServiceVersion'] = $this->serviceVersion;
         }
+
         if (null !== $this->showDetails) {
-            $res['ShowDetails'] = $this->showDetails;
+            if (\is_array($this->showDetails)) {
+                $res['ShowDetails'] = [];
+                $n1 = 0;
+                foreach ($this->showDetails as $item1) {
+                    $res['ShowDetails'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetServiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }
+
         if (isset($map['ServiceInstanceId'])) {
             $model->serviceInstanceId = $map['ServiceInstanceId'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
+
         if (isset($map['ServiceVersion'])) {
             $model->serviceVersion = $map['ServiceVersion'];
         }
+
         if (isset($map['ShowDetails'])) {
             if (!empty($map['ShowDetails'])) {
-                $model->showDetails = $map['ShowDetails'];
+                $model->showDetails = [];
+                $n1 = 0;
+                foreach ($map['ShowDetails'] as $item1) {
+                    $model->showDetails[$n1++] = $item1;
+                }
             }
         }
 

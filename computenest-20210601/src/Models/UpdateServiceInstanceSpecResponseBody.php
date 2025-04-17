@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateServiceInstanceSpecResponseBody extends Model
 {
     /**
-     * @description The order ID.
-     *
-     * @example 23396265896****
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 06BF8F22-02DC-4750-83DF-3FFC11C065EA
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class UpdateServiceInstanceSpecResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class UpdateServiceInstanceSpecResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateServiceInstanceSpecResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
