@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddImageMosaicResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example CA995EFD-083D-4F40-BE8A-BDF75FF*****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class AddImageMosaicResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class AddImageMosaicResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddImageMosaicResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

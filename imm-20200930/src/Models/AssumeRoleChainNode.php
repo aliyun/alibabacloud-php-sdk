@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AssumeRoleChainNode extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1023210024677934
-     *
      * @var string
      */
     public $ownerId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example test-role
-     *
      * @var string
      */
     public $role;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example user
-     *
      * @var string
      */
     public $type;
     protected $_name = [
         'ownerId' => 'OwnerId',
-        'role'    => 'Role',
-        'type'    => 'Type',
+        'role' => 'Role',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -60,20 +51,22 @@ class AssumeRoleChainNode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AssumeRoleChainNode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

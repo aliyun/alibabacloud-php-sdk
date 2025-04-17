@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCustomizedStoryResponseBody extends Model
 {
     /**
-     * @description The ID of the story.
-     *
-     * @example 563062c0b085733f34ab****
-     *
      * @var string
      */
     public $objectId;
 
     /**
-     * @description The request ID.
-     *
-     * @example BC91D091-D49F-0ACD-95D5-F0621045****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'objectId'  => 'ObjectId',
+        'objectId' => 'ObjectId',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->objectId) {
             $res['ObjectId'] = $this->objectId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class CreateCustomizedStoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCustomizedStoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ObjectId'])) {
             $model->objectId = $map['ObjectId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

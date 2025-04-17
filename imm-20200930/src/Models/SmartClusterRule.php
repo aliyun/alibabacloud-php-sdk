@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SmartClusterRule extends Model
 {
@@ -14,26 +14,35 @@ class SmartClusterRule extends Model
     public $keywords;
 
     /**
-     * @example 0.5
-     *
      * @var float
      */
     public $sensitivity;
     protected $_name = [
-        'keywords'    => 'Keywords',
+        'keywords' => 'Keywords',
         'sensitivity' => 'Sensitivity',
     ];
 
     public function validate()
     {
+        if (\is_array($this->keywords)) {
+            Model::validateArray($this->keywords);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keywords) {
-            $res['Keywords'] = $this->keywords;
+            if (\is_array($this->keywords)) {
+                $res['Keywords'] = [];
+                $n1 = 0;
+                foreach ($this->keywords as $item1) {
+                    $res['Keywords'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->sensitivity) {
             $res['Sensitivity'] = $this->sensitivity;
         }
@@ -41,19 +50,24 @@ class SmartClusterRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SmartClusterRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Keywords'])) {
             if (!empty($map['Keywords'])) {
-                $model->keywords = $map['Keywords'];
+                $model->keywords = [];
+                $n1 = 0;
+                foreach ($map['Keywords'] as $item1) {
+                    $model->keywords[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Sensitivity'])) {
             $model->sensitivity = $map['Sensitivity'];
         }

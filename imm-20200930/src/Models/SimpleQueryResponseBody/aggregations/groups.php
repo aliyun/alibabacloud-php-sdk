@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryResponseBody\aggregations;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class groups extends Model
 {
     /**
-     * @description The number of results in the grouped aggregation.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The value for the grouped aggregation.
-     *
-     * @example 100
-     *
      * @var string
      */
     public $value;
@@ -32,14 +24,16 @@ class groups extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -47,17 +41,18 @@ class groups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imm\V20200930\Models\TargetSubtitle\extractSubtitle;
-use AlibabaCloud\Tea\Model;
 
 class TargetSubtitle extends Model
 {
@@ -26,46 +26,67 @@ class TargetSubtitle extends Model
     protected $_name = [
         'disableSubtitle' => 'DisableSubtitle',
         'extractSubtitle' => 'ExtractSubtitle',
-        'stream'          => 'Stream',
+        'stream' => 'Stream',
     ];
 
     public function validate()
     {
+        if (null !== $this->extractSubtitle) {
+            $this->extractSubtitle->validate();
+        }
+        if (\is_array($this->stream)) {
+            Model::validateArray($this->stream);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->disableSubtitle) {
             $res['DisableSubtitle'] = $this->disableSubtitle;
         }
+
         if (null !== $this->extractSubtitle) {
-            $res['ExtractSubtitle'] = null !== $this->extractSubtitle ? $this->extractSubtitle->toMap() : null;
+            $res['ExtractSubtitle'] = null !== $this->extractSubtitle ? $this->extractSubtitle->toArray($noStream) : $this->extractSubtitle;
         }
+
         if (null !== $this->stream) {
-            $res['Stream'] = $this->stream;
+            if (\is_array($this->stream)) {
+                $res['Stream'] = [];
+                $n1 = 0;
+                foreach ($this->stream as $item1) {
+                    $res['Stream'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TargetSubtitle
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DisableSubtitle'])) {
             $model->disableSubtitle = $map['DisableSubtitle'];
         }
+
         if (isset($map['ExtractSubtitle'])) {
             $model->extractSubtitle = extractSubtitle::fromMap($map['ExtractSubtitle']);
         }
+
         if (isset($map['Stream'])) {
             if (!empty($map['Stream'])) {
-                $model->stream = $map['Stream'];
+                $model->stream = [];
+                $n1 = 0;
+                foreach ($map['Stream'] as $item1) {
+                    $model->stream[$n1++] = $item1;
+                }
             }
         }
 

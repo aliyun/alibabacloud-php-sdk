@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ToolCall extends Model
 {
@@ -19,19 +19,24 @@ class ToolCall extends Model
     public $type;
     protected $_name = [
         'function' => 'Function',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (null !== $this->function) {
+            $this->function->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->function) {
-            $res['Function'] = null !== $this->function ? $this->function->toMap() : null;
+            $res['Function'] = null !== $this->function ? $this->function->toArray($noStream) : $this->function;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -39,17 +44,18 @@ class ToolCall extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ToolCall
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Function'])) {
             $model->function = FunctionCall::fromMap($map['Function']);
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

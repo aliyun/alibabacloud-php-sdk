@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FunctionCall extends Model
 {
@@ -14,26 +14,26 @@ class FunctionCall extends Model
     public $arguments;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $name;
     protected $_name = [
         'arguments' => 'Arguments',
-        'name'      => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arguments) {
             $res['Arguments'] = $this->arguments;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -41,17 +41,18 @@ class FunctionCall extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FunctionCall
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Arguments'])) {
             $model->arguments = $map['Arguments'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

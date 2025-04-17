@@ -4,176 +4,145 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetVideoLabelClassificationResultResponseBody extends Model
 {
     /**
-     * @description The error code of the task.
-     *
-     * @example ResourceNotFound
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The end time of the task.
-     *
-     * @example 2021-12-24T03:00:42.134971294Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The event ID.
-     *
-     * @example 2F6-1Bz99Xi93EnRpNEyLudILJm****
-     *
      * @var string
      */
     public $eventId;
 
     /**
-     * @description The labels.
-     *
      * @var Label[]
      */
     public $labels;
 
     /**
-     * @description The error message of the task.
-     *
-     * @example The specified resource project is not found.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The project name.
-     *
-     * @example immtest
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description The request ID.
-     *
-     * @example 7F84C6D9-5AC0-49F9-914D-F02678E3****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The start time of the task.
-     *
-     * @example 2021-12-24T03:00:38.892462383Z
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The task status.
-     *
-     * @example Succeeded
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The task ID.
-     *
-     * @example VideoLabelClassification-2f157087-91df-4fda-8c3e-232407ec****
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description The type of the task.
-     *
-     * @example VideoLabelClassification
-     *
      * @var string
      */
     public $taskType;
 
     /**
-     * @description The custom information.
-     *
-     * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
-     *
      * @var string
      */
     public $userData;
     protected $_name = [
-        'code'        => 'Code',
-        'endTime'     => 'EndTime',
-        'eventId'     => 'EventId',
-        'labels'      => 'Labels',
-        'message'     => 'Message',
+        'code' => 'Code',
+        'endTime' => 'EndTime',
+        'eventId' => 'EventId',
+        'labels' => 'Labels',
+        'message' => 'Message',
         'projectName' => 'ProjectName',
-        'requestId'   => 'RequestId',
-        'startTime'   => 'StartTime',
-        'status'      => 'Status',
-        'taskId'      => 'TaskId',
-        'taskType'    => 'TaskType',
-        'userData'    => 'UserData',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'taskType' => 'TaskType',
+        'userData' => 'UserData',
     ];
 
     public function validate()
     {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
         }
+
         if (null !== $this->labels) {
-            $res['Labels'] = [];
-            if (null !== $this->labels && \is_array($this->labels)) {
-                $n = 0;
-                foreach ($this->labels as $item) {
-                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1 = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
+
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -181,53 +150,64 @@ class GetVideoLabelClassificationResultResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetVideoLabelClassificationResultResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
         }
+
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n             = 0;
-                foreach ($map['Labels'] as $item) {
-                    $model->labels[$n++] = null !== $item ? Label::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1++] = Label::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }
+
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }

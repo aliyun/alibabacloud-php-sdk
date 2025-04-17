@@ -4,129 +4,129 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateVideoModerationTaskRequest extends Model
 {
     /**
-     * @description The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
-     *
      * @var CredentialConfig
      */
     public $credentialConfig;
 
     /**
-     * @description The interval of capturing video frames. Unit: seconds. Valid values: 1 to 600. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $interval;
 
     /**
-     * @description The maximum number of frames that can be captured from the video. Valid values: 5 to 3600. Default value: 200.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $maxFrames;
 
     /**
-     * @description The notification settings. For information about the asynchronous notification format, see the "Metadata indexing" section of the [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html) topic.
-     *
      * @var Notification
      */
     public $notification;
 
     /**
-     * @description The name of the project.[](~~478153~~)
-     *
-     * This parameter is required.
-     * @example immtest
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description The scenarios of video moderation.
-     *
      * @var string[]
      */
     public $scenes;
 
     /**
-     * @description The OSS URI of the video.
-     *
-     * This parameter is required.
-     * @example oss://test-bucket/test-object
-     *
      * @var string
      */
     public $sourceURI;
 
     /**
-     * @description The custom tags. The custom tags help you retrieve the task.
-     *
-     * @example {"test": "val1"}
-     *
      * @var mixed[]
      */
     public $tags;
 
     /**
-     * @description The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
-     *
-     * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
-     *
      * @var string
      */
     public $userData;
     protected $_name = [
         'credentialConfig' => 'CredentialConfig',
-        'interval'         => 'Interval',
-        'maxFrames'        => 'MaxFrames',
-        'notification'     => 'Notification',
-        'projectName'      => 'ProjectName',
-        'scenes'           => 'Scenes',
-        'sourceURI'        => 'SourceURI',
-        'tags'             => 'Tags',
-        'userData'         => 'UserData',
+        'interval' => 'Interval',
+        'maxFrames' => 'MaxFrames',
+        'notification' => 'Notification',
+        'projectName' => 'ProjectName',
+        'scenes' => 'Scenes',
+        'sourceURI' => 'SourceURI',
+        'tags' => 'Tags',
+        'userData' => 'UserData',
     ];
 
     public function validate()
     {
+        if (null !== $this->credentialConfig) {
+            $this->credentialConfig->validate();
+        }
+        if (null !== $this->notification) {
+            $this->notification->validate();
+        }
+        if (\is_array($this->scenes)) {
+            Model::validateArray($this->scenes);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->credentialConfig) {
-            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toArray($noStream) : $this->credentialConfig;
         }
+
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
+
         if (null !== $this->maxFrames) {
             $res['MaxFrames'] = $this->maxFrames;
         }
+
         if (null !== $this->notification) {
-            $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
+            $res['Notification'] = null !== $this->notification ? $this->notification->toArray($noStream) : $this->notification;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->scenes) {
-            $res['Scenes'] = $this->scenes;
+            if (\is_array($this->scenes)) {
+                $res['Scenes'] = [];
+                $n1 = 0;
+                foreach ($this->scenes as $item1) {
+                    $res['Scenes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->sourceURI) {
             $res['SourceURI'] = $this->sourceURI;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                foreach ($this->tags as $key1 => $value1) {
+                    $res['Tags'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -134,40 +134,57 @@ class CreateVideoModerationTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateVideoModerationTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
+
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
+
         if (isset($map['MaxFrames'])) {
             $model->maxFrames = $map['MaxFrames'];
         }
+
         if (isset($map['Notification'])) {
             $model->notification = Notification::fromMap($map['Notification']);
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['Scenes'])) {
             if (!empty($map['Scenes'])) {
-                $model->scenes = $map['Scenes'];
+                $model->scenes = [];
+                $n1 = 0;
+                foreach ($map['Scenes'] as $item1) {
+                    $model->scenes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SourceURI'])) {
             $model->sourceURI = $map['SourceURI'];
         }
+
         if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                foreach ($map['Tags'] as $key1 => $value1) {
+                    $model->tags[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }

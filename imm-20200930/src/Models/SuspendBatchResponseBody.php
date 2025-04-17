@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SuspendBatchResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example EC564A9A-BA5C-4499-A087-D9B9E76E*****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class SuspendBatchResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class SuspendBatchResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SuspendBatchResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

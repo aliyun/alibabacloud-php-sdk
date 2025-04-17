@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FileSmartCluster extends Model
 {
@@ -18,20 +18,22 @@ class FileSmartCluster extends Model
      */
     public $smartClusterId;
     protected $_name = [
-        'similarity'     => 'Similarity',
+        'similarity' => 'Similarity',
         'smartClusterId' => 'SmartClusterId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->similarity) {
             $res['Similarity'] = $this->similarity;
         }
+
         if (null !== $this->smartClusterId) {
             $res['SmartClusterId'] = $this->smartClusterId;
         }
@@ -39,17 +41,18 @@ class FileSmartCluster extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FileSmartCluster
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Similarity'])) {
             $model->similarity = $map['Similarity'];
         }
+
         if (isset($map['SmartClusterId'])) {
             $model->smartClusterId = $map['SmartClusterId'];
         }

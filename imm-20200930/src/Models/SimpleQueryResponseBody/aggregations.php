@@ -4,73 +4,66 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryResponseBody\aggregations\groups;
-use AlibabaCloud\Tea\Model;
 
 class aggregations extends Model
 {
     /**
-     * @description The name of the field.
-     *
-     * @example Size
-     *
      * @var string
      */
     public $field;
 
     /**
-     * @description The grouped aggregations. This parameter is returned only when the group operator is specified in the Aggregations request parameter.
-     *
      * @var groups[]
      */
     public $groups;
 
     /**
-     * @description The operator.
-     *
-     * @example sum
-     *
      * @var string
      */
     public $operation;
 
     /**
-     * @description The statistical result.
-     *
-     * @example 200
-     *
      * @var float
      */
     public $value;
     protected $_name = [
-        'field'     => 'Field',
-        'groups'    => 'Groups',
+        'field' => 'Field',
+        'groups' => 'Groups',
         'operation' => 'Operation',
-        'value'     => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        if (\is_array($this->groups)) {
+            Model::validateArray($this->groups);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->field) {
             $res['Field'] = $this->field;
         }
+
         if (null !== $this->groups) {
-            $res['Groups'] = [];
-            if (null !== $this->groups && \is_array($this->groups)) {
-                $n = 0;
-                foreach ($this->groups as $item) {
-                    $res['Groups'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groups)) {
+                $res['Groups'] = [];
+                $n1 = 0;
+                foreach ($this->groups as $item1) {
+                    $res['Groups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -78,29 +71,32 @@ class aggregations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aggregations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Field'])) {
             $model->field = $map['Field'];
         }
+
         if (isset($map['Groups'])) {
             if (!empty($map['Groups'])) {
                 $model->groups = [];
-                $n             = 0;
-                foreach ($map['Groups'] as $item) {
-                    $model->groups[$n++] = null !== $item ? groups::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Groups'] as $item1) {
+                    $model->groups[$n1++] = groups::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

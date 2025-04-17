@@ -4,58 +4,46 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetImageModerationResultRequest extends Model
 {
     /**
-     * @description The name of the project.
-     *
-     * This parameter is required.
-     * @example test-project
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description The task ID.
-     *
-     * This parameter is required.
-     * @example ImageModeration-ff207203-3f93-4645-a041-7b8f0f******
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description The type of the task.
-     *
-     * This parameter is required.
-     * @example ImageModeration
-     *
      * @var string
      */
     public $taskType;
     protected $_name = [
         'projectName' => 'ProjectName',
-        'taskId'      => 'TaskId',
-        'taskType'    => 'TaskType',
+        'taskId' => 'TaskId',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -63,20 +51,22 @@ class GetImageModerationResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetImageModerationResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }

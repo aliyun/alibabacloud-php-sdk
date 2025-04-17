@@ -4,47 +4,45 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetectImageCarsResponseBody extends Model
 {
     /**
-     * @description The vehicles.
-     *
-     * This parameter is required.
      * @var Car[]
      */
     public $cars;
 
     /**
-     * @description The request ID.
-     *
-     * @example A8745209-DD0E-027E-8ABA-085E0C******
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'cars'      => 'Cars',
+        'cars' => 'Cars',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->cars)) {
+            Model::validateArray($this->cars);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cars) {
-            $res['Cars'] = [];
-            if (null !== $this->cars && \is_array($this->cars)) {
-                $n = 0;
-                foreach ($this->cars as $item) {
-                    $res['Cars'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cars)) {
+                $res['Cars'] = [];
+                $n1 = 0;
+                foreach ($this->cars as $item1) {
+                    $res['Cars'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DetectImageCarsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectImageCarsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cars'])) {
             if (!empty($map['Cars'])) {
                 $model->cars = [];
-                $n           = 0;
-                foreach ($map['Cars'] as $item) {
-                    $model->cars[$n++] = null !== $item ? Car::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Cars'] as $item1) {
+                    $model->cars[$n1++] = Car::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

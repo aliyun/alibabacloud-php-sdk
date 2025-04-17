@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ContextualMessage extends Model
 {
     /**
-     * @example 你好
-     *
      * @var string
      */
     public $content;
@@ -21,36 +19,40 @@ class ContextualMessage extends Model
     public $files;
 
     /**
-     * @example user
-     *
      * @var string
      */
     public $role;
     protected $_name = [
         'content' => 'Content',
-        'files'   => 'Files',
-        'role'    => 'Role',
+        'files' => 'Files',
+        'role' => 'Role',
     ];
 
     public function validate()
     {
+        if (\is_array($this->files)) {
+            Model::validateArray($this->files);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->files) {
-            $res['Files'] = [];
-            if (null !== $this->files && \is_array($this->files)) {
-                $n = 0;
-                foreach ($this->files as $item) {
-                    $res['Files'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->files)) {
+                $res['Files'] = [];
+                $n1 = 0;
+                foreach ($this->files as $item1) {
+                    $res['Files'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
@@ -58,26 +60,28 @@ class ContextualMessage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ContextualMessage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Files'])) {
             if (!empty($map['Files'])) {
                 $model->files = [];
-                $n            = 0;
-                foreach ($map['Files'] as $item) {
-                    $model->files[$n++] = null !== $item ? ContextualFile::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Files'] as $item1) {
+                    $model->files[$n1++] = ContextualFile::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }

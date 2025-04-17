@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SimpleQuery extends Model
 {
@@ -14,14 +14,12 @@ class SimpleQuery extends Model
     public $field;
 
     /**
-     * @example eq / gt / gte / lt / lte / match / prefix / and / or / not
-     *
      * @var string
      */
     public $operation;
 
     /**
-     * @var \AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQuery[]
+     * @var SimpleQuery[]
      */
     public $subQueries;
 
@@ -30,34 +28,41 @@ class SimpleQuery extends Model
      */
     public $value;
     protected $_name = [
-        'field'      => 'Field',
-        'operation'  => 'Operation',
+        'field' => 'Field',
+        'operation' => 'Operation',
         'subQueries' => 'SubQueries',
-        'value'      => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        if (\is_array($this->subQueries)) {
+            Model::validateArray($this->subQueries);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->field) {
             $res['Field'] = $this->field;
         }
+
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
         }
+
         if (null !== $this->subQueries) {
-            $res['SubQueries'] = [];
-            if (null !== $this->subQueries && \is_array($this->subQueries)) {
-                $n = 0;
-                foreach ($this->subQueries as $item) {
-                    $res['SubQueries'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subQueries)) {
+                $res['SubQueries'] = [];
+                $n1 = 0;
+                foreach ($this->subQueries as $item1) {
+                    $res['SubQueries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -65,29 +70,32 @@ class SimpleQuery extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SimpleQuery
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Field'])) {
             $model->field = $map['Field'];
         }
+
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
         }
+
         if (isset($map['SubQueries'])) {
             if (!empty($map['SubQueries'])) {
                 $model->subQueries = [];
-                $n                 = 0;
-                foreach ($map['SubQueries'] as $item) {
-                    $model->subQueries[$n++] = null !== $item ? self::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SubQueries'] as $item1) {
+                    $model->subQueries[$n1++] = self::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

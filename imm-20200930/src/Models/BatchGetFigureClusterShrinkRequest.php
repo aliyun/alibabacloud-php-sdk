@@ -4,56 +4,46 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchGetFigureClusterShrinkRequest extends Model
 {
     /**
-     * @description The name of the dataset.
-     *
-     * This parameter is required.
-     * @example test-dataset
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description The cluster IDs.
-     *
-     * This parameter is required.
      * @var string
      */
     public $objectIdsShrink;
 
     /**
-     * @description The name of the project.
-     *
-     * This parameter is required.
-     * @example test-project
-     *
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
+        'datasetName' => 'DatasetName',
         'objectIdsShrink' => 'ObjectIds',
-        'projectName'     => 'ProjectName',
+        'projectName' => 'ProjectName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
+
         if (null !== $this->objectIdsShrink) {
             $res['ObjectIds'] = $this->objectIdsShrink;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -61,20 +51,22 @@ class BatchGetFigureClusterShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchGetFigureClusterShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
+
         if (isset($map['ObjectIds'])) {
             $model->objectIdsShrink = $map['ObjectIds'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }

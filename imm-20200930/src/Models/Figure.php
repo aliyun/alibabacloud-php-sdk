@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Figure extends Model
 {
@@ -138,116 +138,148 @@ class Figure extends Model
      */
     public $sharpness;
     protected $_name = [
-        'age'                     => 'Age',
-        'ageSD'                   => 'AgeSD',
-        'attractive'              => 'Attractive',
-        'beard'                   => 'Beard',
-        'beardConfidence'         => 'BeardConfidence',
-        'boundary'                => 'Boundary',
-        'emotion'                 => 'Emotion',
-        'emotionConfidence'       => 'EmotionConfidence',
-        'faceQuality'             => 'FaceQuality',
+        'age' => 'Age',
+        'ageSD' => 'AgeSD',
+        'attractive' => 'Attractive',
+        'beard' => 'Beard',
+        'beardConfidence' => 'BeardConfidence',
+        'boundary' => 'Boundary',
+        'emotion' => 'Emotion',
+        'emotionConfidence' => 'EmotionConfidence',
+        'faceQuality' => 'FaceQuality',
         'figureClusterConfidence' => 'FigureClusterConfidence',
-        'figureClusterId'         => 'FigureClusterId',
-        'figureConfidence'        => 'FigureConfidence',
-        'figureId'                => 'FigureId',
-        'figureType'              => 'FigureType',
-        'gender'                  => 'Gender',
-        'genderConfidence'        => 'GenderConfidence',
-        'glasses'                 => 'Glasses',
-        'glassesConfidence'       => 'GlassesConfidence',
-        'hat'                     => 'Hat',
-        'hatConfidence'           => 'HatConfidence',
-        'headPose'                => 'HeadPose',
-        'mask'                    => 'Mask',
-        'maskConfidence'          => 'MaskConfidence',
-        'mouth'                   => 'Mouth',
-        'mouthConfidence'         => 'MouthConfidence',
-        'sharpness'               => 'Sharpness',
+        'figureClusterId' => 'FigureClusterId',
+        'figureConfidence' => 'FigureConfidence',
+        'figureId' => 'FigureId',
+        'figureType' => 'FigureType',
+        'gender' => 'Gender',
+        'genderConfidence' => 'GenderConfidence',
+        'glasses' => 'Glasses',
+        'glassesConfidence' => 'GlassesConfidence',
+        'hat' => 'Hat',
+        'hatConfidence' => 'HatConfidence',
+        'headPose' => 'HeadPose',
+        'mask' => 'Mask',
+        'maskConfidence' => 'MaskConfidence',
+        'mouth' => 'Mouth',
+        'mouthConfidence' => 'MouthConfidence',
+        'sharpness' => 'Sharpness',
     ];
 
     public function validate()
     {
+        if (null !== $this->boundary) {
+            $this->boundary->validate();
+        }
+        if (null !== $this->headPose) {
+            $this->headPose->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->age) {
             $res['Age'] = $this->age;
         }
+
         if (null !== $this->ageSD) {
             $res['AgeSD'] = $this->ageSD;
         }
+
         if (null !== $this->attractive) {
             $res['Attractive'] = $this->attractive;
         }
+
         if (null !== $this->beard) {
             $res['Beard'] = $this->beard;
         }
+
         if (null !== $this->beardConfidence) {
             $res['BeardConfidence'] = $this->beardConfidence;
         }
+
         if (null !== $this->boundary) {
-            $res['Boundary'] = null !== $this->boundary ? $this->boundary->toMap() : null;
+            $res['Boundary'] = null !== $this->boundary ? $this->boundary->toArray($noStream) : $this->boundary;
         }
+
         if (null !== $this->emotion) {
             $res['Emotion'] = $this->emotion;
         }
+
         if (null !== $this->emotionConfidence) {
             $res['EmotionConfidence'] = $this->emotionConfidence;
         }
+
         if (null !== $this->faceQuality) {
             $res['FaceQuality'] = $this->faceQuality;
         }
+
         if (null !== $this->figureClusterConfidence) {
             $res['FigureClusterConfidence'] = $this->figureClusterConfidence;
         }
+
         if (null !== $this->figureClusterId) {
             $res['FigureClusterId'] = $this->figureClusterId;
         }
+
         if (null !== $this->figureConfidence) {
             $res['FigureConfidence'] = $this->figureConfidence;
         }
+
         if (null !== $this->figureId) {
             $res['FigureId'] = $this->figureId;
         }
+
         if (null !== $this->figureType) {
             $res['FigureType'] = $this->figureType;
         }
+
         if (null !== $this->gender) {
             $res['Gender'] = $this->gender;
         }
+
         if (null !== $this->genderConfidence) {
             $res['GenderConfidence'] = $this->genderConfidence;
         }
+
         if (null !== $this->glasses) {
             $res['Glasses'] = $this->glasses;
         }
+
         if (null !== $this->glassesConfidence) {
             $res['GlassesConfidence'] = $this->glassesConfidence;
         }
+
         if (null !== $this->hat) {
             $res['Hat'] = $this->hat;
         }
+
         if (null !== $this->hatConfidence) {
             $res['HatConfidence'] = $this->hatConfidence;
         }
+
         if (null !== $this->headPose) {
-            $res['HeadPose'] = null !== $this->headPose ? $this->headPose->toMap() : null;
+            $res['HeadPose'] = null !== $this->headPose ? $this->headPose->toArray($noStream) : $this->headPose;
         }
+
         if (null !== $this->mask) {
             $res['Mask'] = $this->mask;
         }
+
         if (null !== $this->maskConfidence) {
             $res['MaskConfidence'] = $this->maskConfidence;
         }
+
         if (null !== $this->mouth) {
             $res['Mouth'] = $this->mouth;
         }
+
         if (null !== $this->mouthConfidence) {
             $res['MouthConfidence'] = $this->mouthConfidence;
         }
+
         if (null !== $this->sharpness) {
             $res['Sharpness'] = $this->sharpness;
         }
@@ -255,89 +287,114 @@ class Figure extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Figure
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Age'])) {
             $model->age = $map['Age'];
         }
+
         if (isset($map['AgeSD'])) {
             $model->ageSD = $map['AgeSD'];
         }
+
         if (isset($map['Attractive'])) {
             $model->attractive = $map['Attractive'];
         }
+
         if (isset($map['Beard'])) {
             $model->beard = $map['Beard'];
         }
+
         if (isset($map['BeardConfidence'])) {
             $model->beardConfidence = $map['BeardConfidence'];
         }
+
         if (isset($map['Boundary'])) {
             $model->boundary = Boundary::fromMap($map['Boundary']);
         }
+
         if (isset($map['Emotion'])) {
             $model->emotion = $map['Emotion'];
         }
+
         if (isset($map['EmotionConfidence'])) {
             $model->emotionConfidence = $map['EmotionConfidence'];
         }
+
         if (isset($map['FaceQuality'])) {
             $model->faceQuality = $map['FaceQuality'];
         }
+
         if (isset($map['FigureClusterConfidence'])) {
             $model->figureClusterConfidence = $map['FigureClusterConfidence'];
         }
+
         if (isset($map['FigureClusterId'])) {
             $model->figureClusterId = $map['FigureClusterId'];
         }
+
         if (isset($map['FigureConfidence'])) {
             $model->figureConfidence = $map['FigureConfidence'];
         }
+
         if (isset($map['FigureId'])) {
             $model->figureId = $map['FigureId'];
         }
+
         if (isset($map['FigureType'])) {
             $model->figureType = $map['FigureType'];
         }
+
         if (isset($map['Gender'])) {
             $model->gender = $map['Gender'];
         }
+
         if (isset($map['GenderConfidence'])) {
             $model->genderConfidence = $map['GenderConfidence'];
         }
+
         if (isset($map['Glasses'])) {
             $model->glasses = $map['Glasses'];
         }
+
         if (isset($map['GlassesConfidence'])) {
             $model->glassesConfidence = $map['GlassesConfidence'];
         }
+
         if (isset($map['Hat'])) {
             $model->hat = $map['Hat'];
         }
+
         if (isset($map['HatConfidence'])) {
             $model->hatConfidence = $map['HatConfidence'];
         }
+
         if (isset($map['HeadPose'])) {
             $model->headPose = HeadPose::fromMap($map['HeadPose']);
         }
+
         if (isset($map['Mask'])) {
             $model->mask = $map['Mask'];
         }
+
         if (isset($map['MaskConfidence'])) {
             $model->maskConfidence = $map['MaskConfidence'];
         }
+
         if (isset($map['Mouth'])) {
             $model->mouth = $map['Mouth'];
         }
+
         if (isset($map['MouthConfidence'])) {
             $model->mouthConfidence = $map['MouthConfidence'];
         }
+
         if (isset($map['Sharpness'])) {
             $model->sharpness = $map['Sharpness'];
         }

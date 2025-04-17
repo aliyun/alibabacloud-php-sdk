@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SimilarImage extends Model
 {
@@ -19,19 +19,21 @@ class SimilarImage extends Model
     public $URI;
     protected $_name = [
         'imageScore' => 'ImageScore',
-        'URI'        => 'URI',
+        'URI' => 'URI',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageScore) {
             $res['ImageScore'] = $this->imageScore;
         }
+
         if (null !== $this->URI) {
             $res['URI'] = $this->URI;
         }
@@ -39,17 +41,18 @@ class SimilarImage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SimilarImage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageScore'])) {
             $model->imageScore = $map['ImageScore'];
         }
+
         if (isset($map['URI'])) {
             $model->URI = $map['URI'];
         }

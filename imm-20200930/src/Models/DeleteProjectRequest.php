@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteProjectRequest extends Model
 {
     /**
-     * @description The name of the project. For more information, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
-     *
-     * This parameter is required.
-     * @example immtest
-     *
      * @var string
      */
     public $projectName;
@@ -23,9 +18,10 @@ class DeleteProjectRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectName) {
@@ -35,11 +31,11 @@ class DeleteProjectRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteProjectRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

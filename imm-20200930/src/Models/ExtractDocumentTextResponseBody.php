@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExtractDocumentTextResponseBody extends Model
 {
@@ -14,26 +14,26 @@ class ExtractDocumentTextResponseBody extends Model
     public $documentText;
 
     /**
-     * @example 94D6F994-E298-037E-8E8B-0090F27*****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'documentText' => 'DocumentText',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->documentText) {
             $res['DocumentText'] = $this->documentText;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,17 +41,18 @@ class ExtractDocumentTextResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExtractDocumentTextResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocumentText'])) {
             $model->documentText = $map['DocumentText'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

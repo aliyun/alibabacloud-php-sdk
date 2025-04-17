@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Notification extends Model
 {
@@ -24,44 +24,55 @@ class Notification extends Model
     public $rocketMQ;
     protected $_name = [
         'extendedMessageURI' => 'ExtendedMessageURI',
-        'MNS'                => 'MNS',
-        'rocketMQ'           => 'RocketMQ',
+        'MNS' => 'MNS',
+        'rocketMQ' => 'RocketMQ',
     ];
 
     public function validate()
     {
+        if (null !== $this->MNS) {
+            $this->MNS->validate();
+        }
+        if (null !== $this->rocketMQ) {
+            $this->rocketMQ->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extendedMessageURI) {
             $res['ExtendedMessageURI'] = $this->extendedMessageURI;
         }
+
         if (null !== $this->MNS) {
-            $res['MNS'] = null !== $this->MNS ? $this->MNS->toMap() : null;
+            $res['MNS'] = null !== $this->MNS ? $this->MNS->toArray($noStream) : $this->MNS;
         }
+
         if (null !== $this->rocketMQ) {
-            $res['RocketMQ'] = null !== $this->rocketMQ ? $this->rocketMQ->toMap() : null;
+            $res['RocketMQ'] = null !== $this->rocketMQ ? $this->rocketMQ->toArray($noStream) : $this->rocketMQ;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Notification
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExtendedMessageURI'])) {
             $model->extendedMessageURI = $map['ExtendedMessageURI'];
         }
+
         if (isset($map['MNS'])) {
             $model->MNS = MNS::fromMap($map['MNS']);
         }
+
         if (isset($map['RocketMQ'])) {
             $model->rocketMQ = RocketMQ::fromMap($map['RocketMQ']);
         }

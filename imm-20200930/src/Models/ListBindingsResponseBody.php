@@ -4,61 +4,55 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListBindingsResponseBody extends Model
 {
     /**
-     * @description The bindings between the dataset and OSS buckets.
-     *
      * @var Binding[]
      */
     public $bindings;
 
     /**
-     * @description *   The pagination token that is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter.
-     *   The next request returns remaining results starting from the position marked by the NextToken parameter value.
-     *   This parameter has a non-empty value only when not all bindings are returned.
-     *
-     * @example immtest:dataset001:examplebucket01
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example EFDFD356-C928-4A36-951A-6EB5A592****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'bindings'  => 'Bindings',
+        'bindings' => 'Bindings',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->bindings)) {
+            Model::validateArray($this->bindings);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bindings) {
-            $res['Bindings'] = [];
-            if (null !== $this->bindings && \is_array($this->bindings)) {
-                $n = 0;
-                foreach ($this->bindings as $item) {
-                    $res['Bindings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->bindings)) {
+                $res['Bindings'] = [];
+                $n1 = 0;
+                foreach ($this->bindings as $item1) {
+                    $res['Bindings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -66,26 +60,28 @@ class ListBindingsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListBindingsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bindings'])) {
             if (!empty($map['Bindings'])) {
                 $model->bindings = [];
-                $n               = 0;
-                foreach ($map['Bindings'] as $item) {
-                    $model->bindings[$n++] = null !== $item ? Binding::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Bindings'] as $item1) {
+                    $model->bindings[$n1++] = Binding::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

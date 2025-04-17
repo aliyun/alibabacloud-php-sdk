@@ -4,55 +4,49 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetectMediaMetaRequest extends Model
 {
     /**
-     * @description **If you have no special requirements, leave this parameter empty.**
-     *
-     * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
      * @var CredentialConfig
      */
     public $credentialConfig;
 
     /**
-     * @description The name of the project.[](~~478153~~)
-     *
-     * @example test-project
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description The URI of the media object in Object Storage Service (OSS).
-     *
-     * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
-     * @example oss://examplebucket/sampleobject.mp4
-     *
      * @var string
      */
     public $sourceURI;
     protected $_name = [
         'credentialConfig' => 'CredentialConfig',
-        'projectName'      => 'ProjectName',
-        'sourceURI'        => 'SourceURI',
+        'projectName' => 'ProjectName',
+        'sourceURI' => 'SourceURI',
     ];
 
     public function validate()
     {
+        if (null !== $this->credentialConfig) {
+            $this->credentialConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->credentialConfig) {
-            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toArray($noStream) : $this->credentialConfig;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->sourceURI) {
             $res['SourceURI'] = $this->sourceURI;
         }
@@ -60,20 +54,22 @@ class DetectMediaMetaRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectMediaMetaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['SourceURI'])) {
             $model->sourceURI = $map['SourceURI'];
         }

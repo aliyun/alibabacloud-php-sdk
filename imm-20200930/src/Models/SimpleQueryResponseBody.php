@@ -4,91 +4,85 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imm\V20200930\Models\SimpleQueryResponseBody\aggregations;
-use AlibabaCloud\Tea\Model;
 
 class SimpleQueryResponseBody extends Model
 {
     /**
-     * @description The aggregations. This parameter is returned only when the value of the Aggregations request parameter is not empty.
-     *
      * @var aggregations[]
      */
     public $aggregations;
 
     /**
-     * @description The files. This parameter is returned only when the value of the Aggregations request parameter is empty.
-     *
      * @var File[]
      */
     public $files;
 
     /**
-     * @description The pagination token is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter.
-     *
-     * This parameter is required.
-     * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example 2C5C1E0F-D8B8-4DA0-8127-EC32C771****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The number of total hits.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $totalHits;
     protected $_name = [
         'aggregations' => 'Aggregations',
-        'files'        => 'Files',
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
-        'totalHits'    => 'TotalHits',
+        'files' => 'Files',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalHits' => 'TotalHits',
     ];
 
     public function validate()
     {
+        if (\is_array($this->aggregations)) {
+            Model::validateArray($this->aggregations);
+        }
+        if (\is_array($this->files)) {
+            Model::validateArray($this->files);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aggregations) {
-            $res['Aggregations'] = [];
-            if (null !== $this->aggregations && \is_array($this->aggregations)) {
-                $n = 0;
-                foreach ($this->aggregations as $item) {
-                    $res['Aggregations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->aggregations)) {
+                $res['Aggregations'] = [];
+                $n1 = 0;
+                foreach ($this->aggregations as $item1) {
+                    $res['Aggregations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->files) {
-            $res['Files'] = [];
-            if (null !== $this->files && \is_array($this->files)) {
-                $n = 0;
-                foreach ($this->files as $item) {
-                    $res['Files'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->files)) {
+                $res['Files'] = [];
+                $n1 = 0;
+                foreach ($this->files as $item1) {
+                    $res['Files'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalHits) {
             $res['TotalHits'] = $this->totalHits;
         }
@@ -96,38 +90,42 @@ class SimpleQueryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SimpleQueryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Aggregations'])) {
             if (!empty($map['Aggregations'])) {
                 $model->aggregations = [];
-                $n                   = 0;
-                foreach ($map['Aggregations'] as $item) {
-                    $model->aggregations[$n++] = null !== $item ? aggregations::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Aggregations'] as $item1) {
+                    $model->aggregations[$n1++] = aggregations::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Files'])) {
             if (!empty($map['Files'])) {
                 $model->files = [];
-                $n            = 0;
-                foreach ($map['Files'] as $item) {
-                    $model->files[$n++] = null !== $item ? File::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Files'] as $item1) {
+                    $model->files[$n1++] = File::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalHits'])) {
             $model->totalHits = $map['TotalHits'];
         }

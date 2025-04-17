@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SceneElement extends Model
 {
@@ -19,42 +19,71 @@ class SceneElement extends Model
     public $timeRange;
     protected $_name = [
         'frameTimes' => 'FrameTimes',
-        'timeRange'  => 'TimeRange',
+        'timeRange' => 'TimeRange',
     ];
 
     public function validate()
     {
+        if (\is_array($this->frameTimes)) {
+            Model::validateArray($this->frameTimes);
+        }
+        if (\is_array($this->timeRange)) {
+            Model::validateArray($this->timeRange);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->frameTimes) {
-            $res['FrameTimes'] = $this->frameTimes;
+            if (\is_array($this->frameTimes)) {
+                $res['FrameTimes'] = [];
+                $n1 = 0;
+                foreach ($this->frameTimes as $item1) {
+                    $res['FrameTimes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->timeRange) {
-            $res['TimeRange'] = $this->timeRange;
+            if (\is_array($this->timeRange)) {
+                $res['TimeRange'] = [];
+                $n1 = 0;
+                foreach ($this->timeRange as $item1) {
+                    $res['TimeRange'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SceneElement
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FrameTimes'])) {
             if (!empty($map['FrameTimes'])) {
-                $model->frameTimes = $map['FrameTimes'];
+                $model->frameTimes = [];
+                $n1 = 0;
+                foreach ($map['FrameTimes'] as $item1) {
+                    $model->frameTimes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['TimeRange'])) {
             if (!empty($map['TimeRange'])) {
-                $model->timeRange = $map['TimeRange'];
+                $model->timeRange = [];
+                $n1 = 0;
+                foreach ($map['TimeRange'] as $item1) {
+                    $model->timeRange[$n1++] = $item1;
+                }
             }
         }
 

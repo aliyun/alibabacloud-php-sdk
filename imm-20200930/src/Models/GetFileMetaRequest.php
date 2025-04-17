@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetFileMetaRequest extends Model
 {
     /**
-     * @description The name of the dataset.[](~~478160~~)
-     *
-     * This parameter is required.
-     * @example test-dataset
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description The name of the project.[](~~478153~~)
-     *
-     * This parameter is required.
-     * @example test-project
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description The URI of the file. Make sure that the file is indexed****.
-     *
-     * This parameter is required.
-     * @example oss://test-bucket/test-object
-     *
      * @var string
      */
     public $URI;
@@ -45,53 +30,73 @@ class GetFileMetaRequest extends Model
     protected $_name = [
         'datasetName' => 'DatasetName',
         'projectName' => 'ProjectName',
-        'URI'         => 'URI',
-        'withFields'  => 'WithFields',
+        'URI' => 'URI',
+        'withFields' => 'WithFields',
     ];
 
     public function validate()
     {
+        if (\is_array($this->withFields)) {
+            Model::validateArray($this->withFields);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->URI) {
             $res['URI'] = $this->URI;
         }
+
         if (null !== $this->withFields) {
-            $res['WithFields'] = $this->withFields;
+            if (\is_array($this->withFields)) {
+                $res['WithFields'] = [];
+                $n1 = 0;
+                foreach ($this->withFields as $item1) {
+                    $res['WithFields'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFileMetaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['URI'])) {
             $model->URI = $map['URI'];
         }
+
         if (isset($map['WithFields'])) {
             if (!empty($map['WithFields'])) {
-                $model->withFields = $map['WithFields'];
+                $model->withFields = [];
+                $n1 = 0;
+                foreach ($map['WithFields'] as $item1) {
+                    $model->withFields[$n1++] = $item1;
+                }
             }
         }
 

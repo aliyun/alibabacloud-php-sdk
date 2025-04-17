@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectImageScoreResponseBody\imageScore;
-use AlibabaCloud\Tea\Model;
 
 class DetectImageScoreResponseBody extends Model
 {
     /**
-     * @description The quality score of the image.
-     *
      * @var imageScore
      */
     public $imageScore;
 
     /**
-     * @description The request ID.
-     *
-     * @example 6E93D6C9-5AC0-49F9-914D-E02678D3****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'imageScore' => 'ImageScore',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->imageScore) {
+            $this->imageScore->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageScore) {
-            $res['ImageScore'] = null !== $this->imageScore ? $this->imageScore->toMap() : null;
+            $res['ImageScore'] = null !== $this->imageScore ? $this->imageScore->toArray($noStream) : $this->imageScore;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DetectImageScoreResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectImageScoreResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageScore'])) {
             $model->imageScore = imageScore::fromMap($map['ImageScore']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

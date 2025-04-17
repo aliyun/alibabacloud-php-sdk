@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class App extends Model
 {
@@ -54,47 +54,56 @@ class App extends Model
     public $packageName;
     protected $_name = [
         'appDescription' => 'AppDescription',
-        'appId'          => 'AppId',
-        'appKey'         => 'AppKey',
-        'appName'        => 'AppName',
-        'appRegion'      => 'AppRegion',
-        'appType'        => 'AppType',
-        'englishName'    => 'EnglishName',
-        'ownerId'        => 'OwnerId',
-        'packageName'    => 'PackageName',
+        'appId' => 'AppId',
+        'appKey' => 'AppKey',
+        'appName' => 'AppName',
+        'appRegion' => 'AppRegion',
+        'appType' => 'AppType',
+        'englishName' => 'EnglishName',
+        'ownerId' => 'OwnerId',
+        'packageName' => 'PackageName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appDescription) {
             $res['AppDescription'] = $this->appDescription;
         }
+
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->appRegion) {
             $res['AppRegion'] = $this->appRegion;
         }
+
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
         }
+
         if (null !== $this->englishName) {
             $res['EnglishName'] = $this->englishName;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->packageName) {
             $res['PackageName'] = $this->packageName;
         }
@@ -102,38 +111,46 @@ class App extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return App
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppDescription'])) {
             $model->appDescription = $map['AppDescription'];
         }
+
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['AppRegion'])) {
             $model->appRegion = $map['AppRegion'];
         }
+
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
         }
+
         if (isset($map['EnglishName'])) {
             $model->englishName = $map['EnglishName'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PackageName'])) {
             $model->packageName = $map['PackageName'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class LocationDateCluster extends Model
 {
@@ -58,58 +58,79 @@ class LocationDateCluster extends Model
      */
     public $updateTime;
     protected $_name = [
-        'addresses'                    => 'Addresses',
-        'createTime'                   => 'CreateTime',
-        'customId'                     => 'CustomId',
-        'customLabels'                 => 'CustomLabels',
-        'locationDateClusterEndTime'   => 'LocationDateClusterEndTime',
-        'locationDateClusterLevel'     => 'LocationDateClusterLevel',
+        'addresses' => 'Addresses',
+        'createTime' => 'CreateTime',
+        'customId' => 'CustomId',
+        'customLabels' => 'CustomLabels',
+        'locationDateClusterEndTime' => 'LocationDateClusterEndTime',
+        'locationDateClusterLevel' => 'LocationDateClusterLevel',
         'locationDateClusterStartTime' => 'LocationDateClusterStartTime',
-        'objectId'                     => 'ObjectId',
-        'title'                        => 'Title',
-        'updateTime'                   => 'UpdateTime',
+        'objectId' => 'ObjectId',
+        'title' => 'Title',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
     {
+        if (\is_array($this->addresses)) {
+            Model::validateArray($this->addresses);
+        }
+        if (\is_array($this->customLabels)) {
+            Model::validateArray($this->customLabels);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addresses) {
-            $res['Addresses'] = [];
-            if (null !== $this->addresses && \is_array($this->addresses)) {
-                $n = 0;
-                foreach ($this->addresses as $item) {
-                    $res['Addresses'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->addresses)) {
+                $res['Addresses'] = [];
+                $n1 = 0;
+                foreach ($this->addresses as $item1) {
+                    $res['Addresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->customId) {
             $res['CustomId'] = $this->customId;
         }
+
         if (null !== $this->customLabels) {
-            $res['CustomLabels'] = $this->customLabels;
+            if (\is_array($this->customLabels)) {
+                $res['CustomLabels'] = [];
+                foreach ($this->customLabels as $key1 => $value1) {
+                    $res['CustomLabels'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->locationDateClusterEndTime) {
             $res['LocationDateClusterEndTime'] = $this->locationDateClusterEndTime;
         }
+
         if (null !== $this->locationDateClusterLevel) {
             $res['LocationDateClusterLevel'] = $this->locationDateClusterLevel;
         }
+
         if (null !== $this->locationDateClusterStartTime) {
             $res['LocationDateClusterStartTime'] = $this->locationDateClusterStartTime;
         }
+
         if (null !== $this->objectId) {
             $res['ObjectId'] = $this->objectId;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -117,47 +138,61 @@ class LocationDateCluster extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LocationDateCluster
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Addresses'])) {
             if (!empty($map['Addresses'])) {
                 $model->addresses = [];
-                $n                = 0;
-                foreach ($map['Addresses'] as $item) {
-                    $model->addresses[$n++] = null !== $item ? Address::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Addresses'] as $item1) {
+                    $model->addresses[$n1++] = Address::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['CustomId'])) {
             $model->customId = $map['CustomId'];
         }
+
         if (isset($map['CustomLabels'])) {
-            $model->customLabels = $map['CustomLabels'];
+            if (!empty($map['CustomLabels'])) {
+                $model->customLabels = [];
+                foreach ($map['CustomLabels'] as $key1 => $value1) {
+                    $model->customLabels[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['LocationDateClusterEndTime'])) {
             $model->locationDateClusterEndTime = $map['LocationDateClusterEndTime'];
         }
+
         if (isset($map['LocationDateClusterLevel'])) {
             $model->locationDateClusterLevel = $map['LocationDateClusterLevel'];
         }
+
         if (isset($map['LocationDateClusterStartTime'])) {
             $model->locationDateClusterStartTime = $map['LocationDateClusterStartTime'];
         }
+
         if (isset($map['ObjectId'])) {
             $model->objectId = $map['ObjectId'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

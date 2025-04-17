@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EncodeBlindWatermarkResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 8E0DD64B-28C6-4653-8FF7-93E4C234BCF0
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class EncodeBlindWatermarkResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class EncodeBlindWatermarkResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EncodeBlindWatermarkResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

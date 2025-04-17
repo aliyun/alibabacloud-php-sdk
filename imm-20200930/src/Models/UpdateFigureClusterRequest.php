@@ -4,56 +4,49 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateFigureClusterRequest extends Model
 {
     /**
-     * @description The name of the dataset.[](~~478160~~)
-     *
-     * This parameter is required.
-     * @example test-dataset
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description The information about the cluster.
-     *
-     * This parameter is required.
      * @var FigureClusterForReq
      */
     public $figureCluster;
 
     /**
-     * @description The name of the project.[](~~478153~~)
-     *
-     * This parameter is required.
-     * @example test-project
-     *
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'datasetName'   => 'DatasetName',
+        'datasetName' => 'DatasetName',
         'figureCluster' => 'FigureCluster',
-        'projectName'   => 'ProjectName',
+        'projectName' => 'ProjectName',
     ];
 
     public function validate()
     {
+        if (null !== $this->figureCluster) {
+            $this->figureCluster->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
+
         if (null !== $this->figureCluster) {
-            $res['FigureCluster'] = null !== $this->figureCluster ? $this->figureCluster->toMap() : null;
+            $res['FigureCluster'] = null !== $this->figureCluster ? $this->figureCluster->toArray($noStream) : $this->figureCluster;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -61,20 +54,22 @@ class UpdateFigureClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateFigureClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
+
         if (isset($map['FigureCluster'])) {
             $model->figureCluster = FigureClusterForReq::fromMap($map['FigureCluster']);
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }

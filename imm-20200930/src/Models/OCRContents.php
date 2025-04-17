@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OCRContents extends Model
 {
@@ -28,28 +28,35 @@ class OCRContents extends Model
      */
     public $language;
     protected $_name = [
-        'boundary'   => 'Boundary',
+        'boundary' => 'Boundary',
         'confidence' => 'Confidence',
-        'contents'   => 'Contents',
-        'language'   => 'Language',
+        'contents' => 'Contents',
+        'language' => 'Language',
     ];
 
     public function validate()
     {
+        if (null !== $this->boundary) {
+            $this->boundary->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->boundary) {
-            $res['Boundary'] = null !== $this->boundary ? $this->boundary->toMap() : null;
+            $res['Boundary'] = null !== $this->boundary ? $this->boundary->toArray($noStream) : $this->boundary;
         }
+
         if (null !== $this->confidence) {
             $res['Confidence'] = $this->confidence;
         }
+
         if (null !== $this->contents) {
             $res['Contents'] = $this->contents;
         }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
@@ -57,23 +64,26 @@ class OCRContents extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OCRContents
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Boundary'])) {
             $model->boundary = Boundary::fromMap($map['Boundary']);
         }
+
         if (isset($map['Confidence'])) {
             $model->confidence = $map['Confidence'];
         }
+
         if (isset($map['Contents'])) {
             $model->contents = $map['Contents'];
         }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }

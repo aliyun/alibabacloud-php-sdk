@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models\DataIngestion;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class statistic extends Model
 {
@@ -23,24 +23,27 @@ class statistic extends Model
      */
     public $submitSuccess;
     protected $_name = [
-        'skipFiles'     => 'SkipFiles',
+        'skipFiles' => 'SkipFiles',
         'submitFailure' => 'SubmitFailure',
         'submitSuccess' => 'SubmitSuccess',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->skipFiles) {
             $res['SkipFiles'] = $this->skipFiles;
         }
+
         if (null !== $this->submitFailure) {
             $res['SubmitFailure'] = $this->submitFailure;
         }
+
         if (null !== $this->submitSuccess) {
             $res['SubmitSuccess'] = $this->submitSuccess;
         }
@@ -48,20 +51,22 @@ class statistic extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return statistic
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SkipFiles'])) {
             $model->skipFiles = $map['SkipFiles'];
         }
+
         if (isset($map['SubmitFailure'])) {
             $model->submitFailure = $map['SubmitFailure'];
         }
+
         if (isset($map['SubmitSuccess'])) {
             $model->submitSuccess = $map['SubmitSuccess'];
         }

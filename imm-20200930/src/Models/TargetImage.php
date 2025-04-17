@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imm\V20200930\Models\TargetImage\animations;
 use AlibabaCloud\SDK\Imm\V20200930\Models\TargetImage\snapshots;
 use AlibabaCloud\SDK\Imm\V20200930\Models\TargetImage\sprites;
-use AlibabaCloud\Tea\Model;
 
 class TargetImage extends Model
 {
@@ -27,41 +27,53 @@ class TargetImage extends Model
     public $sprites;
     protected $_name = [
         'animations' => 'Animations',
-        'snapshots'  => 'Snapshots',
-        'sprites'    => 'Sprites',
+        'snapshots' => 'Snapshots',
+        'sprites' => 'Sprites',
     ];
 
     public function validate()
     {
+        if (\is_array($this->animations)) {
+            Model::validateArray($this->animations);
+        }
+        if (\is_array($this->snapshots)) {
+            Model::validateArray($this->snapshots);
+        }
+        if (\is_array($this->sprites)) {
+            Model::validateArray($this->sprites);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->animations) {
-            $res['Animations'] = [];
-            if (null !== $this->animations && \is_array($this->animations)) {
-                $n = 0;
-                foreach ($this->animations as $item) {
-                    $res['Animations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->animations)) {
+                $res['Animations'] = [];
+                $n1 = 0;
+                foreach ($this->animations as $item1) {
+                    $res['Animations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->snapshots) {
-            $res['Snapshots'] = [];
-            if (null !== $this->snapshots && \is_array($this->snapshots)) {
-                $n = 0;
-                foreach ($this->snapshots as $item) {
-                    $res['Snapshots'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->snapshots)) {
+                $res['Snapshots'] = [];
+                $n1 = 0;
+                foreach ($this->snapshots as $item1) {
+                    $res['Snapshots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->sprites) {
-            $res['Sprites'] = [];
-            if (null !== $this->sprites && \is_array($this->sprites)) {
-                $n = 0;
-                foreach ($this->sprites as $item) {
-                    $res['Sprites'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sprites)) {
+                $res['Sprites'] = [];
+                $n1 = 0;
+                foreach ($this->sprites as $item1) {
+                    $res['Sprites'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -69,38 +81,40 @@ class TargetImage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TargetImage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Animations'])) {
             if (!empty($map['Animations'])) {
                 $model->animations = [];
-                $n                 = 0;
-                foreach ($map['Animations'] as $item) {
-                    $model->animations[$n++] = null !== $item ? animations::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Animations'] as $item1) {
+                    $model->animations[$n1++] = animations::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Snapshots'])) {
             if (!empty($map['Snapshots'])) {
                 $model->snapshots = [];
-                $n                = 0;
-                foreach ($map['Snapshots'] as $item) {
-                    $model->snapshots[$n++] = null !== $item ? snapshots::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Snapshots'] as $item1) {
+                    $model->snapshots[$n1++] = snapshots::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Sprites'])) {
             if (!empty($map['Sprites'])) {
                 $model->sprites = [];
-                $n              = 0;
-                foreach ($map['Sprites'] as $item) {
-                    $model->sprites[$n++] = null !== $item ? sprites::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Sprites'] as $item1) {
+                    $model->sprites[$n1++] = sprites::fromMap($item1);
                 }
             }
         }

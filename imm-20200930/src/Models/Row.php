@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Row extends Model
 {
@@ -19,25 +19,30 @@ class Row extends Model
     public $URI;
     protected $_name = [
         'customLabels' => 'CustomLabels',
-        'URI'          => 'URI',
+        'URI' => 'URI',
     ];
 
     public function validate()
     {
+        if (\is_array($this->customLabels)) {
+            Model::validateArray($this->customLabels);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customLabels) {
-            $res['CustomLabels'] = [];
-            if (null !== $this->customLabels && \is_array($this->customLabels)) {
-                $n = 0;
-                foreach ($this->customLabels as $item) {
-                    $res['CustomLabels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->customLabels)) {
+                $res['CustomLabels'] = [];
+                $n1 = 0;
+                foreach ($this->customLabels as $item1) {
+                    $res['CustomLabels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->URI) {
             $res['URI'] = $this->URI;
         }
@@ -45,23 +50,24 @@ class Row extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Row
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomLabels'])) {
             if (!empty($map['CustomLabels'])) {
                 $model->customLabels = [];
-                $n                   = 0;
-                foreach ($map['CustomLabels'] as $item) {
-                    $model->customLabels[$n++] = null !== $item ? KeyValuePair::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CustomLabels'] as $item1) {
+                    $model->customLabels[$n1++] = KeyValuePair::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['URI'])) {
             $model->URI = $map['URI'];
         }

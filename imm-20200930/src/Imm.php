@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Imm\V20200930\Models\AddImageMosaicRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\AddImageMosaicResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\AddImageMosaicShrinkRequest;
@@ -276,11 +275,10 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateStoryShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateTriggerRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateTriggerResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateTriggerShrinkRequest;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Imm extends OpenApiClient
 {
@@ -288,7 +286,7 @@ class Imm extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
+        $this->_endpointMap = [
             'cn-beijing-gov-1' => 'imm-vpc.cn-beijing-gov-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
@@ -308,89 +306,110 @@ class Imm extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Adds mosaics, Gaussian blurs, or solid color shapes to blur one or more areas of an image for privacy protection and saves the output image to the specified path in Object Storage Service (OSS).
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * Adds mosaics, Gaussian blurs, or solid color shapes to blur one or more areas of an image for privacy protection and saves the output image to the specified path in Object Storage Service (OSS).
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
      * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
      * *   The operation accepts JPG and PNG images with a maximum side length of 30,000 pixels and a total of up to 250 million pixels.
-     *  *
-     * @param AddImageMosaicRequest $tmpReq  AddImageMosaicRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddImageMosaicResponse AddImageMosaicResponse
+     * @param tmpReq - AddImageMosaicRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddImageMosaicResponse
+     *
+     * @param AddImageMosaicRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AddImageMosaicResponse
      */
     public function addImageMosaicWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddImageMosaicShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->targets)) {
-            $request->targetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->targets, 'Targets', 'json');
+
+        if (null !== $tmpReq->targets) {
+            $request->targetsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->targets, 'Targets', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->imageFormat)) {
-            $query['ImageFormat'] = $request->imageFormat;
+
+        if (null !== $request->imageFormat) {
+            @$query['ImageFormat'] = $request->imageFormat;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->quality)) {
-            $query['Quality'] = $request->quality;
+
+        if (null !== $request->quality) {
+            @$query['Quality'] = $request->quality;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
-        if (!Utils::isUnset($request->targetURI)) {
-            $query['TargetURI'] = $request->targetURI;
+
+        if (null !== $request->targetURI) {
+            @$query['TargetURI'] = $request->targetURI;
         }
-        if (!Utils::isUnset($request->targetsShrink)) {
-            $query['Targets'] = $request->targetsShrink;
+
+        if (null !== $request->targetsShrink) {
+            @$query['Targets'] = $request->targetsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddImageMosaic',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddImageMosaic',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddImageMosaicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds mosaics, Gaussian blurs, or solid color shapes to blur one or more areas of an image for privacy protection and saves the output image to the specified path in Object Storage Service (OSS).
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * Adds mosaics, Gaussian blurs, or solid color shapes to blur one or more areas of an image for privacy protection and saves the output image to the specified path in Object Storage Service (OSS).
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
      * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
      * *   The operation accepts JPG and PNG images with a maximum side length of 30,000 pixels and a total of up to 250 million pixels.
-     *  *
-     * @param AddImageMosaicRequest $request AddImageMosaicRequest
      *
-     * @return AddImageMosaicResponse AddImageMosaicResponse
+     * @param request - AddImageMosaicRequest
+     *
+     * @returns AddImageMosaicResponse
+     *
+     * @param AddImageMosaicRequest $request
+     *
+     * @return AddImageMosaicResponse
      */
     public function addImageMosaic($request)
     {
@@ -400,58 +419,72 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Adds objects to a story.
-     *  *
-     * @param AddStoryFilesRequest $tmpReq  AddStoryFilesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Adds objects to a story.
      *
-     * @return AddStoryFilesResponse AddStoryFilesResponse
+     * @param tmpReq - AddStoryFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddStoryFilesResponse
+     *
+     * @param AddStoryFilesRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddStoryFilesResponse
      */
     public function addStoryFilesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddStoryFilesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->files)) {
-            $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->files) {
+            $request->filesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $body['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$body['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->filesShrink)) {
-            $body['Files'] = $request->filesShrink;
+
+        if (null !== $request->filesShrink) {
+            @$body['Files'] = $request->filesShrink;
         }
-        if (!Utils::isUnset($request->objectId)) {
-            $body['ObjectId'] = $request->objectId;
+
+        if (null !== $request->objectId) {
+            @$body['ObjectId'] = $request->objectId;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddStoryFiles',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddStoryFiles',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddStoryFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds objects to a story.
-     *  *
-     * @param AddStoryFilesRequest $request AddStoryFilesRequest
+     * Adds objects to a story.
      *
-     * @return AddStoryFilesResponse AddStoryFilesResponse
+     * @param request - AddStoryFilesRequest
+     *
+     * @returns AddStoryFilesResponse
+     *
+     * @param AddStoryFilesRequest $request
+     *
+     * @return AddStoryFilesResponse
      */
     public function addStoryFiles($request)
     {
@@ -461,58 +494,72 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Binds an Object Storage Service (OSS) bucket to the specified project. The binding enables you to use IMM features by using the x-oss-process parameter.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Binds an Object Storage Service (OSS) bucket to the specified project. The binding enables you to use IMM features by using the x-oss-process parameter.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   To use data processing capabilities of IMM based on the x-oss-process parameter, you must bind an OSS bucket to an IMM project. For more information, see [x-oss-process](https://help.aliyun.com/document_detail/2391270.html).
      * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
-     *  *
-     * @param AttachOSSBucketRequest $request AttachOSSBucketRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachOSSBucketResponse AttachOSSBucketResponse
+     * @param request - AttachOSSBucketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachOSSBucketResponse
+     *
+     * @param AttachOSSBucketRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AttachOSSBucketResponse
      */
     public function attachOSSBucketWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->OSSBucket)) {
-            $query['OSSBucket'] = $request->OSSBucket;
+
+        if (null !== $request->OSSBucket) {
+            @$query['OSSBucket'] = $request->OSSBucket;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachOSSBucket',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachOSSBucket',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AttachOSSBucketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Binds an Object Storage Service (OSS) bucket to the specified project. The binding enables you to use IMM features by using the x-oss-process parameter.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Binds an Object Storage Service (OSS) bucket to the specified project. The binding enables you to use IMM features by using the x-oss-process parameter.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   To use data processing capabilities of IMM based on the x-oss-process parameter, you must bind an OSS bucket to an IMM project. For more information, see [x-oss-process](https://help.aliyun.com/document_detail/2391270.html).
      * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
-     *  *
-     * @param AttachOSSBucketRequest $request AttachOSSBucketRequest
      *
-     * @return AttachOSSBucketResponse AttachOSSBucketResponse
+     * @param request - AttachOSSBucketRequest
+     *
+     * @returns AttachOSSBucketResponse
+     *
+     * @param AttachOSSBucketRequest $request
+     *
+     * @return AttachOSSBucketResponse
      */
     public function attachOSSBucket($request)
     {
@@ -522,67 +569,82 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the metadata of multiple files from a dataset.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Deletes the metadata of multiple files from a dataset.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   A successful deletion message is returned regardless of whether the metadata of the file exists in the dataset.
      * >
      * *   If you delete the metadata of a file from a dataset, the file stored in Object Storage Service (OSS) or Photo and Drive Service is **not** deleted. If you want to delete the file, use the operations provided by OSS or Photo and Drive Service.
      * *   Metadata deletion affects existing face groups and stories but does not affect existing spatiotemporal groups.
-     *  *
-     * @param BatchDeleteFileMetaRequest $tmpReq  BatchDeleteFileMetaRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchDeleteFileMetaResponse BatchDeleteFileMetaResponse
+     * @param tmpReq - BatchDeleteFileMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchDeleteFileMetaResponse
+     *
+     * @param BatchDeleteFileMetaRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BatchDeleteFileMetaResponse
      */
     public function batchDeleteFileMetaWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchDeleteFileMetaShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->URIs)) {
-            $request->URIsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->URIs, 'URIs', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->URIs) {
+            $request->URIsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->URIs, 'URIs', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->URIsShrink)) {
-            $query['URIs'] = $request->URIsShrink;
+
+        if (null !== $request->URIsShrink) {
+            @$query['URIs'] = $request->URIsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchDeleteFileMeta',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchDeleteFileMeta',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchDeleteFileMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the metadata of multiple files from a dataset.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Deletes the metadata of multiple files from a dataset.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   A successful deletion message is returned regardless of whether the metadata of the file exists in the dataset.
      * >
      * *   If you delete the metadata of a file from a dataset, the file stored in Object Storage Service (OSS) or Photo and Drive Service is **not** deleted. If you want to delete the file, use the operations provided by OSS or Photo and Drive Service.
      * *   Metadata deletion affects existing face groups and stories but does not affect existing spatiotemporal groups.
-     *  *
-     * @param BatchDeleteFileMetaRequest $request BatchDeleteFileMetaRequest
      *
-     * @return BatchDeleteFileMetaResponse BatchDeleteFileMetaResponse
+     * @param request - BatchDeleteFileMetaRequest
+     *
+     * @returns BatchDeleteFileMetaResponse
+     *
+     * @param BatchDeleteFileMetaRequest $request
+     *
+     * @return BatchDeleteFileMetaResponse
      */
     public function batchDeleteFileMeta($request)
     {
@@ -592,55 +654,68 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries face clusters.
-     *  *
-     * @param BatchGetFigureClusterRequest $tmpReq  BatchGetFigureClusterRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries face clusters.
      *
-     * @return BatchGetFigureClusterResponse BatchGetFigureClusterResponse
+     * @param tmpReq - BatchGetFigureClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchGetFigureClusterResponse
+     *
+     * @param BatchGetFigureClusterRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return BatchGetFigureClusterResponse
      */
     public function batchGetFigureClusterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchGetFigureClusterShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->objectIds)) {
-            $request->objectIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->objectIds, 'ObjectIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->objectIds) {
+            $request->objectIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->objectIds, 'ObjectIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->objectIdsShrink)) {
-            $query['ObjectIds'] = $request->objectIdsShrink;
+
+        if (null !== $request->objectIdsShrink) {
+            @$query['ObjectIds'] = $request->objectIdsShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchGetFigureCluster',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchGetFigureCluster',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchGetFigureClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries face clusters.
-     *  *
-     * @param BatchGetFigureClusterRequest $request BatchGetFigureClusterRequest
+     * Queries face clusters.
      *
-     * @return BatchGetFigureClusterResponse BatchGetFigureClusterResponse
+     * @param request - BatchGetFigureClusterRequest
+     *
+     * @returns BatchGetFigureClusterResponse
+     *
+     * @param BatchGetFigureClusterRequest $request
+     *
+     * @return BatchGetFigureClusterResponse
      */
     public function batchGetFigureCluster($request)
     {
@@ -650,69 +725,86 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries metadata of multiple objects or files in the specified dataset.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Queries metadata of multiple objects or files in the specified dataset.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
      * *   The sample response is provided for reference only. The metadata type and content in your response may differ based on factors such as the [workflow template configurations](https://help.aliyun.com/document_detail/466304.html). For any inquiries, feel free to join the DingTalk chat group (ID: 31690030817) and share your questions with us.
-     *  *
-     * @param BatchGetFileMetaRequest $tmpReq  BatchGetFileMetaRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchGetFileMetaResponse BatchGetFileMetaResponse
+     * @param tmpReq - BatchGetFileMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchGetFileMetaResponse
+     *
+     * @param BatchGetFileMetaRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return BatchGetFileMetaResponse
      */
     public function batchGetFileMetaWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchGetFileMetaShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->URIs)) {
-            $request->URIsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->URIs, 'URIs', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->URIs) {
+            $request->URIsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->URIs, 'URIs', 'json');
         }
-        if (!Utils::isUnset($tmpReq->withFields)) {
-            $request->withFieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->withFields, 'WithFields', 'json');
+
+        if (null !== $tmpReq->withFields) {
+            $request->withFieldsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->withFields, 'WithFields', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->URIsShrink)) {
-            $query['URIs'] = $request->URIsShrink;
+
+        if (null !== $request->URIsShrink) {
+            @$query['URIs'] = $request->URIsShrink;
         }
-        if (!Utils::isUnset($request->withFieldsShrink)) {
-            $query['WithFields'] = $request->withFieldsShrink;
+
+        if (null !== $request->withFieldsShrink) {
+            @$query['WithFields'] = $request->withFieldsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchGetFileMeta',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchGetFileMeta',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchGetFileMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries metadata of multiple objects or files in the specified dataset.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Queries metadata of multiple objects or files in the specified dataset.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
      * *   The sample response is provided for reference only. The metadata type and content in your response may differ based on factors such as the [workflow template configurations](https://help.aliyun.com/document_detail/466304.html). For any inquiries, feel free to join the DingTalk chat group (ID: 31690030817) and share your questions with us.
-     *  *
-     * @param BatchGetFileMetaRequest $request BatchGetFileMetaRequest
      *
-     * @return BatchGetFileMetaResponse BatchGetFileMetaResponse
+     * @param request - BatchGetFileMetaRequest
+     *
+     * @returns BatchGetFileMetaResponse
+     *
+     * @param BatchGetFileMetaRequest $request
+     *
+     * @return BatchGetFileMetaResponse
      */
     public function batchGetFileMeta($request)
     {
@@ -722,74 +814,92 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Indexes metadata of multiple objects into the specified dataset. The process involves data processing operations such as label detection, face detection, and location detection. Metadata indexing helps meet diverse data retrieval requirements.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Indexes metadata of multiple objects into the specified dataset. The process involves data processing operations such as label detection, face detection, and location detection. Metadata indexing helps meet diverse data retrieval requirements.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Data processing operations supported for metadata processing vary with workflow templates. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
      * *   Metadata indexing poses limits on the total number and size of objects. For more information about these limits, see [Limits](https://help.aliyun.com/document_detail/475569.html). For more information about how to create
      * *   Metadata indexing is available in specific regions. For information about regions that support metadata indexing, see the "Data management and indexing" section of the [Limits](https://help.aliyun.com/document_detail/475569.html) topic.
-     *  *
-     * @param BatchIndexFileMetaRequest $tmpReq  BatchIndexFileMetaRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchIndexFileMetaResponse BatchIndexFileMetaResponse
+     * @param tmpReq - BatchIndexFileMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchIndexFileMetaResponse
+     *
+     * @param BatchIndexFileMetaRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BatchIndexFileMetaResponse
      */
     public function batchIndexFileMetaWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchIndexFileMetaShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->files)) {
-            $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->files) {
+            $request->filesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->filesShrink)) {
-            $query['Files'] = $request->filesShrink;
+
+        if (null !== $request->filesShrink) {
+            @$query['Files'] = $request->filesShrink;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchIndexFileMeta',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchIndexFileMeta',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchIndexFileMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Indexes metadata of multiple objects into the specified dataset. The process involves data processing operations such as label detection, face detection, and location detection. Metadata indexing helps meet diverse data retrieval requirements.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Indexes metadata of multiple objects into the specified dataset. The process involves data processing operations such as label detection, face detection, and location detection. Metadata indexing helps meet diverse data retrieval requirements.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Data processing operations supported for metadata processing vary with workflow templates. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
      * *   Metadata indexing poses limits on the total number and size of objects. For more information about these limits, see [Limits](https://help.aliyun.com/document_detail/475569.html). For more information about how to create
      * *   Metadata indexing is available in specific regions. For information about regions that support metadata indexing, see the "Data management and indexing" section of the [Limits](https://help.aliyun.com/document_detail/475569.html) topic.
-     *  *
-     * @param BatchIndexFileMetaRequest $request BatchIndexFileMetaRequest
      *
-     * @return BatchIndexFileMetaResponse BatchIndexFileMetaResponse
+     * @param request - BatchIndexFileMetaRequest
+     *
+     * @returns BatchIndexFileMetaResponse
+     *
+     * @param BatchIndexFileMetaRequest $request
+     *
+     * @return BatchIndexFileMetaResponse
      */
     public function batchIndexFileMeta($request)
     {
@@ -799,61 +909,76 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Updates some metadata items of files indexed into a dataset.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   You cannot call this operation to update all metadata. You can update only metadata fields such as CustomLabels, CustomId, and Figures. For more information, see the "Request parameters" section of this topic.
-     *  *
-     * @param BatchUpdateFileMetaRequest $tmpReq  BatchUpdateFileMetaRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Updates some metadata items of files indexed into a dataset.
      *
-     * @return BatchUpdateFileMetaResponse BatchUpdateFileMetaResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   You cannot call this operation to update all metadata. You can update only metadata fields such as CustomLabels, CustomId, and Figures. For more information, see the "Request parameters" section of this topic.
+     *
+     * @param tmpReq - BatchUpdateFileMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchUpdateFileMetaResponse
+     *
+     * @param BatchUpdateFileMetaRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BatchUpdateFileMetaResponse
      */
     public function batchUpdateFileMetaWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchUpdateFileMetaShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->files)) {
-            $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->files) {
+            $request->filesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->filesShrink)) {
-            $query['Files'] = $request->filesShrink;
+
+        if (null !== $request->filesShrink) {
+            @$query['Files'] = $request->filesShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchUpdateFileMeta',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchUpdateFileMeta',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchUpdateFileMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates some metadata items of files indexed into a dataset.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   You cannot call this operation to update all metadata. You can update only metadata fields such as CustomLabels, CustomId, and Figures. For more information, see the "Request parameters" section of this topic.
-     *  *
-     * @param BatchUpdateFileMetaRequest $request BatchUpdateFileMetaRequest
+     * Updates some metadata items of files indexed into a dataset.
      *
-     * @return BatchUpdateFileMetaResponse BatchUpdateFileMetaResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   You cannot call this operation to update all metadata. You can update only metadata fields such as CustomLabels, CustomId, and Figures. For more information, see the "Request parameters" section of this topic.
+     *
+     * @param request - BatchUpdateFileMetaRequest
+     *
+     * @returns BatchUpdateFileMetaResponse
+     *
+     * @param BatchUpdateFileMetaRequest $request
+     *
+     * @return BatchUpdateFileMetaResponse
      */
     public function batchUpdateFileMeta($request)
     {
@@ -863,64 +988,80 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Compares the similarity of the largest faces in two images. The largest face refers to the largest face frame in an image after face detection.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
-     * *   For the input image, only the face with the largest face frame in the image is used for face comparison. The face frame detection result is consistent with the responses of the [DetectImageFaces](https://help.aliyun.com/document_detail/478213.html) operation.
-     *  *
-     * @param CompareImageFacesRequest $tmpReq  CompareImageFacesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Compares the similarity of the largest faces in two images. The largest face refers to the largest face frame in an image after face detection.
      *
-     * @return CompareImageFacesResponse CompareImageFacesResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * *   For the input image, only the face with the largest face frame in the image is used for face comparison. The face frame detection result is consistent with the responses of the [DetectImageFaces](https://help.aliyun.com/document_detail/478213.html) operation.
+     *
+     * @param tmpReq - CompareImageFacesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CompareImageFacesResponse
+     *
+     * @param CompareImageFacesRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CompareImageFacesResponse
      */
     public function compareImageFacesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CompareImageFacesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->source)) {
-            $request->sourceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->source, 'Source', 'json');
+
+        if (null !== $tmpReq->source) {
+            $request->sourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->source, 'Source', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceShrink)) {
-            $query['Source'] = $request->sourceShrink;
+
+        if (null !== $request->sourceShrink) {
+            @$query['Source'] = $request->sourceShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CompareImageFaces',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CompareImageFaces',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CompareImageFacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Compares the similarity of the largest faces in two images. The largest face refers to the largest face frame in an image after face detection.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
-     * *   For the input image, only the face with the largest face frame in the image is used for face comparison. The face frame detection result is consistent with the responses of the [DetectImageFaces](https://help.aliyun.com/document_detail/478213.html) operation.
-     *  *
-     * @param CompareImageFacesRequest $request CompareImageFacesRequest
+     * Compares the similarity of the largest faces in two images. The largest face refers to the largest face frame in an image after face detection.
      *
-     * @return CompareImageFacesResponse CompareImageFacesResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * *   For the input image, only the face with the largest face frame in the image is used for face comparison. The face frame detection result is consistent with the responses of the [DetectImageFaces](https://help.aliyun.com/document_detail/478213.html) operation.
+     *
+     * @param request - CompareImageFacesRequest
+     *
+     * @returns CompareImageFacesResponse
+     *
+     * @param CompareImageFacesRequest $request
+     *
+     * @return CompareImageFacesResponse
      */
     public function compareImageFaces($request)
     {
@@ -930,60 +1071,74 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary AI 助手二期，问答API
-     *  *
-     * @param ContextualAnswerRequest $tmpReq  ContextualAnswerRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * AI 助手二期，问答API.
      *
-     * @return ContextualAnswerResponse ContextualAnswerResponse
+     * @param tmpReq - ContextualAnswerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ContextualAnswerResponse
+     *
+     * @param ContextualAnswerRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ContextualAnswerResponse
      */
     public function contextualAnswerWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ContextualAnswerShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->files)) {
-            $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->files) {
+            $request->filesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
         }
-        if (!Utils::isUnset($tmpReq->messages)) {
-            $request->messagesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->messages, 'Messages', 'json');
+
+        if (null !== $tmpReq->messages) {
+            $request->messagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->messages, 'Messages', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->filesShrink)) {
-            $body['Files'] = $request->filesShrink;
+        if (null !== $request->filesShrink) {
+            @$body['Files'] = $request->filesShrink;
         }
-        if (!Utils::isUnset($request->messagesShrink)) {
-            $body['Messages'] = $request->messagesShrink;
+
+        if (null !== $request->messagesShrink) {
+            @$body['Messages'] = $request->messagesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ContextualAnswer',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ContextualAnswer',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ContextualAnswerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary AI 助手二期，问答API
-     *  *
-     * @param ContextualAnswerRequest $request ContextualAnswerRequest
+     * AI 助手二期，问答API.
      *
-     * @return ContextualAnswerResponse ContextualAnswerResponse
+     * @param request - ContextualAnswerRequest
+     *
+     * @returns ContextualAnswerResponse
+     *
+     * @param ContextualAnswerRequest $request
+     *
+     * @return ContextualAnswerResponse
      */
     public function contextualAnswer($request)
     {
@@ -993,66 +1148,82 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary AI助手二期，检索API
-     *  *
-     * @param ContextualRetrievalRequest $tmpReq  ContextualRetrievalRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * AI助手二期，检索API.
      *
-     * @return ContextualRetrievalResponse ContextualRetrievalResponse
+     * @param tmpReq - ContextualRetrievalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ContextualRetrievalResponse
+     *
+     * @param ContextualRetrievalRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ContextualRetrievalResponse
      */
     public function contextualRetrievalWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ContextualRetrievalShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->messages)) {
-            $request->messagesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->messages, 'Messages', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->messages) {
+            $request->messagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->messages, 'Messages', 'json');
         }
-        if (!Utils::isUnset($tmpReq->smartClusterIds)) {
-            $request->smartClusterIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->smartClusterIds, 'SmartClusterIds', 'json');
+
+        if (null !== $tmpReq->smartClusterIds) {
+            $request->smartClusterIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->smartClusterIds, 'SmartClusterIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->recallOnly)) {
-            $query['RecallOnly'] = $request->recallOnly;
+
+        if (null !== $request->recallOnly) {
+            @$query['RecallOnly'] = $request->recallOnly;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->messagesShrink)) {
-            $body['Messages'] = $request->messagesShrink;
+        if (null !== $request->messagesShrink) {
+            @$body['Messages'] = $request->messagesShrink;
         }
-        if (!Utils::isUnset($request->smartClusterIdsShrink)) {
-            $body['SmartClusterIds'] = $request->smartClusterIdsShrink;
+
+        if (null !== $request->smartClusterIdsShrink) {
+            @$body['SmartClusterIds'] = $request->smartClusterIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ContextualRetrieval',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ContextualRetrieval',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ContextualRetrievalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary AI助手二期，检索API
-     *  *
-     * @param ContextualRetrievalRequest $request ContextualRetrievalRequest
+     * AI助手二期，检索API.
      *
-     * @return ContextualRetrievalResponse ContextualRetrievalResponse
+     * @param request - ContextualRetrievalRequest
+     *
+     * @returns ContextualRetrievalResponse
+     *
+     * @param ContextualRetrievalRequest $request
+     *
+     * @return ContextualRetrievalResponse
      */
     public function contextualRetrieval($request)
     {
@@ -1062,83 +1233,102 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Creates an archive file inspection task to preview the files in a package without decompressing the package.
-     *  *
-     * @description >  The operation is in public preview. For any inquires, join our DingTalk chat group (ID: 31690030817) and share your questions with us.
+     * Creates an archive file inspection task to preview the files in a package without decompressing the package.
+     *
+     * @remarks
+     * >  The operation is in public preview. For any inquires, join our DingTalk chat group (ID: 31690030817) and share your questions with us.
      * *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   The operation supports a package that contains up to 80,000 files.
      * *   The operation supports ZIP or RAR packages up to 200 GB in size, or 7z packages up to 50 GB in size.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateArchiveFileInspectionTaskRequest $tmpReq  CreateArchiveFileInspectionTaskRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateArchiveFileInspectionTaskResponse CreateArchiveFileInspectionTaskResponse
+     * @param tmpReq - CreateArchiveFileInspectionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateArchiveFileInspectionTaskResponse
+     *
+     * @param CreateArchiveFileInspectionTaskRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateArchiveFileInspectionTaskResponse
      */
     public function createArchiveFileInspectionTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateArchiveFileInspectionTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateArchiveFileInspectionTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateArchiveFileInspectionTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateArchiveFileInspectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an archive file inspection task to preview the files in a package without decompressing the package.
-     *  *
-     * @description >  The operation is in public preview. For any inquires, join our DingTalk chat group (ID: 31690030817) and share your questions with us.
+     * Creates an archive file inspection task to preview the files in a package without decompressing the package.
+     *
+     * @remarks
+     * >  The operation is in public preview. For any inquires, join our DingTalk chat group (ID: 31690030817) and share your questions with us.
      * *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   The operation supports a package that contains up to 80,000 files.
      * *   The operation supports ZIP or RAR packages up to 200 GB in size, or 7z packages up to 50 GB in size.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateArchiveFileInspectionTaskRequest $request CreateArchiveFileInspectionTaskRequest
      *
-     * @return CreateArchiveFileInspectionTaskResponse CreateArchiveFileInspectionTaskResponse
+     * @param request - CreateArchiveFileInspectionTaskRequest
+     *
+     * @returns CreateArchiveFileInspectionTaskResponse
+     *
+     * @param CreateArchiveFileInspectionTaskRequest $request
+     *
+     * @return CreateArchiveFileInspectionTaskResponse
      */
     public function createArchiveFileInspectionTask($request)
     {
@@ -1148,77 +1338,98 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Creates a batch processing task to perform a data processing operation, such as transcoding or format conversion, on multiple existing files at a time.
-     *  *
-     * @description If you want to create a batch processing task to process data in [OSS](https://help.aliyun.com/document_detail/99372.html), make sure that you have bound the dataset to the OSS bucket where the data is stored. For more information about how to bind a dataset to a bucket, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
-     *  *
-     * @param CreateBatchRequest $tmpReq  CreateBatchRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Creates a batch processing task to perform a data processing operation, such as transcoding or format conversion, on multiple existing files at a time.
      *
-     * @return CreateBatchResponse CreateBatchResponse
+     * @remarks
+     * If you want to create a batch processing task to process data in [OSS](https://help.aliyun.com/document_detail/99372.html), make sure that you have bound the dataset to the OSS bucket where the data is stored. For more information about how to bind a dataset to a bucket, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
+     *
+     * @param tmpReq - CreateBatchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBatchResponse
+     *
+     * @param CreateBatchRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateBatchResponse
      */
     public function createBatchWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateBatchShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->actions)) {
-            $request->actionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actions, 'Actions', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->actions) {
+            $request->actionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->actions, 'Actions', 'json');
         }
-        if (!Utils::isUnset($tmpReq->input)) {
-            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->actionsShrink)) {
-            $body['Actions'] = $request->actionsShrink;
+        if (null !== $request->actionsShrink) {
+            @$body['Actions'] = $request->actionsShrink;
         }
-        if (!Utils::isUnset($request->inputShrink)) {
-            $body['Input'] = $request->inputShrink;
+
+        if (null !== $request->inputShrink) {
+            @$body['Input'] = $request->inputShrink;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $body['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$body['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->serviceRole)) {
-            $body['ServiceRole'] = $request->serviceRole;
+
+        if (null !== $request->serviceRole) {
+            @$body['ServiceRole'] = $request->serviceRole;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $body['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$body['Tags'] = $request->tagsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateBatch',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateBatch',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateBatchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a batch processing task to perform a data processing operation, such as transcoding or format conversion, on multiple existing files at a time.
-     *  *
-     * @description If you want to create a batch processing task to process data in [OSS](https://help.aliyun.com/document_detail/99372.html), make sure that you have bound the dataset to the OSS bucket where the data is stored. For more information about how to bind a dataset to a bucket, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
-     *  *
-     * @param CreateBatchRequest $request CreateBatchRequest
+     * Creates a batch processing task to perform a data processing operation, such as transcoding or format conversion, on multiple existing files at a time.
      *
-     * @return CreateBatchResponse CreateBatchResponse
+     * @remarks
+     * If you want to create a batch processing task to process data in [OSS](https://help.aliyun.com/document_detail/99372.html), make sure that you have bound the dataset to the OSS bucket where the data is stored. For more information about how to bind a dataset to a bucket, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
+     *
+     * @param request - CreateBatchRequest
+     *
+     * @returns CreateBatchResponse
+     *
+     * @param CreateBatchRequest $request
+     *
+     * @return CreateBatchResponse
      */
     public function createBatch($request)
     {
@@ -1228,64 +1439,78 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Creates a binding relationship between a dataset and an Object Storage Service (OSS) bucket. This allows for the automatic synchronization of incremental and full data and indexing.
-     *  *
-     * @description Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Creates a binding relationship between a dataset and an Object Storage Service (OSS) bucket. This allows for the automatic synchronization of incremental and full data and indexing.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * Before you create a binding relationship, make sure that the project and the dataset that you want to use exist.
      * *   For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      * *   For information about how to create a dataset, see [CreateDataset](https://help.aliyun.com/document_detail/478160.html).
      * >  The CreateBinding operation works by using the [workflow template](https://help.aliyun.com/document_detail/466304.html) that is specified when you created the project or dataset.
      * After you create a binding relationship between a dataset and an OSS bucket, IMM scans the existing objects in the bucket and extracts metadata based on the scanning result. Then, IMM creates an index from the extracted metadata. If new objects are added to the OSS bucket, IMM constantly tracks and scans the objects and updates the index. For objects whose index is created in this way, you can call the [SimpleQuery](https://help.aliyun.com/document_detail/478175.html) operation to query, manage, and collect statistics from the objects.
-     *  *
-     * @param CreateBindingRequest $request CreateBindingRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBindingResponse CreateBindingResponse
+     * @param request - CreateBindingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBindingResponse
+     *
+     * @param CreateBindingRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateBindingResponse
      */
     public function createBindingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->URI)) {
-            $query['URI'] = $request->URI;
+
+        if (null !== $request->URI) {
+            @$query['URI'] = $request->URI;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateBinding',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateBinding',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateBindingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a binding relationship between a dataset and an Object Storage Service (OSS) bucket. This allows for the automatic synchronization of incremental and full data and indexing.
-     *  *
-     * @description Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Creates a binding relationship between a dataset and an Object Storage Service (OSS) bucket. This allows for the automatic synchronization of incremental and full data and indexing.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * Before you create a binding relationship, make sure that the project and the dataset that you want to use exist.
      * *   For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      * *   For information about how to create a dataset, see [CreateDataset](https://help.aliyun.com/document_detail/478160.html).
      * >  The CreateBinding operation works by using the [workflow template](https://help.aliyun.com/document_detail/466304.html) that is specified when you created the project or dataset.
      * After you create a binding relationship between a dataset and an OSS bucket, IMM scans the existing objects in the bucket and extracts metadata based on the scanning result. Then, IMM creates an index from the extracted metadata. If new objects are added to the OSS bucket, IMM constantly tracks and scans the objects and updates the index. For objects whose index is created in this way, you can call the [SimpleQuery](https://help.aliyun.com/document_detail/478175.html) operation to query, manage, and collect statistics from the objects.
-     *  *
-     * @param CreateBindingRequest $request CreateBindingRequest
      *
-     * @return CreateBindingResponse CreateBindingResponse
+     * @param request - CreateBindingRequest
+     *
+     * @returns CreateBindingResponse
+     *
+     * @param CreateBindingRequest $request
+     *
+     * @return CreateBindingResponse
      */
     public function createBinding($request)
     {
@@ -1295,109 +1520,138 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Compresses point cloud data (PCD) in Object Storage Service (OSS) to reduce the amount of data transferred over networks.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Compresses point cloud data (PCD) in Object Storage Service (OSS) to reduce the amount of data transferred over networks.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   This operation supports only Point Cloud Data (PCD) files.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications. >
-     *  *
-     * @param CreateCompressPointCloudTaskRequest $tmpReq  CreateCompressPointCloudTaskRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCompressPointCloudTaskResponse CreateCompressPointCloudTaskResponse
+     * @param tmpReq - CreateCompressPointCloudTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCompressPointCloudTaskResponse
+     *
+     * @param CreateCompressPointCloudTaskRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateCompressPointCloudTaskResponse
      */
     public function createCompressPointCloudTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateCompressPointCloudTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->kdtreeOption)) {
-            $request->kdtreeOptionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->kdtreeOption, 'KdtreeOption', 'json');
+
+        if (null !== $tmpReq->kdtreeOption) {
+            $request->kdtreeOptionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->kdtreeOption, 'KdtreeOption', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->octreeOption)) {
-            $request->octreeOptionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->octreeOption, 'OctreeOption', 'json');
+
+        if (null !== $tmpReq->octreeOption) {
+            $request->octreeOptionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->octreeOption, 'OctreeOption', 'json');
         }
-        if (!Utils::isUnset($tmpReq->pointCloudFields)) {
-            $request->pointCloudFieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pointCloudFields, 'PointCloudFields', 'json');
+
+        if (null !== $tmpReq->pointCloudFields) {
+            $request->pointCloudFieldsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pointCloudFields, 'PointCloudFields', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->compressMethod)) {
-            $query['CompressMethod'] = $request->compressMethod;
+        if (null !== $request->compressMethod) {
+            @$query['CompressMethod'] = $request->compressMethod;
         }
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->kdtreeOptionShrink)) {
-            $query['KdtreeOption'] = $request->kdtreeOptionShrink;
+
+        if (null !== $request->kdtreeOptionShrink) {
+            @$query['KdtreeOption'] = $request->kdtreeOptionShrink;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->octreeOptionShrink)) {
-            $query['OctreeOption'] = $request->octreeOptionShrink;
+
+        if (null !== $request->octreeOptionShrink) {
+            @$query['OctreeOption'] = $request->octreeOptionShrink;
         }
-        if (!Utils::isUnset($request->pointCloudFieldsShrink)) {
-            $query['PointCloudFields'] = $request->pointCloudFieldsShrink;
+
+        if (null !== $request->pointCloudFieldsShrink) {
+            @$query['PointCloudFields'] = $request->pointCloudFieldsShrink;
         }
-        if (!Utils::isUnset($request->pointCloudFileFormat)) {
-            $query['PointCloudFileFormat'] = $request->pointCloudFileFormat;
+
+        if (null !== $request->pointCloudFileFormat) {
+            @$query['PointCloudFileFormat'] = $request->pointCloudFileFormat;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->targetURI)) {
-            $query['TargetURI'] = $request->targetURI;
+
+        if (null !== $request->targetURI) {
+            @$query['TargetURI'] = $request->targetURI;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCompressPointCloudTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCompressPointCloudTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateCompressPointCloudTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Compresses point cloud data (PCD) in Object Storage Service (OSS) to reduce the amount of data transferred over networks.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Compresses point cloud data (PCD) in Object Storage Service (OSS) to reduce the amount of data transferred over networks.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   This operation supports only Point Cloud Data (PCD) files.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications. >
-     *  *
-     * @param CreateCompressPointCloudTaskRequest $request CreateCompressPointCloudTaskRequest
      *
-     * @return CreateCompressPointCloudTaskResponse CreateCompressPointCloudTaskResponse
+     * @param request - CreateCompressPointCloudTaskRequest
+     *
+     * @returns CreateCompressPointCloudTaskResponse
+     *
+     * @param CreateCompressPointCloudTaskRequest $request
+     *
+     * @return CreateCompressPointCloudTaskResponse
      */
     public function createCompressPointCloudTask($request)
     {
@@ -1407,82 +1661,104 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Creates a story based on the specified images and videos.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
-     *  *
-     * @param CreateCustomizedStoryRequest $tmpReq  CreateCustomizedStoryRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creates a story based on the specified images and videos.
      *
-     * @return CreateCustomizedStoryResponse CreateCustomizedStoryResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+     *
+     * @param tmpReq - CreateCustomizedStoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCustomizedStoryResponse
+     *
+     * @param CreateCustomizedStoryRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateCustomizedStoryResponse
      */
     public function createCustomizedStoryWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateCustomizedStoryShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->cover)) {
-            $request->coverShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cover, 'Cover', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cover) {
+            $request->coverShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cover, 'Cover', 'json');
         }
-        if (!Utils::isUnset($tmpReq->customLabels)) {
-            $request->customLabelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
+
+        if (null !== $tmpReq->customLabels) {
+            $request->customLabelsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
         }
-        if (!Utils::isUnset($tmpReq->files)) {
-            $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
+
+        if (null !== $tmpReq->files) {
+            $request->filesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->coverShrink)) {
-            $body['Cover'] = $request->coverShrink;
+        if (null !== $request->coverShrink) {
+            @$body['Cover'] = $request->coverShrink;
         }
-        if (!Utils::isUnset($request->customLabelsShrink)) {
-            $body['CustomLabels'] = $request->customLabelsShrink;
+
+        if (null !== $request->customLabelsShrink) {
+            @$body['CustomLabels'] = $request->customLabelsShrink;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $body['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$body['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->filesShrink)) {
-            $body['Files'] = $request->filesShrink;
+
+        if (null !== $request->filesShrink) {
+            @$body['Files'] = $request->filesShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->storyName)) {
-            $body['StoryName'] = $request->storyName;
+
+        if (null !== $request->storyName) {
+            @$body['StoryName'] = $request->storyName;
         }
-        if (!Utils::isUnset($request->storySubType)) {
-            $body['StorySubType'] = $request->storySubType;
+
+        if (null !== $request->storySubType) {
+            @$body['StorySubType'] = $request->storySubType;
         }
-        if (!Utils::isUnset($request->storyType)) {
-            $body['StoryType'] = $request->storyType;
+
+        if (null !== $request->storyType) {
+            @$body['StoryType'] = $request->storyType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateCustomizedStory',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCustomizedStory',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateCustomizedStoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a story based on the specified images and videos.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
-     *  *
-     * @param CreateCustomizedStoryRequest $request CreateCustomizedStoryRequest
+     * Creates a story based on the specified images and videos.
      *
-     * @return CreateCustomizedStoryResponse CreateCustomizedStoryResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
+     *
+     * @param request - CreateCustomizedStoryRequest
+     *
+     * @returns CreateCustomizedStoryResponse
+     *
+     * @param CreateCustomizedStoryRequest $request
+     *
+     * @return CreateCustomizedStoryResponse
      */
     public function createCustomizedStory($request)
     {
@@ -1492,78 +1768,98 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Creates a dataset.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
+     * Creates a dataset.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
      * *   A dataset name must be unique within the same project.
      * *   A project has an upper limit on the number of datasets that can be created in the project. You can call the [GetProjcet](https://help.aliyun.com/document_detail/478155.html) operation to query the dataset limit of the project.
      * *   After creating a dataset, you can call the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) operation to index metadata. Metadata indexing enhances [data retrieval efficiency and statistics collection](https://help.aliyun.com/document_detail/478175.html), and enables intelligent data management.
-     *  *
-     * @param CreateDatasetRequest $request CreateDatasetRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDatasetResponse CreateDatasetResponse
+     * @param request - CreateDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDatasetResponse
+     *
+     * @param CreateDatasetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateDatasetResponse
      */
     public function createDatasetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->datasetMaxBindCount)) {
-            $query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
+        if (null !== $request->datasetMaxBindCount) {
+            @$query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
         }
-        if (!Utils::isUnset($request->datasetMaxEntityCount)) {
-            $query['DatasetMaxEntityCount'] = $request->datasetMaxEntityCount;
+
+        if (null !== $request->datasetMaxEntityCount) {
+            @$query['DatasetMaxEntityCount'] = $request->datasetMaxEntityCount;
         }
-        if (!Utils::isUnset($request->datasetMaxFileCount)) {
-            $query['DatasetMaxFileCount'] = $request->datasetMaxFileCount;
+
+        if (null !== $request->datasetMaxFileCount) {
+            @$query['DatasetMaxFileCount'] = $request->datasetMaxFileCount;
         }
-        if (!Utils::isUnset($request->datasetMaxRelationCount)) {
-            $query['DatasetMaxRelationCount'] = $request->datasetMaxRelationCount;
+
+        if (null !== $request->datasetMaxRelationCount) {
+            @$query['DatasetMaxRelationCount'] = $request->datasetMaxRelationCount;
         }
-        if (!Utils::isUnset($request->datasetMaxTotalFileSize)) {
-            $query['DatasetMaxTotalFileSize'] = $request->datasetMaxTotalFileSize;
+
+        if (null !== $request->datasetMaxTotalFileSize) {
+            @$query['DatasetMaxTotalFileSize'] = $request->datasetMaxTotalFileSize;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDataset',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDataset',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a dataset.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
+     * Creates a dataset.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
      * *   A dataset name must be unique within the same project.
      * *   A project has an upper limit on the number of datasets that can be created in the project. You can call the [GetProjcet](https://help.aliyun.com/document_detail/478155.html) operation to query the dataset limit of the project.
      * *   After creating a dataset, you can call the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) operation to index metadata. Metadata indexing enhances [data retrieval efficiency and statistics collection](https://help.aliyun.com/document_detail/478175.html), and enables intelligent data management.
-     *  *
-     * @param CreateDatasetRequest $request CreateDatasetRequest
      *
-     * @return CreateDatasetResponse CreateDatasetResponse
+     * @param request - CreateDatasetRequest
+     *
+     * @returns CreateDatasetResponse
+     *
+     * @param CreateDatasetRequest $request
+     *
+     * @return CreateDatasetResponse
      */
     public function createDataset($request)
     {
@@ -1573,9 +1869,10 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Decodes the blind watermark in an image.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the billing of Intelligent Media Management (IMM).
+     * Decodes the blind watermark in an image.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the billing of Intelligent Media Management (IMM).
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   Make sure that an IMM project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
@@ -1583,70 +1880,86 @@ class Imm extends OpenApiClient
      * *   A blind watermark can still be extracted even if attacks, such as compression, scaling, cropping, rotation, and color transformation, are performed on the image.
      * *   This operation is compatible with its earlier version DecodeBlindWatermark.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task. If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateDecodeBlindWatermarkTaskRequest $tmpReq  CreateDecodeBlindWatermarkTaskRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDecodeBlindWatermarkTaskResponse CreateDecodeBlindWatermarkTaskResponse
+     * @param tmpReq - CreateDecodeBlindWatermarkTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDecodeBlindWatermarkTaskResponse
+     *
+     * @param CreateDecodeBlindWatermarkTaskRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateDecodeBlindWatermarkTaskResponse
      */
     public function createDecodeBlindWatermarkTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDecodeBlindWatermarkTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->imageQuality)) {
-            $query['ImageQuality'] = $request->imageQuality;
+        if (null !== $request->imageQuality) {
+            @$query['ImageQuality'] = $request->imageQuality;
         }
-        if (!Utils::isUnset($request->model)) {
-            $query['Model'] = $request->model;
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->originalImageURI)) {
-            $query['OriginalImageURI'] = $request->originalImageURI;
+
+        if (null !== $request->originalImageURI) {
+            @$query['OriginalImageURI'] = $request->originalImageURI;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
-        if (!Utils::isUnset($request->strengthLevel)) {
-            $query['StrengthLevel'] = $request->strengthLevel;
+
+        if (null !== $request->strengthLevel) {
+            @$query['StrengthLevel'] = $request->strengthLevel;
         }
-        if (!Utils::isUnset($request->targetURI)) {
-            $query['TargetURI'] = $request->targetURI;
+
+        if (null !== $request->targetURI) {
+            @$query['TargetURI'] = $request->targetURI;
         }
-        if (!Utils::isUnset($request->watermarkType)) {
-            $query['WatermarkType'] = $request->watermarkType;
+
+        if (null !== $request->watermarkType) {
+            @$query['WatermarkType'] = $request->watermarkType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDecodeBlindWatermarkTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDecodeBlindWatermarkTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDecodeBlindWatermarkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Decodes the blind watermark in an image.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the billing of Intelligent Media Management (IMM).
+     * Decodes the blind watermark in an image.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the billing of Intelligent Media Management (IMM).
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   Make sure that an IMM project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
@@ -1654,10 +1967,14 @@ class Imm extends OpenApiClient
      * *   A blind watermark can still be extracted even if attacks, such as compression, scaling, cropping, rotation, and color transformation, are performed on the image.
      * *   This operation is compatible with its earlier version DecodeBlindWatermark.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task. If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateDecodeBlindWatermarkTaskRequest $request CreateDecodeBlindWatermarkTaskRequest
      *
-     * @return CreateDecodeBlindWatermarkTaskResponse CreateDecodeBlindWatermarkTaskResponse
+     * @param request - CreateDecodeBlindWatermarkTaskRequest
+     *
+     * @returns CreateDecodeBlindWatermarkTaskResponse
+     *
+     * @param CreateDecodeBlindWatermarkTaskRequest $request
+     *
+     * @return CreateDecodeBlindWatermarkTaskResponse
      */
     public function createDecodeBlindWatermarkTask($request)
     {
@@ -1667,75 +1984,98 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Searches the dataset for the specified number of images most similar to the specified image or face and returns face IDs and boundaries in descending order of similarity.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   The operation searches for faces within the face boundary in each input image.
-     * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateFacesSearchingTaskRequest $tmpReq  CreateFacesSearchingTaskRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Searches the dataset for the specified number of images most similar to the specified image or face and returns face IDs and boundaries in descending order of similarity.
      *
-     * @return CreateFacesSearchingTaskResponse CreateFacesSearchingTaskResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     *     **
+     *     **Note** Asynchronous processing does not guarantee timely task completion.
+     * *   The operation searches for faces that are similar to the face within the largest bounding box in each input image.
+     * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
+     *
+     * @param tmpReq - CreateFacesSearchingTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFacesSearchingTaskResponse
+     *
+     * @param CreateFacesSearchingTaskRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateFacesSearchingTaskResponse
      */
     public function createFacesSearchingTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateFacesSearchingTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sources)) {
-            $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
+
+        if (null !== $tmpReq->sources) {
+            $request->sourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->maxResult)) {
-            $query['MaxResult'] = $request->maxResult;
+
+        if (null !== $request->maxResult) {
+            @$query['MaxResult'] = $request->maxResult;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourcesShrink)) {
-            $query['Sources'] = $request->sourcesShrink;
+
+        if (null !== $request->sourcesShrink) {
+            @$query['Sources'] = $request->sourcesShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateFacesSearchingTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFacesSearchingTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateFacesSearchingTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Searches the dataset for the specified number of images most similar to the specified image or face and returns face IDs and boundaries in descending order of similarity.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   The operation searches for faces within the face boundary in each input image.
-     * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateFacesSearchingTaskRequest $request CreateFacesSearchingTaskRequest
+     * Searches the dataset for the specified number of images most similar to the specified image or face and returns face IDs and boundaries in descending order of similarity.
      *
-     * @return CreateFacesSearchingTaskResponse CreateFacesSearchingTaskResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     *     **
+     *     **Note** Asynchronous processing does not guarantee timely task completion.
+     * *   The operation searches for faces that are similar to the face within the largest bounding box in each input image.
+     * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
+     *
+     * @param request - CreateFacesSearchingTaskRequest
+     *
+     * @returns CreateFacesSearchingTaskResponse
+     *
+     * @param CreateFacesSearchingTaskRequest $request
+     *
+     * @return CreateFacesSearchingTaskResponse
      */
     public function createFacesSearchingTask($request)
     {
@@ -1745,9 +2085,10 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Creates a face clustering task to cluster faces of different persons in images by person based on the intelligent algorithms.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Creates a face clustering task to cluster faces of different persons in images by person based on the intelligent algorithms.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the CreateBinding operation or manually by calling the IndexFileMeta or BatchIndexFileMeta operation.
@@ -1755,61 +2096,74 @@ class Imm extends OpenApiClient
      *     After the clustering task is completed, you can call the GetFigureCluster or BatchGetFigureCluster  operation to query information about a specific cluster. You can also call the QueryFigureClusters operation to query all face clusters of the specified dataset.
      * *   Removing image information from the dataset causes changes to face clusters. When images that contain all faces in a cluster are removed, the cluster is deleted.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task. If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateFigureClusteringTaskRequest $tmpReq  CreateFigureClusteringTaskRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFigureClusteringTaskResponse CreateFigureClusteringTaskResponse
+     * @param tmpReq - CreateFigureClusteringTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFigureClusteringTaskResponse
+     *
+     * @param CreateFigureClusteringTaskRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateFigureClusteringTaskResponse
      */
     public function createFigureClusteringTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateFigureClusteringTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateFigureClusteringTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFigureClusteringTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateFigureClusteringTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a face clustering task to cluster faces of different persons in images by person based on the intelligent algorithms.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Creates a face clustering task to cluster faces of different persons in images by person based on the intelligent algorithms.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the CreateBinding operation or manually by calling the IndexFileMeta or BatchIndexFileMeta operation.
@@ -1817,10 +2171,14 @@ class Imm extends OpenApiClient
      *     After the clustering task is completed, you can call the GetFigureCluster or BatchGetFigureCluster  operation to query information about a specific cluster. You can also call the QueryFigureClusters operation to query all face clusters of the specified dataset.
      * *   Removing image information from the dataset causes changes to face clusters. When images that contain all faces in a cluster are removed, the cluster is deleted.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task. If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateFigureClusteringTaskRequest $request CreateFigureClusteringTaskRequest
      *
-     * @return CreateFigureClusteringTaskResponse CreateFigureClusteringTaskResponse
+     * @param request - CreateFigureClusteringTaskRequest
+     *
+     * @returns CreateFigureClusteringTaskResponse
+     *
+     * @param CreateFigureClusteringTaskRequest $request
+     *
+     * @return CreateFigureClusteringTaskResponse
      */
     public function createFigureClusteringTask($request)
     {
@@ -1830,86 +2188,108 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Merges two or more face clustering groups into one face clustering group.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Merges two or more face clustering groups into one face clustering group.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have called the [CreateFigureClusteringTask](https://help.aliyun.com/document_detail/478180.html) operation to cluster all faces in the dataset.
      * *   If you merge unrelated groups, the feature values of the target groups are affected. As a result, the incremental data may be inaccurately grouped when you create a face clustering task.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateFigureClustersMergingTaskRequest $tmpReq  CreateFigureClustersMergingTaskRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFigureClustersMergingTaskResponse CreateFigureClustersMergingTaskResponse
+     * @param tmpReq - CreateFigureClustersMergingTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFigureClustersMergingTaskResponse
+     *
+     * @param CreateFigureClustersMergingTaskRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateFigureClustersMergingTaskResponse
      */
     public function createFigureClustersMergingTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateFigureClustersMergingTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->froms)) {
-            $request->fromsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->froms, 'Froms', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->froms) {
+            $request->fromsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->froms, 'Froms', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->from)) {
-            $query['From'] = $request->from;
+
+        if (null !== $request->from) {
+            @$query['From'] = $request->from;
         }
-        if (!Utils::isUnset($request->fromsShrink)) {
-            $query['Froms'] = $request->fromsShrink;
+
+        if (null !== $request->fromsShrink) {
+            @$query['Froms'] = $request->fromsShrink;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->to)) {
-            $query['To'] = $request->to;
+
+        if (null !== $request->to) {
+            @$query['To'] = $request->to;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateFigureClustersMergingTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFigureClustersMergingTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateFigureClustersMergingTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Merges two or more face clustering groups into one face clustering group.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Merges two or more face clustering groups into one face clustering group.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have called the [CreateFigureClusteringTask](https://help.aliyun.com/document_detail/478180.html) operation to cluster all faces in the dataset.
      * *   If you merge unrelated groups, the feature values of the target groups are affected. As a result, the incremental data may be inaccurately grouped when you create a face clustering task.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateFigureClustersMergingTaskRequest $request CreateFigureClustersMergingTaskRequest
      *
-     * @return CreateFigureClustersMergingTaskResponse CreateFigureClustersMergingTaskResponse
+     * @param request - CreateFigureClustersMergingTaskRequest
+     *
+     * @returns CreateFigureClustersMergingTaskResponse
+     *
+     * @param CreateFigureClustersMergingTaskRequest $request
+     *
+     * @return CreateFigureClustersMergingTaskResponse
      */
     public function createFigureClustersMergingTask($request)
     {
@@ -1919,9 +2299,10 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Creates a file packing task.
-     *  *
-     * @description >  The operation is in public preview. For any inquires, join our DingTalk group (ID: 88490020073) and share your questions with us.
+     * Creates a file packing task.
+     *
+     * @remarks
+     * >  The operation is in public preview. For any inquires, join our DingTalk group (ID: 88490020073) and share your questions with us.
      * >  The operation supports file packing only. Compression support will be added later.
      * *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
@@ -1930,73 +2311,90 @@ class Imm extends OpenApiClient
      * *   The total size of all objects to be packed into a package cannot exceed 200 GB.
      * *   The operation can pack only Standard objects in Object Storage Service (OSS). To pack an object in another storage class, you must first [convert the storage class of the object](https://help.aliyun.com/document_detail/90090.html).
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateFileCompressionTaskRequest $tmpReq  CreateFileCompressionTaskRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFileCompressionTaskResponse CreateFileCompressionTaskResponse
+     * @param tmpReq - CreateFileCompressionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFileCompressionTaskResponse
+     *
+     * @param CreateFileCompressionTaskRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateFileCompressionTaskResponse
      */
     public function createFileCompressionTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateFileCompressionTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sources)) {
-            $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
+
+        if (null !== $tmpReq->sources) {
+            $request->sourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->compressedFormat)) {
-            $query['CompressedFormat'] = $request->compressedFormat;
+        if (null !== $request->compressedFormat) {
+            @$query['CompressedFormat'] = $request->compressedFormat;
         }
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceManifestURI)) {
-            $query['SourceManifestURI'] = $request->sourceManifestURI;
+
+        if (null !== $request->sourceManifestURI) {
+            @$query['SourceManifestURI'] = $request->sourceManifestURI;
         }
-        if (!Utils::isUnset($request->sourcesShrink)) {
-            $query['Sources'] = $request->sourcesShrink;
+
+        if (null !== $request->sourcesShrink) {
+            @$query['Sources'] = $request->sourcesShrink;
         }
-        if (!Utils::isUnset($request->targetURI)) {
-            $query['TargetURI'] = $request->targetURI;
+
+        if (null !== $request->targetURI) {
+            @$query['TargetURI'] = $request->targetURI;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateFileCompressionTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFileCompressionTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateFileCompressionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a file packing task.
-     *  *
-     * @description >  The operation is in public preview. For any inquires, join our DingTalk group (ID: 88490020073) and share your questions with us.
+     * Creates a file packing task.
+     *
+     * @remarks
+     * >  The operation is in public preview. For any inquires, join our DingTalk group (ID: 88490020073) and share your questions with us.
      * >  The operation supports file packing only. Compression support will be added later.
      * *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
@@ -2005,10 +2403,14 @@ class Imm extends OpenApiClient
      * *   The total size of all objects to be packed into a package cannot exceed 200 GB.
      * *   The operation can pack only Standard objects in Object Storage Service (OSS). To pack an object in another storage class, you must first [convert the storage class of the object](https://help.aliyun.com/document_detail/90090.html).
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateFileCompressionTaskRequest $request CreateFileCompressionTaskRequest
      *
-     * @return CreateFileCompressionTaskResponse CreateFileCompressionTaskResponse
+     * @param request - CreateFileCompressionTaskRequest
+     *
+     * @returns CreateFileCompressionTaskResponse
+     *
+     * @param CreateFileCompressionTaskRequest $request
+     *
+     * @return CreateFileCompressionTaskResponse
      */
     public function createFileCompressionTask($request)
     {
@@ -2018,9 +2420,10 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Extracts the specified files from a ZIP, RAR, or 7z package to the specified directory or decompresses the entire package.
-     *  *
-     * @description >  The operation is in public preview. For any inquires, join our DingTalk group (ID: 88490020073) and share your questions with us.
+     * Extracts the specified files from a ZIP, RAR, or 7z package to the specified directory or decompresses the entire package.
+     *
+     * @remarks
+     * >  The operation is in public preview. For any inquires, join our DingTalk group (ID: 88490020073) and share your questions with us.
      * *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
@@ -2028,73 +2431,90 @@ class Imm extends OpenApiClient
      * *   The operation supports ZIP or RAR packages up to 200 GB in size, or 7z packages up to 50 GB in size.
      * *   The operation extracts files in streams to the specified directory. If the file extraction task is interrupted by a corrupt file, files that have been extracted are not deleted.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateFileUncompressionTaskRequest $tmpReq  CreateFileUncompressionTaskRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFileUncompressionTaskResponse CreateFileUncompressionTaskResponse
+     * @param tmpReq - CreateFileUncompressionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFileUncompressionTaskResponse
+     *
+     * @param CreateFileUncompressionTaskRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateFileUncompressionTaskResponse
      */
     public function createFileUncompressionTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateFileUncompressionTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->selectedFiles)) {
-            $request->selectedFilesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->selectedFiles, 'SelectedFiles', 'json');
+
+        if (null !== $tmpReq->selectedFiles) {
+            $request->selectedFilesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->selectedFiles, 'SelectedFiles', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->selectedFilesShrink)) {
-            $query['SelectedFiles'] = $request->selectedFilesShrink;
+
+        if (null !== $request->selectedFilesShrink) {
+            @$query['SelectedFiles'] = $request->selectedFilesShrink;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
-        if (!Utils::isUnset($request->targetURI)) {
-            $query['TargetURI'] = $request->targetURI;
+
+        if (null !== $request->targetURI) {
+            @$query['TargetURI'] = $request->targetURI;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateFileUncompressionTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFileUncompressionTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateFileUncompressionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Extracts the specified files from a ZIP, RAR, or 7z package to the specified directory or decompresses the entire package.
-     *  *
-     * @description >  The operation is in public preview. For any inquires, join our DingTalk group (ID: 88490020073) and share your questions with us.
+     * Extracts the specified files from a ZIP, RAR, or 7z package to the specified directory or decompresses the entire package.
+     *
+     * @remarks
+     * >  The operation is in public preview. For any inquires, join our DingTalk group (ID: 88490020073) and share your questions with us.
      * *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
@@ -2102,10 +2522,14 @@ class Imm extends OpenApiClient
      * *   The operation supports ZIP or RAR packages up to 200 GB in size, or 7z packages up to 50 GB in size.
      * *   The operation extracts files in streams to the specified directory. If the file extraction task is interrupted by a corrupt file, files that have been extracted are not deleted.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateFileUncompressionTaskRequest $request CreateFileUncompressionTaskRequest
      *
-     * @return CreateFileUncompressionTaskResponse CreateFileUncompressionTaskResponse
+     * @param request - CreateFileUncompressionTaskRequest
+     *
+     * @returns CreateFileUncompressionTaskResponse
+     *
+     * @param CreateFileUncompressionTaskRequest $request
+     *
+     * @return CreateFileUncompressionTaskResponse
      */
     public function createFileUncompressionTask($request)
     {
@@ -2115,9 +2539,10 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Creates an image moderation task to ensure image content compliance. You can call this operation to identify inappropriate content, such as pornography, violence, terrorism, politically sensitive content, undesirable scenes, unauthorized logos, and non-compliant ads.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Creates an image moderation task to ensure image content compliance. You can call this operation to identify inappropriate content, such as pornography, violence, terrorism, politically sensitive content, undesirable scenes, unauthorized logos, and non-compliant ads.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   The image for which you want to create a content moderation task must meet the following requirements:
@@ -2132,79 +2557,98 @@ class Imm extends OpenApiClient
      * *   pass: No non-compliant content is found.
      * *   block: Non-compliant content is detected. The Categories field value indicates the non-compliance categories. For more information, see Content moderation results.
      * *   review: A manual review is needed. After the manual review is finished, another asynchronous notification is sent to inform you about the review result. >
-     *  *
-     * @param CreateImageModerationTaskRequest $tmpReq  CreateImageModerationTaskRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateImageModerationTaskResponse CreateImageModerationTaskResponse
+     * @param tmpReq - CreateImageModerationTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateImageModerationTaskResponse
+     *
+     * @param CreateImageModerationTaskRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateImageModerationTaskResponse
      */
     public function createImageModerationTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateImageModerationTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->scenes)) {
-            $request->scenesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scenes, 'Scenes', 'json');
+
+        if (null !== $tmpReq->scenes) {
+            $request->scenesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scenes, 'Scenes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->maxFrames)) {
-            $query['MaxFrames'] = $request->maxFrames;
+
+        if (null !== $request->maxFrames) {
+            @$query['MaxFrames'] = $request->maxFrames;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->scenesShrink)) {
-            $query['Scenes'] = $request->scenesShrink;
+
+        if (null !== $request->scenesShrink) {
+            @$query['Scenes'] = $request->scenesShrink;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateImageModerationTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateImageModerationTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateImageModerationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an image moderation task to ensure image content compliance. You can call this operation to identify inappropriate content, such as pornography, violence, terrorism, politically sensitive content, undesirable scenes, unauthorized logos, and non-compliant ads.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Creates an image moderation task to ensure image content compliance. You can call this operation to identify inappropriate content, such as pornography, violence, terrorism, politically sensitive content, undesirable scenes, unauthorized logos, and non-compliant ads.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   The image for which you want to create a content moderation task must meet the following requirements:
@@ -2219,10 +2663,14 @@ class Imm extends OpenApiClient
      * *   pass: No non-compliant content is found.
      * *   block: Non-compliant content is detected. The Categories field value indicates the non-compliance categories. For more information, see Content moderation results.
      * *   review: A manual review is needed. After the manual review is finished, another asynchronous notification is sent to inform you about the review result. >
-     *  *
-     * @param CreateImageModerationTaskRequest $request CreateImageModerationTaskRequest
      *
-     * @return CreateImageModerationTaskResponse CreateImageModerationTaskResponse
+     * @param request - CreateImageModerationTaskRequest
+     *
+     * @returns CreateImageModerationTaskResponse
+     *
+     * @param CreateImageModerationTaskRequest $request
+     *
+     * @return CreateImageModerationTaskResponse
      */
     public function createImageModerationTask($request)
     {
@@ -2232,110 +2680,140 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Creates an image splicing task. You can call this operation to splice multiple images into one based on a given rule and save the final image into an Object Storage Service (OSS) bucket.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
-     * *   Make sure that the project that you want to use exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
-     * *   You can call this operation to splice up to eight images. Each side of an image cannot exceed 32,876 pixels, and the total number of pixels of the image cannot exceed 1 billion.
-     * *   The CreateImageSplicingTask operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period elapses, the task information is no longer retrievable. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can also obtain information about the task based on notifications.
-     *  *
-     * @param CreateImageSplicingTaskRequest $tmpReq  CreateImageSplicingTaskRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Creates an image splicing task. You can call this operation to splice multiple images into one based on a given rule and save the final image into an Object Storage Service (OSS) bucket.
      *
-     * @return CreateImageSplicingTaskResponse CreateImageSplicingTaskResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
+     * *   You can call this operation to merge up to 10 images. Each side of an image cannot exceed 32,876 pixels, and the total number of pixels of the image cannot exceed 1 billion.
+     * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
+     *
+     * @param tmpReq - CreateImageSplicingTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateImageSplicingTaskResponse
+     *
+     * @param CreateImageSplicingTaskRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateImageSplicingTaskResponse
      */
     public function createImageSplicingTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateImageSplicingTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sources)) {
-            $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
+
+        if (null !== $tmpReq->sources) {
+            $request->sourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->align)) {
-            $query['Align'] = $request->align;
+        if (null !== $request->align) {
+            @$query['Align'] = $request->align;
         }
-        if (!Utils::isUnset($request->backgroundColor)) {
-            $query['BackgroundColor'] = $request->backgroundColor;
+
+        if (null !== $request->backgroundColor) {
+            @$query['BackgroundColor'] = $request->backgroundColor;
         }
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->direction)) {
-            $query['Direction'] = $request->direction;
+
+        if (null !== $request->direction) {
+            @$query['Direction'] = $request->direction;
         }
-        if (!Utils::isUnset($request->imageFormat)) {
-            $query['ImageFormat'] = $request->imageFormat;
+
+        if (null !== $request->imageFormat) {
+            @$query['ImageFormat'] = $request->imageFormat;
         }
-        if (!Utils::isUnset($request->margin)) {
-            $query['Margin'] = $request->margin;
+
+        if (null !== $request->margin) {
+            @$query['Margin'] = $request->margin;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->padding)) {
-            $query['Padding'] = $request->padding;
+
+        if (null !== $request->padding) {
+            @$query['Padding'] = $request->padding;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->quality)) {
-            $query['Quality'] = $request->quality;
+
+        if (null !== $request->quality) {
+            @$query['Quality'] = $request->quality;
         }
-        if (!Utils::isUnset($request->scaleType)) {
-            $query['ScaleType'] = $request->scaleType;
+
+        if (null !== $request->scaleType) {
+            @$query['ScaleType'] = $request->scaleType;
         }
-        if (!Utils::isUnset($request->sourcesShrink)) {
-            $query['Sources'] = $request->sourcesShrink;
+
+        if (null !== $request->sourcesShrink) {
+            @$query['Sources'] = $request->sourcesShrink;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->targetURI)) {
-            $query['TargetURI'] = $request->targetURI;
+
+        if (null !== $request->targetURI) {
+            @$query['TargetURI'] = $request->targetURI;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateImageSplicingTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateImageSplicingTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateImageSplicingTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an image splicing task. You can call this operation to splice multiple images into one based on a given rule and save the final image into an Object Storage Service (OSS) bucket.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
-     * *   Make sure that the project that you want to use exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
-     * *   You can call this operation to splice up to eight images. Each side of an image cannot exceed 32,876 pixels, and the total number of pixels of the image cannot exceed 1 billion.
-     * *   The CreateImageSplicingTask operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period elapses, the task information is no longer retrievable. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can also obtain information about the task based on notifications.
-     *  *
-     * @param CreateImageSplicingTaskRequest $request CreateImageSplicingTaskRequest
+     * Creates an image splicing task. You can call this operation to splice multiple images into one based on a given rule and save the final image into an Object Storage Service (OSS) bucket.
      *
-     * @return CreateImageSplicingTaskResponse CreateImageSplicingTaskResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
+     * *   You can call this operation to merge up to 10 images. Each side of an image cannot exceed 32,876 pixels, and the total number of pixels of the image cannot exceed 1 billion.
+     * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
+     *
+     * @param request - CreateImageSplicingTaskRequest
+     *
+     * @returns CreateImageSplicingTaskResponse
+     *
+     * @param CreateImageSplicingTaskRequest $request
+     *
+     * @return CreateImageSplicingTaskResponse
      */
     public function createImageSplicingTask($request)
     {
@@ -2345,86 +2823,108 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Converts multiple images into one single PDF file and stores the PDF file to the specified path in Object Storage Service (OSS).
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * Converts multiple images into one single PDF file and stores the PDF file to the specified path in Object Storage Service (OSS).
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
      * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
      * *   You can specify up to 100 images in a call to the operation.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateImageToPDFTaskRequest $tmpReq  CreateImageToPDFTaskRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateImageToPDFTaskResponse CreateImageToPDFTaskResponse
+     * @param tmpReq - CreateImageToPDFTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateImageToPDFTaskResponse
+     *
+     * @param CreateImageToPDFTaskRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateImageToPDFTaskResponse
      */
     public function createImageToPDFTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateImageToPDFTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sources)) {
-            $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
+
+        if (null !== $tmpReq->sources) {
+            $request->sourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourcesShrink)) {
-            $query['Sources'] = $request->sourcesShrink;
+
+        if (null !== $request->sourcesShrink) {
+            @$query['Sources'] = $request->sourcesShrink;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->targetURI)) {
-            $query['TargetURI'] = $request->targetURI;
+
+        if (null !== $request->targetURI) {
+            @$query['TargetURI'] = $request->targetURI;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateImageToPDFTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateImageToPDFTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateImageToPDFTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Converts multiple images into one single PDF file and stores the PDF file to the specified path in Object Storage Service (OSS).
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * Converts multiple images into one single PDF file and stores the PDF file to the specified path in Object Storage Service (OSS).
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
      * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
      * *   You can specify up to 100 images in a call to the operation.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateImageToPDFTaskRequest $request CreateImageToPDFTaskRequest
      *
-     * @return CreateImageToPDFTaskResponse CreateImageToPDFTaskResponse
+     * @param request - CreateImageToPDFTaskRequest
+     *
+     * @returns CreateImageToPDFTaskResponse
+     *
+     * @param CreateImageToPDFTaskRequest $request
+     *
+     * @return CreateImageToPDFTaskResponse
      */
     public function createImageToPDFTask($request)
     {
@@ -2434,9 +2934,10 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Creates a spatiotemporal clustering task to cluster photos and videos based on geolocation and time information. Spatiotemporal clustering allows you to group photos and videos taken during a travel or at different places by their spatial and temporal similarity. Based on spatiotemporal clustering, you can develop media capabilities such as media file categorization, photo collections, and image and video-based stories.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Creates a spatiotemporal clustering task to cluster photos and videos based on geolocation and time information. Spatiotemporal clustering allows you to group photos and videos taken during a travel or at different places by their spatial and temporal similarity. Based on spatiotemporal clustering, you can develop media capabilities such as media file categorization, photo collections, and image and video-based stories.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
@@ -2444,73 +2945,90 @@ class Imm extends OpenApiClient
      * *   After a spatiotemporal clustering task is complete, you can call the [QueryLocationDateClusters](https://help.aliyun.com/document_detail/478189.html) operation to query the spatiotemporal clustering result.
      * *   Removing metadata from a dataset does not affect existing spatiotemporal clusters for the dataset. To delete a spatiotemporal cluster, call the [DeleteLocationDateCluster](https://help.aliyun.com/document_detail/478191.html) operation.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateLocationDateClusteringTaskRequest $tmpReq  CreateLocationDateClusteringTaskRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLocationDateClusteringTaskResponse CreateLocationDateClusteringTaskResponse
+     * @param tmpReq - CreateLocationDateClusteringTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLocationDateClusteringTaskResponse
+     *
+     * @param CreateLocationDateClusteringTaskRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateLocationDateClusteringTaskResponse
      */
     public function createLocationDateClusteringTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateLocationDateClusteringTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dateOptions)) {
-            $request->dateOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dateOptions, 'DateOptions', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dateOptions) {
+            $request->dateOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dateOptions, 'DateOptions', 'json');
         }
-        if (!Utils::isUnset($tmpReq->locationOptions)) {
-            $request->locationOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->locationOptions, 'LocationOptions', 'json');
+
+        if (null !== $tmpReq->locationOptions) {
+            $request->locationOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->locationOptions, 'LocationOptions', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->dateOptionsShrink)) {
-            $query['DateOptions'] = $request->dateOptionsShrink;
+
+        if (null !== $request->dateOptionsShrink) {
+            @$query['DateOptions'] = $request->dateOptionsShrink;
         }
-        if (!Utils::isUnset($request->locationOptionsShrink)) {
-            $query['LocationOptions'] = $request->locationOptionsShrink;
+
+        if (null !== $request->locationOptionsShrink) {
+            @$query['LocationOptions'] = $request->locationOptionsShrink;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateLocationDateClusteringTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateLocationDateClusteringTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateLocationDateClusteringTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a spatiotemporal clustering task to cluster photos and videos based on geolocation and time information. Spatiotemporal clustering allows you to group photos and videos taken during a travel or at different places by their spatial and temporal similarity. Based on spatiotemporal clustering, you can develop media capabilities such as media file categorization, photo collections, and image and video-based stories.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Creates a spatiotemporal clustering task to cluster photos and videos based on geolocation and time information. Spatiotemporal clustering allows you to group photos and videos taken during a travel or at different places by their spatial and temporal similarity. Based on spatiotemporal clustering, you can develop media capabilities such as media file categorization, photo collections, and image and video-based stories.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
@@ -2518,10 +3036,14 @@ class Imm extends OpenApiClient
      * *   After a spatiotemporal clustering task is complete, you can call the [QueryLocationDateClusters](https://help.aliyun.com/document_detail/478189.html) operation to query the spatiotemporal clustering result.
      * *   Removing metadata from a dataset does not affect existing spatiotemporal clusters for the dataset. To delete a spatiotemporal cluster, call the [DeleteLocationDateCluster](https://help.aliyun.com/document_detail/478191.html) operation.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateLocationDateClusteringTaskRequest $request CreateLocationDateClusteringTaskRequest
      *
-     * @return CreateLocationDateClusteringTaskResponse CreateLocationDateClusteringTaskResponse
+     * @param request - CreateLocationDateClusteringTaskRequest
+     *
+     * @returns CreateLocationDateClusteringTaskResponse
+     *
+     * @param CreateLocationDateClusteringTaskRequest $request
+     *
+     * @return CreateLocationDateClusteringTaskResponse
      */
     public function createLocationDateClusteringTask($request)
     {
@@ -2531,98 +3053,122 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Creates an asynchronous media transcoding task to provide audio and video file processing abilities, such as media transcoding, media splicing, video frame capturing, and video to GIF conversion.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * Creates an asynchronous media transcoding task to provide audio and video file processing abilities, such as media transcoding, media splicing, video frame capturing, and video to GIF conversion.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
      * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   By default, only one type of video, audio, and subtitle streams is processed when you call this operation to process media transcoding. However, you can specify the number of video, audio, or subtitle streams that you want to process.
      * *   When you use this operation to execute a media merging task, up to 11 media files are supported. In this case, the parameters that involve media transcoding and frame capturing apply to the merged media data.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateMediaConvertTaskRequest $tmpReq  CreateMediaConvertTaskRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMediaConvertTaskResponse CreateMediaConvertTaskResponse
+     * @param tmpReq - CreateMediaConvertTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMediaConvertTaskResponse
+     *
+     * @param CreateMediaConvertTaskRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateMediaConvertTaskResponse
      */
     public function createMediaConvertTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateMediaConvertTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sources)) {
-            $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
+
+        if (null !== $tmpReq->sources) {
+            $request->sourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
-        if (!Utils::isUnset($tmpReq->targets)) {
-            $request->targetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->targets, 'Targets', 'json');
+
+        if (null !== $tmpReq->targets) {
+            $request->targetsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->targets, 'Targets', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->alignmentIndex)) {
-            $query['AlignmentIndex'] = $request->alignmentIndex;
+        if (null !== $request->alignmentIndex) {
+            @$query['AlignmentIndex'] = $request->alignmentIndex;
         }
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourcesShrink)) {
-            $query['Sources'] = $request->sourcesShrink;
+
+        if (null !== $request->sourcesShrink) {
+            @$query['Sources'] = $request->sourcesShrink;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->targetsShrink)) {
-            $query['Targets'] = $request->targetsShrink;
+
+        if (null !== $request->targetsShrink) {
+            @$query['Targets'] = $request->targetsShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMediaConvertTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMediaConvertTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMediaConvertTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an asynchronous media transcoding task to provide audio and video file processing abilities, such as media transcoding, media splicing, video frame capturing, and video to GIF conversion.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * Creates an asynchronous media transcoding task to provide audio and video file processing abilities, such as media transcoding, media splicing, video frame capturing, and video to GIF conversion.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
      * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   By default, only one type of video, audio, and subtitle streams is processed when you call this operation to process media transcoding. However, you can specify the number of video, audio, or subtitle streams that you want to process.
      * *   When you use this operation to execute a media merging task, up to 11 media files are supported. In this case, the parameters that involve media transcoding and frame capturing apply to the merged media data.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateMediaConvertTaskRequest $request CreateMediaConvertTaskRequest
      *
-     * @return CreateMediaConvertTaskResponse CreateMediaConvertTaskResponse
+     * @param request - CreateMediaConvertTaskRequest
+     *
+     * @returns CreateMediaConvertTaskResponse
+     *
+     * @param CreateMediaConvertTaskRequest $request
+     *
+     * @return CreateMediaConvertTaskResponse
      */
     public function createMediaConvertTask($request)
     {
@@ -2632,9 +3178,10 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Creates a document format conversion task to convert the format of a document stored in an Object Storage Service (OSS) bucket.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Creates a document format conversion task to convert the format of a document stored in an Object Storage Service (OSS) bucket.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   The operation supports the following input formats:
@@ -2652,154 +3199,197 @@ class Imm extends OpenApiClient
      *     *   Call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.``
      *     *   In the region in which the IMM project is located, configure a Simple Message Queue (SMQ) subscription to receive task information notifications. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html). For information about SMQ SDKs, see [Use queues](https://help.aliyun.com/document_detail/32449.html).
      *     *   In the region in which the IMM project is located, create an ApsaraMQ for RocketMQ 4.0 instance, a topic, and a group to receive task notifications. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html). For more information about how to use ApsaraMQ for RocketMQ, see [Call HTTP SDKs to send and subscribe to messages](https://help.aliyun.com/document_detail/169009.html).
-     *     *   In the region in which the IMM project is located, use [EventBridge](https://www.aliyun.com/product/aliware/eventbridge) to receive task information notifications. For more information, see [IMM events](https://help.aliyun.com/document_detail/205730.html).
-     *  *
-     * @param CreateOfficeConversionTaskRequest $tmpReq  CreateOfficeConversionTaskRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *     *   In the region in which the IMM project is located, use [EventBridge](https://www.alibabacloud.com/en/product/eventbridge) to receive task information notifications. For more information, see [IMM events](https://help.aliyun.com/document_detail/205730.html).
      *
-     * @return CreateOfficeConversionTaskResponse CreateOfficeConversionTaskResponse
+     * @param tmpReq - CreateOfficeConversionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOfficeConversionTaskResponse
+     *
+     * @param CreateOfficeConversionTaskRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateOfficeConversionTaskResponse
      */
     public function createOfficeConversionTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateOfficeConversionTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sources)) {
-            $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
+
+        if (null !== $tmpReq->sources) {
+            $request->sourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
-        if (!Utils::isUnset($tmpReq->trimPolicy)) {
-            $request->trimPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->trimPolicy, 'TrimPolicy', 'json');
+
+        if (null !== $tmpReq->trimPolicy) {
+            $request->trimPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->trimPolicy, 'TrimPolicy', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->endPage)) {
-            $query['EndPage'] = $request->endPage;
+
+        if (null !== $request->endPage) {
+            @$query['EndPage'] = $request->endPage;
         }
-        if (!Utils::isUnset($request->firstPage)) {
-            $query['FirstPage'] = $request->firstPage;
+
+        if (null !== $request->firstPage) {
+            @$query['FirstPage'] = $request->firstPage;
         }
-        if (!Utils::isUnset($request->fitToHeight)) {
-            $query['FitToHeight'] = $request->fitToHeight;
+
+        if (null !== $request->fitToHeight) {
+            @$query['FitToHeight'] = $request->fitToHeight;
         }
-        if (!Utils::isUnset($request->fitToWidth)) {
-            $query['FitToWidth'] = $request->fitToWidth;
+
+        if (null !== $request->fitToWidth) {
+            @$query['FitToWidth'] = $request->fitToWidth;
         }
-        if (!Utils::isUnset($request->holdLineFeed)) {
-            $query['HoldLineFeed'] = $request->holdLineFeed;
+
+        if (null !== $request->holdLineFeed) {
+            @$query['HoldLineFeed'] = $request->holdLineFeed;
         }
-        if (!Utils::isUnset($request->imageDPI)) {
-            $query['ImageDPI'] = $request->imageDPI;
+
+        if (null !== $request->imageDPI) {
+            @$query['ImageDPI'] = $request->imageDPI;
         }
-        if (!Utils::isUnset($request->longPicture)) {
-            $query['LongPicture'] = $request->longPicture;
+
+        if (null !== $request->longPicture) {
+            @$query['LongPicture'] = $request->longPicture;
         }
-        if (!Utils::isUnset($request->longText)) {
-            $query['LongText'] = $request->longText;
+
+        if (null !== $request->longText) {
+            @$query['LongText'] = $request->longText;
         }
-        if (!Utils::isUnset($request->maxSheetColumn)) {
-            $query['MaxSheetColumn'] = $request->maxSheetColumn;
+
+        if (null !== $request->maxSheetColumn) {
+            @$query['MaxSheetColumn'] = $request->maxSheetColumn;
         }
-        if (!Utils::isUnset($request->maxSheetRow)) {
-            $query['MaxSheetRow'] = $request->maxSheetRow;
+
+        if (null !== $request->maxSheetRow) {
+            @$query['MaxSheetRow'] = $request->maxSheetRow;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->pages)) {
-            $query['Pages'] = $request->pages;
+
+        if (null !== $request->pages) {
+            @$query['Pages'] = $request->pages;
         }
-        if (!Utils::isUnset($request->paperHorizontal)) {
-            $query['PaperHorizontal'] = $request->paperHorizontal;
+
+        if (null !== $request->paperHorizontal) {
+            @$query['PaperHorizontal'] = $request->paperHorizontal;
         }
-        if (!Utils::isUnset($request->paperSize)) {
-            $query['PaperSize'] = $request->paperSize;
+
+        if (null !== $request->paperSize) {
+            @$query['PaperSize'] = $request->paperSize;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->quality)) {
-            $query['Quality'] = $request->quality;
+
+        if (null !== $request->quality) {
+            @$query['Quality'] = $request->quality;
         }
-        if (!Utils::isUnset($request->scalePercentage)) {
-            $query['ScalePercentage'] = $request->scalePercentage;
+
+        if (null !== $request->scalePercentage) {
+            @$query['ScalePercentage'] = $request->scalePercentage;
         }
-        if (!Utils::isUnset($request->sheetCount)) {
-            $query['SheetCount'] = $request->sheetCount;
+
+        if (null !== $request->sheetCount) {
+            @$query['SheetCount'] = $request->sheetCount;
         }
-        if (!Utils::isUnset($request->sheetIndex)) {
-            $query['SheetIndex'] = $request->sheetIndex;
+
+        if (null !== $request->sheetIndex) {
+            @$query['SheetIndex'] = $request->sheetIndex;
         }
-        if (!Utils::isUnset($request->showComments)) {
-            $query['ShowComments'] = $request->showComments;
+
+        if (null !== $request->showComments) {
+            @$query['ShowComments'] = $request->showComments;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
-        if (!Utils::isUnset($request->startPage)) {
-            $query['StartPage'] = $request->startPage;
+
+        if (null !== $request->startPage) {
+            @$query['StartPage'] = $request->startPage;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->targetType)) {
-            $query['TargetType'] = $request->targetType;
+
+        if (null !== $request->targetType) {
+            @$query['TargetType'] = $request->targetType;
         }
-        if (!Utils::isUnset($request->targetURI)) {
-            $query['TargetURI'] = $request->targetURI;
+
+        if (null !== $request->targetURI) {
+            @$query['TargetURI'] = $request->targetURI;
         }
-        if (!Utils::isUnset($request->targetURIPrefix)) {
-            $query['TargetURIPrefix'] = $request->targetURIPrefix;
+
+        if (null !== $request->targetURIPrefix) {
+            @$query['TargetURIPrefix'] = $request->targetURIPrefix;
         }
-        if (!Utils::isUnset($request->trimPolicyShrink)) {
-            $query['TrimPolicy'] = $request->trimPolicyShrink;
+
+        if (null !== $request->trimPolicyShrink) {
+            @$query['TrimPolicy'] = $request->trimPolicyShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->sourcesShrink)) {
-            $body['Sources'] = $request->sourcesShrink;
+        if (null !== $request->sourcesShrink) {
+            @$body['Sources'] = $request->sourcesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateOfficeConversionTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateOfficeConversionTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateOfficeConversionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a document format conversion task to convert the format of a document stored in an Object Storage Service (OSS) bucket.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Creates a document format conversion task to convert the format of a document stored in an Object Storage Service (OSS) bucket.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   The operation supports the following input formats:
@@ -2817,11 +3407,15 @@ class Imm extends OpenApiClient
      *     *   Call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.``
      *     *   In the region in which the IMM project is located, configure a Simple Message Queue (SMQ) subscription to receive task information notifications. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html). For information about SMQ SDKs, see [Use queues](https://help.aliyun.com/document_detail/32449.html).
      *     *   In the region in which the IMM project is located, create an ApsaraMQ for RocketMQ 4.0 instance, a topic, and a group to receive task notifications. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html). For more information about how to use ApsaraMQ for RocketMQ, see [Call HTTP SDKs to send and subscribe to messages](https://help.aliyun.com/document_detail/169009.html).
-     *     *   In the region in which the IMM project is located, use [EventBridge](https://www.aliyun.com/product/aliware/eventbridge) to receive task information notifications. For more information, see [IMM events](https://help.aliyun.com/document_detail/205730.html).
-     *  *
-     * @param CreateOfficeConversionTaskRequest $request CreateOfficeConversionTaskRequest
+     *     *   In the region in which the IMM project is located, use [EventBridge](https://www.alibabacloud.com/en/product/eventbridge) to receive task information notifications. For more information, see [IMM events](https://help.aliyun.com/document_detail/205730.html).
      *
-     * @return CreateOfficeConversionTaskResponse CreateOfficeConversionTaskResponse
+     * @param request - CreateOfficeConversionTaskRequest
+     *
+     * @returns CreateOfficeConversionTaskResponse
+     *
+     * @param CreateOfficeConversionTaskRequest $request
+     *
+     * @return CreateOfficeConversionTaskResponse
      */
     public function createOfficeConversionTask($request)
     {
@@ -2831,95 +3425,118 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Creates a project.
-     *  *
-     * @description *   The name of a project must be unique in a region.
+     * Creates a project.
+     *
+     * @remarks
+     *   The name of a project must be unique in a region.
      * *   By default, you can create up to 100 projects in a region. If you want to request a quota increase to create more projects, submit a ticket or join the DingTalk chat group (ID: 88490020073).
      * *   After you create a project, you can create other Intelligent Media Management (IMM) resources in the project. For more information, see the following links:
      *     *   [CreateDataset](https://help.aliyun.com/document_detail/478160.html)
      *     *   [CreateTrigger](https://help.aliyun.com/document_detail/479912.html)
      *     *   [CreateBatch](https://help.aliyun.com/document_detail/606694.html)
      *     *   [CreateBinding](https://help.aliyun.com/document_detail/478202.html)
-     *  *
-     * @param CreateProjectRequest $tmpReq  CreateProjectRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProjectResponse CreateProjectResponse
+     * @param tmpReq - CreateProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProjectResponse
+     *
+     * @param CreateProjectRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProjectResponse
      */
     public function createProjectWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateProjectShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetMaxBindCount)) {
-            $query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
+        if (null !== $request->datasetMaxBindCount) {
+            @$query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
         }
-        if (!Utils::isUnset($request->datasetMaxEntityCount)) {
-            $query['DatasetMaxEntityCount'] = $request->datasetMaxEntityCount;
+
+        if (null !== $request->datasetMaxEntityCount) {
+            @$query['DatasetMaxEntityCount'] = $request->datasetMaxEntityCount;
         }
-        if (!Utils::isUnset($request->datasetMaxFileCount)) {
-            $query['DatasetMaxFileCount'] = $request->datasetMaxFileCount;
+
+        if (null !== $request->datasetMaxFileCount) {
+            @$query['DatasetMaxFileCount'] = $request->datasetMaxFileCount;
         }
-        if (!Utils::isUnset($request->datasetMaxRelationCount)) {
-            $query['DatasetMaxRelationCount'] = $request->datasetMaxRelationCount;
+
+        if (null !== $request->datasetMaxRelationCount) {
+            @$query['DatasetMaxRelationCount'] = $request->datasetMaxRelationCount;
         }
-        if (!Utils::isUnset($request->datasetMaxTotalFileSize)) {
-            $query['DatasetMaxTotalFileSize'] = $request->datasetMaxTotalFileSize;
+
+        if (null !== $request->datasetMaxTotalFileSize) {
+            @$query['DatasetMaxTotalFileSize'] = $request->datasetMaxTotalFileSize;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->projectMaxDatasetCount)) {
-            $query['ProjectMaxDatasetCount'] = $request->projectMaxDatasetCount;
+
+        if (null !== $request->projectMaxDatasetCount) {
+            @$query['ProjectMaxDatasetCount'] = $request->projectMaxDatasetCount;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->serviceRole)) {
-            $query['ServiceRole'] = $request->serviceRole;
+
+        if (null !== $request->serviceRole) {
+            @$query['ServiceRole'] = $request->serviceRole;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['Tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateProject',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateProject',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a project.
-     *  *
-     * @description *   The name of a project must be unique in a region.
+     * Creates a project.
+     *
+     * @remarks
+     *   The name of a project must be unique in a region.
      * *   By default, you can create up to 100 projects in a region. If you want to request a quota increase to create more projects, submit a ticket or join the DingTalk chat group (ID: 88490020073).
      * *   After you create a project, you can create other Intelligent Media Management (IMM) resources in the project. For more information, see the following links:
      *     *   [CreateDataset](https://help.aliyun.com/document_detail/478160.html)
      *     *   [CreateTrigger](https://help.aliyun.com/document_detail/479912.html)
      *     *   [CreateBatch](https://help.aliyun.com/document_detail/606694.html)
      *     *   [CreateBinding](https://help.aliyun.com/document_detail/478202.html)
-     *  *
-     * @param CreateProjectRequest $request CreateProjectRequest
      *
-     * @return CreateProjectResponse CreateProjectResponse
+     * @param request - CreateProjectRequest
+     *
+     * @returns CreateProjectResponse
+     *
+     * @param CreateProjectRequest $request
+     *
+     * @return CreateProjectResponse
      */
     public function createProject($request)
     {
@@ -2929,9 +3546,10 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Clusters images indexed into a dataset by similarity. Image clustering is suitable for image deduplication and selection. For example, you can use image clustering to filter photos in your album that are taken in continuous shooting mode.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Clusters images indexed into a dataset by similarity. Image clustering is suitable for image deduplication and selection. For example, you can use image clustering to filter photos in your album that are taken in continuous shooting mode.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
      *     **Note that** Asynchronous processing does not guarantee timely task completion.
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
@@ -2939,61 +3557,74 @@ class Imm extends OpenApiClient
      * *   After clustering is completed, you can call the [QuerySimilarImageClusters](https://help.aliyun.com/document_detail/611304.html) operation to query image clustering results.
      * *   An image cluster contains at lest two images. Removing similar images from the dataset affects existing image clusters. If image deletion reduces the number of images in a cluster to less than 2, the cluster is automatically deleted.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateSimilarImageClusteringTaskRequest $tmpReq  CreateSimilarImageClusteringTaskRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSimilarImageClusteringTaskResponse CreateSimilarImageClusteringTaskResponse
+     * @param tmpReq - CreateSimilarImageClusteringTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSimilarImageClusteringTaskResponse
+     *
+     * @param CreateSimilarImageClusteringTaskRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateSimilarImageClusteringTaskResponse
      */
     public function createSimilarImageClusteringTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateSimilarImageClusteringTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSimilarImageClusteringTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSimilarImageClusteringTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSimilarImageClusteringTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Clusters images indexed into a dataset by similarity. Image clustering is suitable for image deduplication and selection. For example, you can use image clustering to filter photos in your album that are taken in continuous shooting mode.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Clusters images indexed into a dataset by similarity. Image clustering is suitable for image deduplication and selection. For example, you can use image clustering to filter photos in your album that are taken in continuous shooting mode.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      *     **
      *     **Note that** Asynchronous processing does not guarantee timely task completion.
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
@@ -3001,10 +3632,14 @@ class Imm extends OpenApiClient
      * *   After clustering is completed, you can call the [QuerySimilarImageClusters](https://help.aliyun.com/document_detail/611304.html) operation to query image clustering results.
      * *   An image cluster contains at lest two images. Removing similar images from the dataset affects existing image clusters. If image deletion reduces the number of images in a cluster to less than 2, the cluster is automatically deleted.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateSimilarImageClusteringTaskRequest $request CreateSimilarImageClusteringTaskRequest
      *
-     * @return CreateSimilarImageClusteringTaskResponse CreateSimilarImageClusteringTaskResponse
+     * @param request - CreateSimilarImageClusteringTaskRequest
+     *
+     * @returns CreateSimilarImageClusteringTaskResponse
+     *
+     * @param CreateSimilarImageClusteringTaskRequest $request
+     *
+     * @return CreateSimilarImageClusteringTaskResponse
      */
     public function createSimilarImageClusteringTask($request)
     {
@@ -3014,116 +3649,148 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Creates a story.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Creates a story.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
      * *   The operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) to query information about the task. If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateStoryRequest $tmpReq  CreateStoryRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateStoryResponse CreateStoryResponse
+     * @param tmpReq - CreateStoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStoryResponse
+     *
+     * @param CreateStoryRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateStoryResponse
      */
     public function createStoryWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateStoryShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->address)) {
-            $request->addressShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->address, 'Address', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->address) {
+            $request->addressShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->address, 'Address', 'json');
         }
-        if (!Utils::isUnset($tmpReq->customLabels)) {
-            $request->customLabelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
+
+        if (null !== $tmpReq->customLabels) {
+            $request->customLabelsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->addressShrink)) {
-            $body['Address'] = $request->addressShrink;
+        if (null !== $request->addressShrink) {
+            @$body['Address'] = $request->addressShrink;
         }
-        if (!Utils::isUnset($request->customId)) {
-            $body['CustomId'] = $request->customId;
+
+        if (null !== $request->customId) {
+            @$body['CustomId'] = $request->customId;
         }
-        if (!Utils::isUnset($request->customLabelsShrink)) {
-            $body['CustomLabels'] = $request->customLabelsShrink;
+
+        if (null !== $request->customLabelsShrink) {
+            @$body['CustomLabels'] = $request->customLabelsShrink;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $body['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$body['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->maxFileCount)) {
-            $body['MaxFileCount'] = $request->maxFileCount;
+
+        if (null !== $request->maxFileCount) {
+            @$body['MaxFileCount'] = $request->maxFileCount;
         }
-        if (!Utils::isUnset($request->minFileCount)) {
-            $body['MinFileCount'] = $request->minFileCount;
+
+        if (null !== $request->minFileCount) {
+            @$body['MinFileCount'] = $request->minFileCount;
         }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $body['NotifyTopicName'] = $request->notifyTopicName;
+
+        if (null !== $request->notifyTopicName) {
+            @$body['NotifyTopicName'] = $request->notifyTopicName;
         }
-        if (!Utils::isUnset($request->objectId)) {
-            $body['ObjectId'] = $request->objectId;
+
+        if (null !== $request->objectId) {
+            @$body['ObjectId'] = $request->objectId;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->storyEndTime)) {
-            $body['StoryEndTime'] = $request->storyEndTime;
+
+        if (null !== $request->storyEndTime) {
+            @$body['StoryEndTime'] = $request->storyEndTime;
         }
-        if (!Utils::isUnset($request->storyName)) {
-            $body['StoryName'] = $request->storyName;
+
+        if (null !== $request->storyName) {
+            @$body['StoryName'] = $request->storyName;
         }
-        if (!Utils::isUnset($request->storyStartTime)) {
-            $body['StoryStartTime'] = $request->storyStartTime;
+
+        if (null !== $request->storyStartTime) {
+            @$body['StoryStartTime'] = $request->storyStartTime;
         }
-        if (!Utils::isUnset($request->storySubType)) {
-            $body['StorySubType'] = $request->storySubType;
+
+        if (null !== $request->storySubType) {
+            @$body['StorySubType'] = $request->storySubType;
         }
-        if (!Utils::isUnset($request->storyType)) {
-            $body['StoryType'] = $request->storyType;
+
+        if (null !== $request->storyType) {
+            @$body['StoryType'] = $request->storyType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateStory',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateStory',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateStoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a story.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Creates a story.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
      * *   The operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) to query information about the task. If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateStoryRequest $request CreateStoryRequest
      *
-     * @return CreateStoryResponse CreateStoryResponse
+     * @param request - CreateStoryRequest
+     *
+     * @returns CreateStoryResponse
+     *
+     * @param CreateStoryRequest $request
+     *
+     * @return CreateStoryResponse
      */
     public function createStory($request)
     {
@@ -3133,77 +3800,98 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Creates a trigger. A trigger can trigger Intelligent Media Management (IMM) based on events such as events in Object Storage Service (OSS) to process files, such as images, videos, and documents based on data processing templates.
-     *  *
-     * @description If you want to create a trigger to process data in [OSS](https://help.aliyun.com/document_detail/99372.html), make sure that you have bound the dataset to the OSS bucket where the data is stored. For more information about how to bind a dataset to a bucket, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
-     *  *
-     * @param CreateTriggerRequest $tmpReq  CreateTriggerRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates a trigger. A trigger can trigger Intelligent Media Management (IMM) based on events such as events in Object Storage Service (OSS) to process files, such as images, videos, and documents based on data processing templates.
      *
-     * @return CreateTriggerResponse CreateTriggerResponse
+     * @remarks
+     * If you want to create a trigger to process data in [OSS](https://help.aliyun.com/document_detail/99372.html), make sure that you have bound the dataset to the OSS bucket where the data is stored. For more information about how to bind a dataset to a bucket, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
+     *
+     * @param tmpReq - CreateTriggerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTriggerResponse
+     *
+     * @param CreateTriggerRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateTriggerResponse
      */
     public function createTriggerWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateTriggerShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->actions)) {
-            $request->actionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actions, 'Actions', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->actions) {
+            $request->actionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->actions, 'Actions', 'json');
         }
-        if (!Utils::isUnset($tmpReq->input)) {
-            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->actionsShrink)) {
-            $body['Actions'] = $request->actionsShrink;
+        if (null !== $request->actionsShrink) {
+            @$body['Actions'] = $request->actionsShrink;
         }
-        if (!Utils::isUnset($request->inputShrink)) {
-            $body['Input'] = $request->inputShrink;
+
+        if (null !== $request->inputShrink) {
+            @$body['Input'] = $request->inputShrink;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $body['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$body['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->serviceRole)) {
-            $body['ServiceRole'] = $request->serviceRole;
+
+        if (null !== $request->serviceRole) {
+            @$body['ServiceRole'] = $request->serviceRole;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $body['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$body['Tags'] = $request->tagsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateTrigger',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTrigger',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a trigger. A trigger can trigger Intelligent Media Management (IMM) based on events such as events in Object Storage Service (OSS) to process files, such as images, videos, and documents based on data processing templates.
-     *  *
-     * @description If you want to create a trigger to process data in [OSS](https://help.aliyun.com/document_detail/99372.html), make sure that you have bound the dataset to the OSS bucket where the data is stored. For more information about how to bind a dataset to a bucket, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
-     *  *
-     * @param CreateTriggerRequest $request CreateTriggerRequest
+     * Creates a trigger. A trigger can trigger Intelligent Media Management (IMM) based on events such as events in Object Storage Service (OSS) to process files, such as images, videos, and documents based on data processing templates.
      *
-     * @return CreateTriggerResponse CreateTriggerResponse
+     * @remarks
+     * If you want to create a trigger to process data in [OSS](https://help.aliyun.com/document_detail/99372.html), make sure that you have bound the dataset to the OSS bucket where the data is stored. For more information about how to bind a dataset to a bucket, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
+     *
+     * @param request - CreateTriggerRequest
+     *
+     * @returns CreateTriggerResponse
+     *
+     * @param CreateTriggerRequest $request
+     *
+     * @return CreateTriggerResponse
      */
     public function createTrigger($request)
     {
@@ -3213,86 +3901,106 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Detects the scene, object, and event tag information of video content. Scene information includes categories such as natural landscapes, life scenes, and disaster scenes. Event information includes categories such as talent shows, office events, performances, and production events. Object information includes categories such as tableware, electronic products, furniture, and transportation. Video tag detection supports more than 30 tag categories and thousands of tags.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/2747104.html) of Intelligent Media Management (IMM).****
+     * Detects the scene, object, and event tag information of video content. Scene information includes categories such as natural landscapes, life scenes, and disaster scenes. Event information includes categories such as talent shows, office events, performances, and production events. Object information includes categories such as tableware, electronic products, furniture, and transportation. Video tag detection supports more than 30 tag categories and thousands of tags.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/2747104.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that an IMM project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   For more information about video label detection, see [Video label detection](https://help.aliyun.com/document_detail/477189.html).
      * *   This operation supports multiple video formats, such as MP4, MPEG-TS, MKV, MOV, AVI, FLV, and M3U8.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateVideoLabelClassificationTaskRequest $tmpReq  CreateVideoLabelClassificationTaskRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVideoLabelClassificationTaskResponse CreateVideoLabelClassificationTaskResponse
+     * @param tmpReq - CreateVideoLabelClassificationTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVideoLabelClassificationTaskResponse
+     *
+     * @param CreateVideoLabelClassificationTaskRequest $tmpReq
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateVideoLabelClassificationTaskResponse
      */
     public function createVideoLabelClassificationTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateVideoLabelClassificationTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVideoLabelClassificationTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVideoLabelClassificationTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateVideoLabelClassificationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Detects the scene, object, and event tag information of video content. Scene information includes categories such as natural landscapes, life scenes, and disaster scenes. Event information includes categories such as talent shows, office events, performances, and production events. Object information includes categories such as tableware, electronic products, furniture, and transportation. Video tag detection supports more than 30 tag categories and thousands of tags.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/2747104.html) of Intelligent Media Management (IMM).****
+     * Detects the scene, object, and event tag information of video content. Scene information includes categories such as natural landscapes, life scenes, and disaster scenes. Event information includes categories such as talent shows, office events, performances, and production events. Object information includes categories such as tableware, electronic products, furniture, and transportation. Video tag detection supports more than 30 tag categories and thousands of tags.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/2747104.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that an IMM project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      *     **
      *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   For more information about video label detection, see [Video label detection](https://help.aliyun.com/document_detail/477189.html).
      * *   This operation supports multiple video formats, such as MP4, MPEG-TS, MKV, MOV, AVI, FLV, and M3U8.
      * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateVideoLabelClassificationTaskRequest $request CreateVideoLabelClassificationTaskRequest
      *
-     * @return CreateVideoLabelClassificationTaskResponse CreateVideoLabelClassificationTaskResponse
+     * @param request - CreateVideoLabelClassificationTaskRequest
+     *
+     * @returns CreateVideoLabelClassificationTaskResponse
+     *
+     * @param CreateVideoLabelClassificationTaskRequest $request
+     *
+     * @return CreateVideoLabelClassificationTaskResponse
      */
     public function createVideoLabelClassificationTask($request)
     {
@@ -3302,108 +4010,136 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Detects risky or non-compliant content from videos. You can use this operation in scenarios such as intelligent pornography detection, terrorist content and political bias detection, ad violation detection, and logo detection.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * Detects risky or non-compliant content from videos. You can use this operation in scenarios such as intelligent pornography detection, terrorist content and political bias detection, ad violation detection, and logo detection.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     *     **
+     *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   The detection result is sent as an asynchronous notification. The Suggestion parameter in asynchronous notifications supports the following values:
      *     *   pass: No non-compliant content is found.
      *     *   block: Non-compliant content is detected. The Categories field value indicates the non-compliance category. For more information, see [Content moderation results](https://help.aliyun.com/document_detail/2743995.html).
-     *     *   review: A manual review is needed before an asynchronous notification is sent to inform you about the result.
+     *     *   review: A manual review is needed. After the manual review is completed, an asynchronous notification is sent to inform you about the result.
      * *   The following video frame requirements apply:
      *     *   The URLs for video frames must use HTTP or HTTPS.
      *     *   Video frames must be in PNG, JPG, JPEG, BMP, GIF, or WebP format.
      *     *   The size of a video frame cannot exceed 10 MB.
-     *     *   The recommended resolution for video frames is not lower than 256 × 256 pixels. A frame resolution lower than the recommended resolution may affect detection accuracy.
-     *     *   The response time of the operation varies based on the amount of time required to download frames. Make sure that video frames to detect are stored in a reliable and stable service. We recommend that you store video frames in OSS or cache video frames on Alibaba Cloud CDN.
-     * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateVideoModerationTaskRequest $tmpReq  CreateVideoModerationTaskRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *     *   The resolution for video frames is not lower than 256 × 256 pixels. A frame resolution lower than this recommended resolution may affect detection accuracy.
+     *     *   The response time of the operation varies based on the amount of time required to download frames. Make sure that video frames to be detected are stored in a reliable and stable service. We recommend that you store video frames in OSS or cache video frames on Alibaba Cloud CDN.
+     * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications. >
      *
-     * @return CreateVideoModerationTaskResponse CreateVideoModerationTaskResponse
+     * @param tmpReq - CreateVideoModerationTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVideoModerationTaskResponse
+     *
+     * @param CreateVideoModerationTaskRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateVideoModerationTaskResponse
      */
     public function createVideoModerationTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateVideoModerationTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->scenes)) {
-            $request->scenesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scenes, 'Scenes', 'json');
+
+        if (null !== $tmpReq->scenes) {
+            $request->scenesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scenes, 'Scenes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->maxFrames)) {
-            $query['MaxFrames'] = $request->maxFrames;
+
+        if (null !== $request->maxFrames) {
+            @$query['MaxFrames'] = $request->maxFrames;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->scenesShrink)) {
-            $query['Scenes'] = $request->scenesShrink;
+
+        if (null !== $request->scenesShrink) {
+            @$query['Scenes'] = $request->scenesShrink;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVideoModerationTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVideoModerationTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateVideoModerationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Detects risky or non-compliant content from videos. You can use this operation in scenarios such as intelligent pornography detection, terrorist content and political bias detection, ad violation detection, and logo detection.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * Detects risky or non-compliant content from videos. You can use this operation in scenarios such as intelligent pornography detection, terrorist content and political bias detection, ad violation detection, and logo detection.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     *     **
+     *     **Note** Asynchronous processing does not guarantee timely task completion.
      * *   The detection result is sent as an asynchronous notification. The Suggestion parameter in asynchronous notifications supports the following values:
      *     *   pass: No non-compliant content is found.
      *     *   block: Non-compliant content is detected. The Categories field value indicates the non-compliance category. For more information, see [Content moderation results](https://help.aliyun.com/document_detail/2743995.html).
-     *     *   review: A manual review is needed before an asynchronous notification is sent to inform you about the result.
+     *     *   review: A manual review is needed. After the manual review is completed, an asynchronous notification is sent to inform you about the result.
      * *   The following video frame requirements apply:
      *     *   The URLs for video frames must use HTTP or HTTPS.
      *     *   Video frames must be in PNG, JPG, JPEG, BMP, GIF, or WebP format.
      *     *   The size of a video frame cannot exceed 10 MB.
-     *     *   The recommended resolution for video frames is not lower than 256 × 256 pixels. A frame resolution lower than the recommended resolution may affect detection accuracy.
-     *     *   The response time of the operation varies based on the amount of time required to download frames. Make sure that video frames to detect are stored in a reliable and stable service. We recommend that you store video frames in OSS or cache video frames on Alibaba Cloud CDN.
-     * *   This operation is an asynchronous operation. After a task is executed, the task information is saved only for seven days. When the retention period ends, the task information can no longer be retrieved. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications.
-     *  *
-     * @param CreateVideoModerationTaskRequest $request CreateVideoModerationTaskRequest
+     *     *   The resolution for video frames is not lower than 256 × 256 pixels. A frame resolution lower than this recommended resolution may affect detection accuracy.
+     *     *   The response time of the operation varies based on the amount of time required to download frames. Make sure that video frames to be detected are stored in a reliable and stable service. We recommend that you store video frames in OSS or cache video frames on Alibaba Cloud CDN.
+     * *   This operation is an asynchronous operation. After a task is executed, the task information is retained only for seven days and cannot be retrieved when the retention period elapses. You can call the [GetTask](https://help.aliyun.com/document_detail/478241.html) or [ListTasks](https://help.aliyun.com/document_detail/478242.html) operation to query information about the task.`` If you specify [Notification](https://help.aliyun.com/document_detail/2743997.html), you can obtain information about the task based on notifications. >
      *
-     * @return CreateVideoModerationTaskResponse CreateVideoModerationTaskResponse
+     * @param request - CreateVideoModerationTaskRequest
+     *
+     * @returns CreateVideoModerationTaskResponse
+     *
+     * @param CreateVideoModerationTaskRequest $request
+     *
+     * @return CreateVideoModerationTaskResponse
      */
     public function createVideoModerationTask($request)
     {
@@ -3413,53 +4149,66 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a batch processing task.
-     *  *
-     * @description *   You can delete only a batch processing task that is in one of the following states: Ready, Failed, Suspended, and Succeeded.
-     * *   Before you delete a batch processing task, you can call the [GetBatch](https://help.aliyun.com/document_detail/479922.html) operation to query the task status. This ensures a successful deletion.
-     *  *
-     * @param DeleteBatchRequest $request DeleteBatchRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Deletes a batch processing task.
      *
-     * @return DeleteBatchResponse DeleteBatchResponse
+     * @remarks
+     *   You can delete only a batch processing task that is in one of the following states: Ready, Failed, Suspended, and Succeeded.
+     * *   Before you delete a batch processing task, you can call the [GetBatch](https://help.aliyun.com/document_detail/479922.html) operation to query the task status. This ensures a successful deletion.
+     *
+     * @param request - DeleteBatchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBatchResponse
+     *
+     * @param DeleteBatchRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteBatchResponse
      */
     public function deleteBatchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteBatch',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteBatch',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteBatchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a batch processing task.
-     *  *
-     * @description *   You can delete only a batch processing task that is in one of the following states: Ready, Failed, Suspended, and Succeeded.
-     * *   Before you delete a batch processing task, you can call the [GetBatch](https://help.aliyun.com/document_detail/479922.html) operation to query the task status. This ensures a successful deletion.
-     *  *
-     * @param DeleteBatchRequest $request DeleteBatchRequest
+     * Deletes a batch processing task.
      *
-     * @return DeleteBatchResponse DeleteBatchResponse
+     * @remarks
+     *   You can delete only a batch processing task that is in one of the following states: Ready, Failed, Suspended, and Succeeded.
+     * *   Before you delete a batch processing task, you can call the [GetBatch](https://help.aliyun.com/document_detail/479922.html) operation to query the task status. This ensures a successful deletion.
+     *
+     * @param request - DeleteBatchRequest
+     *
+     * @returns DeleteBatchResponse
+     *
+     * @param DeleteBatchRequest $request
+     *
+     * @return DeleteBatchResponse
      */
     public function deleteBatch($request)
     {
@@ -3469,56 +4218,70 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the binding between a dataset and an Object Storage Service (OSS) bucket.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   If you delete a binding, new changes in the OSS bucket are not synchronized to the dataset. Exercise caution when you perform this operation.
-     *  *
-     * @param DeleteBindingRequest $request DeleteBindingRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes the binding between a dataset and an Object Storage Service (OSS) bucket.
      *
-     * @return DeleteBindingResponse DeleteBindingResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   If you delete a binding, new changes in the OSS bucket are not synchronized to the dataset. Exercise caution when you perform this operation.
+     *
+     * @param request - DeleteBindingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBindingResponse
+     *
+     * @param DeleteBindingRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteBindingResponse
      */
     public function deleteBindingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->URI)) {
-            $query['URI'] = $request->URI;
+
+        if (null !== $request->URI) {
+            @$query['URI'] = $request->URI;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteBinding',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteBinding',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteBindingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the binding between a dataset and an Object Storage Service (OSS) bucket.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   If you delete a binding, new changes in the OSS bucket are not synchronized to the dataset. Exercise caution when you perform this operation.
-     *  *
-     * @param DeleteBindingRequest $request DeleteBindingRequest
+     * Deletes the binding between a dataset and an Object Storage Service (OSS) bucket.
      *
-     * @return DeleteBindingResponse DeleteBindingResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   If you delete a binding, new changes in the OSS bucket are not synchronized to the dataset. Exercise caution when you perform this operation.
+     *
+     * @param request - DeleteBindingRequest
+     *
+     * @returns DeleteBindingResponse
+     *
+     * @param DeleteBindingRequest $request
+     *
+     * @return DeleteBindingResponse
      */
     public function deleteBinding($request)
     {
@@ -3528,53 +4291,66 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a dataset.
-     *  *
-     * @description *   Before you delete a dataset, make sure that you have deleted all indexes in the dataset. For more information about how to delete indexes, see [DeleteFileMeta](https://help.aliyun.com/document_detail/478172.html) and [BatchDeleteFileMeta](https://help.aliyun.com/document_detail/478173.html).
-     * *   Before you [delete a dataset](https://help.aliyun.com/document_detail/478160.html), make sure that you have deleted all bindings between the dataset and Object Storage Service (OSS) buckets. For more information about how to delete a binding, see [DeleteBinding](https://help.aliyun.com/document_detail/478205.html). The [DeleteBinding](https://help.aliyun.com/document_detail/478205.html) operation does not delete an index that is manually created, even if you set the `Cleanup` parameter to `true`. To delete indexes that are manually created, you must call the [DeleteFileMeta](https://help.aliyun.com/document_detail/478172.html) or [BatchDeleteFileMeta](https://help.aliyun.com/document_detail/478173.html) operation. For more information about the differences between automatically and manually created indexes, see [Create a metadata index](https://help.aliyun.com/document_detail/478166.html).
-     *  *
-     * @param DeleteDatasetRequest $request DeleteDatasetRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes a dataset.
      *
-     * @return DeleteDatasetResponse DeleteDatasetResponse
+     * @remarks
+     *   Before you delete a dataset, make sure that you have deleted all indexes in the dataset. For more information about how to delete indexes, see [DeleteFileMeta](https://help.aliyun.com/document_detail/478172.html) and [BatchDeleteFileMeta](https://help.aliyun.com/document_detail/478173.html).
+     * *   Before you [delete a dataset](https://help.aliyun.com/document_detail/478160.html), make sure that you have deleted all bindings between the dataset and Object Storage Service (OSS) buckets. For more information about how to delete a binding, see [DeleteBinding](https://help.aliyun.com/document_detail/478205.html). The [DeleteBinding](https://help.aliyun.com/document_detail/478205.html) operation does not delete an index that is manually created, even if you set the `Cleanup` parameter to `true`. To delete indexes that are manually created, you must call the [DeleteFileMeta](https://help.aliyun.com/document_detail/478172.html) or [BatchDeleteFileMeta](https://help.aliyun.com/document_detail/478173.html) operation. For more information about the differences between automatically and manually created indexes, see [Create a metadata index](https://help.aliyun.com/document_detail/478166.html).
+     *
+     * @param request - DeleteDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDatasetResponse
+     *
+     * @param DeleteDatasetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteDatasetResponse
      */
     public function deleteDatasetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDataset',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDataset',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a dataset.
-     *  *
-     * @description *   Before you delete a dataset, make sure that you have deleted all indexes in the dataset. For more information about how to delete indexes, see [DeleteFileMeta](https://help.aliyun.com/document_detail/478172.html) and [BatchDeleteFileMeta](https://help.aliyun.com/document_detail/478173.html).
-     * *   Before you [delete a dataset](https://help.aliyun.com/document_detail/478160.html), make sure that you have deleted all bindings between the dataset and Object Storage Service (OSS) buckets. For more information about how to delete a binding, see [DeleteBinding](https://help.aliyun.com/document_detail/478205.html). The [DeleteBinding](https://help.aliyun.com/document_detail/478205.html) operation does not delete an index that is manually created, even if you set the `Cleanup` parameter to `true`. To delete indexes that are manually created, you must call the [DeleteFileMeta](https://help.aliyun.com/document_detail/478172.html) or [BatchDeleteFileMeta](https://help.aliyun.com/document_detail/478173.html) operation. For more information about the differences between automatically and manually created indexes, see [Create a metadata index](https://help.aliyun.com/document_detail/478166.html).
-     *  *
-     * @param DeleteDatasetRequest $request DeleteDatasetRequest
+     * Deletes a dataset.
      *
-     * @return DeleteDatasetResponse DeleteDatasetResponse
+     * @remarks
+     *   Before you delete a dataset, make sure that you have deleted all indexes in the dataset. For more information about how to delete indexes, see [DeleteFileMeta](https://help.aliyun.com/document_detail/478172.html) and [BatchDeleteFileMeta](https://help.aliyun.com/document_detail/478173.html).
+     * *   Before you [delete a dataset](https://help.aliyun.com/document_detail/478160.html), make sure that you have deleted all bindings between the dataset and Object Storage Service (OSS) buckets. For more information about how to delete a binding, see [DeleteBinding](https://help.aliyun.com/document_detail/478205.html). The [DeleteBinding](https://help.aliyun.com/document_detail/478205.html) operation does not delete an index that is manually created, even if you set the `Cleanup` parameter to `true`. To delete indexes that are manually created, you must call the [DeleteFileMeta](https://help.aliyun.com/document_detail/478172.html) or [BatchDeleteFileMeta](https://help.aliyun.com/document_detail/478173.html) operation. For more information about the differences between automatically and manually created indexes, see [Create a metadata index](https://help.aliyun.com/document_detail/478166.html).
+     *
+     * @param request - DeleteDatasetRequest
+     *
+     * @returns DeleteDatasetResponse
+     *
+     * @param DeleteDatasetRequest $request
+     *
+     * @return DeleteDatasetResponse
      */
     public function deleteDataset($request)
     {
@@ -3584,62 +4360,76 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Removes the metadata of a file from a dataset.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Removes the metadata of a file from a dataset.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   A successful deletion message is returned regardless of whether the metadata of the file exists in the dataset.
      * >
      * *   The objects stored in Object Storage Service (OSS) or Photo and Drive Service are **not** deleted if you delete metadata from a dataset. If you want to delete the file, call the corresponding operations of OSS and Photo and Drive Service.
      * *   When you delete file metadata, the corresponding face clustering group information and story (if any) are changed, but the spatiotemporal clustering is not changed.
-     *  *
-     * @param DeleteFileMetaRequest $request DeleteFileMetaRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFileMetaResponse DeleteFileMetaResponse
+     * @param request - DeleteFileMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFileMetaResponse
+     *
+     * @param DeleteFileMetaRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteFileMetaResponse
      */
     public function deleteFileMetaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->URI)) {
-            $query['URI'] = $request->URI;
+
+        if (null !== $request->URI) {
+            @$query['URI'] = $request->URI;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFileMeta',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteFileMeta',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteFileMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes the metadata of a file from a dataset.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Removes the metadata of a file from a dataset.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   A successful deletion message is returned regardless of whether the metadata of the file exists in the dataset.
      * >
      * *   The objects stored in Object Storage Service (OSS) or Photo and Drive Service are **not** deleted if you delete metadata from a dataset. If you want to delete the file, call the corresponding operations of OSS and Photo and Drive Service.
      * *   When you delete file metadata, the corresponding face clustering group information and story (if any) are changed, but the spatiotemporal clustering is not changed.
-     *  *
-     * @param DeleteFileMetaRequest $request DeleteFileMetaRequest
      *
-     * @return DeleteFileMetaResponse DeleteFileMetaResponse
+     * @param request - DeleteFileMetaRequest
+     *
+     * @returns DeleteFileMetaResponse
+     *
+     * @param DeleteFileMetaRequest $request
+     *
+     * @return DeleteFileMetaResponse
      */
     public function deleteFileMeta($request)
     {
@@ -3649,60 +4439,74 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a spatiotemporal cluster.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
+     * Deletes a spatiotemporal cluster.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
      * *   Before you call this operation, you must call the [CreateLocationDateClusteringTask](https://help.aliyun.com/document_detail/478188.html) operation to perform spatiotemporal clustering.
      * *   A successful deletion is returned regardless of whether a spatiotemporal clustering group ID exists.
-     *  *
-     * @param DeleteLocationDateClusterRequest $request DeleteLocationDateClusterRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLocationDateClusterResponse DeleteLocationDateClusterResponse
+     * @param request - DeleteLocationDateClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLocationDateClusterResponse
+     *
+     * @param DeleteLocationDateClusterRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteLocationDateClusterResponse
      */
     public function deleteLocationDateClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->objectId)) {
-            $body['ObjectId'] = $request->objectId;
+        if (null !== $request->objectId) {
+            @$body['ObjectId'] = $request->objectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteLocationDateCluster',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteLocationDateCluster',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteLocationDateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a spatiotemporal cluster.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
+     * Deletes a spatiotemporal cluster.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
      * *   Before you call this operation, you must call the [CreateLocationDateClusteringTask](https://help.aliyun.com/document_detail/478188.html) operation to perform spatiotemporal clustering.
      * *   A successful deletion is returned regardless of whether a spatiotemporal clustering group ID exists.
-     *  *
-     * @param DeleteLocationDateClusterRequest $request DeleteLocationDateClusterRequest
      *
-     * @return DeleteLocationDateClusterResponse DeleteLocationDateClusterResponse
+     * @param request - DeleteLocationDateClusterRequest
+     *
+     * @returns DeleteLocationDateClusterResponse
+     *
+     * @param DeleteLocationDateClusterRequest $request
+     *
+     * @return DeleteLocationDateClusterResponse
      */
     public function deleteLocationDateCluster($request)
     {
@@ -3712,50 +4516,62 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a project.
-     *  *
-     * @description *   Before you delete a project, make sure that all resources in the project, such as datasets, bindings, batch processing tasks, and triggers, are deleted. For more information, see [DeleteDataset](https://help.aliyun.com/document_detail/478164.html), [DeleteBatch](https://help.aliyun.com/document_detail/479918.html), and [DeleteTrigger](https://help.aliyun.com/document_detail/479915.html).
-     * *   After a project is deleted, all resources used by the project are recycled, and all related data is lost and cannot be recovered.
-     *  *
-     * @param DeleteProjectRequest $request DeleteProjectRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes a project.
      *
-     * @return DeleteProjectResponse DeleteProjectResponse
+     * @remarks
+     *   Before you delete a project, make sure that all resources in the project, such as datasets, bindings, batch processing tasks, and triggers, are deleted. For more information, see [DeleteDataset](https://help.aliyun.com/document_detail/478164.html), [DeleteBatch](https://help.aliyun.com/document_detail/479918.html), and [DeleteTrigger](https://help.aliyun.com/document_detail/479915.html).
+     * *   After a project is deleted, all resources used by the project are recycled, and all related data is lost and cannot be recovered.
+     *
+     * @param request - DeleteProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProjectResponse
+     *
+     * @param DeleteProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteProjectResponse
      */
     public function deleteProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteProject',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteProject',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a project.
-     *  *
-     * @description *   Before you delete a project, make sure that all resources in the project, such as datasets, bindings, batch processing tasks, and triggers, are deleted. For more information, see [DeleteDataset](https://help.aliyun.com/document_detail/478164.html), [DeleteBatch](https://help.aliyun.com/document_detail/479918.html), and [DeleteTrigger](https://help.aliyun.com/document_detail/479915.html).
-     * *   After a project is deleted, all resources used by the project are recycled, and all related data is lost and cannot be recovered.
-     *  *
-     * @param DeleteProjectRequest $request DeleteProjectRequest
+     * Deletes a project.
      *
-     * @return DeleteProjectResponse DeleteProjectResponse
+     * @remarks
+     *   Before you delete a project, make sure that all resources in the project, such as datasets, bindings, batch processing tasks, and triggers, are deleted. For more information, see [DeleteDataset](https://help.aliyun.com/document_detail/478164.html), [DeleteBatch](https://help.aliyun.com/document_detail/479918.html), and [DeleteTrigger](https://help.aliyun.com/document_detail/479915.html).
+     * *   After a project is deleted, all resources used by the project are recycled, and all related data is lost and cannot be recovered.
+     *
+     * @param request - DeleteProjectRequest
+     *
+     * @returns DeleteProjectResponse
+     *
+     * @param DeleteProjectRequest $request
+     *
+     * @return DeleteProjectResponse
      */
     public function deleteProject($request)
     {
@@ -3765,58 +4581,72 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a story.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Deletes a story.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
      * *   Before you call this operation, make sure that you have called the [CreateStory](https://help.aliyun.com/document_detail/478193.html) or [CreateCustomizedStory](https://help.aliyun.com/document_detail/478196.html) operation to create a story.
-     *  *
-     * @param DeleteStoryRequest $request DeleteStoryRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteStoryResponse DeleteStoryResponse
+     * @param request - DeleteStoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteStoryResponse
+     *
+     * @param DeleteStoryRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteStoryResponse
      */
     public function deleteStoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->objectId)) {
-            $query['ObjectId'] = $request->objectId;
+
+        if (null !== $request->objectId) {
+            @$query['ObjectId'] = $request->objectId;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteStory',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteStory',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteStoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a story.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Deletes a story.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
      * *   Before you call this operation, make sure that you have called the [CreateStory](https://help.aliyun.com/document_detail/478193.html) or [CreateCustomizedStory](https://help.aliyun.com/document_detail/478196.html) operation to create a story.
-     *  *
-     * @param DeleteStoryRequest $request DeleteStoryRequest
      *
-     * @return DeleteStoryResponse DeleteStoryResponse
+     * @param request - DeleteStoryRequest
+     *
+     * @returns DeleteStoryResponse
+     *
+     * @param DeleteStoryRequest $request
+     *
+     * @return DeleteStoryResponse
      */
     public function deleteStory($request)
     {
@@ -3826,51 +4656,64 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a trigger.
-     *  *
-     * @description You can delete a trigger only if the trigger is in one of the following states: Ready, Failed, Suspended, and Succeeded. You cannot delete a trigger that is in the Running state.
-     *  *
-     * @param DeleteTriggerRequest $request DeleteTriggerRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes a trigger.
      *
-     * @return DeleteTriggerResponse DeleteTriggerResponse
+     * @remarks
+     * You can delete a trigger only if the trigger is in one of the following states: Ready, Failed, Suspended, and Succeeded. You cannot delete a trigger that is in the Running state.
+     *
+     * @param request - DeleteTriggerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTriggerResponse
+     *
+     * @param DeleteTriggerRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteTriggerResponse
      */
     public function deleteTriggerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTrigger',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTrigger',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a trigger.
-     *  *
-     * @description You can delete a trigger only if the trigger is in one of the following states: Ready, Failed, Suspended, and Succeeded. You cannot delete a trigger that is in the Running state.
-     *  *
-     * @param DeleteTriggerRequest $request DeleteTriggerRequest
+     * Deletes a trigger.
      *
-     * @return DeleteTriggerResponse DeleteTriggerResponse
+     * @remarks
+     * You can delete a trigger only if the trigger is in one of the following states: Ready, Failed, Suspended, and Succeeded. You cannot delete a trigger that is in the Running state.
+     *
+     * @param request - DeleteTriggerRequest
+     *
+     * @returns DeleteTriggerResponse
+     *
+     * @param DeleteTriggerRequest $request
+     *
+     * @return DeleteTriggerResponse
      */
     public function deleteTrigger($request)
     {
@@ -3880,50 +4723,62 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Unbinds an Object Storage Service (OSS) bucket from the corresponding project.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
-     * *   Before you call this operation, make sure that the project is bound to a bucket. For more information, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
-     *  *
-     * @param DetachOSSBucketRequest $request DetachOSSBucketRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Unbinds an Object Storage Service (OSS) bucket from the corresponding project.
      *
-     * @return DetachOSSBucketResponse DetachOSSBucketResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * *   Before you call this operation, make sure that the project is bound to a bucket. For more information, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
+     *
+     * @param request - DetachOSSBucketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachOSSBucketResponse
+     *
+     * @param DetachOSSBucketRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DetachOSSBucketResponse
      */
     public function detachOSSBucketWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->OSSBucket)) {
-            $query['OSSBucket'] = $request->OSSBucket;
+        if (null !== $request->OSSBucket) {
+            @$query['OSSBucket'] = $request->OSSBucket;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachOSSBucket',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachOSSBucket',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetachOSSBucketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Unbinds an Object Storage Service (OSS) bucket from the corresponding project.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
-     * *   Before you call this operation, make sure that the project is bound to a bucket. For more information, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
-     *  *
-     * @param DetachOSSBucketRequest $request DetachOSSBucketRequest
+     * Unbinds an Object Storage Service (OSS) bucket from the corresponding project.
      *
-     * @return DetachOSSBucketResponse DetachOSSBucketResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * *   Before you call this operation, make sure that the project is bound to a bucket. For more information, see [AttachOSSBucket](https://help.aliyun.com/document_detail/478206.html).
+     *
+     * @param request - DetachOSSBucketRequest
+     *
+     * @returns DetachOSSBucketResponse
+     *
+     * @param DetachOSSBucketRequest $request
+     *
+     * @return DetachOSSBucketResponse
      */
     public function detachOSSBucket($request)
     {
@@ -3933,64 +4788,80 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Detects human body information, such as the confidence level and body bounding box, in an image.
-     *  *
-     * @description *   Before you call this operation, make sure that an Intelligent Media Management (IMM) project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
-     * *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
-     *  *
-     * @param DetectImageBodiesRequest $tmpReq  DetectImageBodiesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Detects human body information, such as the confidence level and body bounding box, in an image.
      *
-     * @return DetectImageBodiesResponse DetectImageBodiesResponse
+     * @remarks
+     *   Before you call this operation, make sure that an Intelligent Media Management (IMM) project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+     * *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
+     *
+     * @param tmpReq - DetectImageBodiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetectImageBodiesResponse
+     *
+     * @param DetectImageBodiesRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DetectImageBodiesResponse
      */
     public function detectImageBodiesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DetectImageBodiesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sensitivity)) {
-            $query['Sensitivity'] = $request->sensitivity;
+
+        if (null !== $request->sensitivity) {
+            @$query['Sensitivity'] = $request->sensitivity;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetectImageBodies',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetectImageBodies',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetectImageBodiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Detects human body information, such as the confidence level and body bounding box, in an image.
-     *  *
-     * @description *   Before you call this operation, make sure that an Intelligent Media Management (IMM) project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
-     * *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
-     *  *
-     * @param DetectImageBodiesRequest $request DetectImageBodiesRequest
+     * Detects human body information, such as the confidence level and body bounding box, in an image.
      *
-     * @return DetectImageBodiesResponse DetectImageBodiesResponse
+     * @remarks
+     *   Before you call this operation, make sure that an Intelligent Media Management (IMM) project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+     * *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
+     *
+     * @param request - DetectImageBodiesRequest
+     *
+     * @returns DetectImageBodiesResponse
+     *
+     * @param DetectImageBodiesRequest $request
+     *
+     * @return DetectImageBodiesResponse
      */
     public function detectImageBodies($request)
     {
@@ -4000,59 +4871,74 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Detects the outline data, attributes, and license plate information of vehicles in an image. The vehicle attributes include the vehicle color (CarColor) and vehicle type (CarType). The license plate information includes the recognition content (Content) and plate frame (Boundary).
-     *  *
-     * @description *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
-     *  *
-     * @param DetectImageCarsRequest $tmpReq  DetectImageCarsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Detects the outline data, attributes, and license plate information of vehicles in an image. The vehicle attributes include the vehicle color (CarColor) and vehicle type (CarType). The license plate information includes the recognition content (Content) and plate frame (Boundary).
      *
-     * @return DetectImageCarsResponse DetectImageCarsResponse
+     * @remarks
+     *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
+     *
+     * @param tmpReq - DetectImageCarsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetectImageCarsResponse
+     *
+     * @param DetectImageCarsRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DetectImageCarsResponse
      */
     public function detectImageCarsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DetectImageCarsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetectImageCars',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetectImageCars',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetectImageCarsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Detects the outline data, attributes, and license plate information of vehicles in an image. The vehicle attributes include the vehicle color (CarColor) and vehicle type (CarType). The license plate information includes the recognition content (Content) and plate frame (Boundary).
-     *  *
-     * @description *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
-     *  *
-     * @param DetectImageCarsRequest $request DetectImageCarsRequest
+     * Detects the outline data, attributes, and license plate information of vehicles in an image. The vehicle attributes include the vehicle color (CarColor) and vehicle type (CarType). The license plate information includes the recognition content (Content) and plate frame (Boundary).
      *
-     * @return DetectImageCarsResponse DetectImageCarsResponse
+     * @remarks
+     *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
+     *
+     * @param request - DetectImageCarsRequest
+     *
+     * @returns DetectImageCarsResponse
+     *
+     * @param DetectImageCarsRequest $request
+     *
+     * @return DetectImageCarsResponse
      */
     public function detectImageCars($request)
     {
@@ -4062,59 +4948,74 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Detects barcodes and QR codes in an image.
-     *  *
-     * @description *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
-     *  *
-     * @param DetectImageCodesRequest $tmpReq  DetectImageCodesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Detects barcodes and QR codes in an image.
      *
-     * @return DetectImageCodesResponse DetectImageCodesResponse
+     * @remarks
+     *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
+     *
+     * @param tmpReq - DetectImageCodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetectImageCodesResponse
+     *
+     * @param DetectImageCodesRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DetectImageCodesResponse
      */
     public function detectImageCodesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DetectImageCodesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetectImageCodes',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetectImageCodes',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetectImageCodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Detects barcodes and QR codes in an image.
-     *  *
-     * @description *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
-     *  *
-     * @param DetectImageCodesRequest $request DetectImageCodesRequest
+     * Detects barcodes and QR codes in an image.
      *
-     * @return DetectImageCodesResponse DetectImageCodesResponse
+     * @remarks
+     *   For information about the image encoding formats supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
+     *
+     * @param request - DetectImageCodesRequest
+     *
+     * @returns DetectImageCodesResponse
+     *
+     * @param DetectImageCodesRequest $request
+     *
+     * @return DetectImageCodesResponse
      */
     public function detectImageCodes($request)
     {
@@ -4124,58 +5025,72 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Detects the cropping area that produces the optimal visual effect based on a given image ratio by using AI model capabilities.
-     *  *
-     * @param DetectImageCroppingRequest $tmpReq  DetectImageCroppingRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Detects the cropping area that produces the optimal visual effect based on a given image ratio by using AI model capabilities.
      *
-     * @return DetectImageCroppingResponse DetectImageCroppingResponse
+     * @param tmpReq - DetectImageCroppingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetectImageCroppingResponse
+     *
+     * @param DetectImageCroppingRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DetectImageCroppingResponse
      */
     public function detectImageCroppingWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DetectImageCroppingShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->aspectRatios)) {
-            $query['AspectRatios'] = $request->aspectRatios;
+        if (null !== $request->aspectRatios) {
+            @$query['AspectRatios'] = $request->aspectRatios;
         }
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetectImageCropping',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetectImageCropping',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetectImageCroppingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Detects the cropping area that produces the optimal visual effect based on a given image ratio by using AI model capabilities.
-     *  *
-     * @param DetectImageCroppingRequest $request DetectImageCroppingRequest
+     * Detects the cropping area that produces the optimal visual effect based on a given image ratio by using AI model capabilities.
      *
-     * @return DetectImageCroppingResponse DetectImageCroppingResponse
+     * @param request - DetectImageCroppingRequest
+     *
+     * @returns DetectImageCroppingResponse
+     *
+     * @param DetectImageCroppingRequest $request
+     *
+     * @return DetectImageCroppingResponse
      */
     public function detectImageCropping($request)
     {
@@ -4185,61 +5100,76 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Detects faces from an image, including face boundary information, attributes, and quality. The boundary information includes the distance from the y-coordinate of the vertex to the top edge (Top), distance from the x-coordinate of the vertex to the left edge (Left), height (Height), and width (Width). Face attributes include the age (Age), age standard deviation (AgeSD), gender (Gender), emotion (Emotion), mouth opening (Mouth), beard (Beard), hat wearing (Hat), mask wearing (Mask), glasses wearing (Glasses), head orientation (HeadPose), attractiveness (Attractive), and confidence levels for preceding attributes. Quality information includes the face quality score (FaceQuality) and face resolution (Sharpness).
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   For information about the image encoding formats supported by this operation, see [Limits](https://help.aliyun.com/document_detail/475569.html).
-     *  *
-     * @param DetectImageFacesRequest $tmpReq  DetectImageFacesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Detects faces from an image, including face boundary information, attributes, and quality. The boundary information includes the distance from the y-coordinate of the vertex to the top edge (Top), distance from the x-coordinate of the vertex to the left edge (Left), height (Height), and width (Width). Face attributes include the age (Age), age standard deviation (AgeSD), gender (Gender), emotion (Emotion), mouth opening (Mouth), beard (Beard), hat wearing (Hat), mask wearing (Mask), glasses wearing (Glasses), head orientation (HeadPose), attractiveness (Attractive), and confidence levels for preceding attributes. Quality information includes the face quality score (FaceQuality) and face resolution (Sharpness).
      *
-     * @return DetectImageFacesResponse DetectImageFacesResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   For information about the image encoding formats supported by this operation, see [Limits](https://help.aliyun.com/document_detail/475569.html).
+     *
+     * @param tmpReq - DetectImageFacesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetectImageFacesResponse
+     *
+     * @param DetectImageFacesRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DetectImageFacesResponse
      */
     public function detectImageFacesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DetectImageFacesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetectImageFaces',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetectImageFaces',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetectImageFacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Detects faces from an image, including face boundary information, attributes, and quality. The boundary information includes the distance from the y-coordinate of the vertex to the top edge (Top), distance from the x-coordinate of the vertex to the left edge (Left), height (Height), and width (Width). Face attributes include the age (Age), age standard deviation (AgeSD), gender (Gender), emotion (Emotion), mouth opening (Mouth), beard (Beard), hat wearing (Hat), mask wearing (Mask), glasses wearing (Glasses), head orientation (HeadPose), attractiveness (Attractive), and confidence levels for preceding attributes. Quality information includes the face quality score (FaceQuality) and face resolution (Sharpness).
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   For information about the image encoding formats supported by this operation, see [Limits](https://help.aliyun.com/document_detail/475569.html).
-     *  *
-     * @param DetectImageFacesRequest $request DetectImageFacesRequest
+     * Detects faces from an image, including face boundary information, attributes, and quality. The boundary information includes the distance from the y-coordinate of the vertex to the top edge (Top), distance from the x-coordinate of the vertex to the left edge (Left), height (Height), and width (Width). Face attributes include the age (Age), age standard deviation (AgeSD), gender (Gender), emotion (Emotion), mouth opening (Mouth), beard (Beard), hat wearing (Hat), mask wearing (Mask), glasses wearing (Glasses), head orientation (HeadPose), attractiveness (Attractive), and confidence levels for preceding attributes. Quality information includes the face quality score (FaceQuality) and face resolution (Sharpness).
      *
-     * @return DetectImageFacesResponse DetectImageFacesResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   For information about the image encoding formats supported by this operation, see [Limits](https://help.aliyun.com/document_detail/475569.html).
+     *
+     * @param request - DetectImageFacesRequest
+     *
+     * @returns DetectImageFacesResponse
+     *
+     * @param DetectImageFacesRequest $request
+     *
+     * @return DetectImageFacesResponse
      */
     public function detectImageFaces($request)
     {
@@ -4249,68 +5179,84 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Detects scene, object, and event information in an image. Scene information includes natural landscapes, daily life, and disasters. Event information includes talent shows, office events, performances, and production events. Object information includes tableware, electronics, furniture, and transportation. The DetectImageLabels operation supports more than 30 different categories and thousands of labels.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Detects scene, object, and event information in an image. Scene information includes natural landscapes, daily life, and disasters. Event information includes talent shows, office events, performances, and production events. Object information includes tableware, electronics, furniture, and transportation. The DetectImageLabels operation supports more than 30 different categories and thousands of labels.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Make sure that an IMM [project](https://help.aliyun.com/document_detail/478273.html) is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      * *   For more information about the features of this operation, see [Image label detection](https://help.aliyun.com/document_detail/477179.html).
      * *   For more information about the input images supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
-     *  *
-     * @param DetectImageLabelsRequest $tmpReq  DetectImageLabelsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectImageLabelsResponse DetectImageLabelsResponse
+     * @param tmpReq - DetectImageLabelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetectImageLabelsResponse
+     *
+     * @param DetectImageLabelsRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DetectImageLabelsResponse
      */
     public function detectImageLabelsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DetectImageLabelsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
-        if (!Utils::isUnset($request->threshold)) {
-            $query['Threshold'] = $request->threshold;
+
+        if (null !== $request->threshold) {
+            @$query['Threshold'] = $request->threshold;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetectImageLabels',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetectImageLabels',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetectImageLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Detects scene, object, and event information in an image. Scene information includes natural landscapes, daily life, and disasters. Event information includes talent shows, office events, performances, and production events. Object information includes tableware, electronics, furniture, and transportation. The DetectImageLabels operation supports more than 30 different categories and thousands of labels.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Detects scene, object, and event information in an image. Scene information includes natural landscapes, daily life, and disasters. Event information includes talent shows, office events, performances, and production events. Object information includes tableware, electronics, furniture, and transportation. The DetectImageLabels operation supports more than 30 different categories and thousands of labels.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Make sure that an IMM [project](https://help.aliyun.com/document_detail/478273.html) is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      * *   For more information about the features of this operation, see [Image label detection](https://help.aliyun.com/document_detail/477179.html).
      * *   For more information about the input images supported by this operation, see [Limits on images](https://help.aliyun.com/document_detail/475569.html).
-     *  *
-     * @param DetectImageLabelsRequest $request DetectImageLabelsRequest
      *
-     * @return DetectImageLabelsResponse DetectImageLabelsResponse
+     * @param request - DetectImageLabelsRequest
+     *
+     * @returns DetectImageLabelsResponse
+     *
+     * @param DetectImageLabelsRequest $request
+     *
+     * @return DetectImageLabelsResponse
      */
     public function detectImageLabels($request)
     {
@@ -4320,63 +5266,78 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Calculates the aesthetics quality score of an image based on metrics such as the composition, brightness, contrast, color, and resolution. The operation returns a score within the range from 0 to 1. A higher score indicates better image quality.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * Calculates the aesthetics quality score of an image based on metrics such as the composition, brightness, contrast, color, and resolution. The operation returns a score within the range from 0 to 1. A higher score indicates better image quality.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
      * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478273.html).[](~~478152~~)
      * *   For information about the image encoding formats supported by this operation, see [Limits](https://help.aliyun.com/document_detail/475569.html).
-     *  *
-     * @param DetectImageScoreRequest $tmpReq  DetectImageScoreRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectImageScoreResponse DetectImageScoreResponse
+     * @param tmpReq - DetectImageScoreRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetectImageScoreResponse
+     *
+     * @param DetectImageScoreRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DetectImageScoreResponse
      */
     public function detectImageScoreWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DetectImageScoreShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetectImageScore',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetectImageScore',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetectImageScoreResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Calculates the aesthetics quality score of an image based on metrics such as the composition, brightness, contrast, color, and resolution. The operation returns a score within the range from 0 to 1. A higher score indicates better image quality.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * Calculates the aesthetics quality score of an image based on metrics such as the composition, brightness, contrast, color, and resolution. The operation returns a score within the range from 0 to 1. A higher score indicates better image quality.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
      * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478273.html).[](~~478152~~)
      * *   For information about the image encoding formats supported by this operation, see [Limits](https://help.aliyun.com/document_detail/475569.html).
-     *  *
-     * @param DetectImageScoreRequest $request DetectImageScoreRequest
      *
-     * @return DetectImageScoreResponse DetectImageScoreResponse
+     * @param request - DetectImageScoreRequest
+     *
+     * @returns DetectImageScoreResponse
+     *
+     * @param DetectImageScoreRequest $request
+     *
+     * @return DetectImageScoreResponse
      */
     public function detectImageScore($request)
     {
@@ -4386,67 +5347,82 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Recognizes and extracts text content from an image.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Recognizes and extracts text content from an image.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   The size of the image cannot exceed 20 MB.
      * *   The shortest side of the image is not less than 20 px, and the longest side is not more than 30,000 px.
      * *   The aspect ratio of the image is less than 1:2.
      * *   We recommend that you do not use an image that is smaller than 15 px × 15 px in size. Otherwise, the recognition rate is low.
-     *  *
-     * @param DetectImageTextsRequest $tmpReq  DetectImageTextsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectImageTextsResponse DetectImageTextsResponse
+     * @param tmpReq - DetectImageTextsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetectImageTextsResponse
+     *
+     * @param DetectImageTextsRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DetectImageTextsResponse
      */
     public function detectImageTextsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DetectImageTextsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetectImageTexts',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetectImageTexts',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetectImageTextsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Recognizes and extracts text content from an image.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Recognizes and extracts text content from an image.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   The size of the image cannot exceed 20 MB.
      * *   The shortest side of the image is not less than 20 px, and the longest side is not more than 30,000 px.
      * *   The aspect ratio of the image is less than 1:2.
      * *   We recommend that you do not use an image that is smaller than 15 px × 15 px in size. Otherwise, the recognition rate is low.
-     *  *
-     * @param DetectImageTextsRequest $request DetectImageTextsRequest
      *
-     * @return DetectImageTextsResponse DetectImageTextsResponse
+     * @param request - DetectImageTextsRequest
+     *
+     * @returns DetectImageTextsResponse
+     *
+     * @param DetectImageTextsRequest $request
+     *
+     * @return DetectImageTextsResponse
      */
     public function detectImageTexts($request)
     {
@@ -4456,61 +5432,76 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries media metadata, including the media format and stream information.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
-     * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
-     *  *
-     * @param DetectMediaMetaRequest $tmpReq  DetectMediaMetaRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries media metadata, including the media format and stream information.
      *
-     * @return DetectMediaMetaResponse DetectMediaMetaResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
+     *
+     * @param tmpReq - DetectMediaMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetectMediaMetaResponse
+     *
+     * @param DetectMediaMetaRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DetectMediaMetaResponse
      */
     public function detectMediaMetaWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DetectMediaMetaShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetectMediaMeta',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetectMediaMeta',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetectMediaMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries media metadata, including the media format and stream information.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
-     * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
-     *  *
-     * @param DetectMediaMetaRequest $request DetectMediaMetaRequest
+     * Queries media metadata, including the media format and stream information.
      *
-     * @return DetectMediaMetaResponse DetectMediaMetaResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478152.html).
+     *
+     * @param request - DetectMediaMetaRequest
+     *
+     * @returns DetectMediaMetaResponse
+     *
+     * @param DetectMediaMetaRequest $request
+     *
+     * @return DetectMediaMetaResponse
      */
     public function detectMediaMeta($request)
     {
@@ -4520,53 +5511,66 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Detects whether specified text contains anomalies, such as pornography, advertisements, excessive junk content, politically sensitive content, and abuse.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * >  The text compliance detection feature only supports Chinese characters.
-     *  *
-     * @param DetectTextAnomalyRequest $request DetectTextAnomalyRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Detects whether specified text contains anomalies, such as pornography, advertisements, excessive junk content, politically sensitive content, and abuse.
      *
-     * @return DetectTextAnomalyResponse DetectTextAnomalyResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * >  The text compliance detection feature only supports Chinese characters.
+     *
+     * @param request - DetectTextAnomalyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetectTextAnomalyResponse
+     *
+     * @param DetectTextAnomalyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DetectTextAnomalyResponse
      */
     public function detectTextAnomalyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetectTextAnomaly',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetectTextAnomaly',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetectTextAnomalyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Detects whether specified text contains anomalies, such as pornography, advertisements, excessive junk content, politically sensitive content, and abuse.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * >  The text compliance detection feature only supports Chinese characters.
-     *  *
-     * @param DetectTextAnomalyRequest $request DetectTextAnomalyRequest
+     * Detects whether specified text contains anomalies, such as pornography, advertisements, excessive junk content, politically sensitive content, and abuse.
      *
-     * @return DetectTextAnomalyResponse DetectTextAnomalyResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * >  The text compliance detection feature only supports Chinese characters.
+     *
+     * @param request - DetectTextAnomalyRequest
+     *
+     * @returns DetectTextAnomalyResponse
+     *
+     * @param DetectTextAnomalyRequest $request
+     *
+     * @return DetectTextAnomalyResponse
      */
     public function detectTextAnomaly($request)
     {
@@ -4576,73 +5580,90 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Embeds specific textual information into an image as watermarks. These watermarks are visually imperceptible and do not affect the aesthetics of the image or the integrity of the original data. The watermarks can be extracted by using the CreateDecodeBlindWatermarkTask operation.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the billing of Intelligent Media Management (IMM).
+     * Embeds specific textual information into an image as watermarks. These watermarks are visually imperceptible and do not affect the aesthetics of the image or the integrity of the original data. The watermarks can be extracted by using the CreateDecodeBlindWatermarkTask operation.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the billing of Intelligent Media Management (IMM).
      * *   Make sure that an IMM project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      * *   You can embed only text as blind watermarks to an image.
      * *   The format of the output image is the same as that of the input image.
      * *   The watermarks can still be extracted even if attacks, such as compression, scaling, cropping, rotation, and color transformation, are performed on the image.
      * *   Pure black and white images and images with low resolution (roughly less than 200 px × 200 px,) are not supported.
-     *  *
-     * @param EncodeBlindWatermarkRequest $request EncodeBlindWatermarkRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return EncodeBlindWatermarkResponse EncodeBlindWatermarkResponse
+     * @param request - EncodeBlindWatermarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EncodeBlindWatermarkResponse
+     *
+     * @param EncodeBlindWatermarkRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return EncodeBlindWatermarkResponse
      */
     public function encodeBlindWatermarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->imageQuality)) {
-            $query['ImageQuality'] = $request->imageQuality;
+
+        if (null !== $request->imageQuality) {
+            @$query['ImageQuality'] = $request->imageQuality;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
-        if (!Utils::isUnset($request->strengthLevel)) {
-            $query['StrengthLevel'] = $request->strengthLevel;
+
+        if (null !== $request->strengthLevel) {
+            @$query['StrengthLevel'] = $request->strengthLevel;
         }
-        if (!Utils::isUnset($request->targetURI)) {
-            $query['TargetURI'] = $request->targetURI;
+
+        if (null !== $request->targetURI) {
+            @$query['TargetURI'] = $request->targetURI;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EncodeBlindWatermark',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EncodeBlindWatermark',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EncodeBlindWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Embeds specific textual information into an image as watermarks. These watermarks are visually imperceptible and do not affect the aesthetics of the image or the integrity of the original data. The watermarks can be extracted by using the CreateDecodeBlindWatermarkTask operation.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the billing of Intelligent Media Management (IMM).
+     * Embeds specific textual information into an image as watermarks. These watermarks are visually imperceptible and do not affect the aesthetics of the image or the integrity of the original data. The watermarks can be extracted by using the CreateDecodeBlindWatermarkTask operation.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the billing of Intelligent Media Management (IMM).
      * *   Make sure that an IMM project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      * *   You can embed only text as blind watermarks to an image.
      * *   The format of the output image is the same as that of the input image.
      * *   The watermarks can still be extracted even if attacks, such as compression, scaling, cropping, rotation, and color transformation, are performed on the image.
      * *   Pure black and white images and images with low resolution (roughly less than 200 px × 200 px,) are not supported.
-     *  *
-     * @param EncodeBlindWatermarkRequest $request EncodeBlindWatermarkRequest
      *
-     * @return EncodeBlindWatermarkResponse EncodeBlindWatermarkResponse
+     * @param request - EncodeBlindWatermarkRequest
+     *
+     * @returns EncodeBlindWatermarkResponse
+     *
+     * @param EncodeBlindWatermarkRequest $request
+     *
+     * @return EncodeBlindWatermarkResponse
      */
     public function encodeBlindWatermark($request)
     {
@@ -4652,70 +5673,86 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Extracts the text from the document body.
-     *  *
-     * @description *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).**
+     * Extracts the text from the document body.
+     *
+     * @remarks
+     *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).**
      * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478273.html).[](~~478152~~)
      * *   The following document formats are supported: Word, Excel, PPT, PDF, and TXT.
      * *   The document cannot exceed 200 MB in size. The size of the extracted text cannot exceed 2 MB in size (approximately 1.2 million letters).
      * >  If the format of the document is complex or the document body is too large, a timeout error may occur. In this case, we recommend that you call the CreateOfficeConversionTask operation to convert the document to the TXT format before you call the ExtractDocumentText operation.
-     *  *
-     * @param ExtractDocumentTextRequest $tmpReq  ExtractDocumentTextRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExtractDocumentTextResponse ExtractDocumentTextResponse
+     * @param tmpReq - ExtractDocumentTextRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExtractDocumentTextResponse
+     *
+     * @param ExtractDocumentTextRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ExtractDocumentTextResponse
      */
     public function extractDocumentTextWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ExtractDocumentTextShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExtractDocumentText',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExtractDocumentText',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ExtractDocumentTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Extracts the text from the document body.
-     *  *
-     * @description *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).**
+     * Extracts the text from the document body.
+     *
+     * @remarks
+     *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).**
      * *   Make sure that the specified project exists in the current region. For more information, see [Project management](https://help.aliyun.com/document_detail/478273.html).[](~~478152~~)
      * *   The following document formats are supported: Word, Excel, PPT, PDF, and TXT.
      * *   The document cannot exceed 200 MB in size. The size of the extracted text cannot exceed 2 MB in size (approximately 1.2 million letters).
      * >  If the format of the document is complex or the document body is too large, a timeout error may occur. In this case, we recommend that you call the CreateOfficeConversionTask operation to convert the document to the TXT format before you call the ExtractDocumentText operation.
-     *  *
-     * @param ExtractDocumentTextRequest $request ExtractDocumentTextRequest
      *
-     * @return ExtractDocumentTextResponse ExtractDocumentTextResponse
+     * @param request - ExtractDocumentTextRequest
+     *
+     * @returns ExtractDocumentTextResponse
+     *
+     * @param ExtractDocumentTextRequest $request
+     *
+     * @return ExtractDocumentTextResponse
      */
     public function extractDocumentText($request)
     {
@@ -4725,80 +5762,100 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the extracted file metadata, including the file name, labels, path, custom tags, text, and other fields. If the value of a metadata field of a file matches the specified string, the metadata of the file is returned.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
+     * Queries the extracted file metadata, including the file name, labels, path, custom tags, text, and other fields. If the value of a metadata field of a file matches the specified string, the metadata of the file is returned.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
      * *   The sample response is provided for reference only. The metadata type and content in your response may differ based on factors such as the [workflow template configurations](https://help.aliyun.com/document_detail/466304.html). For any inquiries, join the DingTalk chat group (ID: 88490020073) and share your questions with us.
      * *   For information about the fields that you can use as query conditions, see [Supported fields and operators](https://help.aliyun.com/document_detail/2743991.html).
-     *  *
-     * @param FuzzyQueryRequest $tmpReq  FuzzyQueryRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return FuzzyQueryResponse FuzzyQueryResponse
+     * @param tmpReq - FuzzyQueryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FuzzyQueryResponse
+     *
+     * @param FuzzyQueryRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return FuzzyQueryResponse
      */
     public function fuzzyQueryWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FuzzyQueryShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->withFields)) {
-            $request->withFieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->withFields, 'WithFields', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->withFields) {
+            $request->withFieldsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->withFields, 'WithFields', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->query)) {
-            $query['Query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->withFieldsShrink)) {
-            $query['WithFields'] = $request->withFieldsShrink;
+
+        if (null !== $request->withFieldsShrink) {
+            @$query['WithFields'] = $request->withFieldsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FuzzyQuery',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FuzzyQuery',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FuzzyQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the extracted file metadata, including the file name, labels, path, custom tags, text, and other fields. If the value of a metadata field of a file matches the specified string, the metadata of the file is returned.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
+     * Queries the extracted file metadata, including the file name, labels, path, custom tags, text, and other fields. If the value of a metadata field of a file matches the specified string, the metadata of the file is returned.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
      * *   The sample response is provided for reference only. The metadata type and content in your response may differ based on factors such as the [workflow template configurations](https://help.aliyun.com/document_detail/466304.html). For any inquiries, join the DingTalk chat group (ID: 88490020073) and share your questions with us.
      * *   For information about the fields that you can use as query conditions, see [Supported fields and operators](https://help.aliyun.com/document_detail/2743991.html).
-     *  *
-     * @param FuzzyQueryRequest $request FuzzyQueryRequest
      *
-     * @return FuzzyQueryResponse FuzzyQueryResponse
+     * @param request - FuzzyQueryRequest
+     *
+     * @returns FuzzyQueryResponse
+     *
+     * @param FuzzyQueryRequest $request
+     *
+     * @return FuzzyQueryResponse
      */
     public function fuzzyQuery($request)
     {
@@ -4808,110 +5865,138 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Generates a live transcoding playlist and converts video files into M3U8 files. After a playlist is generated, the videos in the playlist are immediately played and the video files are transcoded based on the playback progress. Compared with offline transcoding, online transcoding significantly reduces the time spent in waiting for the videos to be transcoded and reduces transcoding and storage costs.
-     *  *
-     * @description *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).**
+     * Generates a live transcoding playlist and converts video files into M3U8 files. After a playlist is generated, the videos in the playlist are immediately played and the video files are transcoded based on the playback progress. Compared with offline transcoding, online transcoding significantly reduces the time spent in waiting for the videos to be transcoded and reduces transcoding and storage costs.
+     *
+     * @remarks
+     *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).**
      * *   Make sure that the project that you want to use is available in the current region. For more information, see [Project Management](https://help.aliyun.com/document_detail/478152.html).
      * *   By default, you can call this operation to process only one video, audio, or subtitle track. You can specify the number of the video, audio, or subtitle tracks that you want to process.
      * *   You can call this operation to generate a media playlist and a master playlist. For more information, see the parameter description.
      * *   This operation is a synchronous operation. Synchronous or asynchronous transcoding is triggered only during playback or pre-transcoding. You can configure the [Notification](https://help.aliyun.com/document_detail/2743997.html) parameter to obtain the transcoding task result.
      * *   For information about the feature description of this operation, see [Live transcoding](https://help.aliyun.com/document_detail/477192.html).
      * *   The data processing capability of Object Storage Service (OSS) also provides the playlist generation feature. However, this feature can generate only a media playlist, and related parameters are simplified.
-     *  *
-     * @param GenerateVideoPlaylistRequest $tmpReq  GenerateVideoPlaylistRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateVideoPlaylistResponse GenerateVideoPlaylistResponse
+     * @param tmpReq - GenerateVideoPlaylistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateVideoPlaylistResponse
+     *
+     * @param GenerateVideoPlaylistRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GenerateVideoPlaylistResponse
      */
     public function generateVideoPlaylistWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GenerateVideoPlaylistShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceSubtitles)) {
-            $request->sourceSubtitlesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceSubtitles, 'SourceSubtitles', 'json');
+
+        if (null !== $tmpReq->sourceSubtitles) {
+            $request->sourceSubtitlesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceSubtitles, 'SourceSubtitles', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
-        if (!Utils::isUnset($tmpReq->targets)) {
-            $request->targetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->targets, 'Targets', 'json');
+
+        if (null !== $tmpReq->targets) {
+            $request->targetsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->targets, 'Targets', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->masterURI)) {
-            $query['MasterURI'] = $request->masterURI;
+
+        if (null !== $request->masterURI) {
+            @$query['MasterURI'] = $request->masterURI;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->overwritePolicy)) {
-            $query['OverwritePolicy'] = $request->overwritePolicy;
+
+        if (null !== $request->overwritePolicy) {
+            @$query['OverwritePolicy'] = $request->overwritePolicy;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceDuration)) {
-            $query['SourceDuration'] = $request->sourceDuration;
+
+        if (null !== $request->sourceDuration) {
+            @$query['SourceDuration'] = $request->sourceDuration;
         }
-        if (!Utils::isUnset($request->sourceStartTime)) {
-            $query['SourceStartTime'] = $request->sourceStartTime;
+
+        if (null !== $request->sourceStartTime) {
+            @$query['SourceStartTime'] = $request->sourceStartTime;
         }
-        if (!Utils::isUnset($request->sourceSubtitlesShrink)) {
-            $query['SourceSubtitles'] = $request->sourceSubtitlesShrink;
+
+        if (null !== $request->sourceSubtitlesShrink) {
+            @$query['SourceSubtitles'] = $request->sourceSubtitlesShrink;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
-        if (!Utils::isUnset($request->targetsShrink)) {
-            $query['Targets'] = $request->targetsShrink;
+
+        if (null !== $request->targetsShrink) {
+            @$query['Targets'] = $request->targetsShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateVideoPlaylist',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateVideoPlaylist',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GenerateVideoPlaylistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Generates a live transcoding playlist and converts video files into M3U8 files. After a playlist is generated, the videos in the playlist are immediately played and the video files are transcoded based on the playback progress. Compared with offline transcoding, online transcoding significantly reduces the time spent in waiting for the videos to be transcoded and reduces transcoding and storage costs.
-     *  *
-     * @description *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).**
+     * Generates a live transcoding playlist and converts video files into M3U8 files. After a playlist is generated, the videos in the playlist are immediately played and the video files are transcoded based on the playback progress. Compared with offline transcoding, online transcoding significantly reduces the time spent in waiting for the videos to be transcoded and reduces transcoding and storage costs.
+     *
+     * @remarks
+     *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).**
      * *   Make sure that the project that you want to use is available in the current region. For more information, see [Project Management](https://help.aliyun.com/document_detail/478152.html).
      * *   By default, you can call this operation to process only one video, audio, or subtitle track. You can specify the number of the video, audio, or subtitle tracks that you want to process.
      * *   You can call this operation to generate a media playlist and a master playlist. For more information, see the parameter description.
      * *   This operation is a synchronous operation. Synchronous or asynchronous transcoding is triggered only during playback or pre-transcoding. You can configure the [Notification](https://help.aliyun.com/document_detail/2743997.html) parameter to obtain the transcoding task result.
      * *   For information about the feature description of this operation, see [Live transcoding](https://help.aliyun.com/document_detail/477192.html).
      * *   The data processing capability of Object Storage Service (OSS) also provides the playlist generation feature. However, this feature can generate only a media playlist, and related parameters are simplified.
-     *  *
-     * @param GenerateVideoPlaylistRequest $request GenerateVideoPlaylistRequest
      *
-     * @return GenerateVideoPlaylistResponse GenerateVideoPlaylistResponse
+     * @param request - GenerateVideoPlaylistRequest
+     *
+     * @returns GenerateVideoPlaylistResponse
+     *
+     * @param GenerateVideoPlaylistRequest $request
+     *
+     * @return GenerateVideoPlaylistResponse
      */
     public function generateVideoPlaylist($request)
     {
@@ -4921,12 +6006,13 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Generates an access token for document preview or editing.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Generates an access token for document preview or editing.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   The operation generates an access token that is valid for 30 minutes and a refresh token that is valid for 1 day.
      * *   The returned expiration time is in UTC.
-     * *   The operation supports the following input formats:
+     * *   The operation supports the following document types:
      *     *   Word files: .doc, .docx, .txt, .dot, .wps, .wpt, .dotx, .docm, .dotm, and .rtf
      *     *   Presentation files: .ppt, .pptx, .pptm, .ppsx, .ppsm, .pps, .potx, .potm, .dpt, and .dps
      *     *   Spreadsheet documents: .et, .xls, .xlt, .xlsx, .xlsm, .xltx, .xltm, and .csv
@@ -4934,108 +6020,135 @@ class Imm extends OpenApiClient
      * *   The operation supports an input document that is up to 200 MB in size.
      * *   The operation supports an input document that contains up to 5,000 pages.
      * *   For a project created before December 1, 2023, you are charged for previewing or editing a document in the project based on the number of times the document is opened. For a project created on or after December 1, 2023, you are charged based on the number of API operation calls made for previewing or editing a document. If you want to switch to API call-based billing for document previewing and editing, use a project created on or after December 1, 2023. In API call-based billing, one API call allows only one user to use the feature. If multiple users use the information returned by the API call, only the last user has access to the document and the access permissions of other users are revoked.
-     * *   You can use the NotifyTopicName parameter to specify a Simple Message Queue (SMQ) topic in the same region as the IMM project for getting notified of file save operations. For more information, see [Use queues](https://help.aliyun.com/document_detail/32449.html). For more information about the JSON example of the Message field, see [WebOffice message example](https://help.aliyun.com/document_detail/2743999.html).
+     * *   You can use the NotifyTopicName parameter to specify a Simple Message Queue (SMQ) topic in the same region as the IMM project for getting notified of file save operations. For more information about how to send and receive messages by using the SMQ SDK, see [Use queues](https://help.aliyun.com/document_detail/32449.html). For more information about the JSON example of the Message field, see [WebOffice message example](https://help.aliyun.com/document_detail/2743999.html).
      * >  To manage multiple versions of the document, you must enable versioning for the bucket that stores the document and set the History parameter to true.
-     *  *
-     * @param GenerateWebofficeTokenRequest $tmpReq  GenerateWebofficeTokenRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateWebofficeTokenResponse GenerateWebofficeTokenResponse
+     * @param tmpReq - GenerateWebofficeTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateWebofficeTokenResponse
+     *
+     * @param GenerateWebofficeTokenRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GenerateWebofficeTokenResponse
      */
     public function generateWebofficeTokenWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GenerateWebofficeTokenShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
-        if (!Utils::isUnset($tmpReq->permission)) {
-            $request->permissionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->permission, 'Permission', 'json');
+
+        if (null !== $tmpReq->permission) {
+            $request->permissionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->permission, 'Permission', 'json');
         }
-        if (!Utils::isUnset($tmpReq->user)) {
-            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->user, 'User', 'json');
+
+        if (null !== $tmpReq->user) {
+            $request->userShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->user, 'User', 'json');
         }
-        if (!Utils::isUnset($tmpReq->watermark)) {
-            $request->watermarkShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->watermark, 'Watermark', 'json');
+
+        if (null !== $tmpReq->watermark) {
+            $request->watermarkShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->watermark, 'Watermark', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->cachePreview)) {
-            $query['CachePreview'] = $request->cachePreview;
+        if (null !== $request->cachePreview) {
+            @$query['CachePreview'] = $request->cachePreview;
         }
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->externalUploaded)) {
-            $query['ExternalUploaded'] = $request->externalUploaded;
+
+        if (null !== $request->externalUploaded) {
+            @$query['ExternalUploaded'] = $request->externalUploaded;
         }
-        if (!Utils::isUnset($request->filename)) {
-            $query['Filename'] = $request->filename;
+
+        if (null !== $request->filename) {
+            @$query['Filename'] = $request->filename;
         }
-        if (!Utils::isUnset($request->hidecmb)) {
-            $query['Hidecmb'] = $request->hidecmb;
+
+        if (null !== $request->hidecmb) {
+            @$query['Hidecmb'] = $request->hidecmb;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
+
+        if (null !== $request->notifyTopicName) {
+            @$query['NotifyTopicName'] = $request->notifyTopicName;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->permissionShrink)) {
-            $query['Permission'] = $request->permissionShrink;
+
+        if (null !== $request->permissionShrink) {
+            @$query['Permission'] = $request->permissionShrink;
         }
-        if (!Utils::isUnset($request->previewPages)) {
-            $query['PreviewPages'] = $request->previewPages;
+
+        if (null !== $request->previewPages) {
+            @$query['PreviewPages'] = $request->previewPages;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->referer)) {
-            $query['Referer'] = $request->referer;
+
+        if (null !== $request->referer) {
+            @$query['Referer'] = $request->referer;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
-        if (!Utils::isUnset($request->userShrink)) {
-            $query['User'] = $request->userShrink;
+
+        if (null !== $request->userShrink) {
+            @$query['User'] = $request->userShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
-        if (!Utils::isUnset($request->watermarkShrink)) {
-            $query['Watermark'] = $request->watermarkShrink;
+
+        if (null !== $request->watermarkShrink) {
+            @$query['Watermark'] = $request->watermarkShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateWebofficeToken',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateWebofficeToken',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GenerateWebofficeTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Generates an access token for document preview or editing.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Generates an access token for document preview or editing.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   The operation generates an access token that is valid for 30 minutes and a refresh token that is valid for 1 day.
      * *   The returned expiration time is in UTC.
-     * *   The operation supports the following input formats:
+     * *   The operation supports the following document types:
      *     *   Word files: .doc, .docx, .txt, .dot, .wps, .wpt, .dotx, .docm, .dotm, and .rtf
      *     *   Presentation files: .ppt, .pptx, .pptm, .ppsx, .ppsm, .pps, .potx, .potm, .dpt, and .dps
      *     *   Spreadsheet documents: .et, .xls, .xlt, .xlsx, .xlsm, .xltx, .xltm, and .csv
@@ -5043,12 +6156,16 @@ class Imm extends OpenApiClient
      * *   The operation supports an input document that is up to 200 MB in size.
      * *   The operation supports an input document that contains up to 5,000 pages.
      * *   For a project created before December 1, 2023, you are charged for previewing or editing a document in the project based on the number of times the document is opened. For a project created on or after December 1, 2023, you are charged based on the number of API operation calls made for previewing or editing a document. If you want to switch to API call-based billing for document previewing and editing, use a project created on or after December 1, 2023. In API call-based billing, one API call allows only one user to use the feature. If multiple users use the information returned by the API call, only the last user has access to the document and the access permissions of other users are revoked.
-     * *   You can use the NotifyTopicName parameter to specify a Simple Message Queue (SMQ) topic in the same region as the IMM project for getting notified of file save operations. For more information, see [Use queues](https://help.aliyun.com/document_detail/32449.html). For more information about the JSON example of the Message field, see [WebOffice message example](https://help.aliyun.com/document_detail/2743999.html).
+     * *   You can use the NotifyTopicName parameter to specify a Simple Message Queue (SMQ) topic in the same region as the IMM project for getting notified of file save operations. For more information about how to send and receive messages by using the SMQ SDK, see [Use queues](https://help.aliyun.com/document_detail/32449.html). For more information about the JSON example of the Message field, see [WebOffice message example](https://help.aliyun.com/document_detail/2743999.html).
      * >  To manage multiple versions of the document, you must enable versioning for the bucket that stores the document and set the History parameter to true.
-     *  *
-     * @param GenerateWebofficeTokenRequest $request GenerateWebofficeTokenRequest
      *
-     * @return GenerateWebofficeTokenResponse GenerateWebofficeTokenResponse
+     * @param request - GenerateWebofficeTokenRequest
+     *
+     * @returns GenerateWebofficeTokenResponse
+     *
+     * @param GenerateWebofficeTokenRequest $request
+     *
+     * @return GenerateWebofficeTokenResponse
      */
     public function generateWebofficeToken($request)
     {
@@ -5058,47 +6175,58 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a batch processing task.
-     *  *
-     * @param GetBatchRequest $request GetBatchRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a batch processing task.
      *
-     * @return GetBatchResponse GetBatchResponse
+     * @param request - GetBatchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBatchResponse
+     *
+     * @param GetBatchRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetBatchResponse
      */
     public function getBatchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetBatch',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBatch',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetBatchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a batch processing task.
-     *  *
-     * @param GetBatchRequest $request GetBatchRequest
+     * Queries the information about a batch processing task.
      *
-     * @return GetBatchResponse GetBatchResponse
+     * @param request - GetBatchRequest
+     *
+     * @returns GetBatchResponse
+     *
+     * @param GetBatchRequest $request
+     *
+     * @return GetBatchResponse
      */
     public function getBatch($request)
     {
@@ -5108,56 +6236,70 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the binding relationship between a specific dataset and an Object Storage Service (OSS) bucket.
-     *  *
-     * @description *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
-     * *   Make sure that the binding relationship that you want to query exists. For information about how to create a binding relationship, see [CreateBinding](https://help.aliyun.com/document_detail/478202.html).
-     *  *
-     * @param GetBindingRequest $request GetBindingRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries the binding relationship between a specific dataset and an Object Storage Service (OSS) bucket.
      *
-     * @return GetBindingResponse GetBindingResponse
+     * @remarks
+     *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
+     * *   Make sure that the binding relationship that you want to query exists. For information about how to create a binding relationship, see [CreateBinding](https://help.aliyun.com/document_detail/478202.html).
+     *
+     * @param request - GetBindingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBindingResponse
+     *
+     * @param GetBindingRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetBindingResponse
      */
     public function getBindingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->URI)) {
-            $query['URI'] = $request->URI;
+
+        if (null !== $request->URI) {
+            @$query['URI'] = $request->URI;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetBinding',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBinding',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetBindingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the binding relationship between a specific dataset and an Object Storage Service (OSS) bucket.
-     *  *
-     * @description *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
-     * *   Make sure that the binding relationship that you want to query exists. For information about how to create a binding relationship, see [CreateBinding](https://help.aliyun.com/document_detail/478202.html).
-     *  *
-     * @param GetBindingRequest $request GetBindingRequest
+     * Queries the binding relationship between a specific dataset and an Object Storage Service (OSS) bucket.
      *
-     * @return GetBindingResponse GetBindingResponse
+     * @remarks
+     *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
+     * *   Make sure that the binding relationship that you want to query exists. For information about how to create a binding relationship, see [CreateBinding](https://help.aliyun.com/document_detail/478202.html).
+     *
+     * @param request - GetBindingRequest
+     *
+     * @returns GetBindingResponse
+     *
+     * @param GetBindingRequest $request
+     *
+     * @return GetBindingResponse
      */
     public function getBinding($request)
     {
@@ -5166,65 +6308,77 @@ class Imm extends OpenApiClient
         return $this->getBindingWithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
+     * drmlicense获取.
+     *
      * @deprecated OpenAPI GetDRMLicense is deprecated
-     *  *
-     * @summary drmlicense获取
-     *  *
-     * Deprecated
      *
-     * @param GetDRMLicenseRequest $request GetDRMLicenseRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - GetDRMLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetDRMLicenseResponse GetDRMLicenseResponse
+     * @returns GetDRMLicenseResponse
+     *
+     * @param GetDRMLicenseRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetDRMLicenseResponse
      */
     public function getDRMLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyId)) {
-            $query['KeyId'] = $request->keyId;
+        if (null !== $request->keyId) {
+            @$query['KeyId'] = $request->keyId;
         }
-        if (!Utils::isUnset($request->notifyEndpoint)) {
-            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+
+        if (null !== $request->notifyEndpoint) {
+            @$query['NotifyEndpoint'] = $request->notifyEndpoint;
         }
-        if (!Utils::isUnset($request->notifyTopicName)) {
-            $query['NotifyTopicName'] = $request->notifyTopicName;
+
+        if (null !== $request->notifyTopicName) {
+            @$query['NotifyTopicName'] = $request->notifyTopicName;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->protectionSystem)) {
-            $query['ProtectionSystem'] = $request->protectionSystem;
+
+        if (null !== $request->protectionSystem) {
+            @$query['ProtectionSystem'] = $request->protectionSystem;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDRMLicense',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDRMLicense',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDRMLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * drmlicense获取.
+     *
      * @deprecated OpenAPI GetDRMLicense is deprecated
-     *  *
-     * @summary drmlicense获取
-     *  *
-     * Deprecated
      *
-     * @param GetDRMLicenseRequest $request GetDRMLicenseRequest
+     * @param request - GetDRMLicenseRequest
      *
-     * @return GetDRMLicenseResponse GetDRMLicenseResponse
+     * @returns GetDRMLicenseResponse
+     *
+     * @param GetDRMLicenseRequest $request
+     *
+     * @return GetDRMLicenseResponse
      */
     public function getDRMLicense($request)
     {
@@ -5234,56 +6388,70 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries a dataset.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   The GetDataset operation supports real-time retrieval of file statistics. You can specify WithStatistics to enable real-time retrieval of file statistics.
-     *  *
-     * @param GetDatasetRequest $request GetDatasetRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries a dataset.
      *
-     * @return GetDatasetResponse GetDatasetResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   The GetDataset operation supports real-time retrieval of file statistics. You can specify WithStatistics to enable real-time retrieval of file statistics.
+     *
+     * @param request - GetDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDatasetResponse
+     *
+     * @param GetDatasetRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetDatasetResponse
      */
     public function getDatasetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->withStatistics)) {
-            $query['WithStatistics'] = $request->withStatistics;
+
+        if (null !== $request->withStatistics) {
+            @$query['WithStatistics'] = $request->withStatistics;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDataset',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDataset',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a dataset.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   The GetDataset operation supports real-time retrieval of file statistics. You can specify WithStatistics to enable real-time retrieval of file statistics.
-     *  *
-     * @param GetDatasetRequest $request GetDatasetRequest
+     * Queries a dataset.
      *
-     * @return GetDatasetResponse GetDatasetResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   The GetDataset operation supports real-time retrieval of file statistics. You can specify WithStatistics to enable real-time retrieval of file statistics.
+     *
+     * @param request - GetDatasetRequest
+     *
+     * @returns GetDatasetResponse
+     *
+     * @param GetDatasetRequest $request
+     *
+     * @return GetDatasetResponse
      */
     public function getDataset($request)
     {
@@ -5293,56 +6461,70 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the result of an invisible watermark parsing task.
-     *  *
-     * @description *   Before you call this operation, make sure that an Intelligent Media Management (IMM) project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
-     * *   Before you call this operation, make sure that an invisible watermark task is created and the task ID is obtained.``
-     *  *
-     * @param GetDecodeBlindWatermarkResultRequest $request GetDecodeBlindWatermarkResultRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the result of an invisible watermark parsing task.
      *
-     * @return GetDecodeBlindWatermarkResultResponse GetDecodeBlindWatermarkResultResponse
+     * @remarks
+     *   Before you call this operation, make sure that an Intelligent Media Management (IMM) project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+     * *   Before you call this operation, make sure that an invisible watermark task is created and the task ID is obtained.``
+     *
+     * @param request - GetDecodeBlindWatermarkResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDecodeBlindWatermarkResultResponse
+     *
+     * @param GetDecodeBlindWatermarkResultRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetDecodeBlindWatermarkResultResponse
      */
     public function getDecodeBlindWatermarkResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDecodeBlindWatermarkResult',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDecodeBlindWatermarkResult',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDecodeBlindWatermarkResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the result of an invisible watermark parsing task.
-     *  *
-     * @description *   Before you call this operation, make sure that an Intelligent Media Management (IMM) project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
-     * *   Before you call this operation, make sure that an invisible watermark task is created and the task ID is obtained.``
-     *  *
-     * @param GetDecodeBlindWatermarkResultRequest $request GetDecodeBlindWatermarkResultRequest
+     * Queries the result of an invisible watermark parsing task.
      *
-     * @return GetDecodeBlindWatermarkResultResponse GetDecodeBlindWatermarkResultResponse
+     * @remarks
+     *   Before you call this operation, make sure that an Intelligent Media Management (IMM) project is created. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+     * *   Before you call this operation, make sure that an invisible watermark task is created and the task ID is obtained.``
+     *
+     * @param request - GetDecodeBlindWatermarkResultRequest
+     *
+     * @returns GetDecodeBlindWatermarkResultResponse
+     *
+     * @param GetDecodeBlindWatermarkResultRequest $request
+     *
+     * @return GetDecodeBlindWatermarkResultResponse
      */
     public function getDecodeBlindWatermarkResult($request)
     {
@@ -5352,56 +6534,70 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Obtains basic information about face clustering, including the creation time, number of images, and cover.
-     *  *
-     * @description *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
-     * *   Before you call this operation, make sure that a face clustering task is created to group all faces in a dataset. For information about how to create a face clustering task, see [CreateFigureClusteringTask](~~CreateFigureClusteringTask~~). For information about how to create a dataset, see [CreateDataset](~~CreateDataset~~).
-     *  *
-     * @param GetFigureClusterRequest $request GetFigureClusterRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Obtains basic information about face clustering, including the creation time, number of images, and cover.
      *
-     * @return GetFigureClusterResponse GetFigureClusterResponse
+     * @remarks
+     *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
+     * *   Before you call this operation, make sure that a face clustering task is created to group all faces in a dataset. For information about how to create a face clustering task, see [CreateFigureClusteringTask](~~CreateFigureClusteringTask~~). For information about how to create a dataset, see [CreateDataset](~~CreateDataset~~).
+     *
+     * @param request - GetFigureClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFigureClusterResponse
+     *
+     * @param GetFigureClusterRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetFigureClusterResponse
      */
     public function getFigureClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->objectId)) {
-            $query['ObjectId'] = $request->objectId;
+
+        if (null !== $request->objectId) {
+            @$query['ObjectId'] = $request->objectId;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetFigureCluster',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFigureCluster',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetFigureClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains basic information about face clustering, including the creation time, number of images, and cover.
-     *  *
-     * @description *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
-     * *   Before you call this operation, make sure that a face clustering task is created to group all faces in a dataset. For information about how to create a face clustering task, see [CreateFigureClusteringTask](~~CreateFigureClusteringTask~~). For information about how to create a dataset, see [CreateDataset](~~CreateDataset~~).
-     *  *
-     * @param GetFigureClusterRequest $request GetFigureClusterRequest
+     * Obtains basic information about face clustering, including the creation time, number of images, and cover.
      *
-     * @return GetFigureClusterResponse GetFigureClusterResponse
+     * @remarks
+     *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
+     * *   Before you call this operation, make sure that a face clustering task is created to group all faces in a dataset. For information about how to create a face clustering task, see [CreateFigureClusteringTask](~~CreateFigureClusteringTask~~). For information about how to create a dataset, see [CreateDataset](~~CreateDataset~~).
+     *
+     * @param request - GetFigureClusterRequest
+     *
+     * @returns GetFigureClusterResponse
+     *
+     * @param GetFigureClusterRequest $request
+     *
+     * @return GetFigureClusterResponse
      */
     public function getFigureCluster($request)
     {
@@ -5411,66 +6607,82 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries metadata of a file whose metadata is indexed into the dataset.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Queries metadata of a file whose metadata is indexed into the dataset.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
      * *   The sample response is provided for reference only. The metadata type and content in your response may differ based on factors such as the [workflow template configurations](https://help.aliyun.com/document_detail/466304.html). For any inquiries, join the DingTalk chat group (ID: 31690030817) and share your questions with us.
-     *  *
-     * @param GetFileMetaRequest $tmpReq  GetFileMetaRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFileMetaResponse GetFileMetaResponse
+     * @param tmpReq - GetFileMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFileMetaResponse
+     *
+     * @param GetFileMetaRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetFileMetaResponse
      */
     public function getFileMetaWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetFileMetaShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->withFields)) {
-            $request->withFieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->withFields, 'WithFields', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->withFields) {
+            $request->withFieldsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->withFields, 'WithFields', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->URI)) {
-            $query['URI'] = $request->URI;
+
+        if (null !== $request->URI) {
+            @$query['URI'] = $request->URI;
         }
-        if (!Utils::isUnset($request->withFieldsShrink)) {
-            $query['WithFields'] = $request->withFieldsShrink;
+
+        if (null !== $request->withFieldsShrink) {
+            @$query['WithFields'] = $request->withFieldsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetFileMeta',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFileMeta',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetFileMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries metadata of a file whose metadata is indexed into the dataset.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Queries metadata of a file whose metadata is indexed into the dataset.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
      * *   The sample response is provided for reference only. The metadata type and content in your response may differ based on factors such as the [workflow template configurations](https://help.aliyun.com/document_detail/466304.html). For any inquiries, join the DingTalk chat group (ID: 31690030817) and share your questions with us.
-     *  *
-     * @param GetFileMetaRequest $request GetFileMetaRequest
      *
-     * @return GetFileMetaResponse GetFileMetaResponse
+     * @param request - GetFileMetaRequest
+     *
+     * @returns GetFileMetaResponse
+     *
+     * @param GetFileMetaRequest $request
+     *
+     * @return GetFileMetaResponse
      */
     public function getFileMeta($request)
     {
@@ -5480,50 +6692,62 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries an image compliance detection task.
-     *  *
-     * @param GetImageModerationResultRequest $request GetImageModerationResultRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries an image compliance detection task.
      *
-     * @return GetImageModerationResultResponse GetImageModerationResultResponse
+     * @param request - GetImageModerationResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetImageModerationResultResponse
+     *
+     * @param GetImageModerationResultRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetImageModerationResultResponse
      */
     public function getImageModerationResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetImageModerationResult',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetImageModerationResult',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetImageModerationResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries an image compliance detection task.
-     *  *
-     * @param GetImageModerationResultRequest $request GetImageModerationResultRequest
+     * Queries an image compliance detection task.
      *
-     * @return GetImageModerationResultResponse GetImageModerationResultResponse
+     * @param request - GetImageModerationResultRequest
+     *
+     * @returns GetImageModerationResultResponse
+     *
+     * @param GetImageModerationResultRequest $request
+     *
+     * @return GetImageModerationResultResponse
      */
     public function getImageModerationResult($request)
     {
@@ -5533,50 +6757,62 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the name of the project bound to an Object Storage Service (OSS) bucket.
-     *  *
-     * @description *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
-     * *   Before you call this operation, make sure that [the project whose name you want to query is bound to the specified OSS bucket](https://help.aliyun.com/document_detail/478206.html).
-     *  *
-     * @param GetOSSBucketAttachmentRequest $request GetOSSBucketAttachmentRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the name of the project bound to an Object Storage Service (OSS) bucket.
      *
-     * @return GetOSSBucketAttachmentResponse GetOSSBucketAttachmentResponse
+     * @remarks
+     *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
+     * *   Before you call this operation, make sure that [the project whose name you want to query is bound to the specified OSS bucket](https://help.aliyun.com/document_detail/478206.html).
+     *
+     * @param request - GetOSSBucketAttachmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOSSBucketAttachmentResponse
+     *
+     * @param GetOSSBucketAttachmentRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetOSSBucketAttachmentResponse
      */
     public function getOSSBucketAttachmentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->OSSBucket)) {
-            $query['OSSBucket'] = $request->OSSBucket;
+        if (null !== $request->OSSBucket) {
+            @$query['OSSBucket'] = $request->OSSBucket;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetOSSBucketAttachment',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetOSSBucketAttachment',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetOSSBucketAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the name of the project bound to an Object Storage Service (OSS) bucket.
-     *  *
-     * @description *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
-     * *   Before you call this operation, make sure that [the project whose name you want to query is bound to the specified OSS bucket](https://help.aliyun.com/document_detail/478206.html).
-     *  *
-     * @param GetOSSBucketAttachmentRequest $request GetOSSBucketAttachmentRequest
+     * Queries the name of the project bound to an Object Storage Service (OSS) bucket.
      *
-     * @return GetOSSBucketAttachmentResponse GetOSSBucketAttachmentResponse
+     * @remarks
+     *   **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**
+     * *   Before you call this operation, make sure that [the project whose name you want to query is bound to the specified OSS bucket](https://help.aliyun.com/document_detail/478206.html).
+     *
+     * @param request - GetOSSBucketAttachmentRequest
+     *
+     * @returns GetOSSBucketAttachmentResponse
+     *
+     * @param GetOSSBucketAttachmentRequest $request
+     *
+     * @return GetOSSBucketAttachmentResponse
      */
     public function getOSSBucketAttachment($request)
     {
@@ -5586,51 +6822,64 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the basic information, datasets, and file statistics of a project.
-     *  *
-     * @description When you call this operation, you can enable the real-time retrieval of file statistics based on your business requirements. For more information, see the "Request parameters" section of this topic.
-     *  *
-     * @param GetProjectRequest $request GetProjectRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries the basic information, datasets, and file statistics of a project.
      *
-     * @return GetProjectResponse GetProjectResponse
+     * @remarks
+     * When you call this operation, you can enable the real-time retrieval of file statistics based on your business requirements. For more information, see the "Request parameters" section of this topic.
+     *
+     * @param request - GetProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProjectResponse
+     *
+     * @param GetProjectRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetProjectResponse
      */
     public function getProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->withStatistics)) {
-            $query['WithStatistics'] = $request->withStatistics;
+
+        if (null !== $request->withStatistics) {
+            @$query['WithStatistics'] = $request->withStatistics;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetProject',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetProject',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the basic information, datasets, and file statistics of a project.
-     *  *
-     * @description When you call this operation, you can enable the real-time retrieval of file statistics based on your business requirements. For more information, see the "Request parameters" section of this topic.
-     *  *
-     * @param GetProjectRequest $request GetProjectRequest
+     * Queries the basic information, datasets, and file statistics of a project.
      *
-     * @return GetProjectResponse GetProjectResponse
+     * @remarks
+     * When you call this operation, you can enable the real-time retrieval of file statistics based on your business requirements. For more information, see the "Request parameters" section of this topic.
+     *
+     * @param request - GetProjectRequest
+     *
+     * @returns GetProjectResponse
+     *
+     * @param GetProjectRequest $request
+     *
+     * @return GetProjectResponse
      */
     public function getProject($request)
     {
@@ -5640,58 +6889,72 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries a story.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Queries a story.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
      * *   Before you call this operation, make sure that you have called the [CreateStory](https://help.aliyun.com/document_detail/478193.html) or [CreateCustomizedStory](https://help.aliyun.com/document_detail/478196.html) operation to create a story.
-     *  *
-     * @param GetStoryRequest $request GetStoryRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetStoryResponse GetStoryResponse
+     * @param request - GetStoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStoryResponse
+     *
+     * @param GetStoryRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetStoryResponse
      */
     public function getStoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->objectId)) {
-            $query['ObjectId'] = $request->objectId;
+
+        if (null !== $request->objectId) {
+            @$query['ObjectId'] = $request->objectId;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetStory',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetStory',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetStoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a story.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Queries a story.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
      * *   Before you call this operation, make sure that you have called the [CreateStory](https://help.aliyun.com/document_detail/478193.html) or [CreateCustomizedStory](https://help.aliyun.com/document_detail/478196.html) operation to create a story.
-     *  *
-     * @param GetStoryRequest $request GetStoryRequest
      *
-     * @return GetStoryResponse GetStoryResponse
+     * @param request - GetStoryRequest
+     *
+     * @returns GetStoryResponse
+     *
+     * @param GetStoryRequest $request
+     *
+     * @return GetStoryResponse
      */
     public function getStory($request)
     {
@@ -5701,57 +6964,72 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about an asynchronous task. Intelligent Media Management (IMM) has multiple asynchronous data processing capabilities, each of which has its own operation for creating tasks. For example, you can call the CreateFigureClusteringTask operation to create a face clustering task and the CreateFileCompressionTask operation to create a file compression task. The GetTask operation is a general operation. You can call this operation to query information about asynchronous tasks by task ID or type.
-     *  *
-     * @description Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.
-     *  *
-     * @param GetTaskRequest $request GetTaskRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries information about an asynchronous task. Intelligent Media Management (IMM) has multiple asynchronous data processing capabilities, each of which has its own operation for creating tasks. For example, you can call the CreateFigureClusteringTask operation to create a face clustering task and the CreateFileCompressionTask operation to create a file compression task. The GetTask operation is a general operation. You can call this operation to query information about asynchronous tasks by task ID or type.
      *
-     * @return GetTaskResponse GetTaskResponse
+     * @remarks
+     * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.
+     *
+     * @param request - GetTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskResponse
+     *
+     * @param GetTaskRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTaskResponse
      */
     public function getTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->requestDefinition)) {
-            $query['RequestDefinition'] = $request->requestDefinition;
+
+        if (null !== $request->requestDefinition) {
+            @$query['RequestDefinition'] = $request->requestDefinition;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTask',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTask',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about an asynchronous task. Intelligent Media Management (IMM) has multiple asynchronous data processing capabilities, each of which has its own operation for creating tasks. For example, you can call the CreateFigureClusteringTask operation to create a face clustering task and the CreateFileCompressionTask operation to create a file compression task. The GetTask operation is a general operation. You can call this operation to query information about asynchronous tasks by task ID or type.
-     *  *
-     * @description Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.
-     *  *
-     * @param GetTaskRequest $request GetTaskRequest
+     * Queries information about an asynchronous task. Intelligent Media Management (IMM) has multiple asynchronous data processing capabilities, each of which has its own operation for creating tasks. For example, you can call the CreateFigureClusteringTask operation to create a face clustering task and the CreateFileCompressionTask operation to create a file compression task. The GetTask operation is a general operation. You can call this operation to query information about asynchronous tasks by task ID or type.
      *
-     * @return GetTaskResponse GetTaskResponse
+     * @remarks
+     * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.
+     *
+     * @param request - GetTaskRequest
+     *
+     * @returns GetTaskResponse
+     *
+     * @param GetTaskRequest $request
+     *
+     * @return GetTaskResponse
      */
     public function getTask($request)
     {
@@ -5761,47 +7039,58 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a trigger.
-     *  *
-     * @param GetTriggerRequest $request GetTriggerRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a trigger.
      *
-     * @return GetTriggerResponse GetTriggerResponse
+     * @param request - GetTriggerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTriggerResponse
+     *
+     * @param GetTriggerRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetTriggerResponse
      */
     public function getTriggerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTrigger',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTrigger',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a trigger.
-     *  *
-     * @param GetTriggerRequest $request GetTriggerRequest
+     * Queries the information about a trigger.
      *
-     * @return GetTriggerResponse GetTriggerResponse
+     * @param request - GetTriggerRequest
+     *
+     * @returns GetTriggerResponse
+     *
+     * @param GetTriggerRequest $request
+     *
+     * @return GetTriggerResponse
      */
     public function getTrigger($request)
     {
@@ -5811,56 +7100,70 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the results of a video label detection task.
-     *  *
-     * @description *   Before you call this operation, make sure that a [project](https://help.aliyun.com/document_detail/478273.html) is created on Intelligent Media Management (IMM). For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
-     * *   Before you call this operation, make sure that a video label detection task is created and the `TaskId` of the task is obtained. For more information, see [CreateVideoLabelClassificationTask](https://help.aliyun.com/document_detail/478223.html).
-     *  *
-     * @param GetVideoLabelClassificationResultRequest $request GetVideoLabelClassificationResultRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the results of a video label detection task.
      *
-     * @return GetVideoLabelClassificationResultResponse GetVideoLabelClassificationResultResponse
+     * @remarks
+     *   Before you call this operation, make sure that a [project](https://help.aliyun.com/document_detail/478273.html) is created on Intelligent Media Management (IMM). For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+     * *   Before you call this operation, make sure that a video label detection task is created and the `TaskId` of the task is obtained. For more information, see [CreateVideoLabelClassificationTask](https://help.aliyun.com/document_detail/478223.html).
+     *
+     * @param request - GetVideoLabelClassificationResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoLabelClassificationResultResponse
+     *
+     * @param GetVideoLabelClassificationResultRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetVideoLabelClassificationResultResponse
      */
     public function getVideoLabelClassificationResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVideoLabelClassificationResult',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVideoLabelClassificationResult',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetVideoLabelClassificationResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the results of a video label detection task.
-     *  *
-     * @description *   Before you call this operation, make sure that a [project](https://help.aliyun.com/document_detail/478273.html) is created on Intelligent Media Management (IMM). For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
-     * *   Before you call this operation, make sure that a video label detection task is created and the `TaskId` of the task is obtained. For more information, see [CreateVideoLabelClassificationTask](https://help.aliyun.com/document_detail/478223.html).
-     *  *
-     * @param GetVideoLabelClassificationResultRequest $request GetVideoLabelClassificationResultRequest
+     * Queries the results of a video label detection task.
      *
-     * @return GetVideoLabelClassificationResultResponse GetVideoLabelClassificationResultResponse
+     * @remarks
+     *   Before you call this operation, make sure that a [project](https://help.aliyun.com/document_detail/478273.html) is created on Intelligent Media Management (IMM). For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+     * *   Before you call this operation, make sure that a video label detection task is created and the `TaskId` of the task is obtained. For more information, see [CreateVideoLabelClassificationTask](https://help.aliyun.com/document_detail/478223.html).
+     *
+     * @param request - GetVideoLabelClassificationResultRequest
+     *
+     * @returns GetVideoLabelClassificationResultResponse
+     *
+     * @param GetVideoLabelClassificationResultRequest $request
+     *
+     * @return GetVideoLabelClassificationResultResponse
      */
     public function getVideoLabelClassificationResult($request)
     {
@@ -5870,50 +7173,62 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary 获取视频审核任务结果
-     *  *
-     * @param GetVideoModerationResultRequest $request GetVideoModerationResultRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 获取视频审核任务结果.
      *
-     * @return GetVideoModerationResultResponse GetVideoModerationResultResponse
+     * @param request - GetVideoModerationResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoModerationResultResponse
+     *
+     * @param GetVideoModerationResultRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetVideoModerationResultResponse
      */
     public function getVideoModerationResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVideoModerationResult',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVideoModerationResult',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetVideoModerationResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取视频审核任务结果
-     *  *
-     * @param GetVideoModerationResultRequest $request GetVideoModerationResultRequest
+     * 获取视频审核任务结果.
      *
-     * @return GetVideoModerationResultResponse GetVideoModerationResultResponse
+     * @param request - GetVideoModerationResultRequest
+     *
+     * @returns GetVideoModerationResultResponse
+     *
+     * @param GetVideoModerationResultRequest $request
+     *
+     * @return GetVideoModerationResultResponse
      */
     public function getVideoModerationResult($request)
     {
@@ -5923,9 +7238,10 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Creates an index from metadata extracted by using techniques such as label recognition, face detection, and location detection from input files. You can retrieve data from the same dataset by using multiple methods.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Creates an index from metadata extracted by using techniques such as label recognition, face detection, and location detection from input files. You can retrieve data from the same dataset by using multiple methods.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   For information about how to create indexes from metadata, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
      * *   For information about the limits on the maximum number and size of index files that you can create, see the "Limits on datasets" section of the [Limits](https://help.aliyun.com/document_detail/475569.html) topic. For information about how to create a dataset, see the "CreateDataset" topic.
      * *   For information about the regions in which you can create index files from metadata, see the "Datasets and indexes" section of the [Limits](https://help.aliyun.com/document_detail/475569.html) topic.
@@ -5933,61 +7249,74 @@ class Imm extends OpenApiClient
      * **
      * **Usage notes**
      * *   The IndexFileMeta operation is asynchronous, indicating that it takes some time to process the data after a request is submitted. After the processing is complete, the metadata is stored in your dataset. The amount of time it takes for this process varies based on [the workflow template, the operator](https://help.aliyun.com/document_detail/466304.html), and the content of the file, ranging from several seconds to several minutes or even longer. You can subscribe to [Simple Message Service](https://help.aliyun.com/document_detail/2743997.html) for task completion notifications.
-     *  *
-     * @param IndexFileMetaRequest $tmpReq  IndexFileMetaRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return IndexFileMetaResponse IndexFileMetaResponse
+     * @param tmpReq - IndexFileMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IndexFileMetaResponse
+     *
+     * @param IndexFileMetaRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return IndexFileMetaResponse
      */
     public function indexFileMetaWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new IndexFileMetaShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->file)) {
-            $request->fileShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->file, 'File', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->file) {
+            $request->fileShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->file, 'File', 'json');
         }
-        if (!Utils::isUnset($tmpReq->notification)) {
-            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+
+        if (null !== $tmpReq->notification) {
+            $request->notificationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->fileShrink)) {
-            $query['File'] = $request->fileShrink;
+
+        if (null !== $request->fileShrink) {
+            @$query['File'] = $request->fileShrink;
         }
-        if (!Utils::isUnset($request->notificationShrink)) {
-            $query['Notification'] = $request->notificationShrink;
+
+        if (null !== $request->notificationShrink) {
+            @$query['Notification'] = $request->notificationShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'IndexFileMeta',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'IndexFileMeta',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return IndexFileMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an index from metadata extracted by using techniques such as label recognition, face detection, and location detection from input files. You can retrieve data from the same dataset by using multiple methods.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Creates an index from metadata extracted by using techniques such as label recognition, face detection, and location detection from input files. You can retrieve data from the same dataset by using multiple methods.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   For information about how to create indexes from metadata, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
      * *   For information about the limits on the maximum number and size of index files that you can create, see the "Limits on datasets" section of the [Limits](https://help.aliyun.com/document_detail/475569.html) topic. For information about how to create a dataset, see the "CreateDataset" topic.
      * *   For information about the regions in which you can create index files from metadata, see the "Datasets and indexes" section of the [Limits](https://help.aliyun.com/document_detail/475569.html) topic.
@@ -5995,10 +7324,14 @@ class Imm extends OpenApiClient
      * **
      * **Usage notes**
      * *   The IndexFileMeta operation is asynchronous, indicating that it takes some time to process the data after a request is submitted. After the processing is complete, the metadata is stored in your dataset. The amount of time it takes for this process varies based on [the workflow template, the operator](https://help.aliyun.com/document_detail/466304.html), and the content of the file, ranging from several seconds to several minutes or even longer. You can subscribe to [Simple Message Service](https://help.aliyun.com/document_detail/2743997.html) for task completion notifications.
-     *  *
-     * @param IndexFileMetaRequest $request IndexFileMetaRequest
      *
-     * @return IndexFileMetaResponse IndexFileMetaResponse
+     * @param request - IndexFileMetaRequest
+     *
+     * @returns IndexFileMetaResponse
+     *
+     * @param IndexFileMetaRequest $request
+     *
+     * @return IndexFileMetaResponse
      */
     public function indexFileMeta($request)
     {
@@ -6008,62 +7341,78 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries batch processing tasks. You can query batch processing tasks based on conditions such task tags and status. The results can be sorted.
-     *  *
-     * @param ListBatchesRequest $request ListBatchesRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries batch processing tasks. You can query batch processing tasks based on conditions such task tags and status. The results can be sorted.
      *
-     * @return ListBatchesResponse ListBatchesResponse
+     * @param request - ListBatchesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBatchesResponse
+     *
+     * @param ListBatchesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListBatchesResponse
      */
     public function listBatchesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->state)) {
-            $query['State'] = $request->state;
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
         }
-        if (!Utils::isUnset($request->tagSelector)) {
-            $query['TagSelector'] = $request->tagSelector;
+
+        if (null !== $request->tagSelector) {
+            @$query['TagSelector'] = $request->tagSelector;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListBatches',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListBatches',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListBatchesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries batch processing tasks. You can query batch processing tasks based on conditions such task tags and status. The results can be sorted.
-     *  *
-     * @param ListBatchesRequest $request ListBatchesRequest
+     * Queries batch processing tasks. You can query batch processing tasks based on conditions such task tags and status. The results can be sorted.
      *
-     * @return ListBatchesResponse ListBatchesResponse
+     * @param request - ListBatchesRequest
+     *
+     * @returns ListBatchesResponse
+     *
+     * @param ListBatchesRequest $request
+     *
+     * @return ListBatchesResponse
      */
     public function listBatches($request)
     {
@@ -6073,57 +7422,72 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries bindings between a dataset and Object Storage Service (OSS) buckets.
-     *  *
-     * @description Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).
-     *  *
-     * @param ListBindingsRequest $request ListBindingsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries bindings between a dataset and Object Storage Service (OSS) buckets.
      *
-     * @return ListBindingsResponse ListBindingsResponse
+     * @remarks
+     * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).
+     *
+     * @param request - ListBindingsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBindingsResponse
+     *
+     * @param ListBindingsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListBindingsResponse
      */
     public function listBindingsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListBindings',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListBindings',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries bindings between a dataset and Object Storage Service (OSS) buckets.
-     *  *
-     * @description Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).
-     *  *
-     * @param ListBindingsRequest $request ListBindingsRequest
+     * Queries bindings between a dataset and Object Storage Service (OSS) buckets.
      *
-     * @return ListBindingsResponse ListBindingsResponse
+     * @remarks
+     * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).
+     *
+     * @param request - ListBindingsRequest
+     *
+     * @returns ListBindingsResponse
+     *
+     * @param ListBindingsRequest $request
+     *
+     * @return ListBindingsResponse
      */
     public function listBindings($request)
     {
@@ -6133,53 +7497,66 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of datasets. You can query the list by dataset prefix.
-     *  *
-     * @param ListDatasetsRequest $request ListDatasetsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries a list of datasets. You can query the list by dataset prefix.
      *
-     * @return ListDatasetsResponse ListDatasetsResponse
+     * @param request - ListDatasetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDatasetsResponse
+     *
+     * @param ListDatasetsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListDatasetsResponse
      */
     public function listDatasetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->prefix)) {
-            $query['Prefix'] = $request->prefix;
+
+        if (null !== $request->prefix) {
+            @$query['Prefix'] = $request->prefix;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDatasets',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDatasets',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDatasetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of datasets. You can query the list by dataset prefix.
-     *  *
-     * @param ListDatasetsRequest $request ListDatasetsRequest
+     * Queries a list of datasets. You can query the list by dataset prefix.
      *
-     * @return ListDatasetsResponse ListDatasetsResponse
+     * @param request - ListDatasetsRequest
+     *
+     * @returns ListDatasetsResponse
+     *
+     * @param ListDatasetsRequest $request
+     *
+     * @return ListDatasetsResponse
      */
     public function listDatasets($request)
     {
@@ -6189,62 +7566,78 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries projects. You can call this operation to query the basic information, datasets, and file statistics of multiple projects at the same time.
-     *  *
-     * @description The ListProjects operation supports pagination. When you call this operation, you must specify the token that is obtained from the previous query as the value of NextToken. You must also specify MaxResults to limit the number of entries to return.
-     *  *
-     * @param ListProjectsRequest $tmpReq  ListProjectsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries projects. You can call this operation to query the basic information, datasets, and file statistics of multiple projects at the same time.
      *
-     * @return ListProjectsResponse ListProjectsResponse
+     * @remarks
+     * The ListProjects operation supports pagination. When you call this operation, you must specify the token that is obtained from the previous query as the value of NextToken. You must also specify MaxResults to limit the number of entries to return.
+     *
+     * @param tmpReq - ListProjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProjectsResponse
+     *
+     * @param ListProjectsRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProjectsResponse
      */
     public function listProjectsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListProjectsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->prefix)) {
-            $query['Prefix'] = $request->prefix;
+
+        if (null !== $request->prefix) {
+            @$query['Prefix'] = $request->prefix;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['Tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProjects',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProjects',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries projects. You can call this operation to query the basic information, datasets, and file statistics of multiple projects at the same time.
-     *  *
-     * @description The ListProjects operation supports pagination. When you call this operation, you must specify the token that is obtained from the previous query as the value of NextToken. You must also specify MaxResults to limit the number of entries to return.
-     *  *
-     * @param ListProjectsRequest $request ListProjectsRequest
+     * Queries projects. You can call this operation to query the basic information, datasets, and file statistics of multiple projects at the same time.
      *
-     * @return ListProjectsResponse ListProjectsResponse
+     * @remarks
+     * The ListProjects operation supports pagination. When you call this operation, you must specify the token that is obtained from the previous query as the value of NextToken. You must also specify MaxResults to limit the number of entries to return.
+     *
+     * @param request - ListProjectsRequest
+     *
+     * @returns ListProjectsResponse
+     *
+     * @param ListProjectsRequest $request
+     *
+     * @return ListProjectsResponse
      */
     public function listProjects($request)
     {
@@ -6254,44 +7647,54 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries the regions where Intelligent Media Management (IMM) is available and the supported languages.
-     *  *
-     * @param ListRegionsRequest $request ListRegionsRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the regions where Intelligent Media Management (IMM) is available and the supported languages.
      *
-     * @return ListRegionsResponse ListRegionsResponse
+     * @param request - ListRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRegionsResponse
+     *
+     * @param ListRegionsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListRegionsResponse
      */
     public function listRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRegions',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRegions',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the regions where Intelligent Media Management (IMM) is available and the supported languages.
-     *  *
-     * @param ListRegionsRequest $request ListRegionsRequest
+     * Queries the regions where Intelligent Media Management (IMM) is available and the supported languages.
      *
-     * @return ListRegionsResponse ListRegionsResponse
+     * @param request - ListRegionsRequest
+     *
+     * @returns ListRegionsResponse
+     *
+     * @param ListRegionsRequest $request
+     *
+     * @return ListRegionsResponse
      */
     public function listRegions($request)
     {
@@ -6301,89 +7704,114 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Lists tasks based on specific conditions, such as by time range and by tag.
-     *  *
-     * @description Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).
-     *  *
-     * @param ListTasksRequest $tmpReq  ListTasksRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Lists tasks based on specific conditions, such as by time range and by tag.
      *
-     * @return ListTasksResponse ListTasksResponse
+     * @remarks
+     * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).
+     *
+     * @param tmpReq - ListTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTasksResponse
+     *
+     * @param ListTasksRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListTasksResponse
      */
     public function listTasksWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTasksShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->endTimeRange)) {
-            $request->endTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->endTimeRange, 'EndTimeRange', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->endTimeRange) {
+            $request->endTimeRangeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->endTimeRange, 'EndTimeRange', 'json');
         }
-        if (!Utils::isUnset($tmpReq->startTimeRange)) {
-            $request->startTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->startTimeRange, 'StartTimeRange', 'json');
+
+        if (null !== $tmpReq->startTimeRange) {
+            $request->startTimeRangeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->startTimeRange, 'StartTimeRange', 'json');
         }
-        if (!Utils::isUnset($tmpReq->taskTypes)) {
-            $request->taskTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskTypes, 'TaskTypes', 'json');
+
+        if (null !== $tmpReq->taskTypes) {
+            $request->taskTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskTypes, 'TaskTypes', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->endTimeRangeShrink)) {
-            $query['EndTimeRange'] = $request->endTimeRangeShrink;
+        if (null !== $request->endTimeRangeShrink) {
+            @$query['EndTimeRange'] = $request->endTimeRangeShrink;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->requestDefinition)) {
-            $query['RequestDefinition'] = $request->requestDefinition;
+
+        if (null !== $request->requestDefinition) {
+            @$query['RequestDefinition'] = $request->requestDefinition;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->startTimeRangeShrink)) {
-            $query['StartTimeRange'] = $request->startTimeRangeShrink;
+
+        if (null !== $request->startTimeRangeShrink) {
+            @$query['StartTimeRange'] = $request->startTimeRangeShrink;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tagSelector)) {
-            $query['TagSelector'] = $request->tagSelector;
+
+        if (null !== $request->tagSelector) {
+            @$query['TagSelector'] = $request->tagSelector;
         }
-        if (!Utils::isUnset($request->taskTypesShrink)) {
-            $query['TaskTypes'] = $request->taskTypesShrink;
+
+        if (null !== $request->taskTypesShrink) {
+            @$query['TaskTypes'] = $request->taskTypesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTasks',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTasks',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Lists tasks based on specific conditions, such as by time range and by tag.
-     *  *
-     * @description Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).
-     *  *
-     * @param ListTasksRequest $request ListTasksRequest
+     * Lists tasks based on specific conditions, such as by time range and by tag.
      *
-     * @return ListTasksResponse ListTasksResponse
+     * @remarks
+     * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).
+     *
+     * @param request - ListTasksRequest
+     *
+     * @returns ListTasksResponse
+     *
+     * @param ListTasksRequest $request
+     *
+     * @return ListTasksResponse
      */
     public function listTasks($request)
     {
@@ -6393,62 +7821,78 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries triggers by tag or status.
-     *  *
-     * @param ListTriggersRequest $request ListTriggersRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries triggers by tag or status.
      *
-     * @return ListTriggersResponse ListTriggersResponse
+     * @param request - ListTriggersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTriggersResponse
+     *
+     * @param ListTriggersRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListTriggersResponse
      */
     public function listTriggersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->state)) {
-            $query['State'] = $request->state;
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
         }
-        if (!Utils::isUnset($request->tagSelector)) {
-            $query['TagSelector'] = $request->tagSelector;
+
+        if (null !== $request->tagSelector) {
+            @$query['TagSelector'] = $request->tagSelector;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTriggers',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTriggers',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTriggersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries triggers by tag or status.
-     *  *
-     * @param ListTriggersRequest $request ListTriggersRequest
+     * Queries triggers by tag or status.
      *
-     * @return ListTriggersResponse ListTriggersResponse
+     * @param request - ListTriggersRequest
+     *
+     * @returns ListTriggersResponse
+     *
+     * @param ListTriggersRequest $request
+     *
+     * @return ListTriggersResponse
      */
     public function listTriggers($request)
     {
@@ -6458,85 +7902,108 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries face groups based on given conditions.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   Before you call this operation, make sure that a face clustering task is created to group all faces in a dataset. For information about how to create a face clustering task, see [CreateFigureClusteringTask](~~CreateFigureClusteringTask~~). For information about how to create a dataset, see [CreateDataset](~~CreateDataset~~).
-     *  *
-     * @param QueryFigureClustersRequest $tmpReq  QueryFigureClustersRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries face groups based on given conditions.
      *
-     * @return QueryFigureClustersResponse QueryFigureClustersResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   Before you call this operation, make sure that a face clustering task is created to group all faces in a dataset. For information about how to create a face clustering task, see [CreateFigureClusteringTask](~~CreateFigureClusteringTask~~). For information about how to create a dataset, see [CreateDataset](~~CreateDataset~~).
+     *
+     * @param tmpReq - QueryFigureClustersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryFigureClustersResponse
+     *
+     * @param QueryFigureClustersRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryFigureClustersResponse
      */
     public function queryFigureClustersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new QueryFigureClustersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createTimeRange)) {
-            $request->createTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createTimeRange, 'CreateTimeRange', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createTimeRange) {
+            $request->createTimeRangeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createTimeRange, 'CreateTimeRange', 'json');
         }
-        if (!Utils::isUnset($tmpReq->updateTimeRange)) {
-            $request->updateTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateTimeRange, 'UpdateTimeRange', 'json');
+
+        if (null !== $tmpReq->updateTimeRange) {
+            $request->updateTimeRangeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateTimeRange, 'UpdateTimeRange', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->createTimeRangeShrink)) {
-            $query['CreateTimeRange'] = $request->createTimeRangeShrink;
+        if (null !== $request->createTimeRangeShrink) {
+            @$query['CreateTimeRange'] = $request->createTimeRangeShrink;
         }
-        if (!Utils::isUnset($request->customLabels)) {
-            $query['CustomLabels'] = $request->customLabels;
+
+        if (null !== $request->customLabels) {
+            @$query['CustomLabels'] = $request->customLabels;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->updateTimeRangeShrink)) {
-            $query['UpdateTimeRange'] = $request->updateTimeRangeShrink;
+
+        if (null !== $request->updateTimeRangeShrink) {
+            @$query['UpdateTimeRange'] = $request->updateTimeRangeShrink;
         }
-        if (!Utils::isUnset($request->withTotalCount)) {
-            $query['WithTotalCount'] = $request->withTotalCount;
+
+        if (null !== $request->withTotalCount) {
+            @$query['WithTotalCount'] = $request->withTotalCount;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryFigureClusters',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryFigureClusters',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryFigureClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries face groups based on given conditions.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   Before you call this operation, make sure that a face clustering task is created to group all faces in a dataset. For information about how to create a face clustering task, see [CreateFigureClusteringTask](~~CreateFigureClusteringTask~~). For information about how to create a dataset, see [CreateDataset](~~CreateDataset~~).
-     *  *
-     * @param QueryFigureClustersRequest $request QueryFigureClustersRequest
+     * Queries face groups based on given conditions.
      *
-     * @return QueryFigureClustersResponse QueryFigureClustersResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   Before you call this operation, make sure that a face clustering task is created to group all faces in a dataset. For information about how to create a face clustering task, see [CreateFigureClusteringTask](~~CreateFigureClusteringTask~~). For information about how to create a dataset, see [CreateDataset](~~CreateDataset~~).
+     *
+     * @param request - QueryFigureClustersRequest
+     *
+     * @returns QueryFigureClustersResponse
+     *
+     * @param QueryFigureClustersRequest $request
+     *
+     * @return QueryFigureClustersResponse
      */
     public function queryFigureClusters($request)
     {
@@ -6546,112 +8013,144 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of spatiotemporal clustering groups. Multiple conditions are supported. For more information, see the request parameters.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   Before you call this operation, you must call the [CreateLocationDateClusteringTask](https://help.aliyun.com/document_detail/478188.html) operation to perform spatiotemporal clustering.
-     *  *
-     * @param QueryLocationDateClustersRequest $tmpReq  QueryLocationDateClustersRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries a list of spatiotemporal clustering groups. Multiple conditions are supported. For more information, see the request parameters.
      *
-     * @return QueryLocationDateClustersResponse QueryLocationDateClustersResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   Before you call this operation, you must call the [CreateLocationDateClusteringTask](https://help.aliyun.com/document_detail/478188.html) operation to perform spatiotemporal clustering.
+     *
+     * @param tmpReq - QueryLocationDateClustersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryLocationDateClustersResponse
+     *
+     * @param QueryLocationDateClustersRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryLocationDateClustersResponse
      */
     public function queryLocationDateClustersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new QueryLocationDateClustersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->address)) {
-            $request->addressShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->address, 'Address', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->address) {
+            $request->addressShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->address, 'Address', 'json');
         }
-        if (!Utils::isUnset($tmpReq->createTimeRange)) {
-            $request->createTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createTimeRange, 'CreateTimeRange', 'json');
+
+        if (null !== $tmpReq->createTimeRange) {
+            $request->createTimeRangeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createTimeRange, 'CreateTimeRange', 'json');
         }
-        if (!Utils::isUnset($tmpReq->locationDateClusterEndTimeRange)) {
-            $request->locationDateClusterEndTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->locationDateClusterEndTimeRange, 'LocationDateClusterEndTimeRange', 'json');
+
+        if (null !== $tmpReq->locationDateClusterEndTimeRange) {
+            $request->locationDateClusterEndTimeRangeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->locationDateClusterEndTimeRange, 'LocationDateClusterEndTimeRange', 'json');
         }
-        if (!Utils::isUnset($tmpReq->locationDateClusterLevels)) {
-            $request->locationDateClusterLevelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->locationDateClusterLevels, 'LocationDateClusterLevels', 'json');
+
+        if (null !== $tmpReq->locationDateClusterLevels) {
+            $request->locationDateClusterLevelsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->locationDateClusterLevels, 'LocationDateClusterLevels', 'json');
         }
-        if (!Utils::isUnset($tmpReq->locationDateClusterStartTimeRange)) {
-            $request->locationDateClusterStartTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->locationDateClusterStartTimeRange, 'LocationDateClusterStartTimeRange', 'json');
+
+        if (null !== $tmpReq->locationDateClusterStartTimeRange) {
+            $request->locationDateClusterStartTimeRangeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->locationDateClusterStartTimeRange, 'LocationDateClusterStartTimeRange', 'json');
         }
-        if (!Utils::isUnset($tmpReq->updateTimeRange)) {
-            $request->updateTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateTimeRange, 'UpdateTimeRange', 'json');
+
+        if (null !== $tmpReq->updateTimeRange) {
+            $request->updateTimeRangeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateTimeRange, 'UpdateTimeRange', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->addressShrink)) {
-            $query['Address'] = $request->addressShrink;
+        if (null !== $request->addressShrink) {
+            @$query['Address'] = $request->addressShrink;
         }
-        if (!Utils::isUnset($request->createTimeRangeShrink)) {
-            $query['CreateTimeRange'] = $request->createTimeRangeShrink;
+
+        if (null !== $request->createTimeRangeShrink) {
+            @$query['CreateTimeRange'] = $request->createTimeRangeShrink;
         }
-        if (!Utils::isUnset($request->customLabels)) {
-            $query['CustomLabels'] = $request->customLabels;
+
+        if (null !== $request->customLabels) {
+            @$query['CustomLabels'] = $request->customLabels;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->locationDateClusterEndTimeRangeShrink)) {
-            $query['LocationDateClusterEndTimeRange'] = $request->locationDateClusterEndTimeRangeShrink;
+
+        if (null !== $request->locationDateClusterEndTimeRangeShrink) {
+            @$query['LocationDateClusterEndTimeRange'] = $request->locationDateClusterEndTimeRangeShrink;
         }
-        if (!Utils::isUnset($request->locationDateClusterLevelsShrink)) {
-            $query['LocationDateClusterLevels'] = $request->locationDateClusterLevelsShrink;
+
+        if (null !== $request->locationDateClusterLevelsShrink) {
+            @$query['LocationDateClusterLevels'] = $request->locationDateClusterLevelsShrink;
         }
-        if (!Utils::isUnset($request->locationDateClusterStartTimeRangeShrink)) {
-            $query['LocationDateClusterStartTimeRange'] = $request->locationDateClusterStartTimeRangeShrink;
+
+        if (null !== $request->locationDateClusterStartTimeRangeShrink) {
+            @$query['LocationDateClusterStartTimeRange'] = $request->locationDateClusterStartTimeRangeShrink;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->objectId)) {
-            $query['ObjectId'] = $request->objectId;
+
+        if (null !== $request->objectId) {
+            @$query['ObjectId'] = $request->objectId;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->updateTimeRangeShrink)) {
-            $query['UpdateTimeRange'] = $request->updateTimeRangeShrink;
+
+        if (null !== $request->updateTimeRangeShrink) {
+            @$query['UpdateTimeRange'] = $request->updateTimeRangeShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryLocationDateClusters',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryLocationDateClusters',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryLocationDateClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of spatiotemporal clustering groups. Multiple conditions are supported. For more information, see the request parameters.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   Before you call this operation, you must call the [CreateLocationDateClusteringTask](https://help.aliyun.com/document_detail/478188.html) operation to perform spatiotemporal clustering.
-     *  *
-     * @param QueryLocationDateClustersRequest $request QueryLocationDateClustersRequest
+     * Queries a list of spatiotemporal clustering groups. Multiple conditions are supported. For more information, see the request parameters.
      *
-     * @return QueryLocationDateClustersResponse QueryLocationDateClustersResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   Before you call this operation, you must call the [CreateLocationDateClusteringTask](https://help.aliyun.com/document_detail/478188.html) operation to perform spatiotemporal clustering.
+     *
+     * @param request - QueryLocationDateClustersRequest
+     *
+     * @returns QueryLocationDateClustersResponse
+     *
+     * @param QueryLocationDateClustersRequest $request
+     *
+     * @return QueryLocationDateClustersResponse
      */
     public function queryLocationDateClusters($request)
     {
@@ -6661,68 +8160,86 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to query the list of similar image clusters.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   Before you call this operation, you must call the [CreateSimilarImageClusteringTask](https://help.aliyun.com/document_detail/611302.html) operation to cluster similar images in the dataset.
-     *  *
-     * @param QuerySimilarImageClustersRequest $request QuerySimilarImageClustersRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * You can call this operation to query the list of similar image clusters.
      *
-     * @return QuerySimilarImageClustersResponse QuerySimilarImageClustersResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   Before you call this operation, you must call the [CreateSimilarImageClusteringTask](https://help.aliyun.com/document_detail/611302.html) operation to cluster similar images in the dataset.
+     *
+     * @param request - QuerySimilarImageClustersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySimilarImageClustersResponse
+     *
+     * @param QuerySimilarImageClustersRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QuerySimilarImageClustersResponse
      */
     public function querySimilarImageClustersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->customLabels)) {
-            $query['CustomLabels'] = $request->customLabels;
+        if (null !== $request->customLabels) {
+            @$query['CustomLabels'] = $request->customLabels;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySimilarImageClusters',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySimilarImageClusters',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QuerySimilarImageClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary You can call this operation to query the list of similar image clusters.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   Before you call this operation, you must call the [CreateSimilarImageClusteringTask](https://help.aliyun.com/document_detail/611302.html) operation to cluster similar images in the dataset.
-     *  *
-     * @param QuerySimilarImageClustersRequest $request QuerySimilarImageClustersRequest
+     * You can call this operation to query the list of similar image clusters.
      *
-     * @return QuerySimilarImageClustersResponse QuerySimilarImageClustersResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   Before you call this operation, you must call the [CreateSimilarImageClusteringTask](https://help.aliyun.com/document_detail/611302.html) operation to cluster similar images in the dataset.
+     *
+     * @param request - QuerySimilarImageClustersRequest
+     *
+     * @returns QuerySimilarImageClustersResponse
+     *
+     * @param QuerySimilarImageClustersRequest $request
+     *
+     * @return QuerySimilarImageClustersResponse
      */
     public function querySimilarImageClusters($request)
     {
@@ -6732,111 +8249,142 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries stories based on the specified conditions.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Queries stories based on the specified conditions.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
      * *   Before you call this operation, make sure that you have called the [CreateStory](https://help.aliyun.com/document_detail/478193.html) or [CreateCustomizedStory](https://help.aliyun.com/document_detail/478196.html) operation to create a story.
-     *  *
-     * @param QueryStoriesRequest $tmpReq  QueryStoriesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryStoriesResponse QueryStoriesResponse
+     * @param tmpReq - QueryStoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryStoriesResponse
+     *
+     * @param QueryStoriesRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryStoriesResponse
      */
     public function queryStoriesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new QueryStoriesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->createTimeRange)) {
-            $request->createTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createTimeRange, 'CreateTimeRange', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createTimeRange) {
+            $request->createTimeRangeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createTimeRange, 'CreateTimeRange', 'json');
         }
-        if (!Utils::isUnset($tmpReq->figureClusterIds)) {
-            $request->figureClusterIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->figureClusterIds, 'FigureClusterIds', 'json');
+
+        if (null !== $tmpReq->figureClusterIds) {
+            $request->figureClusterIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->figureClusterIds, 'FigureClusterIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->storyEndTimeRange)) {
-            $request->storyEndTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->storyEndTimeRange, 'StoryEndTimeRange', 'json');
+
+        if (null !== $tmpReq->storyEndTimeRange) {
+            $request->storyEndTimeRangeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->storyEndTimeRange, 'StoryEndTimeRange', 'json');
         }
-        if (!Utils::isUnset($tmpReq->storyStartTimeRange)) {
-            $request->storyStartTimeRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->storyStartTimeRange, 'StoryStartTimeRange', 'json');
+
+        if (null !== $tmpReq->storyStartTimeRange) {
+            $request->storyStartTimeRangeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->storyStartTimeRange, 'StoryStartTimeRange', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->createTimeRangeShrink)) {
-            $query['CreateTimeRange'] = $request->createTimeRangeShrink;
+        if (null !== $request->createTimeRangeShrink) {
+            @$query['CreateTimeRange'] = $request->createTimeRangeShrink;
         }
-        if (!Utils::isUnset($request->customLabels)) {
-            $query['CustomLabels'] = $request->customLabels;
+
+        if (null !== $request->customLabels) {
+            @$query['CustomLabels'] = $request->customLabels;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->figureClusterIdsShrink)) {
-            $query['FigureClusterIds'] = $request->figureClusterIdsShrink;
+
+        if (null !== $request->figureClusterIdsShrink) {
+            @$query['FigureClusterIds'] = $request->figureClusterIdsShrink;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->objectId)) {
-            $query['ObjectId'] = $request->objectId;
+
+        if (null !== $request->objectId) {
+            @$query['ObjectId'] = $request->objectId;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->storyEndTimeRangeShrink)) {
-            $query['StoryEndTimeRange'] = $request->storyEndTimeRangeShrink;
+
+        if (null !== $request->storyEndTimeRangeShrink) {
+            @$query['StoryEndTimeRange'] = $request->storyEndTimeRangeShrink;
         }
-        if (!Utils::isUnset($request->storyName)) {
-            $query['StoryName'] = $request->storyName;
+
+        if (null !== $request->storyName) {
+            @$query['StoryName'] = $request->storyName;
         }
-        if (!Utils::isUnset($request->storyStartTimeRangeShrink)) {
-            $query['StoryStartTimeRange'] = $request->storyStartTimeRangeShrink;
+
+        if (null !== $request->storyStartTimeRangeShrink) {
+            @$query['StoryStartTimeRange'] = $request->storyStartTimeRangeShrink;
         }
-        if (!Utils::isUnset($request->storySubType)) {
-            $query['StorySubType'] = $request->storySubType;
+
+        if (null !== $request->storySubType) {
+            @$query['StorySubType'] = $request->storySubType;
         }
-        if (!Utils::isUnset($request->storyType)) {
-            $query['StoryType'] = $request->storyType;
+
+        if (null !== $request->storyType) {
+            @$query['StoryType'] = $request->storyType;
         }
-        if (!Utils::isUnset($request->withEmptyStories)) {
-            $query['WithEmptyStories'] = $request->withEmptyStories;
+
+        if (null !== $request->withEmptyStories) {
+            @$query['WithEmptyStories'] = $request->withEmptyStories;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryStories',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryStories',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryStoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries stories based on the specified conditions.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Queries stories based on the specified conditions.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
      * *   Before you call this operation, make sure that you have called the [CreateStory](https://help.aliyun.com/document_detail/478193.html) or [CreateCustomizedStory](https://help.aliyun.com/document_detail/478196.html) operation to create a story.
-     *  *
-     * @param QueryStoriesRequest $request QueryStoriesRequest
      *
-     * @return QueryStoriesResponse QueryStoriesResponse
+     * @param request - QueryStoriesRequest
+     *
+     * @returns QueryStoriesResponse
+     *
+     * @param QueryStoriesRequest $request
+     *
+     * @return QueryStoriesResponse
      */
     public function queryStories($request)
     {
@@ -6846,72 +8394,88 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Refreshes the access credential of WebOffice. The access credential of WebOffice is valid for 30 minutes. After the credential expires, you cannot access Weboffice. To access Weboffice again, call this operation to obtain a new credential. The new credential is also valid for 30 minutes.
-     *  *
-     * @description Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
+     * Refreshes the access credential of WebOffice. The access credential of WebOffice is valid for 30 minutes. After the credential expires, you cannot access Weboffice. To access Weboffice again, call this operation to obtain a new credential. The new credential is also valid for 30 minutes.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
      * *   For more information, see [WebOffice billing](https://help.aliyun.com/document_detail/2639703.html).
      * *   The access token returned by this operation is valid for 30 minutes. After the access token expires, you cannot use it to access the document.
      * *   The refresh token returned by this operation is valid for one day. You need to use the refresh token for the next call to the operation before the refresh token expires. After the validity period elapses, the refresh token is invalid.
      * *   The returned expiration time is displayed in UTC.
      * >  An access token is used to actually access a document, whereas a refresh token is used to avoid repeated access configurations.
-     *  *
-     * @param RefreshWebofficeTokenRequest $tmpReq  RefreshWebofficeTokenRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshWebofficeTokenResponse RefreshWebofficeTokenResponse
+     * @param tmpReq - RefreshWebofficeTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshWebofficeTokenResponse
+     *
+     * @param RefreshWebofficeTokenRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RefreshWebofficeTokenResponse
      */
     public function refreshWebofficeTokenWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RefreshWebofficeTokenShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['AccessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['AccessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->refreshToken)) {
-            $query['RefreshToken'] = $request->refreshToken;
+
+        if (null !== $request->refreshToken) {
+            @$query['RefreshToken'] = $request->refreshToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RefreshWebofficeToken',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RefreshWebofficeToken',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RefreshWebofficeTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Refreshes the access credential of WebOffice. The access credential of WebOffice is valid for 30 minutes. After the credential expires, you cannot access Weboffice. To access Weboffice again, call this operation to obtain a new credential. The new credential is also valid for 30 minutes.
-     *  *
-     * @description Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
+     * Refreshes the access credential of WebOffice. The access credential of WebOffice is valid for 30 minutes. After the credential expires, you cannot access Weboffice. To access Weboffice again, call this operation to obtain a new credential. The new credential is also valid for 30 minutes.
+     *
+     * @remarks
+     * Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of IMM.****
      * *   For more information, see [WebOffice billing](https://help.aliyun.com/document_detail/2639703.html).
      * *   The access token returned by this operation is valid for 30 minutes. After the access token expires, you cannot use it to access the document.
      * *   The refresh token returned by this operation is valid for one day. You need to use the refresh token for the next call to the operation before the refresh token expires. After the validity period elapses, the refresh token is invalid.
      * *   The returned expiration time is displayed in UTC.
      * >  An access token is used to actually access a document, whereas a refresh token is used to avoid repeated access configurations.
-     *  *
-     * @param RefreshWebofficeTokenRequest $request RefreshWebofficeTokenRequest
      *
-     * @return RefreshWebofficeTokenResponse RefreshWebofficeTokenResponse
+     * @param request - RefreshWebofficeTokenRequest
+     *
+     * @returns RefreshWebofficeTokenResponse
+     *
+     * @param RefreshWebofficeTokenRequest $request
+     *
+     * @return RefreshWebofficeTokenResponse
      */
     public function refreshWebofficeToken($request)
     {
@@ -6921,58 +8485,72 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Deletes files from a story.
-     *  *
-     * @param RemoveStoryFilesRequest $tmpReq  RemoveStoryFilesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes files from a story.
      *
-     * @return RemoveStoryFilesResponse RemoveStoryFilesResponse
+     * @param tmpReq - RemoveStoryFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveStoryFilesResponse
+     *
+     * @param RemoveStoryFilesRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RemoveStoryFilesResponse
      */
     public function removeStoryFilesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RemoveStoryFilesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->files)) {
-            $request->filesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->files) {
+            $request->filesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->files, 'Files', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $body['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$body['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->filesShrink)) {
-            $body['Files'] = $request->filesShrink;
+
+        if (null !== $request->filesShrink) {
+            @$body['Files'] = $request->filesShrink;
         }
-        if (!Utils::isUnset($request->objectId)) {
-            $body['ObjectId'] = $request->objectId;
+
+        if (null !== $request->objectId) {
+            @$body['ObjectId'] = $request->objectId;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RemoveStoryFiles',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveStoryFiles',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveStoryFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes files from a story.
-     *  *
-     * @param RemoveStoryFilesRequest $request RemoveStoryFilesRequest
+     * Deletes files from a story.
      *
-     * @return RemoveStoryFilesResponse RemoveStoryFilesResponse
+     * @param request - RemoveStoryFilesRequest
+     *
+     * @returns RemoveStoryFilesResponse
+     *
+     * @param RemoveStoryFilesRequest $request
+     *
+     * @return RemoveStoryFilesResponse
      */
     public function removeStoryFiles($request)
     {
@@ -6982,51 +8560,64 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Resumes a batch processing task that is in the Suspended or Failed state.
-     *  *
-     * @description You can resume a batch processing task only when the task is in the Suspended or Failed state. A batch processing task continues to provide services after you resume the task.
-     *  *
-     * @param ResumeBatchRequest $request ResumeBatchRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Resumes a batch processing task that is in the Suspended or Failed state.
      *
-     * @return ResumeBatchResponse ResumeBatchResponse
+     * @remarks
+     * You can resume a batch processing task only when the task is in the Suspended or Failed state. A batch processing task continues to provide services after you resume the task.
+     *
+     * @param request - ResumeBatchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeBatchResponse
+     *
+     * @param ResumeBatchRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ResumeBatchResponse
      */
     public function resumeBatchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ResumeBatch',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResumeBatch',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ResumeBatchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Resumes a batch processing task that is in the Suspended or Failed state.
-     *  *
-     * @description You can resume a batch processing task only when the task is in the Suspended or Failed state. A batch processing task continues to provide services after you resume the task.
-     *  *
-     * @param ResumeBatchRequest $request ResumeBatchRequest
+     * Resumes a batch processing task that is in the Suspended or Failed state.
      *
-     * @return ResumeBatchResponse ResumeBatchResponse
+     * @remarks
+     * You can resume a batch processing task only when the task is in the Suspended or Failed state. A batch processing task continues to provide services after you resume the task.
+     *
+     * @param request - ResumeBatchRequest
+     *
+     * @returns ResumeBatchResponse
+     *
+     * @param ResumeBatchRequest $request
+     *
+     * @return ResumeBatchResponse
      */
     public function resumeBatch($request)
     {
@@ -7036,51 +8627,64 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Resumes a trigger that is in the Suspended or Failed state.
-     *  *
-     * @description You can resume only a trigger that is in the Suspended or Failed state. After you resume a trigger, the trigger continues to provide services as expected.
-     *  *
-     * @param ResumeTriggerRequest $request ResumeTriggerRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Resumes a trigger that is in the Suspended or Failed state.
      *
-     * @return ResumeTriggerResponse ResumeTriggerResponse
+     * @remarks
+     * You can resume only a trigger that is in the Suspended or Failed state. After you resume a trigger, the trigger continues to provide services as expected.
+     *
+     * @param request - ResumeTriggerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeTriggerResponse
+     *
+     * @param ResumeTriggerRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ResumeTriggerResponse
      */
     public function resumeTriggerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ResumeTrigger',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResumeTrigger',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ResumeTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Resumes a trigger that is in the Suspended or Failed state.
-     *  *
-     * @description You can resume only a trigger that is in the Suspended or Failed state. After you resume a trigger, the trigger continues to provide services as expected.
-     *  *
-     * @param ResumeTriggerRequest $request ResumeTriggerRequest
+     * Resumes a trigger that is in the Suspended or Failed state.
      *
-     * @return ResumeTriggerResponse ResumeTriggerResponse
+     * @remarks
+     * You can resume only a trigger that is in the Suspended or Failed state. After you resume a trigger, the trigger continues to provide services as expected.
+     *
+     * @param request - ResumeTriggerRequest
+     *
+     * @returns ResumeTriggerResponse
+     *
+     * @param ResumeTriggerRequest $request
+     *
+     * @return ResumeTriggerResponse
      */
     public function resumeTrigger($request)
     {
@@ -7090,64 +8694,80 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries face clusters that contain a specific face in an image. Each face cluster contains information such as bounding boxes and similarity.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
-     * *   Before you call this operation, make sure that you have created a face clustering task by calling the [CreateFigureClusteringTask](https://help.aliyun.com/document_detail/478180.html) operation to cluster all faces in the dataset.
-     *  *
-     * @param SearchImageFigureClusterRequest $tmpReq  SearchImageFigureClusterRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries face clusters that contain a specific face in an image. Each face cluster contains information such as bounding boxes and similarity.
      *
-     * @return SearchImageFigureClusterResponse SearchImageFigureClusterResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * *   Before you call this operation, make sure that you have created a face clustering task by calling the [CreateFigureClusteringTask](https://help.aliyun.com/document_detail/478180.html) operation to cluster all faces in the dataset.
+     *
+     * @param tmpReq - SearchImageFigureClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchImageFigureClusterResponse
+     *
+     * @param SearchImageFigureClusterRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SearchImageFigureClusterResponse
      */
     public function searchImageFigureClusterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SearchImageFigureClusterShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->credentialConfig)) {
-            $request->credentialConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->credentialConfig) {
+            $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->credentialConfigShrink)) {
-            $query['CredentialConfig'] = $request->credentialConfigShrink;
+        if (null !== $request->credentialConfigShrink) {
+            @$query['CredentialConfig'] = $request->credentialConfigShrink;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->sourceURI)) {
-            $query['SourceURI'] = $request->sourceURI;
+
+        if (null !== $request->sourceURI) {
+            @$query['SourceURI'] = $request->sourceURI;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SearchImageFigureCluster',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchImageFigureCluster',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchImageFigureClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries face clusters that contain a specific face in an image. Each face cluster contains information such as bounding boxes and similarity.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
-     * *   Before you call this operation, make sure that you have created a face clustering task by calling the [CreateFigureClusteringTask](https://help.aliyun.com/document_detail/478180.html) operation to cluster all faces in the dataset.
-     *  *
-     * @param SearchImageFigureClusterRequest $request SearchImageFigureClusterRequest
+     * Queries face clusters that contain a specific face in an image. Each face cluster contains information such as bounding boxes and similarity.
      *
-     * @return SearchImageFigureClusterResponse SearchImageFigureClusterResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/88317.html) of Intelligent Media Management (IMM).****
+     * *   Before you call this operation, make sure that you have created a face clustering task by calling the [CreateFigureClusteringTask](https://help.aliyun.com/document_detail/478180.html) operation to cluster all faces in the dataset.
+     *
+     * @param request - SearchImageFigureClusterRequest
+     *
+     * @returns SearchImageFigureClusterResponse
+     *
+     * @param SearchImageFigureClusterRequest $request
+     *
+     * @return SearchImageFigureClusterResponse
      */
     public function searchImageFigureCluster($request)
     {
@@ -7157,9 +8777,10 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries metadata in a dataset by inputting natural language.
-     *  *
-     * @description ### [](#)Precautions
+     * Queries metadata in a dataset by inputting natural language.
+     *
+     * @remarks
+     * ### [](#)Precautions
      * *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**** Each time you call this operation, you are charged for semantic understanding and query fees.
      * *   Before you call this operation, make sure that the file that you want to use is indexed into the dataset that you use. To index a file into a dataset, you can call one of the following operations: [CreateBinding](https://help.aliyun.com/document_detail/478202.html), [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html), and [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html).
      * *   The response provided in this example is for reference only. The categories and content of metadata vary based on configurations of [workflow templates](https://help.aliyun.com/document_detail/466304.html). If you have questions, search for and join the DingTalk group numbered 21714099.
@@ -7173,67 +8794,82 @@ class Imm extends OpenApiClient
      * *   Address.AddressLine: `Hangzhou`
      * *   Labels.LabelName: `scenery`.
      * When you call this operation, you can configure a [workflow template](https://help.aliyun.com/document_detail/466304.html) that includes the `ImageEmbeddingExtraction` operator. This allows the operation to return image content when the query you input matches the image content, thereby achieving intelligent image retrieval.``
-     *  *
-     * @param SemanticQueryRequest $tmpReq  SemanticQueryRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SemanticQueryResponse SemanticQueryResponse
+     * @param tmpReq - SemanticQueryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SemanticQueryResponse
+     *
+     * @param SemanticQueryRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SemanticQueryResponse
      */
     public function semanticQueryWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SemanticQueryShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->mediaTypes)) {
-            $request->mediaTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->mediaTypes, 'MediaTypes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->mediaTypes) {
+            $request->mediaTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->mediaTypes, 'MediaTypes', 'json');
         }
-        if (!Utils::isUnset($tmpReq->withFields)) {
-            $request->withFieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->withFields, 'WithFields', 'json');
+
+        if (null !== $tmpReq->withFields) {
+            $request->withFieldsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->withFields, 'WithFields', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->mediaTypesShrink)) {
-            $query['MediaTypes'] = $request->mediaTypesShrink;
+
+        if (null !== $request->mediaTypesShrink) {
+            @$query['MediaTypes'] = $request->mediaTypesShrink;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->query)) {
-            $query['Query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->withFieldsShrink)) {
-            $query['WithFields'] = $request->withFieldsShrink;
+
+        if (null !== $request->withFieldsShrink) {
+            @$query['WithFields'] = $request->withFieldsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SemanticQuery',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SemanticQuery',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SemanticQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries metadata in a dataset by inputting natural language.
-     *  *
-     * @description ### [](#)Precautions
+     * Queries metadata in a dataset by inputting natural language.
+     *
+     * @remarks
+     * ### [](#)Precautions
      * *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).**** Each time you call this operation, you are charged for semantic understanding and query fees.
      * *   Before you call this operation, make sure that the file that you want to use is indexed into the dataset that you use. To index a file into a dataset, you can call one of the following operations: [CreateBinding](https://help.aliyun.com/document_detail/478202.html), [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html), and [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html).
      * *   The response provided in this example is for reference only. The categories and content of metadata vary based on configurations of [workflow templates](https://help.aliyun.com/document_detail/466304.html). If you have questions, search for and join the DingTalk group numbered 21714099.
@@ -7247,10 +8883,14 @@ class Imm extends OpenApiClient
      * *   Address.AddressLine: `Hangzhou`
      * *   Labels.LabelName: `scenery`.
      * When you call this operation, you can configure a [workflow template](https://help.aliyun.com/document_detail/466304.html) that includes the `ImageEmbeddingExtraction` operator. This allows the operation to return image content when the query you input matches the image content, thereby achieving intelligent image retrieval.``
-     *  *
-     * @param SemanticQueryRequest $request SemanticQueryRequest
      *
-     * @return SemanticQueryResponse SemanticQueryResponse
+     * @param request - SemanticQueryRequest
+     *
+     * @returns SemanticQueryResponse
+     *
+     * @param SemanticQueryRequest $request
+     *
+     * @return SemanticQueryResponse
      */
     public function semanticQuery($request)
     {
@@ -7260,9 +8900,10 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Queries files in a dataset by performing a simple query operation. The operation supports logical expressions.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Queries files in a dataset by performing a simple query operation. The operation supports logical expressions.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
      * *   The sample response is provided for reference only. The metadata type and content in your response may differ based on factors such as the [workflow template configurations](https://help.aliyun.com/document_detail/466304.html). For any inquiries, join the DingTalk chat group (ID: 31690030817) and share your questions with us.
      * **Limits**
@@ -7364,79 +9005,98 @@ class Imm extends OpenApiClient
      *       "Operation":"and"
      *     }
      * You can also perform aggregate operations to collect and analyze different data based on the specified conditions. For example, you can calculate the sum, count, average value, or maximum value of all files that meet the query conditions. You can also calculate the size distribution of images that meet the query conditions.
-     *  *
-     * @param SimpleQueryRequest $tmpReq  SimpleQueryRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SimpleQueryResponse SimpleQueryResponse
+     * @param tmpReq - SimpleQueryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SimpleQueryResponse
+     *
+     * @param SimpleQueryRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SimpleQueryResponse
      */
     public function simpleQueryWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SimpleQueryShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->aggregations)) {
-            $request->aggregationsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aggregations, 'Aggregations', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->aggregations) {
+            $request->aggregationsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->aggregations, 'Aggregations', 'json');
         }
-        if (!Utils::isUnset($tmpReq->query)) {
-            $request->queryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->query, 'Query', 'json');
+
+        if (null !== $tmpReq->query) {
+            $request->queryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->query, 'Query', 'json');
         }
-        if (!Utils::isUnset($tmpReq->withFields)) {
-            $request->withFieldsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->withFields, 'WithFields', 'json');
+
+        if (null !== $tmpReq->withFields) {
+            $request->withFieldsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->withFields, 'WithFields', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->aggregationsShrink)) {
-            $query['Aggregations'] = $request->aggregationsShrink;
+        if (null !== $request->aggregationsShrink) {
+            @$query['Aggregations'] = $request->aggregationsShrink;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->queryShrink)) {
-            $query['Query'] = $request->queryShrink;
+
+        if (null !== $request->queryShrink) {
+            @$query['Query'] = $request->queryShrink;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->withFieldsShrink)) {
-            $query['WithFields'] = $request->withFieldsShrink;
+
+        if (null !== $request->withFieldsShrink) {
+            @$query['WithFields'] = $request->withFieldsShrink;
         }
-        if (!Utils::isUnset($request->withoutTotalHits)) {
-            $query['WithoutTotalHits'] = $request->withoutTotalHits;
+
+        if (null !== $request->withoutTotalHits) {
+            @$query['WithoutTotalHits'] = $request->withoutTotalHits;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SimpleQuery',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SimpleQuery',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SimpleQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries files in a dataset by performing a simple query operation. The operation supports logical expressions.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Queries files in a dataset by performing a simple query operation. The operation supports logical expressions.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have indexed file metadata into the dataset automatically by calling the [CreateBinding](https://help.aliyun.com/document_detail/478202.html) operation or manually by calling the [IndexFileMeta](https://help.aliyun.com/document_detail/478166.html) or [BatchIndexFileMeta](https://help.aliyun.com/document_detail/478167.html) operation.
      * *   The sample response is provided for reference only. The metadata type and content in your response may differ based on factors such as the [workflow template configurations](https://help.aliyun.com/document_detail/466304.html). For any inquiries, join the DingTalk chat group (ID: 31690030817) and share your questions with us.
      * **Limits**
@@ -7538,10 +9198,14 @@ class Imm extends OpenApiClient
      *       "Operation":"and"
      *     }
      * You can also perform aggregate operations to collect and analyze different data based on the specified conditions. For example, you can calculate the sum, count, average value, or maximum value of all files that meet the query conditions. You can also calculate the size distribution of images that meet the query conditions.
-     *  *
-     * @param SimpleQueryRequest $request SimpleQueryRequest
      *
-     * @return SimpleQueryResponse SimpleQueryResponse
+     * @param request - SimpleQueryRequest
+     *
+     * @returns SimpleQueryResponse
+     *
+     * @param SimpleQueryRequest $request
+     *
+     * @return SimpleQueryResponse
      */
     public function simpleQuery($request)
     {
@@ -7551,51 +9215,64 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Suspends a batch processing task.
-     *  *
-     * @description You can suspend a batch processing task that is in the Running state. You can call the [ResumeBatch](https://help.aliyun.com/document_detail/479914.html) operation to resume a batch processing task that is suspended.
-     *  *
-     * @param SuspendBatchRequest $request SuspendBatchRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Suspends a batch processing task.
      *
-     * @return SuspendBatchResponse SuspendBatchResponse
+     * @remarks
+     * You can suspend a batch processing task that is in the Running state. You can call the [ResumeBatch](https://help.aliyun.com/document_detail/479914.html) operation to resume a batch processing task that is suspended.
+     *
+     * @param request - SuspendBatchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SuspendBatchResponse
+     *
+     * @param SuspendBatchRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SuspendBatchResponse
      */
     public function suspendBatchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SuspendBatch',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SuspendBatch',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SuspendBatchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Suspends a batch processing task.
-     *  *
-     * @description You can suspend a batch processing task that is in the Running state. You can call the [ResumeBatch](https://help.aliyun.com/document_detail/479914.html) operation to resume a batch processing task that is suspended.
-     *  *
-     * @param SuspendBatchRequest $request SuspendBatchRequest
+     * Suspends a batch processing task.
      *
-     * @return SuspendBatchResponse SuspendBatchResponse
+     * @remarks
+     * You can suspend a batch processing task that is in the Running state. You can call the [ResumeBatch](https://help.aliyun.com/document_detail/479914.html) operation to resume a batch processing task that is suspended.
+     *
+     * @param request - SuspendBatchRequest
+     *
+     * @returns SuspendBatchResponse
+     *
+     * @param SuspendBatchRequest $request
+     *
+     * @return SuspendBatchResponse
      */
     public function suspendBatch($request)
     {
@@ -7605,51 +9282,64 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Suspends a running trigger.
-     *  *
-     * @description The operation can be used to suspend a trigger only in the Running state. If you want to resume a suspended trigger, call the [ResumeTrigger](https://help.aliyun.com/document_detail/479919.html) operation.
-     *  *
-     * @param SuspendTriggerRequest $request SuspendTriggerRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Suspends a running trigger.
      *
-     * @return SuspendTriggerResponse SuspendTriggerResponse
+     * @remarks
+     * The operation can be used to suspend a trigger only in the Running state. If you want to resume a suspended trigger, call the [ResumeTrigger](https://help.aliyun.com/document_detail/479919.html) operation.
+     *
+     * @param request - SuspendTriggerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SuspendTriggerResponse
+     *
+     * @param SuspendTriggerRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SuspendTriggerResponse
      */
     public function suspendTriggerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SuspendTrigger',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SuspendTrigger',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SuspendTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Suspends a running trigger.
-     *  *
-     * @description The operation can be used to suspend a trigger only in the Running state. If you want to resume a suspended trigger, call the [ResumeTrigger](https://help.aliyun.com/document_detail/479919.html) operation.
-     *  *
-     * @param SuspendTriggerRequest $request SuspendTriggerRequest
+     * Suspends a running trigger.
      *
-     * @return SuspendTriggerResponse SuspendTriggerResponse
+     * @remarks
+     * The operation can be used to suspend a trigger only in the Running state. If you want to resume a suspended trigger, call the [ResumeTrigger](https://help.aliyun.com/document_detail/479919.html) operation.
+     *
+     * @param request - SuspendTriggerRequest
+     *
+     * @returns SuspendTriggerResponse
+     *
+     * @param SuspendTriggerRequest $request
+     *
+     * @return SuspendTriggerResponse
      */
     public function suspendTrigger($request)
     {
@@ -7659,73 +9349,92 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Updates information about a batch processing task, including the input data source, data processing settings, and tags.
-     *  *
-     * @description *   You can update only a batch processing task that is in the Ready or Failed state. The update operation does not change the status of the batch processing task.
-     * *   If you update a batch processing task that is in progress, the task is not automatically resumed after the update is complete. You must call the [ResumeBatch](https://help.aliyun.com/document_detail/479914.html) operation to resume the task.
-     *  *
-     * @param UpdateBatchRequest $tmpReq  UpdateBatchRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Updates information about a batch processing task, including the input data source, data processing settings, and tags.
      *
-     * @return UpdateBatchResponse UpdateBatchResponse
+     * @remarks
+     *   You can update only a batch processing task that is in the Ready or Failed state. The update operation does not change the status of the batch processing task.
+     * *   If you update a batch processing task that is in progress, the task is not automatically resumed after the update is complete. You must call the [ResumeBatch](https://help.aliyun.com/document_detail/479914.html) operation to resume the task.
+     *
+     * @param tmpReq - UpdateBatchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBatchResponse
+     *
+     * @param UpdateBatchRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateBatchResponse
      */
     public function updateBatchWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateBatchShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->actions)) {
-            $request->actionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actions, 'Actions', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->actions) {
+            $request->actionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->actions, 'Actions', 'json');
         }
-        if (!Utils::isUnset($tmpReq->input)) {
-            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->actionsShrink)) {
-            $body['Actions'] = $request->actionsShrink;
+        if (null !== $request->actionsShrink) {
+            @$body['Actions'] = $request->actionsShrink;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->inputShrink)) {
-            $body['Input'] = $request->inputShrink;
+
+        if (null !== $request->inputShrink) {
+            @$body['Input'] = $request->inputShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $body['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$body['Tags'] = $request->tagsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateBatch',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateBatch',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateBatchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates information about a batch processing task, including the input data source, data processing settings, and tags.
-     *  *
-     * @description *   You can update only a batch processing task that is in the Ready or Failed state. The update operation does not change the status of the batch processing task.
-     * *   If you update a batch processing task that is in progress, the task is not automatically resumed after the update is complete. You must call the [ResumeBatch](https://help.aliyun.com/document_detail/479914.html) operation to resume the task.
-     *  *
-     * @param UpdateBatchRequest $request UpdateBatchRequest
+     * Updates information about a batch processing task, including the input data source, data processing settings, and tags.
      *
-     * @return UpdateBatchResponse UpdateBatchResponse
+     * @remarks
+     *   You can update only a batch processing task that is in the Ready or Failed state. The update operation does not change the status of the batch processing task.
+     * *   If you update a batch processing task that is in progress, the task is not automatically resumed after the update is complete. You must call the [ResumeBatch](https://help.aliyun.com/document_detail/479914.html) operation to resume the task.
+     *
+     * @param request - UpdateBatchRequest
+     *
+     * @returns UpdateBatchResponse
+     *
+     * @param UpdateBatchRequest $request
+     *
+     * @return UpdateBatchResponse
      */
     public function updateBatch($request)
     {
@@ -7735,68 +9444,86 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary 更新媒体集
-     *  *
-     * @param UpdateDatasetRequest $request UpdateDatasetRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Updates a dataset.
      *
-     * @return UpdateDatasetResponse UpdateDatasetResponse
+     * @param request - UpdateDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDatasetResponse
+     *
+     * @param UpdateDatasetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateDatasetResponse
      */
     public function updateDatasetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->datasetMaxBindCount)) {
-            $query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
+        if (null !== $request->datasetMaxBindCount) {
+            @$query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
         }
-        if (!Utils::isUnset($request->datasetMaxEntityCount)) {
-            $query['DatasetMaxEntityCount'] = $request->datasetMaxEntityCount;
+
+        if (null !== $request->datasetMaxEntityCount) {
+            @$query['DatasetMaxEntityCount'] = $request->datasetMaxEntityCount;
         }
-        if (!Utils::isUnset($request->datasetMaxFileCount)) {
-            $query['DatasetMaxFileCount'] = $request->datasetMaxFileCount;
+
+        if (null !== $request->datasetMaxFileCount) {
+            @$query['DatasetMaxFileCount'] = $request->datasetMaxFileCount;
         }
-        if (!Utils::isUnset($request->datasetMaxRelationCount)) {
-            $query['DatasetMaxRelationCount'] = $request->datasetMaxRelationCount;
+
+        if (null !== $request->datasetMaxRelationCount) {
+            @$query['DatasetMaxRelationCount'] = $request->datasetMaxRelationCount;
         }
-        if (!Utils::isUnset($request->datasetMaxTotalFileSize)) {
-            $query['DatasetMaxTotalFileSize'] = $request->datasetMaxTotalFileSize;
+
+        if (null !== $request->datasetMaxTotalFileSize) {
+            @$query['DatasetMaxTotalFileSize'] = $request->datasetMaxTotalFileSize;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDataset',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDataset',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新媒体集
-     *  *
-     * @param UpdateDatasetRequest $request UpdateDatasetRequest
+     * Updates a dataset.
      *
-     * @return UpdateDatasetResponse UpdateDatasetResponse
+     * @param request - UpdateDatasetRequest
+     *
+     * @returns UpdateDatasetResponse
+     *
+     * @param UpdateDatasetRequest $request
+     *
+     * @return UpdateDatasetResponse
      */
     public function updateDataset($request)
     {
@@ -7806,65 +9533,80 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Updates information about a face cluster, such as the cluster name and labels.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Updates information about a face cluster, such as the cluster name and labels.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have called the [CreateFigureClusteringTask](https://help.aliyun.com/document_detail/478180.html) operation to cluster all faces in the dataset.
      * *   The operation updates only the cover image, cluster name, and tags.
      * *   After the operation is successful, you can call the [GetFigureCluster](https://help.aliyun.com/document_detail/478182.html) or [BatchGetFigureCluster](https://help.aliyun.com/document_detail/2248450.html) operation to query the updated cluster.
-     *  *
-     * @param UpdateFigureClusterRequest $tmpReq  UpdateFigureClusterRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFigureClusterResponse UpdateFigureClusterResponse
+     * @param tmpReq - UpdateFigureClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFigureClusterResponse
+     *
+     * @param UpdateFigureClusterRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateFigureClusterResponse
      */
     public function updateFigureClusterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateFigureClusterShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->figureCluster)) {
-            $request->figureClusterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->figureCluster, 'FigureCluster', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->figureCluster) {
+            $request->figureClusterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->figureCluster, 'FigureCluster', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->figureClusterShrink)) {
-            $query['FigureCluster'] = $request->figureClusterShrink;
+
+        if (null !== $request->figureClusterShrink) {
+            @$query['FigureCluster'] = $request->figureClusterShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFigureCluster',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateFigureCluster',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateFigureClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates information about a face cluster, such as the cluster name and labels.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * Updates information about a face cluster, such as the cluster name and labels.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
      * *   Before you call this operation, make sure that you have called the [CreateFigureClusteringTask](https://help.aliyun.com/document_detail/478180.html) operation to cluster all faces in the dataset.
      * *   The operation updates only the cover image, cluster name, and tags.
      * *   After the operation is successful, you can call the [GetFigureCluster](https://help.aliyun.com/document_detail/478182.html) or [BatchGetFigureCluster](https://help.aliyun.com/document_detail/2248450.html) operation to query the updated cluster.
-     *  *
-     * @param UpdateFigureClusterRequest $request UpdateFigureClusterRequest
      *
-     * @return UpdateFigureClusterResponse UpdateFigureClusterResponse
+     * @param request - UpdateFigureClusterRequest
+     *
+     * @returns UpdateFigureClusterResponse
+     *
+     * @param UpdateFigureClusterRequest $request
+     *
+     * @return UpdateFigureClusterResponse
      */
     public function updateFigureCluster($request)
     {
@@ -7874,61 +9616,76 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Updates the partial metadata of the indexed files in a dataset.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   You cannot call this operation to update all metadata. You can update only metadata specified by CustomLabels, CustomId, and Figures. For more information, see the "Request parameters" section of this topic.
-     *  *
-     * @param UpdateFileMetaRequest $tmpReq  UpdateFileMetaRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Updates the partial metadata of the indexed files in a dataset.
      *
-     * @return UpdateFileMetaResponse UpdateFileMetaResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   You cannot call this operation to update all metadata. You can update only metadata specified by CustomLabels, CustomId, and Figures. For more information, see the "Request parameters" section of this topic.
+     *
+     * @param tmpReq - UpdateFileMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFileMetaResponse
+     *
+     * @param UpdateFileMetaRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateFileMetaResponse
      */
     public function updateFileMetaWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateFileMetaShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->file)) {
-            $request->fileShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->file, 'File', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->file) {
+            $request->fileShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->file, 'File', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->fileShrink)) {
-            $query['File'] = $request->fileShrink;
+
+        if (null !== $request->fileShrink) {
+            @$query['File'] = $request->fileShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFileMeta',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateFileMeta',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateFileMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the partial metadata of the indexed files in a dataset.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   You cannot call this operation to update all metadata. You can update only metadata specified by CustomLabels, CustomId, and Figures. For more information, see the "Request parameters" section of this topic.
-     *  *
-     * @param UpdateFileMetaRequest $request UpdateFileMetaRequest
+     * Updates the partial metadata of the indexed files in a dataset.
      *
-     * @return UpdateFileMetaResponse UpdateFileMetaResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   You cannot call this operation to update all metadata. You can update only metadata specified by CustomLabels, CustomId, and Figures. For more information, see the "Request parameters" section of this topic.
+     *
+     * @param request - UpdateFileMetaRequest
+     *
+     * @returns UpdateFileMetaResponse
+     *
+     * @param UpdateFileMetaRequest $request
+     *
+     * @return UpdateFileMetaResponse
      */
     public function updateFileMeta($request)
     {
@@ -7938,70 +9695,88 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Updates a spatiotemporal cluster.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   Before you call this operation, make sure that you have called the [CreateLocationDateClusteringTask](https://help.aliyun.com/document_detail/478188.html) operation to create spatiotemporal clusters in the project.
-     *  *
-     * @param UpdateLocationDateClusterRequest $tmpReq  UpdateLocationDateClusterRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Updates a spatiotemporal cluster.
      *
-     * @return UpdateLocationDateClusterResponse UpdateLocationDateClusterResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   Before you call this operation, make sure that you have called the [CreateLocationDateClusteringTask](https://help.aliyun.com/document_detail/478188.html) operation to create spatiotemporal clusters in the project.
+     *
+     * @param tmpReq - UpdateLocationDateClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLocationDateClusterResponse
+     *
+     * @param UpdateLocationDateClusterRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateLocationDateClusterResponse
      */
     public function updateLocationDateClusterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateLocationDateClusterShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->customLabels)) {
-            $request->customLabelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customLabels) {
+            $request->customLabelsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->customId)) {
-            $query['CustomId'] = $request->customId;
+        if (null !== $request->customId) {
+            @$query['CustomId'] = $request->customId;
         }
-        if (!Utils::isUnset($request->customLabelsShrink)) {
-            $query['CustomLabels'] = $request->customLabelsShrink;
+
+        if (null !== $request->customLabelsShrink) {
+            @$query['CustomLabels'] = $request->customLabelsShrink;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $query['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$query['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->objectId)) {
-            $query['ObjectId'] = $request->objectId;
+
+        if (null !== $request->objectId) {
+            @$query['ObjectId'] = $request->objectId;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLocationDateCluster',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateLocationDateCluster',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateLocationDateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a spatiotemporal cluster.
-     *  *
-     * @description *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
-     * *   Before you call this operation, make sure that you have called the [CreateLocationDateClusteringTask](https://help.aliyun.com/document_detail/478188.html) operation to create spatiotemporal clusters in the project.
-     *  *
-     * @param UpdateLocationDateClusterRequest $request UpdateLocationDateClusterRequest
+     * Updates a spatiotemporal cluster.
      *
-     * @return UpdateLocationDateClusterResponse UpdateLocationDateClusterResponse
+     * @remarks
+     *   Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/477042.html) of Intelligent Media Management (IMM).****
+     * *   Before you call this operation, make sure that you have called the [CreateLocationDateClusteringTask](https://help.aliyun.com/document_detail/478188.html) operation to create spatiotemporal clusters in the project.
+     *
+     * @param request - UpdateLocationDateClusterRequest
+     *
+     * @returns UpdateLocationDateClusterResponse
+     *
+     * @param UpdateLocationDateClusterRequest $request
+     *
+     * @return UpdateLocationDateClusterResponse
      */
     public function updateLocationDateCluster($request)
     {
@@ -8011,87 +9786,110 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Updates information about a project.
-     *  *
-     * @description *   Before you call this operation, make sure that the project exists. For information about how to create a project, see "CreateProject".
+     * Updates information about a project.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that the project exists. For information about how to create a project, see "CreateProject".
      * *   When you call this operation, you need to specify only the parameters that you want to update. The parameters that you do not specify remain unchanged after you call this operation.
      * *   Wait for up to 5 minutes for the update to take effect.
-     *  *
-     * @param UpdateProjectRequest $tmpReq  UpdateProjectRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateProjectResponse UpdateProjectResponse
+     * @param tmpReq - UpdateProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProjectResponse
+     *
+     * @param UpdateProjectRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateProjectResponse
      */
     public function updateProjectWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateProjectShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->datasetMaxBindCount)) {
-            $query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
+        if (null !== $request->datasetMaxBindCount) {
+            @$query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
         }
-        if (!Utils::isUnset($request->datasetMaxEntityCount)) {
-            $query['DatasetMaxEntityCount'] = $request->datasetMaxEntityCount;
+
+        if (null !== $request->datasetMaxEntityCount) {
+            @$query['DatasetMaxEntityCount'] = $request->datasetMaxEntityCount;
         }
-        if (!Utils::isUnset($request->datasetMaxFileCount)) {
-            $query['DatasetMaxFileCount'] = $request->datasetMaxFileCount;
+
+        if (null !== $request->datasetMaxFileCount) {
+            @$query['DatasetMaxFileCount'] = $request->datasetMaxFileCount;
         }
-        if (!Utils::isUnset($request->datasetMaxRelationCount)) {
-            $query['DatasetMaxRelationCount'] = $request->datasetMaxRelationCount;
+
+        if (null !== $request->datasetMaxRelationCount) {
+            @$query['DatasetMaxRelationCount'] = $request->datasetMaxRelationCount;
         }
-        if (!Utils::isUnset($request->datasetMaxTotalFileSize)) {
-            $query['DatasetMaxTotalFileSize'] = $request->datasetMaxTotalFileSize;
+
+        if (null !== $request->datasetMaxTotalFileSize) {
+            @$query['DatasetMaxTotalFileSize'] = $request->datasetMaxTotalFileSize;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->projectMaxDatasetCount)) {
-            $query['ProjectMaxDatasetCount'] = $request->projectMaxDatasetCount;
+
+        if (null !== $request->projectMaxDatasetCount) {
+            @$query['ProjectMaxDatasetCount'] = $request->projectMaxDatasetCount;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->serviceRole)) {
-            $query['ServiceRole'] = $request->serviceRole;
+
+        if (null !== $request->serviceRole) {
+            @$query['ServiceRole'] = $request->serviceRole;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['Tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateProject',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateProject',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates information about a project.
-     *  *
-     * @description *   Before you call this operation, make sure that the project exists. For information about how to create a project, see "CreateProject".
+     * Updates information about a project.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that the project exists. For information about how to create a project, see "CreateProject".
      * *   When you call this operation, you need to specify only the parameters that you want to update. The parameters that you do not specify remain unchanged after you call this operation.
      * *   Wait for up to 5 minutes for the update to take effect.
-     *  *
-     * @param UpdateProjectRequest $request UpdateProjectRequest
      *
-     * @return UpdateProjectResponse UpdateProjectResponse
+     * @param request - UpdateProjectRequest
+     *
+     * @returns UpdateProjectResponse
+     *
+     * @param UpdateProjectRequest $request
+     *
+     * @return UpdateProjectResponse
      */
     public function updateProject($request)
     {
@@ -8101,70 +9899,88 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a story, such as the story name and cover image.
-     *  *
-     * @param UpdateStoryRequest $tmpReq  UpdateStoryRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Updates the information about a story, such as the story name and cover image.
      *
-     * @return UpdateStoryResponse UpdateStoryResponse
+     * @param tmpReq - UpdateStoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateStoryResponse
+     *
+     * @param UpdateStoryRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateStoryResponse
      */
     public function updateStoryWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateStoryShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->cover)) {
-            $request->coverShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cover, 'Cover', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cover) {
+            $request->coverShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cover, 'Cover', 'json');
         }
-        if (!Utils::isUnset($tmpReq->customLabels)) {
-            $request->customLabelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
+
+        if (null !== $tmpReq->customLabels) {
+            $request->customLabelsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customLabels, 'CustomLabels', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->coverShrink)) {
-            $body['Cover'] = $request->coverShrink;
+        if (null !== $request->coverShrink) {
+            @$body['Cover'] = $request->coverShrink;
         }
-        if (!Utils::isUnset($request->customId)) {
-            $body['CustomId'] = $request->customId;
+
+        if (null !== $request->customId) {
+            @$body['CustomId'] = $request->customId;
         }
-        if (!Utils::isUnset($request->customLabelsShrink)) {
-            $body['CustomLabels'] = $request->customLabelsShrink;
+
+        if (null !== $request->customLabelsShrink) {
+            @$body['CustomLabels'] = $request->customLabelsShrink;
         }
-        if (!Utils::isUnset($request->datasetName)) {
-            $body['DatasetName'] = $request->datasetName;
+
+        if (null !== $request->datasetName) {
+            @$body['DatasetName'] = $request->datasetName;
         }
-        if (!Utils::isUnset($request->objectId)) {
-            $body['ObjectId'] = $request->objectId;
+
+        if (null !== $request->objectId) {
+            @$body['ObjectId'] = $request->objectId;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->storyName)) {
-            $body['StoryName'] = $request->storyName;
+
+        if (null !== $request->storyName) {
+            @$body['StoryName'] = $request->storyName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateStory',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateStory',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateStoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the information about a story, such as the story name and cover image.
-     *  *
-     * @param UpdateStoryRequest $request UpdateStoryRequest
+     * Updates the information about a story, such as the story name and cover image.
      *
-     * @return UpdateStoryResponse UpdateStoryResponse
+     * @param request - UpdateStoryRequest
+     *
+     * @returns UpdateStoryResponse
+     *
+     * @param UpdateStoryRequest $request
+     *
+     * @return UpdateStoryResponse
      */
     public function updateStory($request)
     {
@@ -8174,73 +9990,92 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @summary Updates information about a trigger, such as the input data source, data processing settings, and tags.
-     *  *
-     * @description *   You can update only a trigger that is in the Ready or Failed state. The update operation does not change the trigger status.
-     * *   After you update a trigger, the uncompleted tasks under the original trigger are no longer executed. You can call the [ResumeTrigger](https://help.aliyun.com/document_detail/479916.html) operation to resume the execution of the trigger.
-     *  *
-     * @param UpdateTriggerRequest $tmpReq  UpdateTriggerRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Updates information about a trigger, such as the input data source, data processing settings, and tags.
      *
-     * @return UpdateTriggerResponse UpdateTriggerResponse
+     * @remarks
+     *   You can update only a trigger that is in the Ready or Failed state. The update operation does not change the trigger status.
+     * *   After you update a trigger, the uncompleted tasks under the original trigger are no longer executed. You can call the [ResumeTrigger](https://help.aliyun.com/document_detail/479916.html) operation to resume the execution of the trigger.
+     *
+     * @param tmpReq - UpdateTriggerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTriggerResponse
+     *
+     * @param UpdateTriggerRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateTriggerResponse
      */
     public function updateTriggerWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateTriggerShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->actions)) {
-            $request->actionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actions, 'Actions', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->actions) {
+            $request->actionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->actions, 'Actions', 'json');
         }
-        if (!Utils::isUnset($tmpReq->input)) {
-            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->actionsShrink)) {
-            $body['Actions'] = $request->actionsShrink;
+        if (null !== $request->actionsShrink) {
+            @$body['Actions'] = $request->actionsShrink;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->inputShrink)) {
-            $body['Input'] = $request->inputShrink;
+
+        if (null !== $request->inputShrink) {
+            @$body['Input'] = $request->inputShrink;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $body['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$body['Tags'] = $request->tagsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTrigger',
-            'version'     => '2020-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTrigger',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates information about a trigger, such as the input data source, data processing settings, and tags.
-     *  *
-     * @description *   You can update only a trigger that is in the Ready or Failed state. The update operation does not change the trigger status.
-     * *   After you update a trigger, the uncompleted tasks under the original trigger are no longer executed. You can call the [ResumeTrigger](https://help.aliyun.com/document_detail/479916.html) operation to resume the execution of the trigger.
-     *  *
-     * @param UpdateTriggerRequest $request UpdateTriggerRequest
+     * Updates information about a trigger, such as the input data source, data processing settings, and tags.
      *
-     * @return UpdateTriggerResponse UpdateTriggerResponse
+     * @remarks
+     *   You can update only a trigger that is in the Ready or Failed state. The update operation does not change the trigger status.
+     * *   After you update a trigger, the uncompleted tasks under the original trigger are no longer executed. You can call the [ResumeTrigger](https://help.aliyun.com/document_detail/479916.html) operation to resume the execution of the trigger.
+     *
+     * @param request - UpdateTriggerRequest
+     *
+     * @returns UpdateTriggerResponse
+     *
+     * @param UpdateTriggerRequest $request
+     *
+     * @return UpdateTriggerResponse
      */
     public function updateTrigger($request)
     {

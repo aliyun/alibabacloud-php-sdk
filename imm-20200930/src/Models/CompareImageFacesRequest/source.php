@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models\CompareImageFacesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class source extends Model
 {
     /**
-     * @description The OSS URL of the image file.
-     *
-     * Specify the URL in the `oss://<bucket>/<object>` format. `<bucket>` specifies the name of the OSS bucket that is in the same region as the current project. `<object>` specifies path of the object with the extension included.
-     * @example oss://test-bucket/test-object1
-     *
      * @var string
      */
     public $URI1;
 
     /**
-     * @description The OSS URL of the image file.
-     *
-     * Specify the URL in the `oss://<bucket>/<object>` format. `<bucket>` specifies the name of the OSS bucket that is in the same region as the current project, and `<object>` specifies the path of the object with the extension included.
-     * @example oss://test-bucket/test-object2
-     *
      * @var string
      */
     public $URI2;
@@ -34,14 +24,16 @@ class source extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->URI1) {
             $res['URI1'] = $this->URI1;
         }
+
         if (null !== $this->URI2) {
             $res['URI2'] = $this->URI2;
         }
@@ -49,17 +41,18 @@ class source extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return source
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['URI1'])) {
             $model->URI1 = $map['URI1'];
         }
+
         if (isset($map['URI2'])) {
             $model->URI2 = $map['URI2'];
         }

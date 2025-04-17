@@ -4,40 +4,39 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetFigureClusterResponseBody extends Model
 {
     /**
-     * @description The information about the face clustering task.
-     *
      * @var FigureCluster
      */
     public $figureCluster;
 
     /**
-     * @description The request ID.
-     *
-     * @example 5F74C5C9-5AC0-49F9-914D-E01589D3****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'figureCluster' => 'FigureCluster',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->figureCluster) {
+            $this->figureCluster->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->figureCluster) {
-            $res['FigureCluster'] = null !== $this->figureCluster ? $this->figureCluster->toMap() : null;
+            $res['FigureCluster'] = null !== $this->figureCluster ? $this->figureCluster->toArray($noStream) : $this->figureCluster;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +44,18 @@ class GetFigureClusterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFigureClusterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FigureCluster'])) {
             $model->figureCluster = FigureCluster::fromMap($map['FigureCluster']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

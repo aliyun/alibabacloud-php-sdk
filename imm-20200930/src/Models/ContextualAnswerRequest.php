@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ContextualAnswerRequest extends Model
 {
@@ -14,51 +14,54 @@ class ContextualAnswerRequest extends Model
     public $files;
 
     /**
-     * @description This parameter is required.
-     *
      * @var ContextualMessage[]
      */
     public $messages;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example test-project
-     *
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'files'       => 'Files',
-        'messages'    => 'Messages',
+        'files' => 'Files',
+        'messages' => 'Messages',
         'projectName' => 'ProjectName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->files)) {
+            Model::validateArray($this->files);
+        }
+        if (\is_array($this->messages)) {
+            Model::validateArray($this->messages);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->files) {
-            $res['Files'] = [];
-            if (null !== $this->files && \is_array($this->files)) {
-                $n = 0;
-                foreach ($this->files as $item) {
-                    $res['Files'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->files)) {
+                $res['Files'] = [];
+                $n1 = 0;
+                foreach ($this->files as $item1) {
+                    $res['Files'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->messages) {
-            $res['Messages'] = [];
-            if (null !== $this->messages && \is_array($this->messages)) {
-                $n = 0;
-                foreach ($this->messages as $item) {
-                    $res['Messages'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->messages)) {
+                $res['Messages'] = [];
+                $n1 = 0;
+                foreach ($this->messages as $item1) {
+                    $res['Messages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -66,32 +69,34 @@ class ContextualAnswerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ContextualAnswerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Files'])) {
             if (!empty($map['Files'])) {
                 $model->files = [];
-                $n            = 0;
-                foreach ($map['Files'] as $item) {
-                    $model->files[$n++] = null !== $item ? ContextualFile::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Files'] as $item1) {
+                    $model->files[$n1++] = ContextualFile::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Messages'])) {
             if (!empty($map['Messages'])) {
                 $model->messages = [];
-                $n               = 0;
-                foreach ($map['Messages'] as $item) {
-                    $model->messages[$n++] = null !== $item ? ContextualMessage::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Messages'] as $item1) {
+                    $model->messages[$n1++] = ContextualMessage::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }

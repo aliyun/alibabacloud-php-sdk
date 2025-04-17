@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models\CreateOfficeConversionTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sources extends Model
 {
@@ -19,19 +19,21 @@ class sources extends Model
     public $URI;
     protected $_name = [
         'rotate' => 'Rotate',
-        'URI'    => 'URI',
+        'URI' => 'URI',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rotate) {
             $res['Rotate'] = $this->rotate;
         }
+
         if (null !== $this->URI) {
             $res['URI'] = $this->URI;
         }
@@ -39,17 +41,18 @@ class sources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Rotate'])) {
             $model->rotate = $map['Rotate'];
         }
+
         if (isset($map['URI'])) {
             $model->URI = $map['URI'];
         }

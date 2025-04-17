@@ -4,40 +4,39 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetProjectResponseBody extends Model
 {
     /**
-     * @description The project.
-     *
      * @var Project
      */
     public $project;
 
     /**
-     * @description The request ID.
-     *
-     * @example 5A022F78-B9A8-4ACC-BB6B-B3597553
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'project'   => 'Project',
+        'project' => 'Project',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->project) {
+            $this->project->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->project) {
-            $res['Project'] = null !== $this->project ? $this->project->toMap() : null;
+            $res['Project'] = null !== $this->project ? $this->project->toArray($noStream) : $this->project;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +44,18 @@ class GetProjectResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetProjectResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Project'])) {
             $model->project = Project::fromMap($map['Project']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

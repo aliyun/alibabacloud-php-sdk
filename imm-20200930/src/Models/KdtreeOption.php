@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class KdtreeOption extends Model
 {
@@ -14,8 +14,6 @@ class KdtreeOption extends Model
     public $compressionLevel;
 
     /**
-     * @example draco
-     *
      * @var string
      */
     public $libraryName;
@@ -26,23 +24,26 @@ class KdtreeOption extends Model
     public $quantizationBits;
     protected $_name = [
         'compressionLevel' => 'CompressionLevel',
-        'libraryName'      => 'LibraryName',
+        'libraryName' => 'LibraryName',
         'quantizationBits' => 'QuantizationBits',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->compressionLevel) {
             $res['CompressionLevel'] = $this->compressionLevel;
         }
+
         if (null !== $this->libraryName) {
             $res['LibraryName'] = $this->libraryName;
         }
+
         if (null !== $this->quantizationBits) {
             $res['QuantizationBits'] = $this->quantizationBits;
         }
@@ -50,20 +51,22 @@ class KdtreeOption extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return KdtreeOption
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CompressionLevel'])) {
             $model->compressionLevel = $map['CompressionLevel'];
         }
+
         if (isset($map['LibraryName'])) {
             $model->libraryName = $map['LibraryName'];
         }
+
         if (isset($map['QuantizationBits'])) {
             $model->quantizationBits = $map['QuantizationBits'];
         }

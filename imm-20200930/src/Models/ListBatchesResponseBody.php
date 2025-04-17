@@ -4,60 +4,55 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListBatchesResponseBody extends Model
 {
     /**
-     * @description The batch processing tasks.
-     *
      * @var DataIngestion[]
      */
     public $batches;
 
     /**
-     * @description The pagination token.
-     *
-     * The pagination token is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter. The next call to the operation returns results lexicographically after the NextToken parameter value.
-     * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpw****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example FEDC9B1F-30F2-4C1F-8ED2-B7860187****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'batches'   => 'Batches',
+        'batches' => 'Batches',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->batches)) {
+            Model::validateArray($this->batches);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->batches) {
-            $res['Batches'] = [];
-            if (null !== $this->batches && \is_array($this->batches)) {
-                $n = 0;
-                foreach ($this->batches as $item) {
-                    $res['Batches'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->batches)) {
+                $res['Batches'] = [];
+                $n1 = 0;
+                foreach ($this->batches as $item1) {
+                    $res['Batches'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,26 +60,28 @@ class ListBatchesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListBatchesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Batches'])) {
             if (!empty($map['Batches'])) {
                 $model->batches = [];
-                $n              = 0;
-                foreach ($map['Batches'] as $item) {
-                    $model->batches[$n++] = null !== $item ? DataIngestion::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Batches'] as $item1) {
+                    $model->batches[$n1++] = DataIngestion::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

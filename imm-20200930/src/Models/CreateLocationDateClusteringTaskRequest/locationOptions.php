@@ -4,20 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models\CreateLocationDateClusteringTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class locationOptions extends Model
 {
     /**
-     * @description The administrative division levels. You can specify multiple administrative division levels.
-     *
-     * For example, you uploaded photos that were taken from March 3, 2024 to March 5, 2024 in Hangzhou and photos that were taken from March 6, 2024 to March 8, 2024 in Jiaxing. When you call the operation and set the parameter to `["city", "province"]`, the following spatiotemporal clusters are created from these photos:
-     *
-     *   March 3, 2024 to March 5, 2024, Hangzhou
-     *   March 6, 2024 to March 8, 2024, Jiaxing
-     *   March 3, 2024 to March 8, 2024, Zhejiang
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $locationDateClusterLevels;
@@ -27,29 +18,43 @@ class locationOptions extends Model
 
     public function validate()
     {
+        if (\is_array($this->locationDateClusterLevels)) {
+            Model::validateArray($this->locationDateClusterLevels);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->locationDateClusterLevels) {
-            $res['LocationDateClusterLevels'] = $this->locationDateClusterLevels;
+            if (\is_array($this->locationDateClusterLevels)) {
+                $res['LocationDateClusterLevels'] = [];
+                $n1 = 0;
+                foreach ($this->locationDateClusterLevels as $item1) {
+                    $res['LocationDateClusterLevels'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return locationOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LocationDateClusterLevels'])) {
             if (!empty($map['LocationDateClusterLevels'])) {
-                $model->locationDateClusterLevels = $map['LocationDateClusterLevels'];
+                $model->locationDateClusterLevels = [];
+                $n1 = 0;
+                foreach ($map['LocationDateClusterLevels'] as $item1) {
+                    $model->locationDateClusterLevels[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models\TargetAudio;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filterAudio extends Model
 {
@@ -18,9 +18,10 @@ class filterAudio extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mixing) {
@@ -30,11 +31,11 @@ class filterAudio extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filterAudio
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

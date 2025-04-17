@@ -4,121 +4,131 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateBatchRequest\actions;
-use AlibabaCloud\Tea\Model;
 
 class UpdateBatchRequest extends Model
 {
     /**
-     * @description The processing templates.
-     *
      * @var actions[]
      */
     public $actions;
 
     /**
-     * @description The ID of the batch processing task. You can obtain the ID of the batch processing task from the response of the [CreateBatch](https://help.aliyun.com/document_detail/606694.html) operation.
-     *
-     * This parameter is required.
-     * @example batch-4eb9223f-3e88-42d3-a578-3f2852******
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The input data source.
-     *
      * @var Input
      */
     public $input;
 
     /**
-     * @description The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
-     *
-     * This parameter is required.
-     * @example test-project
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description The custom tags. You can search for or filter asynchronous tasks by custom tag.
-     *
-     * @example {"key":"val"}
-     *
      * @var mixed[]
      */
     public $tags;
     protected $_name = [
-        'actions'     => 'Actions',
-        'id'          => 'Id',
-        'input'       => 'Input',
+        'actions' => 'Actions',
+        'id' => 'Id',
+        'input' => 'Input',
         'projectName' => 'ProjectName',
-        'tags'        => 'Tags',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        if (\is_array($this->actions)) {
+            Model::validateArray($this->actions);
+        }
+        if (null !== $this->input) {
+            $this->input->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actions) {
-            $res['Actions'] = [];
-            if (null !== $this->actions && \is_array($this->actions)) {
-                $n = 0;
-                foreach ($this->actions as $item) {
-                    $res['Actions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->actions)) {
+                $res['Actions'] = [];
+                $n1 = 0;
+                foreach ($this->actions as $item1) {
+                    $res['Actions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->input) {
-            $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
+            $res['Input'] = null !== $this->input ? $this->input->toArray($noStream) : $this->input;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                foreach ($this->tags as $key1 => $value1) {
+                    $res['Tags'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateBatchRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Actions'])) {
             if (!empty($map['Actions'])) {
                 $model->actions = [];
-                $n              = 0;
-                foreach ($map['Actions'] as $item) {
-                    $model->actions[$n++] = null !== $item ? actions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Actions'] as $item1) {
+                    $model->actions[$n1++] = actions::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Input'])) {
             $model->input = Input::fromMap($map['Input']);
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                foreach ($map['Tags'] as $key1 => $value1) {
+                    $model->tags[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

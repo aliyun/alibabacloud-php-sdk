@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchIndexFileMetaResponseBody extends Model
 {
     /**
-     * @description The event ID.
-     *
-     * @example 387-1DAPFFZplUZhuCuhnB6I9H****
-     *
      * @var string
      */
     public $eventId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 8F93E6D9-5AC0-49F9-914D-E02678A3****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'eventId'   => 'EventId',
+        'eventId' => 'EventId',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class BatchIndexFileMetaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchIndexFileMetaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

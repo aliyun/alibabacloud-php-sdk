@@ -4,97 +4,114 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchGetFileMetaRequest extends Model
 {
     /**
-     * @description The name of the dataset.[](~~478160~~)
-     *
-     * This parameter is required.
-     * @example test-dataset
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description The name of the project.[](~~478153~~)
-     *
-     * This parameter is required.
-     * @example test-project
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description The array of object URIs. You can specify up to 100 object URIs in an array.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $URIs;
 
     /**
-     * @description The fields to return. If you specify this parameter, only specified metadata fields are returned. You can use this parameter to control the size of the response.
-     *
-     * If you do not specify this parameter or leave this parameter empty, the operation returns all metadata fields.
      * @var string[]
      */
     public $withFields;
     protected $_name = [
         'datasetName' => 'DatasetName',
         'projectName' => 'ProjectName',
-        'URIs'        => 'URIs',
-        'withFields'  => 'WithFields',
+        'URIs' => 'URIs',
+        'withFields' => 'WithFields',
     ];
 
     public function validate()
     {
+        if (\is_array($this->URIs)) {
+            Model::validateArray($this->URIs);
+        }
+        if (\is_array($this->withFields)) {
+            Model::validateArray($this->withFields);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->URIs) {
-            $res['URIs'] = $this->URIs;
+            if (\is_array($this->URIs)) {
+                $res['URIs'] = [];
+                $n1 = 0;
+                foreach ($this->URIs as $item1) {
+                    $res['URIs'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->withFields) {
-            $res['WithFields'] = $this->withFields;
+            if (\is_array($this->withFields)) {
+                $res['WithFields'] = [];
+                $n1 = 0;
+                foreach ($this->withFields as $item1) {
+                    $res['WithFields'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchGetFileMetaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['URIs'])) {
             if (!empty($map['URIs'])) {
-                $model->URIs = $map['URIs'];
+                $model->URIs = [];
+                $n1 = 0;
+                foreach ($map['URIs'] as $item1) {
+                    $model->URIs[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['WithFields'])) {
             if (!empty($map['WithFields'])) {
-                $model->withFields = $map['WithFields'];
+                $model->withFields = [];
+                $n1 = 0;
+                foreach ($map['WithFields'] as $item1) {
+                    $model->withFields[$n1++] = $item1;
+                }
             }
         }
 

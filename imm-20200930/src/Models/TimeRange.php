@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TimeRange extends Model
 {
@@ -18,20 +18,22 @@ class TimeRange extends Model
      */
     public $start;
     protected $_name = [
-        'end'   => 'End',
+        'end' => 'End',
         'start' => 'Start',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->end) {
             $res['End'] = $this->end;
         }
+
         if (null !== $this->start) {
             $res['Start'] = $this->start;
         }
@@ -39,17 +41,18 @@ class TimeRange extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TimeRange
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['End'])) {
             $model->end = $map['End'];
         }
+
         if (isset($map['Start'])) {
             $model->start = $map['Start'];
         }

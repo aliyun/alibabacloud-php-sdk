@@ -4,93 +4,82 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateArchiveFileInspectionTaskRequest extends Model
 {
     /**
-     * @description **If you have no special requirements, leave this parameter empty.**
-     *
-     * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
      * @var CredentialConfig
      */
     public $credentialConfig;
 
     /**
-     * @description The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
-     *
      * @var Notification
      */
     public $notification;
 
     /**
-     * @description The password that protects the package. If the package is password-protected, you must provide the password to view the contents of the package.
-     *
-     * @example 123456
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @description The name of the project.[](~~478153~~)
-     *
-     * This parameter is required.
-     * @example immtest
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description The URI of the package.
-     *
-     * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
-     * @example oss://imm-apitest-fxf2/name.zip
-     *
      * @var string
      */
     public $sourceURI;
 
     /**
-     * @description The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
-     *
-     * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
-     *
      * @var string
      */
     public $userData;
     protected $_name = [
         'credentialConfig' => 'CredentialConfig',
-        'notification'     => 'Notification',
-        'password'         => 'Password',
-        'projectName'      => 'ProjectName',
-        'sourceURI'        => 'SourceURI',
-        'userData'         => 'UserData',
+        'notification' => 'Notification',
+        'password' => 'Password',
+        'projectName' => 'ProjectName',
+        'sourceURI' => 'SourceURI',
+        'userData' => 'UserData',
     ];
 
     public function validate()
     {
+        if (null !== $this->credentialConfig) {
+            $this->credentialConfig->validate();
+        }
+        if (null !== $this->notification) {
+            $this->notification->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->credentialConfig) {
-            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toArray($noStream) : $this->credentialConfig;
         }
+
         if (null !== $this->notification) {
-            $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
+            $res['Notification'] = null !== $this->notification ? $this->notification->toArray($noStream) : $this->notification;
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->sourceURI) {
             $res['SourceURI'] = $this->sourceURI;
         }
+
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -98,29 +87,34 @@ class CreateArchiveFileInspectionTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateArchiveFileInspectionTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
+
         if (isset($map['Notification'])) {
             $model->notification = Notification::fromMap($map['Notification']);
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['SourceURI'])) {
             $model->sourceURI = $map['SourceURI'];
         }
+
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }

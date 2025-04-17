@@ -4,46 +4,45 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetectImageFacesResponseBody extends Model
 {
     /**
-     * @description The faces.
-     *
      * @var Figure[]
      */
     public $faces;
 
     /**
-     * @description The request ID.
-     *
-     * @example 6E93D6C9-5AC0-49F9-914D-E02678D3****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'faces'     => 'Faces',
+        'faces' => 'Faces',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->faces)) {
+            Model::validateArray($this->faces);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->faces) {
-            $res['Faces'] = [];
-            if (null !== $this->faces && \is_array($this->faces)) {
-                $n = 0;
-                foreach ($this->faces as $item) {
-                    $res['Faces'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->faces)) {
+                $res['Faces'] = [];
+                $n1 = 0;
+                foreach ($this->faces as $item1) {
+                    $res['Faces'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,23 +50,24 @@ class DetectImageFacesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectImageFacesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Faces'])) {
             if (!empty($map['Faces'])) {
                 $model->faces = [];
-                $n            = 0;
-                foreach ($map['Faces'] as $item) {
-                    $model->faces[$n++] = null !== $item ? Figure::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Faces'] as $item1) {
+                    $model->faces[$n1++] = Figure::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

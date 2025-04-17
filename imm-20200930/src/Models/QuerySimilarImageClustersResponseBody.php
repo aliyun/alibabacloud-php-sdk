@@ -4,60 +4,55 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QuerySimilarImageClustersResponseBody extends Model
 {
     /**
-     * @description The pagination token. If the total number of clusters is greater than the value of MaxResults, this token can be used to retrieve the next page. This parameter has a value only if not all the clusters that meet the condition are returned.
-     *
-     * Pass this value as the value of NextToken in the next query to return the subsequent clusters.
-     * @example CAESEgoQCg4KClVwZGF0ZVRpbWUQARgBIs8ECgkAAJLUwUCAQ****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example CA995EFD-083D-4F40-BE8A-BDF75FFF****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The list of similar image clusters.
-     *
      * @var SimilarImageCluster[]
      */
     public $similarImageClusters;
     protected $_name = [
-        'nextToken'            => 'NextToken',
-        'requestId'            => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'similarImageClusters' => 'SimilarImageClusters',
     ];
 
     public function validate()
     {
+        if (\is_array($this->similarImageClusters)) {
+            Model::validateArray($this->similarImageClusters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->similarImageClusters) {
-            $res['SimilarImageClusters'] = [];
-            if (null !== $this->similarImageClusters && \is_array($this->similarImageClusters)) {
-                $n = 0;
-                foreach ($this->similarImageClusters as $item) {
-                    $res['SimilarImageClusters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->similarImageClusters)) {
+                $res['SimilarImageClusters'] = [];
+                $n1 = 0;
+                foreach ($this->similarImageClusters as $item1) {
+                    $res['SimilarImageClusters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -65,26 +60,28 @@ class QuerySimilarImageClustersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QuerySimilarImageClustersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SimilarImageClusters'])) {
             if (!empty($map['SimilarImageClusters'])) {
                 $model->similarImageClusters = [];
-                $n                           = 0;
-                foreach ($map['SimilarImageClusters'] as $item) {
-                    $model->similarImageClusters[$n++] = null !== $item ? SimilarImageCluster::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SimilarImageClusters'] as $item1) {
+                    $model->similarImageClusters[$n1++] = SimilarImageCluster::fromMap($item1);
                 }
             }
         }

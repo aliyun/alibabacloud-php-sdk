@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models\InputFile;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class figures extends Model
 {
@@ -24,23 +24,26 @@ class figures extends Model
     public $figureType;
     protected $_name = [
         'figureClusterId' => 'FigureClusterId',
-        'figureId'        => 'FigureId',
-        'figureType'      => 'FigureType',
+        'figureId' => 'FigureId',
+        'figureType' => 'FigureType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->figureClusterId) {
             $res['FigureClusterId'] = $this->figureClusterId;
         }
+
         if (null !== $this->figureId) {
             $res['FigureId'] = $this->figureId;
         }
+
         if (null !== $this->figureType) {
             $res['FigureType'] = $this->figureType;
         }
@@ -48,20 +51,22 @@ class figures extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return figures
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FigureClusterId'])) {
             $model->figureClusterId = $map['FigureClusterId'];
         }
+
         if (isset($map['FigureId'])) {
             $model->figureId = $map['FigureId'];
         }
+
         if (isset($map['FigureType'])) {
             $model->figureType = $map['FigureType'];
         }

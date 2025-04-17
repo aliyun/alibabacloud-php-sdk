@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Image extends Model
 {
@@ -39,47 +39,62 @@ class Image extends Model
     public $OCRContents;
     protected $_name = [
         'croppingSuggestions' => 'CroppingSuggestions',
-        'EXIF'                => 'EXIF',
-        'imageHeight'         => 'ImageHeight',
-        'imageScore'          => 'ImageScore',
-        'imageWidth'          => 'ImageWidth',
-        'OCRContents'         => 'OCRContents',
+        'EXIF' => 'EXIF',
+        'imageHeight' => 'ImageHeight',
+        'imageScore' => 'ImageScore',
+        'imageWidth' => 'ImageWidth',
+        'OCRContents' => 'OCRContents',
     ];
 
     public function validate()
     {
+        if (\is_array($this->croppingSuggestions)) {
+            Model::validateArray($this->croppingSuggestions);
+        }
+        if (null !== $this->imageScore) {
+            $this->imageScore->validate();
+        }
+        if (\is_array($this->OCRContents)) {
+            Model::validateArray($this->OCRContents);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->croppingSuggestions) {
-            $res['CroppingSuggestions'] = [];
-            if (null !== $this->croppingSuggestions && \is_array($this->croppingSuggestions)) {
-                $n = 0;
-                foreach ($this->croppingSuggestions as $item) {
-                    $res['CroppingSuggestions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->croppingSuggestions)) {
+                $res['CroppingSuggestions'] = [];
+                $n1 = 0;
+                foreach ($this->croppingSuggestions as $item1) {
+                    $res['CroppingSuggestions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->EXIF) {
             $res['EXIF'] = $this->EXIF;
         }
+
         if (null !== $this->imageHeight) {
             $res['ImageHeight'] = $this->imageHeight;
         }
+
         if (null !== $this->imageScore) {
-            $res['ImageScore'] = null !== $this->imageScore ? $this->imageScore->toMap() : null;
+            $res['ImageScore'] = null !== $this->imageScore ? $this->imageScore->toArray($noStream) : $this->imageScore;
         }
+
         if (null !== $this->imageWidth) {
             $res['ImageWidth'] = $this->imageWidth;
         }
+
         if (null !== $this->OCRContents) {
-            $res['OCRContents'] = [];
-            if (null !== $this->OCRContents && \is_array($this->OCRContents)) {
-                $n = 0;
-                foreach ($this->OCRContents as $item) {
-                    $res['OCRContents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->OCRContents)) {
+                $res['OCRContents'] = [];
+                $n1 = 0;
+                foreach ($this->OCRContents as $item1) {
+                    $res['OCRContents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -87,41 +102,46 @@ class Image extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Image
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CroppingSuggestions'])) {
             if (!empty($map['CroppingSuggestions'])) {
                 $model->croppingSuggestions = [];
-                $n                          = 0;
-                foreach ($map['CroppingSuggestions'] as $item) {
-                    $model->croppingSuggestions[$n++] = null !== $item ? CroppingSuggestion::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CroppingSuggestions'] as $item1) {
+                    $model->croppingSuggestions[$n1++] = CroppingSuggestion::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['EXIF'])) {
             $model->EXIF = $map['EXIF'];
         }
+
         if (isset($map['ImageHeight'])) {
             $model->imageHeight = $map['ImageHeight'];
         }
+
         if (isset($map['ImageScore'])) {
             $model->imageScore = ImageScore::fromMap($map['ImageScore']);
         }
+
         if (isset($map['ImageWidth'])) {
             $model->imageWidth = $map['ImageWidth'];
         }
+
         if (isset($map['OCRContents'])) {
             if (!empty($map['OCRContents'])) {
                 $model->OCRContents = [];
-                $n                  = 0;
-                foreach ($map['OCRContents'] as $item) {
-                    $model->OCRContents[$n++] = null !== $item ? OCRContents::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OCRContents'] as $item1) {
+                    $model->OCRContents[$n1++] = OCRContents::fromMap($item1);
                 }
             }
         }

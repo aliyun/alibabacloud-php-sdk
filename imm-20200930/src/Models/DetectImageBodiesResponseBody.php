@@ -4,46 +4,45 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetectImageBodiesResponseBody extends Model
 {
     /**
-     * @description The human bodies.
-     *
      * @var Body[]
      */
     public $bodies;
 
     /**
-     * @description The request ID.
-     *
-     * @example 501339F9-4B70-0CE2-AB8C-866C********
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'bodies'    => 'Bodies',
+        'bodies' => 'Bodies',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->bodies)) {
+            Model::validateArray($this->bodies);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bodies) {
-            $res['Bodies'] = [];
-            if (null !== $this->bodies && \is_array($this->bodies)) {
-                $n = 0;
-                foreach ($this->bodies as $item) {
-                    $res['Bodies'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->bodies)) {
+                $res['Bodies'] = [];
+                $n1 = 0;
+                foreach ($this->bodies as $item1) {
+                    $res['Bodies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,23 +50,24 @@ class DetectImageBodiesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectImageBodiesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bodies'])) {
             if (!empty($map['Bodies'])) {
                 $model->bodies = [];
-                $n             = 0;
-                foreach ($map['Bodies'] as $item) {
-                    $model->bodies[$n++] = null !== $item ? Body::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Bodies'] as $item1) {
+                    $model->bodies[$n1++] = Body::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

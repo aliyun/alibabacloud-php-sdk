@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ClusterForReq\cover;
-use AlibabaCloud\Tea\Model;
 
 class ClusterForReq extends Model
 {
@@ -34,32 +34,48 @@ class ClusterForReq extends Model
      */
     public $objectId;
     protected $_name = [
-        'cover'        => 'Cover',
-        'customId'     => 'CustomId',
+        'cover' => 'Cover',
+        'customId' => 'CustomId',
         'customLabels' => 'CustomLabels',
-        'name'         => 'Name',
-        'objectId'     => 'ObjectId',
+        'name' => 'Name',
+        'objectId' => 'ObjectId',
     ];
 
     public function validate()
     {
+        if (null !== $this->cover) {
+            $this->cover->validate();
+        }
+        if (\is_array($this->customLabels)) {
+            Model::validateArray($this->customLabels);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cover) {
-            $res['Cover'] = null !== $this->cover ? $this->cover->toMap() : null;
+            $res['Cover'] = null !== $this->cover ? $this->cover->toArray($noStream) : $this->cover;
         }
+
         if (null !== $this->customId) {
             $res['CustomId'] = $this->customId;
         }
+
         if (null !== $this->customLabels) {
-            $res['CustomLabels'] = $this->customLabels;
+            if (\is_array($this->customLabels)) {
+                $res['CustomLabels'] = [];
+                foreach ($this->customLabels as $key1 => $value1) {
+                    $res['CustomLabels'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->objectId) {
             $res['ObjectId'] = $this->objectId;
         }
@@ -67,26 +83,35 @@ class ClusterForReq extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ClusterForReq
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cover'])) {
             $model->cover = cover::fromMap($map['Cover']);
         }
+
         if (isset($map['CustomId'])) {
             $model->customId = $map['CustomId'];
         }
+
         if (isset($map['CustomLabels'])) {
-            $model->customLabels = $map['CustomLabels'];
+            if (!empty($map['CustomLabels'])) {
+                $model->customLabels = [];
+                foreach ($map['CustomLabels'] as $key1 => $value1) {
+                    $model->customLabels[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ObjectId'])) {
             $model->objectId = $map['ObjectId'];
         }

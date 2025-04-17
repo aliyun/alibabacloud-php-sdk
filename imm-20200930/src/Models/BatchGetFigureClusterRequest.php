@@ -4,56 +4,55 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchGetFigureClusterRequest extends Model
 {
     /**
-     * @description The name of the dataset.
-     *
-     * This parameter is required.
-     * @example test-dataset
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description The cluster IDs.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $objectIds;
 
     /**
-     * @description The name of the project.
-     *
-     * This parameter is required.
-     * @example test-project
-     *
      * @var string
      */
     public $projectName;
     protected $_name = [
         'datasetName' => 'DatasetName',
-        'objectIds'   => 'ObjectIds',
+        'objectIds' => 'ObjectIds',
         'projectName' => 'ProjectName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->objectIds)) {
+            Model::validateArray($this->objectIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
+
         if (null !== $this->objectIds) {
-            $res['ObjectIds'] = $this->objectIds;
+            if (\is_array($this->objectIds)) {
+                $res['ObjectIds'] = [];
+                $n1 = 0;
+                foreach ($this->objectIds as $item1) {
+                    $res['ObjectIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -61,22 +60,28 @@ class BatchGetFigureClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchGetFigureClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
+
         if (isset($map['ObjectIds'])) {
             if (!empty($map['ObjectIds'])) {
-                $model->objectIds = $map['ObjectIds'];
+                $model->objectIds = [];
+                $n1 = 0;
+                foreach ($map['ObjectIds'] as $item1) {
+                    $model->objectIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }

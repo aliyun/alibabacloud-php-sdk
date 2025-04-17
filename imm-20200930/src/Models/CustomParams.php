@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CustomParams extends Model
 {
     /**
-     * @example Normalize
-     *
      * @var string
      */
     public $name;
@@ -20,26 +18,31 @@ class CustomParams extends Model
      */
     public $properties;
     protected $_name = [
-        'name'       => 'Name',
+        'name' => 'Name',
         'properties' => 'Properties',
     ];
 
     public function validate()
     {
+        if (\is_array($this->properties)) {
+            Model::validateArray($this->properties);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->properties) {
-            $res['Properties'] = [];
-            if (null !== $this->properties && \is_array($this->properties)) {
-                $n = 0;
-                foreach ($this->properties as $item) {
-                    $res['Properties'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->properties)) {
+                $res['Properties'] = [];
+                $n1 = 0;
+                foreach ($this->properties as $item1) {
+                    $res['Properties'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -47,23 +50,24 @@ class CustomParams extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CustomParams
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Properties'])) {
             if (!empty($map['Properties'])) {
                 $model->properties = [];
-                $n                 = 0;
-                foreach ($map['Properties'] as $item) {
-                    $model->properties[$n++] = null !== $item ? Property::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Properties'] as $item1) {
+                    $model->properties[$n1++] = Property::fromMap($item1);
                 }
             }
         }

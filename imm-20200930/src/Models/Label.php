@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Label extends Model
 {
@@ -38,36 +38,42 @@ class Label extends Model
      */
     public $parentLabelName;
     protected $_name = [
-        'centricScore'    => 'CentricScore',
+        'centricScore' => 'CentricScore',
         'labelConfidence' => 'LabelConfidence',
-        'labelLevel'      => 'LabelLevel',
-        'labelName'       => 'LabelName',
-        'language'        => 'Language',
+        'labelLevel' => 'LabelLevel',
+        'labelName' => 'LabelName',
+        'language' => 'Language',
         'parentLabelName' => 'ParentLabelName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->centricScore) {
             $res['CentricScore'] = $this->centricScore;
         }
+
         if (null !== $this->labelConfidence) {
             $res['LabelConfidence'] = $this->labelConfidence;
         }
+
         if (null !== $this->labelLevel) {
             $res['LabelLevel'] = $this->labelLevel;
         }
+
         if (null !== $this->labelName) {
             $res['LabelName'] = $this->labelName;
         }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+
         if (null !== $this->parentLabelName) {
             $res['ParentLabelName'] = $this->parentLabelName;
         }
@@ -75,29 +81,34 @@ class Label extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Label
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CentricScore'])) {
             $model->centricScore = $map['CentricScore'];
         }
+
         if (isset($map['LabelConfidence'])) {
             $model->labelConfidence = $map['LabelConfidence'];
         }
+
         if (isset($map['LabelLevel'])) {
             $model->labelLevel = $map['LabelLevel'];
         }
+
         if (isset($map['LabelName'])) {
             $model->labelName = $map['LabelName'];
         }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+
         if (isset($map['ParentLabelName'])) {
             $model->parentLabelName = $map['ParentLabelName'];
         }

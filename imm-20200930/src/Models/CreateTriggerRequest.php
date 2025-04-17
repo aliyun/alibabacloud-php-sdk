@@ -4,139 +4,149 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateTriggerRequest\actions;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateTriggerRequest\notification;
-use AlibabaCloud\Tea\Model;
 
 class CreateTriggerRequest extends Model
 {
     /**
-     * @description The processing templates.
-     *
-     * This parameter is required.
      * @var actions[]
      */
     public $actions;
 
     /**
-     * @description The data source configurations.
-     *
-     * This parameter is required.
      * @var Input
      */
     public $input;
 
     /**
-     * @description The notification settings. The operation supports multiple messaging middleware options. For more information about notification messages, see Asynchronous message examples. You can use one of the following methods to receive notification messages:
-     *
-     * Activate and connect to EventBridge in the same region as the IMM project. For more information, see IMM events. Activate Simple Message Queue in the same region as the IMM project and configure a subscription.
      * @var notification
      */
     public $notification;
 
     /**
-     * @description The name of the project.[](~~478153~~)
-     *
-     * This parameter is required.
-     * @example test-project
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description The service role. IMM assumes the service role so that it can access resources in other cloud services, such as OSS. Default value: AliyunIMMBatchTriggerRole.
-     *
-     * This parameter is required.
-     * @example AliyunIMMDefaultRole
-     *
      * @var string
      */
     public $serviceRole;
 
     /**
-     * @description The custom tags. You can search for or filter asynchronous tasks by custom tag.
-     *
-     * @example {"key":"val"}
-     *
      * @var mixed[]
      */
     public $tags;
     protected $_name = [
-        'actions'      => 'Actions',
-        'input'        => 'Input',
+        'actions' => 'Actions',
+        'input' => 'Input',
         'notification' => 'Notification',
-        'projectName'  => 'ProjectName',
-        'serviceRole'  => 'ServiceRole',
-        'tags'         => 'Tags',
+        'projectName' => 'ProjectName',
+        'serviceRole' => 'ServiceRole',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        if (\is_array($this->actions)) {
+            Model::validateArray($this->actions);
+        }
+        if (null !== $this->input) {
+            $this->input->validate();
+        }
+        if (null !== $this->notification) {
+            $this->notification->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actions) {
-            $res['Actions'] = [];
-            if (null !== $this->actions && \is_array($this->actions)) {
-                $n = 0;
-                foreach ($this->actions as $item) {
-                    $res['Actions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->actions)) {
+                $res['Actions'] = [];
+                $n1 = 0;
+                foreach ($this->actions as $item1) {
+                    $res['Actions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->input) {
-            $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
+            $res['Input'] = null !== $this->input ? $this->input->toArray($noStream) : $this->input;
         }
+
         if (null !== $this->notification) {
-            $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
+            $res['Notification'] = null !== $this->notification ? $this->notification->toArray($noStream) : $this->notification;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->serviceRole) {
             $res['ServiceRole'] = $this->serviceRole;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                foreach ($this->tags as $key1 => $value1) {
+                    $res['Tags'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTriggerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Actions'])) {
             if (!empty($map['Actions'])) {
                 $model->actions = [];
-                $n              = 0;
-                foreach ($map['Actions'] as $item) {
-                    $model->actions[$n++] = null !== $item ? actions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Actions'] as $item1) {
+                    $model->actions[$n1++] = actions::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Input'])) {
             $model->input = Input::fromMap($map['Input']);
         }
+
         if (isset($map['Notification'])) {
             $model->notification = notification::fromMap($map['Notification']);
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['ServiceRole'])) {
             $model->serviceRole = $map['ServiceRole'];
         }
+
         if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                foreach ($map['Tags'] as $key1 => $value1) {
+                    $model->tags[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

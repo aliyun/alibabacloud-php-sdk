@@ -4,61 +4,71 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models\UpdateTriggerRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class actions extends Model
 {
     /**
-     * @description The template name.
-     *
-     * @example doc/convert
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The template parameters.
-     *
      * @var string[]
      */
     public $parameters;
     protected $_name = [
-        'name'       => 'Name',
+        'name' => 'Name',
         'parameters' => 'Parameters',
     ];
 
     public function validate()
     {
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                $n1 = 0;
+                foreach ($this->parameters as $item1) {
+                    $res['Parameters'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return actions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
-                $model->parameters = $map['Parameters'];
+                $model->parameters = [];
+                $n1 = 0;
+                foreach ($map['Parameters'] as $item1) {
+                    $model->parameters[$n1++] = $item1;
+                }
             }
         }
 

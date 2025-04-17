@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models\FigureClusterForReq;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imm\V20200930\Models\FigureClusterForReq\cover\figures;
-use AlibabaCloud\Tea\Model;
 
 class cover extends Model
 {
@@ -19,17 +19,21 @@ class cover extends Model
 
     public function validate()
     {
+        if (\is_array($this->figures)) {
+            Model::validateArray($this->figures);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->figures) {
-            $res['Figures'] = [];
-            if (null !== $this->figures && \is_array($this->figures)) {
-                $n = 0;
-                foreach ($this->figures as $item) {
-                    $res['Figures'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->figures)) {
+                $res['Figures'] = [];
+                $n1 = 0;
+                foreach ($this->figures as $item1) {
+                    $res['Figures'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class cover extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cover
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Figures'])) {
             if (!empty($map['Figures'])) {
                 $model->figures = [];
-                $n              = 0;
-                foreach ($map['Figures'] as $item) {
-                    $model->figures[$n++] = null !== $item ? figures::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Figures'] as $item1) {
+                    $model->figures[$n1++] = figures::fromMap($item1);
                 }
             }
         }

@@ -4,47 +4,45 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetectImageCodesResponseBody extends Model
 {
     /**
-     * @description The barcodes or QR codes.
-     *
-     * This parameter is required.
      * @var Codes[]
      */
     public $codes;
 
     /**
-     * @description The request ID.
-     *
-     * @example 6E93D6C9-5AC0-49F9-914D-E02678D3****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'codes'     => 'Codes',
+        'codes' => 'Codes',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->codes)) {
+            Model::validateArray($this->codes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->codes) {
-            $res['Codes'] = [];
-            if (null !== $this->codes && \is_array($this->codes)) {
-                $n = 0;
-                foreach ($this->codes as $item) {
-                    $res['Codes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->codes)) {
+                $res['Codes'] = [];
+                $n1 = 0;
+                foreach ($this->codes as $item1) {
+                    $res['Codes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DetectImageCodesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectImageCodesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Codes'])) {
             if (!empty($map['Codes'])) {
                 $model->codes = [];
-                $n            = 0;
-                foreach ($map['Codes'] as $item) {
-                    $model->codes[$n++] = null !== $item ? Codes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Codes'] as $item1) {
+                    $model->codes[$n1++] = Codes::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

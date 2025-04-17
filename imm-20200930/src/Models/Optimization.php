@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Optimization extends Model
 {
     /**
-     * @example 0.01
-     *
      * @var float
      */
     public $learningRate;
 
     /**
-     * @example SGD
-     *
      * @var string
      */
     public $optimizer;
     protected $_name = [
         'learningRate' => 'LearningRate',
-        'optimizer'    => 'Optimizer',
+        'optimizer' => 'Optimizer',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->learningRate) {
             $res['LearningRate'] = $this->learningRate;
         }
+
         if (null !== $this->optimizer) {
             $res['Optimizer'] = $this->optimizer;
         }
@@ -43,17 +41,18 @@ class Optimization extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Optimization
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LearningRate'])) {
             $model->learningRate = $map['LearningRate'];
         }
+
         if (isset($map['Optimizer'])) {
             $model->optimizer = $map['Optimizer'];
         }

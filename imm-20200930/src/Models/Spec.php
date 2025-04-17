@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Spec extends Model
 {
@@ -14,8 +14,6 @@ class Spec extends Model
     public $backbone;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $classNum;
@@ -26,8 +24,6 @@ class Spec extends Model
     public $head;
 
     /**
-     * @example 3
-     *
      * @var int
      */
     public $inputChannel;
@@ -38,10 +34,6 @@ class Spec extends Model
     public $loss;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ClsResNet
-     *
      * @var string
      */
     public $name;
@@ -52,61 +44,78 @@ class Spec extends Model
     public $neck;
 
     /**
-     * @example 5
-     *
      * @var int
      */
     public $numLandmarks;
 
     /**
-     * @example oss://bucket/abc/xxx.json
-     *
      * @var string
      */
     public $pretrainedPath;
     protected $_name = [
-        'backbone'       => 'Backbone',
-        'classNum'       => 'ClassNum',
-        'head'           => 'Head',
-        'inputChannel'   => 'InputChannel',
-        'loss'           => 'Loss',
-        'name'           => 'Name',
-        'neck'           => 'Neck',
-        'numLandmarks'   => 'NumLandmarks',
+        'backbone' => 'Backbone',
+        'classNum' => 'ClassNum',
+        'head' => 'Head',
+        'inputChannel' => 'InputChannel',
+        'loss' => 'Loss',
+        'name' => 'Name',
+        'neck' => 'Neck',
+        'numLandmarks' => 'NumLandmarks',
         'pretrainedPath' => 'PretrainedPath',
     ];
 
     public function validate()
     {
+        if (null !== $this->backbone) {
+            $this->backbone->validate();
+        }
+        if (null !== $this->head) {
+            $this->head->validate();
+        }
+        if (null !== $this->loss) {
+            $this->loss->validate();
+        }
+        if (null !== $this->neck) {
+            $this->neck->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backbone) {
-            $res['Backbone'] = null !== $this->backbone ? $this->backbone->toMap() : null;
+            $res['Backbone'] = null !== $this->backbone ? $this->backbone->toArray($noStream) : $this->backbone;
         }
+
         if (null !== $this->classNum) {
             $res['ClassNum'] = $this->classNum;
         }
+
         if (null !== $this->head) {
-            $res['Head'] = null !== $this->head ? $this->head->toMap() : null;
+            $res['Head'] = null !== $this->head ? $this->head->toArray($noStream) : $this->head;
         }
+
         if (null !== $this->inputChannel) {
             $res['InputChannel'] = $this->inputChannel;
         }
+
         if (null !== $this->loss) {
-            $res['Loss'] = null !== $this->loss ? $this->loss->toMap() : null;
+            $res['Loss'] = null !== $this->loss ? $this->loss->toArray($noStream) : $this->loss;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->neck) {
-            $res['Neck'] = null !== $this->neck ? $this->neck->toMap() : null;
+            $res['Neck'] = null !== $this->neck ? $this->neck->toArray($noStream) : $this->neck;
         }
+
         if (null !== $this->numLandmarks) {
             $res['NumLandmarks'] = $this->numLandmarks;
         }
+
         if (null !== $this->pretrainedPath) {
             $res['PretrainedPath'] = $this->pretrainedPath;
         }
@@ -114,38 +123,46 @@ class Spec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Spec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Backbone'])) {
             $model->backbone = CustomParams::fromMap($map['Backbone']);
         }
+
         if (isset($map['ClassNum'])) {
             $model->classNum = $map['ClassNum'];
         }
+
         if (isset($map['Head'])) {
             $model->head = CustomParams::fromMap($map['Head']);
         }
+
         if (isset($map['InputChannel'])) {
             $model->inputChannel = $map['InputChannel'];
         }
+
         if (isset($map['Loss'])) {
             $model->loss = CustomParams::fromMap($map['Loss']);
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Neck'])) {
             $model->neck = CustomParams::fromMap($map['Neck']);
         }
+
         if (isset($map['NumLandmarks'])) {
             $model->numLandmarks = $map['NumLandmarks'];
         }
+
         if (isset($map['PretrainedPath'])) {
             $model->pretrainedPath = $map['PretrainedPath'];
         }

@@ -4,57 +4,55 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetectImageTextsResponseBody extends Model
 {
     /**
-     * @description OCR text blocks.
-     *
      * @var OCRContents[]
      */
     public $OCRContents;
 
     /**
-     * @description The full Optical Character Recognition (OCR) text, which is spliced by using the content of OCRContents.
-     *
      * @var string
      */
     public $OCRTexts;
 
     /**
-     * @description The request ID.
-     *
-     * @example 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'OCRContents' => 'OCRContents',
-        'OCRTexts'    => 'OCRTexts',
-        'requestId'   => 'RequestId',
+        'OCRTexts' => 'OCRTexts',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->OCRContents)) {
+            Model::validateArray($this->OCRContents);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->OCRContents) {
-            $res['OCRContents'] = [];
-            if (null !== $this->OCRContents && \is_array($this->OCRContents)) {
-                $n = 0;
-                foreach ($this->OCRContents as $item) {
-                    $res['OCRContents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->OCRContents)) {
+                $res['OCRContents'] = [];
+                $n1 = 0;
+                foreach ($this->OCRContents as $item1) {
+                    $res['OCRContents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->OCRTexts) {
             $res['OCRTexts'] = $this->OCRTexts;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,26 +60,28 @@ class DetectImageTextsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectImageTextsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OCRContents'])) {
             if (!empty($map['OCRContents'])) {
                 $model->OCRContents = [];
-                $n                  = 0;
-                foreach ($map['OCRContents'] as $item) {
-                    $model->OCRContents[$n++] = null !== $item ? OCRContents::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OCRContents'] as $item1) {
+                    $model->OCRContents[$n1++] = OCRContents::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['OCRTexts'])) {
             $model->OCRTexts = $map['OCRTexts'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

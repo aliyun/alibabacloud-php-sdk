@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Codes extends Model
 {
@@ -28,28 +28,35 @@ class Codes extends Model
      */
     public $type;
     protected $_name = [
-        'boundary'   => 'Boundary',
+        'boundary' => 'Boundary',
         'confidence' => 'Confidence',
-        'content'    => 'Content',
-        'type'       => 'Type',
+        'content' => 'Content',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (null !== $this->boundary) {
+            $this->boundary->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->boundary) {
-            $res['Boundary'] = null !== $this->boundary ? $this->boundary->toMap() : null;
+            $res['Boundary'] = null !== $this->boundary ? $this->boundary->toArray($noStream) : $this->boundary;
         }
+
         if (null !== $this->confidence) {
             $res['Confidence'] = $this->confidence;
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -57,23 +64,26 @@ class Codes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Codes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Boundary'])) {
             $model->boundary = Boundary::fromMap($map['Boundary']);
         }
+
         if (isset($map['Confidence'])) {
             $model->confidence = $map['Confidence'];
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

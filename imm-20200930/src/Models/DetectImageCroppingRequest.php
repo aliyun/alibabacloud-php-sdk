@@ -4,74 +4,59 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetectImageCroppingRequest extends Model
 {
     /**
-     * @description The cropping ratios. You can specify up to five cropping ratios. Take note of the following requirements:
-     *
-     *   The ratio must be an integer between 0 and 20.
-     *   The ratio must range from 0.5 to 2.
-     *   If you leave this parameter empty, the default processing logic is `["auto"]`.
-     *
-     * The ratio is beyond the range of 0.5 to 2.
-     * @example ["1:1"]
-     *
      * @var string
      */
     public $aspectRatios;
 
     /**
-     * @description **If you do not have special requirements, leave this parameter empty.**
-     *
-     * The authorization chain. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
      * @var CredentialConfig
      */
     public $credentialConfig;
 
     /**
-     * @description The name of the project.
-     *
-     * This parameter is required.
-     * @example immtest
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description The URI of the Object Storage Service (OSS) bucket in which you store the image.
-     *
-     * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the image file that has an extension.
-     * @example oss://imm-test/testcases/facetest.jpg
-     *
      * @var string
      */
     public $sourceURI;
     protected $_name = [
-        'aspectRatios'     => 'AspectRatios',
+        'aspectRatios' => 'AspectRatios',
         'credentialConfig' => 'CredentialConfig',
-        'projectName'      => 'ProjectName',
-        'sourceURI'        => 'SourceURI',
+        'projectName' => 'ProjectName',
+        'sourceURI' => 'SourceURI',
     ];
 
     public function validate()
     {
+        if (null !== $this->credentialConfig) {
+            $this->credentialConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aspectRatios) {
             $res['AspectRatios'] = $this->aspectRatios;
         }
+
         if (null !== $this->credentialConfig) {
-            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toMap() : null;
+            $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toArray($noStream) : $this->credentialConfig;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->sourceURI) {
             $res['SourceURI'] = $this->sourceURI;
         }
@@ -79,23 +64,26 @@ class DetectImageCroppingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectImageCroppingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AspectRatios'])) {
             $model->aspectRatios = $map['AspectRatios'];
         }
+
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['SourceURI'])) {
             $model->sourceURI = $map['SourceURI'];
         }

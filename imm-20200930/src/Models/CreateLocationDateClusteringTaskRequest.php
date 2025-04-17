@@ -4,107 +4,105 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateLocationDateClusteringTaskRequest\dateOptions;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateLocationDateClusteringTaskRequest\locationOptions;
-use AlibabaCloud\Tea\Model;
 
 class CreateLocationDateClusteringTaskRequest extends Model
 {
     /**
-     * @description The name of the dataset.[](~~478160~~)
-     *
-     * This parameter is required.
-     * @example test-dataset
-     *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description The date configurations for clustering.
-     *
-     * This parameter is required.
      * @var dateOptions
      */
     public $dateOptions;
 
     /**
-     * @description The geolocation configurations for clustering.
-     *
-     * This parameter is required.
      * @var locationOptions
      */
     public $locationOptions;
 
     /**
-     * @description The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
-     *
      * @var Notification
      */
     public $notification;
 
     /**
-     * @description The name of the project.[](~~478153~~)
-     *
-     * This parameter is required.
-     * @example test-project
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description The custom tags. You can search for or filter asynchronous tasks by custom tag.
-     *
-     * @example {
-     * }
      * @var mixed[]
      */
     public $tags;
 
     /**
-     * @description The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
-     *
-     * @example test-data
-     *
      * @var string
      */
     public $userData;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'dateOptions'     => 'DateOptions',
+        'datasetName' => 'DatasetName',
+        'dateOptions' => 'DateOptions',
         'locationOptions' => 'LocationOptions',
-        'notification'    => 'Notification',
-        'projectName'     => 'ProjectName',
-        'tags'            => 'Tags',
-        'userData'        => 'UserData',
+        'notification' => 'Notification',
+        'projectName' => 'ProjectName',
+        'tags' => 'Tags',
+        'userData' => 'UserData',
     ];
 
     public function validate()
     {
+        if (null !== $this->dateOptions) {
+            $this->dateOptions->validate();
+        }
+        if (null !== $this->locationOptions) {
+            $this->locationOptions->validate();
+        }
+        if (null !== $this->notification) {
+            $this->notification->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
+
         if (null !== $this->dateOptions) {
-            $res['DateOptions'] = null !== $this->dateOptions ? $this->dateOptions->toMap() : null;
+            $res['DateOptions'] = null !== $this->dateOptions ? $this->dateOptions->toArray($noStream) : $this->dateOptions;
         }
+
         if (null !== $this->locationOptions) {
-            $res['LocationOptions'] = null !== $this->locationOptions ? $this->locationOptions->toMap() : null;
+            $res['LocationOptions'] = null !== $this->locationOptions ? $this->locationOptions->toArray($noStream) : $this->locationOptions;
         }
+
         if (null !== $this->notification) {
-            $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
+            $res['Notification'] = null !== $this->notification ? $this->notification->toArray($noStream) : $this->notification;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                foreach ($this->tags as $key1 => $value1) {
+                    $res['Tags'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -112,32 +110,43 @@ class CreateLocationDateClusteringTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateLocationDateClusteringTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
+
         if (isset($map['DateOptions'])) {
             $model->dateOptions = dateOptions::fromMap($map['DateOptions']);
         }
+
         if (isset($map['LocationOptions'])) {
             $model->locationOptions = locationOptions::fromMap($map['LocationOptions']);
         }
+
         if (isset($map['Notification'])) {
             $model->notification = Notification::fromMap($map['Notification']);
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                foreach ($map['Tags'] as $key1 => $value1) {
+                    $model->tags[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }

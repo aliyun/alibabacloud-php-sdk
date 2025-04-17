@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models\CreateTriggerRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imm\V20200930\Models\MNS;
-use AlibabaCloud\Tea\Model;
 
 class notification extends Model
 {
     /**
-     * @description The Simple Message Queue notification message configurations.
-     *
      * @var MNS
      */
     public $MNS;
@@ -21,23 +19,27 @@ class notification extends Model
 
     public function validate()
     {
+        if (null !== $this->MNS) {
+            $this->MNS->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->MNS) {
-            $res['MNS'] = null !== $this->MNS ? $this->MNS->toMap() : null;
+            $res['MNS'] = null !== $this->MNS ? $this->MNS->toArray($noStream) : $this->MNS;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notification
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

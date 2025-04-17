@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models\CreateFacesSearchingTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sources extends Model
 {
     /**
-     * @description The OSS URI of the image.
-     *
-     * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
-     * @example oss://test-bucket/test-object
-     *
      * @var string
      */
     public $URI;
@@ -23,9 +18,10 @@ class sources extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->URI) {
@@ -35,11 +31,11 @@ class sources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

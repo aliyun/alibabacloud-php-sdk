@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetectImageCroppingResponseBody extends Model
 {
     /**
-     * @description The image croppings.
-     *
      * @var CroppingSuggestion[]
      */
     public $croppings;
 
     /**
-     * @description The request ID.
-     *
-     * @example 91AC8C98-0F36-49D2-8290-742E24D*****
-     *
      * @var string
      */
     public $requestId;
@@ -30,20 +24,25 @@ class DetectImageCroppingResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->croppings)) {
+            Model::validateArray($this->croppings);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->croppings) {
-            $res['Croppings'] = [];
-            if (null !== $this->croppings && \is_array($this->croppings)) {
-                $n = 0;
-                foreach ($this->croppings as $item) {
-                    $res['Croppings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->croppings)) {
+                $res['Croppings'] = [];
+                $n1 = 0;
+                foreach ($this->croppings as $item1) {
+                    $res['Croppings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,23 +50,24 @@ class DetectImageCroppingResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectImageCroppingResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Croppings'])) {
             if (!empty($map['Croppings'])) {
                 $model->croppings = [];
-                $n                = 0;
-                foreach ($map['Croppings'] as $item) {
-                    $model->croppings[$n++] = null !== $item ? CroppingSuggestion::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Croppings'] as $item1) {
+                    $model->croppings[$n1++] = CroppingSuggestion::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

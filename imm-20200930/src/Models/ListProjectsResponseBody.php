@@ -4,59 +4,55 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListProjectsResponseBody extends Model
 {
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-     *
-     * @example MTIzNDU2Nzg6aW1tdGVzdDAx
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The projects.
-     *
      * @var Project[]
      */
     public $projects;
 
     /**
-     * @description The request ID.
-     *
-     * @example 4A7A2D0E-D8B8-4DA0-8127-EB32C660
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'nextToken' => 'NextToken',
-        'projects'  => 'Projects',
+        'projects' => 'Projects',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->projects)) {
+            Model::validateArray($this->projects);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->projects) {
-            $res['Projects'] = [];
-            if (null !== $this->projects && \is_array($this->projects)) {
-                $n = 0;
-                foreach ($this->projects as $item) {
-                    $res['Projects'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->projects)) {
+                $res['Projects'] = [];
+                $n1 = 0;
+                foreach ($this->projects as $item1) {
+                    $res['Projects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -64,26 +60,28 @@ class ListProjectsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListProjectsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Projects'])) {
             if (!empty($map['Projects'])) {
                 $model->projects = [];
-                $n               = 0;
-                foreach ($map['Projects'] as $item) {
-                    $model->projects[$n++] = null !== $item ? Project::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Projects'] as $item1) {
+                    $model->projects[$n1++] = Project::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

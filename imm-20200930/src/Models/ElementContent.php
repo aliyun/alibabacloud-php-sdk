@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ElementContent extends Model
 {
@@ -28,28 +28,41 @@ class ElementContent extends Model
      */
     public $URL;
     protected $_name = [
-        'content'   => 'Content',
+        'content' => 'Content',
         'timeRange' => 'TimeRange',
-        'type'      => 'Type',
-        'URL'       => 'URL',
+        'type' => 'Type',
+        'URL' => 'URL',
     ];
 
     public function validate()
     {
+        if (\is_array($this->timeRange)) {
+            Model::validateArray($this->timeRange);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->timeRange) {
-            $res['TimeRange'] = $this->timeRange;
+            if (\is_array($this->timeRange)) {
+                $res['TimeRange'] = [];
+                $n1 = 0;
+                foreach ($this->timeRange as $item1) {
+                    $res['TimeRange'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->URL) {
             $res['URL'] = $this->URL;
         }
@@ -57,25 +70,32 @@ class ElementContent extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ElementContent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['TimeRange'])) {
             if (!empty($map['TimeRange'])) {
-                $model->timeRange = $map['TimeRange'];
+                $model->timeRange = [];
+                $n1 = 0;
+                foreach ($map['TimeRange'] as $item1) {
+                    $model->timeRange[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['URL'])) {
             $model->URL = $map['URL'];
         }

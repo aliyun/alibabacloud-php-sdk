@@ -4,60 +4,55 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTriggersResponseBody extends Model
 {
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
-     *
-     * If NextToken is empty, no next page exists.
-     * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example F480BFAF-E778-5079-93AD-1E4631******
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The triggers.
-     *
      * @var DataIngestion[]
      */
     public $triggers;
     protected $_name = [
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
-        'triggers'  => 'Triggers',
+        'triggers' => 'Triggers',
     ];
 
     public function validate()
     {
+        if (\is_array($this->triggers)) {
+            Model::validateArray($this->triggers);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->triggers) {
-            $res['Triggers'] = [];
-            if (null !== $this->triggers && \is_array($this->triggers)) {
-                $n = 0;
-                foreach ($this->triggers as $item) {
-                    $res['Triggers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->triggers)) {
+                $res['Triggers'] = [];
+                $n1 = 0;
+                foreach ($this->triggers as $item1) {
+                    $res['Triggers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -65,26 +60,28 @@ class ListTriggersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTriggersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Triggers'])) {
             if (!empty($map['Triggers'])) {
                 $model->triggers = [];
-                $n               = 0;
-                foreach ($map['Triggers'] as $item) {
-                    $model->triggers[$n++] = null !== $item ? DataIngestion::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Triggers'] as $item1) {
+                    $model->triggers[$n1++] = DataIngestion::fromMap($item1);
                 }
             }
         }

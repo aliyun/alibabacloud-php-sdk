@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SuspendTriggerRequest extends Model
 {
     /**
-     * @description The ID of the trigger.[](~~479912~~)
-     *
-     * This parameter is required.
-     * @example trigger-9f72636a-0f0c-4baf-ae78-38b27b******
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The name of the project.[](~~478153~~)
-     *
-     * This parameter is required.
-     * @example test-project
-     *
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'id'          => 'Id',
+        'id' => 'Id',
         'projectName' => 'ProjectName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -49,17 +41,18 @@ class SuspendTriggerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SuspendTriggerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }

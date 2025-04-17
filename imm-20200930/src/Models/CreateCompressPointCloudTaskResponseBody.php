@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCompressPointCloudTaskResponseBody extends Model
 {
     /**
-     * @description The event ID.
-     *
-     * @example 0B7-1LR4Wcue1aBhk2xT85MfL*****
-     *
      * @var string
      */
     public $eventId;
 
     /**
-     * @description The request ID.
-     *
-     * @example CA995EFD-083D-4F40-BE8A-BDF75FFF****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The task ID.
-     *
-     * @example PointCloudCompress-badda57d-a3ab-4e6d-938f-49b77ce****
-     *
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'eventId'   => 'EventId',
+        'eventId' => 'EventId',
         'requestId' => 'RequestId',
-        'taskId'    => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -60,20 +51,22 @@ class CreateCompressPointCloudTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCompressPointCloudTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
