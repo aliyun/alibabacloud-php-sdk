@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Gwlb\V20240415\Models\CreateServerGroupRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class healthCheckConfig extends Model
 {
     /**
-     * @example 80
-     *
      * @var int
      */
     public $healthCheckConnectPort;
 
     /**
-     * @example 5
-     *
      * @var int
      */
     public $healthCheckConnectTimeout;
 
     /**
-     * @example $SERVER_IP
-     *
      * @var string
      */
     public $healthCheckDomain;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $healthCheckEnabled;
@@ -42,86 +34,95 @@ class healthCheckConfig extends Model
     public $healthCheckHttpCode;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $healthCheckInterval;
 
     /**
-     * @example /test/index.html
-     *
      * @var string
      */
     public $healthCheckPath;
 
     /**
-     * @example TCP
-     *
      * @var string
      */
     public $healthCheckProtocol;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $healthyThreshold;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $unhealthyThreshold;
     protected $_name = [
-        'healthCheckConnectPort'    => 'HealthCheckConnectPort',
+        'healthCheckConnectPort' => 'HealthCheckConnectPort',
         'healthCheckConnectTimeout' => 'HealthCheckConnectTimeout',
-        'healthCheckDomain'         => 'HealthCheckDomain',
-        'healthCheckEnabled'        => 'HealthCheckEnabled',
-        'healthCheckHttpCode'       => 'HealthCheckHttpCode',
-        'healthCheckInterval'       => 'HealthCheckInterval',
-        'healthCheckPath'           => 'HealthCheckPath',
-        'healthCheckProtocol'       => 'HealthCheckProtocol',
-        'healthyThreshold'          => 'HealthyThreshold',
-        'unhealthyThreshold'        => 'UnhealthyThreshold',
+        'healthCheckDomain' => 'HealthCheckDomain',
+        'healthCheckEnabled' => 'HealthCheckEnabled',
+        'healthCheckHttpCode' => 'HealthCheckHttpCode',
+        'healthCheckInterval' => 'HealthCheckInterval',
+        'healthCheckPath' => 'HealthCheckPath',
+        'healthCheckProtocol' => 'HealthCheckProtocol',
+        'healthyThreshold' => 'HealthyThreshold',
+        'unhealthyThreshold' => 'UnhealthyThreshold',
     ];
 
     public function validate()
     {
+        if (\is_array($this->healthCheckHttpCode)) {
+            Model::validateArray($this->healthCheckHttpCode);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->healthCheckConnectPort) {
             $res['HealthCheckConnectPort'] = $this->healthCheckConnectPort;
         }
+
         if (null !== $this->healthCheckConnectTimeout) {
             $res['HealthCheckConnectTimeout'] = $this->healthCheckConnectTimeout;
         }
+
         if (null !== $this->healthCheckDomain) {
             $res['HealthCheckDomain'] = $this->healthCheckDomain;
         }
+
         if (null !== $this->healthCheckEnabled) {
             $res['HealthCheckEnabled'] = $this->healthCheckEnabled;
         }
+
         if (null !== $this->healthCheckHttpCode) {
-            $res['HealthCheckHttpCode'] = $this->healthCheckHttpCode;
+            if (\is_array($this->healthCheckHttpCode)) {
+                $res['HealthCheckHttpCode'] = [];
+                $n1 = 0;
+                foreach ($this->healthCheckHttpCode as $item1) {
+                    $res['HealthCheckHttpCode'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->healthCheckInterval) {
             $res['HealthCheckInterval'] = $this->healthCheckInterval;
         }
+
         if (null !== $this->healthCheckPath) {
             $res['HealthCheckPath'] = $this->healthCheckPath;
         }
+
         if (null !== $this->healthCheckProtocol) {
             $res['HealthCheckProtocol'] = $this->healthCheckProtocol;
         }
+
         if (null !== $this->healthyThreshold) {
             $res['HealthyThreshold'] = $this->healthyThreshold;
         }
+
         if (null !== $this->unhealthyThreshold) {
             $res['UnhealthyThreshold'] = $this->unhealthyThreshold;
         }
@@ -129,43 +130,56 @@ class healthCheckConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return healthCheckConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HealthCheckConnectPort'])) {
             $model->healthCheckConnectPort = $map['HealthCheckConnectPort'];
         }
+
         if (isset($map['HealthCheckConnectTimeout'])) {
             $model->healthCheckConnectTimeout = $map['HealthCheckConnectTimeout'];
         }
+
         if (isset($map['HealthCheckDomain'])) {
             $model->healthCheckDomain = $map['HealthCheckDomain'];
         }
+
         if (isset($map['HealthCheckEnabled'])) {
             $model->healthCheckEnabled = $map['HealthCheckEnabled'];
         }
+
         if (isset($map['HealthCheckHttpCode'])) {
             if (!empty($map['HealthCheckHttpCode'])) {
-                $model->healthCheckHttpCode = $map['HealthCheckHttpCode'];
+                $model->healthCheckHttpCode = [];
+                $n1 = 0;
+                foreach ($map['HealthCheckHttpCode'] as $item1) {
+                    $model->healthCheckHttpCode[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['HealthCheckInterval'])) {
             $model->healthCheckInterval = $map['HealthCheckInterval'];
         }
+
         if (isset($map['HealthCheckPath'])) {
             $model->healthCheckPath = $map['HealthCheckPath'];
         }
+
         if (isset($map['HealthCheckProtocol'])) {
             $model->healthCheckProtocol = $map['HealthCheckProtocol'];
         }
+
         if (isset($map['HealthyThreshold'])) {
             $model->healthyThreshold = $map['HealthyThreshold'];
         }
+
         if (isset($map['UnhealthyThreshold'])) {
             $model->unhealthyThreshold = $map['UnhealthyThreshold'];
         }

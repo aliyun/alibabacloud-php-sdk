@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Gwlb\V20240415\Models\DescribeRegionsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class regions extends Model
 {
     /**
-     * @example China (Hangzhou)
-     *
      * @var string
      */
     public $localName;
 
     /**
-     * @example gwlb.cn-hangzhou.aliyuncs.com
-     *
      * @var string
      */
     public $regionEndpoint;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'localName'      => 'LocalName',
+        'localName' => 'LocalName',
         'regionEndpoint' => 'RegionEndpoint',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
         }
+
         if (null !== $this->regionEndpoint) {
             $res['RegionEndpoint'] = $this->regionEndpoint;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -54,20 +51,22 @@ class regions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return regions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
         }
+
         if (isset($map['RegionEndpoint'])) {
             $model->regionEndpoint = $map['RegionEndpoint'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

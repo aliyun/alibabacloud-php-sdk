@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Gwlb\V20240415\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateListenerAttributeResponseBody extends Model
 {
     /**
-     * @example 7DBFC67C-A272-5952-8287-6C3EBE4E04D9
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class UpdateListenerAttributeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class UpdateListenerAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateListenerAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

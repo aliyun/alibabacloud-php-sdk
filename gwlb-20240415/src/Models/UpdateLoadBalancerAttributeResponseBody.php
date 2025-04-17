@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Gwlb\V20240415\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateLoadBalancerAttributeResponseBody extends Model
 {
     /**
-     * @example B956C629-0E8C-5EFF-BAC1-B0E3A8C5CBDD
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class UpdateLoadBalancerAttributeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class UpdateLoadBalancerAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateLoadBalancerAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

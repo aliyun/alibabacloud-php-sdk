@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gwlb\V20240415\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gwlb\V20240415\Models\ListListenersResponseBody\listeners;
-use AlibabaCloud\Tea\Model;
 
 class ListListenersResponseBody extends Model
 {
@@ -15,22 +15,16 @@ class ListListenersResponseBody extends Model
     public $listeners;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example 5c281c0a0d6bfb6355ed088c2108aca8e0b5e8707e68****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example 7DBFC67C-A272-5952-8287-6C3EBE4E04D9
-     *
      * @var string
      */
     public $requestId;
@@ -40,38 +34,46 @@ class ListListenersResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'listeners'  => 'Listeners',
+        'listeners' => 'Listeners',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->listeners)) {
+            Model::validateArray($this->listeners);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listeners) {
-            $res['Listeners'] = [];
-            if (null !== $this->listeners && \is_array($this->listeners)) {
-                $n = 0;
-                foreach ($this->listeners as $item) {
-                    $res['Listeners'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->listeners)) {
+                $res['Listeners'] = [];
+                $n1 = 0;
+                foreach ($this->listeners as $item1) {
+                    $res['Listeners'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -79,32 +81,36 @@ class ListListenersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListListenersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Listeners'])) {
             if (!empty($map['Listeners'])) {
                 $model->listeners = [];
-                $n                = 0;
-                foreach ($map['Listeners'] as $item) {
-                    $model->listeners[$n++] = null !== $item ? listeners::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Listeners'] as $item1) {
+                    $model->listeners[$n1++] = listeners::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gwlb\V20240415\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gwlb\V20240415\Models\GetListenerHealthStatusResponseBody\listenerHealthStatus;
-use AlibabaCloud\Tea\Model;
 
 class GetListenerHealthStatusResponseBody extends Model
 {
@@ -15,65 +15,65 @@ class GetListenerHealthStatusResponseBody extends Model
     public $listenerHealthStatus;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example U12WEI6Ro2ol3wA54rBNSwdC5+lYy6q5SjIQEvc1wz5mjZxV+YjsHRdXV8XauY1BpOQIvwX63E0en54H3D****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example 0ED4F222-36A0-5470-8A9A-AAB4E96BAC1A
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 31
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'listenerHealthStatus' => 'ListenerHealthStatus',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'requestId'            => 'RequestId',
-        'totalCount'           => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->listenerHealthStatus)) {
+            Model::validateArray($this->listenerHealthStatus);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listenerHealthStatus) {
-            $res['ListenerHealthStatus'] = [];
-            if (null !== $this->listenerHealthStatus && \is_array($this->listenerHealthStatus)) {
-                $n = 0;
-                foreach ($this->listenerHealthStatus as $item) {
-                    $res['ListenerHealthStatus'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->listenerHealthStatus)) {
+                $res['ListenerHealthStatus'] = [];
+                $n1 = 0;
+                foreach ($this->listenerHealthStatus as $item1) {
+                    $res['ListenerHealthStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -81,32 +81,36 @@ class GetListenerHealthStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetListenerHealthStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListenerHealthStatus'])) {
             if (!empty($map['ListenerHealthStatus'])) {
                 $model->listenerHealthStatus = [];
-                $n                           = 0;
-                foreach ($map['ListenerHealthStatus'] as $item) {
-                    $model->listenerHealthStatus[$n++] = null !== $item ? listenerHealthStatus::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ListenerHealthStatus'] as $item1) {
+                    $model->listenerHealthStatus[$n1++] = listenerHealthStatus::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

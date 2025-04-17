@@ -4,51 +4,46 @@
 
 namespace AlibabaCloud\SDK\Gwlb\V20240415\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteListenerRequest extends Model
 {
     /**
-     * @example 123e4567-e89b-12d3-a456-42665544****
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example lsn-brx2y3hqdincizg***
-     *
      * @var string
      */
     public $listenerId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'dryRun'      => 'DryRun',
-        'listenerId'  => 'ListenerId',
+        'dryRun' => 'DryRun',
+        'listenerId' => 'ListenerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
         }
@@ -56,20 +51,22 @@ class DeleteListenerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteListenerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
         }

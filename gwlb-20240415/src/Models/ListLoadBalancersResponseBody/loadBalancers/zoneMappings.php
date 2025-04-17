@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gwlb\V20240415\Models\ListLoadBalancersResponseBody\loadBalancers;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gwlb\V20240415\Models\ListLoadBalancersResponseBody\loadBalancers\zoneMappings\loadBalancerAddresses;
-use AlibabaCloud\Tea\Model;
 
 class zoneMappings extends Model
 {
@@ -15,43 +15,45 @@ class zoneMappings extends Model
     public $loadBalancerAddresses;
 
     /**
-     * @example vsw-2zemule5dz7okwqfv****
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @example cn-hangzhou-g
-     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'loadBalancerAddresses' => 'LoadBalancerAddresses',
-        'vSwitchId'             => 'VSwitchId',
-        'zoneId'                => 'ZoneId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->loadBalancerAddresses)) {
+            Model::validateArray($this->loadBalancerAddresses);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loadBalancerAddresses) {
-            $res['LoadBalancerAddresses'] = [];
-            if (null !== $this->loadBalancerAddresses && \is_array($this->loadBalancerAddresses)) {
-                $n = 0;
-                foreach ($this->loadBalancerAddresses as $item) {
-                    $res['LoadBalancerAddresses'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->loadBalancerAddresses)) {
+                $res['LoadBalancerAddresses'] = [];
+                $n1 = 0;
+                foreach ($this->loadBalancerAddresses as $item1) {
+                    $res['LoadBalancerAddresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -59,26 +61,28 @@ class zoneMappings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zoneMappings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LoadBalancerAddresses'])) {
             if (!empty($map['LoadBalancerAddresses'])) {
                 $model->loadBalancerAddresses = [];
-                $n                            = 0;
-                foreach ($map['LoadBalancerAddresses'] as $item) {
-                    $model->loadBalancerAddresses[$n++] = null !== $item ? loadBalancerAddresses::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LoadBalancerAddresses'] as $item1) {
+                    $model->loadBalancerAddresses[$n1++] = loadBalancerAddresses::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

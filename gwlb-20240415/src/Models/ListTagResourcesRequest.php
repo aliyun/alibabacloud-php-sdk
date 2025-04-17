@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Gwlb\V20240415\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gwlb\V20240415\Models\ListTagResourcesRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example WyI2NDQ3MWUxM2EzOWNhMmY0Y2M2YTRiNzZhOWQwNmU1Y2RlNTYzMGEzIiwibiIsIm4iLDEsLTEsMTY5ODcxMzI2NjU0MywiNjU0MDRlYjI2MmI3MDhjY2JiMjM0ZmU0ODNkNTVmMGRhZDllOTBi****
-     *
      * @var string
      */
     public $nextToken;
@@ -29,10 +25,6 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example loadbalancer
-     *
      * @var string
      */
     public $resourceType;
@@ -42,38 +34,55 @@ class ListTagResourcesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'resourceId'   => 'ResourceId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tag'          => 'Tag',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->resourceId)) {
+            Model::validateArray($this->resourceId);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
+            if (\is_array($this->resourceId)) {
+                $res['ResourceId'] = [];
+                $n1 = 0;
+                foreach ($this->resourceId as $item1) {
+                    $res['ResourceId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -81,34 +90,42 @@ class ListTagResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTagResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
-                $model->resourceId = $map['ResourceId'];
+                $model->resourceId = [];
+                $n1 = 0;
+                foreach ($map['ResourceId'] as $item1) {
+                    $model->resourceId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }

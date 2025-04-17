@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Gwlb\V20240415\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateLoadBalancerResponseBody extends Model
 {
     /**
-     * @example gwlb-9njtjmqt7zfcqm****
-     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
-     * @example 00B19438-66BB-58C3-8C2F-DA5B6F95CBDA
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'loadBalancerId' => 'LoadBalancerId',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class CreateLoadBalancerResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateLoadBalancerResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

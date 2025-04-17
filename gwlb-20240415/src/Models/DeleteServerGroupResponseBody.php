@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Gwlb\V20240415\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteServerGroupResponseBody extends Model
 {
     /**
-     * @example 54B48E3D-DF70-471B-AA93-08E683A1B45
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class DeleteServerGroupResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class DeleteServerGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteServerGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

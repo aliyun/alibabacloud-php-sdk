@@ -4,88 +4,99 @@
 
 namespace AlibabaCloud\SDK\Gwlb\V20240415\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateLoadBalancerAttributeRequest extends Model
 {
     /**
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example gwlb-9njtjmqt7zfcqm****
-     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
-     * @example testGwlbName
-     *
      * @var string
      */
     public $loadBalancerName;
+
+    /**
+     * @var string
+     */
+    public $trafficMode;
     protected $_name = [
-        'clientToken'      => 'ClientToken',
-        'dryRun'           => 'DryRun',
-        'loadBalancerId'   => 'LoadBalancerId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'loadBalancerId' => 'LoadBalancerId',
         'loadBalancerName' => 'LoadBalancerName',
+        'trafficMode' => 'TrafficMode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
+
         if (null !== $this->loadBalancerName) {
             $res['LoadBalancerName'] = $this->loadBalancerName;
+        }
+
+        if (null !== $this->trafficMode) {
+            $res['TrafficMode'] = $this->trafficMode;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateLoadBalancerAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }
+
         if (isset($map['LoadBalancerName'])) {
             $model->loadBalancerName = $map['LoadBalancerName'];
+        }
+
+        if (isset($map['TrafficMode'])) {
+            $model->trafficMode = $map['TrafficMode'];
         }
 
         return $model;

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Gwlb\V20240415\Models\GetListenerHealthStatusResponseBody\listenerHealthStatus\serverGroupInfos\servers;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class reason extends Model
 {
     /**
-     * @example CONNECT_TIMEOUT
-     *
      * @var string
      */
     public $reasonCode;
@@ -20,9 +18,10 @@ class reason extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reasonCode) {
@@ -32,11 +31,11 @@ class reason extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reason
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
