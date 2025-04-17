@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDailyPlayRegionStatisRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 2025-03-20
-     *
      * @var string
      */
     public $date;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $mediaRegion;
@@ -30,14 +22,18 @@ class GetDailyPlayRegionStatisRequest extends Model
         'mediaRegion' => 'MediaRegion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
+
         if (null !== $this->mediaRegion) {
             $res['MediaRegion'] = $this->mediaRegion;
         }
@@ -45,17 +41,18 @@ class GetDailyPlayRegionStatisRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDailyPlayRegionStatisRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }
+
         if (isset($map['MediaRegion'])) {
             $model->mediaRegion = $map['MediaRegion'];
         }

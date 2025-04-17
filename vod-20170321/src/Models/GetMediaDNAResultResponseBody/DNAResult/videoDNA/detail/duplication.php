@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaDNAResultResponseBody\DNAResult\videoDNA\detail;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class duplication extends Model
 {
     /**
-     * @description The duration of the video. Unit: seconds.
-     *
-     * @example 12.0
-     *
      * @var string
      */
     public $duration;
 
     /**
-     * @description The start time of the video. Unit: seconds.
-     *
-     * @example 2.0
-     *
      * @var string
      */
     public $start;
@@ -30,14 +22,18 @@ class duplication extends Model
         'start' => 'Start',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+
         if (null !== $this->start) {
             $res['Start'] = $this->start;
         }
@@ -45,17 +41,18 @@ class duplication extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return duplication
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+
         if (isset($map['Start'])) {
             $model->start = $map['Start'];
         }

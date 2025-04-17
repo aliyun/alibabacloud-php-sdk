@@ -4,21 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetVideoInfoRequest extends Model
 {
     /**
-     * @description The ID of the audio or video file. You can specify only one ID in each call. You can use one of the following methods to obtain the ID:
-     *
-     *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the Video and Audio page, view the ID of the audio or video file. This method is applicable to files that are uploaded by using the ApsaraVideo VOD console.
-     *   Obtain the value of VideoId from the response to the [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html) operation that you called to obtain the upload URL and credential.
-     *   Obtain the value of VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you called to query the media ID after the media file is uploaded.
-     *
-     * This parameter is required.
-     *
-     * @example 9b73864d75f1d231e9001cd5f8****
-     *
      * @var string
      */
     public $videoId;
@@ -26,9 +16,12 @@ class GetVideoInfoRequest extends Model
         'videoId' => 'VideoId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->videoId) {
@@ -38,11 +31,11 @@ class GetVideoInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetVideoInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

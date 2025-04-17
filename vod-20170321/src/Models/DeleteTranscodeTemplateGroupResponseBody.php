@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteTranscodeTemplateGroupResponseBody extends Model
 {
     /**
-     * @description The IDs of transcoding templates that were not found.
-     *
      * @var string[]
      */
     public $nonExistTranscodeTemplateIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4A*****F6-D7393642CA58
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +22,27 @@ class DeleteTranscodeTemplateGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->nonExistTranscodeTemplateIds)) {
+            Model::validateArray($this->nonExistTranscodeTemplateIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nonExistTranscodeTemplateIds) {
-            $res['NonExistTranscodeTemplateIds'] = $this->nonExistTranscodeTemplateIds;
+            if (\is_array($this->nonExistTranscodeTemplateIds)) {
+                $res['NonExistTranscodeTemplateIds'] = [];
+                $n1 = 0;
+                foreach ($this->nonExistTranscodeTemplateIds as $item1) {
+                    $res['NonExistTranscodeTemplateIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,19 +50,24 @@ class DeleteTranscodeTemplateGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteTranscodeTemplateGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NonExistTranscodeTemplateIds'])) {
             if (!empty($map['NonExistTranscodeTemplateIds'])) {
-                $model->nonExistTranscodeTemplateIds = $map['NonExistTranscodeTemplateIds'];
+                $model->nonExistTranscodeTemplateIds = [];
+                $n1 = 0;
+                foreach ($map['NonExistTranscodeTemplateIds'] as $item1) {
+                    $model->nonExistTranscodeTemplateIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

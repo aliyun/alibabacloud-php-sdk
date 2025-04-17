@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetTranscodeTemplateGroupResponseBody\transcodeTemplateGroup;
-use AlibabaCloud\Tea\Model;
 
 class GetTranscodeTemplateGroupResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 6730AC93-7B12-4B*****7F-49EE1FE8BC49
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the transcoding template group.
-     *
      * @var transcodeTemplateGroup
      */
     public $transcodeTemplateGroup;
@@ -29,32 +23,40 @@ class GetTranscodeTemplateGroupResponseBody extends Model
         'transcodeTemplateGroup' => 'TranscodeTemplateGroup',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->transcodeTemplateGroup) {
+            $this->transcodeTemplateGroup->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->transcodeTemplateGroup) {
-            $res['TranscodeTemplateGroup'] = null !== $this->transcodeTemplateGroup ? $this->transcodeTemplateGroup->toMap() : null;
+            $res['TranscodeTemplateGroup'] = null !== $this->transcodeTemplateGroup ? $this->transcodeTemplateGroup->toArray($noStream) : $this->transcodeTemplateGroup;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTranscodeTemplateGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TranscodeTemplateGroup'])) {
             $model->transcodeTemplateGroup = transcodeTemplateGroup::fromMap($map['TranscodeTemplateGroup']);
         }

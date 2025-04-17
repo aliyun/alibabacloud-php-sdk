@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetVodDomainSSLCertificateResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example F4C6D5BE-BF13-45*****6C-516EA8906DCD
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class SetVodDomainSSLCertificateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class SetVodDomainSSLCertificateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetVodDomainSSLCertificateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

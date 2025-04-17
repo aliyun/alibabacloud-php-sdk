@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateImageInfosResponseBody\nonExistImageIds;
-use AlibabaCloud\Tea\Model;
 
 class UpdateImageInfosResponseBody extends Model
 {
     /**
-     * @description The IDs of the images that do not exist.
-     *
      * @var nonExistImageIds
      */
     public $nonExistImageIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4AF6-D7393642CA58****
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class UpdateImageInfosResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->nonExistImageIds) {
+            $this->nonExistImageIds->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nonExistImageIds) {
-            $res['NonExistImageIds'] = null !== $this->nonExistImageIds ? $this->nonExistImageIds->toMap() : null;
+            $res['NonExistImageIds'] = null !== $this->nonExistImageIds ? $this->nonExistImageIds->toArray($noStream) : $this->nonExistImageIds;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class UpdateImageInfosResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateImageInfosResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NonExistImageIds'])) {
             $model->nonExistImageIds = nonExistImageIds::fromMap($map['NonExistImageIds']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

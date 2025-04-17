@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetAIVideoTagResultResponseBody\videoTagResult;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class category extends Model
 {
     /**
-     * @description The tag string.
-     *
-     * @example Retouching
-     *
      * @var string
      */
     public $tag;
@@ -20,9 +16,12 @@ class category extends Model
         'tag' => 'Tag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tag) {
@@ -32,11 +31,11 @@ class category extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return category
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

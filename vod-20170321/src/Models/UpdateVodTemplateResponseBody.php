@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateVodTemplateResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4A*****F6-D7393642CA58
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the snapshot template.
-     *
-     * @example 8c75a02e339b*****0b0d2c48171a22
-     *
      * @var string
      */
     public $vodTemplateId;
@@ -30,14 +22,18 @@ class UpdateVodTemplateResponseBody extends Model
         'vodTemplateId' => 'VodTemplateId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->vodTemplateId) {
             $res['VodTemplateId'] = $this->vodTemplateId;
         }
@@ -45,17 +41,18 @@ class UpdateVodTemplateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateVodTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VodTemplateId'])) {
             $model->vodTemplateId = $map['VodTemplateId'];
         }

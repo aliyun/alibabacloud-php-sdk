@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetVideoInfoResponseBody\video;
-use AlibabaCloud\Tea\Model;
 
 class GetVideoInfoResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4AF6-D7393642CA58****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the audio or video file.
-     *
      * @var video
      */
     public $video;
@@ -29,32 +23,40 @@ class GetVideoInfoResponseBody extends Model
         'video' => 'Video',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->video) {
+            $this->video->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->video) {
-            $res['Video'] = null !== $this->video ? $this->video->toMap() : null;
+            $res['Video'] = null !== $this->video ? $this->video->toArray($noStream) : $this->video;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetVideoInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Video'])) {
             $model->video = video::fromMap($map['Video']);
         }

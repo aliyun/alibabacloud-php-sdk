@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\SubmitSnapshotJobResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class snapshotJob extends Model
 {
     /**
-     * @description The ID of the snapshot job.
-     *
-     * @example ad90a501b1b94b72374ad0050464****
-     *
      * @var string
      */
     public $jobId;
@@ -20,9 +16,12 @@ class snapshotJob extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -32,11 +31,11 @@ class snapshotJob extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return snapshotJob
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\DescribePlayUserTotalResponseBody\userPlayStatisTotals\userPlayStatisTotal;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VV extends Model
 {
     /**
-     * @description The total number of video views played by using ApsaraVideo Player SDK for Android.
-     *
-     * @example 161
-     *
      * @var string
      */
     public $android;
 
     /**
-     * @description The total number of video views played by using the Flash player.
-     *
-     * @example 2
-     *
      * @var string
      */
     public $flash;
 
     /**
-     * @description The total number of video views played by using the HTML5 player.
-     *
-     * @example 2
-     *
      * @var string
      */
     public $HTML5;
 
     /**
-     * @description The total number of video views played by using ApsaraVideo Player SDK for iOS.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $iOS;
@@ -50,20 +34,26 @@ class VV extends Model
         'iOS' => 'iOS',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->android) {
             $res['Android'] = $this->android;
         }
+
         if (null !== $this->flash) {
             $res['Flash'] = $this->flash;
         }
+
         if (null !== $this->HTML5) {
             $res['HTML5'] = $this->HTML5;
         }
+
         if (null !== $this->iOS) {
             $res['iOS'] = $this->iOS;
         }
@@ -71,23 +61,26 @@ class VV extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VV
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Android'])) {
             $model->android = $map['Android'];
         }
+
         if (isset($map['Flash'])) {
             $model->flash = $map['Flash'];
         }
+
         if (isset($map['HTML5'])) {
             $model->HTML5 = $map['HTML5'];
         }
+
         if (isset($map['iOS'])) {
             $model->iOS = $map['iOS'];
         }

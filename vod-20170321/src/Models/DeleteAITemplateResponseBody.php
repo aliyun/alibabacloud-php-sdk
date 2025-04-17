@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAITemplateResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 25818875-5F78-4A13-BEF6-****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the AI template.
-     *
-     * @example 1706a0063dd733f6a823ef32e0a5****
-     *
      * @var string
      */
     public $templateId;
@@ -30,14 +22,18 @@ class DeleteAITemplateResponseBody extends Model
         'templateId' => 'TemplateId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -45,17 +41,18 @@ class DeleteAITemplateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAITemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

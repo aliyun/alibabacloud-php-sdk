@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListAuditSecurityIpResponseBody\securityIpList;
-use AlibabaCloud\Tea\Model;
 
 class ListAuditSecurityIpResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 664BBD08-C7DB-4E*****73-9D0958D9A899
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The details of the review security group.
-     *
      * @var securityIpList[]
      */
     public $securityIpList;
@@ -29,20 +23,27 @@ class ListAuditSecurityIpResponseBody extends Model
         'securityIpList' => 'SecurityIpList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->securityIpList)) {
+            Model::validateArray($this->securityIpList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->securityIpList) {
-            $res['SecurityIpList'] = [];
-            if (null !== $this->securityIpList && \is_array($this->securityIpList)) {
-                $n = 0;
-                foreach ($this->securityIpList as $item) {
-                    $res['SecurityIpList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->securityIpList)) {
+                $res['SecurityIpList'] = [];
+                $n1 = 0;
+                foreach ($this->securityIpList as $item1) {
+                    $res['SecurityIpList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -50,23 +51,24 @@ class ListAuditSecurityIpResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAuditSecurityIpResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SecurityIpList'])) {
             if (!empty($map['SecurityIpList'])) {
                 $model->securityIpList = [];
-                $n = 0;
-                foreach ($map['SecurityIpList'] as $item) {
-                    $model->securityIpList[$n++] = null !== $item ? securityIpList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SecurityIpList'] as $item1) {
+                    $model->securityIpList[$n1++] = securityIpList::fromMap($item1);
                 }
             }
         }

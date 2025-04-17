@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetPlayInfoResponseBody\playInfoList;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetPlayInfoResponseBody\videoBase;
-use AlibabaCloud\Tea\Model;
 
 class GetPlayInfoResponseBody extends Model
 {
     /**
-     * @description The information about the audio or video stream.
-     *
      * @var playInfoList
      */
     public $playInfoList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example F552E596-967D-5500-842F-17E6364****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The basic information about the audio or video file.
-     *
      * @var videoBase
      */
     public $videoBase;
@@ -38,38 +30,51 @@ class GetPlayInfoResponseBody extends Model
         'videoBase' => 'VideoBase',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->playInfoList) {
+            $this->playInfoList->validate();
+        }
+        if (null !== $this->videoBase) {
+            $this->videoBase->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->playInfoList) {
-            $res['PlayInfoList'] = null !== $this->playInfoList ? $this->playInfoList->toMap() : null;
+            $res['PlayInfoList'] = null !== $this->playInfoList ? $this->playInfoList->toArray($noStream) : $this->playInfoList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->videoBase) {
-            $res['VideoBase'] = null !== $this->videoBase ? $this->videoBase->toMap() : null;
+            $res['VideoBase'] = null !== $this->videoBase ? $this->videoBase->toArray($noStream) : $this->videoBase;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPlayInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PlayInfoList'])) {
             $model->playInfoList = playInfoList::fromMap($map['PlayInfoList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VideoBase'])) {
             $model->videoBase = videoBase::fromMap($map['VideoBase']);
         }

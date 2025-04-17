@@ -4,51 +4,26 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddVodTemplateRequest extends Model
 {
     /**
-     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Multi-application service](https://help.aliyun.com/document_detail/113600.html).
-     *
-     * @example app-****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The name of the template.
-     *
-     *   The name cannot exceed 128 bytes.
-     *   The value must be encoded in UTF-8.
-     *
-     * This parameter is required.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The configurations of the snapshot template. The value must be a JSON string. For more information about the data structure, see [SnapshotTemplateConfig](https://help.aliyun.com/document_detail/98618.html) and [DynamicImageTemplateConfig](https://help.aliyun.com/document_detail/98618.html).
-     *
-     * This parameter is required.
-     *
-     * @example {"SnapshotConfig":{"Count":10,"SpecifiedOffsetTime":0,"Interval":1,"FrameType":"normal"},"SnapshotType":"NormalSnapshot"}
-     *
      * @var string
      */
     public $templateConfig;
 
     /**
-     * @description The type of the template. Set the value to **Snapshot**.
-     *
-     * This parameter is required.
-     *
-     * @example Snapshot
-     *
      * @var string
      */
     public $templateType;
@@ -59,20 +34,26 @@ class AddVodTemplateRequest extends Model
         'templateType' => 'TemplateType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->templateConfig) {
             $res['TemplateConfig'] = $this->templateConfig;
         }
+
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
         }
@@ -80,23 +61,26 @@ class AddVodTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddVodTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['TemplateConfig'])) {
             $model->templateConfig = $map['TemplateConfig'];
         }
+
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
         }

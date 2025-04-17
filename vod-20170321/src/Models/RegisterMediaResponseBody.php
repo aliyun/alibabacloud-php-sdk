@@ -4,30 +4,22 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\RegisterMediaResponseBody\registeredMediaList;
-use AlibabaCloud\Tea\Model;
 
 class RegisterMediaResponseBody extends Model
 {
     /**
-     * @description The URLs of the media files that failed to be registered.
-     *
      * @var string[]
      */
     public $failedFileURLs;
 
     /**
-     * @description The media files that are registered, including newly registered and repeatedly registered media files.
-     *
      * @var registeredMediaList[]
      */
     public $registeredMediaList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 14F43C5C-8033-448B-AD04F64E5098****
-     *
      * @var string
      */
     public $requestId;
@@ -37,23 +29,40 @@ class RegisterMediaResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->failedFileURLs)) {
+            Model::validateArray($this->failedFileURLs);
+        }
+        if (\is_array($this->registeredMediaList)) {
+            Model::validateArray($this->registeredMediaList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedFileURLs) {
-            $res['FailedFileURLs'] = $this->failedFileURLs;
-        }
-        if (null !== $this->registeredMediaList) {
-            $res['RegisteredMediaList'] = [];
-            if (null !== $this->registeredMediaList && \is_array($this->registeredMediaList)) {
-                $n = 0;
-                foreach ($this->registeredMediaList as $item) {
-                    $res['RegisteredMediaList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->failedFileURLs)) {
+                $res['FailedFileURLs'] = [];
+                $n1 = 0;
+                foreach ($this->failedFileURLs as $item1) {
+                    $res['FailedFileURLs'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->registeredMediaList) {
+            if (\is_array($this->registeredMediaList)) {
+                $res['RegisteredMediaList'] = [];
+                $n1 = 0;
+                foreach ($this->registeredMediaList as $item1) {
+                    $res['RegisteredMediaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -61,28 +70,34 @@ class RegisterMediaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RegisterMediaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedFileURLs'])) {
             if (!empty($map['FailedFileURLs'])) {
-                $model->failedFileURLs = $map['FailedFileURLs'];
-            }
-        }
-        if (isset($map['RegisteredMediaList'])) {
-            if (!empty($map['RegisteredMediaList'])) {
-                $model->registeredMediaList = [];
-                $n = 0;
-                foreach ($map['RegisteredMediaList'] as $item) {
-                    $model->registeredMediaList[$n++] = null !== $item ? registeredMediaList::fromMap($item) : $item;
+                $model->failedFileURLs = [];
+                $n1 = 0;
+                foreach ($map['FailedFileURLs'] as $item1) {
+                    $model->failedFileURLs[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['RegisteredMediaList'])) {
+            if (!empty($map['RegisteredMediaList'])) {
+                $model->registeredMediaList = [];
+                $n1 = 0;
+                foreach ($map['RegisteredMediaList'] as $item1) {
+                    $model->registeredMediaList[$n1++] = registeredMediaList::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

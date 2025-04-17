@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\ListAIJobResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListAIJobResponseBody\AIJobList\AIJob;
-use AlibabaCloud\Tea\Model;
 
 class AIJobList extends Model
 {
@@ -17,17 +17,23 @@ class AIJobList extends Model
         'AIJob' => 'AIJob',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->AIJob)) {
+            Model::validateArray($this->AIJob);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->AIJob) {
-            $res['AIJob'] = [];
-            if (null !== $this->AIJob && \is_array($this->AIJob)) {
-                $n = 0;
-                foreach ($this->AIJob as $item) {
-                    $res['AIJob'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->AIJob)) {
+                $res['AIJob'] = [];
+                $n1 = 0;
+                foreach ($this->AIJob as $item1) {
+                    $res['AIJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class AIJobList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AIJobList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AIJob'])) {
             if (!empty($map['AIJob'])) {
                 $model->AIJob = [];
-                $n = 0;
-                foreach ($map['AIJob'] as $item) {
-                    $model->AIJob[$n++] = null !== $item ? AIJob::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AIJob'] as $item1) {
+                    $model->AIJob[$n1++] = AIJob::fromMap($item1);
                 }
             }
         }

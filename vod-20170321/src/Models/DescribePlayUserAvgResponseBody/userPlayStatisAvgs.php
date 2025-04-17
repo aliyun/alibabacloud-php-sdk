@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\DescribePlayUserAvgResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribePlayUserAvgResponseBody\userPlayStatisAvgs\userPlayStatisAvg;
-use AlibabaCloud\Tea\Model;
 
 class userPlayStatisAvgs extends Model
 {
@@ -17,17 +17,23 @@ class userPlayStatisAvgs extends Model
         'userPlayStatisAvg' => 'UserPlayStatisAvg',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userPlayStatisAvg)) {
+            Model::validateArray($this->userPlayStatisAvg);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userPlayStatisAvg) {
-            $res['UserPlayStatisAvg'] = [];
-            if (null !== $this->userPlayStatisAvg && \is_array($this->userPlayStatisAvg)) {
-                $n = 0;
-                foreach ($this->userPlayStatisAvg as $item) {
-                    $res['UserPlayStatisAvg'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->userPlayStatisAvg)) {
+                $res['UserPlayStatisAvg'] = [];
+                $n1 = 0;
+                foreach ($this->userPlayStatisAvg as $item1) {
+                    $res['UserPlayStatisAvg'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class userPlayStatisAvgs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userPlayStatisAvgs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserPlayStatisAvg'])) {
             if (!empty($map['UserPlayStatisAvg'])) {
                 $model->userPlayStatisAvg = [];
-                $n = 0;
-                foreach ($map['UserPlayStatisAvg'] as $item) {
-                    $model->userPlayStatisAvg[$n++] = null !== $item ? userPlayStatisAvg::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UserPlayStatisAvg'] as $item1) {
+                    $model->userPlayStatisAvg[$n1++] = userPlayStatisAvg::fromMap($item1);
                 }
             }
         }

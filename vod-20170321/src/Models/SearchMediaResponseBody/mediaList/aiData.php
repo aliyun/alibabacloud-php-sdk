@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponseBody\mediaList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponseBody\mediaList\aiData\aiLabelInfo;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponseBody\mediaList\aiData\ocrInfo;
-use AlibabaCloud\Tea\Model;
 
 class aiData extends Model
 {
     /**
-     * @description The AI tags.
-     *
      * @var aiLabelInfo[]
      */
     public $aiLabelInfo;
 
     /**
-     * @description The information about subtitles.
-     *
      * @var ocrInfo[]
      */
     public $ocrInfo;
@@ -28,26 +24,36 @@ class aiData extends Model
         'ocrInfo' => 'OcrInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->aiLabelInfo)) {
+            Model::validateArray($this->aiLabelInfo);
+        }
+        if (\is_array($this->ocrInfo)) {
+            Model::validateArray($this->ocrInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aiLabelInfo) {
-            $res['AiLabelInfo'] = [];
-            if (null !== $this->aiLabelInfo && \is_array($this->aiLabelInfo)) {
-                $n = 0;
-                foreach ($this->aiLabelInfo as $item) {
-                    $res['AiLabelInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->aiLabelInfo)) {
+                $res['AiLabelInfo'] = [];
+                $n1 = 0;
+                foreach ($this->aiLabelInfo as $item1) {
+                    $res['AiLabelInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->ocrInfo) {
-            $res['OcrInfo'] = [];
-            if (null !== $this->ocrInfo && \is_array($this->ocrInfo)) {
-                $n = 0;
-                foreach ($this->ocrInfo as $item) {
-                    $res['OcrInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ocrInfo)) {
+                $res['OcrInfo'] = [];
+                $n1 = 0;
+                foreach ($this->ocrInfo as $item1) {
+                    $res['OcrInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -55,29 +61,30 @@ class aiData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aiData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AiLabelInfo'])) {
             if (!empty($map['AiLabelInfo'])) {
                 $model->aiLabelInfo = [];
-                $n = 0;
-                foreach ($map['AiLabelInfo'] as $item) {
-                    $model->aiLabelInfo[$n++] = null !== $item ? aiLabelInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AiLabelInfo'] as $item1) {
+                    $model->aiLabelInfo[$n1++] = aiLabelInfo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['OcrInfo'])) {
             if (!empty($map['OcrInfo'])) {
                 $model->ocrInfo = [];
-                $n = 0;
-                foreach ($map['OcrInfo'] as $item) {
-                    $model->ocrInfo[$n++] = null !== $item ? ocrInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OcrInfo'] as $item1) {
+                    $model->ocrInfo[$n1++] = ocrInfo::fromMap($item1);
                 }
             }
         }

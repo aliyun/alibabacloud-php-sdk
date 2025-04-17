@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeVodVerifyContentResponseBody extends Model
 {
     /**
-     * @description The verification content.
-     *
-     * @example verify_dffeb661*****3a59c31cd91f
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 34AB41F1-04A5-4688-634BDBE6****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class DescribeVodVerifyContentResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class DescribeVodVerifyContentResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVodVerifyContentResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

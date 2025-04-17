@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetEditingProjectMaterialsResponseBody\materialList\material;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sprites extends Model
 {
@@ -16,29 +16,45 @@ class sprites extends Model
         'sprite' => 'Sprite',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->sprite)) {
+            Model::validateArray($this->sprite);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sprite) {
-            $res['Sprite'] = $this->sprite;
+            if (\is_array($this->sprite)) {
+                $res['Sprite'] = [];
+                $n1 = 0;
+                foreach ($this->sprite as $item1) {
+                    $res['Sprite'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sprites
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Sprite'])) {
             if (!empty($map['Sprite'])) {
-                $model->sprite = $map['Sprite'];
+                $model->sprite = [];
+                $n1 = 0;
+                foreach ($map['Sprite'] as $item1) {
+                    $model->sprite[$n1++] = $item1;
+                }
             }
         }
 

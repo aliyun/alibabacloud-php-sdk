@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAppPoliciesForIdentityRequest extends Model
 {
     /**
-     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
-     *
-     * @example app-****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The name of the identity.
-     *
-     *   Specifies the ID of the RAM user when the IdentityType parameter is set to RamUser.
-     *   Specifies the name of the RAM role when the IdentityType parameter is set to RamRole.
-     *
-     * @example test****name
-     *
      * @var string
      */
     public $identityName;
 
     /**
-     * @description The type of the identity. Valid values:
-     *
-     *   **RamUser**: a RAM user.
-     *   **RamRole**: a RAM role.
-     *
-     * @example RamUser
-     *
      * @var string
      */
     public $identityType;
@@ -46,17 +28,22 @@ class ListAppPoliciesForIdentityRequest extends Model
         'identityType' => 'IdentityType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->identityName) {
             $res['IdentityName'] = $this->identityName;
         }
+
         if (null !== $this->identityType) {
             $res['IdentityType'] = $this->identityType;
         }
@@ -64,20 +51,22 @@ class ListAppPoliciesForIdentityRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAppPoliciesForIdentityRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['IdentityName'])) {
             $model->identityName = $map['IdentityName'];
         }
+
         if (isset($map['IdentityType'])) {
             $model->identityType = $map['IdentityType'];
         }

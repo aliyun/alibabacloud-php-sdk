@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteVodTemplateRequest extends Model
 {
     /**
-     * @description The ID of the snapshot template.
-     *
-     * This parameter is required.
-     *
-     * @example f5b228fe6930e*****d6bf55bd87789
-     *
      * @var string
      */
     public $vodTemplateId;
@@ -22,9 +16,12 @@ class DeleteVodTemplateRequest extends Model
         'vodTemplateId' => 'VodTemplateId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vodTemplateId) {
@@ -34,11 +31,11 @@ class DeleteVodTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteVodTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

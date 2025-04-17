@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMezzanineInfoResponseBody\mezzanine;
-use AlibabaCloud\Tea\Model;
 
 class GetMezzanineInfoResponseBody extends Model
 {
     /**
-     * @description The information about the source file.
-     *
      * @var mezzanine
      */
     public $mezzanine;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4AF6-D7393642CA58****
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetMezzanineInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->mezzanine) {
+            $this->mezzanine->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mezzanine) {
-            $res['Mezzanine'] = null !== $this->mezzanine ? $this->mezzanine->toMap() : null;
+            $res['Mezzanine'] = null !== $this->mezzanine ? $this->mezzanine->toArray($noStream) : $this->mezzanine;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetMezzanineInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMezzanineInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Mezzanine'])) {
             $model->mezzanine = mezzanine::fromMap($map['Mezzanine']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

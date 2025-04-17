@@ -4,30 +4,22 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetVideoInfosResponseBody\videoList;
-use AlibabaCloud\Tea\Model;
 
 class GetVideoInfosResponseBody extends Model
 {
     /**
-     * @description The IDs of the videos that do not exist.
-     *
      * @var string[]
      */
     public $nonExistVideoIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4AF6-D7393642CA58****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the audio or video files.
-     *
      * @var videoList[]
      */
     public $videoList;
@@ -37,23 +29,40 @@ class GetVideoInfosResponseBody extends Model
         'videoList' => 'VideoList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->nonExistVideoIds)) {
+            Model::validateArray($this->nonExistVideoIds);
+        }
+        if (\is_array($this->videoList)) {
+            Model::validateArray($this->videoList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nonExistVideoIds) {
-            $res['NonExistVideoIds'] = $this->nonExistVideoIds;
+            if (\is_array($this->nonExistVideoIds)) {
+                $res['NonExistVideoIds'] = [];
+                $n1 = 0;
+                foreach ($this->nonExistVideoIds as $item1) {
+                    $res['NonExistVideoIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->videoList) {
-            $res['VideoList'] = [];
-            if (null !== $this->videoList && \is_array($this->videoList)) {
-                $n = 0;
-                foreach ($this->videoList as $item) {
-                    $res['VideoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->videoList)) {
+                $res['VideoList'] = [];
+                $n1 = 0;
+                foreach ($this->videoList as $item1) {
+                    $res['VideoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -61,28 +70,34 @@ class GetVideoInfosResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetVideoInfosResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NonExistVideoIds'])) {
             if (!empty($map['NonExistVideoIds'])) {
-                $model->nonExistVideoIds = $map['NonExistVideoIds'];
+                $model->nonExistVideoIds = [];
+                $n1 = 0;
+                foreach ($map['NonExistVideoIds'] as $item1) {
+                    $model->nonExistVideoIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VideoList'])) {
             if (!empty($map['VideoList'])) {
                 $model->videoList = [];
-                $n = 0;
-                foreach ($map['VideoList'] as $item) {
-                    $model->videoList[$n++] = null !== $item ? videoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VideoList'] as $item1) {
+                    $model->videoList[$n1++] = videoList::fromMap($item1);
                 }
             }
         }

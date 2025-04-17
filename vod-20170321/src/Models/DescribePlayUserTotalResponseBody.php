@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribePlayUserTotalResponseBody\userPlayStatisTotals;
-use AlibabaCloud\Tea\Model;
 
 class DescribePlayUserTotalResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 1FAFB884-D5A7-47D1-****-8928AA9C8720
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The daily playback statistics.
-     *
      * @var userPlayStatisTotals
      */
     public $userPlayStatisTotals;
@@ -29,32 +23,40 @@ class DescribePlayUserTotalResponseBody extends Model
         'userPlayStatisTotals' => 'UserPlayStatisTotals',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->userPlayStatisTotals) {
+            $this->userPlayStatisTotals->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->userPlayStatisTotals) {
-            $res['UserPlayStatisTotals'] = null !== $this->userPlayStatisTotals ? $this->userPlayStatisTotals->toMap() : null;
+            $res['UserPlayStatisTotals'] = null !== $this->userPlayStatisTotals ? $this->userPlayStatisTotals->toArray($noStream) : $this->userPlayStatisTotals;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePlayUserTotalResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UserPlayStatisTotals'])) {
             $model->userPlayStatisTotals = userPlayStatisTotals::fromMap($map['UserPlayStatisTotals']);
         }

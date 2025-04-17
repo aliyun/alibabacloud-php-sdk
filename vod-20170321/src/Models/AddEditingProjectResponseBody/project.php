@@ -4,65 +4,36 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\AddEditingProjectResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class project extends Model
 {
     /**
-     * @description The time when the online editing project was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-     *
-     * @example 2017-01-11T12:00:00Z
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description The description of the online editing project.
-     *
-     * @example testtimeline001desciption
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The time when the online editing project was last modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-     *
-     * @example 2017-01-11T13:00:00Z
-     *
      * @var string
      */
     public $modifiedTime;
 
     /**
-     * @description The ID of the online editing project.
-     *
-     * @example fb2101bf24bf4df34c4cb3187****
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @description The status of the online editing project. Valid values:
-     *
-     *   **Normal**: the online editing project is in draft.
-     *   **Producing**: the video is being produced.
-     *   **Produced**: the video is produced.
-     *   **ProduceFailed**: the video failed to be produced.
-     *
-     * @example Normal
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The title of the online editing project.
-     *
-     * @example testtimeline
-     *
      * @var string
      */
     public $title;
@@ -75,26 +46,34 @@ class project extends Model
         'title' => 'Title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -102,29 +81,34 @@ class project extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return project
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

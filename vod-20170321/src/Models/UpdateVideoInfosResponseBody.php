@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateVideoInfosResponseBody extends Model
 {
     /**
-     * @description The IDs of the videos that cannot be modified. Generally, videos cannot be modified if you do not have required [permissions](https://help.aliyun.com/document_detail/113600.html).
-     *
      * @var string[]
      */
     public $forbiddenVideoIds;
 
     /**
-     * @description The IDs of the videos that do not exist.
-     *
      * @var string[]
      */
     public $nonExistVideoIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4AF6-D7393642CA58****
-     *
      * @var string
      */
     public $requestId;
@@ -36,17 +28,40 @@ class UpdateVideoInfosResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->forbiddenVideoIds)) {
+            Model::validateArray($this->forbiddenVideoIds);
+        }
+        if (\is_array($this->nonExistVideoIds)) {
+            Model::validateArray($this->nonExistVideoIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->forbiddenVideoIds) {
-            $res['ForbiddenVideoIds'] = $this->forbiddenVideoIds;
+            if (\is_array($this->forbiddenVideoIds)) {
+                $res['ForbiddenVideoIds'] = [];
+                $n1 = 0;
+                foreach ($this->forbiddenVideoIds as $item1) {
+                    $res['ForbiddenVideoIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->nonExistVideoIds) {
-            $res['NonExistVideoIds'] = $this->nonExistVideoIds;
+            if (\is_array($this->nonExistVideoIds)) {
+                $res['NonExistVideoIds'] = [];
+                $n1 = 0;
+                foreach ($this->nonExistVideoIds as $item1) {
+                    $res['NonExistVideoIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -54,24 +69,34 @@ class UpdateVideoInfosResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateVideoInfosResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ForbiddenVideoIds'])) {
             if (!empty($map['ForbiddenVideoIds'])) {
-                $model->forbiddenVideoIds = $map['ForbiddenVideoIds'];
+                $model->forbiddenVideoIds = [];
+                $n1 = 0;
+                foreach ($map['ForbiddenVideoIds'] as $item1) {
+                    $model->forbiddenVideoIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['NonExistVideoIds'])) {
             if (!empty($map['NonExistVideoIds'])) {
-                $model->nonExistVideoIds = $map['NonExistVideoIds'];
+                $model->nonExistVideoIds = [];
+                $n1 = 0;
+                foreach ($map['NonExistVideoIds'] as $item1) {
+                    $model->nonExistVideoIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

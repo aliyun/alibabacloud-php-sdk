@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\UpdateMediaStorageClassResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateMediaStorageClassResponseBody\forbiddenList\mediaForbiddenReasonDTO;
-use AlibabaCloud\Tea\Model;
 
 class forbiddenList extends Model
 {
@@ -17,17 +17,23 @@ class forbiddenList extends Model
         'mediaForbiddenReasonDTO' => 'MediaForbiddenReasonDTO',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->mediaForbiddenReasonDTO)) {
+            Model::validateArray($this->mediaForbiddenReasonDTO);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaForbiddenReasonDTO) {
-            $res['MediaForbiddenReasonDTO'] = [];
-            if (null !== $this->mediaForbiddenReasonDTO && \is_array($this->mediaForbiddenReasonDTO)) {
-                $n = 0;
-                foreach ($this->mediaForbiddenReasonDTO as $item) {
-                    $res['MediaForbiddenReasonDTO'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mediaForbiddenReasonDTO)) {
+                $res['MediaForbiddenReasonDTO'] = [];
+                $n1 = 0;
+                foreach ($this->mediaForbiddenReasonDTO as $item1) {
+                    $res['MediaForbiddenReasonDTO'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class forbiddenList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return forbiddenList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaForbiddenReasonDTO'])) {
             if (!empty($map['MediaForbiddenReasonDTO'])) {
                 $model->mediaForbiddenReasonDTO = [];
-                $n = 0;
-                foreach ($map['MediaForbiddenReasonDTO'] as $item) {
-                    $model->mediaForbiddenReasonDTO[$n++] = null !== $item ? mediaForbiddenReasonDTO::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MediaForbiddenReasonDTO'] as $item1) {
+                    $model->mediaForbiddenReasonDTO[$n1++] = mediaForbiddenReasonDTO::fromMap($item1);
                 }
             }
         }

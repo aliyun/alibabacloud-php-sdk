@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditAudioResultDetailResponseBody\mediaAuditAudioResultDetail;
-use AlibabaCloud\Tea\Model;
 
 class GetMediaAuditAudioResultDetailResponseBody extends Model
 {
     /**
-     * @description Details of review results.
-     *
      * @var mediaAuditAudioResultDetail
      */
     public $mediaAuditAudioResultDetail;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example CB7D7232-1AB2-40FE-B8D3-****
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetMediaAuditAudioResultDetailResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->mediaAuditAudioResultDetail) {
+            $this->mediaAuditAudioResultDetail->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaAuditAudioResultDetail) {
-            $res['MediaAuditAudioResultDetail'] = null !== $this->mediaAuditAudioResultDetail ? $this->mediaAuditAudioResultDetail->toMap() : null;
+            $res['MediaAuditAudioResultDetail'] = null !== $this->mediaAuditAudioResultDetail ? $this->mediaAuditAudioResultDetail->toArray($noStream) : $this->mediaAuditAudioResultDetail;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetMediaAuditAudioResultDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMediaAuditAudioResultDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaAuditAudioResultDetail'])) {
             $model->mediaAuditAudioResultDetail = mediaAuditAudioResultDetail::fromMap($map['MediaAuditAudioResultDetail']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

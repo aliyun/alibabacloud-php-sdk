@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDynamicImageRequest extends Model
 {
     /**
-     * @description The ID of the video.
-     *
-     * This parameter is required.
-     *
-     * @example 2e114f1100590c3193918fd449a****
-     *
      * @var string
      */
     public $videoId;
@@ -22,9 +16,12 @@ class ListDynamicImageRequest extends Model
         'videoId' => 'VideoId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->videoId) {
@@ -34,11 +31,11 @@ class ListDynamicImageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDynamicImageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

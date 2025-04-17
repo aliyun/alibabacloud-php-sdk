@@ -4,41 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAppInfoRequest extends Model
 {
     /**
-     * @description The name of the application. The application name must be unique.
-     *
-     *   The name can contain letters, digits, periods (.), hyphens (-), and at signs (@). The name can be up to 128 characters in length.
-     *   The value must be encoded in UTF-8.
-     *
-     * This parameter is required.
-     *
-     * @example test
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description The description of the application.
-     *
-     *   The description can contain up to 512 characters in length.
-     *   The value must be encoded in UTF-8.
-     *
-     * @example myfirstapp
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The resource group ID.
-     *
-     * @example rg-aekzko7fsuj****
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -48,17 +28,22 @@ class CreateAppInfoRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -66,20 +51,22 @@ class CreateAppInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAppInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetImageInfosResponseBody\imageInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class mezzanine extends Model
 {
     /**
-     * @description The size of the file to be uploaded. Unit: bytes.
-     *
-     * @example 8932
-     *
      * @var string
      */
     public $fileSize;
 
     /**
-     * @description The OSS URL of the image file.
-     *
-     * @example https://outin-bfefbb*****163e1c7426.oss-cn-XXXXXXXX.aliyuncs.com/image/default/5E84CD536*****D4DAD.png?Expires=1590982353&OSSAccessKeyId=*****&Signature=ALPET74o*****c%3D
-     *
      * @var string
      */
     public $fileURL;
 
     /**
-     * @description The height of the image. Unit: pixels.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @description The URL of the source file.
-     *
-     * @example ****.gif
-     *
      * @var string
      */
     public $originalFileName;
 
     /**
-     * @description The width of the image. Unit: pixels.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $width;
@@ -60,23 +40,30 @@ class mezzanine extends Model
         'width' => 'Width',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileSize) {
             $res['FileSize'] = $this->fileSize;
         }
+
         if (null !== $this->fileURL) {
             $res['FileURL'] = $this->fileURL;
         }
+
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
+
         if (null !== $this->originalFileName) {
             $res['OriginalFileName'] = $this->originalFileName;
         }
+
         if (null !== $this->width) {
             $res['Width'] = $this->width;
         }
@@ -84,26 +71,30 @@ class mezzanine extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mezzanine
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSize'])) {
             $model->fileSize = $map['FileSize'];
         }
+
         if (isset($map['FileURL'])) {
             $model->fileURL = $map['FileURL'];
         }
+
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
+
         if (isset($map['OriginalFileName'])) {
             $model->originalFileName = $map['OriginalFileName'];
         }
+
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
         }

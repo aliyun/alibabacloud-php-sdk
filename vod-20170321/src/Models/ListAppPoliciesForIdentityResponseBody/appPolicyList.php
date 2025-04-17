@@ -4,72 +4,41 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\ListAppPoliciesForIdentityResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class appPolicyList extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * @example app-****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The time when the application policy was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-     *
-     * @example 2019-01-01T01:01:01Z
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description The description of the policy.
-     *
-     * @example App full access permission
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The last time when the application policy was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-     *
-     * @example 2019-01-01T01:08:01Z
-     *
      * @var string
      */
     public $modificationTime;
 
     /**
-     * @description The name of the policy.
-     *
-     * @example VODAppFullAccess
-     *
      * @var string
      */
     public $policyName;
 
     /**
-     * @description The type of the policy. Valid values:
-     *
-     *   **System**
-     *   **Custom**
-     *
-     * @example System
-     *
      * @var string
      */
     public $policyType;
 
     /**
-     * @description The content of the policy.
-     *
-     * @example ****
-     *
      * @var string
      */
     public $policyValue;
@@ -83,29 +52,38 @@ class appPolicyList extends Model
         'policyValue' => 'PolicyValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->modificationTime) {
             $res['ModificationTime'] = $this->modificationTime;
         }
+
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
+
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
         }
+
         if (null !== $this->policyValue) {
             $res['PolicyValue'] = $this->policyValue;
         }
@@ -113,32 +91,38 @@ class appPolicyList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return appPolicyList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ModificationTime'])) {
             $model->modificationTime = $map['ModificationTime'];
         }
+
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }
+
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
         }
+
         if (isset($map['PolicyValue'])) {
             $model->policyValue = $map['PolicyValue'];
         }

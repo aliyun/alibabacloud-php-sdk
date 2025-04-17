@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodEditingUsageDataResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class editingData extends Model
 {
     /**
-     * @example 123
-     *
      * @var int
      */
     public $duration;
 
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @example H264.SD
-     *
      * @var string
      */
     public $specification;
 
     /**
-     * @example 2024-11-06T16:00:00Z
-     *
      * @var string
      */
     public $timeStamp;
@@ -42,20 +34,26 @@ class editingData extends Model
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->specification) {
             $res['Specification'] = $this->specification;
         }
+
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -63,23 +61,26 @@ class editingData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return editingData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['Specification'])) {
             $model->specification = $map['Specification'];
         }
+
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

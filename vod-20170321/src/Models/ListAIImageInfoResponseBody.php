@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListAIImageInfoResponseBody\AIImageInfoList;
-use AlibabaCloud\Tea\Model;
 
 class ListAIImageInfoResponseBody extends Model
 {
     /**
-     * @description The image files that are uploaded for AI processing.
-     *
      * @var AIImageInfoList[]
      */
     public $AIImageInfoList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example D73420CD-D221-9122-5B8FA995A511****
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,27 @@ class ListAIImageInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->AIImageInfoList)) {
+            Model::validateArray($this->AIImageInfoList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->AIImageInfoList) {
-            $res['AIImageInfoList'] = [];
-            if (null !== $this->AIImageInfoList && \is_array($this->AIImageInfoList)) {
-                $n = 0;
-                foreach ($this->AIImageInfoList as $item) {
-                    $res['AIImageInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->AIImageInfoList)) {
+                $res['AIImageInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->AIImageInfoList as $item1) {
+                    $res['AIImageInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +51,24 @@ class ListAIImageInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAIImageInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AIImageInfoList'])) {
             if (!empty($map['AIImageInfoList'])) {
                 $model->AIImageInfoList = [];
-                $n = 0;
-                foreach ($map['AIImageInfoList'] as $item) {
-                    $model->AIImageInfoList[$n++] = null !== $item ? AIImageInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AIImageInfoList'] as $item1) {
+                    $model->AIImageInfoList[$n1++] = AIImageInfoList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

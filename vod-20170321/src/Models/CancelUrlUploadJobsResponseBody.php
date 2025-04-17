@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelUrlUploadJobsResponseBody extends Model
 {
     /**
-     * @description The IDs of canceled jobs.
-     *
      * @var string[]
      */
     public $canceledJobs;
 
     /**
-     * @description The jobs that do not exist.
-     *
      * @var string[]
      */
     public $nonExists;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4D5C-3C3D-D7393642****
-     *
      * @var string
      */
     public $requestId;
@@ -36,17 +28,40 @@ class CancelUrlUploadJobsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->canceledJobs)) {
+            Model::validateArray($this->canceledJobs);
+        }
+        if (\is_array($this->nonExists)) {
+            Model::validateArray($this->nonExists);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->canceledJobs) {
-            $res['CanceledJobs'] = $this->canceledJobs;
+            if (\is_array($this->canceledJobs)) {
+                $res['CanceledJobs'] = [];
+                $n1 = 0;
+                foreach ($this->canceledJobs as $item1) {
+                    $res['CanceledJobs'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->nonExists) {
-            $res['NonExists'] = $this->nonExists;
+            if (\is_array($this->nonExists)) {
+                $res['NonExists'] = [];
+                $n1 = 0;
+                foreach ($this->nonExists as $item1) {
+                    $res['NonExists'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -54,24 +69,34 @@ class CancelUrlUploadJobsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelUrlUploadJobsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CanceledJobs'])) {
             if (!empty($map['CanceledJobs'])) {
-                $model->canceledJobs = $map['CanceledJobs'];
+                $model->canceledJobs = [];
+                $n1 = 0;
+                foreach ($map['CanceledJobs'] as $item1) {
+                    $model->canceledJobs[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['NonExists'])) {
             if (!empty($map['NonExists'])) {
-                $model->nonExists = $map['NonExists'];
+                $model->nonExists = [];
+                $n1 = 0;
+                foreach ($map['NonExists'] as $item1) {
+                    $model->nonExists[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

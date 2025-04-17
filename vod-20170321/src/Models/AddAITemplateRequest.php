@@ -4,42 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddAITemplateRequest extends Model
 {
     /**
-     * @description The detailed configurations of the AI template. The value must be a JSON string. For more information, see [AITemplateConfig](~~89863#title-vd3-499-o36~~).
-     *
-     * This parameter is required.
-     *
-     * @example {"AuditItem":["terrorism","porn"],"AuditRange":["image-cover","text-title","video"],"AuditContent":["screen"],"AuditAutoBlock":"yes"}
-     *
      * @var string
      */
     public $templateConfig;
 
     /**
-     * @description The name of the AI template. The name can be up to 128 bytes in length.
-     *
-     * This parameter is required.
-     *
-     * @example AI-media-test
-     *
      * @var string
      */
     public $templateName;
 
     /**
-     * @description The type of the AI template. Valid values:
-     *
-     *   **AIMediaAudit**: automated review
-     *   **AIImage**: smart thumbnail
-     *
-     * This parameter is required.
-     *
-     * @example AIMediaAudit
-     *
      * @var string
      */
     public $templateType;
@@ -49,17 +28,22 @@ class AddAITemplateRequest extends Model
         'templateType' => 'TemplateType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->templateConfig) {
             $res['TemplateConfig'] = $this->templateConfig;
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
+
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
         }
@@ -67,20 +51,22 @@ class AddAITemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddAITemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TemplateConfig'])) {
             $model->templateConfig = $map['TemplateConfig'];
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
+
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
         }

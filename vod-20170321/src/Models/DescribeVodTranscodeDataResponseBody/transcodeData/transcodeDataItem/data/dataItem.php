@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodTranscodeDataResponseBody\transcodeData\transcodeDataItem\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataItem extends Model
 {
     /**
-     * @description The transcoding specification. Valid values:
-     *
-     *   **Audio**: audio transcoding
-     *   **Segmentation**: container format conversion
-     *   **H264.LD, H264.SD, H264.HD, H264.2K, H264.4K, and more**
-     *
-     * @example H264.SD
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The transcoding duration. Unit: seconds.
-     *
-     * @example 111
-     *
      * @var string
      */
     public $value;
@@ -34,14 +22,18 @@ class dataItem extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -49,17 +41,18 @@ class dataItem extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataItem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

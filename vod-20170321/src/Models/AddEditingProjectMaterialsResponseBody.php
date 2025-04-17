@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddEditingProjectMaterialsResponseBody\materialList;
-use AlibabaCloud\Tea\Model;
 
 class AddEditingProjectMaterialsResponseBody extends Model
 {
     /**
-     * @description The materials.
-     *
      * @var materialList[]
      */
     public $materialList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 85237CDA-0B54-5CED-BA10-A8A71AA13C1A
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,27 @@ class AddEditingProjectMaterialsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->materialList)) {
+            Model::validateArray($this->materialList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->materialList) {
-            $res['MaterialList'] = [];
-            if (null !== $this->materialList && \is_array($this->materialList)) {
-                $n = 0;
-                foreach ($this->materialList as $item) {
-                    $res['MaterialList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->materialList)) {
+                $res['MaterialList'] = [];
+                $n1 = 0;
+                foreach ($this->materialList as $item1) {
+                    $res['MaterialList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +51,24 @@ class AddEditingProjectMaterialsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddEditingProjectMaterialsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaterialList'])) {
             if (!empty($map['MaterialList'])) {
                 $model->materialList = [];
-                $n = 0;
-                foreach ($map['MaterialList'] as $item) {
-                    $model->materialList[$n++] = null !== $item ? materialList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MaterialList'] as $item1) {
+                    $model->materialList[$n1++] = materialList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

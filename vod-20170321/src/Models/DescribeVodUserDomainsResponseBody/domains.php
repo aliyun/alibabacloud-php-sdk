@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodUserDomainsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodUserDomainsResponseBody\domains\pageData;
-use AlibabaCloud\Tea\Model;
 
 class domains extends Model
 {
@@ -17,17 +17,23 @@ class domains extends Model
         'pageData' => 'PageData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->pageData)) {
+            Model::validateArray($this->pageData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageData) {
-            $res['PageData'] = [];
-            if (null !== $this->pageData && \is_array($this->pageData)) {
-                $n = 0;
-                foreach ($this->pageData as $item) {
-                    $res['PageData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->pageData)) {
+                $res['PageData'] = [];
+                $n1 = 0;
+                foreach ($this->pageData as $item1) {
+                    $res['PageData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class domains extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domains
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageData'])) {
             if (!empty($map['PageData'])) {
                 $model->pageData = [];
-                $n = 0;
-                foreach ($map['PageData'] as $item) {
-                    $model->pageData[$n++] = null !== $item ? pageData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PageData'] as $item1) {
+                    $model->pageData[$n1++] = pageData::fromMap($item1);
                 }
             }
         }

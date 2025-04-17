@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetAttachedMediaInfoResponseBody\attachedMediaList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class categories extends Model
 {
     /**
-     * @description The ID of the category.
-     *
-     * @example 1000224338
-     *
      * @var int
      */
     public $cateId;
 
     /**
-     * @description The name of the category.
-     *
-     * @example category test
-     *
      * @var string
      */
     public $cateName;
 
     /**
-     * @description The level of the category.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $level;
 
     /**
-     * @description The ID of the parent category.
-     *
-     * @example 1000224336
-     *
      * @var int
      */
     public $parentId;
@@ -50,20 +34,26 @@ class categories extends Model
         'parentId' => 'ParentId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cateId) {
             $res['CateId'] = $this->cateId;
         }
+
         if (null !== $this->cateName) {
             $res['CateName'] = $this->cateName;
         }
+
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
+
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
         }
@@ -71,23 +61,26 @@ class categories extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return categories
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CateId'])) {
             $model->cateId = $map['CateId'];
         }
+
         if (isset($map['CateName'])) {
             $model->cateName = $map['CateName'];
         }
+
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
+
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
         }

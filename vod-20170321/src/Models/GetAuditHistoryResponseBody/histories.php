@@ -4,53 +4,31 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetAuditHistoryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class histories extends Model
 {
     /**
-     * @description The reviewer.
-     *
-     * @example auditor
-     *
      * @var string
      */
     public $auditor;
 
     /**
-     * @description The review comments, which are provided by the reviewer.
-     *
-     * @example Contains nudity
-     *
      * @var string
      */
     public $comment;
 
     /**
-     * @description The time when the review record was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-     *
-     * @example 2017-01-11T12:00:00Z
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description The reason why the video failed the review. If the video failed the review, specify the reason.
-     *
-     * @example Pornographic video
-     *
      * @var string
      */
     public $reason;
 
     /**
-     * @description The manual review result. Valid values:
-     * - **Normal**: The video can be played.
-     * - **Blocked**: The video is blocked.
-     *
-     * @example Blocked
-     *
      * @var string
      */
     public $status;
@@ -62,23 +40,30 @@ class histories extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->auditor) {
             $res['Auditor'] = $this->auditor;
         }
+
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -86,26 +71,30 @@ class histories extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return histories
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Auditor'])) {
             $model->auditor = $map['Auditor'];
         }
+
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

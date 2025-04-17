@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitDynamicImageJobResponseBody\dynamicImageJob;
-use AlibabaCloud\Tea\Model;
 
 class SubmitDynamicImageJobResponseBody extends Model
 {
     /**
-     * @description The information about the animated image job.
-     *
      * @var dynamicImageJob
      */
     public $dynamicImageJob;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-74A6-BEF6-D7393642****
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class SubmitDynamicImageJobResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->dynamicImageJob) {
+            $this->dynamicImageJob->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dynamicImageJob) {
-            $res['DynamicImageJob'] = null !== $this->dynamicImageJob ? $this->dynamicImageJob->toMap() : null;
+            $res['DynamicImageJob'] = null !== $this->dynamicImageJob ? $this->dynamicImageJob->toArray($noStream) : $this->dynamicImageJob;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class SubmitDynamicImageJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitDynamicImageJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DynamicImageJob'])) {
             $model->dynamicImageJob = dynamicImageJob::fromMap($map['DynamicImageJob']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

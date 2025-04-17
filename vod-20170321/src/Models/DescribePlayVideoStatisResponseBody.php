@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribePlayVideoStatisResponseBody\videoPlayStatisDetails;
-use AlibabaCloud\Tea\Model;
 
 class DescribePlayVideoStatisResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example A92D3600-A3E7-43D6-****-B6E3B4A1FE6B
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The daily playback statistics on the video.
-     *
      * @var videoPlayStatisDetails
      */
     public $videoPlayStatisDetails;
@@ -29,32 +23,40 @@ class DescribePlayVideoStatisResponseBody extends Model
         'videoPlayStatisDetails' => 'VideoPlayStatisDetails',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->videoPlayStatisDetails) {
+            $this->videoPlayStatisDetails->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->videoPlayStatisDetails) {
-            $res['VideoPlayStatisDetails'] = null !== $this->videoPlayStatisDetails ? $this->videoPlayStatisDetails->toMap() : null;
+            $res['VideoPlayStatisDetails'] = null !== $this->videoPlayStatisDetails ? $this->videoPlayStatisDetails->toArray($noStream) : $this->videoPlayStatisDetails;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePlayVideoStatisResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VideoPlayStatisDetails'])) {
             $model->videoPlayStatisDetails = videoPlayStatisDetails::fromMap($map['VideoPlayStatisDetails']);
         }

@@ -4,20 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAttachedMediaRequest extends Model
 {
     /**
-     * @description The ID of the auxiliary media asset that you want to delete.
-     *
-     *   Separate multiple IDs with commas (,). You can specify up to 20 IDs.
-     *   You can obtain the ID from the response to the [CreateUploadAttachedMedia](~~CreateUploadAttachedMedia~~) operation that you call to obtain the upload URL and credential.
-     *
-     * This parameter is required.
-     *
-     * @example 8bc8e94fe4e55abde85718****,eb186180e989dd56****
-     *
      * @var string
      */
     public $mediaIds;
@@ -25,9 +16,12 @@ class DeleteAttachedMediaRequest extends Model
         'mediaIds' => 'MediaIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaIds) {
@@ -37,11 +31,11 @@ class DeleteAttachedMediaRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAttachedMediaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

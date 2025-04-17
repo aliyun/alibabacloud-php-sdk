@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListWatermarkResponseBody\watermarkInfos;
-use AlibabaCloud\Tea\Model;
 
 class ListWatermarkResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 25818875-5F78-4A*****F6-D7393642CA58
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the watermark template.
-     *
      * @var watermarkInfos[]
      */
     public $watermarkInfos;
@@ -29,20 +23,27 @@ class ListWatermarkResponseBody extends Model
         'watermarkInfos' => 'WatermarkInfos',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->watermarkInfos)) {
+            Model::validateArray($this->watermarkInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->watermarkInfos) {
-            $res['WatermarkInfos'] = [];
-            if (null !== $this->watermarkInfos && \is_array($this->watermarkInfos)) {
-                $n = 0;
-                foreach ($this->watermarkInfos as $item) {
-                    $res['WatermarkInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->watermarkInfos)) {
+                $res['WatermarkInfos'] = [];
+                $n1 = 0;
+                foreach ($this->watermarkInfos as $item1) {
+                    $res['WatermarkInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -50,23 +51,24 @@ class ListWatermarkResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListWatermarkResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['WatermarkInfos'])) {
             if (!empty($map['WatermarkInfos'])) {
                 $model->watermarkInfos = [];
-                $n = 0;
-                foreach ($map['WatermarkInfos'] as $item) {
-                    $model->watermarkInfos[$n++] = null !== $item ? watermarkInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WatermarkInfos'] as $item1) {
+                    $model->watermarkInfos[$n1++] = watermarkInfos::fromMap($item1);
                 }
             }
         }

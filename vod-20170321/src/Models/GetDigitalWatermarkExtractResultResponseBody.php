@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetDigitalWatermarkExtractResultResponseBody\aiExtractResultList;
-use AlibabaCloud\Tea\Model;
 
 class GetDigitalWatermarkExtractResultResponseBody extends Model
 {
     /**
-     * @description The details of the watermark extraction job.
-     *
      * @var aiExtractResultList[]
      */
     public $aiExtractResultList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 42E0554B-80F4-4921-****-ACFB22CAAAD0
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,27 @@ class GetDigitalWatermarkExtractResultResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->aiExtractResultList)) {
+            Model::validateArray($this->aiExtractResultList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aiExtractResultList) {
-            $res['AiExtractResultList'] = [];
-            if (null !== $this->aiExtractResultList && \is_array($this->aiExtractResultList)) {
-                $n = 0;
-                foreach ($this->aiExtractResultList as $item) {
-                    $res['AiExtractResultList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->aiExtractResultList)) {
+                $res['AiExtractResultList'] = [];
+                $n1 = 0;
+                foreach ($this->aiExtractResultList as $item1) {
+                    $res['AiExtractResultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +51,24 @@ class GetDigitalWatermarkExtractResultResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDigitalWatermarkExtractResultResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AiExtractResultList'])) {
             if (!empty($map['AiExtractResultList'])) {
                 $model->aiExtractResultList = [];
-                $n = 0;
-                foreach ($map['AiExtractResultList'] as $item) {
-                    $model->aiExtractResultList[$n++] = null !== $item ? aiExtractResultList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AiExtractResultList'] as $item1) {
+                    $model->aiExtractResultList[$n1++] = aiExtractResultList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

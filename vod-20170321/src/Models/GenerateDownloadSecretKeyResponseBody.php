@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenerateDownloadSecretKeyResponseBody extends Model
 {
     /**
-     * @description The key file for secure download.
-     *
-     * @example ***
-     *
      * @var string
      */
     public $appEncryptKey;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example E99B9BAD-7F9D-552B-A689-B72E92EA040E
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class GenerateDownloadSecretKeyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appEncryptKey) {
             $res['AppEncryptKey'] = $this->appEncryptKey;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class GenerateDownloadSecretKeyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateDownloadSecretKeyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppEncryptKey'])) {
             $model->appEncryptKey = $map['AppEncryptKey'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

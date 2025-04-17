@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAIJobResponseBody\AIJobList;
-use AlibabaCloud\Tea\Model;
 
 class SubmitAIJobResponseBody extends Model
 {
     /**
-     * @description The information about the AI jobs.
-     *
      * @var AIJobList
      */
     public $AIJobList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4A13-BEF6-D73936****
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class SubmitAIJobResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->AIJobList) {
+            $this->AIJobList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->AIJobList) {
-            $res['AIJobList'] = null !== $this->AIJobList ? $this->AIJobList->toMap() : null;
+            $res['AIJobList'] = null !== $this->AIJobList ? $this->AIJobList->toArray($noStream) : $this->AIJobList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class SubmitAIJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitAIJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AIJobList'])) {
             $model->AIJobList = AIJobList::fromMap($map['AIJobList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

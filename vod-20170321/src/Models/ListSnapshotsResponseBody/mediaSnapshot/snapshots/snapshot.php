@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\ListSnapshotsResponseBody\mediaSnapshot\snapshots;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class snapshot extends Model
 {
     /**
-     * @description The index of the snapshot.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $index;
 
     /**
-     * @description The URL of the snapshot.
-     *
-     * @example http://example.aliyundoc.com/snapshot/sample00001****.jpg
-     *
      * @var string
      */
     public $url;
@@ -30,14 +22,18 @@ class snapshot extends Model
         'url' => 'Url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -45,17 +41,18 @@ class snapshot extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return snapshot
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

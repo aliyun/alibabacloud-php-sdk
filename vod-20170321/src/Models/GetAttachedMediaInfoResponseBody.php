@@ -4,30 +4,22 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAttachedMediaInfoResponseBody\attachedMediaList;
-use AlibabaCloud\Tea\Model;
 
 class GetAttachedMediaInfoResponseBody extends Model
 {
     /**
-     * @description The information about the media assets.
-     *
      * @var attachedMediaList[]
      */
     public $attachedMediaList;
 
     /**
-     * @description The IDs of the auxiliary media assets that do not exist.
-     *
      * @var string[]
      */
     public $nonExistMediaIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 221BCB57-B217-42BF-619BD13378F9****
-     *
      * @var string
      */
     public $requestId;
@@ -37,23 +29,40 @@ class GetAttachedMediaInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->attachedMediaList)) {
+            Model::validateArray($this->attachedMediaList);
+        }
+        if (\is_array($this->nonExistMediaIds)) {
+            Model::validateArray($this->nonExistMediaIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attachedMediaList) {
-            $res['AttachedMediaList'] = [];
-            if (null !== $this->attachedMediaList && \is_array($this->attachedMediaList)) {
-                $n = 0;
-                foreach ($this->attachedMediaList as $item) {
-                    $res['AttachedMediaList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->attachedMediaList)) {
+                $res['AttachedMediaList'] = [];
+                $n1 = 0;
+                foreach ($this->attachedMediaList as $item1) {
+                    $res['AttachedMediaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nonExistMediaIds) {
-            $res['NonExistMediaIds'] = $this->nonExistMediaIds;
+            if (\is_array($this->nonExistMediaIds)) {
+                $res['NonExistMediaIds'] = [];
+                $n1 = 0;
+                foreach ($this->nonExistMediaIds as $item1) {
+                    $res['NonExistMediaIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -61,28 +70,34 @@ class GetAttachedMediaInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAttachedMediaInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttachedMediaList'])) {
             if (!empty($map['AttachedMediaList'])) {
                 $model->attachedMediaList = [];
-                $n = 0;
-                foreach ($map['AttachedMediaList'] as $item) {
-                    $model->attachedMediaList[$n++] = null !== $item ? attachedMediaList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AttachedMediaList'] as $item1) {
+                    $model->attachedMediaList[$n1++] = attachedMediaList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NonExistMediaIds'])) {
             if (!empty($map['NonExistMediaIds'])) {
-                $model->nonExistMediaIds = $map['NonExistMediaIds'];
+                $model->nonExistMediaIds = [];
+                $n1 = 0;
+                foreach ($map['NonExistMediaIds'] as $item1) {
+                    $model->nonExistMediaIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

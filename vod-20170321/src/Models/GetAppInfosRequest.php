@@ -4,20 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAppInfosRequest extends Model
 {
     /**
-     * @description The IDs of applications. You can obtain application IDs from the response to the [CreateAppInfo](https://help.aliyun.com/document_detail/113266.html) or [ListAppInfo](https://help.aliyun.com/document_detail/114000.html) operation.
-     *
-     *   You can specify a maximum of 10 application IDs.
-     *   Separate application IDs with commas (,).
-     *
-     * This parameter is required.
-     *
-     * @example app-****
-     *
      * @var string
      */
     public $appIds;
@@ -25,9 +16,12 @@ class GetAppInfosRequest extends Model
         'appIds' => 'AppIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appIds) {
@@ -37,11 +31,11 @@ class GetAppInfosRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAppInfosRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

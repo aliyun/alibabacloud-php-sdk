@@ -4,32 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListJobInfoRequest extends Model
 {
     /**
-     * @description The type of the task. Valid values:
-     *
-     *   transcode
-     *   snapshot
-     *   ai
-     *
-     * This parameter is required.
-     *
-     * @example transcode
-     *
      * @var string
      */
     public $jobType;
 
     /**
-     * @description The ID of the media asset.
-     *
-     * This parameter is required.
-     *
-     * @example 30e5d7**********bd900764de7c0102
-     *
      * @var string
      */
     public $mediaId;
@@ -38,14 +22,18 @@ class ListJobInfoRequest extends Model
         'mediaId' => 'MediaId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
+
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
@@ -53,17 +41,18 @@ class ListJobInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListJobInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
+
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodCertificateListResponseBody\certificateListModel;
-use AlibabaCloud\Tea\Model;
 
 class DescribeVodCertificateListResponseBody extends Model
 {
     /**
-     * @description The information about each certificate.
-     *
      * @var certificateListModel
      */
     public $certificateListModel;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example FC0E34AC-0239-44A7-****-800DE522C8DA
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeVodCertificateListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->certificateListModel) {
+            $this->certificateListModel->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certificateListModel) {
-            $res['CertificateListModel'] = null !== $this->certificateListModel ? $this->certificateListModel->toMap() : null;
+            $res['CertificateListModel'] = null !== $this->certificateListModel ? $this->certificateListModel->toArray($noStream) : $this->certificateListModel;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeVodCertificateListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVodCertificateListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertificateListModel'])) {
             $model->certificateListModel = certificateListModel::fromMap($map['CertificateListModel']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

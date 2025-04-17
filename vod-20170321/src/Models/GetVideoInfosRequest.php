@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetVideoInfosRequest extends Model
 {
     /**
-     * @description The list of video IDs. Separate multiple IDs with commas (,). A maximum of 20 IDs can be specified.
-     *
-     * This parameter is required.
-     *
-     * @example 7753d144efd8e649c6c45fe0579****,7753d144efd74d6c45fe0570****
-     *
      * @var string
      */
     public $videoIds;
@@ -22,9 +16,12 @@ class GetVideoInfosRequest extends Model
         'videoIds' => 'VideoIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->videoIds) {
@@ -34,11 +31,11 @@ class GetVideoInfosRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetVideoInfosRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

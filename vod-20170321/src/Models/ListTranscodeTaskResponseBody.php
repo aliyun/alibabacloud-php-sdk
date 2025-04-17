@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListTranscodeTaskResponseBody\transcodeTaskList;
-use AlibabaCloud\Tea\Model;
 
 class ListTranscodeTaskResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4A*****F6-D7393642CA58
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Details about transcoding tasks.
-     *
      * @var transcodeTaskList[]
      */
     public $transcodeTaskList;
@@ -29,20 +23,27 @@ class ListTranscodeTaskResponseBody extends Model
         'transcodeTaskList' => 'TranscodeTaskList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->transcodeTaskList)) {
+            Model::validateArray($this->transcodeTaskList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->transcodeTaskList) {
-            $res['TranscodeTaskList'] = [];
-            if (null !== $this->transcodeTaskList && \is_array($this->transcodeTaskList)) {
-                $n = 0;
-                foreach ($this->transcodeTaskList as $item) {
-                    $res['TranscodeTaskList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->transcodeTaskList)) {
+                $res['TranscodeTaskList'] = [];
+                $n1 = 0;
+                foreach ($this->transcodeTaskList as $item1) {
+                    $res['TranscodeTaskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -50,23 +51,24 @@ class ListTranscodeTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTranscodeTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TranscodeTaskList'])) {
             if (!empty($map['TranscodeTaskList'])) {
                 $model->transcodeTaskList = [];
-                $n = 0;
-                foreach ($map['TranscodeTaskList'] as $item) {
-                    $model->transcodeTaskList[$n++] = null !== $item ? transcodeTaskList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TranscodeTaskList'] as $item1) {
+                    $model->transcodeTaskList[$n1++] = transcodeTaskList::fromMap($item1);
                 }
             }
         }

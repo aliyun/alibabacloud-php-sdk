@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetEditingProjectResponseBody\project;
-use AlibabaCloud\Tea\Model;
 
 class GetEditingProjectResponseBody extends Model
 {
     /**
-     * @description The information about the online editing project.
-     *
      * @var project
      */
     public $project;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 63E8B7C7-4812-46*****AD-0FA56029AC86
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetEditingProjectResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->project) {
+            $this->project->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->project) {
-            $res['Project'] = null !== $this->project ? $this->project->toMap() : null;
+            $res['Project'] = null !== $this->project ? $this->project->toArray($noStream) : $this->project;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetEditingProjectResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetEditingProjectResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Project'])) {
             $model->project = project::fromMap($map['Project']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

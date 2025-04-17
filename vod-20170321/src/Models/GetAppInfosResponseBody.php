@@ -4,39 +4,27 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAppInfosResponseBody\appInfoList;
-use AlibabaCloud\Tea\Model;
 
 class GetAppInfosResponseBody extends Model
 {
     /**
-     * @description The details of applications.
-     *
      * @var appInfoList[]
      */
     public $appInfoList;
 
     /**
-     * @description The HTTP status code that is returned.
-     *
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The IDs of applications that do not exist.
-     *
      * @var string[]
      */
     public $nonExistAppIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4A13-4DC4-D7393642****
-     *
      * @var string
      */
     public $requestId;
@@ -47,26 +35,44 @@ class GetAppInfosResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->appInfoList)) {
+            Model::validateArray($this->appInfoList);
+        }
+        if (\is_array($this->nonExistAppIds)) {
+            Model::validateArray($this->nonExistAppIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appInfoList) {
-            $res['AppInfoList'] = [];
-            if (null !== $this->appInfoList && \is_array($this->appInfoList)) {
-                $n = 0;
-                foreach ($this->appInfoList as $item) {
-                    $res['AppInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->appInfoList)) {
+                $res['AppInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->appInfoList as $item1) {
+                    $res['AppInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->nonExistAppIds) {
-            $res['NonExistAppIds'] = $this->nonExistAppIds;
+            if (\is_array($this->nonExistAppIds)) {
+                $res['NonExistAppIds'] = [];
+                $n1 = 0;
+                foreach ($this->nonExistAppIds as $item1) {
+                    $res['NonExistAppIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -74,31 +80,38 @@ class GetAppInfosResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAppInfosResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppInfoList'])) {
             if (!empty($map['AppInfoList'])) {
                 $model->appInfoList = [];
-                $n = 0;
-                foreach ($map['AppInfoList'] as $item) {
-                    $model->appInfoList[$n++] = null !== $item ? appInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AppInfoList'] as $item1) {
+                    $model->appInfoList[$n1++] = appInfoList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['NonExistAppIds'])) {
             if (!empty($map['NonExistAppIds'])) {
-                $model->nonExistAppIds = $map['NonExistAppIds'];
+                $model->nonExistAppIds = [];
+                $n1 = 0;
+                foreach ($map['NonExistAppIds'] as $item1) {
+                    $model->nonExistAppIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

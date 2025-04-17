@@ -4,39 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeVodDomainRealTimeDetailDataResponseBody extends Model
 {
     /**
-     * @description The returned results.
-     *
-     * @example [
-     * {
-     * "time_stp": "2018-06-05T20:00:00Z",
-     * "domain_name": "example.com",
-     * "location": "Guangdong",
-     * "isp": "telecom",
-     * "qps": 10
-     * },
-     * {
-     * "time_stp": "2018-06-05T20:00:00Z",
-     * "domain_name": "example.com",
-     * "location": "Jiangsu",
-     * "isp": "unicom",
-     * "qps": 11.1
-     * }
-     * ]
-     *
      * @var string
      */
     public $data;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 1710298E-8AFA-5F6D-A3E9-47103C52177D
-     *
      * @var string
      */
     public $requestId;
@@ -45,14 +22,18 @@ class DescribeVodDomainRealTimeDetailDataResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,17 +41,18 @@ class DescribeVodDomainRealTimeDetailDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVodDomainRealTimeDetailDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\SubmitTranscodeJobsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitTranscodeJobsResponseBody\transcodeJobs\transcodeJob;
-use AlibabaCloud\Tea\Model;
 
 class transcodeJobs extends Model
 {
@@ -17,17 +17,23 @@ class transcodeJobs extends Model
         'transcodeJob' => 'TranscodeJob',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->transcodeJob)) {
+            Model::validateArray($this->transcodeJob);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->transcodeJob) {
-            $res['TranscodeJob'] = [];
-            if (null !== $this->transcodeJob && \is_array($this->transcodeJob)) {
-                $n = 0;
-                foreach ($this->transcodeJob as $item) {
-                    $res['TranscodeJob'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->transcodeJob)) {
+                $res['TranscodeJob'] = [];
+                $n1 = 0;
+                foreach ($this->transcodeJob as $item1) {
+                    $res['TranscodeJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class transcodeJobs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return transcodeJobs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TranscodeJob'])) {
             if (!empty($map['TranscodeJob'])) {
                 $model->transcodeJob = [];
-                $n = 0;
-                foreach ($map['TranscodeJob'] as $item) {
-                    $model->transcodeJob[$n++] = null !== $item ? transcodeJob::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TranscodeJob'] as $item1) {
+                    $model->transcodeJob[$n1++] = transcodeJob::fromMap($item1);
                 }
             }
         }

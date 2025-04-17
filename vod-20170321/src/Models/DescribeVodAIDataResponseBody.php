@@ -4,35 +4,22 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodAIDataResponseBody\AIData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeVodAIDataResponseBody extends Model
 {
     /**
-     * @description The statistics on video AI.
-     *
      * @var AIData
      */
     public $AIData;
 
     /**
-     * @description The time granularity at which the data was queried. Valid values:
-     *
-     *   **hour**
-     *   **day**
-     *
-     * @example day
-     *
      * @var string
      */
     public $dataInterval;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example C370DAF1-C838-4288-****-9A87633D248E
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +29,25 @@ class DescribeVodAIDataResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->AIData) {
+            $this->AIData->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->AIData) {
-            $res['AIData'] = null !== $this->AIData ? $this->AIData->toMap() : null;
+            $res['AIData'] = null !== $this->AIData ? $this->AIData->toArray($noStream) : $this->AIData;
         }
+
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +55,22 @@ class DescribeVodAIDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVodAIDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AIData'])) {
             $model->AIData = AIData::fromMap($map['AIData']);
         }
+
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

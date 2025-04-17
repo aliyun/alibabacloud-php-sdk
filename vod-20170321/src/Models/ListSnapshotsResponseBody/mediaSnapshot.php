@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\ListSnapshotsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListSnapshotsResponseBody\mediaSnapshot\snapshots;
-use AlibabaCloud\Tea\Model;
 
 class mediaSnapshot extends Model
 {
     /**
-     * @description The time when the snapshot job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-     *
-     * @example 2017-12-20T12:23:45Z
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description The ID of the snapshot job.
-     *
-     * @example ad90a501b1b9472374ad005046****
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description The rule used to generate snapshot URLs.
-     *
-     * @example http://example.aliyundoc.com/snapshot/sample{SnapshotCount}.jpg
-     *
      * @var string
      */
     public $regular;
 
     /**
-     * @description The details of the snapshot.
-     *
      * @var snapshots
      */
     public $snapshots;
 
     /**
-     * @description The total number of snapshots.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $total;
@@ -59,23 +41,33 @@ class mediaSnapshot extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->snapshots) {
+            $this->snapshots->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->regular) {
             $res['Regular'] = $this->regular;
         }
+
         if (null !== $this->snapshots) {
-            $res['Snapshots'] = null !== $this->snapshots ? $this->snapshots->toMap() : null;
+            $res['Snapshots'] = null !== $this->snapshots ? $this->snapshots->toArray($noStream) : $this->snapshots;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -83,26 +75,30 @@ class mediaSnapshot extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mediaSnapshot
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['Regular'])) {
             $model->regular = $map['Regular'];
         }
+
         if (isset($map['Snapshots'])) {
             $model->snapshots = snapshots::fromMap($map['Snapshots']);
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

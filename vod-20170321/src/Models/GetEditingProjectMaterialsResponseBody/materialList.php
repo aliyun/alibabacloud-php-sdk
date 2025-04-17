@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetEditingProjectMaterialsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetEditingProjectMaterialsResponseBody\materialList\material;
-use AlibabaCloud\Tea\Model;
 
 class materialList extends Model
 {
@@ -17,17 +17,23 @@ class materialList extends Model
         'material' => 'Material',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->material)) {
+            Model::validateArray($this->material);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->material) {
-            $res['Material'] = [];
-            if (null !== $this->material && \is_array($this->material)) {
-                $n = 0;
-                foreach ($this->material as $item) {
-                    $res['Material'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->material)) {
+                $res['Material'] = [];
+                $n1 = 0;
+                foreach ($this->material as $item1) {
+                    $res['Material'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class materialList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return materialList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Material'])) {
             if (!empty($map['Material'])) {
                 $model->material = [];
-                $n = 0;
-                foreach ($map['Material'] as $item) {
-                    $model->material[$n++] = null !== $item ? material::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Material'] as $item1) {
+                    $model->material[$n1++] = material::fromMap($item1);
                 }
             }
         }

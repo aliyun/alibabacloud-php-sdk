@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaDNAResultResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaDNAResultResponseBody\DNAResult\videoDNA;
-use AlibabaCloud\Tea\Model;
 
 class DNAResult extends Model
 {
     /**
-     * @description The video fingerprint recognition result.
-     *
      * @var videoDNA[]
      */
     public $videoDNA;
@@ -19,17 +17,23 @@ class DNAResult extends Model
         'videoDNA' => 'VideoDNA',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->videoDNA)) {
+            Model::validateArray($this->videoDNA);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->videoDNA) {
-            $res['VideoDNA'] = [];
-            if (null !== $this->videoDNA && \is_array($this->videoDNA)) {
-                $n = 0;
-                foreach ($this->videoDNA as $item) {
-                    $res['VideoDNA'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->videoDNA)) {
+                $res['VideoDNA'] = [];
+                $n1 = 0;
+                foreach ($this->videoDNA as $item1) {
+                    $res['VideoDNA'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class DNAResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DNAResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VideoDNA'])) {
             if (!empty($map['VideoDNA'])) {
                 $model->videoDNA = [];
-                $n = 0;
-                foreach ($map['VideoDNA'] as $item) {
-                    $model->videoDNA[$n++] = null !== $item ? videoDNA::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VideoDNA'] as $item1) {
+                    $model->videoDNA[$n1++] = videoDNA::fromMap($item1);
                 }
             }
         }

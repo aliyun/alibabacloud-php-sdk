@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetPlayInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetPlayInfoResponseBody\playInfoList\playInfo;
-use AlibabaCloud\Tea\Model;
 
 class playInfoList extends Model
 {
@@ -17,17 +17,23 @@ class playInfoList extends Model
         'playInfo' => 'PlayInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->playInfo)) {
+            Model::validateArray($this->playInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->playInfo) {
-            $res['PlayInfo'] = [];
-            if (null !== $this->playInfo && \is_array($this->playInfo)) {
-                $n = 0;
-                foreach ($this->playInfo as $item) {
-                    $res['PlayInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->playInfo)) {
+                $res['PlayInfo'] = [];
+                $n1 = 0;
+                foreach ($this->playInfo as $item1) {
+                    $res['PlayInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class playInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return playInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PlayInfo'])) {
             if (!empty($map['PlayInfo'])) {
                 $model->playInfo = [];
-                $n = 0;
-                foreach ($map['PlayInfo'] as $item) {
-                    $model->playInfo[$n++] = null !== $item ? playInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PlayInfo'] as $item1) {
+                    $model->playInfo[$n1++] = playInfo::fromMap($item1);
                 }
             }
         }

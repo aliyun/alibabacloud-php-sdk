@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponseBody\mediaList\aiData\aiLabelInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class occurrences extends Model
 {
     /**
-     * @description The start time of the clip.
-     *
-     * @example 1.4
-     *
      * @var float
      */
     public $from;
 
     /**
-     * @description The score.
-     *
-     * @example 0.75287705
-     *
      * @var float
      */
     public $score;
 
     /**
-     * @description The end time of the clip.
-     *
-     * @example 2.5
-     *
      * @var float
      */
     public $to;
@@ -40,17 +28,22 @@ class occurrences extends Model
         'to' => 'To',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
+
         if (null !== $this->to) {
             $res['To'] = $this->to;
         }
@@ -58,20 +51,22 @@ class occurrences extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return occurrences
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
+
         if (isset($map['To'])) {
             $model->to = $map['To'];
         }

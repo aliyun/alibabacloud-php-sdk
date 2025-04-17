@@ -4,60 +4,36 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\DescribePlayVideoStatisResponseBody\videoPlayStatisDetails;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class videoPlayStatisDetail extends Model
 {
     /**
-     * @description The date. The time follows the ISO 8601 standard in the *YYYY-MM-DD*T*hh:mm:ss* format. The time is displayed in UTC.
-     *
-     * @example 20170120
-     *
      * @var string
      */
     public $date;
 
     /**
-     * @description The total playback duration. Unit: milliseconds.
-     *
-     * @example 967277
-     *
      * @var string
      */
     public $playDuration;
 
     /**
-     * @description The distribution of the playback duration.
-     *
-     * @example <=1m:79.2%;>1<=5m:16.7%;>5<=10m:4.2%
-     *
      * @var string
      */
     public $playRange;
 
     /**
-     * @description The video title.
-     *
-     * @example Four streams (one stream encrypted): LD-HLS + SD-MP4 + HD-HLS-encrypted + UHD-MP4
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description The number of unique visitors.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $UV;
 
     /**
-     * @description The number of video views.
-     *
-     * @example 24
-     *
      * @var string
      */
     public $VV;
@@ -70,26 +46,34 @@ class videoPlayStatisDetail extends Model
         'VV' => 'VV',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
+
         if (null !== $this->playDuration) {
             $res['PlayDuration'] = $this->playDuration;
         }
+
         if (null !== $this->playRange) {
             $res['PlayRange'] = $this->playRange;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
+
         if (null !== $this->UV) {
             $res['UV'] = $this->UV;
         }
+
         if (null !== $this->VV) {
             $res['VV'] = $this->VV;
         }
@@ -97,29 +81,34 @@ class videoPlayStatisDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videoPlayStatisDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }
+
         if (isset($map['PlayDuration'])) {
             $model->playDuration = $map['PlayDuration'];
         }
+
         if (isset($map['PlayRange'])) {
             $model->playRange = $map['PlayRange'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
+
         if (isset($map['UV'])) {
             $model->UV = $map['UV'];
         }
+
         if (isset($map['VV'])) {
             $model->VV = $map['VV'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodAIDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodAIDataResponseBody\AIData\AIDataItem;
-use AlibabaCloud\Tea\Model;
 
 class AIData extends Model
 {
@@ -17,17 +17,23 @@ class AIData extends Model
         'AIDataItem' => 'AIDataItem',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->AIDataItem)) {
+            Model::validateArray($this->AIDataItem);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->AIDataItem) {
-            $res['AIDataItem'] = [];
-            if (null !== $this->AIDataItem && \is_array($this->AIDataItem)) {
-                $n = 0;
-                foreach ($this->AIDataItem as $item) {
-                    $res['AIDataItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->AIDataItem)) {
+                $res['AIDataItem'] = [];
+                $n1 = 0;
+                foreach ($this->AIDataItem as $item1) {
+                    $res['AIDataItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class AIData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AIData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AIDataItem'])) {
             if (!empty($map['AIDataItem'])) {
                 $model->AIDataItem = [];
-                $n = 0;
-                foreach ($map['AIDataItem'] as $item) {
-                    $model->AIDataItem[$n++] = null !== $item ? AIDataItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AIDataItem'] as $item1) {
+                    $model->AIDataItem[$n1++] = AIDataItem::fromMap($item1);
                 }
             }
         }

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetAIVideoTagResultResponseBody\videoTagResult;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class person extends Model
 {
     /**
-     * @description The URL of the profile photo.
-     *
-     * > This parameter is returned only when a figure tag was used.
-     *
-     * @example http://example.com/aivideotag/8829B4DB-AFD9-4F*****F6-12965DBFFA14/Index_****.jpg
-     *
      * @var string
      */
     public $faceUrl;
 
     /**
-     * @description The tag string.
-     *
-     * @example John
-     *
      * @var string
      */
     public $tag;
 
     /**
-     * @description The points in time when the tags are displayed. Unit: milliseconds.
-     *
      * @var string[]
      */
     public $times;
@@ -40,41 +28,61 @@ class person extends Model
         'times' => 'Times',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->times)) {
+            Model::validateArray($this->times);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->faceUrl) {
             $res['FaceUrl'] = $this->faceUrl;
         }
+
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
+
         if (null !== $this->times) {
-            $res['Times'] = $this->times;
+            if (\is_array($this->times)) {
+                $res['Times'] = [];
+                $n1 = 0;
+                foreach ($this->times as $item1) {
+                    $res['Times'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return person
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FaceUrl'])) {
             $model->faceUrl = $map['FaceUrl'];
         }
+
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }
+
         if (isset($map['Times'])) {
             if (!empty($map['Times'])) {
-                $model->times = $map['Times'];
+                $model->times = [];
+                $n1 = 0;
+                foreach ($map['Times'] as $item1) {
+                    $model->times[$n1++] = $item1;
+                }
             }
         }
 

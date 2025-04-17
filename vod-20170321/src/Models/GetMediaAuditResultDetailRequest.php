@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMediaAuditResultDetailRequest extends Model
 {
     /**
-     * @description The ID of the video.
-     *
-     * This parameter is required.
-     *
-     * @example 93ab850b4f6f*****54b6e91d24d81d4
-     *
      * @var string
      */
     public $mediaId;
 
     /**
-     * @description The page number. The default value is **1**. A maximum of **20** records can be returned on each page.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
@@ -34,14 +22,18 @@ class GetMediaAuditResultDetailRequest extends Model
         'pageNo' => 'PageNo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
@@ -49,17 +41,18 @@ class GetMediaAuditResultDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMediaAuditResultDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }

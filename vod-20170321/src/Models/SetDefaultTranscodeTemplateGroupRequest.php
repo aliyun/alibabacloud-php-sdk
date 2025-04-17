@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetDefaultTranscodeTemplateGroupRequest extends Model
 {
     /**
-     * @description The ID of the transcoding template group.
-     *
-     * This parameter is required.
-     *
-     * @example d58079958be8d*****b699ab7ab6e1bf
-     *
      * @var string
      */
     public $transcodeTemplateGroupId;
@@ -22,9 +16,12 @@ class SetDefaultTranscodeTemplateGroupRequest extends Model
         'transcodeTemplateGroupId' => 'TranscodeTemplateGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->transcodeTemplateGroupId) {
@@ -34,11 +31,11 @@ class SetDefaultTranscodeTemplateGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetDefaultTranscodeTemplateGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListTranscodeTemplateGroupResponseBody\transcodeTemplateGroupList;
-use AlibabaCloud\Tea\Model;
 
 class ListTranscodeTemplateGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4A*****F6-D7393642CA58
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The transcoding template groups.
-     *
      * @var transcodeTemplateGroupList[]
      */
     public $transcodeTemplateGroupList;
@@ -29,20 +23,27 @@ class ListTranscodeTemplateGroupResponseBody extends Model
         'transcodeTemplateGroupList' => 'TranscodeTemplateGroupList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->transcodeTemplateGroupList)) {
+            Model::validateArray($this->transcodeTemplateGroupList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->transcodeTemplateGroupList) {
-            $res['TranscodeTemplateGroupList'] = [];
-            if (null !== $this->transcodeTemplateGroupList && \is_array($this->transcodeTemplateGroupList)) {
-                $n = 0;
-                foreach ($this->transcodeTemplateGroupList as $item) {
-                    $res['TranscodeTemplateGroupList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->transcodeTemplateGroupList)) {
+                $res['TranscodeTemplateGroupList'] = [];
+                $n1 = 0;
+                foreach ($this->transcodeTemplateGroupList as $item1) {
+                    $res['TranscodeTemplateGroupList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -50,23 +51,24 @@ class ListTranscodeTemplateGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTranscodeTemplateGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TranscodeTemplateGroupList'])) {
             if (!empty($map['TranscodeTemplateGroupList'])) {
                 $model->transcodeTemplateGroupList = [];
-                $n = 0;
-                foreach ($map['TranscodeTemplateGroupList'] as $item) {
-                    $model->transcodeTemplateGroupList[$n++] = null !== $item ? transcodeTemplateGroupList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TranscodeTemplateGroupList'] as $item1) {
+                    $model->transcodeTemplateGroupList[$n1++] = transcodeTemplateGroupList::fromMap($item1);
                 }
             }
         }

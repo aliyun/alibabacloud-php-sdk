@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\DescribePlayTopVideosResponseBody\topPlayVideos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class topPlayVideoStatis extends Model
 {
     /**
-     * @description The total playback duration. Unit: milliseconds.
-     *
-     * @example 4640369
-     *
      * @var string
      */
     public $playDuration;
 
     /**
-     * @description The title of the video.
-     *
-     * @example Four streams (two streams encrypted): LD-HLS-encrypted + SD-MP4 + HD-H
-     *
      * @var string
      */
     public $title;
 
     /**
-     * @description The number of unique visitors.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $UV;
 
     /**
-     * @description The number of video views.
-     *
-     * @example 107
-     *
      * @var string
      */
     public $VV;
 
     /**
-     * @description The ID of the video.
-     *
-     * @example 2a8d4cb9ecbb487681473a15****8fda
-     *
      * @var string
      */
     public $videoId;
@@ -60,23 +40,30 @@ class topPlayVideoStatis extends Model
         'videoId' => 'VideoId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->playDuration) {
             $res['PlayDuration'] = $this->playDuration;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
+
         if (null !== $this->UV) {
             $res['UV'] = $this->UV;
         }
+
         if (null !== $this->VV) {
             $res['VV'] = $this->VV;
         }
+
         if (null !== $this->videoId) {
             $res['VideoId'] = $this->videoId;
         }
@@ -84,26 +71,30 @@ class topPlayVideoStatis extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return topPlayVideoStatis
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PlayDuration'])) {
             $model->playDuration = $map['PlayDuration'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
+
         if (isset($map['UV'])) {
             $model->UV = $map['UV'];
         }
+
         if (isset($map['VV'])) {
             $model->VV = $map['VV'];
         }
+
         if (isset($map['VideoId'])) {
             $model->videoId = $map['VideoId'];
         }

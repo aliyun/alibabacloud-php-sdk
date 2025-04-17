@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddVodStorageForAppResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4A*****F6-D7393642CA58
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The address of the VOD bucket.
-     *
-     * @example out-****.oss-cn-shanghai.aliyuncs.com
-     *
      * @var string
      */
     public $storageLocation;
@@ -30,14 +22,18 @@ class AddVodStorageForAppResponseBody extends Model
         'storageLocation' => 'StorageLocation',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->storageLocation) {
             $res['StorageLocation'] = $this->storageLocation;
         }
@@ -45,17 +41,18 @@ class AddVodStorageForAppResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddVodStorageForAppResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StorageLocation'])) {
             $model->storageLocation = $map['StorageLocation'];
         }

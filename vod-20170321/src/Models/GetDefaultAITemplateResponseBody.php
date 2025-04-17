@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetDefaultAITemplateResponseBody\templateInfo;
-use AlibabaCloud\Tea\Model;
 
 class GetDefaultAITemplateResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example A017F1DE-3DC3-4441-6755-37E81113****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the AI template.
-     *
      * @var templateInfo
      */
     public $templateInfo;
@@ -29,32 +23,40 @@ class GetDefaultAITemplateResponseBody extends Model
         'templateInfo' => 'TemplateInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->templateInfo) {
+            $this->templateInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->templateInfo) {
-            $res['TemplateInfo'] = null !== $this->templateInfo ? $this->templateInfo->toMap() : null;
+            $res['TemplateInfo'] = null !== $this->templateInfo ? $this->templateInfo->toArray($noStream) : $this->templateInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDefaultAITemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TemplateInfo'])) {
             $model->templateInfo = templateInfo::fromMap($map['TemplateInfo']);
         }

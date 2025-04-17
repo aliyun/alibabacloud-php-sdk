@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribePlayVideoStatisRequest extends Model
 {
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-     *
-     * >  The end time must be later than the start time. The interval between the start time and the end time cannot exceed 180 days.
-     *
-     * This parameter is required.
-     *
-     * @example 2016-06-30T13:00:00Z
-     *
      * @var string
      */
     public $endTime;
@@ -27,27 +19,11 @@ class DescribePlayVideoStatisRequest extends Model
     public $ownerId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-     *
-     * This parameter is required.
-     *
-     * @example 2016-06-29T13:00:00Z
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The ID of the video. You can specify only one ID. You can use one of the following methods to obtain the ID:
-     *
-     *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the page that appears, view the video ID.
-     *   Obtain the video ID from the response to the [CreateUploadVideo](~~CreateUploadVideo~~) operation that you call to obtain the upload URL and credential.
-     *   Obtain the video ID from the response to the [SearchMedia](~~SearchMedia~~) operation that you call to query the audio or video file.
-     *
-     * This parameter is required.
-     *
-     * @example 2a8d4cb9ecbb487681473****aba8fda
-     *
      * @var string
      */
     public $videoId;
@@ -58,20 +34,26 @@ class DescribePlayVideoStatisRequest extends Model
         'videoId' => 'VideoId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->videoId) {
             $res['VideoId'] = $this->videoId;
         }
@@ -79,23 +61,26 @@ class DescribePlayVideoStatisRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePlayVideoStatisRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['VideoId'])) {
             $model->videoId = $map['VideoId'];
         }

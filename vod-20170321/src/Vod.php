@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddAITemplateRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddAITemplateResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\AddCategoryRequest;
@@ -367,11 +366,10 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\UploadStreamByURLRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UploadStreamByURLResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\VerifyVodDomainOwnerRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\VerifyVodDomainOwnerResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Vod extends OpenApiClient
 {
@@ -443,42 +441,52 @@ class Vod extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Adds an AI template for automated review and smart thumbnail tasks.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     * *   Before you add an AI template for automated review and smart thumbnail tasks, make sure that [automated review](https://ai.aliyun.com/vi/censor) and [smart thumbnail](https://ai.aliyun.com/vi/cover) are enabled.
-     *  *
-     * @param AddAITemplateRequest $request AddAITemplateRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Adds an AI template for automated review and smart thumbnail tasks.
      *
-     * @return AddAITemplateResponse AddAITemplateResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     * *   Before you add an AI template for automated review and smart thumbnail tasks, make sure that [automated review](https://ai.aliyun.com/vi/censor) and [smart thumbnail](https://ai.aliyun.com/vi/cover) are enabled.
+     *
+     * @param request - AddAITemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddAITemplateResponse
+     *
+     * @param AddAITemplateRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddAITemplateResponse
      */
     public function addAITemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateConfig)) {
-            $query['TemplateConfig'] = $request->templateConfig;
+        if (null !== $request->templateConfig) {
+            @$query['TemplateConfig'] = $request->templateConfig;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AddAITemplate',
@@ -491,22 +499,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddAITemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds an AI template for automated review and smart thumbnail tasks.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     * *   Before you add an AI template for automated review and smart thumbnail tasks, make sure that [automated review](https://ai.aliyun.com/vi/censor) and [smart thumbnail](https://ai.aliyun.com/vi/cover) are enabled.
-     *  *
-     * @param AddAITemplateRequest $request AddAITemplateRequest
+     * Adds an AI template for automated review and smart thumbnail tasks.
      *
-     * @return AddAITemplateResponse AddAITemplateResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     * *   Before you add an AI template for automated review and smart thumbnail tasks, make sure that [automated review](https://ai.aliyun.com/vi/censor) and [smart thumbnail](https://ai.aliyun.com/vi/cover) are enabled.
+     *
+     * @param request - AddAITemplateRequest
+     *
+     * @returns AddAITemplateResponse
+     *
+     * @param AddAITemplateRequest $request
+     *
+     * @return AddAITemplateResponse
      */
     public function addAITemplate($request)
     {
@@ -516,31 +526,40 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Creates a video category. You can call this operation to categorize media assets including audio or video files, images, and short video materials in ApsaraVideo VOD. This simplifies the query and management of media assets.
-     *  *
-     * @description *   You can create a maximum of 3 levels of categories for audio, video, and image files and 2 levels of categories for short video materials. Each category level can contain a maximum of 100 subcategories. To create categories for audio and video files, set `Type` to `default`. To create categories for short video materials, set `Type` to `material`.
-     * *   After you create a category, you can categorize media resources during upload or categorize the uploaded media resources. For more information, see [Manage video categories](https://help.aliyun.com/document_detail/86070.html).
-     *  *
-     * @param AddCategoryRequest $request AddCategoryRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Creates a video category. You can call this operation to categorize media assets including audio or video files, images, and short video materials in ApsaraVideo VOD. This simplifies the query and management of media assets.
      *
-     * @return AddCategoryResponse AddCategoryResponse
+     * @remarks
+     *   You can create a maximum of 3 levels of categories for audio, video, and image files and 2 levels of categories for short video materials. Each category level can contain a maximum of 100 subcategories. To create categories for audio and video files, set `Type` to `default`. To create categories for short video materials, set `Type` to `material`.
+     * *   After you create a category, you can categorize media resources during upload or categorize the uploaded media resources. For more information, see [Manage video categories](https://help.aliyun.com/document_detail/86070.html).
+     *
+     * @param request - AddCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddCategoryResponse
+     *
+     * @param AddCategoryRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddCategoryResponse
      */
     public function addCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cateName)) {
-            $query['CateName'] = $request->cateName;
+        if (null !== $request->cateName) {
+            @$query['CateName'] = $request->cateName;
         }
-        if (!Utils::isUnset($request->parentId)) {
-            $query['ParentId'] = $request->parentId;
+
+        if (null !== $request->parentId) {
+            @$query['ParentId'] = $request->parentId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AddCategory',
@@ -553,22 +572,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddCategoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a video category. You can call this operation to categorize media assets including audio or video files, images, and short video materials in ApsaraVideo VOD. This simplifies the query and management of media assets.
-     *  *
-     * @description *   You can create a maximum of 3 levels of categories for audio, video, and image files and 2 levels of categories for short video materials. Each category level can contain a maximum of 100 subcategories. To create categories for audio and video files, set `Type` to `default`. To create categories for short video materials, set `Type` to `material`.
-     * *   After you create a category, you can categorize media resources during upload or categorize the uploaded media resources. For more information, see [Manage video categories](https://help.aliyun.com/document_detail/86070.html).
-     *  *
-     * @param AddCategoryRequest $request AddCategoryRequest
+     * Creates a video category. You can call this operation to categorize media assets including audio or video files, images, and short video materials in ApsaraVideo VOD. This simplifies the query and management of media assets.
      *
-     * @return AddCategoryResponse AddCategoryResponse
+     * @remarks
+     *   You can create a maximum of 3 levels of categories for audio, video, and image files and 2 levels of categories for short video materials. Each category level can contain a maximum of 100 subcategories. To create categories for audio and video files, set `Type` to `default`. To create categories for short video materials, set `Type` to `material`.
+     * *   After you create a category, you can categorize media resources during upload or categorize the uploaded media resources. For more information, see [Manage video categories](https://help.aliyun.com/document_detail/86070.html).
+     *
+     * @param request - AddCategoryRequest
+     *
+     * @returns AddCategoryResponse
+     *
+     * @param AddCategoryRequest $request
+     *
+     * @return AddCategoryResponse
      */
     public function addCategory($request)
     {
@@ -578,48 +599,63 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Creates an online editing project.
-     *  *
-     * @description *   For more information about the online editing feature, see [Overview](https://help.aliyun.com/document_detail/95482.html).
-     *  *
-     * @param AddEditingProjectRequest $request AddEditingProjectRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates an online editing project.
      *
-     * @return AddEditingProjectResponse AddEditingProjectResponse
+     * @remarks
+     *   For more information about the online editing feature, see [Overview](https://help.aliyun.com/document_detail/95482.html).
+     *
+     * @param request - AddEditingProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddEditingProjectResponse
+     *
+     * @param AddEditingProjectRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AddEditingProjectResponse
      */
     public function addEditingProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->coverURL)) {
-            $query['CoverURL'] = $request->coverURL;
+        if (null !== $request->coverURL) {
+            @$query['CoverURL'] = $request->coverURL;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->division)) {
-            $query['Division'] = $request->division;
+
+        if (null !== $request->division) {
+            @$query['Division'] = $request->division;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->timeline)) {
-            $query['Timeline'] = $request->timeline;
+
+        if (null !== $request->timeline) {
+            @$query['Timeline'] = $request->timeline;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AddEditingProject',
@@ -632,21 +668,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddEditingProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an online editing project.
-     *  *
-     * @description *   For more information about the online editing feature, see [Overview](https://help.aliyun.com/document_detail/95482.html).
-     *  *
-     * @param AddEditingProjectRequest $request AddEditingProjectRequest
+     * Creates an online editing project.
      *
-     * @return AddEditingProjectResponse AddEditingProjectResponse
+     * @remarks
+     *   For more information about the online editing feature, see [Overview](https://help.aliyun.com/document_detail/95482.html).
+     *
+     * @param request - AddEditingProjectRequest
+     *
+     * @returns AddEditingProjectResponse
+     *
+     * @param AddEditingProjectRequest $request
+     *
+     * @return AddEditingProjectResponse
      */
     public function addEditingProject($request)
     {
@@ -656,40 +694,52 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Adds one or more materials to an editing project.
-     *  *
-     * @param AddEditingProjectMaterialsRequest $request AddEditingProjectMaterialsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Adds one or more materials to an editing project.
      *
-     * @return AddEditingProjectMaterialsResponse AddEditingProjectMaterialsResponse
+     * @param request - AddEditingProjectMaterialsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddEditingProjectMaterialsResponse
+     *
+     * @param AddEditingProjectMaterialsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return AddEditingProjectMaterialsResponse
      */
     public function addEditingProjectMaterialsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->materialIds)) {
-            $query['MaterialIds'] = $request->materialIds;
+        if (null !== $request->materialIds) {
+            @$query['MaterialIds'] = $request->materialIds;
         }
-        if (!Utils::isUnset($request->materialType)) {
-            $query['MaterialType'] = $request->materialType;
+
+        if (null !== $request->materialType) {
+            @$query['MaterialType'] = $request->materialType;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AddEditingProjectMaterials',
@@ -702,19 +752,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddEditingProjectMaterialsResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds one or more materials to an editing project.
-     *  *
-     * @param AddEditingProjectMaterialsRequest $request AddEditingProjectMaterialsRequest
+     * Adds one or more materials to an editing project.
      *
-     * @return AddEditingProjectMaterialsResponse AddEditingProjectMaterialsResponse
+     * @param request - AddEditingProjectMaterialsRequest
+     *
+     * @returns AddEditingProjectMaterialsResponse
+     *
+     * @param AddEditingProjectMaterialsRequest $request
+     *
+     * @return AddEditingProjectMaterialsResponse
      */
     public function addEditingProjectMaterials($request)
     {
@@ -724,9 +775,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Creates a transcoding template group or adds transcoding templates to a transcoding template group.
-     *  *
-     * @description *   You cannot perform custom operations on transcoding template groups that are **locked** in the ApsaraVideo VOD console. You can call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation to query the information about a transcoding template group and check whether the transcoding template group is locked based on the value of the Locked parameter. You can call the [UpdateTranscodeTemplateGroup](~~UpdateTranscodeTemplateGroup~~) operation to unlock a transcoding template group if it is locked. Then, you can perform custom operations on the transcoding template group.
+     * Creates a transcoding template group or adds transcoding templates to a transcoding template group.
+     *
+     * @remarks
+     *   You cannot perform custom operations on transcoding template groups that are **locked** in the ApsaraVideo VOD console. You can call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation to query the information about a transcoding template group and check whether the transcoding template group is locked based on the value of the Locked parameter. You can call the [UpdateTranscodeTemplateGroup](~~UpdateTranscodeTemplateGroup~~) operation to unlock a transcoding template group if it is locked. Then, you can perform custom operations on the transcoding template group.
      * *   An Object Storage Service (OSS) bucket is required to store files that are used for transcoding. You cannot create a transcoding template group if no bucket is available. To activate a bucket, perform the following operations: Log on to the ApsaraVideo VOD console. In the left-side navigation pane, choose **Configuration Management > Media Management > Storage**. On the **Storage** page, activate the bucket that is allocated by ApsaraVideo VOD.
      * *   You cannot add transcoding templates to the **No Transcoding** template group.
      * *   You can create a maximum of 20 transcoding template groups.
@@ -734,30 +786,39 @@ class Vod extends OpenApiClient
      * *   If you want to generate a URL for adaptive bitrate streaming, you can add video packaging templates to a transcoding template group. You can add a maximum of 10 video packaging templates to a transcoding template group. If you add more than 10 video packaging templates, URLs of the video transcoded based on the video packaging templates are generated but the URL for adaptive bitrate streaming is not generated.
      * ### QPS limits
      * You can call this operation up to five times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param AddTranscodeTemplateGroupRequest $request AddTranscodeTemplateGroupRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddTranscodeTemplateGroupResponse AddTranscodeTemplateGroupResponse
+     * @param request - AddTranscodeTemplateGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddTranscodeTemplateGroupResponse
+     *
+     * @param AddTranscodeTemplateGroupRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AddTranscodeTemplateGroupResponse
      */
     public function addTranscodeTemplateGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->transcodeTemplateGroupId)) {
-            $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+
+        if (null !== $request->transcodeTemplateGroupId) {
+            @$query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
         }
-        if (!Utils::isUnset($request->transcodeTemplateList)) {
-            $query['TranscodeTemplateList'] = $request->transcodeTemplateList;
+
+        if (null !== $request->transcodeTemplateList) {
+            @$query['TranscodeTemplateList'] = $request->transcodeTemplateList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AddTranscodeTemplateGroup',
@@ -770,17 +831,15 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddTranscodeTemplateGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a transcoding template group or adds transcoding templates to a transcoding template group.
-     *  *
-     * @description *   You cannot perform custom operations on transcoding template groups that are **locked** in the ApsaraVideo VOD console. You can call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation to query the information about a transcoding template group and check whether the transcoding template group is locked based on the value of the Locked parameter. You can call the [UpdateTranscodeTemplateGroup](~~UpdateTranscodeTemplateGroup~~) operation to unlock a transcoding template group if it is locked. Then, you can perform custom operations on the transcoding template group.
+     * Creates a transcoding template group or adds transcoding templates to a transcoding template group.
+     *
+     * @remarks
+     *   You cannot perform custom operations on transcoding template groups that are **locked** in the ApsaraVideo VOD console. You can call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation to query the information about a transcoding template group and check whether the transcoding template group is locked based on the value of the Locked parameter. You can call the [UpdateTranscodeTemplateGroup](~~UpdateTranscodeTemplateGroup~~) operation to unlock a transcoding template group if it is locked. Then, you can perform custom operations on the transcoding template group.
      * *   An Object Storage Service (OSS) bucket is required to store files that are used for transcoding. You cannot create a transcoding template group if no bucket is available. To activate a bucket, perform the following operations: Log on to the ApsaraVideo VOD console. In the left-side navigation pane, choose **Configuration Management > Media Management > Storage**. On the **Storage** page, activate the bucket that is allocated by ApsaraVideo VOD.
      * *   You cannot add transcoding templates to the **No Transcoding** template group.
      * *   You can create a maximum of 20 transcoding template groups.
@@ -788,10 +847,14 @@ class Vod extends OpenApiClient
      * *   If you want to generate a URL for adaptive bitrate streaming, you can add video packaging templates to a transcoding template group. You can add a maximum of 10 video packaging templates to a transcoding template group. If you add more than 10 video packaging templates, URLs of the video transcoded based on the video packaging templates are generated but the URL for adaptive bitrate streaming is not generated.
      * ### QPS limits
      * You can call this operation up to five times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param AddTranscodeTemplateGroupRequest $request AddTranscodeTemplateGroupRequest
      *
-     * @return AddTranscodeTemplateGroupResponse AddTranscodeTemplateGroupResponse
+     * @param request - AddTranscodeTemplateGroupRequest
+     *
+     * @returns AddTranscodeTemplateGroupResponse
+     *
+     * @param AddTranscodeTemplateGroupRequest $request
+     *
+     * @return AddTranscodeTemplateGroupResponse
      */
     public function addTranscodeTemplateGroup($request)
     {
@@ -801,48 +864,62 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Adds a domain name to accelerate in ApsaraVideo VOD.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * Adds a domain name to accelerate in ApsaraVideo VOD.
+     *
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
      * *   Before you add a domain name to accelerate, you must activate ApsaraVideo VOD and apply for an Internet content provider (ICP) filing for the domain name. For more information about how to activate ApsaraVideo VOD, see [Activate ApsaraVideo VOD](https://help.aliyun.com/document_detail/51512.html).
      * *   If the content on the origin server is not stored on Alibaba Cloud, the content must be reviewed by Alibaba Cloud. The review will be complete by the end of the next business day after you submit an application.
      * *   You can add only one domain name to accelerate in a request. You can add a maximum of 20 accelerated domain names within an Alibaba Cloud account.
-     *  *
-     * @param AddVodDomainRequest $request AddVodDomainRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddVodDomainResponse AddVodDomainResponse
+     * @param request - AddVodDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddVodDomainResponse
+     *
+     * @param AddVodDomainRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return AddVodDomainResponse
      */
     public function addVodDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->checkUrl)) {
-            $query['CheckUrl'] = $request->checkUrl;
+        if (null !== $request->checkUrl) {
+            @$query['CheckUrl'] = $request->checkUrl;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->sources)) {
-            $query['Sources'] = $request->sources;
+
+        if (null !== $request->sources) {
+            @$query['Sources'] = $request->sources;
         }
-        if (!Utils::isUnset($request->topLevelDomain)) {
-            $query['TopLevelDomain'] = $request->topLevelDomain;
+
+        if (null !== $request->topLevelDomain) {
+            @$query['TopLevelDomain'] = $request->topLevelDomain;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AddVodDomain',
@@ -855,24 +932,26 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddVodDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a domain name to accelerate in ApsaraVideo VOD.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * Adds a domain name to accelerate in ApsaraVideo VOD.
+     *
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
      * *   Before you add a domain name to accelerate, you must activate ApsaraVideo VOD and apply for an Internet content provider (ICP) filing for the domain name. For more information about how to activate ApsaraVideo VOD, see [Activate ApsaraVideo VOD](https://help.aliyun.com/document_detail/51512.html).
      * *   If the content on the origin server is not stored on Alibaba Cloud, the content must be reviewed by Alibaba Cloud. The review will be complete by the end of the next business day after you submit an application.
      * *   You can add only one domain name to accelerate in a request. You can add a maximum of 20 accelerated domain names within an Alibaba Cloud account.
-     *  *
-     * @param AddVodDomainRequest $request AddVodDomainRequest
      *
-     * @return AddVodDomainResponse AddVodDomainResponse
+     * @param request - AddVodDomainRequest
+     *
+     * @returns AddVodDomainResponse
+     *
+     * @param AddVodDomainRequest $request
+     *
+     * @return AddVodDomainResponse
      */
     public function addVodDomain($request)
     {
@@ -882,31 +961,40 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Binds a storage bucket to one or more applications in ApsaraVideo VOD.
-     *  *
-     * @description You can call this operation to add a buckets to an ApsaraVideo VOD applications.
-     * > You can add only one ApsaraVideo VOD bucket for each application. If you specify an AppId that does not exist or the ID of an application for which an VOD bucket is enabled, an error is returned.
-     *  *
-     * @param AddVodStorageForAppRequest $request AddVodStorageForAppRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Binds a storage bucket to one or more applications in ApsaraVideo VOD.
      *
-     * @return AddVodStorageForAppResponse AddVodStorageForAppResponse
+     * @remarks
+     * You can call this operation to add a buckets to an ApsaraVideo VOD applications.
+     * > You can add only one ApsaraVideo VOD bucket for each application. If you specify an AppId that does not exist or the ID of an application for which an VOD bucket is enabled, an error is returned.
+     *
+     * @param request - AddVodStorageForAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddVodStorageForAppResponse
+     *
+     * @param AddVodStorageForAppRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddVodStorageForAppResponse
      */
     public function addVodStorageForAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->storageLocation)) {
-            $query['StorageLocation'] = $request->storageLocation;
+
+        if (null !== $request->storageLocation) {
+            @$query['StorageLocation'] = $request->storageLocation;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $query['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AddVodStorageForApp',
@@ -919,22 +1007,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddVodStorageForAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddVodStorageForAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddVodStorageForAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Binds a storage bucket to one or more applications in ApsaraVideo VOD.
-     *  *
-     * @description You can call this operation to add a buckets to an ApsaraVideo VOD applications.
-     * > You can add only one ApsaraVideo VOD bucket for each application. If you specify an AppId that does not exist or the ID of an application for which an VOD bucket is enabled, an error is returned.
-     *  *
-     * @param AddVodStorageForAppRequest $request AddVodStorageForAppRequest
+     * Binds a storage bucket to one or more applications in ApsaraVideo VOD.
      *
-     * @return AddVodStorageForAppResponse AddVodStorageForAppResponse
+     * @remarks
+     * You can call this operation to add a buckets to an ApsaraVideo VOD applications.
+     * > You can add only one ApsaraVideo VOD bucket for each application. If you specify an AppId that does not exist or the ID of an application for which an VOD bucket is enabled, an error is returned.
+     *
+     * @param request - AddVodStorageForAppRequest
+     *
+     * @returns AddVodStorageForAppResponse
+     *
+     * @param AddVodStorageForAppRequest $request
+     *
+     * @return AddVodStorageForAppResponse
      */
     public function addVodStorageForApp($request)
     {
@@ -944,34 +1034,44 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Adds a snapshot template or frame animation template.
-     *  *
-     * @description *   After you add a snapshot template, you can call the [SubmitSnapshotJob](https://help.aliyun.com/document_detail/72213.html) operation and specify the template ID to submit a snapshot job.
-     * *   You can use the HTTP (HTTPS compatible) callback or MNS callback method to receive the [SnapshotComplete](https://help.aliyun.com/document_detail/57337.html) callback. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
-     *  *
-     * @param AddVodTemplateRequest $request AddVodTemplateRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Adds a snapshot template or frame animation template.
      *
-     * @return AddVodTemplateResponse AddVodTemplateResponse
+     * @remarks
+     *   After you add a snapshot template, you can call the [SubmitSnapshotJob](https://help.aliyun.com/document_detail/72213.html) operation and specify the template ID to submit a snapshot job.
+     * *   You can use the HTTP (HTTPS compatible) callback or MNS callback method to receive the [SnapshotComplete](https://help.aliyun.com/document_detail/57337.html) callback. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
+     *
+     * @param request - AddVodTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddVodTemplateResponse
+     *
+     * @param AddVodTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AddVodTemplateResponse
      */
     public function addVodTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->templateConfig)) {
-            $query['TemplateConfig'] = $request->templateConfig;
+
+        if (null !== $request->templateConfig) {
+            @$query['TemplateConfig'] = $request->templateConfig;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AddVodTemplate',
@@ -984,22 +1084,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddVodTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a snapshot template or frame animation template.
-     *  *
-     * @description *   After you add a snapshot template, you can call the [SubmitSnapshotJob](https://help.aliyun.com/document_detail/72213.html) operation and specify the template ID to submit a snapshot job.
-     * *   You can use the HTTP (HTTPS compatible) callback or MNS callback method to receive the [SnapshotComplete](https://help.aliyun.com/document_detail/57337.html) callback. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
-     *  *
-     * @param AddVodTemplateRequest $request AddVodTemplateRequest
+     * Adds a snapshot template or frame animation template.
      *
-     * @return AddVodTemplateResponse AddVodTemplateResponse
+     * @remarks
+     *   After you add a snapshot template, you can call the [SubmitSnapshotJob](https://help.aliyun.com/document_detail/72213.html) operation and specify the template ID to submit a snapshot job.
+     * *   You can use the HTTP (HTTPS compatible) callback or MNS callback method to receive the [SnapshotComplete](https://help.aliyun.com/document_detail/57337.html) callback. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
+     *
+     * @param request - AddVodTemplateRequest
+     *
+     * @returns AddVodTemplateResponse
+     *
+     * @param AddVodTemplateRequest $request
+     *
+     * @return AddVodTemplateResponse
      */
     public function addVodTemplate($request)
     {
@@ -1009,38 +1111,49 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Creates an image or text watermark. ApsaraVideo VOD allows you to create watermark templates to reuse your parameter configurations such as watermark position, size, font, and color. Each watermark template is assigned a unique ID. This simplifies the progress of creating watermark tasks.
-     *  *
-     * @description *   You can call this operation to create an `Image` watermark template or a `Text` watermark template. You can use static images in the PNG format or dynamic images in the GIF, APNG, and MOV formats as image watermarks.
+     * Creates an image or text watermark. ApsaraVideo VOD allows you to create watermark templates to reuse your parameter configurations such as watermark position, size, font, and color. Each watermark template is assigned a unique ID. This simplifies the progress of creating watermark tasks.
+     *
+     * @remarks
+     *   You can call this operation to create an `Image` watermark template or a `Text` watermark template. You can use static images in the PNG format or dynamic images in the GIF, APNG, and MOV formats as image watermarks.
      * *   After you call this operation to create a watermark template, you must call the [AddTranscodeTemplateGroup](~~AddTranscodeTemplateGroup~~) or [UpdateTranscodeTemplateGroup](~~UpdateTranscodeTemplateGroup~~) operation to associate the watermark template with a transcoding template group. This way, you can add watermarks to videos during transcoding.
      * *   For more information, see [Video watermarks](https://help.aliyun.com/document_detail/99369.html).
-     *  *
-     * @param AddWatermarkRequest $request AddWatermarkRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddWatermarkResponse AddWatermarkResponse
+     * @param request - AddWatermarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddWatermarkResponse
+     *
+     * @param AddWatermarkRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return AddWatermarkResponse
      */
     public function addWatermarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->watermarkConfig)) {
-            $query['WatermarkConfig'] = $request->watermarkConfig;
+
+        if (null !== $request->watermarkConfig) {
+            @$query['WatermarkConfig'] = $request->watermarkConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AddWatermark',
@@ -1053,23 +1166,25 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddWatermarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an image or text watermark. ApsaraVideo VOD allows you to create watermark templates to reuse your parameter configurations such as watermark position, size, font, and color. Each watermark template is assigned a unique ID. This simplifies the progress of creating watermark tasks.
-     *  *
-     * @description *   You can call this operation to create an `Image` watermark template or a `Text` watermark template. You can use static images in the PNG format or dynamic images in the GIF, APNG, and MOV formats as image watermarks.
+     * Creates an image or text watermark. ApsaraVideo VOD allows you to create watermark templates to reuse your parameter configurations such as watermark position, size, font, and color. Each watermark template is assigned a unique ID. This simplifies the progress of creating watermark tasks.
+     *
+     * @remarks
+     *   You can call this operation to create an `Image` watermark template or a `Text` watermark template. You can use static images in the PNG format or dynamic images in the GIF, APNG, and MOV formats as image watermarks.
      * *   After you call this operation to create a watermark template, you must call the [AddTranscodeTemplateGroup](~~AddTranscodeTemplateGroup~~) or [UpdateTranscodeTemplateGroup](~~UpdateTranscodeTemplateGroup~~) operation to associate the watermark template with a transcoding template group. This way, you can add watermarks to videos during transcoding.
      * *   For more information, see [Video watermarks](https://help.aliyun.com/document_detail/99369.html).
-     *  *
-     * @param AddWatermarkRequest $request AddWatermarkRequest
      *
-     * @return AddWatermarkResponse AddWatermarkResponse
+     * @param request - AddWatermarkRequest
+     *
+     * @returns AddWatermarkResponse
+     *
+     * @param AddWatermarkRequest $request
+     *
+     * @return AddWatermarkResponse
      */
     public function addWatermark($request)
     {
@@ -1079,33 +1194,43 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Grants a RAM user or RAM role permissions to access ApsaraVideo VOD applications.
-     *  *
-     * @description > You can grant a RAM user or RAM role permissions to access up to 10 applications.
-     *  *
-     * @param AttachAppPolicyToIdentityRequest $request AttachAppPolicyToIdentityRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Grants a RAM user or RAM role permissions to access ApsaraVideo VOD applications.
      *
-     * @return AttachAppPolicyToIdentityResponse AttachAppPolicyToIdentityResponse
+     * @remarks
+     * > You can grant a RAM user or RAM role permissions to access up to 10 applications.
+     *
+     * @param request - AttachAppPolicyToIdentityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachAppPolicyToIdentityResponse
+     *
+     * @param AttachAppPolicyToIdentityRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AttachAppPolicyToIdentityResponse
      */
     public function attachAppPolicyToIdentityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->identityName)) {
-            $query['IdentityName'] = $request->identityName;
+
+        if (null !== $request->identityName) {
+            @$query['IdentityName'] = $request->identityName;
         }
-        if (!Utils::isUnset($request->identityType)) {
-            $query['IdentityType'] = $request->identityType;
+
+        if (null !== $request->identityType) {
+            @$query['IdentityType'] = $request->identityType;
         }
-        if (!Utils::isUnset($request->policyNames)) {
-            $query['PolicyNames'] = $request->policyNames;
+
+        if (null !== $request->policyNames) {
+            @$query['PolicyNames'] = $request->policyNames;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AttachAppPolicyToIdentity',
@@ -1118,21 +1243,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AttachAppPolicyToIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachAppPolicyToIdentityResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachAppPolicyToIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Grants a RAM user or RAM role permissions to access ApsaraVideo VOD applications.
-     *  *
-     * @description > You can grant a RAM user or RAM role permissions to access up to 10 applications.
-     *  *
-     * @param AttachAppPolicyToIdentityRequest $request AttachAppPolicyToIdentityRequest
+     * Grants a RAM user or RAM role permissions to access ApsaraVideo VOD applications.
      *
-     * @return AttachAppPolicyToIdentityResponse AttachAppPolicyToIdentityResponse
+     * @remarks
+     * > You can grant a RAM user or RAM role permissions to access up to 10 applications.
+     *
+     * @param request - AttachAppPolicyToIdentityRequest
+     *
+     * @returns AttachAppPolicyToIdentityResponse
+     *
+     * @param AttachAppPolicyToIdentityRequest $request
+     *
+     * @return AttachAppPolicyToIdentityResponse
      */
     public function attachAppPolicyToIdentity($request)
     {
@@ -1142,25 +1269,32 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the basic information and source file information of multiple media assets.
-     *  *
-     * @description *   You can specify up to 20 audio or video file IDs in each request.
-     * *   After a media file is uploaded, ApsaraVideo VOD processes the source file. Then, information about the media file is asynchronously generated. You can configure notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event and call this operation to query information about a media file after you receive notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
-     *  *
-     * @param BatchGetMediaInfosRequest $request BatchGetMediaInfosRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Obtains the basic information and source file information of multiple media assets.
      *
-     * @return BatchGetMediaInfosResponse BatchGetMediaInfosResponse
+     * @remarks
+     *   You can specify up to 20 audio or video file IDs in each request.
+     * *   After a media file is uploaded, ApsaraVideo VOD processes the source file. Then, information about the media file is asynchronously generated. You can configure notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event and call this operation to query information about a media file after you receive notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
+     *
+     * @param request - BatchGetMediaInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchGetMediaInfosResponse
+     *
+     * @param BatchGetMediaInfosRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BatchGetMediaInfosResponse
      */
     public function batchGetMediaInfosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaIds)) {
-            $query['MediaIds'] = $request->mediaIds;
+        if (null !== $request->mediaIds) {
+            @$query['MediaIds'] = $request->mediaIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'BatchGetMediaInfos',
@@ -1173,22 +1307,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return BatchGetMediaInfosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchGetMediaInfosResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchGetMediaInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the basic information and source file information of multiple media assets.
-     *  *
-     * @description *   You can specify up to 20 audio or video file IDs in each request.
-     * *   After a media file is uploaded, ApsaraVideo VOD processes the source file. Then, information about the media file is asynchronously generated. You can configure notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event and call this operation to query information about a media file after you receive notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
-     *  *
-     * @param BatchGetMediaInfosRequest $request BatchGetMediaInfosRequest
+     * Obtains the basic information and source file information of multiple media assets.
      *
-     * @return BatchGetMediaInfosResponse BatchGetMediaInfosResponse
+     * @remarks
+     *   You can specify up to 20 audio or video file IDs in each request.
+     * *   After a media file is uploaded, ApsaraVideo VOD processes the source file. Then, information about the media file is asynchronously generated. You can configure notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event and call this operation to query information about a media file after you receive notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
+     *
+     * @param request - BatchGetMediaInfosRequest
+     *
+     * @returns BatchGetMediaInfosResponse
+     *
+     * @param BatchGetMediaInfosRequest $request
+     *
+     * @return BatchGetMediaInfosResponse
      */
     public function batchGetMediaInfos($request)
     {
@@ -1198,36 +1334,47 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Configures one or more domain names for CDN.
-     *  *
-     * @description > This operation is available only in the **China (Shanghai)** region.
-     *  *
-     * @param BatchSetVodDomainConfigsRequest $request BatchSetVodDomainConfigsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Configures one or more domain names for CDN.
      *
-     * @return BatchSetVodDomainConfigsResponse BatchSetVodDomainConfigsResponse
+     * @remarks
+     * > This operation is available only in the **China (Shanghai)** region.
+     *
+     * @param request - BatchSetVodDomainConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchSetVodDomainConfigsResponse
+     *
+     * @param BatchSetVodDomainConfigsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return BatchSetVodDomainConfigsResponse
      */
     public function batchSetVodDomainConfigsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainNames)) {
-            $query['DomainNames'] = $request->domainNames;
+        if (null !== $request->domainNames) {
+            @$query['DomainNames'] = $request->domainNames;
         }
-        if (!Utils::isUnset($request->functions)) {
-            $query['Functions'] = $request->functions;
+
+        if (null !== $request->functions) {
+            @$query['Functions'] = $request->functions;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'BatchSetVodDomainConfigs',
@@ -1240,21 +1387,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return BatchSetVodDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchSetVodDomainConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchSetVodDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures one or more domain names for CDN.
-     *  *
-     * @description > This operation is available only in the **China (Shanghai)** region.
-     *  *
-     * @param BatchSetVodDomainConfigsRequest $request BatchSetVodDomainConfigsRequest
+     * Configures one or more domain names for CDN.
      *
-     * @return BatchSetVodDomainConfigsResponse BatchSetVodDomainConfigsResponse
+     * @remarks
+     * > This operation is available only in the **China (Shanghai)** region.
+     *
+     * @param request - BatchSetVodDomainConfigsRequest
+     *
+     * @returns BatchSetVodDomainConfigsResponse
+     *
+     * @param BatchSetVodDomainConfigsRequest $request
+     *
+     * @return BatchSetVodDomainConfigsResponse
      */
     public function batchSetVodDomainConfigs($request)
     {
@@ -1264,31 +1413,40 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Enables accelerated domain names that are in the disabled state.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
-     * *   If the domain name that you want to enable is invalid or your Alibaba Cloud account has overdue payments, you cannot call this operation to enable the domain name.
-     *  *
-     * @param BatchStartVodDomainRequest $request BatchStartVodDomainRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Enables accelerated domain names that are in the disabled state.
      *
-     * @return BatchStartVodDomainResponse BatchStartVodDomainResponse
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
+     * *   If the domain name that you want to enable is invalid or your Alibaba Cloud account has overdue payments, you cannot call this operation to enable the domain name.
+     *
+     * @param request - BatchStartVodDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchStartVodDomainResponse
+     *
+     * @param BatchStartVodDomainRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BatchStartVodDomainResponse
      */
     public function batchStartVodDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainNames)) {
-            $query['DomainNames'] = $request->domainNames;
+        if (null !== $request->domainNames) {
+            @$query['DomainNames'] = $request->domainNames;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'BatchStartVodDomain',
@@ -1301,22 +1459,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return BatchStartVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchStartVodDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchStartVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables accelerated domain names that are in the disabled state.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
-     * *   If the domain name that you want to enable is invalid or your Alibaba Cloud account has overdue payments, you cannot call this operation to enable the domain name.
-     *  *
-     * @param BatchStartVodDomainRequest $request BatchStartVodDomainRequest
+     * Enables accelerated domain names that are in the disabled state.
      *
-     * @return BatchStartVodDomainResponse BatchStartVodDomainResponse
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
+     * *   If the domain name that you want to enable is invalid or your Alibaba Cloud account has overdue payments, you cannot call this operation to enable the domain name.
+     *
+     * @param request - BatchStartVodDomainRequest
+     *
+     * @returns BatchStartVodDomainResponse
+     *
+     * @param BatchStartVodDomainRequest $request
+     *
+     * @return BatchStartVodDomainResponse
      */
     public function batchStartVodDomain($request)
     {
@@ -1326,31 +1486,40 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Disables accelerated domain names.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
-     * *   After you disable an accelerated domain name, the information about the domain name is retained. The system automatically reroutes all the requests that are destined for the domain name to the origin server.
-     *  *
-     * @param BatchStopVodDomainRequest $request BatchStopVodDomainRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Disables accelerated domain names.
      *
-     * @return BatchStopVodDomainResponse BatchStopVodDomainResponse
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
+     * *   After you disable an accelerated domain name, the information about the domain name is retained. The system automatically reroutes all the requests that are destined for the domain name to the origin server.
+     *
+     * @param request - BatchStopVodDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchStopVodDomainResponse
+     *
+     * @param BatchStopVodDomainRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BatchStopVodDomainResponse
      */
     public function batchStopVodDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainNames)) {
-            $query['DomainNames'] = $request->domainNames;
+        if (null !== $request->domainNames) {
+            @$query['DomainNames'] = $request->domainNames;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'BatchStopVodDomain',
@@ -1363,22 +1532,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return BatchStopVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchStopVodDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchStopVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables accelerated domain names.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
-     * *   After you disable an accelerated domain name, the information about the domain name is retained. The system automatically reroutes all the requests that are destined for the domain name to the origin server.
-     *  *
-     * @param BatchStopVodDomainRequest $request BatchStopVodDomainRequest
+     * Disables accelerated domain names.
      *
-     * @return BatchStopVodDomainResponse BatchStopVodDomainResponse
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
+     * *   After you disable an accelerated domain name, the information about the domain name is retained. The system automatically reroutes all the requests that are destined for the domain name to the origin server.
+     *
+     * @param request - BatchStopVodDomainRequest
+     *
+     * @returns BatchStopVodDomainResponse
+     *
+     * @param BatchStopVodDomainRequest $request
+     *
+     * @return BatchStopVodDomainResponse
      */
     public function batchStopVodDomain($request)
     {
@@ -1388,29 +1559,37 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Cancels URL-based upload jobs in the queue.
-     *  *
-     * @description *   You can cancel only URL-based upload jobs in the **Pending** state. You can query the status of a URL-based upload job by calling the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
+     * Cancels URL-based upload jobs in the queue.
+     *
+     * @remarks
+     *   You can cancel only URL-based upload jobs in the **Pending** state. You can query the status of a URL-based upload job by calling the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
      * *   You cannot cancel an upload job that already starts.
      * *   You must specify either JobIds or UploadUrls. If you specify both parameters, only JobIds takes effect.
-     *  *
-     * @param CancelUrlUploadJobsRequest $request CancelUrlUploadJobsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelUrlUploadJobsResponse CancelUrlUploadJobsResponse
+     * @param request - CancelUrlUploadJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelUrlUploadJobsResponse
+     *
+     * @param CancelUrlUploadJobsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CancelUrlUploadJobsResponse
      */
     public function cancelUrlUploadJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobIds)) {
-            $query['JobIds'] = $request->jobIds;
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
         }
-        if (!Utils::isUnset($request->uploadUrls)) {
-            $query['UploadUrls'] = $request->uploadUrls;
+
+        if (null !== $request->uploadUrls) {
+            @$query['UploadUrls'] = $request->uploadUrls;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CancelUrlUploadJobs',
@@ -1423,23 +1602,25 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CancelUrlUploadJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelUrlUploadJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelUrlUploadJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Cancels URL-based upload jobs in the queue.
-     *  *
-     * @description *   You can cancel only URL-based upload jobs in the **Pending** state. You can query the status of a URL-based upload job by calling the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
+     * Cancels URL-based upload jobs in the queue.
+     *
+     * @remarks
+     *   You can cancel only URL-based upload jobs in the **Pending** state. You can query the status of a URL-based upload job by calling the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
      * *   You cannot cancel an upload job that already starts.
      * *   You must specify either JobIds or UploadUrls. If you specify both parameters, only JobIds takes effect.
-     *  *
-     * @param CancelUrlUploadJobsRequest $request CancelUrlUploadJobsRequest
      *
-     * @return CancelUrlUploadJobsResponse CancelUrlUploadJobsResponse
+     * @param request - CancelUrlUploadJobsRequest
+     *
+     * @returns CancelUrlUploadJobsResponse
+     *
+     * @param CancelUrlUploadJobsRequest $request
+     *
+     * @return CancelUrlUploadJobsResponse
      */
     public function cancelUrlUploadJobs($request)
     {
@@ -1449,31 +1630,40 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Transfers a resource to a specified resource group.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Transfers a resource to a specified resource group.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceRegionId)) {
-            $query['ResourceRegionId'] = $request->resourceRegionId;
+
+        if (null !== $request->resourceRegionId) {
+            @$query['ResourceRegionId'] = $request->resourceRegionId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ChangeResourceGroup',
@@ -1486,19 +1676,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Transfers a resource to a specified resource group.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * Transfers a resource to a specified resource group.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -1508,32 +1699,41 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Creates an application.
-     *  *
-     * @description You can create up to 10 applications within an Alibaba Cloud account. For more information, see [Multi-application service](https://help.aliyun.com/document_detail/113600.html).
+     * Creates an application.
+     *
+     * @remarks
+     * You can create up to 10 applications within an Alibaba Cloud account. For more information, see [Multi-application service](https://help.aliyun.com/document_detail/113600.html).
      * ### QPS limits
      * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VOD](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param CreateAppInfoRequest $request CreateAppInfoRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAppInfoResponse CreateAppInfoResponse
+     * @param request - CreateAppInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppInfoResponse
+     *
+     * @param CreateAppInfoRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateAppInfoResponse
      */
     public function createAppInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateAppInfo',
@@ -1546,23 +1746,25 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAppInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an application.
-     *  *
-     * @description You can create up to 10 applications within an Alibaba Cloud account. For more information, see [Multi-application service](https://help.aliyun.com/document_detail/113600.html).
+     * Creates an application.
+     *
+     * @remarks
+     * You can create up to 10 applications within an Alibaba Cloud account. For more information, see [Multi-application service](https://help.aliyun.com/document_detail/113600.html).
      * ### QPS limits
      * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VOD](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param CreateAppInfoRequest $request CreateAppInfoRequest
      *
-     * @return CreateAppInfoResponse CreateAppInfoResponse
+     * @param request - CreateAppInfoRequest
+     *
+     * @returns CreateAppInfoResponse
+     *
+     * @param CreateAppInfoRequest $request
+     *
+     * @return CreateAppInfoResponse
      */
     public function createAppInfo($request)
     {
@@ -1572,22 +1774,28 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Performs manual review on media files, such as audio and video files.
-     *  *
-     * @param CreateAuditRequest $request CreateAuditRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Performs manual review on media files, such as audio and video files.
      *
-     * @return CreateAuditResponse CreateAuditResponse
+     * @param request - CreateAuditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAuditResponse
+     *
+     * @param CreateAuditRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateAuditResponse
      */
     public function createAuditWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auditContent)) {
-            $query['AuditContent'] = $request->auditContent;
+        if (null !== $request->auditContent) {
+            @$query['AuditContent'] = $request->auditContent;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateAudit',
@@ -1600,19 +1808,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateAuditResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAuditResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAuditResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Performs manual review on media files, such as audio and video files.
-     *  *
-     * @param CreateAuditRequest $request CreateAuditRequest
+     * Performs manual review on media files, such as audio and video files.
      *
-     * @return CreateAuditResponse CreateAuditResponse
+     * @param request - CreateAuditRequest
+     *
+     * @returns CreateAuditResponse
+     *
+     * @param CreateAuditRequest $request
+     *
+     * @return CreateAuditResponse
      */
     public function createAudit($request)
     {
@@ -1622,58 +1831,75 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Obtains an upload URL and an upload credential for an auxiliary media asset such as a watermark image, subtitle file, or material and generates the media ID. ApsaraVideo VOD issues upload URLs and credentials to perform authorization and ensure security. This prevents unauthorized users from uploading media files. ApsaraVideo VOD generates media IDs together with upload URLs and credentials. Media IDs are used in lifecycle management and media processing.
-     *  *
-     * @description *   **Make sure that you understand the billing method and prices of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
+     * Obtains an upload URL and an upload credential for an auxiliary media asset such as a watermark image, subtitle file, or material and generates the media ID. ApsaraVideo VOD issues upload URLs and credentials to perform authorization and ensure security. This prevents unauthorized users from uploading media files. ApsaraVideo VOD generates media IDs together with upload URLs and credentials. Media IDs are used in lifecycle management and media processing.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing method and prices of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
      * *   You can call this operation only to obtain the upload URLs and credentials for media files and create media assets in ApsaraVideo VOD. You cannot call this operation to upload media files. For more information about how to upload media files by calling API operations, see [Upload media files by calling API operations](https://help.aliyun.com/document_detail/476208.html).
      * *   If the upload credential expires after 3,000 seconds, you can call the CreateUploadAttachedMedia operation again to obtain a new upload URL and a new upload credential.
      * *   You can configure a callback to receive an [AttachedMediaUploadComplete](https://help.aliyun.com/document_detail/103250.html) event notification to determine whether the upload is successful.
      * *   You must obtain a URL and a credential before you upload a media file to ApsaraVideo VOD. ApsaraVideo VOD supports multiple upload methods. Each method has different requirements on upload URLs and credentials. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
-     *  *
-     * @param CreateUploadAttachedMediaRequest $request CreateUploadAttachedMediaRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUploadAttachedMediaResponse CreateUploadAttachedMediaResponse
+     * @param request - CreateUploadAttachedMediaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUploadAttachedMediaResponse
+     *
+     * @param CreateUploadAttachedMediaRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateUploadAttachedMediaResponse
      */
     public function createUploadAttachedMediaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->businessType)) {
-            $query['BusinessType'] = $request->businessType;
+
+        if (null !== $request->businessType) {
+            @$query['BusinessType'] = $request->businessType;
         }
-        if (!Utils::isUnset($request->cateIds)) {
-            $query['CateIds'] = $request->cateIds;
+
+        if (null !== $request->cateIds) {
+            @$query['CateIds'] = $request->cateIds;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileSize)) {
-            $query['FileSize'] = $request->fileSize;
+
+        if (null !== $request->fileSize) {
+            @$query['FileSize'] = $request->fileSize;
         }
-        if (!Utils::isUnset($request->mediaExt)) {
-            $query['MediaExt'] = $request->mediaExt;
+
+        if (null !== $request->mediaExt) {
+            @$query['MediaExt'] = $request->mediaExt;
         }
-        if (!Utils::isUnset($request->storageLocation)) {
-            $query['StorageLocation'] = $request->storageLocation;
+
+        if (null !== $request->storageLocation) {
+            @$query['StorageLocation'] = $request->storageLocation;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateUploadAttachedMedia',
@@ -1686,25 +1912,27 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateUploadAttachedMediaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateUploadAttachedMediaResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateUploadAttachedMediaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains an upload URL and an upload credential for an auxiliary media asset such as a watermark image, subtitle file, or material and generates the media ID. ApsaraVideo VOD issues upload URLs and credentials to perform authorization and ensure security. This prevents unauthorized users from uploading media files. ApsaraVideo VOD generates media IDs together with upload URLs and credentials. Media IDs are used in lifecycle management and media processing.
-     *  *
-     * @description *   **Make sure that you understand the billing method and prices of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
+     * Obtains an upload URL and an upload credential for an auxiliary media asset such as a watermark image, subtitle file, or material and generates the media ID. ApsaraVideo VOD issues upload URLs and credentials to perform authorization and ensure security. This prevents unauthorized users from uploading media files. ApsaraVideo VOD generates media IDs together with upload URLs and credentials. Media IDs are used in lifecycle management and media processing.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing method and prices of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
      * *   You can call this operation only to obtain the upload URLs and credentials for media files and create media assets in ApsaraVideo VOD. You cannot call this operation to upload media files. For more information about how to upload media files by calling API operations, see [Upload media files by calling API operations](https://help.aliyun.com/document_detail/476208.html).
      * *   If the upload credential expires after 3,000 seconds, you can call the CreateUploadAttachedMedia operation again to obtain a new upload URL and a new upload credential.
      * *   You can configure a callback to receive an [AttachedMediaUploadComplete](https://help.aliyun.com/document_detail/103250.html) event notification to determine whether the upload is successful.
      * *   You must obtain a URL and a credential before you upload a media file to ApsaraVideo VOD. ApsaraVideo VOD supports multiple upload methods. Each method has different requirements on upload URLs and credentials. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
-     *  *
-     * @param CreateUploadAttachedMediaRequest $request CreateUploadAttachedMediaRequest
      *
-     * @return CreateUploadAttachedMediaResponse CreateUploadAttachedMediaResponse
+     * @param request - CreateUploadAttachedMediaRequest
+     *
+     * @returns CreateUploadAttachedMediaResponse
+     *
+     * @param CreateUploadAttachedMediaRequest $request
+     *
+     * @return CreateUploadAttachedMediaResponse
      */
     public function createUploadAttachedMedia($request)
     {
@@ -1714,55 +1942,71 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries a URL and a credential for uploading an image.
-     *  *
-     * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
+     * Queries a URL and a credential for uploading an image.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
      * *   You must obtain a URL and a credential before you upload an image to ApsaraVideo VOD. ApsaraVideo VOD provides multiple upload methods. You can upload files by using server upload SDKs, client upload SDKs, URLs, Object Storage Service (OSS) API, or OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html) topic.
      * *   You cannot refresh the upload URL or credential when you upload images. If the image upload credential expires, you can call this operation to obtain a new upload URL and credential. By default, the validity period of an image upload credential is 3,000 seconds.
      * *   You can call the [CreateUploadAttachedMedia](https://help.aliyun.com/document_detail/98467.html) operation to upload image watermarks.
      * *   You can configure a callback for [ImageUploadComplete](https://help.aliyun.com/document_detail/91968.html) to receive notifications about the image upload status.
-     *  *
-     * @param CreateUploadImageRequest $request CreateUploadImageRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUploadImageResponse CreateUploadImageResponse
+     * @param request - CreateUploadImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUploadImageResponse
+     *
+     * @param CreateUploadImageRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateUploadImageResponse
      */
     public function createUploadImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->cateId)) {
-            $query['CateId'] = $request->cateId;
+
+        if (null !== $request->cateId) {
+            @$query['CateId'] = $request->cateId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->imageExt)) {
-            $query['ImageExt'] = $request->imageExt;
+
+        if (null !== $request->imageExt) {
+            @$query['ImageExt'] = $request->imageExt;
         }
-        if (!Utils::isUnset($request->imageType)) {
-            $query['ImageType'] = $request->imageType;
+
+        if (null !== $request->imageType) {
+            @$query['ImageType'] = $request->imageType;
         }
-        if (!Utils::isUnset($request->originalFileName)) {
-            $query['OriginalFileName'] = $request->originalFileName;
+
+        if (null !== $request->originalFileName) {
+            @$query['OriginalFileName'] = $request->originalFileName;
         }
-        if (!Utils::isUnset($request->storageLocation)) {
-            $query['StorageLocation'] = $request->storageLocation;
+
+        if (null !== $request->storageLocation) {
+            @$query['StorageLocation'] = $request->storageLocation;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateUploadImage',
@@ -1775,25 +2019,27 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateUploadImageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateUploadImageResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateUploadImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a URL and a credential for uploading an image.
-     *  *
-     * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
+     * Queries a URL and a credential for uploading an image.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
      * *   You must obtain a URL and a credential before you upload an image to ApsaraVideo VOD. ApsaraVideo VOD provides multiple upload methods. You can upload files by using server upload SDKs, client upload SDKs, URLs, Object Storage Service (OSS) API, or OSS SDKs. Each upload method has different requirements for obtaining upload URLs and credentials. For more information, see the "Usage notes" section of the [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html) topic.
      * *   You cannot refresh the upload URL or credential when you upload images. If the image upload credential expires, you can call this operation to obtain a new upload URL and credential. By default, the validity period of an image upload credential is 3,000 seconds.
      * *   You can call the [CreateUploadAttachedMedia](https://help.aliyun.com/document_detail/98467.html) operation to upload image watermarks.
      * *   You can configure a callback for [ImageUploadComplete](https://help.aliyun.com/document_detail/91968.html) to receive notifications about the image upload status.
-     *  *
-     * @param CreateUploadImageRequest $request CreateUploadImageRequest
      *
-     * @return CreateUploadImageResponse CreateUploadImageResponse
+     * @param request - CreateUploadImageRequest
+     *
+     * @returns CreateUploadImageResponse
+     *
+     * @param CreateUploadImageRequest $request
+     *
+     * @return CreateUploadImageResponse
      */
     public function createUploadImage($request)
     {
@@ -1803,63 +2049,81 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Obtains an upload URL and an upload credential for uploading an audio or video file and generates the audio or video ID. ApsaraVideo VOD issues upload URLs and credentials to perform authorization and ensure security. This prevents unauthorized users from uploading media files. ApsaraVideo VOD generates media IDs, video IDs, and image IDs together with upload URLs and credentials. Media IDs are used in lifecycle management and media processing.
-     *  *
-     * @description *   **Make sure that you understand the billing method and prices of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
+     * Obtains an upload URL and an upload credential for uploading an audio or video file and generates the audio or video ID. ApsaraVideo VOD issues upload URLs and credentials to perform authorization and ensure security. This prevents unauthorized users from uploading media files. ApsaraVideo VOD generates media IDs, video IDs, and image IDs together with upload URLs and credentials. Media IDs are used in lifecycle management and media processing.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing method and prices of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
      * *   You can call this operation to obtain upload URLs and credentials for video and audio files. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
      * *   You can call this operation only to obtain the upload URLs and credentials for media files and create media assets in ApsaraVideo VOD. You cannot call this operation to upload media files. For more information about how to upload media files by calling API operations, see [Upload media files by calling API operations](https://help.aliyun.com/document_detail/476208.html).
      * *   If the upload credential expires, call the [RefreshUploadVideo](~~RefreshUploadVideo~~) operation to obtain a new upload credential. The default validity period of an upload credential is 3,000 seconds.
      * *   You can configure a callback to receive an event notification when an audio or video file is uploaded. Alternatively, after you upload an audio or video file, you can call the [GetMezzanineInfo](https://help.aliyun.com/document_detail/59624.html) operation to determine whether the upload is successful. For more information, see [Overview](https://help.aliyun.com/document_detail/55396.html).
      * *   The value of the VideoId parameter that is returned after you call this operation can be used for media processing or the lifecycle management of media assets.
      * *   You must obtain a URL and a credential before you upload a media file to ApsaraVideo VOD. ApsaraVideo VOD supports multiple upload methods. Each method has different requirements on upload URLs and credentials. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
-     *  *
-     * @param CreateUploadVideoRequest $request CreateUploadVideoRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUploadVideoResponse CreateUploadVideoResponse
+     * @param request - CreateUploadVideoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUploadVideoResponse
+     *
+     * @param CreateUploadVideoRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateUploadVideoResponse
      */
     public function createUploadVideoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->cateId)) {
-            $query['CateId'] = $request->cateId;
+
+        if (null !== $request->cateId) {
+            @$query['CateId'] = $request->cateId;
         }
-        if (!Utils::isUnset($request->coverURL)) {
-            $query['CoverURL'] = $request->coverURL;
+
+        if (null !== $request->coverURL) {
+            @$query['CoverURL'] = $request->coverURL;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileSize)) {
-            $query['FileSize'] = $request->fileSize;
+
+        if (null !== $request->fileSize) {
+            @$query['FileSize'] = $request->fileSize;
         }
-        if (!Utils::isUnset($request->storageLocation)) {
-            $query['StorageLocation'] = $request->storageLocation;
+
+        if (null !== $request->storageLocation) {
+            @$query['StorageLocation'] = $request->storageLocation;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->templateGroupId)) {
-            $query['TemplateGroupId'] = $request->templateGroupId;
+
+        if (null !== $request->templateGroupId) {
+            @$query['TemplateGroupId'] = $request->templateGroupId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
-        if (!Utils::isUnset($request->workflowId)) {
-            $query['WorkflowId'] = $request->workflowId;
+
+        if (null !== $request->workflowId) {
+            @$query['WorkflowId'] = $request->workflowId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateUploadVideo',
@@ -1872,27 +2136,29 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateUploadVideoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateUploadVideoResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateUploadVideoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains an upload URL and an upload credential for uploading an audio or video file and generates the audio or video ID. ApsaraVideo VOD issues upload URLs and credentials to perform authorization and ensure security. This prevents unauthorized users from uploading media files. ApsaraVideo VOD generates media IDs, video IDs, and image IDs together with upload URLs and credentials. Media IDs are used in lifecycle management and media processing.
-     *  *
-     * @description *   **Make sure that you understand the billing method and prices of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
+     * Obtains an upload URL and an upload credential for uploading an audio or video file and generates the audio or video ID. ApsaraVideo VOD issues upload URLs and credentials to perform authorization and ensure security. This prevents unauthorized users from uploading media files. ApsaraVideo VOD generates media IDs, video IDs, and image IDs together with upload URLs and credentials. Media IDs are used in lifecycle management and media processing.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing method and prices of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
      * *   You can call this operation to obtain upload URLs and credentials for video and audio files. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
      * *   You can call this operation only to obtain the upload URLs and credentials for media files and create media assets in ApsaraVideo VOD. You cannot call this operation to upload media files. For more information about how to upload media files by calling API operations, see [Upload media files by calling API operations](https://help.aliyun.com/document_detail/476208.html).
      * *   If the upload credential expires, call the [RefreshUploadVideo](~~RefreshUploadVideo~~) operation to obtain a new upload credential. The default validity period of an upload credential is 3,000 seconds.
      * *   You can configure a callback to receive an event notification when an audio or video file is uploaded. Alternatively, after you upload an audio or video file, you can call the [GetMezzanineInfo](https://help.aliyun.com/document_detail/59624.html) operation to determine whether the upload is successful. For more information, see [Overview](https://help.aliyun.com/document_detail/55396.html).
      * *   The value of the VideoId parameter that is returned after you call this operation can be used for media processing or the lifecycle management of media assets.
      * *   You must obtain a URL and a credential before you upload a media file to ApsaraVideo VOD. ApsaraVideo VOD supports multiple upload methods. Each method has different requirements on upload URLs and credentials. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
-     *  *
-     * @param CreateUploadVideoRequest $request CreateUploadVideoRequest
      *
-     * @return CreateUploadVideoResponse CreateUploadVideoResponse
+     * @param request - CreateUploadVideoRequest
+     *
+     * @returns CreateUploadVideoResponse
+     *
+     * @param CreateUploadVideoRequest $request
+     *
+     * @return CreateUploadVideoResponse
      */
     public function createUploadVideo($request)
     {
@@ -1902,34 +2168,44 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
-     *  *
-     * @param DecryptKMSDataKeyRequest $request DecryptKMSDataKeyRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
      *
-     * @return DecryptKMSDataKeyResponse DecryptKMSDataKeyResponse
+     * @param request - DecryptKMSDataKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DecryptKMSDataKeyResponse
+     *
+     * @param DecryptKMSDataKeyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DecryptKMSDataKeyResponse
      */
     public function decryptKMSDataKeyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cipherText)) {
-            $query['CipherText'] = $request->cipherText;
+        if (null !== $request->cipherText) {
+            @$query['CipherText'] = $request->cipherText;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DecryptKMSDataKey',
@@ -1942,19 +2218,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DecryptKMSDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DecryptKMSDataKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DecryptKMSDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
-     *  *
-     * @param DecryptKMSDataKeyRequest $request DecryptKMSDataKeyRequest
+     * Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
      *
-     * @return DecryptKMSDataKeyResponse DecryptKMSDataKeyResponse
+     * @param request - DecryptKMSDataKeyRequest
+     *
+     * @returns DecryptKMSDataKeyResponse
+     *
+     * @param DecryptKMSDataKeyRequest $request
+     *
+     * @return DecryptKMSDataKeyResponse
      */
     public function decryptKMSDataKey($request)
     {
@@ -1964,25 +2241,32 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the information about one or more images that are submitted for AI processing.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)** and **China (Shanghai)**.
-     * *   This operation deletes only information about images that are submitted for AI processing. The image files are not deleted.
-     *  *
-     * @param DeleteAIImageInfosRequest $request DeleteAIImageInfosRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes the information about one or more images that are submitted for AI processing.
      *
-     * @return DeleteAIImageInfosResponse DeleteAIImageInfosResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)** and **China (Shanghai)**.
+     * *   This operation deletes only information about images that are submitted for AI processing. The image files are not deleted.
+     *
+     * @param request - DeleteAIImageInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAIImageInfosResponse
+     *
+     * @param DeleteAIImageInfosRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteAIImageInfosResponse
      */
     public function deleteAIImageInfosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->AIImageInfoIds)) {
-            $query['AIImageInfoIds'] = $request->AIImageInfoIds;
+        if (null !== $request->AIImageInfoIds) {
+            @$query['AIImageInfoIds'] = $request->AIImageInfoIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAIImageInfos',
@@ -1995,22 +2279,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteAIImageInfosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAIImageInfosResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAIImageInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the information about one or more images that are submitted for AI processing.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)** and **China (Shanghai)**.
-     * *   This operation deletes only information about images that are submitted for AI processing. The image files are not deleted.
-     *  *
-     * @param DeleteAIImageInfosRequest $request DeleteAIImageInfosRequest
+     * Deletes the information about one or more images that are submitted for AI processing.
      *
-     * @return DeleteAIImageInfosResponse DeleteAIImageInfosResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)** and **China (Shanghai)**.
+     * *   This operation deletes only information about images that are submitted for AI processing. The image files are not deleted.
+     *
+     * @param request - DeleteAIImageInfosRequest
+     *
+     * @returns DeleteAIImageInfosResponse
+     *
+     * @param DeleteAIImageInfosRequest $request
+     *
+     * @return DeleteAIImageInfosResponse
      */
     public function deleteAIImageInfos($request)
     {
@@ -2020,25 +2306,32 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an AI template.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     * *   You cannot delete an AI template that is set as the default template.
-     *  *
-     * @param DeleteAITemplateRequest $request DeleteAITemplateRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes an AI template.
      *
-     * @return DeleteAITemplateResponse DeleteAITemplateResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     * *   You cannot delete an AI template that is set as the default template.
+     *
+     * @param request - DeleteAITemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAITemplateResponse
+     *
+     * @param DeleteAITemplateRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteAITemplateResponse
      */
     public function deleteAITemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAITemplate',
@@ -2051,22 +2344,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAITemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an AI template.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     * *   You cannot delete an AI template that is set as the default template.
-     *  *
-     * @param DeleteAITemplateRequest $request DeleteAITemplateRequest
+     * Deletes an AI template.
      *
-     * @return DeleteAITemplateResponse DeleteAITemplateResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     * *   You cannot delete an AI template that is set as the default template.
+     *
+     * @param request - DeleteAITemplateRequest
+     *
+     * @returns DeleteAITemplateResponse
+     *
+     * @param DeleteAITemplateRequest $request
+     *
+     * @return DeleteAITemplateResponse
      */
     public function deleteAITemplate($request)
     {
@@ -2076,24 +2371,31 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an application.
-     *  *
-     * @description Application with resources can not be deleted.
-     *  *
-     * @param DeleteAppInfoRequest $request DeleteAppInfoRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes an application.
      *
-     * @return DeleteAppInfoResponse DeleteAppInfoResponse
+     * @remarks
+     * Application with resources can not be deleted.
+     *
+     * @param request - DeleteAppInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAppInfoResponse
+     *
+     * @param DeleteAppInfoRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteAppInfoResponse
      */
     public function deleteAppInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAppInfo',
@@ -2106,21 +2408,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAppInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an application.
-     *  *
-     * @description Application with resources can not be deleted.
-     *  *
-     * @param DeleteAppInfoRequest $request DeleteAppInfoRequest
+     * Deletes an application.
      *
-     * @return DeleteAppInfoResponse DeleteAppInfoResponse
+     * @remarks
+     * Application with resources can not be deleted.
+     *
+     * @param request - DeleteAppInfoRequest
+     *
+     * @returns DeleteAppInfoResponse
+     *
+     * @param DeleteAppInfoRequest $request
+     *
+     * @return DeleteAppInfoResponse
      */
     public function deleteAppInfo($request)
     {
@@ -2130,25 +2434,32 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes auxiliary media assets from ApsaraVideo VOD. You can delete multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch.
-     *  *
-     * @description *   **This operation physically deletes auxiliary media assets. You cannot recover the auxiliary media assets that you deleted. Exercise caution when you call this operation.**
-     * *   You can delete a maximum of 20 auxiliary media assets in one request.
-     *  *
-     * @param DeleteAttachedMediaRequest $request DeleteAttachedMediaRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Deletes auxiliary media assets from ApsaraVideo VOD. You can delete multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch.
      *
-     * @return DeleteAttachedMediaResponse DeleteAttachedMediaResponse
+     * @remarks
+     *   **This operation physically deletes auxiliary media assets. You cannot recover the auxiliary media assets that you deleted. Exercise caution when you call this operation.**
+     * *   You can delete a maximum of 20 auxiliary media assets in one request.
+     *
+     * @param request - DeleteAttachedMediaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAttachedMediaResponse
+     *
+     * @param DeleteAttachedMediaRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteAttachedMediaResponse
      */
     public function deleteAttachedMediaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaIds)) {
-            $query['MediaIds'] = $request->mediaIds;
+        if (null !== $request->mediaIds) {
+            @$query['MediaIds'] = $request->mediaIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAttachedMedia',
@@ -2161,22 +2472,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteAttachedMediaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAttachedMediaResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAttachedMediaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes auxiliary media assets from ApsaraVideo VOD. You can delete multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch.
-     *  *
-     * @description *   **This operation physically deletes auxiliary media assets. You cannot recover the auxiliary media assets that you deleted. Exercise caution when you call this operation.**
-     * *   You can delete a maximum of 20 auxiliary media assets in one request.
-     *  *
-     * @param DeleteAttachedMediaRequest $request DeleteAttachedMediaRequest
+     * Deletes auxiliary media assets from ApsaraVideo VOD. You can delete multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch.
      *
-     * @return DeleteAttachedMediaResponse DeleteAttachedMediaResponse
+     * @remarks
+     *   **This operation physically deletes auxiliary media assets. You cannot recover the auxiliary media assets that you deleted. Exercise caution when you call this operation.**
+     * *   You can delete a maximum of 20 auxiliary media assets in one request.
+     *
+     * @param request - DeleteAttachedMediaRequest
+     *
+     * @returns DeleteAttachedMediaResponse
+     *
+     * @param DeleteAttachedMediaRequest $request
+     *
+     * @return DeleteAttachedMediaResponse
      */
     public function deleteAttachedMedia($request)
     {
@@ -2186,25 +2499,32 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a category and its subcategories.
-     *  *
-     * @description *   **After you call this operation to delete a category, all subcategories including level 2 and level 3 categories are deleted at the same time. Exercise caution when you call this operation.**
-     * *   If you have classified specific media resources to a category, the category names labeled on these media resources are automatically deleted when you delete the category.
-     *  *
-     * @param DeleteCategoryRequest $request DeleteCategoryRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes a category and its subcategories.
      *
-     * @return DeleteCategoryResponse DeleteCategoryResponse
+     * @remarks
+     *   **After you call this operation to delete a category, all subcategories including level 2 and level 3 categories are deleted at the same time. Exercise caution when you call this operation.**
+     * *   If you have classified specific media resources to a category, the category names labeled on these media resources are automatically deleted when you delete the category.
+     *
+     * @param request - DeleteCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCategoryResponse
+     *
+     * @param DeleteCategoryRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteCategoryResponse
      */
     public function deleteCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cateId)) {
-            $query['CateId'] = $request->cateId;
+        if (null !== $request->cateId) {
+            @$query['CateId'] = $request->cateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteCategory',
@@ -2217,22 +2537,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCategoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a category and its subcategories.
-     *  *
-     * @description *   **After you call this operation to delete a category, all subcategories including level 2 and level 3 categories are deleted at the same time. Exercise caution when you call this operation.**
-     * *   If you have classified specific media resources to a category, the category names labeled on these media resources are automatically deleted when you delete the category.
-     *  *
-     * @param DeleteCategoryRequest $request DeleteCategoryRequest
+     * Deletes a category and its subcategories.
      *
-     * @return DeleteCategoryResponse DeleteCategoryResponse
+     * @remarks
+     *   **After you call this operation to delete a category, all subcategories including level 2 and level 3 categories are deleted at the same time. Exercise caution when you call this operation.**
+     * *   If you have classified specific media resources to a category, the category names labeled on these media resources are automatically deleted when you delete the category.
+     *
+     * @param request - DeleteCategoryRequest
+     *
+     * @returns DeleteCategoryResponse
+     *
+     * @param DeleteCategoryRequest $request
+     *
+     * @return DeleteCategoryResponse
      */
     public function deleteCategory($request)
     {
@@ -2242,27 +2564,35 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the information about animated stickers.
-     *  *
-     * @description > This operation deletes only the information about animated stickers, but not the animated stickers themselves.
-     *  *
-     * @param DeleteDynamicImageRequest $request DeleteDynamicImageRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes the information about animated stickers.
      *
-     * @return DeleteDynamicImageResponse DeleteDynamicImageResponse
+     * @remarks
+     * > This operation deletes only the information about animated stickers, but not the animated stickers themselves.
+     *
+     * @param request - DeleteDynamicImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDynamicImageResponse
+     *
+     * @param DeleteDynamicImageRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteDynamicImageResponse
      */
     public function deleteDynamicImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dynamicImageIds)) {
-            $query['DynamicImageIds'] = $request->dynamicImageIds;
+        if (null !== $request->dynamicImageIds) {
+            @$query['DynamicImageIds'] = $request->dynamicImageIds;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDynamicImage',
@@ -2275,21 +2605,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteDynamicImageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDynamicImageResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDynamicImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the information about animated stickers.
-     *  *
-     * @description > This operation deletes only the information about animated stickers, but not the animated stickers themselves.
-     *  *
-     * @param DeleteDynamicImageRequest $request DeleteDynamicImageRequest
+     * Deletes the information about animated stickers.
      *
-     * @return DeleteDynamicImageResponse DeleteDynamicImageResponse
+     * @remarks
+     * > This operation deletes only the information about animated stickers, but not the animated stickers themselves.
+     *
+     * @param request - DeleteDynamicImageRequest
+     *
+     * @returns DeleteDynamicImageResponse
+     *
+     * @param DeleteDynamicImageRequest $request
+     *
+     * @return DeleteDynamicImageResponse
      */
     public function deleteDynamicImage($request)
     {
@@ -2299,36 +2631,47 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes online editing projects.
-     *  *
-     * @description *   You can call this operation to delete multiple online editing projects at a time.
-     *  *
-     * @param DeleteEditingProjectRequest $request DeleteEditingProjectRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Deletes online editing projects.
      *
-     * @return DeleteEditingProjectResponse DeleteEditingProjectResponse
+     * @remarks
+     *   You can call this operation to delete multiple online editing projects at a time.
+     *
+     * @param request - DeleteEditingProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEditingProjectResponse
+     *
+     * @param DeleteEditingProjectRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteEditingProjectResponse
      */
     public function deleteEditingProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->projectIds)) {
-            $query['ProjectIds'] = $request->projectIds;
+
+        if (null !== $request->projectIds) {
+            @$query['ProjectIds'] = $request->projectIds;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteEditingProject',
@@ -2341,21 +2684,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteEditingProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes online editing projects.
-     *  *
-     * @description *   You can call this operation to delete multiple online editing projects at a time.
-     *  *
-     * @param DeleteEditingProjectRequest $request DeleteEditingProjectRequest
+     * Deletes online editing projects.
      *
-     * @return DeleteEditingProjectResponse DeleteEditingProjectResponse
+     * @remarks
+     *   You can call this operation to delete multiple online editing projects at a time.
+     *
+     * @param request - DeleteEditingProjectRequest
+     *
+     * @returns DeleteEditingProjectResponse
+     *
+     * @param DeleteEditingProjectRequest $request
+     *
+     * @return DeleteEditingProjectResponse
      */
     public function deleteEditingProject($request)
     {
@@ -2365,40 +2710,52 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary 删除剪辑资源
-     *  *
-     * @param DeleteEditingProjectMaterialsRequest $request DeleteEditingProjectMaterialsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 删除剪辑资源.
      *
-     * @return DeleteEditingProjectMaterialsResponse DeleteEditingProjectMaterialsResponse
+     * @param request - DeleteEditingProjectMaterialsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEditingProjectMaterialsResponse
+     *
+     * @param DeleteEditingProjectMaterialsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteEditingProjectMaterialsResponse
      */
     public function deleteEditingProjectMaterialsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->materialIds)) {
-            $query['MaterialIds'] = $request->materialIds;
+        if (null !== $request->materialIds) {
+            @$query['MaterialIds'] = $request->materialIds;
         }
-        if (!Utils::isUnset($request->materialType)) {
-            $query['MaterialType'] = $request->materialType;
+
+        if (null !== $request->materialType) {
+            @$query['MaterialType'] = $request->materialType;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteEditingProjectMaterials',
@@ -2411,19 +2768,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteEditingProjectMaterialsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除剪辑资源
-     *  *
-     * @param DeleteEditingProjectMaterialsRequest $request DeleteEditingProjectMaterialsRequest
+     * 删除剪辑资源.
      *
-     * @return DeleteEditingProjectMaterialsResponse DeleteEditingProjectMaterialsResponse
+     * @param request - DeleteEditingProjectMaterialsRequest
+     *
+     * @returns DeleteEditingProjectMaterialsResponse
+     *
+     * @param DeleteEditingProjectMaterialsRequest $request
+     *
+     * @return DeleteEditingProjectMaterialsResponse
      */
     public function deleteEditingProjectMaterials($request)
     {
@@ -2433,38 +2791,49 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes uploaded images and video snapshots that are automatically captured.
-     *  *
-     * @description *   **After you call this operation to delete an image, the source file is permanently deleted and cannot be recovered. Exercise caution when you call this operation.**
+     * Deletes uploaded images and video snapshots that are automatically captured.
+     *
+     * @remarks
+     *   **After you call this operation to delete an image, the source file is permanently deleted and cannot be recovered. Exercise caution when you call this operation.**
      * *   If some images are cached on Alibaba Cloud CDN points of presence (POPs), the image URLs do not immediately become invalid.
      * *   You can call this operation to delete uploaded images and video snapshots.
-     *  *
-     * @param DeleteImageRequest $request DeleteImageRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteImageResponse DeleteImageResponse
+     * @param request - DeleteImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteImageResponse
+     *
+     * @param DeleteImageRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteImageResponse
      */
     public function deleteImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deleteImageType)) {
-            $query['DeleteImageType'] = $request->deleteImageType;
+        if (null !== $request->deleteImageType) {
+            @$query['DeleteImageType'] = $request->deleteImageType;
         }
-        if (!Utils::isUnset($request->imageIds)) {
-            $query['ImageIds'] = $request->imageIds;
+
+        if (null !== $request->imageIds) {
+            @$query['ImageIds'] = $request->imageIds;
         }
-        if (!Utils::isUnset($request->imageType)) {
-            $query['ImageType'] = $request->imageType;
+
+        if (null !== $request->imageType) {
+            @$query['ImageType'] = $request->imageType;
         }
-        if (!Utils::isUnset($request->imageURLs)) {
-            $query['ImageURLs'] = $request->imageURLs;
+
+        if (null !== $request->imageURLs) {
+            @$query['ImageURLs'] = $request->imageURLs;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteImage',
@@ -2477,23 +2846,25 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteImageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteImageResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes uploaded images and video snapshots that are automatically captured.
-     *  *
-     * @description *   **After you call this operation to delete an image, the source file is permanently deleted and cannot be recovered. Exercise caution when you call this operation.**
+     * Deletes uploaded images and video snapshots that are automatically captured.
+     *
+     * @remarks
+     *   **After you call this operation to delete an image, the source file is permanently deleted and cannot be recovered. Exercise caution when you call this operation.**
      * *   If some images are cached on Alibaba Cloud CDN points of presence (POPs), the image URLs do not immediately become invalid.
      * *   You can call this operation to delete uploaded images and video snapshots.
-     *  *
-     * @param DeleteImageRequest $request DeleteImageRequest
      *
-     * @return DeleteImageResponse DeleteImageResponse
+     * @param request - DeleteImageRequest
+     *
+     * @returns DeleteImageResponse
+     *
+     * @param DeleteImageRequest $request
+     *
+     * @return DeleteImageResponse
      */
     public function deleteImage($request)
     {
@@ -2503,27 +2874,35 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the callback method, callback URL, and event type of an event notification.
-     *  *
-     * @description > For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
-     *  *
-     * @param DeleteMessageCallbackRequest $request DeleteMessageCallbackRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes the callback method, callback URL, and event type of an event notification.
      *
-     * @return DeleteMessageCallbackResponse DeleteMessageCallbackResponse
+     * @remarks
+     * > For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
+     *
+     * @param request - DeleteMessageCallbackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMessageCallbackResponse
+     *
+     * @param DeleteMessageCallbackRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteMessageCallbackResponse
      */
     public function deleteMessageCallbackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteMessageCallback',
@@ -2536,21 +2915,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteMessageCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteMessageCallbackResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteMessageCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the callback method, callback URL, and event type of an event notification.
-     *  *
-     * @description > For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
-     *  *
-     * @param DeleteMessageCallbackRequest $request DeleteMessageCallbackRequest
+     * Deletes the callback method, callback URL, and event type of an event notification.
      *
-     * @return DeleteMessageCallbackResponse DeleteMessageCallbackResponse
+     * @remarks
+     * > For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
+     *
+     * @param request - DeleteMessageCallbackRequest
+     *
+     * @returns DeleteMessageCallbackResponse
+     *
+     * @param DeleteMessageCallbackRequest $request
+     *
+     * @return DeleteMessageCallbackResponse
      */
     public function deleteMessageCallback($request)
     {
@@ -2560,27 +2941,35 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more source files at a time.
-     *  *
-     * @description All media processing operations in ApsaraVideo VOD, such as transcoding, snapshot capture, and content moderation, are performed based on source files. If you delete the source files, you cannot perform media processing operations. Exercise caution when you call this operation.
-     *  *
-     * @param DeleteMezzaninesRequest $request DeleteMezzaninesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes one or more source files at a time.
      *
-     * @return DeleteMezzaninesResponse DeleteMezzaninesResponse
+     * @remarks
+     * All media processing operations in ApsaraVideo VOD, such as transcoding, snapshot capture, and content moderation, are performed based on source files. If you delete the source files, you cannot perform media processing operations. Exercise caution when you call this operation.
+     *
+     * @param request - DeleteMezzaninesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMezzaninesResponse
+     *
+     * @param DeleteMezzaninesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteMezzaninesResponse
      */
     public function deleteMezzaninesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->force)) {
-            $query['Force'] = $request->force;
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
         }
-        if (!Utils::isUnset($request->videoIds)) {
-            $query['VideoIds'] = $request->videoIds;
+
+        if (null !== $request->videoIds) {
+            @$query['VideoIds'] = $request->videoIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteMezzanines',
@@ -2593,21 +2982,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteMezzaninesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteMezzaninesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteMezzaninesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes one or more source files at a time.
-     *  *
-     * @description All media processing operations in ApsaraVideo VOD, such as transcoding, snapshot capture, and content moderation, are performed based on source files. If you delete the source files, you cannot perform media processing operations. Exercise caution when you call this operation.
-     *  *
-     * @param DeleteMezzaninesRequest $request DeleteMezzaninesRequest
+     * Deletes one or more source files at a time.
      *
-     * @return DeleteMezzaninesResponse DeleteMezzaninesResponse
+     * @remarks
+     * All media processing operations in ApsaraVideo VOD, such as transcoding, snapshot capture, and content moderation, are performed based on source files. If you delete the source files, you cannot perform media processing operations. Exercise caution when you call this operation.
+     *
+     * @param request - DeleteMezzaninesRequest
+     *
+     * @returns DeleteMezzaninesResponse
+     *
+     * @param DeleteMezzaninesRequest $request
+     *
+     * @return DeleteMezzaninesResponse
      */
     public function deleteMezzanines($request)
     {
@@ -2617,32 +3008,41 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the parts generated during an upload.
-     *  *
-     * @description *   During multipart upload, useless parts may be retained if the upload fails. These useless parts are automatically deleted after 7 days. You can call this operation to delete the generated parts after the upload is successful or fails.
+     * Deletes the parts generated during an upload.
+     *
+     * @remarks
+     *   During multipart upload, useless parts may be retained if the upload fails. These useless parts are automatically deleted after 7 days. You can call this operation to delete the generated parts after the upload is successful or fails.
      * *   This operation does not delete the source file or transcoded file, but deletes only the parts generated during the upload.
      * *   If you call the [DeleteVideo](https://help.aliyun.com/document_detail/52837.html) operation, the entire video file is deleted, including the generated parts.
-     *  *
-     * @param DeleteMultipartUploadRequest $request DeleteMultipartUploadRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMultipartUploadResponse DeleteMultipartUploadResponse
+     * @param request - DeleteMultipartUploadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMultipartUploadResponse
+     *
+     * @param DeleteMultipartUploadRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteMultipartUploadResponse
      */
     public function deleteMultipartUploadWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->mediaType)) {
-            $query['MediaType'] = $request->mediaType;
+
+        if (null !== $request->mediaType) {
+            @$query['MediaType'] = $request->mediaType;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteMultipartUpload',
@@ -2655,23 +3055,25 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteMultipartUploadResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteMultipartUploadResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteMultipartUploadResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the parts generated during an upload.
-     *  *
-     * @description *   During multipart upload, useless parts may be retained if the upload fails. These useless parts are automatically deleted after 7 days. You can call this operation to delete the generated parts after the upload is successful or fails.
+     * Deletes the parts generated during an upload.
+     *
+     * @remarks
+     *   During multipart upload, useless parts may be retained if the upload fails. These useless parts are automatically deleted after 7 days. You can call this operation to delete the generated parts after the upload is successful or fails.
      * *   This operation does not delete the source file or transcoded file, but deletes only the parts generated during the upload.
      * *   If you call the [DeleteVideo](https://help.aliyun.com/document_detail/52837.html) operation, the entire video file is deleted, including the generated parts.
-     *  *
-     * @param DeleteMultipartUploadRequest $request DeleteMultipartUploadRequest
      *
-     * @return DeleteMultipartUploadResponse DeleteMultipartUploadResponse
+     * @param request - DeleteMultipartUploadRequest
+     *
+     * @returns DeleteMultipartUploadResponse
+     *
+     * @param DeleteMultipartUploadRequest $request
+     *
+     * @return DeleteMultipartUploadResponse
      */
     public function deleteMultipartUpload($request)
     {
@@ -2681,25 +3083,32 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more video or audio streams and their storage files at a time.
-     *  *
-     * @param DeleteStreamRequest $request DeleteStreamRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Deletes one or more video or audio streams and their storage files at a time.
      *
-     * @return DeleteStreamResponse DeleteStreamResponse
+     * @param request - DeleteStreamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteStreamResponse
+     *
+     * @param DeleteStreamRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteStreamResponse
      */
     public function deleteStreamWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobIds)) {
-            $query['JobIds'] = $request->jobIds;
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteStream',
@@ -2712,19 +3121,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteStreamResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteStreamResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes one or more video or audio streams and their storage files at a time.
-     *  *
-     * @param DeleteStreamRequest $request DeleteStreamRequest
+     * Deletes one or more video or audio streams and their storage files at a time.
      *
-     * @return DeleteStreamResponse DeleteStreamResponse
+     * @param request - DeleteStreamRequest
+     *
+     * @returns DeleteStreamResponse
+     *
+     * @param DeleteStreamRequest $request
+     *
+     * @return DeleteStreamResponse
      */
     public function deleteStream($request)
     {
@@ -2734,31 +3144,40 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more transcoding templates from a transcoding template group or forcibly deletes a transcoding template group.
-     *  *
-     * @description *   You cannot call this operation to delete the default transcoding template. You can delete the transcoding template when it is no longer specified as the default one.
-     * *   For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. To check whether a transcoding template group is locked, call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation and obtain the Locked parameter from the response. To modify transcoding templates within a locked transcoding template group, you must call the [UpdateTranscodeTemplateGroup](~~UpdateTranscodeTemplateGroup~~) operation to unlock the transcoding template group first.
-     *  *
-     * @param DeleteTranscodeTemplateGroupRequest $request DeleteTranscodeTemplateGroupRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Deletes one or more transcoding templates from a transcoding template group or forcibly deletes a transcoding template group.
      *
-     * @return DeleteTranscodeTemplateGroupResponse DeleteTranscodeTemplateGroupResponse
+     * @remarks
+     *   You cannot call this operation to delete the default transcoding template. You can delete the transcoding template when it is no longer specified as the default one.
+     * *   For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. To check whether a transcoding template group is locked, call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation and obtain the Locked parameter from the response. To modify transcoding templates within a locked transcoding template group, you must call the [UpdateTranscodeTemplateGroup](~~UpdateTranscodeTemplateGroup~~) operation to unlock the transcoding template group first.
+     *
+     * @param request - DeleteTranscodeTemplateGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTranscodeTemplateGroupResponse
+     *
+     * @param DeleteTranscodeTemplateGroupRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteTranscodeTemplateGroupResponse
      */
     public function deleteTranscodeTemplateGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->forceDelGroup)) {
-            $query['ForceDelGroup'] = $request->forceDelGroup;
+        if (null !== $request->forceDelGroup) {
+            @$query['ForceDelGroup'] = $request->forceDelGroup;
         }
-        if (!Utils::isUnset($request->transcodeTemplateGroupId)) {
-            $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+
+        if (null !== $request->transcodeTemplateGroupId) {
+            @$query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
         }
-        if (!Utils::isUnset($request->transcodeTemplateIds)) {
-            $query['TranscodeTemplateIds'] = $request->transcodeTemplateIds;
+
+        if (null !== $request->transcodeTemplateIds) {
+            @$query['TranscodeTemplateIds'] = $request->transcodeTemplateIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteTranscodeTemplateGroup',
@@ -2771,22 +3190,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTranscodeTemplateGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes one or more transcoding templates from a transcoding template group or forcibly deletes a transcoding template group.
-     *  *
-     * @description *   You cannot call this operation to delete the default transcoding template. You can delete the transcoding template when it is no longer specified as the default one.
-     * *   For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. To check whether a transcoding template group is locked, call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation and obtain the Locked parameter from the response. To modify transcoding templates within a locked transcoding template group, you must call the [UpdateTranscodeTemplateGroup](~~UpdateTranscodeTemplateGroup~~) operation to unlock the transcoding template group first.
-     *  *
-     * @param DeleteTranscodeTemplateGroupRequest $request DeleteTranscodeTemplateGroupRequest
+     * Deletes one or more transcoding templates from a transcoding template group or forcibly deletes a transcoding template group.
      *
-     * @return DeleteTranscodeTemplateGroupResponse DeleteTranscodeTemplateGroupResponse
+     * @remarks
+     *   You cannot call this operation to delete the default transcoding template. You can delete the transcoding template when it is no longer specified as the default one.
+     * *   For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. To check whether a transcoding template group is locked, call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation and obtain the Locked parameter from the response. To modify transcoding templates within a locked transcoding template group, you must call the [UpdateTranscodeTemplateGroup](~~UpdateTranscodeTemplateGroup~~) operation to unlock the transcoding template group first.
+     *
+     * @param request - DeleteTranscodeTemplateGroupRequest
+     *
+     * @returns DeleteTranscodeTemplateGroupResponse
+     *
+     * @param DeleteTranscodeTemplateGroupRequest $request
+     *
+     * @return DeleteTranscodeTemplateGroupResponse
      */
     public function deleteTranscodeTemplateGroup($request)
     {
@@ -2796,26 +3217,33 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more videos at a time, including their mezzanine files, transcoded stream files, and thumbnail snapshots.
-     *  *
-     * @description *   This operation physically deletes videos. Deleted videos cannot be recovered. Exercise caution when you call this operation.
+     * Deletes one or more videos at a time, including their mezzanine files, transcoded stream files, and thumbnail snapshots.
+     *
+     * @remarks
+     *   This operation physically deletes videos. Deleted videos cannot be recovered. Exercise caution when you call this operation.
      * *   You can call this operation to delete multiple videos at a time.
      * *   When you delete a video, its source file, transcoded stream file, and thumbnail screenshot are also deleted. However, the Alibaba Cloud Content Delivery Network (CDN) cache is not refreshed simultaneously. You can use the refresh feature in the ApsaraVideo VOD console to clear garbage data on CDN nodes. For more information, see [Refresh and prefetch](https://help.aliyun.com/document_detail/86098.html).
-     *  *
-     * @param DeleteVideoRequest $request DeleteVideoRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVideoResponse DeleteVideoResponse
+     * @param request - DeleteVideoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVideoResponse
+     *
+     * @param DeleteVideoRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteVideoResponse
      */
     public function deleteVideoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->videoIds)) {
-            $query['VideoIds'] = $request->videoIds;
+        if (null !== $request->videoIds) {
+            @$query['VideoIds'] = $request->videoIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteVideo',
@@ -2828,23 +3256,25 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteVideoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVideoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVideoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes one or more videos at a time, including their mezzanine files, transcoded stream files, and thumbnail snapshots.
-     *  *
-     * @description *   This operation physically deletes videos. Deleted videos cannot be recovered. Exercise caution when you call this operation.
+     * Deletes one or more videos at a time, including their mezzanine files, transcoded stream files, and thumbnail snapshots.
+     *
+     * @remarks
+     *   This operation physically deletes videos. Deleted videos cannot be recovered. Exercise caution when you call this operation.
      * *   You can call this operation to delete multiple videos at a time.
      * *   When you delete a video, its source file, transcoded stream file, and thumbnail screenshot are also deleted. However, the Alibaba Cloud Content Delivery Network (CDN) cache is not refreshed simultaneously. You can use the refresh feature in the ApsaraVideo VOD console to clear garbage data on CDN nodes. For more information, see [Refresh and prefetch](https://help.aliyun.com/document_detail/86098.html).
-     *  *
-     * @param DeleteVideoRequest $request DeleteVideoRequest
      *
-     * @return DeleteVideoResponse DeleteVideoResponse
+     * @param request - DeleteVideoRequest
+     *
+     * @returns DeleteVideoResponse
+     *
+     * @param DeleteVideoRequest $request
+     *
+     * @return DeleteVideoResponse
      */
     public function deleteVideo($request)
     {
@@ -2854,35 +3284,45 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Removes a domain name for CDN from ApsaraVideo VOD.
-     *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
+     * Removes a domain name for CDN from ApsaraVideo VOD.
+     *
+     * @remarks
+     * > *   This operation is available only in the **China (Shanghai)** region.
      * > *   After a domain name for CDN is removed from ApsaraVideo VOD, the domain name becomes unavailable. Proceed with caution. We recommend that you restore the A record at your DNS service provider before you remove the domain name for CDN.
      * > *   After you call this operation to remove a domain name for CDN from ApsaraVideo VOD, all records that are related to the domain name are deleted. If you only want to disable a domain name for CDN, call the [BatchStopVodDomain](https://help.aliyun.com/document_detail/120208.html) operation.
-     *  *
-     * @param DeleteVodDomainRequest $request DeleteVodDomainRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVodDomainResponse DeleteVodDomainResponse
+     * @param request - DeleteVodDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVodDomainResponse
+     *
+     * @param DeleteVodDomainRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteVodDomainResponse
      */
     public function deleteVodDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteVodDomain',
@@ -2895,23 +3335,25 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVodDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes a domain name for CDN from ApsaraVideo VOD.
-     *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
+     * Removes a domain name for CDN from ApsaraVideo VOD.
+     *
+     * @remarks
+     * > *   This operation is available only in the **China (Shanghai)** region.
      * > *   After a domain name for CDN is removed from ApsaraVideo VOD, the domain name becomes unavailable. Proceed with caution. We recommend that you restore the A record at your DNS service provider before you remove the domain name for CDN.
      * > *   After you call this operation to remove a domain name for CDN from ApsaraVideo VOD, all records that are related to the domain name are deleted. If you only want to disable a domain name for CDN, call the [BatchStopVodDomain](https://help.aliyun.com/document_detail/120208.html) operation.
-     *  *
-     * @param DeleteVodDomainRequest $request DeleteVodDomainRequest
      *
-     * @return DeleteVodDomainResponse DeleteVodDomainResponse
+     * @param request - DeleteVodDomainRequest
+     *
+     * @returns DeleteVodDomainResponse
+     *
+     * @param DeleteVodDomainRequest $request
+     *
+     * @return DeleteVodDomainResponse
      */
     public function deleteVodDomain($request)
     {
@@ -2921,39 +3363,50 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the configurations of a domain name for CDN.
-     *  *
-     * @description >
+     * Deletes the configurations of a domain name for CDN.
+     *
+     * @remarks
+     * >
      * *   This operation is available only in the **China (Shanghai)** region.
      * *   After the configurations of a domain name for CDN are deleted, the domain name becomes unavailable. We recommend that you restore the A record at your DNS service provider before you delete the configurations of the domain name for CDN.
      * *   After you call this operation to remove a domain name for CDN from ApsaraVideo VOD, all records that are related to the domain name are deleted. If you only want to disable a domain name for CDN, call the [BatchStopVodDomain](https://help.aliyun.com/document_detail/120208.html) operation.
-     *  *
-     * @param DeleteVodSpecificConfigRequest $request DeleteVodSpecificConfigRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVodSpecificConfigResponse DeleteVodSpecificConfigResponse
+     * @param request - DeleteVodSpecificConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVodSpecificConfigResponse
+     *
+     * @param DeleteVodSpecificConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteVodSpecificConfigResponse
      */
     public function deleteVodSpecificConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configId)) {
-            $query['ConfigId'] = $request->configId;
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteVodSpecificConfig',
@@ -2966,24 +3419,26 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteVodSpecificConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVodSpecificConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVodSpecificConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the configurations of a domain name for CDN.
-     *  *
-     * @description >
+     * Deletes the configurations of a domain name for CDN.
+     *
+     * @remarks
+     * >
      * *   This operation is available only in the **China (Shanghai)** region.
      * *   After the configurations of a domain name for CDN are deleted, the domain name becomes unavailable. We recommend that you restore the A record at your DNS service provider before you delete the configurations of the domain name for CDN.
      * *   After you call this operation to remove a domain name for CDN from ApsaraVideo VOD, all records that are related to the domain name are deleted. If you only want to disable a domain name for CDN, call the [BatchStopVodDomain](https://help.aliyun.com/document_detail/120208.html) operation.
-     *  *
-     * @param DeleteVodSpecificConfigRequest $request DeleteVodSpecificConfigRequest
      *
-     * @return DeleteVodSpecificConfigResponse DeleteVodSpecificConfigResponse
+     * @param request - DeleteVodSpecificConfigRequest
+     *
+     * @returns DeleteVodSpecificConfigResponse
+     *
+     * @param DeleteVodSpecificConfigRequest $request
+     *
+     * @return DeleteVodSpecificConfigResponse
      */
     public function deleteVodSpecificConfig($request)
     {
@@ -2993,22 +3448,28 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a snapshot template.
-     *  *
-     * @param DeleteVodTemplateRequest $request DeleteVodTemplateRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes a snapshot template.
      *
-     * @return DeleteVodTemplateResponse DeleteVodTemplateResponse
+     * @param request - DeleteVodTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVodTemplateResponse
+     *
+     * @param DeleteVodTemplateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteVodTemplateResponse
      */
     public function deleteVodTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->vodTemplateId)) {
-            $query['VodTemplateId'] = $request->vodTemplateId;
+        if (null !== $request->vodTemplateId) {
+            @$query['VodTemplateId'] = $request->vodTemplateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteVodTemplate',
@@ -3021,19 +3482,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVodTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a snapshot template.
-     *  *
-     * @param DeleteVodTemplateRequest $request DeleteVodTemplateRequest
+     * Deletes a snapshot template.
      *
-     * @return DeleteVodTemplateResponse DeleteVodTemplateResponse
+     * @param request - DeleteVodTemplateRequest
+     *
+     * @returns DeleteVodTemplateResponse
+     *
+     * @param DeleteVodTemplateRequest $request
+     *
+     * @return DeleteVodTemplateResponse
      */
     public function deleteVodTemplate($request)
     {
@@ -3043,25 +3505,32 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an image watermark or text watermark template.
-     *  *
-     * @description *   **After you delete an image watermark template, the source watermark file is physically deleted and cannot be restored. Exercise caution when you call this operation.**
-     * *   You cannot delete the default watermark template. To delete a default watermark template, call the [SetDefaultWatermark](~~SetDefaultWatermark~~) operation to set another watermark template as the default one.
-     *  *
-     * @param DeleteWatermarkRequest $request DeleteWatermarkRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Deletes an image watermark or text watermark template.
      *
-     * @return DeleteWatermarkResponse DeleteWatermarkResponse
+     * @remarks
+     *   **After you delete an image watermark template, the source watermark file is physically deleted and cannot be restored. Exercise caution when you call this operation.**
+     * *   You cannot delete the default watermark template. To delete a default watermark template, call the [SetDefaultWatermark](~~SetDefaultWatermark~~) operation to set another watermark template as the default one.
+     *
+     * @param request - DeleteWatermarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWatermarkResponse
+     *
+     * @param DeleteWatermarkRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteWatermarkResponse
      */
     public function deleteWatermarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->watermarkId)) {
-            $query['WatermarkId'] = $request->watermarkId;
+        if (null !== $request->watermarkId) {
+            @$query['WatermarkId'] = $request->watermarkId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteWatermark',
@@ -3074,22 +3543,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteWatermarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an image watermark or text watermark template.
-     *  *
-     * @description *   **After you delete an image watermark template, the source watermark file is physically deleted and cannot be restored. Exercise caution when you call this operation.**
-     * *   You cannot delete the default watermark template. To delete a default watermark template, call the [SetDefaultWatermark](~~SetDefaultWatermark~~) operation to set another watermark template as the default one.
-     *  *
-     * @param DeleteWatermarkRequest $request DeleteWatermarkRequest
+     * Deletes an image watermark or text watermark template.
      *
-     * @return DeleteWatermarkResponse DeleteWatermarkResponse
+     * @remarks
+     *   **After you delete an image watermark template, the source watermark file is physically deleted and cannot be restored. Exercise caution when you call this operation.**
+     * *   You cannot delete the default watermark template. To delete a default watermark template, call the [SetDefaultWatermark](~~SetDefaultWatermark~~) operation to set another watermark template as the default one.
+     *
+     * @param request - DeleteWatermarkRequest
+     *
+     * @returns DeleteWatermarkResponse
+     *
+     * @param DeleteWatermarkRequest $request
+     *
+     * @return DeleteWatermarkResponse
      */
     public function deleteWatermark($request)
     {
@@ -3099,34 +3570,44 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the distribution of media asset data by time. The maximum time range to query is 6 months.
-     *  *
-     * @description *   This operation is available only in the China (Shanghai) region.
-     * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the previous 7 days. If you set both the parameters, the request returns the data collected within the specified time range.
-     *  *
-     * @param DescribeMediaDistributionRequest $request DescribeMediaDistributionRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the distribution of media asset data by time. The maximum time range to query is 6 months.
      *
-     * @return DescribeMediaDistributionResponse DescribeMediaDistributionResponse
+     * @remarks
+     *   This operation is available only in the China (Shanghai) region.
+     * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the previous 7 days. If you set both the parameters, the request returns the data collected within the specified time range.
+     *
+     * @param request - DescribeMediaDistributionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMediaDistributionResponse
+     *
+     * @param DescribeMediaDistributionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeMediaDistributionResponse
      */
     public function describeMediaDistributionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->storageClass)) {
-            $query['StorageClass'] = $request->storageClass;
+
+        if (null !== $request->storageClass) {
+            @$query['StorageClass'] = $request->storageClass;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeMediaDistribution',
@@ -3139,22 +3620,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeMediaDistributionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeMediaDistributionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeMediaDistributionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the distribution of media asset data by time. The maximum time range to query is 6 months.
-     *  *
-     * @description *   This operation is available only in the China (Shanghai) region.
-     * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the previous 7 days. If you set both the parameters, the request returns the data collected within the specified time range.
-     *  *
-     * @param DescribeMediaDistributionRequest $request DescribeMediaDistributionRequest
+     * Queries the distribution of media asset data by time. The maximum time range to query is 6 months.
      *
-     * @return DescribeMediaDistributionResponse DescribeMediaDistributionResponse
+     * @remarks
+     *   This operation is available only in the China (Shanghai) region.
+     * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the previous 7 days. If you set both the parameters, the request returns the data collected within the specified time range.
+     *
+     * @param request - DescribeMediaDistributionRequest
+     *
+     * @returns DescribeMediaDistributionResponse
+     *
+     * @param DescribeMediaDistributionRequest $request
+     *
+     * @return DescribeMediaDistributionResponse
      */
     public function describeMediaDistribution($request)
     {
@@ -3164,37 +3647,47 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries daily playback statistics on top videos, including video views, unique visitors, and total playback duration.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * Queries daily playback statistics on top videos, including video views, unique visitors, and total playback duration.
+     *
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
      * *   You can query playback statistics on top 1,000 videos at most on a specified day. By default, top videos are sorted in descending order based on video views.
      * *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
      * *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
      * *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
-     *  *
-     * @param DescribePlayTopVideosRequest $request DescribePlayTopVideosRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePlayTopVideosResponse DescribePlayTopVideosResponse
+     * @param request - DescribePlayTopVideosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePlayTopVideosResponse
+     *
+     * @param DescribePlayTopVideosRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribePlayTopVideosResponse
      */
     public function describePlayTopVideosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizDate)) {
-            $query['BizDate'] = $request->bizDate;
+        if (null !== $request->bizDate) {
+            @$query['BizDate'] = $request->bizDate;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePlayTopVideos',
@@ -3207,25 +3700,27 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePlayTopVideosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePlayTopVideosResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePlayTopVideosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries daily playback statistics on top videos, including video views, unique visitors, and total playback duration.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * Queries daily playback statistics on top videos, including video views, unique visitors, and total playback duration.
+     *
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
      * *   You can query playback statistics on top 1,000 videos at most on a specified day. By default, top videos are sorted in descending order based on video views.
      * *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
      * *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
      * *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
-     *  *
-     * @param DescribePlayTopVideosRequest $request DescribePlayTopVideosRequest
      *
-     * @return DescribePlayTopVideosResponse DescribePlayTopVideosResponse
+     * @param request - DescribePlayTopVideosRequest
+     *
+     * @returns DescribePlayTopVideosResponse
+     *
+     * @param DescribePlayTopVideosRequest $request
+     *
+     * @return DescribePlayTopVideosResponse
      */
     public function describePlayTopVideos($request)
     {
@@ -3235,33 +3730,42 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on average playback each day in a specified time range.
-     *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
+     * Queries the statistics on average playback each day in a specified time range.
+     *
+     * @remarks
+     * > *   This operation is available only in the **China (Shanghai)** region.
      * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
      * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
      * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
-     *  *
-     * @param DescribePlayUserAvgRequest $request DescribePlayUserAvgRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePlayUserAvgResponse DescribePlayUserAvgResponse
+     * @param request - DescribePlayUserAvgRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePlayUserAvgResponse
+     *
+     * @param DescribePlayUserAvgRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribePlayUserAvgResponse
      */
     public function describePlayUserAvgWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePlayUserAvg',
@@ -3274,24 +3778,26 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePlayUserAvgResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePlayUserAvgResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePlayUserAvgResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics on average playback each day in a specified time range.
-     *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
+     * Queries the statistics on average playback each day in a specified time range.
+     *
+     * @remarks
+     * > *   This operation is available only in the **China (Shanghai)** region.
      * > *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
      * > *   Playback statistics for the previous day are generated at 09:00 on the current day, in UTC+8.
      * > *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
-     *  *
-     * @param DescribePlayUserAvgRequest $request DescribePlayUserAvgRequest
      *
-     * @return DescribePlayUserAvgResponse DescribePlayUserAvgResponse
+     * @param request - DescribePlayUserAvgRequest
+     *
+     * @returns DescribePlayUserAvgResponse
+     *
+     * @param DescribePlayUserAvgRequest $request
+     *
+     * @return DescribePlayUserAvgResponse
      */
     public function describePlayUserAvg($request)
     {
@@ -3301,33 +3807,42 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the daily playback statistics in a specified time range. The playback statistics include the total number of views, total number of viewers, total playback duration, and playback duration distribution.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * Queries the daily playback statistics in a specified time range. The playback statistics include the total number of views, total number of viewers, total playback duration, and playback duration distribution.
+     *
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
      * *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
      * *   Playback statistics for the current day are generated at 09:00 (UTC+8) on the next day.
      * *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
-     *  *
-     * @param DescribePlayUserTotalRequest $request DescribePlayUserTotalRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePlayUserTotalResponse DescribePlayUserTotalResponse
+     * @param request - DescribePlayUserTotalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePlayUserTotalResponse
+     *
+     * @param DescribePlayUserTotalRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribePlayUserTotalResponse
      */
     public function describePlayUserTotalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePlayUserTotal',
@@ -3340,24 +3855,26 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePlayUserTotalResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePlayUserTotalResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePlayUserTotalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the daily playback statistics in a specified time range. The playback statistics include the total number of views, total number of viewers, total playback duration, and playback duration distribution.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * Queries the daily playback statistics in a specified time range. The playback statistics include the total number of views, total number of viewers, total playback duration, and playback duration distribution.
+     *
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
      * *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
      * *   Playback statistics for the current day are generated at 09:00 (UTC+8) on the next day.
      * *   You can query data that is generated since January 1, 2018. The maximum time range to query is 180 days.
-     *  *
-     * @param DescribePlayUserTotalRequest $request DescribePlayUserTotalRequest
      *
-     * @return DescribePlayUserTotalResponse DescribePlayUserTotalResponse
+     * @param request - DescribePlayUserTotalRequest
+     *
+     * @returns DescribePlayUserTotalResponse
+     *
+     * @param DescribePlayUserTotalRequest $request
+     *
+     * @return DescribePlayUserTotalResponse
      */
     public function describePlayUserTotal($request)
     {
@@ -3367,36 +3884,46 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries daily playback statistics on a video in the specified time range.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * Queries daily playback statistics on a video in the specified time range.
+     *
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
      * *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
      * *   Playback statistics for the current day are generated at 09:00 (UTC+8) on the next day.
      * *   You can query only data in the last 730 days. The maximum time range to query is 180 days.
-     *  *
-     * @param DescribePlayVideoStatisRequest $request DescribePlayVideoStatisRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePlayVideoStatisResponse DescribePlayVideoStatisResponse
+     * @param request - DescribePlayVideoStatisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePlayVideoStatisResponse
+     *
+     * @param DescribePlayVideoStatisRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribePlayVideoStatisResponse
      */
     public function describePlayVideoStatisWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePlayVideoStatis',
@@ -3409,24 +3936,26 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePlayVideoStatisResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePlayVideoStatisResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePlayVideoStatisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries daily playback statistics on a video in the specified time range.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * Queries daily playback statistics on a video in the specified time range.
+     *
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
      * *   You can call this operation to query only playback statistics collected on videos that are played by using ApsaraVideo Player SDKs.
      * *   Playback statistics for the current day are generated at 09:00 (UTC+8) on the next day.
      * *   You can query only data in the last 730 days. The maximum time range to query is 180 days.
-     *  *
-     * @param DescribePlayVideoStatisRequest $request DescribePlayVideoStatisRequest
      *
-     * @return DescribePlayVideoStatisResponse DescribePlayVideoStatisResponse
+     * @param request - DescribePlayVideoStatisRequest
+     *
+     * @returns DescribePlayVideoStatisResponse
+     *
+     * @param DescribePlayVideoStatisRequest $request
+     *
+     * @return DescribePlayVideoStatisResponse
      */
     public function describePlayVideoStatis($request)
     {
@@ -3436,37 +3965,48 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on video AI of different types, such as automated review and media fingerprinting.
-     *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
-     * >*   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
-     *  *
-     * @param DescribeVodAIDataRequest $request DescribeVodAIDataRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics on video AI of different types, such as automated review and media fingerprinting.
      *
-     * @return DescribeVodAIDataResponse DescribeVodAIDataResponse
+     * @remarks
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     * >*   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+     *
+     * @param request - DescribeVodAIDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodAIDataResponse
+     *
+     * @param DescribeVodAIDataRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeVodAIDataResponse
      */
     public function describeVodAIDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->AIType)) {
-            $query['AIType'] = $request->AIType;
+        if (null !== $request->AIType) {
+            @$query['AIType'] = $request->AIType;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodAIData',
@@ -3479,22 +4019,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodAIDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodAIDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodAIDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics on video AI of different types, such as automated review and media fingerprinting.
-     *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
-     * >*   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
-     *  *
-     * @param DescribeVodAIDataRequest $request DescribeVodAIDataRequest
+     * Queries the statistics on video AI of different types, such as automated review and media fingerprinting.
      *
-     * @return DescribeVodAIDataResponse DescribeVodAIDataResponse
+     * @remarks
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     * >*   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+     *
+     * @param request - DescribeVodAIDataRequest
+     *
+     * @returns DescribeVodAIDataResponse
+     *
+     * @param DescribeVodAIDataRequest $request
+     *
+     * @return DescribeVodAIDataResponse
      */
     public function describeVodAIData($request)
     {
@@ -3504,30 +4046,39 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the certificates of a specified domain name for CDN or all the domain names for CDN within your Alibaba Cloud account.
-     *  *
-     * @description >  This operation is available only in the **China (Shanghai)** region.
-     *  *
-     * @param DescribeVodCertificateListRequest $request DescribeVodCertificateListRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the certificates of a specified domain name for CDN or all the domain names for CDN within your Alibaba Cloud account.
      *
-     * @return DescribeVodCertificateListResponse DescribeVodCertificateListResponse
+     * @remarks
+     * >  This operation is available only in the **China (Shanghai)** region.
+     *
+     * @param request - DescribeVodCertificateListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodCertificateListResponse
+     *
+     * @param DescribeVodCertificateListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeVodCertificateListResponse
      */
     public function describeVodCertificateListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodCertificateList',
@@ -3540,21 +4091,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodCertificateListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the certificates of a specified domain name for CDN or all the domain names for CDN within your Alibaba Cloud account.
-     *  *
-     * @description >  This operation is available only in the **China (Shanghai)** region.
-     *  *
-     * @param DescribeVodCertificateListRequest $request DescribeVodCertificateListRequest
+     * Queries the certificates of a specified domain name for CDN or all the domain names for CDN within your Alibaba Cloud account.
      *
-     * @return DescribeVodCertificateListResponse DescribeVodCertificateListResponse
+     * @remarks
+     * >  This operation is available only in the **China (Shanghai)** region.
+     *
+     * @param request - DescribeVodCertificateListRequest
+     *
+     * @returns DescribeVodCertificateListResponse
+     *
+     * @param DescribeVodCertificateListRequest $request
+     *
+     * @return DescribeVodCertificateListResponse
      */
     public function describeVodCertificateList($request)
     {
@@ -3564,42 +4117,55 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the bandwidth for one or more specified domain names for CDN.
-     *  *
-     * @description If you specify neither the StartTime parameter nor the EndTime parameter, the data in the last 24 hours is queried. Alternatively, you can specify both the StartTime and EndTime parameters to query data that is generated in the specified duration. You can query data for the last 90 days at most.
-     *  *
-     * @param DescribeVodDomainBpsDataRequest $request DescribeVodDomainBpsDataRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the bandwidth for one or more specified domain names for CDN.
      *
-     * @return DescribeVodDomainBpsDataResponse DescribeVodDomainBpsDataResponse
+     * @remarks
+     * If you specify neither the StartTime parameter nor the EndTime parameter, the data in the last 24 hours is queried. Alternatively, you can specify both the StartTime and EndTime parameters to query data that is generated in the specified duration. You can query data for the last 90 days at most.
+     *
+     * @param request - DescribeVodDomainBpsDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainBpsDataResponse
+     *
+     * @param DescribeVodDomainBpsDataRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeVodDomainBpsDataResponse
      */
     public function describeVodDomainBpsDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainBpsData',
@@ -3612,21 +4178,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainBpsDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the bandwidth for one or more specified domain names for CDN.
-     *  *
-     * @description If you specify neither the StartTime parameter nor the EndTime parameter, the data in the last 24 hours is queried. Alternatively, you can specify both the StartTime and EndTime parameters to query data that is generated in the specified duration. You can query data for the last 90 days at most.
-     *  *
-     * @param DescribeVodDomainBpsDataRequest $request DescribeVodDomainBpsDataRequest
+     * Queries the bandwidth for one or more specified domain names for CDN.
      *
-     * @return DescribeVodDomainBpsDataResponse DescribeVodDomainBpsDataResponse
+     * @remarks
+     * If you specify neither the StartTime parameter nor the EndTime parameter, the data in the last 24 hours is queried. Alternatively, you can specify both the StartTime and EndTime parameters to query data that is generated in the specified duration. You can query data for the last 90 days at most.
+     *
+     * @param request - DescribeVodDomainBpsDataRequest
+     *
+     * @returns DescribeVodDomainBpsDataResponse
+     *
+     * @param DescribeVodDomainBpsDataRequest $request
+     *
+     * @return DescribeVodDomainBpsDataResponse
      */
     public function describeVodDomainBpsData($request)
     {
@@ -3636,51 +4204,65 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the bandwidth data by protocol.
-     *  *
-     * @description You can call this API operation up to 20 times per second per account. If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range. Time granularity
+     * Queries the bandwidth data by protocol.
+     *
+     * @remarks
+     * You can call this API operation up to 20 times per second per account. If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range. Time granularity
      * The time granularity supported by Interval, the maximum time period within which historical data is available, and the data delay vary based on the time range to query, as described in the following table.
      * |Time granularity|Time range per query|Historical data available|Data delay|
      * |---|---|---|---|
      * |15 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|3 to 4 hours|
      * |1 day|90 days|366 days|4 hours in most cases, not more than 24 hours|
-     *  *
-     * @param DescribeVodDomainBpsDataByLayerRequest $request DescribeVodDomainBpsDataByLayerRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainBpsDataByLayerResponse DescribeVodDomainBpsDataByLayerResponse
+     * @param request - DescribeVodDomainBpsDataByLayerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainBpsDataByLayerResponse
+     *
+     * @param DescribeVodDomainBpsDataByLayerRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeVodDomainBpsDataByLayerResponse
      */
     public function describeVodDomainBpsDataByLayerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->layer)) {
-            $query['Layer'] = $request->layer;
+
+        if (null !== $request->layer) {
+            @$query['Layer'] = $request->layer;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainBpsDataByLayer',
@@ -3693,27 +4275,29 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainBpsDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainBpsDataByLayerResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainBpsDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the bandwidth data by protocol.
-     *  *
-     * @description You can call this API operation up to 20 times per second per account. If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range. Time granularity
+     * Queries the bandwidth data by protocol.
+     *
+     * @remarks
+     * You can call this API operation up to 20 times per second per account. If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range. Time granularity
      * The time granularity supported by Interval, the maximum time period within which historical data is available, and the data delay vary based on the time range to query, as described in the following table.
      * |Time granularity|Time range per query|Historical data available|Data delay|
      * |---|---|---|---|
      * |15 minutes|3 days|93 days|15 minutes|
      * |1 hour|31 days|186 days|3 to 4 hours|
      * |1 day|90 days|366 days|4 hours in most cases, not more than 24 hours|
-     *  *
-     * @param DescribeVodDomainBpsDataByLayerRequest $request DescribeVodDomainBpsDataByLayerRequest
      *
-     * @return DescribeVodDomainBpsDataByLayerResponse DescribeVodDomainBpsDataByLayerResponse
+     * @param request - DescribeVodDomainBpsDataByLayerRequest
+     *
+     * @returns DescribeVodDomainBpsDataByLayerResponse
+     *
+     * @param DescribeVodDomainBpsDataByLayerRequest $request
+     *
+     * @return DescribeVodDomainBpsDataByLayerResponse
      */
     public function describeVodDomainBpsDataByLayer($request)
     {
@@ -3723,27 +4307,35 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the certificate information about an accelerated domain name.
-     *  *
-     * @description This operation is available only in the **China (Shanghai)** region.
-     *  *
-     * @param DescribeVodDomainCertificateInfoRequest $request DescribeVodDomainCertificateInfoRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Queries the certificate information about an accelerated domain name.
      *
-     * @return DescribeVodDomainCertificateInfoResponse DescribeVodDomainCertificateInfoResponse
+     * @remarks
+     * This operation is available only in the **China (Shanghai)** region.
+     *
+     * @param request - DescribeVodDomainCertificateInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainCertificateInfoResponse
+     *
+     * @param DescribeVodDomainCertificateInfoRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeVodDomainCertificateInfoResponse
      */
     public function describeVodDomainCertificateInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainCertificateInfo',
@@ -3756,21 +4348,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainCertificateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainCertificateInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainCertificateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the certificate information about an accelerated domain name.
-     *  *
-     * @description This operation is available only in the **China (Shanghai)** region.
-     *  *
-     * @param DescribeVodDomainCertificateInfoRequest $request DescribeVodDomainCertificateInfoRequest
+     * Queries the certificate information about an accelerated domain name.
      *
-     * @return DescribeVodDomainCertificateInfoResponse DescribeVodDomainCertificateInfoResponse
+     * @remarks
+     * This operation is available only in the **China (Shanghai)** region.
+     *
+     * @param request - DescribeVodDomainCertificateInfoRequest
+     *
+     * @returns DescribeVodDomainCertificateInfoResponse
+     *
+     * @param DescribeVodDomainCertificateInfoRequest $request
+     *
+     * @return DescribeVodDomainCertificateInfoResponse
      */
     public function describeVodDomainCertificateInfo($request)
     {
@@ -3780,33 +4374,43 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of a domain name for CDN. You can query the configurations of multiple features at a time.
-     *  *
-     * @description > This operation is available only in the **China (Shanghai)** region.
-     *  *
-     * @param DescribeVodDomainConfigsRequest $request DescribeVodDomainConfigsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the configurations of a domain name for CDN. You can query the configurations of multiple features at a time.
      *
-     * @return DescribeVodDomainConfigsResponse DescribeVodDomainConfigsResponse
+     * @remarks
+     * > This operation is available only in the **China (Shanghai)** region.
+     *
+     * @param request - DescribeVodDomainConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainConfigsResponse
+     *
+     * @param DescribeVodDomainConfigsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeVodDomainConfigsResponse
      */
     public function describeVodDomainConfigsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->functionNames)) {
-            $query['FunctionNames'] = $request->functionNames;
+
+        if (null !== $request->functionNames) {
+            @$query['FunctionNames'] = $request->functionNames;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainConfigs',
@@ -3819,21 +4423,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations of a domain name for CDN. You can query the configurations of multiple features at a time.
-     *  *
-     * @description > This operation is available only in the **China (Shanghai)** region.
-     *  *
-     * @param DescribeVodDomainConfigsRequest $request DescribeVodDomainConfigsRequest
+     * Queries the configurations of a domain name for CDN. You can query the configurations of multiple features at a time.
      *
-     * @return DescribeVodDomainConfigsResponse DescribeVodDomainConfigsResponse
+     * @remarks
+     * > This operation is available only in the **China (Shanghai)** region.
+     *
+     * @param request - DescribeVodDomainConfigsRequest
+     *
+     * @returns DescribeVodDomainConfigsResponse
+     *
+     * @param DescribeVodDomainConfigsRequest $request
+     *
+     * @return DescribeVodDomainConfigsResponse
      */
     public function describeVodDomainConfigs($request)
     {
@@ -3843,30 +4449,39 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the basic information about a specified domain name for CDN.
-     *  *
-     * @description > This operation is available only in the **China (Shanghai)** region.
-     *  *
-     * @param DescribeVodDomainDetailRequest $request DescribeVodDomainDetailRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the basic information about a specified domain name for CDN.
      *
-     * @return DescribeVodDomainDetailResponse DescribeVodDomainDetailResponse
+     * @remarks
+     * > This operation is available only in the **China (Shanghai)** region.
+     *
+     * @param request - DescribeVodDomainDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainDetailResponse
+     *
+     * @param DescribeVodDomainDetailRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeVodDomainDetailResponse
      */
     public function describeVodDomainDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainDetail',
@@ -3879,21 +4494,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the basic information about a specified domain name for CDN.
-     *  *
-     * @description > This operation is available only in the **China (Shanghai)** region.
-     *  *
-     * @param DescribeVodDomainDetailRequest $request DescribeVodDomainDetailRequest
+     * Queries the basic information about a specified domain name for CDN.
      *
-     * @return DescribeVodDomainDetailResponse DescribeVodDomainDetailResponse
+     * @remarks
+     * > This operation is available only in the **China (Shanghai)** region.
+     *
+     * @param request - DescribeVodDomainDetailRequest
+     *
+     * @returns DescribeVodDomainDetailResponse
+     *
+     * @param DescribeVodDomainDetailRequest $request
+     *
+     * @return DescribeVodDomainDetailResponse
      */
     public function describeVodDomainDetail($request)
     {
@@ -3903,9 +4520,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the byte hit ratios of accelerated domain names. Byte hit ratios are measured in percentage.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the byte hit ratios of accelerated domain names. Byte hit ratios are measured in percentage.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 500 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 24 hours is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -3915,33 +4533,43 @@ class Vod extends OpenApiClient
      * |5 minutes|Time range per query &#x3C; 3 days|93 days|15 minutes|
      * |1 hour|3 days ≤ Time range per query &#x3C; 31 days|186 days|3 to 4 hours|
      * |1 day|31 days ≤ Time span of a single query ≤ 366 days|366 days|4 hours in most cases, not more than 24 hours|
-     *  *
-     * @param DescribeVodDomainHitRateDataRequest $request DescribeVodDomainHitRateDataRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainHitRateDataResponse DescribeVodDomainHitRateDataResponse
+     * @param request - DescribeVodDomainHitRateDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainHitRateDataResponse
+     *
+     * @param DescribeVodDomainHitRateDataRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeVodDomainHitRateDataResponse
      */
     public function describeVodDomainHitRateDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainHitRateData',
@@ -3954,17 +4582,15 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainHitRateDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the byte hit ratios of accelerated domain names. Byte hit ratios are measured in percentage.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the byte hit ratios of accelerated domain names. Byte hit ratios are measured in percentage.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 500 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 24 hours is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -3974,10 +4600,14 @@ class Vod extends OpenApiClient
      * |5 minutes|Time range per query &#x3C; 3 days|93 days|15 minutes|
      * |1 hour|3 days ≤ Time range per query &#x3C; 31 days|186 days|3 to 4 hours|
      * |1 day|31 days ≤ Time span of a single query ≤ 366 days|366 days|4 hours in most cases, not more than 24 hours|
-     *  *
-     * @param DescribeVodDomainHitRateDataRequest $request DescribeVodDomainHitRateDataRequest
      *
-     * @return DescribeVodDomainHitRateDataResponse DescribeVodDomainHitRateDataResponse
+     * @param request - DescribeVodDomainHitRateDataRequest
+     *
+     * @returns DescribeVodDomainHitRateDataResponse
+     *
+     * @param DescribeVodDomainHitRateDataRequest $request
+     *
+     * @return DescribeVodDomainHitRateDataResponse
      */
     public function describeVodDomainHitRateData($request)
     {
@@ -3987,42 +4617,54 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the CDN access logs for a domain name, including the log path.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * Queries the information about the CDN access logs for a domain name, including the log path.
+     *
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
      * *   For more information about the log format and latency, see [Download logs](https://help.aliyun.com/document_detail/86099.html).
      * *   If you specify neither the StartTime parameter nor the EndTime parameter, the log data in the last 24 hours is queried.
      * *   You can specify both the StartTime and EndTime parameters to query the log data that is generated in the specified time range.
-     *  *
-     * @param DescribeVodDomainLogRequest $request DescribeVodDomainLogRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainLogResponse DescribeVodDomainLogResponse
+     * @param request - DescribeVodDomainLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainLogResponse
+     *
+     * @param DescribeVodDomainLogRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeVodDomainLogResponse
      */
     public function describeVodDomainLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainLog',
@@ -4035,24 +4677,26 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the CDN access logs for a domain name, including the log path.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * Queries the information about the CDN access logs for a domain name, including the log path.
+     *
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
      * *   For more information about the log format and latency, see [Download logs](https://help.aliyun.com/document_detail/86099.html).
      * *   If you specify neither the StartTime parameter nor the EndTime parameter, the log data in the last 24 hours is queried.
      * *   You can specify both the StartTime and EndTime parameters to query the log data that is generated in the specified time range.
-     *  *
-     * @param DescribeVodDomainLogRequest $request DescribeVodDomainLogRequest
      *
-     * @return DescribeVodDomainLogResponse DescribeVodDomainLogResponse
+     * @param request - DescribeVodDomainLogRequest
+     *
+     * @returns DescribeVodDomainLogResponse
+     *
+     * @param DescribeVodDomainLogRequest $request
+     *
+     * @return DescribeVodDomainLogResponse
      */
     public function describeVodDomainLog($request)
     {
@@ -4062,19 +4706,24 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the 95th percentile bandwidth data of an accelerated domain name.
-     *  *
-     * @param DescribeVodDomainMax95BpsDataRequest $request DescribeVodDomainMax95BpsDataRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the 95th percentile bandwidth data of an accelerated domain name.
      *
-     * @return DescribeVodDomainMax95BpsDataResponse DescribeVodDomainMax95BpsDataResponse
+     * @param request - DescribeVodDomainMax95BpsDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainMax95BpsDataResponse
+     *
+     * @param DescribeVodDomainMax95BpsDataRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeVodDomainMax95BpsDataResponse
      */
     public function describeVodDomainMax95BpsDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainMax95BpsData',
@@ -4087,19 +4736,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainMax95BpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainMax95BpsDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainMax95BpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the 95th percentile bandwidth data of an accelerated domain name.
-     *  *
-     * @param DescribeVodDomainMax95BpsDataRequest $request DescribeVodDomainMax95BpsDataRequest
+     * Queries the 95th percentile bandwidth data of an accelerated domain name.
      *
-     * @return DescribeVodDomainMax95BpsDataResponse DescribeVodDomainMax95BpsDataResponse
+     * @param request - DescribeVodDomainMax95BpsDataRequest
+     *
+     * @returns DescribeVodDomainMax95BpsDataResponse
+     *
+     * @param DescribeVodDomainMax95BpsDataRequest $request
+     *
+     * @return DescribeVodDomainMax95BpsDataResponse
      */
     public function describeVodDomainMax95BpsData($request)
     {
@@ -4109,9 +4759,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of queries per second (QPS) for one or more accelerated domain names. Data is collected every 5 minutes. You can query data collected in the last 90 days.
-     *  *
-     * @description * This operation is available only in the China (Shanghai) region.
+     * Queries the number of queries per second (QPS) for one or more accelerated domain names. Data is collected every 5 minutes. You can query data collected in the last 90 days.
+     *
+     * @remarks
+     * This operation is available only in the China (Shanghai) region.
      * * You can call this operation up to 100 times per second per account.
      * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
@@ -4122,39 +4773,51 @@ class Vod extends OpenApiClient
      * |1 hour|31 days|186 days|3 to 4 hours|
      * |1 day|366 days|366 days|4 to 24 hours|
      * ---
-     *  *
-     * @param DescribeVodDomainQpsDataRequest $request DescribeVodDomainQpsDataRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainQpsDataResponse DescribeVodDomainQpsDataResponse
+     * @param request - DescribeVodDomainQpsDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainQpsDataResponse
+     *
+     * @param DescribeVodDomainQpsDataRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeVodDomainQpsDataResponse
      */
     public function describeVodDomainQpsDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainQpsData',
@@ -4167,17 +4830,15 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainQpsDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of queries per second (QPS) for one or more accelerated domain names. Data is collected every 5 minutes. You can query data collected in the last 90 days.
-     *  *
-     * @description * This operation is available only in the China (Shanghai) region.
+     * Queries the number of queries per second (QPS) for one or more accelerated domain names. Data is collected every 5 minutes. You can query data collected in the last 90 days.
+     *
+     * @remarks
+     * This operation is available only in the China (Shanghai) region.
      * * You can call this operation up to 100 times per second per account.
      * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
      * **Time granularity**
@@ -4188,10 +4849,14 @@ class Vod extends OpenApiClient
      * |1 hour|31 days|186 days|3 to 4 hours|
      * |1 day|366 days|366 days|4 to 24 hours|
      * ---
-     *  *
-     * @param DescribeVodDomainQpsDataRequest $request DescribeVodDomainQpsDataRequest
      *
-     * @return DescribeVodDomainQpsDataResponse DescribeVodDomainQpsDataResponse
+     * @param request - DescribeVodDomainQpsDataRequest
+     *
+     * @returns DescribeVodDomainQpsDataResponse
+     *
+     * @param DescribeVodDomainQpsDataRequest $request
+     *
+     * @return DescribeVodDomainQpsDataResponse
      */
     public function describeVodDomainQpsData($request)
     {
@@ -4201,9 +4866,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the bandwidth data for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days. Compared with the DescribeVodDomainBpsData operation, this operation provides a smaller time granularity, lower data latency, and allows you to query historical data within a shorter time period.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the bandwidth data for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days. Compared with the DescribeVodDomainBpsData operation, this operation provides a smaller time granularity, lower data latency, and allows you to query historical data within a shorter time period.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 500 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 1 hour is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -4213,18 +4879,23 @@ class Vod extends OpenApiClient
      * |1 minute|Time range per query ≤ 1 hour|7 days|5 minutes|
      * |5 minutes|1 Hour &#x3C; Time range per query ≤ 3 days|93 days|15 minutes|
      * |1 hour|3 days &#x3C; Time range per query ≤ 31 days|186 days|3 to 4 hours|
-     *  *
-     * @param DescribeVodDomainRealTimeBpsDataRequest $request DescribeVodDomainRealTimeBpsDataRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainRealTimeBpsDataResponse DescribeVodDomainRealTimeBpsDataResponse
+     * @param request - DescribeVodDomainRealTimeBpsDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainRealTimeBpsDataResponse
+     *
+     * @param DescribeVodDomainRealTimeBpsDataRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeVodDomainRealTimeBpsDataResponse
      */
     public function describeVodDomainRealTimeBpsDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainRealTimeBpsData',
@@ -4237,17 +4908,15 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainRealTimeBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainRealTimeBpsDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainRealTimeBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the bandwidth data for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days. Compared with the DescribeVodDomainBpsData operation, this operation provides a smaller time granularity, lower data latency, and allows you to query historical data within a shorter time period.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the bandwidth data for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days. Compared with the DescribeVodDomainBpsData operation, this operation provides a smaller time granularity, lower data latency, and allows you to query historical data within a shorter time period.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 500 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 1 hour is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -4257,10 +4926,14 @@ class Vod extends OpenApiClient
      * |1 minute|Time range per query ≤ 1 hour|7 days|5 minutes|
      * |5 minutes|1 Hour &#x3C; Time range per query ≤ 3 days|93 days|15 minutes|
      * |1 hour|3 days &#x3C; Time range per query ≤ 31 days|186 days|3 to 4 hours|
-     *  *
-     * @param DescribeVodDomainRealTimeBpsDataRequest $request DescribeVodDomainRealTimeBpsDataRequest
      *
-     * @return DescribeVodDomainRealTimeBpsDataResponse DescribeVodDomainRealTimeBpsDataResponse
+     * @param request - DescribeVodDomainRealTimeBpsDataRequest
+     *
+     * @returns DescribeVodDomainRealTimeBpsDataResponse
+     *
+     * @param DescribeVodDomainRealTimeBpsDataRequest $request
+     *
+     * @return DescribeVodDomainRealTimeBpsDataResponse
      */
     public function describeVodDomainRealTimeBpsData($request)
     {
@@ -4270,9 +4943,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the byte hit ratio for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the byte hit ratio for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 100 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 1 hour is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -4282,18 +4956,23 @@ class Vod extends OpenApiClient
      * |1 minute|Time range per query ≤ 1 hour|7 days|5 minutes|
      * |5 minutes|1 Hour &#x3C; Time range per query ≤ 3 days|93 days|15 minutes|
      * |1 hour|3 days &#x3C; Time range per query ≤ 31 days|186 days|3 to 4 hours|
-     *  *
-     * @param DescribeVodDomainRealTimeByteHitRateDataRequest $request DescribeVodDomainRealTimeByteHitRateDataRequest
-     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainRealTimeByteHitRateDataResponse DescribeVodDomainRealTimeByteHitRateDataResponse
+     * @param request - DescribeVodDomainRealTimeByteHitRateDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainRealTimeByteHitRateDataResponse
+     *
+     * @param DescribeVodDomainRealTimeByteHitRateDataRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return DescribeVodDomainRealTimeByteHitRateDataResponse
      */
     public function describeVodDomainRealTimeByteHitRateDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainRealTimeByteHitRateData',
@@ -4306,17 +4985,15 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainRealTimeByteHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainRealTimeByteHitRateDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainRealTimeByteHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the byte hit ratio for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the byte hit ratio for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 100 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 1 hour is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -4326,10 +5003,14 @@ class Vod extends OpenApiClient
      * |1 minute|Time range per query ≤ 1 hour|7 days|5 minutes|
      * |5 minutes|1 Hour &#x3C; Time range per query ≤ 3 days|93 days|15 minutes|
      * |1 hour|3 days &#x3C; Time range per query ≤ 31 days|186 days|3 to 4 hours|
-     *  *
-     * @param DescribeVodDomainRealTimeByteHitRateDataRequest $request DescribeVodDomainRealTimeByteHitRateDataRequest
      *
-     * @return DescribeVodDomainRealTimeByteHitRateDataResponse DescribeVodDomainRealTimeByteHitRateDataResponse
+     * @param request - DescribeVodDomainRealTimeByteHitRateDataRequest
+     *
+     * @returns DescribeVodDomainRealTimeByteHitRateDataResponse
+     *
+     * @param DescribeVodDomainRealTimeByteHitRateDataRequest $request
+     *
+     * @return DescribeVodDomainRealTimeByteHitRateDataResponse
      */
     public function describeVodDomainRealTimeByteHitRateData($request)
     {
@@ -4339,21 +5020,27 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries real-time monitoring data of one or more accelerated domain names.
-     *  *
-     * @description You can query data within the last seven days. Data is collected every minute. You can call this API operation up to 10 times per second per account.
-     *  *
-     * @param DescribeVodDomainRealTimeDetailDataRequest $request DescribeVodDomainRealTimeDetailDataRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * Queries real-time monitoring data of one or more accelerated domain names.
      *
-     * @return DescribeVodDomainRealTimeDetailDataResponse DescribeVodDomainRealTimeDetailDataResponse
+     * @remarks
+     * You can query data within the last seven days. Data is collected every minute. You can call this API operation up to 10 times per second per account.
+     *
+     * @param request - DescribeVodDomainRealTimeDetailDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainRealTimeDetailDataResponse
+     *
+     * @param DescribeVodDomainRealTimeDetailDataRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeVodDomainRealTimeDetailDataResponse
      */
     public function describeVodDomainRealTimeDetailDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainRealTimeDetailData',
@@ -4366,21 +5053,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainRealTimeDetailDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainRealTimeDetailDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainRealTimeDetailDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries real-time monitoring data of one or more accelerated domain names.
-     *  *
-     * @description You can query data within the last seven days. Data is collected every minute. You can call this API operation up to 10 times per second per account.
-     *  *
-     * @param DescribeVodDomainRealTimeDetailDataRequest $request DescribeVodDomainRealTimeDetailDataRequest
+     * Queries real-time monitoring data of one or more accelerated domain names.
      *
-     * @return DescribeVodDomainRealTimeDetailDataResponse DescribeVodDomainRealTimeDetailDataResponse
+     * @remarks
+     * You can query data within the last seven days. Data is collected every minute. You can call this API operation up to 10 times per second per account.
+     *
+     * @param request - DescribeVodDomainRealTimeDetailDataRequest
+     *
+     * @returns DescribeVodDomainRealTimeDetailDataResponse
+     *
+     * @param DescribeVodDomainRealTimeDetailDataRequest $request
+     *
+     * @return DescribeVodDomainRealTimeDetailDataResponse
      */
     public function describeVodDomainRealTimeDetailData($request)
     {
@@ -4390,9 +5079,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the total number of HTTP status codes and proportion of each HTTP status code for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the total number of HTTP status codes and proportion of each HTTP status code for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 100 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 1 hour is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -4402,36 +5092,47 @@ class Vod extends OpenApiClient
      * |1 minute|Time range per query ≤ 1 hour|7 days|5 minutes|
      * |5 minutes|1 hour &#x3C; Time range per query &#x3C; 3 days|93 days|15 minutes|
      * |1 hour|3 days ≤ Time range per query &#x3C; 31 days|186 days|3 to 4 hours|
-     *  *
-     * @param DescribeVodDomainRealTimeHttpCodeDataRequest $request DescribeVodDomainRealTimeHttpCodeDataRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainRealTimeHttpCodeDataResponse DescribeVodDomainRealTimeHttpCodeDataResponse
+     * @param request - DescribeVodDomainRealTimeHttpCodeDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainRealTimeHttpCodeDataResponse
+     *
+     * @param DescribeVodDomainRealTimeHttpCodeDataRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeVodDomainRealTimeHttpCodeDataResponse
      */
     public function describeVodDomainRealTimeHttpCodeDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainRealTimeHttpCodeData',
@@ -4444,17 +5145,15 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainRealTimeHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainRealTimeHttpCodeDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainRealTimeHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the total number of HTTP status codes and proportion of each HTTP status code for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the total number of HTTP status codes and proportion of each HTTP status code for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 100 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 1 hour is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -4464,10 +5163,14 @@ class Vod extends OpenApiClient
      * |1 minute|Time range per query ≤ 1 hour|7 days|5 minutes|
      * |5 minutes|1 hour &#x3C; Time range per query &#x3C; 3 days|93 days|15 minutes|
      * |1 hour|3 days ≤ Time range per query &#x3C; 31 days|186 days|3 to 4 hours|
-     *  *
-     * @param DescribeVodDomainRealTimeHttpCodeDataRequest $request DescribeVodDomainRealTimeHttpCodeDataRequest
      *
-     * @return DescribeVodDomainRealTimeHttpCodeDataResponse DescribeVodDomainRealTimeHttpCodeDataResponse
+     * @param request - DescribeVodDomainRealTimeHttpCodeDataRequest
+     *
+     * @returns DescribeVodDomainRealTimeHttpCodeDataResponse
+     *
+     * @param DescribeVodDomainRealTimeHttpCodeDataRequest $request
+     *
+     * @return DescribeVodDomainRealTimeHttpCodeDataResponse
      */
     public function describeVodDomainRealTimeHttpCodeData($request)
     {
@@ -4477,9 +5180,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of queries per second (QPS) for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the number of queries per second (QPS) for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 500 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 1 hour is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -4489,18 +5193,23 @@ class Vod extends OpenApiClient
      * |1 minute|Time range per query ≤ 1 hour|7 days|5 minutes|
      * |5 minutes|1 Hour &#x3C; Time range per query ≤ 3 days|93 days|15 minutes|
      * |1 hour|3 days &#x3C; Time range per query ≤ 31 days|186 days|3 to 4 hours|
-     *  *
-     * @param DescribeVodDomainRealTimeQpsDataRequest $request DescribeVodDomainRealTimeQpsDataRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainRealTimeQpsDataResponse DescribeVodDomainRealTimeQpsDataResponse
+     * @param request - DescribeVodDomainRealTimeQpsDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainRealTimeQpsDataResponse
+     *
+     * @param DescribeVodDomainRealTimeQpsDataRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeVodDomainRealTimeQpsDataResponse
      */
     public function describeVodDomainRealTimeQpsDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainRealTimeQpsData',
@@ -4513,17 +5222,15 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainRealTimeQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainRealTimeQpsDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainRealTimeQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of queries per second (QPS) for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the number of queries per second (QPS) for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 500 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 1 hour is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -4533,10 +5240,14 @@ class Vod extends OpenApiClient
      * |1 minute|Time range per query ≤ 1 hour|7 days|5 minutes|
      * |5 minutes|1 Hour &#x3C; Time range per query ≤ 3 days|93 days|15 minutes|
      * |1 hour|3 days &#x3C; Time range per query ≤ 31 days|186 days|3 to 4 hours|
-     *  *
-     * @param DescribeVodDomainRealTimeQpsDataRequest $request DescribeVodDomainRealTimeQpsDataRequest
      *
-     * @return DescribeVodDomainRealTimeQpsDataResponse DescribeVodDomainRealTimeQpsDataResponse
+     * @param request - DescribeVodDomainRealTimeQpsDataRequest
+     *
+     * @returns DescribeVodDomainRealTimeQpsDataResponse
+     *
+     * @param DescribeVodDomainRealTimeQpsDataRequest $request
+     *
+     * @return DescribeVodDomainRealTimeQpsDataResponse
      */
     public function describeVodDomainRealTimeQpsData($request)
     {
@@ -4546,9 +5257,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the request hit ratio data for one or more accelerated domain names. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the request hit ratio data for one or more accelerated domain names. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 100 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 1 hour is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * * By default, the POST method is used for Go. To use the FET method, you must declare `request.Method="GET"`.
@@ -4559,18 +5271,23 @@ class Vod extends OpenApiClient
      * |1 minute|Time range per query ≤ 1 hour|7 days|5 minutes|
      * |5 minutes|1 hour &#x3C; Time range per query &#x3C; 3 days|93 days|15 minutes|
      * |1 hour|3 days ≤ Time range per query &#x3C; 31 days|186 days|3 to 4 hours|
-     *  *
-     * @param DescribeVodDomainRealTimeReqHitRateDataRequest $request DescribeVodDomainRealTimeReqHitRateDataRequest
-     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainRealTimeReqHitRateDataResponse DescribeVodDomainRealTimeReqHitRateDataResponse
+     * @param request - DescribeVodDomainRealTimeReqHitRateDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainRealTimeReqHitRateDataResponse
+     *
+     * @param DescribeVodDomainRealTimeReqHitRateDataRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return DescribeVodDomainRealTimeReqHitRateDataResponse
      */
     public function describeVodDomainRealTimeReqHitRateDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainRealTimeReqHitRateData',
@@ -4583,17 +5300,15 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainRealTimeReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainRealTimeReqHitRateDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainRealTimeReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the request hit ratio data for one or more accelerated domain names. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the request hit ratio data for one or more accelerated domain names. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 100 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 1 hour is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * * By default, the POST method is used for Go. To use the FET method, you must declare `request.Method="GET"`.
@@ -4604,10 +5319,14 @@ class Vod extends OpenApiClient
      * |1 minute|Time range per query ≤ 1 hour|7 days|5 minutes|
      * |5 minutes|1 hour &#x3C; Time range per query &#x3C; 3 days|93 days|15 minutes|
      * |1 hour|3 days ≤ Time range per query &#x3C; 31 days|186 days|3 to 4 hours|
-     *  *
-     * @param DescribeVodDomainRealTimeReqHitRateDataRequest $request DescribeVodDomainRealTimeReqHitRateDataRequest
      *
-     * @return DescribeVodDomainRealTimeReqHitRateDataResponse DescribeVodDomainRealTimeReqHitRateDataResponse
+     * @param request - DescribeVodDomainRealTimeReqHitRateDataRequest
+     *
+     * @returns DescribeVodDomainRealTimeReqHitRateDataResponse
+     *
+     * @param DescribeVodDomainRealTimeReqHitRateDataRequest $request
+     *
+     * @return DescribeVodDomainRealTimeReqHitRateDataResponse
      */
     public function describeVodDomainRealTimeReqHitRateData($request)
     {
@@ -4617,9 +5336,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the traffic data for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days. Compared with the DescribeVodDomainTrafficData operation, this operation provides a smaller time granularity, lower data latency, and allows you to query historical data within a shorter time period.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the traffic data for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days. Compared with the DescribeVodDomainTrafficData operation, this operation provides a smaller time granularity, lower data latency, and allows you to query historical data within a shorter time period.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 100 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 1 hour is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -4629,36 +5349,47 @@ class Vod extends OpenApiClient
      * |1 minute|Time range per query ≤ 1 hour|7 days|5 minutes|
      * |5 minutes|1 Hour &#x3C; Time range per query ≤ 3 days|93 days|15 minutes|
      * |1 hour|3 days &#x3C; Time range per query ≤ 31 days|186 days|3 to 4 hours|
-     *  *
-     * @param DescribeVodDomainRealTimeTrafficDataRequest $request DescribeVodDomainRealTimeTrafficDataRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainRealTimeTrafficDataResponse DescribeVodDomainRealTimeTrafficDataResponse
+     * @param request - DescribeVodDomainRealTimeTrafficDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainRealTimeTrafficDataResponse
+     *
+     * @param DescribeVodDomainRealTimeTrafficDataRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeVodDomainRealTimeTrafficDataResponse
      */
     public function describeVodDomainRealTimeTrafficDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainRealTimeTrafficData',
@@ -4671,17 +5402,15 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainRealTimeTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainRealTimeTrafficDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainRealTimeTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the traffic data for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days. Compared with the DescribeVodDomainTrafficData operation, this operation provides a smaller time granularity, lower data latency, and allows you to query historical data within a shorter time period.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the traffic data for one or more accelerated domains. The minimum time granularity is 1 minute. The minimum data latency is 5 minutes. You can query data in the last 186 days. Compared with the DescribeVodDomainTrafficData operation, this operation provides a smaller time granularity, lower data latency, and allows you to query historical data within a shorter time period.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 100 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 1 hour is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -4691,10 +5420,14 @@ class Vod extends OpenApiClient
      * |1 minute|Time range per query ≤ 1 hour|7 days|5 minutes|
      * |5 minutes|1 Hour &#x3C; Time range per query ≤ 3 days|93 days|15 minutes|
      * |1 hour|3 days &#x3C; Time range per query ≤ 31 days|186 days|3 to 4 hours|
-     *  *
-     * @param DescribeVodDomainRealTimeTrafficDataRequest $request DescribeVodDomainRealTimeTrafficDataRequest
      *
-     * @return DescribeVodDomainRealTimeTrafficDataResponse DescribeVodDomainRealTimeTrafficDataResponse
+     * @param request - DescribeVodDomainRealTimeTrafficDataRequest
+     *
+     * @returns DescribeVodDomainRealTimeTrafficDataResponse
+     *
+     * @param DescribeVodDomainRealTimeTrafficDataRequest $request
+     *
+     * @return DescribeVodDomainRealTimeTrafficDataResponse
      */
     public function describeVodDomainRealTimeTrafficData($request)
     {
@@ -4704,9 +5437,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the byte hit ratio for one or more accelerated domains. Request hit ratios are measured in percentage.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the byte hit ratio for one or more accelerated domains. Request hit ratios are measured in percentage.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 500 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 24 hours is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -4716,30 +5450,39 @@ class Vod extends OpenApiClient
      * |5 minutes|Time range per query &#x3C; 3 days|93 days|15 minutes|
      * |1 hour|3 days ≤ Time range per query &#x3C; 31 days|186 days|3 to 4 hours|
      * |1 day|31 days ≤ Time range per query ≤ 90 days|366 days|4 hours in most cases, not more than 24 hours|
-     *  *
-     * @param DescribeVodDomainReqHitRateDataRequest $request DescribeVodDomainReqHitRateDataRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainReqHitRateDataResponse DescribeVodDomainReqHitRateDataResponse
+     * @param request - DescribeVodDomainReqHitRateDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainReqHitRateDataResponse
+     *
+     * @param DescribeVodDomainReqHitRateDataRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeVodDomainReqHitRateDataResponse
      */
     public function describeVodDomainReqHitRateDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainReqHitRateData',
@@ -4752,17 +5495,15 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainReqHitRateDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the byte hit ratio for one or more accelerated domains. Request hit ratios are measured in percentage.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the byte hit ratio for one or more accelerated domains. Request hit ratios are measured in percentage.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 500 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 24 hours is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -4772,10 +5513,14 @@ class Vod extends OpenApiClient
      * |5 minutes|Time range per query &#x3C; 3 days|93 days|15 minutes|
      * |1 hour|3 days ≤ Time range per query &#x3C; 31 days|186 days|3 to 4 hours|
      * |1 day|31 days ≤ Time range per query ≤ 90 days|366 days|4 hours in most cases, not more than 24 hours|
-     *  *
-     * @param DescribeVodDomainReqHitRateDataRequest $request DescribeVodDomainReqHitRateDataRequest
      *
-     * @return DescribeVodDomainReqHitRateDataResponse DescribeVodDomainReqHitRateDataResponse
+     * @param request - DescribeVodDomainReqHitRateDataRequest
+     *
+     * @returns DescribeVodDomainReqHitRateDataResponse
+     *
+     * @param DescribeVodDomainReqHitRateDataRequest $request
+     *
+     * @return DescribeVodDomainReqHitRateDataResponse
      */
     public function describeVodDomainReqHitRateData($request)
     {
@@ -4785,9 +5530,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the bandwidth data during back-to-origin routing for one or more accelerated domain names.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the bandwidth data during back-to-origin routing for one or more accelerated domain names.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 500 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 24 hours is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -4797,33 +5543,43 @@ class Vod extends OpenApiClient
      * |5 minutes|Time range per query &#x3C; 3 days|93 days|15 minutes|
      * |1 hour|3 days ≤ Time range per query &#x3C; 31 days|186 days|3 to 4 hours|
      * |1 day|31 days ≤ Time span of a single query ≤ 366 days|366 days|4 hours in most cases, not more than 24 hours|
-     *  *
-     * @param DescribeVodDomainSrcBpsDataRequest $request DescribeVodDomainSrcBpsDataRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainSrcBpsDataResponse DescribeVodDomainSrcBpsDataResponse
+     * @param request - DescribeVodDomainSrcBpsDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainSrcBpsDataResponse
+     *
+     * @param DescribeVodDomainSrcBpsDataRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeVodDomainSrcBpsDataResponse
      */
     public function describeVodDomainSrcBpsDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainSrcBpsData',
@@ -4836,17 +5592,15 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainSrcBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainSrcBpsDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainSrcBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the bandwidth data during back-to-origin routing for one or more accelerated domain names.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the bandwidth data during back-to-origin routing for one or more accelerated domain names.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 500 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 24 hours is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -4856,10 +5610,14 @@ class Vod extends OpenApiClient
      * |5 minutes|Time range per query &#x3C; 3 days|93 days|15 minutes|
      * |1 hour|3 days ≤ Time range per query &#x3C; 31 days|186 days|3 to 4 hours|
      * |1 day|31 days ≤ Time span of a single query ≤ 366 days|366 days|4 hours in most cases, not more than 24 hours|
-     *  *
-     * @param DescribeVodDomainSrcBpsDataRequest $request DescribeVodDomainSrcBpsDataRequest
      *
-     * @return DescribeVodDomainSrcBpsDataResponse DescribeVodDomainSrcBpsDataResponse
+     * @param request - DescribeVodDomainSrcBpsDataRequest
+     *
+     * @returns DescribeVodDomainSrcBpsDataResponse
+     *
+     * @param DescribeVodDomainSrcBpsDataRequest $request
+     *
+     * @return DescribeVodDomainSrcBpsDataResponse
      */
     public function describeVodDomainSrcBpsData($request)
     {
@@ -4869,9 +5627,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries origin traffic data for accelerated domain names in ApsaraVideo VOD. The traffic is measured in bytes.
-     *  *
-     * @description * This operation is available only in the **China (Shanghai)** region.
+     * Queries origin traffic data for accelerated domain names in ApsaraVideo VOD. The traffic is measured in bytes.
+     *
+     * @remarks
+     * This operation is available only in the **China (Shanghai)** region.
      * * ApsaraVideo VOD stores the origin traffic data for 90 days before the data is deleted.
      * * If you do not set the `StartTime` or `EndTime` parameter, the request returns the data collected in the last 24 hours. If you set both the `StartTime` and `EndTime` parameters, the request returns the data collected within the specified time range.
      * * You can specify a maximum of 500 domain names in a request. Separate multiple domain names with commas (,). If you specify multiple domain names in a request, aggregation results are returned.
@@ -4882,33 +5641,43 @@ class Vod extends OpenApiClient
      * |5 minutes|(0, 3\\]|93|15 minutes|
      * |1 hour|(3, 31\\]|186|4 hours|
      * |1 day|(31, 366\\]|366|04:00 on the next day|
-     *  *
-     * @param DescribeVodDomainSrcTrafficDataRequest $request DescribeVodDomainSrcTrafficDataRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainSrcTrafficDataResponse DescribeVodDomainSrcTrafficDataResponse
+     * @param request - DescribeVodDomainSrcTrafficDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainSrcTrafficDataResponse
+     *
+     * @param DescribeVodDomainSrcTrafficDataRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeVodDomainSrcTrafficDataResponse
      */
     public function describeVodDomainSrcTrafficDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainSrcTrafficData',
@@ -4921,17 +5690,15 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainSrcTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainSrcTrafficDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainSrcTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries origin traffic data for accelerated domain names in ApsaraVideo VOD. The traffic is measured in bytes.
-     *  *
-     * @description * This operation is available only in the **China (Shanghai)** region.
+     * Queries origin traffic data for accelerated domain names in ApsaraVideo VOD. The traffic is measured in bytes.
+     *
+     * @remarks
+     * This operation is available only in the **China (Shanghai)** region.
      * * ApsaraVideo VOD stores the origin traffic data for 90 days before the data is deleted.
      * * If you do not set the `StartTime` or `EndTime` parameter, the request returns the data collected in the last 24 hours. If you set both the `StartTime` and `EndTime` parameters, the request returns the data collected within the specified time range.
      * * You can specify a maximum of 500 domain names in a request. Separate multiple domain names with commas (,). If you specify multiple domain names in a request, aggregation results are returned.
@@ -4942,10 +5709,14 @@ class Vod extends OpenApiClient
      * |5 minutes|(0, 3\\]|93|15 minutes|
      * |1 hour|(3, 31\\]|186|4 hours|
      * |1 day|(31, 366\\]|366|04:00 on the next day|
-     *  *
-     * @param DescribeVodDomainSrcTrafficDataRequest $request DescribeVodDomainSrcTrafficDataRequest
      *
-     * @return DescribeVodDomainSrcTrafficDataResponse DescribeVodDomainSrcTrafficDataResponse
+     * @param request - DescribeVodDomainSrcTrafficDataRequest
+     *
+     * @returns DescribeVodDomainSrcTrafficDataResponse
+     *
+     * @param DescribeVodDomainSrcTrafficDataRequest $request
+     *
+     * @return DescribeVodDomainSrcTrafficDataResponse
      */
     public function describeVodDomainSrcTrafficData($request)
     {
@@ -4955,9 +5726,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the traffic data for one or more accelerated domains. The minimum time granularity is 5 minutes. You can query data in the last 366 days. Compared with the DescribeVodDomainRealTimeTrafficData operation, this operation provides a greater time granularity, higher data latency, but allows you to query historical data within a longer time period.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the traffic data for one or more accelerated domains. The minimum time granularity is 5 minutes. You can query data in the last 366 days. Compared with the DescribeVodDomainRealTimeTrafficData operation, this operation provides a greater time granularity, higher data latency, but allows you to query historical data within a longer time period.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 500 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 24 hour is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -4967,39 +5739,51 @@ class Vod extends OpenApiClient
      * |5 minutes|Time range per query &#x3C; 3 days|93 days|15 minutes|
      * |1 hour|3 days ≤ Time range per query &#x3C; 31 days|186 days|3 to 4 hours|
      * |1 day|31 days ≤ Time range per query ≤ 366 days|366 days|4 hours in most cases, not more than 24 hours|
-     *  *
-     * @param DescribeVodDomainTrafficDataRequest $request DescribeVodDomainTrafficDataRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainTrafficDataResponse DescribeVodDomainTrafficDataResponse
+     * @param request - DescribeVodDomainTrafficDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainTrafficDataResponse
+     *
+     * @param DescribeVodDomainTrafficDataRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeVodDomainTrafficDataResponse
      */
     public function describeVodDomainTrafficDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainTrafficData',
@@ -5012,17 +5796,15 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainTrafficDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the traffic data for one or more accelerated domains. The minimum time granularity is 5 minutes. You can query data in the last 366 days. Compared with the DescribeVodDomainRealTimeTrafficData operation, this operation provides a greater time granularity, higher data latency, but allows you to query historical data within a longer time period.
-     *  *
-     * @description * This operation is supported only in the **China (Shanghai)** region.
+     * Queries the traffic data for one or more accelerated domains. The minimum time granularity is 5 minutes. You can query data in the last 366 days. Compared with the DescribeVodDomainRealTimeTrafficData operation, this operation provides a greater time granularity, higher data latency, but allows you to query historical data within a longer time period.
+     *
+     * @remarks
+     * This operation is supported only in the **China (Shanghai)** region.
      * * You can specify a maximum of 500 accelerated domain names.
      * * If you specify neither `StartTime` nor `EndTime`, the data of the last 24 hour is queried. You can specify both `StartTime` and `EndTime` parameters to query data of a specified time range.
      * **Time granularity**
@@ -5032,10 +5814,14 @@ class Vod extends OpenApiClient
      * |5 minutes|Time range per query &#x3C; 3 days|93 days|15 minutes|
      * |1 hour|3 days ≤ Time range per query &#x3C; 31 days|186 days|3 to 4 hours|
      * |1 day|31 days ≤ Time range per query ≤ 366 days|366 days|4 hours in most cases, not more than 24 hours|
-     *  *
-     * @param DescribeVodDomainTrafficDataRequest $request DescribeVodDomainTrafficDataRequest
      *
-     * @return DescribeVodDomainTrafficDataResponse DescribeVodDomainTrafficDataResponse
+     * @param request - DescribeVodDomainTrafficDataRequest
+     *
+     * @returns DescribeVodDomainTrafficDataResponse
+     *
+     * @param DescribeVodDomainTrafficDataRequest $request
+     *
+     * @return DescribeVodDomainTrafficDataResponse
      */
     public function describeVodDomainTrafficData($request)
     {
@@ -5045,47 +5831,61 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the traffic or bandwidth data of one or more accelerated domain names.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * Queries the traffic or bandwidth data of one or more accelerated domain names.
+     *
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
      * *   You can specify up to 100 accelerated domain names in a request. Separate multiple domain names with commas (,). If you do not specify an accelerated domain name, the data of all accelerated domain names within your Alibaba Cloud account is returned.
      * *   You can query data in the last year. The maximum time range that can be queried is three months. If you specify a time range of one to three days, the system returns data on an hourly basis. If you specify a time range of four days or more, the system returns data on a daily basis.
-     *  *
-     * @param DescribeVodDomainUsageDataRequest $request DescribeVodDomainUsageDataRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodDomainUsageDataResponse DescribeVodDomainUsageDataResponse
+     * @param request - DescribeVodDomainUsageDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodDomainUsageDataResponse
+     *
+     * @param DescribeVodDomainUsageDataRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeVodDomainUsageDataResponse
      */
     public function describeVodDomainUsageDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->area)) {
-            $query['Area'] = $request->area;
+        if (null !== $request->area) {
+            @$query['Area'] = $request->area;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->field)) {
-            $query['Field'] = $request->field;
+
+        if (null !== $request->field) {
+            @$query['Field'] = $request->field;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodDomainUsageData',
@@ -5098,23 +5898,25 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodDomainUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodDomainUsageDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodDomainUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the traffic or bandwidth data of one or more accelerated domain names.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * Queries the traffic or bandwidth data of one or more accelerated domain names.
+     *
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
      * *   You can specify up to 100 accelerated domain names in a request. Separate multiple domain names with commas (,). If you do not specify an accelerated domain name, the data of all accelerated domain names within your Alibaba Cloud account is returned.
      * *   You can query data in the last year. The maximum time range that can be queried is three months. If you specify a time range of one to three days, the system returns data on an hourly basis. If you specify a time range of four days or more, the system returns data on a daily basis.
-     *  *
-     * @param DescribeVodDomainUsageDataRequest $request DescribeVodDomainUsageDataRequest
      *
-     * @return DescribeVodDomainUsageDataResponse DescribeVodDomainUsageDataResponse
+     * @param request - DescribeVodDomainUsageDataRequest
+     *
+     * @returns DescribeVodDomainUsageDataResponse
+     *
+     * @param DescribeVodDomainUsageDataRequest $request
+     *
+     * @return DescribeVodDomainUsageDataResponse
      */
     public function describeVodDomainUsageData($request)
     {
@@ -5124,37 +5926,48 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary 点播云剪辑用量查询
-     *  *
-     * @param DescribeVodEditingUsageDataRequest $request DescribeVodEditingUsageDataRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 点播云剪辑用量查询.
      *
-     * @return DescribeVodEditingUsageDataResponse DescribeVodEditingUsageDataResponse
+     * @param request - DescribeVodEditingUsageDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodEditingUsageDataResponse
+     *
+     * @param DescribeVodEditingUsageDataRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeVodEditingUsageDataResponse
      */
     public function describeVodEditingUsageDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->specification)) {
-            $query['Specification'] = $request->specification;
+
+        if (null !== $request->specification) {
+            @$query['Specification'] = $request->specification;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodEditingUsageData',
@@ -5167,19 +5980,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodEditingUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodEditingUsageDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodEditingUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 点播云剪辑用量查询
-     *  *
-     * @param DescribeVodEditingUsageDataRequest $request DescribeVodEditingUsageDataRequest
+     * 点播云剪辑用量查询.
      *
-     * @return DescribeVodEditingUsageDataResponse DescribeVodEditingUsageDataResponse
+     * @param request - DescribeVodEditingUsageDataRequest
+     *
+     * @returns DescribeVodEditingUsageDataResponse
+     *
+     * @param DescribeVodEditingUsageDataRequest $request
+     *
+     * @return DescribeVodEditingUsageDataResponse
      */
     public function describeVodEditingUsageData($request)
     {
@@ -5189,9 +6003,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the playback statistics based on the media ID. You can call this operation to query information such as the number of visits, average video views per viewer, total number of views, average playback duration per viewer, and total playback duration.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * Queries the playback statistics based on the media ID. You can call this operation to query information such as the number of visits, average video views per viewer, total number of views, average playback duration per viewer, and total playback duration.
+     *
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
      * *   Only playback data in ApsaraVideo Player SDK is collected.
      * *   You can query only data within the last 30 days.
      * *   Before you call this operation, make sure that the following requirements are met:
@@ -5203,45 +6018,59 @@ class Vod extends OpenApiClient
      *         *   ApsaraVideo Player SDK for Web V2.16.0 or later is used.
      *         *   A license for **playback quality monitoring** is obtained. To apply for the license, [submit a request on Yida to enable value-added features for ApsaraVideo Player SDK for Web](https://yida.alibaba-inc.com/o/webplayer#/). For more information, see the description of the `license` parameter in the [API operations](~~125572#section-3ty-gwp-6pa~~) topic.
      *         *   The log reporting feature is enabled. By default, the feature is enabled for ApsaraVideo Player SDKs.
-     *  *
-     * @param DescribeVodMediaPlayDataRequest $request DescribeVodMediaPlayDataRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodMediaPlayDataResponse DescribeVodMediaPlayDataResponse
+     * @param request - DescribeVodMediaPlayDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodMediaPlayDataResponse
+     *
+     * @param DescribeVodMediaPlayDataRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeVodMediaPlayDataResponse
      */
     public function describeVodMediaPlayDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->orderName)) {
-            $query['OrderName'] = $request->orderName;
+
+        if (null !== $request->orderName) {
+            @$query['OrderName'] = $request->orderName;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->os)) {
-            $query['Os'] = $request->os;
+
+        if (null !== $request->os) {
+            @$query['Os'] = $request->os;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->playDate)) {
-            $query['PlayDate'] = $request->playDate;
+
+        if (null !== $request->playDate) {
+            @$query['PlayDate'] = $request->playDate;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->terminalType)) {
-            $query['TerminalType'] = $request->terminalType;
+
+        if (null !== $request->terminalType) {
+            @$query['TerminalType'] = $request->terminalType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodMediaPlayData',
@@ -5254,17 +6083,15 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodMediaPlayDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodMediaPlayDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodMediaPlayDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the playback statistics based on the media ID. You can call this operation to query information such as the number of visits, average video views per viewer, total number of views, average playback duration per viewer, and total playback duration.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * Queries the playback statistics based on the media ID. You can call this operation to query information such as the number of visits, average video views per viewer, total number of views, average playback duration per viewer, and total playback duration.
+     *
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
      * *   Only playback data in ApsaraVideo Player SDK is collected.
      * *   You can query only data within the last 30 days.
      * *   Before you call this operation, make sure that the following requirements are met:
@@ -5276,10 +6103,14 @@ class Vod extends OpenApiClient
      *         *   ApsaraVideo Player SDK for Web V2.16.0 or later is used.
      *         *   A license for **playback quality monitoring** is obtained. To apply for the license, [submit a request on Yida to enable value-added features for ApsaraVideo Player SDK for Web](https://yida.alibaba-inc.com/o/webplayer#/). For more information, see the description of the `license` parameter in the [API operations](~~125572#section-3ty-gwp-6pa~~) topic.
      *         *   The log reporting feature is enabled. By default, the feature is enabled for ApsaraVideo Player SDKs.
-     *  *
-     * @param DescribeVodMediaPlayDataRequest $request DescribeVodMediaPlayDataRequest
      *
-     * @return DescribeVodMediaPlayDataResponse DescribeVodMediaPlayDataResponse
+     * @param request - DescribeVodMediaPlayDataRequest
+     *
+     * @returns DescribeVodMediaPlayDataResponse
+     *
+     * @param DescribeVodMediaPlayDataRequest $request
+     *
+     * @return DescribeVodMediaPlayDataResponse
      */
     public function describeVodMediaPlayData($request)
     {
@@ -5289,43 +6120,55 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the bandwidth data by Internet service provider (ISP) and region.
-     *  *
-     * @description The data is collected every 5 minutes. You can call this API operation up to 20 times per second per account. Time granularity
+     * Queries the bandwidth data by Internet service provider (ISP) and region.
+     *
+     * @remarks
+     * The data is collected every 5 minutes. You can call this API operation up to 20 times per second per account. Time granularity
      * The time granularity supported by Interval, the maximum time period within which historical data is available, and the data delay vary based on the time range to query, as described in the following table.
      * |Time granularity|Maximum time range per query|Historical data available|Data delay|
      * |---|---|---|---|
      * |5 minutes|1 hour|93 days|15 minutes|
-     *  *
-     * @param DescribeVodRangeDataByLocateAndIspServiceRequest $request DescribeVodRangeDataByLocateAndIspServiceRequest
-     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVodRangeDataByLocateAndIspServiceResponse DescribeVodRangeDataByLocateAndIspServiceResponse
+     * @param request - DescribeVodRangeDataByLocateAndIspServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodRangeDataByLocateAndIspServiceResponse
+     *
+     * @param DescribeVodRangeDataByLocateAndIspServiceRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return DescribeVodRangeDataByLocateAndIspServiceResponse
      */
     public function describeVodRangeDataByLocateAndIspServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ispNameEn)) {
-            $query['IspNameEn'] = $request->ispNameEn;
+
+        if (null !== $request->ispNameEn) {
+            @$query['IspNameEn'] = $request->ispNameEn;
         }
-        if (!Utils::isUnset($request->locationNameEn)) {
-            $query['LocationNameEn'] = $request->locationNameEn;
+
+        if (null !== $request->locationNameEn) {
+            @$query['LocationNameEn'] = $request->locationNameEn;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodRangeDataByLocateAndIspService',
@@ -5338,25 +6181,27 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodRangeDataByLocateAndIspServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodRangeDataByLocateAndIspServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodRangeDataByLocateAndIspServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the bandwidth data by Internet service provider (ISP) and region.
-     *  *
-     * @description The data is collected every 5 minutes. You can call this API operation up to 20 times per second per account. Time granularity
+     * Queries the bandwidth data by Internet service provider (ISP) and region.
+     *
+     * @remarks
+     * The data is collected every 5 minutes. You can call this API operation up to 20 times per second per account. Time granularity
      * The time granularity supported by Interval, the maximum time period within which historical data is available, and the data delay vary based on the time range to query, as described in the following table.
      * |Time granularity|Maximum time range per query|Historical data available|Data delay|
      * |---|---|---|---|
      * |5 minutes|1 hour|93 days|15 minutes|
-     *  *
-     * @param DescribeVodRangeDataByLocateAndIspServiceRequest $request DescribeVodRangeDataByLocateAndIspServiceRequest
      *
-     * @return DescribeVodRangeDataByLocateAndIspServiceResponse DescribeVodRangeDataByLocateAndIspServiceResponse
+     * @param request - DescribeVodRangeDataByLocateAndIspServiceRequest
+     *
+     * @returns DescribeVodRangeDataByLocateAndIspServiceResponse
+     *
+     * @param DescribeVodRangeDataByLocateAndIspServiceRequest $request
+     *
+     * @return DescribeVodRangeDataByLocateAndIspServiceResponse
      */
     public function describeVodRangeDataByLocateAndIspService($request)
     {
@@ -5366,28 +6211,36 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the maximum number and remaining number of requests to refresh or prefetch files on the current day. You can prefetch files based on URLs and refresh files based on URLs or directories.
-     *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
-     * > *   You can call the [RefreshVodObjectCaches](https://help.aliyun.com/document_detail/69215.html) operation to refresh content and the [PreloadVodObjectCaches](https://help.aliyun.com/document_detail/69211.html) operation to prefetch content.
-     *  *
-     * @param DescribeVodRefreshQuotaRequest $request DescribeVodRefreshQuotaRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the maximum number and remaining number of requests to refresh or prefetch files on the current day. You can prefetch files based on URLs and refresh files based on URLs or directories.
      *
-     * @return DescribeVodRefreshQuotaResponse DescribeVodRefreshQuotaResponse
+     * @remarks
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     * > *   You can call the [RefreshVodObjectCaches](https://help.aliyun.com/document_detail/69215.html) operation to refresh content and the [PreloadVodObjectCaches](https://help.aliyun.com/document_detail/69211.html) operation to prefetch content.
+     *
+     * @param request - DescribeVodRefreshQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodRefreshQuotaResponse
+     *
+     * @param DescribeVodRefreshQuotaRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeVodRefreshQuotaResponse
      */
     public function describeVodRefreshQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodRefreshQuota',
@@ -5400,22 +6253,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodRefreshQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodRefreshQuotaResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodRefreshQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the maximum number and remaining number of requests to refresh or prefetch files on the current day. You can prefetch files based on URLs and refresh files based on URLs or directories.
-     *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
-     * > *   You can call the [RefreshVodObjectCaches](https://help.aliyun.com/document_detail/69215.html) operation to refresh content and the [PreloadVodObjectCaches](https://help.aliyun.com/document_detail/69211.html) operation to prefetch content.
-     *  *
-     * @param DescribeVodRefreshQuotaRequest $request DescribeVodRefreshQuotaRequest
+     * Queries the maximum number and remaining number of requests to refresh or prefetch files on the current day. You can prefetch files based on URLs and refresh files based on URLs or directories.
      *
-     * @return DescribeVodRefreshQuotaResponse DescribeVodRefreshQuotaResponse
+     * @remarks
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     * > *   You can call the [RefreshVodObjectCaches](https://help.aliyun.com/document_detail/69215.html) operation to refresh content and the [PreloadVodObjectCaches](https://help.aliyun.com/document_detail/69211.html) operation to prefetch content.
+     *
+     * @param request - DescribeVodRefreshQuotaRequest
+     *
+     * @returns DescribeVodRefreshQuotaResponse
+     *
+     * @param DescribeVodRefreshQuotaRequest $request
+     *
+     * @return DescribeVodRefreshQuotaResponse
      */
     public function describeVodRefreshQuota($request)
     {
@@ -5425,55 +6280,72 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about one or more refresh or prefetch tasks.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
-     * *   If you do not specify the TaskId or ObjectPath parameter, the data in the last three days is returned on the first page. By default, one page displays a maximum of 20 entries. You can specify the TaskId and ObjectPath parameters at the same time.
-     *  *
-     * @param DescribeVodRefreshTasksRequest $request DescribeVodRefreshTasksRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the information about one or more refresh or prefetch tasks.
      *
-     * @return DescribeVodRefreshTasksResponse DescribeVodRefreshTasksResponse
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
+     * *   If you do not specify the TaskId or ObjectPath parameter, the data in the last three days is returned on the first page. By default, one page displays a maximum of 20 entries. You can specify the TaskId and ObjectPath parameters at the same time.
+     *
+     * @param request - DescribeVodRefreshTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodRefreshTasksResponse
+     *
+     * @param DescribeVodRefreshTasksRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeVodRefreshTasksResponse
      */
     public function describeVodRefreshTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->objectPath)) {
-            $query['ObjectPath'] = $request->objectPath;
+
+        if (null !== $request->objectPath) {
+            @$query['ObjectPath'] = $request->objectPath;
         }
-        if (!Utils::isUnset($request->objectType)) {
-            $query['ObjectType'] = $request->objectType;
+
+        if (null !== $request->objectType) {
+            @$query['ObjectType'] = $request->objectType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodRefreshTasks',
@@ -5486,22 +6358,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodRefreshTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodRefreshTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodRefreshTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about one or more refresh or prefetch tasks.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
-     * *   If you do not specify the TaskId or ObjectPath parameter, the data in the last three days is returned on the first page. By default, one page displays a maximum of 20 entries. You can specify the TaskId and ObjectPath parameters at the same time.
-     *  *
-     * @param DescribeVodRefreshTasksRequest $request DescribeVodRefreshTasksRequest
+     * Queries the information about one or more refresh or prefetch tasks.
      *
-     * @return DescribeVodRefreshTasksResponse DescribeVodRefreshTasksResponse
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
+     * *   If you do not specify the TaskId or ObjectPath parameter, the data in the last three days is returned on the first page. By default, one page displays a maximum of 20 entries. You can specify the TaskId and ObjectPath parameters at the same time.
+     *
+     * @param request - DescribeVodRefreshTasksRequest
+     *
+     * @returns DescribeVodRefreshTasksResponse
+     *
+     * @param DescribeVodRefreshTasksRequest $request
+     *
+     * @return DescribeVodRefreshTasksResponse
      */
     public function describeVodRefreshTasks($request)
     {
@@ -5511,37 +6385,48 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the certificates by domain name.
-     *  *
-     * @param DescribeVodSSLCertificateListRequest $request DescribeVodSSLCertificateListRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the certificates by domain name.
      *
-     * @return DescribeVodSSLCertificateListResponse DescribeVodSSLCertificateListResponse
+     * @param request - DescribeVodSSLCertificateListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodSSLCertificateListResponse
+     *
+     * @param DescribeVodSSLCertificateListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeVodSSLCertificateListResponse
      */
     public function describeVodSSLCertificateListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchKeyword)) {
-            $query['SearchKeyword'] = $request->searchKeyword;
+
+        if (null !== $request->searchKeyword) {
+            @$query['SearchKeyword'] = $request->searchKeyword;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodSSLCertificateList',
@@ -5554,19 +6439,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodSSLCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodSSLCertificateListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodSSLCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the certificates by domain name.
-     *  *
-     * @param DescribeVodSSLCertificateListRequest $request DescribeVodSSLCertificateListRequest
+     * Queries the certificates by domain name.
      *
-     * @return DescribeVodSSLCertificateListResponse DescribeVodSSLCertificateListResponse
+     * @param request - DescribeVodSSLCertificateListRequest
+     *
+     * @returns DescribeVodSSLCertificateListResponse
+     *
+     * @param DescribeVodSSLCertificateListRequest $request
+     *
+     * @return DescribeVodSSLCertificateListResponse
      */
     public function describeVodSSLCertificateList($request)
     {
@@ -5576,43 +6462,56 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage of storage-related resources, including the storage volume and outbound traffic.
-     *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
-     * >*   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
-     *  *
-     * @param DescribeVodStorageDataRequest $request DescribeVodStorageDataRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the usage of storage-related resources, including the storage volume and outbound traffic.
      *
-     * @return DescribeVodStorageDataResponse DescribeVodStorageDataResponse
+     * @remarks
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     * >*   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+     *
+     * @param request - DescribeVodStorageDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodStorageDataResponse
+     *
+     * @param DescribeVodStorageDataRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeVodStorageDataResponse
      */
     public function describeVodStorageDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->storage)) {
-            $query['Storage'] = $request->storage;
+
+        if (null !== $request->storage) {
+            @$query['Storage'] = $request->storage;
         }
-        if (!Utils::isUnset($request->storageType)) {
-            $query['StorageType'] = $request->storageType;
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodStorageData',
@@ -5625,22 +6524,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodStorageDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodStorageDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodStorageDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the usage of storage-related resources, including the storage volume and outbound traffic.
-     *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
-     * >*   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
-     *  *
-     * @param DescribeVodStorageDataRequest $request DescribeVodStorageDataRequest
+     * Queries the usage of storage-related resources, including the storage volume and outbound traffic.
      *
-     * @return DescribeVodStorageDataResponse DescribeVodStorageDataResponse
+     * @remarks
+     * > *   This operation is available only in the **China (Shanghai)** region.
+     * >*   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+     *
+     * @param request - DescribeVodStorageDataRequest
+     *
+     * @returns DescribeVodStorageDataResponse
+     *
+     * @param DescribeVodStorageDataRequest $request
+     *
+     * @return DescribeVodStorageDataResponse
      */
     public function describeVodStorageData($request)
     {
@@ -5650,40 +6551,52 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the usage of tiered storage for media assets.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
-     * *   If you specify a time range within 7 days, the request returns the data based on hours. If you specify a time range longer than 7 days, the request returns the data based on days. The maximum time range is 31 days.
-     *  *
-     * @param DescribeVodTieringStorageDataRequest $request DescribeVodTieringStorageDataRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the usage of tiered storage for media assets.
      *
-     * @return DescribeVodTieringStorageDataResponse DescribeVodTieringStorageDataResponse
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
+     * *   If you specify a time range within 7 days, the request returns the data based on hours. If you specify a time range longer than 7 days, the request returns the data based on days. The maximum time range is 31 days.
+     *
+     * @param request - DescribeVodTieringStorageDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodTieringStorageDataResponse
+     *
+     * @param DescribeVodTieringStorageDataRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeVodTieringStorageDataResponse
      */
     public function describeVodTieringStorageDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->storageClass)) {
-            $query['StorageClass'] = $request->storageClass;
+
+        if (null !== $request->storageClass) {
+            @$query['StorageClass'] = $request->storageClass;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodTieringStorageData',
@@ -5696,22 +6609,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodTieringStorageDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodTieringStorageDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodTieringStorageDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the usage of tiered storage for media assets.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
-     * *   If you specify a time range within 7 days, the request returns the data based on hours. If you specify a time range longer than 7 days, the request returns the data based on days. The maximum time range is 31 days.
-     *  *
-     * @param DescribeVodTieringStorageDataRequest $request DescribeVodTieringStorageDataRequest
+     * Queries the usage of tiered storage for media assets.
      *
-     * @return DescribeVodTieringStorageDataResponse DescribeVodTieringStorageDataResponse
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
+     * *   If you specify a time range within 7 days, the request returns the data based on hours. If you specify a time range longer than 7 days, the request returns the data based on days. The maximum time range is 31 days.
+     *
+     * @param request - DescribeVodTieringStorageDataRequest
+     *
+     * @returns DescribeVodTieringStorageDataResponse
+     *
+     * @param DescribeVodTieringStorageDataRequest $request
+     *
+     * @return DescribeVodTieringStorageDataResponse
      */
     public function describeVodTieringStorageData($request)
     {
@@ -5721,40 +6636,52 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the data retrieval from tiered storage.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
-     * *   If you specify a time range within 7 days, the request returns the data based on hours. If you specify a time range longer than 7 days, the request returns the data based on days. The maximum time range is 31 days.
-     *  *
-     * @param DescribeVodTieringStorageRetrievalDataRequest $request DescribeVodTieringStorageRetrievalDataRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * Queries the data retrieval from tiered storage.
      *
-     * @return DescribeVodTieringStorageRetrievalDataResponse DescribeVodTieringStorageRetrievalDataResponse
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
+     * *   If you specify a time range within 7 days, the request returns the data based on hours. If you specify a time range longer than 7 days, the request returns the data based on days. The maximum time range is 31 days.
+     *
+     * @param request - DescribeVodTieringStorageRetrievalDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodTieringStorageRetrievalDataResponse
+     *
+     * @param DescribeVodTieringStorageRetrievalDataRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return DescribeVodTieringStorageRetrievalDataResponse
      */
     public function describeVodTieringStorageRetrievalDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->storageClass)) {
-            $query['StorageClass'] = $request->storageClass;
+
+        if (null !== $request->storageClass) {
+            @$query['StorageClass'] = $request->storageClass;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodTieringStorageRetrievalData',
@@ -5767,22 +6694,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodTieringStorageRetrievalDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodTieringStorageRetrievalDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodTieringStorageRetrievalDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the data retrieval from tiered storage.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
-     * *   If you specify a time range within 7 days, the request returns the data based on hours. If you specify a time range longer than 7 days, the request returns the data based on days. The maximum time range is 31 days.
-     *  *
-     * @param DescribeVodTieringStorageRetrievalDataRequest $request DescribeVodTieringStorageRetrievalDataRequest
+     * Queries the data retrieval from tiered storage.
      *
-     * @return DescribeVodTieringStorageRetrievalDataResponse DescribeVodTieringStorageRetrievalDataResponse
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
+     * *   If you specify a time range within 7 days, the request returns the data based on hours. If you specify a time range longer than 7 days, the request returns the data based on days. The maximum time range is 31 days.
+     *
+     * @param request - DescribeVodTieringStorageRetrievalDataRequest
+     *
+     * @returns DescribeVodTieringStorageRetrievalDataResponse
+     *
+     * @param DescribeVodTieringStorageRetrievalDataRequest $request
+     *
+     * @return DescribeVodTieringStorageRetrievalDataResponse
      */
     public function describeVodTieringStorageRetrievalData($request)
     {
@@ -5792,46 +6721,60 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the transcoding statistics.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
-     * *   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
-     *  *
-     * @param DescribeVodTranscodeDataRequest $request DescribeVodTranscodeDataRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the transcoding statistics.
      *
-     * @return DescribeVodTranscodeDataResponse DescribeVodTranscodeDataResponse
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
+     * *   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+     *
+     * @param request - DescribeVodTranscodeDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodTranscodeDataResponse
+     *
+     * @param DescribeVodTranscodeDataRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeVodTranscodeDataResponse
      */
     public function describeVodTranscodeDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->specification)) {
-            $query['Specification'] = $request->specification;
+
+        if (null !== $request->specification) {
+            @$query['Specification'] = $request->specification;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->storage)) {
-            $query['Storage'] = $request->storage;
+
+        if (null !== $request->storage) {
+            @$query['Storage'] = $request->storage;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodTranscodeData',
@@ -5844,22 +6787,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodTranscodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodTranscodeDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodTranscodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the transcoding statistics.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
-     * *   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
-     *  *
-     * @param DescribeVodTranscodeDataRequest $request DescribeVodTranscodeDataRequest
+     * Queries the transcoding statistics.
      *
-     * @return DescribeVodTranscodeDataResponse DescribeVodTranscodeDataResponse
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
+     * *   If the time range to query is less than or equal to seven days, the system returns the statistics collected on an hourly basis. If the time range to query is greater than seven days, the system returns the statistics collected on a daily basis. The maximum time range that you can specify to query is 31 days.
+     *
+     * @param request - DescribeVodTranscodeDataRequest
+     *
+     * @returns DescribeVodTranscodeDataResponse
+     *
+     * @param DescribeVodTranscodeDataRequest $request
+     *
+     * @return DescribeVodTranscodeDataResponse
      */
     public function describeVodTranscodeData($request)
     {
@@ -5869,46 +6814,60 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the domain names for CDN within your Alibaba Cloud account.
-     *  *
-     * @description *   You can filter domain names by name and status. Fuzzy match is supported for domain name-based query.
-     * *   This operation is available only in the China (Shanghai) region.
-     *  *
-     * @param DescribeVodUserDomainsRequest $request DescribeVodUserDomainsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the domain names for CDN within your Alibaba Cloud account.
      *
-     * @return DescribeVodUserDomainsResponse DescribeVodUserDomainsResponse
+     * @remarks
+     *   You can filter domain names by name and status. Fuzzy match is supported for domain name-based query.
+     * *   This operation is available only in the China (Shanghai) region.
+     *
+     * @param request - DescribeVodUserDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodUserDomainsResponse
+     *
+     * @param DescribeVodUserDomainsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeVodUserDomainsResponse
      */
     public function describeVodUserDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->domainSearchType)) {
-            $query['DomainSearchType'] = $request->domainSearchType;
+
+        if (null !== $request->domainSearchType) {
+            @$query['DomainSearchType'] = $request->domainSearchType;
         }
-        if (!Utils::isUnset($request->domainStatus)) {
-            $query['DomainStatus'] = $request->domainStatus;
+
+        if (null !== $request->domainStatus) {
+            @$query['DomainStatus'] = $request->domainStatus;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodUserDomains',
@@ -5921,22 +6880,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodUserDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodUserDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodUserDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the domain names for CDN within your Alibaba Cloud account.
-     *  *
-     * @description *   You can filter domain names by name and status. Fuzzy match is supported for domain name-based query.
-     * *   This operation is available only in the China (Shanghai) region.
-     *  *
-     * @param DescribeVodUserDomainsRequest $request DescribeVodUserDomainsRequest
+     * Queries the domain names for CDN within your Alibaba Cloud account.
      *
-     * @return DescribeVodUserDomainsResponse DescribeVodUserDomainsResponse
+     * @remarks
+     *   You can filter domain names by name and status. Fuzzy match is supported for domain name-based query.
+     * *   This operation is available only in the China (Shanghai) region.
+     *
+     * @param request - DescribeVodUserDomainsRequest
+     *
+     * @returns DescribeVodUserDomainsResponse
+     *
+     * @param DescribeVodUserDomainsRequest $request
+     *
+     * @return DescribeVodUserDomainsResponse
      */
     public function describeVodUserDomains($request)
     {
@@ -5946,27 +6907,35 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the ownership verification content.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
-     *  *
-     * @param DescribeVodVerifyContentRequest $request DescribeVodVerifyContentRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the ownership verification content.
      *
-     * @return DescribeVodVerifyContentResponse DescribeVodVerifyContentResponse
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
+     *
+     * @param request - DescribeVodVerifyContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVodVerifyContentResponse
+     *
+     * @param DescribeVodVerifyContentRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeVodVerifyContentResponse
      */
     public function describeVodVerifyContentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVodVerifyContent',
@@ -5979,21 +6948,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeVodVerifyContentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeVodVerifyContentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeVodVerifyContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the ownership verification content.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
-     *  *
-     * @param DescribeVodVerifyContentRequest $request DescribeVodVerifyContentRequest
+     * Queries the ownership verification content.
      *
-     * @return DescribeVodVerifyContentResponse DescribeVodVerifyContentResponse
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
+     *
+     * @param request - DescribeVodVerifyContentRequest
+     *
+     * @returns DescribeVodVerifyContentResponse
+     *
+     * @param DescribeVodVerifyContentRequest $request
+     *
+     * @return DescribeVodVerifyContentResponse
      */
     public function describeVodVerifyContent($request)
     {
@@ -6003,33 +6974,43 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Revokes application permissions from the specified identity. The identity may a RAM user or RAM role.
-     *  *
-     * @description >  You can grant a maximum of 10 application permissions to a RAM user or RAM role.
-     *  *
-     * @param DetachAppPolicyFromIdentityRequest $request DetachAppPolicyFromIdentityRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Revokes application permissions from the specified identity. The identity may a RAM user or RAM role.
      *
-     * @return DetachAppPolicyFromIdentityResponse DetachAppPolicyFromIdentityResponse
+     * @remarks
+     * >  You can grant a maximum of 10 application permissions to a RAM user or RAM role.
+     *
+     * @param request - DetachAppPolicyFromIdentityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachAppPolicyFromIdentityResponse
+     *
+     * @param DetachAppPolicyFromIdentityRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DetachAppPolicyFromIdentityResponse
      */
     public function detachAppPolicyFromIdentityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->identityName)) {
-            $query['IdentityName'] = $request->identityName;
+
+        if (null !== $request->identityName) {
+            @$query['IdentityName'] = $request->identityName;
         }
-        if (!Utils::isUnset($request->identityType)) {
-            $query['IdentityType'] = $request->identityType;
+
+        if (null !== $request->identityType) {
+            @$query['IdentityType'] = $request->identityType;
         }
-        if (!Utils::isUnset($request->policyNames)) {
-            $query['PolicyNames'] = $request->policyNames;
+
+        if (null !== $request->policyNames) {
+            @$query['PolicyNames'] = $request->policyNames;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DetachAppPolicyFromIdentity',
@@ -6042,21 +7023,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DetachAppPolicyFromIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachAppPolicyFromIdentityResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachAppPolicyFromIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Revokes application permissions from the specified identity. The identity may a RAM user or RAM role.
-     *  *
-     * @description >  You can grant a maximum of 10 application permissions to a RAM user or RAM role.
-     *  *
-     * @param DetachAppPolicyFromIdentityRequest $request DetachAppPolicyFromIdentityRequest
+     * Revokes application permissions from the specified identity. The identity may a RAM user or RAM role.
      *
-     * @return DetachAppPolicyFromIdentityResponse DetachAppPolicyFromIdentityResponse
+     * @remarks
+     * >  You can grant a maximum of 10 application permissions to a RAM user or RAM role.
+     *
+     * @param request - DetachAppPolicyFromIdentityRequest
+     *
+     * @returns DetachAppPolicyFromIdentityResponse
+     *
+     * @param DetachAppPolicyFromIdentityRequest $request
+     *
+     * @return DetachAppPolicyFromIdentityResponse
      */
     public function detachAppPolicyFromIdentity($request)
     {
@@ -6066,37 +7049,48 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Generates a key for secure download. ApsaraVideo Player SDK provides the secure download feature. Videos that are downloaded to your local device in this mode are encrypted. You can play the encrypted videos only by using the key file generated from the app that you specified. Secure download protects your videos from malicious playback or distribution.
-     *  *
-     * @description *   To use the secure download feature, you must enable the download feature in the ApsaraVideo VOD console and set the download method to secure download. For more information, see [Configure download settings](https://help.aliyun.com/document_detail/86107.html).
-     * *   After you generate a key for secure download, you must configure the key in ApsaraVideo Player SDK. For more information, see [Secure download](https://help.aliyun.com/document_detail/124735.html).
-     *  *
-     * @param GenerateDownloadSecretKeyRequest $request GenerateDownloadSecretKeyRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Generates a key for secure download. ApsaraVideo Player SDK provides the secure download feature. Videos that are downloaded to your local device in this mode are encrypted. You can play the encrypted videos only by using the key file generated from the app that you specified. Secure download protects your videos from malicious playback or distribution.
      *
-     * @return GenerateDownloadSecretKeyResponse GenerateDownloadSecretKeyResponse
+     * @remarks
+     *   To use the secure download feature, you must enable the download feature in the ApsaraVideo VOD console and set the download method to secure download. For more information, see [Configure download settings](https://help.aliyun.com/document_detail/86107.html).
+     * *   After you generate a key for secure download, you must configure the key in ApsaraVideo Player SDK. For more information, see [Secure download](https://help.aliyun.com/document_detail/124735.html).
+     *
+     * @param request - GenerateDownloadSecretKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateDownloadSecretKeyResponse
+     *
+     * @param GenerateDownloadSecretKeyRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GenerateDownloadSecretKeyResponse
      */
     public function generateDownloadSecretKeyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appDecryptKey)) {
-            $query['AppDecryptKey'] = $request->appDecryptKey;
+        if (null !== $request->appDecryptKey) {
+            @$query['AppDecryptKey'] = $request->appDecryptKey;
         }
-        if (!Utils::isUnset($request->appIdentification)) {
-            $query['AppIdentification'] = $request->appIdentification;
+
+        if (null !== $request->appIdentification) {
+            @$query['AppIdentification'] = $request->appIdentification;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GenerateDownloadSecretKey',
@@ -6109,22 +7103,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GenerateDownloadSecretKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateDownloadSecretKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateDownloadSecretKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Generates a key for secure download. ApsaraVideo Player SDK provides the secure download feature. Videos that are downloaded to your local device in this mode are encrypted. You can play the encrypted videos only by using the key file generated from the app that you specified. Secure download protects your videos from malicious playback or distribution.
-     *  *
-     * @description *   To use the secure download feature, you must enable the download feature in the ApsaraVideo VOD console and set the download method to secure download. For more information, see [Configure download settings](https://help.aliyun.com/document_detail/86107.html).
-     * *   After you generate a key for secure download, you must configure the key in ApsaraVideo Player SDK. For more information, see [Secure download](https://help.aliyun.com/document_detail/124735.html).
-     *  *
-     * @param GenerateDownloadSecretKeyRequest $request GenerateDownloadSecretKeyRequest
+     * Generates a key for secure download. ApsaraVideo Player SDK provides the secure download feature. Videos that are downloaded to your local device in this mode are encrypted. You can play the encrypted videos only by using the key file generated from the app that you specified. Secure download protects your videos from malicious playback or distribution.
      *
-     * @return GenerateDownloadSecretKeyResponse GenerateDownloadSecretKeyResponse
+     * @remarks
+     *   To use the secure download feature, you must enable the download feature in the ApsaraVideo VOD console and set the download method to secure download. For more information, see [Configure download settings](https://help.aliyun.com/document_detail/86107.html).
+     * *   After you generate a key for secure download, you must configure the key in ApsaraVideo Player SDK. For more information, see [Secure download](https://help.aliyun.com/document_detail/124735.html).
+     *
+     * @param request - GenerateDownloadSecretKeyRequest
+     *
+     * @returns GenerateDownloadSecretKeyResponse
+     *
+     * @param GenerateDownloadSecretKeyRequest $request
+     *
+     * @return GenerateDownloadSecretKeyResponse
      */
     public function generateDownloadSecretKey($request)
     {
@@ -6134,31 +7130,40 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Generates a random Key Management Service (KMS) data key used for HLS encryption in ApsaraVideo VOD.
-     *  *
-     * @param GenerateKMSDataKeyRequest $request GenerateKMSDataKeyRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Generates a random Key Management Service (KMS) data key used for HLS encryption in ApsaraVideo VOD.
      *
-     * @return GenerateKMSDataKeyResponse GenerateKMSDataKeyResponse
+     * @param request - GenerateKMSDataKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateKMSDataKeyResponse
+     *
+     * @param GenerateKMSDataKeyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GenerateKMSDataKeyResponse
      */
     public function generateKMSDataKeyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GenerateKMSDataKey',
@@ -6171,19 +7176,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GenerateKMSDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateKMSDataKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateKMSDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Generates a random Key Management Service (KMS) data key used for HLS encryption in ApsaraVideo VOD.
-     *  *
-     * @param GenerateKMSDataKeyRequest $request GenerateKMSDataKeyRequest
+     * Generates a random Key Management Service (KMS) data key used for HLS encryption in ApsaraVideo VOD.
      *
-     * @return GenerateKMSDataKeyResponse GenerateKMSDataKeyResponse
+     * @param request - GenerateKMSDataKeyRequest
+     *
+     * @returns GenerateKMSDataKeyResponse
+     *
+     * @param GenerateKMSDataKeyRequest $request
+     *
+     * @return GenerateKMSDataKeyResponse
      */
     public function generateKMSDataKey($request)
     {
@@ -6193,38 +7199,49 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries jobs of image AI processing.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)** and **China (Shanghai)**.
+     * Queries jobs of image AI processing.
+     *
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)** and **China (Shanghai)**.
      * *   Call the [SubmitAIImageJob](~~SubmitAIImageJob~~) operation to submit image AI processing jobs before you call this operation to query image AI processing jobs.
      * *   You can query a maximum of 10 jobs of image AI processing in one request.
-     *  *
-     * @param GetAIImageJobsRequest $request GetAIImageJobsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAIImageJobsResponse GetAIImageJobsResponse
+     * @param request - GetAIImageJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAIImageJobsResponse
+     *
+     * @param GetAIImageJobsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetAIImageJobsResponse
      */
     public function getAIImageJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobIds)) {
-            $query['JobIds'] = $request->jobIds;
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAIImageJobs',
@@ -6237,23 +7254,25 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAIImageJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAIImageJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAIImageJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries jobs of image AI processing.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)** and **China (Shanghai)**.
+     * Queries jobs of image AI processing.
+     *
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)** and **China (Shanghai)**.
      * *   Call the [SubmitAIImageJob](~~SubmitAIImageJob~~) operation to submit image AI processing jobs before you call this operation to query image AI processing jobs.
      * *   You can query a maximum of 10 jobs of image AI processing in one request.
-     *  *
-     * @param GetAIImageJobsRequest $request GetAIImageJobsRequest
      *
-     * @return GetAIImageJobsResponse GetAIImageJobsResponse
+     * @param request - GetAIImageJobsRequest
+     *
+     * @returns GetAIImageJobsResponse
+     *
+     * @param GetAIImageJobsRequest $request
+     *
+     * @return GetAIImageJobsResponse
      */
     public function getAIImageJobs($request)
     {
@@ -6263,24 +7282,31 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an intelligent review job. After the job is submitted, it is processed asynchronously. You can call this operation to query the job information in real time.
-     *  *
-     * @description ApsaraVideo VOD stores the snapshots of the intelligent review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
-     *  *
-     * @param GetAIMediaAuditJobRequest $request GetAIMediaAuditJobRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the information about an intelligent review job. After the job is submitted, it is processed asynchronously. You can call this operation to query the job information in real time.
      *
-     * @return GetAIMediaAuditJobResponse GetAIMediaAuditJobResponse
+     * @remarks
+     * ApsaraVideo VOD stores the snapshots of the intelligent review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
+     *
+     * @param request - GetAIMediaAuditJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAIMediaAuditJobResponse
+     *
+     * @param GetAIMediaAuditJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAIMediaAuditJobResponse
      */
     public function getAIMediaAuditJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAIMediaAuditJob',
@@ -6293,21 +7319,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAIMediaAuditJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAIMediaAuditJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAIMediaAuditJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about an intelligent review job. After the job is submitted, it is processed asynchronously. You can call this operation to query the job information in real time.
-     *  *
-     * @description ApsaraVideo VOD stores the snapshots of the intelligent review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
-     *  *
-     * @param GetAIMediaAuditJobRequest $request GetAIMediaAuditJobRequest
+     * Queries the information about an intelligent review job. After the job is submitted, it is processed asynchronously. You can call this operation to query the job information in real time.
      *
-     * @return GetAIMediaAuditJobResponse GetAIMediaAuditJobResponse
+     * @remarks
+     * ApsaraVideo VOD stores the snapshots of the intelligent review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
+     *
+     * @param request - GetAIMediaAuditJobRequest
+     *
+     * @returns GetAIMediaAuditJobResponse
+     *
+     * @param GetAIMediaAuditJobRequest $request
+     *
+     * @return GetAIMediaAuditJobResponse
      */
     public function getAIMediaAuditJob($request)
     {
@@ -6317,25 +7345,32 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an AI template.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     * *   Before you call this operation to query details of an AI template, you must obtain the ID of the AI template.
-     *  *
-     * @param GetAITemplateRequest $request GetAITemplateRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an AI template.
      *
-     * @return GetAITemplateResponse GetAITemplateResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     * *   Before you call this operation to query details of an AI template, you must obtain the ID of the AI template.
+     *
+     * @param request - GetAITemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAITemplateResponse
+     *
+     * @param GetAITemplateRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetAITemplateResponse
      */
     public function getAITemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAITemplate',
@@ -6348,22 +7383,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAITemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an AI template.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     * *   Before you call this operation to query details of an AI template, you must obtain the ID of the AI template.
-     *  *
-     * @param GetAITemplateRequest $request GetAITemplateRequest
+     * Queries the details of an AI template.
      *
-     * @return GetAITemplateResponse GetAITemplateResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     * *   Before you call this operation to query details of an AI template, you must obtain the ID of the AI template.
+     *
+     * @param request - GetAITemplateRequest
+     *
+     * @returns GetAITemplateResponse
+     *
+     * @param GetAITemplateRequest $request
+     *
+     * @return GetAITemplateResponse
      */
     public function getAITemplate($request)
     {
@@ -6373,37 +7410,48 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the results of smart tagging jobs.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     * *   You can obtain the smart tagging results by using the video ID.
-     *  *
-     * @param GetAIVideoTagResultRequest $request GetAIVideoTagResultRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the results of smart tagging jobs.
      *
-     * @return GetAIVideoTagResultResponse GetAIVideoTagResultResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     * *   You can obtain the smart tagging results by using the video ID.
+     *
+     * @param request - GetAIVideoTagResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAIVideoTagResultResponse
+     *
+     * @param GetAIVideoTagResultRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetAIVideoTagResultResponse
      */
     public function getAIVideoTagResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAIVideoTagResult',
@@ -6416,22 +7464,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAIVideoTagResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAIVideoTagResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAIVideoTagResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the results of smart tagging jobs.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     * *   You can obtain the smart tagging results by using the video ID.
-     *  *
-     * @param GetAIVideoTagResultRequest $request GetAIVideoTagResultRequest
+     * Queries the results of smart tagging jobs.
      *
-     * @return GetAIVideoTagResultResponse GetAIVideoTagResultResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     * *   You can obtain the smart tagging results by using the video ID.
+     *
+     * @param request - GetAIVideoTagResultRequest
+     *
+     * @returns GetAIVideoTagResultResponse
+     *
+     * @param GetAIVideoTagResultRequest $request
+     *
+     * @return GetAIVideoTagResultResponse
      */
     public function getAIVideoTagResult($request)
     {
@@ -6441,24 +7491,31 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about one or more applications based on application IDs.
-     *  *
-     * @description You can specify multiple accelerated domain names in a request.
-     *  *
-     * @param GetAppInfosRequest $request GetAppInfosRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the information about one or more applications based on application IDs.
      *
-     * @return GetAppInfosResponse GetAppInfosResponse
+     * @remarks
+     * You can specify multiple accelerated domain names in a request.
+     *
+     * @param request - GetAppInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppInfosResponse
+     *
+     * @param GetAppInfosRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetAppInfosResponse
      */
     public function getAppInfosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appIds)) {
-            $query['AppIds'] = $request->appIds;
+        if (null !== $request->appIds) {
+            @$query['AppIds'] = $request->appIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAppInfos',
@@ -6471,21 +7528,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAppInfosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAppInfosResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAppInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about one or more applications based on application IDs.
-     *  *
-     * @description You can specify multiple accelerated domain names in a request.
-     *  *
-     * @param GetAppInfosRequest $request GetAppInfosRequest
+     * Queries the information about one or more applications based on application IDs.
      *
-     * @return GetAppInfosResponse GetAppInfosResponse
+     * @remarks
+     * You can specify multiple accelerated domain names in a request.
+     *
+     * @param request - GetAppInfosRequest
+     *
+     * @returns GetAppInfosResponse
+     *
+     * @param GetAppInfosRequest $request
+     *
+     * @return GetAppInfosResponse
      */
     public function getAppInfos($request)
     {
@@ -6495,30 +7554,39 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the URL and basic information about one or more auxiliary media assets such as watermark images, subtitle files, and materials based on IDs.
-     *  *
-     * @description You can query information about up to 20 auxiliary media assets in a request.
-     *  *
-     * @param GetAttachedMediaInfoRequest $request GetAttachedMediaInfoRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the URL and basic information about one or more auxiliary media assets such as watermark images, subtitle files, and materials based on IDs.
      *
-     * @return GetAttachedMediaInfoResponse GetAttachedMediaInfoResponse
+     * @remarks
+     * You can query information about up to 20 auxiliary media assets in a request.
+     *
+     * @param request - GetAttachedMediaInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAttachedMediaInfoResponse
+     *
+     * @param GetAttachedMediaInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAttachedMediaInfoResponse
      */
     public function getAttachedMediaInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authTimeout)) {
-            $query['AuthTimeout'] = $request->authTimeout;
+        if (null !== $request->authTimeout) {
+            @$query['AuthTimeout'] = $request->authTimeout;
         }
-        if (!Utils::isUnset($request->mediaIds)) {
-            $query['MediaIds'] = $request->mediaIds;
+
+        if (null !== $request->mediaIds) {
+            @$query['MediaIds'] = $request->mediaIds;
         }
-        if (!Utils::isUnset($request->outputType)) {
-            $query['OutputType'] = $request->outputType;
+
+        if (null !== $request->outputType) {
+            @$query['OutputType'] = $request->outputType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAttachedMediaInfo',
@@ -6531,21 +7599,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAttachedMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAttachedMediaInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAttachedMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the URL and basic information about one or more auxiliary media assets such as watermark images, subtitle files, and materials based on IDs.
-     *  *
-     * @description You can query information about up to 20 auxiliary media assets in a request.
-     *  *
-     * @param GetAttachedMediaInfoRequest $request GetAttachedMediaInfoRequest
+     * Queries the URL and basic information about one or more auxiliary media assets such as watermark images, subtitle files, and materials based on IDs.
      *
-     * @return GetAttachedMediaInfoResponse GetAttachedMediaInfoResponse
+     * @remarks
+     * You can query information about up to 20 auxiliary media assets in a request.
+     *
+     * @param request - GetAttachedMediaInfoRequest
+     *
+     * @returns GetAttachedMediaInfoResponse
+     *
+     * @param GetAttachedMediaInfoRequest $request
+     *
+     * @return GetAttachedMediaInfoResponse
      */
     public function getAttachedMediaInfo($request)
     {
@@ -6555,31 +7625,40 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the manual review history.
-     *  *
-     * @param GetAuditHistoryRequest $request GetAuditHistoryRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the manual review history.
      *
-     * @return GetAuditHistoryResponse GetAuditHistoryResponse
+     * @param request - GetAuditHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAuditHistoryResponse
+     *
+     * @param GetAuditHistoryRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetAuditHistoryResponse
      */
     public function getAuditHistoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAuditHistory',
@@ -6592,19 +7671,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAuditHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAuditHistoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAuditHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the manual review history.
-     *  *
-     * @param GetAuditHistoryRequest $request GetAuditHistoryRequest
+     * Queries the manual review history.
      *
-     * @return GetAuditHistoryResponse GetAuditHistoryResponse
+     * @param request - GetAuditHistoryRequest
+     *
+     * @returns GetAuditHistoryResponse
+     *
+     * @param GetAuditHistoryRequest $request
+     *
+     * @return GetAuditHistoryResponse
      */
     public function getAuditHistory($request)
     {
@@ -6614,34 +7694,44 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a specific category and its subcategories based on the ID or type of the category.
-     *  *
-     * @param GetCategoriesRequest $request GetCategoriesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a specific category and its subcategories based on the ID or type of the category.
      *
-     * @return GetCategoriesResponse GetCategoriesResponse
+     * @param request - GetCategoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCategoriesResponse
+     *
+     * @param GetCategoriesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetCategoriesResponse
      */
     public function getCategoriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cateId)) {
-            $query['CateId'] = $request->cateId;
+        if (null !== $request->cateId) {
+            @$query['CateId'] = $request->cateId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetCategories',
@@ -6654,19 +7744,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCategoriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a specific category and its subcategories based on the ID or type of the category.
-     *  *
-     * @param GetCategoriesRequest $request GetCategoriesRequest
+     * Queries the information about a specific category and its subcategories based on the ID or type of the category.
      *
-     * @return GetCategoriesResponse GetCategoriesResponse
+     * @param request - GetCategoriesRequest
+     *
+     * @returns GetCategoriesResponse
+     *
+     * @param GetCategoriesRequest $request
+     *
+     * @return GetCategoriesResponse
      */
     public function getCategories($request)
     {
@@ -6676,25 +7767,32 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary 支持区域化媒资ID级别播放数据查询
-     *  *
-     * @param GetDailyPlayRegionStatisRequest $request GetDailyPlayRegionStatisRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 支持区域化媒资ID级别播放数据查询.
      *
-     * @return GetDailyPlayRegionStatisResponse GetDailyPlayRegionStatisResponse
+     * @param request - GetDailyPlayRegionStatisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDailyPlayRegionStatisResponse
+     *
+     * @param GetDailyPlayRegionStatisRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDailyPlayRegionStatisResponse
      */
     public function getDailyPlayRegionStatisWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->date)) {
-            $query['Date'] = $request->date;
+        if (null !== $request->date) {
+            @$query['Date'] = $request->date;
         }
-        if (!Utils::isUnset($request->mediaRegion)) {
-            $query['MediaRegion'] = $request->mediaRegion;
+
+        if (null !== $request->mediaRegion) {
+            @$query['MediaRegion'] = $request->mediaRegion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDailyPlayRegionStatis',
@@ -6707,19 +7805,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDailyPlayRegionStatisResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDailyPlayRegionStatisResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDailyPlayRegionStatisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 支持区域化媒资ID级别播放数据查询
-     *  *
-     * @param GetDailyPlayRegionStatisRequest $request GetDailyPlayRegionStatisRequest
+     * 支持区域化媒资ID级别播放数据查询.
      *
-     * @return GetDailyPlayRegionStatisResponse GetDailyPlayRegionStatisResponse
+     * @param request - GetDailyPlayRegionStatisRequest
+     *
+     * @returns GetDailyPlayRegionStatisResponse
+     *
+     * @param GetDailyPlayRegionStatisRequest $request
+     *
+     * @return GetDailyPlayRegionStatisResponse
      */
     public function getDailyPlayRegionStatis($request)
     {
@@ -6729,25 +7828,32 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about the default AI template.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     * *   You can query information only about the default AI template for automated review.
-     *  *
-     * @param GetDefaultAITemplateRequest $request GetDefaultAITemplateRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries information about the default AI template.
      *
-     * @return GetDefaultAITemplateResponse GetDefaultAITemplateResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     * *   You can query information only about the default AI template for automated review.
+     *
+     * @param request - GetDefaultAITemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDefaultAITemplateResponse
+     *
+     * @param GetDefaultAITemplateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetDefaultAITemplateResponse
      */
     public function getDefaultAITemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDefaultAITemplate',
@@ -6760,22 +7866,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDefaultAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDefaultAITemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDefaultAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about the default AI template.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     * *   You can query information only about the default AI template for automated review.
-     *  *
-     * @param GetDefaultAITemplateRequest $request GetDefaultAITemplateRequest
+     * Queries information about the default AI template.
      *
-     * @return GetDefaultAITemplateResponse GetDefaultAITemplateResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     * *   You can query information only about the default AI template for automated review.
+     *
+     * @param request - GetDefaultAITemplateRequest
+     *
+     * @returns GetDefaultAITemplateResponse
+     *
+     * @param GetDefaultAITemplateRequest $request
+     *
+     * @return GetDefaultAITemplateResponse
      */
     public function getDefaultAITemplate($request)
     {
@@ -6785,44 +7893,57 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the results of a digital watermark extraction job. You can call this operation to obtain information such as the job status and the content of the copyright or user-tracing watermark.
-     *  *
-     * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+     * Queries the results of a digital watermark extraction job. You can call this operation to obtain information such as the job status and the content of the copyright or user-tracing watermark.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
      * *   You can call this operation to query the watermark content after you call the [SubmitDigitalWatermarkExtractJob](~~SubmitDigitalWatermarkExtractJob~~) operation to extract the copyright or user-tracing watermark in a video.
      * *   You can query watermark content extracted only from watermark extraction jobs that are submitted in the last 2 years.
-     *  *
-     * @param GetDigitalWatermarkExtractResultRequest $request GetDigitalWatermarkExtractResultRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDigitalWatermarkExtractResultResponse GetDigitalWatermarkExtractResultResponse
+     * @param request - GetDigitalWatermarkExtractResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDigitalWatermarkExtractResultResponse
+     *
+     * @param GetDigitalWatermarkExtractResultRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetDigitalWatermarkExtractResultResponse
      */
     public function getDigitalWatermarkExtractResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->extractType)) {
-            $query['ExtractType'] = $request->extractType;
+        if (null !== $request->extractType) {
+            @$query['ExtractType'] = $request->extractType;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDigitalWatermarkExtractResult',
@@ -6835,23 +7956,25 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDigitalWatermarkExtractResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDigitalWatermarkExtractResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDigitalWatermarkExtractResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the results of a digital watermark extraction job. You can call this operation to obtain information such as the job status and the content of the copyright or user-tracing watermark.
-     *  *
-     * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+     * Queries the results of a digital watermark extraction job. You can call this operation to obtain information such as the job status and the content of the copyright or user-tracing watermark.
+     *
+     * @remarks
+     *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
      * *   You can call this operation to query the watermark content after you call the [SubmitDigitalWatermarkExtractJob](~~SubmitDigitalWatermarkExtractJob~~) operation to extract the copyright or user-tracing watermark in a video.
      * *   You can query watermark content extracted only from watermark extraction jobs that are submitted in the last 2 years.
-     *  *
-     * @param GetDigitalWatermarkExtractResultRequest $request GetDigitalWatermarkExtractResultRequest
      *
-     * @return GetDigitalWatermarkExtractResultResponse GetDigitalWatermarkExtractResultResponse
+     * @param request - GetDigitalWatermarkExtractResultRequest
+     *
+     * @returns GetDigitalWatermarkExtractResultResponse
+     *
+     * @param GetDigitalWatermarkExtractResultRequest $request
+     *
+     * @return GetDigitalWatermarkExtractResultResponse
      */
     public function getDigitalWatermarkExtractResult($request)
     {
@@ -6861,32 +7984,44 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetEditingProjectRequest $request GetEditingProjectRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取剪辑工程.
      *
-     * @return GetEditingProjectResponse GetEditingProjectResponse
+     * @param request - GetEditingProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEditingProjectResponse
+     *
+     * @param GetEditingProjectRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetEditingProjectResponse
      */
     public function getEditingProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetEditingProject',
@@ -6899,17 +8034,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetEditingProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetEditingProjectRequest $request GetEditingProjectRequest
+     * 获取剪辑工程.
      *
-     * @return GetEditingProjectResponse GetEditingProjectResponse
+     * @param request - GetEditingProjectRequest
+     *
+     * @returns GetEditingProjectResponse
+     *
+     * @param GetEditingProjectRequest $request
+     *
+     * @return GetEditingProjectResponse
      */
     public function getEditingProject($request)
     {
@@ -6919,42 +8057,55 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries materials to be edited for an online editing project.
-     *  *
-     * @description During editing, you can add materials to the timeline, but some of them may not be used.
-     *  *
-     * @param GetEditingProjectMaterialsRequest $request GetEditingProjectMaterialsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries materials to be edited for an online editing project.
      *
-     * @return GetEditingProjectMaterialsResponse GetEditingProjectMaterialsResponse
+     * @remarks
+     * During editing, you can add materials to the timeline, but some of them may not be used.
+     *
+     * @param request - GetEditingProjectMaterialsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEditingProjectMaterialsResponse
+     *
+     * @param GetEditingProjectMaterialsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetEditingProjectMaterialsResponse
      */
     public function getEditingProjectMaterialsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->materialType)) {
-            $query['MaterialType'] = $request->materialType;
+        if (null !== $request->materialType) {
+            @$query['MaterialType'] = $request->materialType;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetEditingProjectMaterials',
@@ -6967,21 +8118,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetEditingProjectMaterialsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries materials to be edited for an online editing project.
-     *  *
-     * @description During editing, you can add materials to the timeline, but some of them may not be used.
-     *  *
-     * @param GetEditingProjectMaterialsRequest $request GetEditingProjectMaterialsRequest
+     * Queries materials to be edited for an online editing project.
      *
-     * @return GetEditingProjectMaterialsResponse GetEditingProjectMaterialsResponse
+     * @remarks
+     * During editing, you can add materials to the timeline, but some of them may not be used.
+     *
+     * @param request - GetEditingProjectMaterialsRequest
+     *
+     * @returns GetEditingProjectMaterialsResponse
+     *
+     * @param GetEditingProjectMaterialsRequest $request
+     *
+     * @return GetEditingProjectMaterialsResponse
      */
     public function getEditingProjectMaterials($request)
     {
@@ -6991,28 +8144,36 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the basic information and access URL of an image based on the image ID.
-     *  *
-     * @param GetImageInfoRequest $request GetImageInfoRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the basic information and access URL of an image based on the image ID.
      *
-     * @return GetImageInfoResponse GetImageInfoResponse
+     * @param request - GetImageInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetImageInfoResponse
+     *
+     * @param GetImageInfoRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetImageInfoResponse
      */
     public function getImageInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authTimeout)) {
-            $query['AuthTimeout'] = $request->authTimeout;
+        if (null !== $request->authTimeout) {
+            @$query['AuthTimeout'] = $request->authTimeout;
         }
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->outputType)) {
-            $query['OutputType'] = $request->outputType;
+
+        if (null !== $request->outputType) {
+            @$query['OutputType'] = $request->outputType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetImageInfo',
@@ -7025,19 +8186,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetImageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetImageInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetImageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the basic information and access URL of an image based on the image ID.
-     *  *
-     * @param GetImageInfoRequest $request GetImageInfoRequest
+     * Queries the basic information and access URL of an image based on the image ID.
      *
-     * @return GetImageInfoResponse GetImageInfoResponse
+     * @param request - GetImageInfoRequest
+     *
+     * @returns GetImageInfoResponse
+     *
+     * @param GetImageInfoRequest $request
+     *
+     * @return GetImageInfoResponse
      */
     public function getImageInfo($request)
     {
@@ -7047,32 +8209,41 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the basic information about multiple images at a time.
-     *  *
-     * @description *   You can call the [CreateUploadImage](~~CreateUploadImage~~) operation to upload images to ApsaraVideo VOD and call this operation to query the basic information about multiple images at a time.
+     * Queries the basic information about multiple images at a time.
+     *
+     * @remarks
+     *   You can call the [CreateUploadImage](~~CreateUploadImage~~) operation to upload images to ApsaraVideo VOD and call this operation to query the basic information about multiple images at a time.
      * *   To query information about video snapshots, call the [ListSnapshots](~~ListSnapshots~~) operation.
      * *   You can specify up to 20 image IDs in one call.
-     *  *
-     * @param GetImageInfosRequest $request GetImageInfosRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetImageInfosResponse GetImageInfosResponse
+     * @param request - GetImageInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetImageInfosResponse
+     *
+     * @param GetImageInfosRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetImageInfosResponse
      */
     public function getImageInfosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authTimeout)) {
-            $query['AuthTimeout'] = $request->authTimeout;
+        if (null !== $request->authTimeout) {
+            @$query['AuthTimeout'] = $request->authTimeout;
         }
-        if (!Utils::isUnset($request->imageIds)) {
-            $query['ImageIds'] = $request->imageIds;
+
+        if (null !== $request->imageIds) {
+            @$query['ImageIds'] = $request->imageIds;
         }
-        if (!Utils::isUnset($request->outputType)) {
-            $query['OutputType'] = $request->outputType;
+
+        if (null !== $request->outputType) {
+            @$query['OutputType'] = $request->outputType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetImageInfos',
@@ -7085,23 +8256,25 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetImageInfosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetImageInfosResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetImageInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the basic information about multiple images at a time.
-     *  *
-     * @description *   You can call the [CreateUploadImage](~~CreateUploadImage~~) operation to upload images to ApsaraVideo VOD and call this operation to query the basic information about multiple images at a time.
+     * Queries the basic information about multiple images at a time.
+     *
+     * @remarks
+     *   You can call the [CreateUploadImage](~~CreateUploadImage~~) operation to upload images to ApsaraVideo VOD and call this operation to query the basic information about multiple images at a time.
      * *   To query information about video snapshots, call the [ListSnapshots](~~ListSnapshots~~) operation.
      * *   You can specify up to 20 image IDs in one call.
-     *  *
-     * @param GetImageInfosRequest $request GetImageInfosRequest
      *
-     * @return GetImageInfosResponse GetImageInfosResponse
+     * @param request - GetImageInfosRequest
+     *
+     * @returns GetImageInfosResponse
+     *
+     * @param GetImageInfosRequest $request
+     *
+     * @return GetImageInfosResponse
      */
     public function getImageInfos($request)
     {
@@ -7111,30 +8284,38 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an asynchronous task based on jobId.
-     *  *
-     * @description ****
+     * Queries the details of an asynchronous task based on jobId.
+     *
+     * @remarks
+     * ***
      * You can call this operation to query only asynchronous tasks of the last six months. The types of tasks that you can query include transcoding tasks, snapshot tasks, and AI tasks.
      * **QPS limit**
      * You can call this operation up to 15 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param GetJobDetailRequest $request GetJobDetailRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetJobDetailResponse GetJobDetailResponse
+     * @param request - GetJobDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobDetailResponse
+     *
+     * @param GetJobDetailRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetJobDetailResponse
      */
     public function getJobDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->jobType)) {
-            $query['JobType'] = $request->jobType;
+
+        if (null !== $request->jobType) {
+            @$query['JobType'] = $request->jobType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetJobDetail',
@@ -7147,24 +8328,26 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetJobDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an asynchronous task based on jobId.
-     *  *
-     * @description ****
+     * Queries the details of an asynchronous task based on jobId.
+     *
+     * @remarks
+     * ***
      * You can call this operation to query only asynchronous tasks of the last six months. The types of tasks that you can query include transcoding tasks, snapshot tasks, and AI tasks.
      * **QPS limit**
      * You can call this operation up to 15 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param GetJobDetailRequest $request GetJobDetailRequest
      *
-     * @return GetJobDetailResponse GetJobDetailResponse
+     * @param request - GetJobDetailRequest
+     *
+     * @returns GetJobDetailResponse
+     *
+     * @param GetJobDetailRequest $request
+     *
+     * @return GetJobDetailResponse
      */
     public function getJobDetail($request)
     {
@@ -7174,39 +8357,51 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of audio review results.
-     *  *
-     * @description If notifications for the [CreateAuditComplete](https://help.aliyun.com/document_detail/89576.html) event are configured, event notifications are sent to the callback URL after automated review is complete. You can call this operation to query the details of audio review results.
-     *  *
-     * @param GetMediaAuditAudioResultDetailRequest $request GetMediaAuditAudioResultDetailRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the details of audio review results.
      *
-     * @return GetMediaAuditAudioResultDetailResponse GetMediaAuditAudioResultDetailResponse
+     * @remarks
+     * If notifications for the [CreateAuditComplete](https://help.aliyun.com/document_detail/89576.html) event are configured, event notifications are sent to the callback URL after automated review is complete. You can call this operation to query the details of audio review results.
+     *
+     * @param request - GetMediaAuditAudioResultDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMediaAuditAudioResultDetailResponse
+     *
+     * @param GetMediaAuditAudioResultDetailRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetMediaAuditAudioResultDetailResponse
      */
     public function getMediaAuditAudioResultDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMediaAuditAudioResultDetail',
@@ -7219,21 +8414,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetMediaAuditAudioResultDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMediaAuditAudioResultDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMediaAuditAudioResultDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of audio review results.
-     *  *
-     * @description If notifications for the [CreateAuditComplete](https://help.aliyun.com/document_detail/89576.html) event are configured, event notifications are sent to the callback URL after automated review is complete. You can call this operation to query the details of audio review results.
-     *  *
-     * @param GetMediaAuditAudioResultDetailRequest $request GetMediaAuditAudioResultDetailRequest
+     * Queries the details of audio review results.
      *
-     * @return GetMediaAuditAudioResultDetailResponse GetMediaAuditAudioResultDetailResponse
+     * @remarks
+     * If notifications for the [CreateAuditComplete](https://help.aliyun.com/document_detail/89576.html) event are configured, event notifications are sent to the callback URL after automated review is complete. You can call this operation to query the details of audio review results.
+     *
+     * @param request - GetMediaAuditAudioResultDetailRequest
+     *
+     * @returns GetMediaAuditAudioResultDetailResponse
+     *
+     * @param GetMediaAuditAudioResultDetailRequest $request
+     *
+     * @return GetMediaAuditAudioResultDetailResponse
      */
     public function getMediaAuditAudioResultDetail($request)
     {
@@ -7243,22 +8440,28 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the summary of automated review results.
-     *  *
-     * @param GetMediaAuditResultRequest $request GetMediaAuditResultRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the summary of automated review results.
      *
-     * @return GetMediaAuditResultResponse GetMediaAuditResultResponse
+     * @param request - GetMediaAuditResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMediaAuditResultResponse
+     *
+     * @param GetMediaAuditResultRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetMediaAuditResultResponse
      */
     public function getMediaAuditResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMediaAuditResult',
@@ -7271,19 +8474,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetMediaAuditResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMediaAuditResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMediaAuditResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the summary of automated review results.
-     *  *
-     * @param GetMediaAuditResultRequest $request GetMediaAuditResultRequest
+     * Queries the summary of automated review results.
      *
-     * @return GetMediaAuditResultResponse GetMediaAuditResultResponse
+     * @param request - GetMediaAuditResultRequest
+     *
+     * @returns GetMediaAuditResultResponse
+     *
+     * @param GetMediaAuditResultRequest $request
+     *
+     * @return GetMediaAuditResultResponse
      */
     public function getMediaAuditResult($request)
     {
@@ -7293,29 +8497,37 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of automated review results. You can call this operation to query the details of review results in real time.
-     *  *
-     * @description *   By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
+     * Queries the details of automated review results. You can call this operation to query the details of review results in real time.
+     *
+     * @remarks
+     *   By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
      * *   ApsaraVideo VOD stores the snapshots in the automated review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
      * *   This operation is available only in the Singapore region.
-     *  *
-     * @param GetMediaAuditResultDetailRequest $request GetMediaAuditResultDetailRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMediaAuditResultDetailResponse GetMediaAuditResultDetailResponse
+     * @param request - GetMediaAuditResultDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMediaAuditResultDetailResponse
+     *
+     * @param GetMediaAuditResultDetailRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetMediaAuditResultDetailResponse
      */
     public function getMediaAuditResultDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMediaAuditResultDetail',
@@ -7328,23 +8540,25 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetMediaAuditResultDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMediaAuditResultDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMediaAuditResultDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of automated review results. You can call this operation to query the details of review results in real time.
-     *  *
-     * @description *   By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
+     * Queries the details of automated review results. You can call this operation to query the details of review results in real time.
+     *
+     * @remarks
+     *   By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
      * *   ApsaraVideo VOD stores the snapshots in the automated review results free of charge for two weeks. After this period, the snapshots are automatically deleted.
      * *   This operation is available only in the Singapore region.
-     *  *
-     * @param GetMediaAuditResultDetailRequest $request GetMediaAuditResultDetailRequest
      *
-     * @return GetMediaAuditResultDetailResponse GetMediaAuditResultDetailResponse
+     * @param request - GetMediaAuditResultDetailRequest
+     *
+     * @returns GetMediaAuditResultDetailResponse
+     *
+     * @param GetMediaAuditResultDetailRequest $request
+     *
+     * @return GetMediaAuditResultDetailResponse
      */
     public function getMediaAuditResultDetail($request)
     {
@@ -7354,25 +8568,32 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the timelines of all snapshots that violate content regulations.
-     *  *
-     * @description >  By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
-     * This operation is available only in the Singapore region.
-     *  *
-     * @param GetMediaAuditResultTimelineRequest $request GetMediaAuditResultTimelineRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the timelines of all snapshots that violate content regulations.
      *
-     * @return GetMediaAuditResultTimelineResponse GetMediaAuditResultTimelineResponse
+     * @remarks
+     * >  By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
+     * This operation is available only in the Singapore region.
+     *
+     * @param request - GetMediaAuditResultTimelineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMediaAuditResultTimelineResponse
+     *
+     * @param GetMediaAuditResultTimelineRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetMediaAuditResultTimelineResponse
      */
     public function getMediaAuditResultTimelineWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMediaAuditResultTimeline',
@@ -7385,22 +8606,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetMediaAuditResultTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMediaAuditResultTimelineResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMediaAuditResultTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the timelines of all snapshots that violate content regulations.
-     *  *
-     * @description >  By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
-     * This operation is available only in the Singapore region.
-     *  *
-     * @param GetMediaAuditResultTimelineRequest $request GetMediaAuditResultTimelineRequest
+     * Queries the timelines of all snapshots that violate content regulations.
      *
-     * @return GetMediaAuditResultTimelineResponse GetMediaAuditResultTimelineResponse
+     * @remarks
+     * >  By default, only details of snapshots that violate content regulations and potentially violate content regulations are returned.
+     * This operation is available only in the Singapore region.
+     *
+     * @param request - GetMediaAuditResultTimelineRequest
+     *
+     * @returns GetMediaAuditResultTimelineResponse
+     *
+     * @param GetMediaAuditResultTimelineRequest $request
+     *
+     * @return GetMediaAuditResultTimelineResponse
      */
     public function getMediaAuditResultTimeline($request)
     {
@@ -7410,36 +8633,47 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries a media fingerprinting result. After a media fingerprinting job is complete, you can call this operation to query the media fingerprinting result.
-     *  *
-     * @description Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     *  *
-     * @param GetMediaDNAResultRequest $request GetMediaDNAResultRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries a media fingerprinting result. After a media fingerprinting job is complete, you can call this operation to query the media fingerprinting result.
      *
-     * @return GetMediaDNAResultResponse GetMediaDNAResultResponse
+     * @remarks
+     * Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     *
+     * @param request - GetMediaDNAResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMediaDNAResultResponse
+     *
+     * @param GetMediaDNAResultRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetMediaDNAResultResponse
      */
     public function getMediaDNAResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMediaDNAResult',
@@ -7452,21 +8686,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetMediaDNAResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMediaDNAResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMediaDNAResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a media fingerprinting result. After a media fingerprinting job is complete, you can call this operation to query the media fingerprinting result.
-     *  *
-     * @description Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     *  *
-     * @param GetMediaDNAResultRequest $request GetMediaDNAResultRequest
+     * Queries a media fingerprinting result. After a media fingerprinting job is complete, you can call this operation to query the media fingerprinting result.
      *
-     * @return GetMediaDNAResultResponse GetMediaDNAResultResponse
+     * @remarks
+     * Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     *
+     * @param request - GetMediaDNAResultRequest
+     *
+     * @returns GetMediaDNAResultResponse
+     *
+     * @param GetMediaDNAResultRequest $request
+     *
+     * @return GetMediaDNAResultResponse
      */
     public function getMediaDNAResult($request)
     {
@@ -7476,23 +8712,29 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about media refresh or prefetch jobs, such as the job status and filtering conditions.
-     *  *
-     * @description You can query the information about all media files or a specific media file in a refresh or prefetch job.
+     * Queries the information about media refresh or prefetch jobs, such as the job status and filtering conditions.
+     *
+     * @remarks
+     * You can query the information about all media files or a specific media file in a refresh or prefetch job.
      * ### QPS limits
      * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param GetMediaRefreshJobsRequest $request GetMediaRefreshJobsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMediaRefreshJobsResponse GetMediaRefreshJobsResponse
+     * @param request - GetMediaRefreshJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMediaRefreshJobsResponse
+     *
+     * @param GetMediaRefreshJobsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetMediaRefreshJobsResponse
      */
     public function getMediaRefreshJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMediaRefreshJobs',
@@ -7505,23 +8747,25 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetMediaRefreshJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMediaRefreshJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMediaRefreshJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about media refresh or prefetch jobs, such as the job status and filtering conditions.
-     *  *
-     * @description You can query the information about all media files or a specific media file in a refresh or prefetch job.
+     * Queries the information about media refresh or prefetch jobs, such as the job status and filtering conditions.
+     *
+     * @remarks
+     * You can query the information about all media files or a specific media file in a refresh or prefetch job.
      * ### QPS limits
      * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations in ApsaraVideo VoD](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param GetMediaRefreshJobsRequest $request GetMediaRefreshJobsRequest
      *
-     * @return GetMediaRefreshJobsResponse GetMediaRefreshJobsResponse
+     * @param request - GetMediaRefreshJobsRequest
+     *
+     * @returns GetMediaRefreshJobsResponse
+     *
+     * @param GetMediaRefreshJobsRequest $request
+     *
+     * @return GetMediaRefreshJobsResponse
      */
     public function getMediaRefreshJobs($request)
     {
@@ -7531,27 +8775,35 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the callback method, callback URL, and event type for event notifications.
-     *  *
-     * @description > For more information, see [Event notification](https://help.aliyun.com/document_detail/55627.html).
-     *  *
-     * @param GetMessageCallbackRequest $request GetMessageCallbackRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the callback method, callback URL, and event type for event notifications.
      *
-     * @return GetMessageCallbackResponse GetMessageCallbackResponse
+     * @remarks
+     * > For more information, see [Event notification](https://help.aliyun.com/document_detail/55627.html).
+     *
+     * @param request - GetMessageCallbackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMessageCallbackResponse
+     *
+     * @param GetMessageCallbackRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetMessageCallbackResponse
      */
     public function getMessageCallbackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMessageCallback',
@@ -7564,21 +8816,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetMessageCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMessageCallbackResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMessageCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the callback method, callback URL, and event type for event notifications.
-     *  *
-     * @description > For more information, see [Event notification](https://help.aliyun.com/document_detail/55627.html).
-     *  *
-     * @param GetMessageCallbackRequest $request GetMessageCallbackRequest
+     * Queries the callback method, callback URL, and event type for event notifications.
      *
-     * @return GetMessageCallbackResponse GetMessageCallbackResponse
+     * @remarks
+     * > For more information, see [Event notification](https://help.aliyun.com/document_detail/55627.html).
+     *
+     * @param request - GetMessageCallbackRequest
+     *
+     * @returns GetMessageCallbackResponse
+     *
+     * @param GetMessageCallbackRequest $request
+     *
+     * @return GetMessageCallbackResponse
      */
     public function getMessageCallback($request)
     {
@@ -7588,33 +8842,43 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the mezzanine file of an audio or video. The information includes the mezzanine file URL, resolution, and bitrate of the audio or video.
-     *  *
-     * @description You can obtain complete information about the source file only after a stream is transcoded.
-     *  *
-     * @param GetMezzanineInfoRequest $request GetMezzanineInfoRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the mezzanine file of an audio or video. The information includes the mezzanine file URL, resolution, and bitrate of the audio or video.
      *
-     * @return GetMezzanineInfoResponse GetMezzanineInfoResponse
+     * @remarks
+     * You can obtain complete information about the source file only after a stream is transcoded.
+     *
+     * @param request - GetMezzanineInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMezzanineInfoResponse
+     *
+     * @param GetMezzanineInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetMezzanineInfoResponse
      */
     public function getMezzanineInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->additionType)) {
-            $query['AdditionType'] = $request->additionType;
+        if (null !== $request->additionType) {
+            @$query['AdditionType'] = $request->additionType;
         }
-        if (!Utils::isUnset($request->authTimeout)) {
-            $query['AuthTimeout'] = $request->authTimeout;
+
+        if (null !== $request->authTimeout) {
+            @$query['AuthTimeout'] = $request->authTimeout;
         }
-        if (!Utils::isUnset($request->outputType)) {
-            $query['OutputType'] = $request->outputType;
+
+        if (null !== $request->outputType) {
+            @$query['OutputType'] = $request->outputType;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMezzanineInfo',
@@ -7627,21 +8891,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetMezzanineInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMezzanineInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMezzanineInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the mezzanine file of an audio or video. The information includes the mezzanine file URL, resolution, and bitrate of the audio or video.
-     *  *
-     * @description You can obtain complete information about the source file only after a stream is transcoded.
-     *  *
-     * @param GetMezzanineInfoRequest $request GetMezzanineInfoRequest
+     * Queries the information about the mezzanine file of an audio or video. The information includes the mezzanine file URL, resolution, and bitrate of the audio or video.
      *
-     * @return GetMezzanineInfoResponse GetMezzanineInfoResponse
+     * @remarks
+     * You can obtain complete information about the source file only after a stream is transcoded.
+     *
+     * @param request - GetMezzanineInfoRequest
+     *
+     * @returns GetMezzanineInfoResponse
+     *
+     * @param GetMezzanineInfoRequest $request
+     *
+     * @return GetMezzanineInfoResponse
      */
     public function getMezzanineInfo($request)
     {
@@ -7651,59 +8917,77 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the playback URL by the audio or video ID. Then, you can use ApsaraVideo Player or a third-party player, such as a system player, open source player, orself-developed player, to play the audio or video.
-     *  *
-     * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged for outbound traffic when you download or play videos based on URLs in ApsaraVideo VOD. For more information about billing of outbound traffic, see [Billing of outbound traffic](~~188308#section-rwh-e88-f7j~~). If you have configured an accelerated domain name, see [Billing of the acceleration service](~~188308#section-c5t-oq9-15e~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
+     * Obtains the playback URL by the audio or video ID. Then, you can use ApsaraVideo Player or a third-party player, such as a system player, open source player, orself-developed player, to play the audio or video.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged for outbound traffic when you download or play videos based on URLs in ApsaraVideo VOD. For more information about billing of outbound traffic, see [Billing of outbound traffic](~~188308#section-rwh-e88-f7j~~). If you have configured an accelerated domain name, see [Billing of the acceleration service](~~188308#section-c5t-oq9-15e~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
      * *   Only videos whose Status is Normal can be played. For more information, see [Overview](https://help.aliyun.com/document_detail/57290.html).
      * *   If video playback fails, you can call the [GetMezzanineInfo](~~GetMezzanineInfo~~) operation to check whether the video source information is correct.
-     *  *
-     * @param GetPlayInfoRequest $request GetPlayInfoRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPlayInfoResponse GetPlayInfoResponse
+     * @param request - GetPlayInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPlayInfoResponse
+     *
+     * @param GetPlayInfoRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetPlayInfoResponse
      */
     public function getPlayInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->additionType)) {
-            $query['AdditionType'] = $request->additionType;
+        if (null !== $request->additionType) {
+            @$query['AdditionType'] = $request->additionType;
         }
-        if (!Utils::isUnset($request->authTimeout)) {
-            $query['AuthTimeout'] = $request->authTimeout;
+
+        if (null !== $request->authTimeout) {
+            @$query['AuthTimeout'] = $request->authTimeout;
         }
-        if (!Utils::isUnset($request->definition)) {
-            $query['Definition'] = $request->definition;
+
+        if (null !== $request->definition) {
+            @$query['Definition'] = $request->definition;
         }
-        if (!Utils::isUnset($request->digitalWatermarkType)) {
-            $query['DigitalWatermarkType'] = $request->digitalWatermarkType;
+
+        if (null !== $request->digitalWatermarkType) {
+            @$query['DigitalWatermarkType'] = $request->digitalWatermarkType;
         }
-        if (!Utils::isUnset($request->formats)) {
-            $query['Formats'] = $request->formats;
+
+        if (null !== $request->formats) {
+            @$query['Formats'] = $request->formats;
         }
-        if (!Utils::isUnset($request->outputType)) {
-            $query['OutputType'] = $request->outputType;
+
+        if (null !== $request->outputType) {
+            @$query['OutputType'] = $request->outputType;
         }
-        if (!Utils::isUnset($request->playConfig)) {
-            $query['PlayConfig'] = $request->playConfig;
+
+        if (null !== $request->playConfig) {
+            @$query['PlayConfig'] = $request->playConfig;
         }
-        if (!Utils::isUnset($request->reAuthInfo)) {
-            $query['ReAuthInfo'] = $request->reAuthInfo;
+
+        if (null !== $request->reAuthInfo) {
+            @$query['ReAuthInfo'] = $request->reAuthInfo;
         }
-        if (!Utils::isUnset($request->resultType)) {
-            $query['ResultType'] = $request->resultType;
+
+        if (null !== $request->resultType) {
+            @$query['ResultType'] = $request->resultType;
         }
-        if (!Utils::isUnset($request->streamType)) {
-            $query['StreamType'] = $request->streamType;
+
+        if (null !== $request->streamType) {
+            @$query['StreamType'] = $request->streamType;
         }
-        if (!Utils::isUnset($request->trace)) {
-            $query['Trace'] = $request->trace;
+
+        if (null !== $request->trace) {
+            @$query['Trace'] = $request->trace;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPlayInfo',
@@ -7716,23 +9000,25 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPlayInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPlayInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPlayInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the playback URL by the audio or video ID. Then, you can use ApsaraVideo Player or a third-party player, such as a system player, open source player, orself-developed player, to play the audio or video.
-     *  *
-     * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged for outbound traffic when you download or play videos based on URLs in ApsaraVideo VOD. For more information about billing of outbound traffic, see [Billing of outbound traffic](~~188308#section-rwh-e88-f7j~~). If you have configured an accelerated domain name, see [Billing of the acceleration service](~~188308#section-c5t-oq9-15e~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
+     * Obtains the playback URL by the audio or video ID. Then, you can use ApsaraVideo Player or a third-party player, such as a system player, open source player, orself-developed player, to play the audio or video.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged for outbound traffic when you download or play videos based on URLs in ApsaraVideo VOD. For more information about billing of outbound traffic, see [Billing of outbound traffic](~~188308#section-rwh-e88-f7j~~). If you have configured an accelerated domain name, see [Billing of the acceleration service](~~188308#section-c5t-oq9-15e~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
      * *   Only videos whose Status is Normal can be played. For more information, see [Overview](https://help.aliyun.com/document_detail/57290.html).
      * *   If video playback fails, you can call the [GetMezzanineInfo](~~GetMezzanineInfo~~) operation to check whether the video source information is correct.
-     *  *
-     * @param GetPlayInfoRequest $request GetPlayInfoRequest
      *
-     * @return GetPlayInfoResponse GetPlayInfoResponse
+     * @param request - GetPlayInfoRequest
+     *
+     * @returns GetPlayInfoResponse
+     *
+     * @param GetPlayInfoRequest $request
+     *
+     * @return GetPlayInfoResponse
      */
     public function getPlayInfo($request)
     {
@@ -7742,27 +9028,34 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries transcoding summaries of audio and video files based on the file ID. A transcoding summary includes the status and progress of transcoding.
-     *  *
-     * @description *   An audio or video file may be transcoded multiple times. This operation returns only the latest transcoding summary.
+     * Queries transcoding summaries of audio and video files based on the file ID. A transcoding summary includes the status and progress of transcoding.
+     *
+     * @remarks
+     *   An audio or video file may be transcoded multiple times. This operation returns only the latest transcoding summary.
      * *   You can query transcoding summaries for a maximum of 10 audio and video files in one request.
      * *   You can call the [ListTranscodeTask](https://help.aliyun.com/document_detail/109120.html) operation to query historical transcoding tasks.
      * *   **You can call this operation to query information only about transcoding tasks created within the past year.
-     *  *
-     * @param GetTranscodeSummaryRequest $request GetTranscodeSummaryRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTranscodeSummaryResponse GetTranscodeSummaryResponse
+     * @param request - GetTranscodeSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTranscodeSummaryResponse
+     *
+     * @param GetTranscodeSummaryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetTranscodeSummaryResponse
      */
     public function getTranscodeSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->videoIds)) {
-            $query['VideoIds'] = $request->videoIds;
+        if (null !== $request->videoIds) {
+            @$query['VideoIds'] = $request->videoIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetTranscodeSummary',
@@ -7775,24 +9068,26 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTranscodeSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTranscodeSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTranscodeSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries transcoding summaries of audio and video files based on the file ID. A transcoding summary includes the status and progress of transcoding.
-     *  *
-     * @description *   An audio or video file may be transcoded multiple times. This operation returns only the latest transcoding summary.
+     * Queries transcoding summaries of audio and video files based on the file ID. A transcoding summary includes the status and progress of transcoding.
+     *
+     * @remarks
+     *   An audio or video file may be transcoded multiple times. This operation returns only the latest transcoding summary.
      * *   You can query transcoding summaries for a maximum of 10 audio and video files in one request.
      * *   You can call the [ListTranscodeTask](https://help.aliyun.com/document_detail/109120.html) operation to query historical transcoding tasks.
      * *   **You can call this operation to query information only about transcoding tasks created within the past year.
-     *  *
-     * @param GetTranscodeSummaryRequest $request GetTranscodeSummaryRequest
      *
-     * @return GetTranscodeSummaryResponse GetTranscodeSummaryResponse
+     * @param request - GetTranscodeSummaryRequest
+     *
+     * @returns GetTranscodeSummaryResponse
+     *
+     * @param GetTranscodeSummaryRequest $request
+     *
+     * @return GetTranscodeSummaryResponse
      */
     public function getTranscodeSummary($request)
     {
@@ -7802,27 +9097,35 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries details about transcoding jobs based on the transcoding task ID.
-     *  *
-     * @description You can call this operation to query only transcoding tasks created within the past year.
-     *  *
-     * @param GetTranscodeTaskRequest $request GetTranscodeTaskRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries details about transcoding jobs based on the transcoding task ID.
      *
-     * @return GetTranscodeTaskResponse GetTranscodeTaskResponse
+     * @remarks
+     * You can call this operation to query only transcoding tasks created within the past year.
+     *
+     * @param request - GetTranscodeTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTranscodeTaskResponse
+     *
+     * @param GetTranscodeTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetTranscodeTaskResponse
      */
     public function getTranscodeTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobIds)) {
-            $query['JobIds'] = $request->jobIds;
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
         }
-        if (!Utils::isUnset($request->transcodeTaskId)) {
-            $query['TranscodeTaskId'] = $request->transcodeTaskId;
+
+        if (null !== $request->transcodeTaskId) {
+            @$query['TranscodeTaskId'] = $request->transcodeTaskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetTranscodeTask',
@@ -7835,21 +9138,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTranscodeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTranscodeTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTranscodeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries details about transcoding jobs based on the transcoding task ID.
-     *  *
-     * @description You can call this operation to query only transcoding tasks created within the past year.
-     *  *
-     * @param GetTranscodeTaskRequest $request GetTranscodeTaskRequest
+     * Queries details about transcoding jobs based on the transcoding task ID.
      *
-     * @return GetTranscodeTaskResponse GetTranscodeTaskResponse
+     * @remarks
+     * You can call this operation to query only transcoding tasks created within the past year.
+     *
+     * @param request - GetTranscodeTaskRequest
+     *
+     * @returns GetTranscodeTaskResponse
+     *
+     * @param GetTranscodeTaskRequest $request
+     *
+     * @return GetTranscodeTaskResponse
      */
     public function getTranscodeTask($request)
     {
@@ -7859,24 +9164,31 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a transcoding template group based on the template group ID.
-     *  *
-     * @description This operation returns information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
-     *  *
-     * @param GetTranscodeTemplateGroupRequest $request GetTranscodeTemplateGroupRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a transcoding template group based on the template group ID.
      *
-     * @return GetTranscodeTemplateGroupResponse GetTranscodeTemplateGroupResponse
+     * @remarks
+     * This operation returns information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
+     *
+     * @param request - GetTranscodeTemplateGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTranscodeTemplateGroupResponse
+     *
+     * @param GetTranscodeTemplateGroupRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetTranscodeTemplateGroupResponse
      */
     public function getTranscodeTemplateGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->transcodeTemplateGroupId)) {
-            $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+        if (null !== $request->transcodeTemplateGroupId) {
+            @$query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetTranscodeTemplateGroup',
@@ -7889,21 +9201,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTranscodeTemplateGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a transcoding template group based on the template group ID.
-     *  *
-     * @description This operation returns information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
-     *  *
-     * @param GetTranscodeTemplateGroupRequest $request GetTranscodeTemplateGroupRequest
+     * Queries the details of a transcoding template group based on the template group ID.
      *
-     * @return GetTranscodeTemplateGroupResponse GetTranscodeTemplateGroupResponse
+     * @remarks
+     * This operation returns information about the specified transcoding template group and the configurations of all the transcoding templates in the group.
+     *
+     * @param request - GetTranscodeTemplateGroupRequest
+     *
+     * @returns GetTranscodeTemplateGroupResponse
+     *
+     * @param GetTranscodeTemplateGroupRequest $request
+     *
+     * @return GetTranscodeTemplateGroupResponse
      */
     public function getTranscodeTemplateGroup($request)
     {
@@ -7913,28 +9227,36 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about URL-based upload jobs.
-     *  *
-     * @description You can query the information about a URL-based upload job by specifying the upload URL or using the job ID returned when you upload media files. The information includes the status of the upload job, custom configurations, the time when the job was created, and the time when the job was complete.
-     * If the upload fails, you can view the error code and error message. If the upload is successful, you can obtain the video ID.
-     *  *
-     * @param GetURLUploadInfosRequest $request GetURLUploadInfosRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the information about URL-based upload jobs.
      *
-     * @return GetURLUploadInfosResponse GetURLUploadInfosResponse
+     * @remarks
+     * You can query the information about a URL-based upload job by specifying the upload URL or using the job ID returned when you upload media files. The information includes the status of the upload job, custom configurations, the time when the job was created, and the time when the job was complete.
+     * If the upload fails, you can view the error code and error message. If the upload is successful, you can obtain the video ID.
+     *
+     * @param request - GetURLUploadInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetURLUploadInfosResponse
+     *
+     * @param GetURLUploadInfosRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetURLUploadInfosResponse
      */
     public function getURLUploadInfosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobIds)) {
-            $query['JobIds'] = $request->jobIds;
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
         }
-        if (!Utils::isUnset($request->uploadURLs)) {
-            $query['UploadURLs'] = $request->uploadURLs;
+
+        if (null !== $request->uploadURLs) {
+            @$query['UploadURLs'] = $request->uploadURLs;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetURLUploadInfos',
@@ -7947,22 +9269,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetURLUploadInfosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetURLUploadInfosResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetURLUploadInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about URL-based upload jobs.
-     *  *
-     * @description You can query the information about a URL-based upload job by specifying the upload URL or using the job ID returned when you upload media files. The information includes the status of the upload job, custom configurations, the time when the job was created, and the time when the job was complete.
-     * If the upload fails, you can view the error code and error message. If the upload is successful, you can obtain the video ID.
-     *  *
-     * @param GetURLUploadInfosRequest $request GetURLUploadInfosRequest
+     * Queries the information about URL-based upload jobs.
      *
-     * @return GetURLUploadInfosResponse GetURLUploadInfosResponse
+     * @remarks
+     * You can query the information about a URL-based upload job by specifying the upload URL or using the job ID returned when you upload media files. The information includes the status of the upload job, custom configurations, the time when the job was created, and the time when the job was complete.
+     * If the upload fails, you can view the error code and error message. If the upload is successful, you can obtain the video ID.
+     *
+     * @param request - GetURLUploadInfosRequest
+     *
+     * @returns GetURLUploadInfosResponse
+     *
+     * @param GetURLUploadInfosRequest $request
+     *
+     * @return GetURLUploadInfosResponse
      */
     public function getURLUploadInfos($request)
     {
@@ -7972,9 +9296,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the upload details, such as the upload time, upload ratio, and upload source, about one or more media files based on the media IDs.
-     *  *
-     * @description *   You can call this operation to obtain the upload details only about audio and video files.
+     * Queries the upload details, such as the upload time, upload ratio, and upload source, about one or more media files based on the media IDs.
+     *
+     * @remarks
+     *   You can call this operation to obtain the upload details only about audio and video files.
      * *   If you use the ApsaraVideo VOD console to upload audio and video files, you can call this operation to query information such as the upload ratio. If you use an upload SDK to upload audio and video files, make sure that the version of the [upload SDK](https://help.aliyun.com/document_detail/52200.html) meets one of the following requirements:
      *     *   The version of the upload SDK for Java is 1.4.4 or later.
      *     *   The version of the upload SDK for C++ is 1.0.0 or later.
@@ -7983,24 +9308,31 @@ class Vod extends OpenApiClient
      *     *   The version of the upload SDK for JavaScript is 1.4.0 or later.
      *     *   The version of the upload SDK for Android is 1.5.0 or later.
      *     *   The version of the upload SDK for iOS is 1.5.0 or later.
-     *  *
-     * @param GetUploadDetailsRequest $request GetUploadDetailsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUploadDetailsResponse GetUploadDetailsResponse
+     * @param request - GetUploadDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUploadDetailsResponse
+     *
+     * @param GetUploadDetailsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetUploadDetailsResponse
      */
     public function getUploadDetailsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaIds)) {
-            $query['MediaIds'] = $request->mediaIds;
+        if (null !== $request->mediaIds) {
+            @$query['MediaIds'] = $request->mediaIds;
         }
-        if (!Utils::isUnset($request->mediaType)) {
-            $query['MediaType'] = $request->mediaType;
+
+        if (null !== $request->mediaType) {
+            @$query['MediaType'] = $request->mediaType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetUploadDetails',
@@ -8013,17 +9345,15 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetUploadDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUploadDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUploadDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the upload details, such as the upload time, upload ratio, and upload source, about one or more media files based on the media IDs.
-     *  *
-     * @description *   You can call this operation to obtain the upload details only about audio and video files.
+     * Queries the upload details, such as the upload time, upload ratio, and upload source, about one or more media files based on the media IDs.
+     *
+     * @remarks
+     *   You can call this operation to obtain the upload details only about audio and video files.
      * *   If you use the ApsaraVideo VOD console to upload audio and video files, you can call this operation to query information such as the upload ratio. If you use an upload SDK to upload audio and video files, make sure that the version of the [upload SDK](https://help.aliyun.com/document_detail/52200.html) meets one of the following requirements:
      *     *   The version of the upload SDK for Java is 1.4.4 or later.
      *     *   The version of the upload SDK for C++ is 1.0.0 or later.
@@ -8032,10 +9362,14 @@ class Vod extends OpenApiClient
      *     *   The version of the upload SDK for JavaScript is 1.4.0 or later.
      *     *   The version of the upload SDK for Android is 1.5.0 or later.
      *     *   The version of the upload SDK for iOS is 1.5.0 or later.
-     *  *
-     * @param GetUploadDetailsRequest $request GetUploadDetailsRequest
      *
-     * @return GetUploadDetailsResponse GetUploadDetailsResponse
+     * @param request - GetUploadDetailsRequest
+     *
+     * @returns GetUploadDetailsResponse
+     *
+     * @param GetUploadDetailsRequest $request
+     *
+     * @return GetUploadDetailsResponse
      */
     public function getUploadDetails($request)
     {
@@ -8045,24 +9379,31 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags of a media file based on the file ID.
-     *  *
-     * @description After a media file is uploaded, ApsaraVideo VOD processes the source file. Then, information about the media file is asynchronously generated. You can configure notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event and call this operation to query information about a media file after you receive notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
-     *  *
-     * @param GetVideoInfoRequest $request GetVideoInfoRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Obtains the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags of a media file based on the file ID.
      *
-     * @return GetVideoInfoResponse GetVideoInfoResponse
+     * @remarks
+     * After a media file is uploaded, ApsaraVideo VOD processes the source file. Then, information about the media file is asynchronously generated. You can configure notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event and call this operation to query information about a media file after you receive notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
+     *
+     * @param request - GetVideoInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoInfoResponse
+     *
+     * @param GetVideoInfoRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetVideoInfoResponse
      */
     public function getVideoInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetVideoInfo',
@@ -8075,21 +9416,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetVideoInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVideoInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVideoInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags of a media file based on the file ID.
-     *  *
-     * @description After a media file is uploaded, ApsaraVideo VOD processes the source file. Then, information about the media file is asynchronously generated. You can configure notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event and call this operation to query information about a media file after you receive notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
-     *  *
-     * @param GetVideoInfoRequest $request GetVideoInfoRequest
+     * Obtains the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags of a media file based on the file ID.
      *
-     * @return GetVideoInfoResponse GetVideoInfoResponse
+     * @remarks
+     * After a media file is uploaded, ApsaraVideo VOD processes the source file. Then, information about the media file is asynchronously generated. You can configure notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event and call this operation to query information about a media file after you receive notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
+     *
+     * @param request - GetVideoInfoRequest
+     *
+     * @returns GetVideoInfoResponse
+     *
+     * @param GetVideoInfoRequest $request
+     *
+     * @return GetVideoInfoResponse
      */
     public function getVideoInfo($request)
     {
@@ -8099,25 +9442,32 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries information such as the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags about multiple audio or video files based on IDs.
-     *  *
-     * @description *   You can specify up to 20 audio or video file IDs in each request.
-     * *   After a media file is uploaded, ApsaraVideo VOD processes the source file. Then, information about the media file is asynchronously generated. You can configure notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event and call this operation to query information about a media file after you receive notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
-     *  *
-     * @param GetVideoInfosRequest $request GetVideoInfosRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries information such as the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags about multiple audio or video files based on IDs.
      *
-     * @return GetVideoInfosResponse GetVideoInfosResponse
+     * @remarks
+     *   You can specify up to 20 audio or video file IDs in each request.
+     * *   After a media file is uploaded, ApsaraVideo VOD processes the source file. Then, information about the media file is asynchronously generated. You can configure notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event and call this operation to query information about a media file after you receive notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
+     *
+     * @param request - GetVideoInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoInfosResponse
+     *
+     * @param GetVideoInfosRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetVideoInfosResponse
      */
     public function getVideoInfosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->videoIds)) {
-            $query['VideoIds'] = $request->videoIds;
+        if (null !== $request->videoIds) {
+            @$query['VideoIds'] = $request->videoIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetVideoInfos',
@@ -8130,22 +9480,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetVideoInfosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVideoInfosResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVideoInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information such as the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags about multiple audio or video files based on IDs.
-     *  *
-     * @description *   You can specify up to 20 audio or video file IDs in each request.
-     * *   After a media file is uploaded, ApsaraVideo VOD processes the source file. Then, information about the media file is asynchronously generated. You can configure notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event and call this operation to query information about a media file after you receive notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
-     *  *
-     * @param GetVideoInfosRequest $request GetVideoInfosRequest
+     * Queries information such as the title, description, duration, thumbnail URL, status, creation time, size, snapshots, category, and tags about multiple audio or video files based on IDs.
      *
-     * @return GetVideoInfosResponse GetVideoInfosResponse
+     * @remarks
+     *   You can specify up to 20 audio or video file IDs in each request.
+     * *   After a media file is uploaded, ApsaraVideo VOD processes the source file. Then, information about the media file is asynchronously generated. You can configure notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event and call this operation to query information about a media file after you receive notifications for the [VideoAnalysisComplete](https://help.aliyun.com/document_detail/99935.html) event. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
+     *
+     * @param request - GetVideoInfosRequest
+     *
+     * @returns GetVideoInfosResponse
+     *
+     * @param GetVideoInfosRequest $request
+     *
+     * @return GetVideoInfosResponse
      */
     public function getVideoInfos($request)
     {
@@ -8155,45 +9507,59 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about media files.
-     *  *
-     * @description You can call this operation to query information about media files based on the filter conditions that you specify, such as video status and category ID. Information about a maximum of **5,000** media files can be returned for each request. We recommend that you set the StartTime and EndTime parameters to specify a time range for each request. For more information about how to query information about more media files or even all media files, see [SearchMedia](https://help.aliyun.com/document_detail/86044.html).
-     *  *
-     * @param GetVideoListRequest $request GetVideoListRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries information about media files.
      *
-     * @return GetVideoListResponse GetVideoListResponse
+     * @remarks
+     * You can call this operation to query information about media files based on the filter conditions that you specify, such as video status and category ID. Information about a maximum of **5,000** media files can be returned for each request. We recommend that you set the StartTime and EndTime parameters to specify a time range for each request. For more information about how to query information about more media files or even all media files, see [SearchMedia](https://help.aliyun.com/document_detail/86044.html).
+     *
+     * @param request - GetVideoListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoListResponse
+     *
+     * @param GetVideoListRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetVideoListResponse
      */
     public function getVideoListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cateId)) {
-            $query['CateId'] = $request->cateId;
+        if (null !== $request->cateId) {
+            @$query['CateId'] = $request->cateId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->storageLocation)) {
-            $query['StorageLocation'] = $request->storageLocation;
+
+        if (null !== $request->storageLocation) {
+            @$query['StorageLocation'] = $request->storageLocation;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetVideoList',
@@ -8206,21 +9572,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetVideoListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVideoListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVideoListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about media files.
-     *  *
-     * @description You can call this operation to query information about media files based on the filter conditions that you specify, such as video status and category ID. Information about a maximum of **5,000** media files can be returned for each request. We recommend that you set the StartTime and EndTime parameters to specify a time range for each request. For more information about how to query information about more media files or even all media files, see [SearchMedia](https://help.aliyun.com/document_detail/86044.html).
-     *  *
-     * @param GetVideoListRequest $request GetVideoListRequest
+     * Queries information about media files.
      *
-     * @return GetVideoListResponse GetVideoListResponse
+     * @remarks
+     * You can call this operation to query information about media files based on the filter conditions that you specify, such as video status and category ID. Information about a maximum of **5,000** media files can be returned for each request. We recommend that you set the StartTime and EndTime parameters to specify a time range for each request. For more information about how to query information about more media files or even all media files, see [SearchMedia](https://help.aliyun.com/document_detail/86044.html).
+     *
+     * @param request - GetVideoListRequest
+     *
+     * @returns GetVideoListResponse
+     *
+     * @param GetVideoListRequest $request
+     *
+     * @return GetVideoListResponse
      */
     public function getVideoList($request)
     {
@@ -8230,31 +9598,40 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the credential required for media playback. ApsaraVideo Player SDK automatically obtains the playback URL based on the playback credential. Each playback credential can be used to obtain the playback URL only for a specific video in a specific period of time. You cannot obtain the playback URL if the credential expires or is incorrect. You can use PlayAuth-based playback when you require high security for audio and video playback.
-     *  *
-     * @description *   You can call this operation to obtain a playback credential when you use ApsaraVideo Player SDK to play a media file based on PlayAuth. The credential is used to obtain the playback URL. For more information, see [ApsaraVideo Player SDK](https://help.aliyun.com/document_detail/125579.html).
-     * *   You cannot obtain the playback URL of a video by using a credential that has expired. A new credential is required.
-     *  *
-     * @param GetVideoPlayAuthRequest $request GetVideoPlayAuthRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the credential required for media playback. ApsaraVideo Player SDK automatically obtains the playback URL based on the playback credential. Each playback credential can be used to obtain the playback URL only for a specific video in a specific period of time. You cannot obtain the playback URL if the credential expires or is incorrect. You can use PlayAuth-based playback when you require high security for audio and video playback.
      *
-     * @return GetVideoPlayAuthResponse GetVideoPlayAuthResponse
+     * @remarks
+     *   You can call this operation to obtain a playback credential when you use ApsaraVideo Player SDK to play a media file based on PlayAuth. The credential is used to obtain the playback URL. For more information, see [ApsaraVideo Player SDK](https://help.aliyun.com/document_detail/125579.html).
+     * *   You cannot obtain the playback URL of a video by using a credential that has expired. A new credential is required.
+     *
+     * @param request - GetVideoPlayAuthRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoPlayAuthResponse
+     *
+     * @param GetVideoPlayAuthRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetVideoPlayAuthResponse
      */
     public function getVideoPlayAuthWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->apiVersion)) {
-            $query['ApiVersion'] = $request->apiVersion;
+        if (null !== $request->apiVersion) {
+            @$query['ApiVersion'] = $request->apiVersion;
         }
-        if (!Utils::isUnset($request->authInfoTimeout)) {
-            $query['AuthInfoTimeout'] = $request->authInfoTimeout;
+
+        if (null !== $request->authInfoTimeout) {
+            @$query['AuthInfoTimeout'] = $request->authInfoTimeout;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetVideoPlayAuth',
@@ -8267,22 +9644,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetVideoPlayAuthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVideoPlayAuthResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVideoPlayAuthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the credential required for media playback. ApsaraVideo Player SDK automatically obtains the playback URL based on the playback credential. Each playback credential can be used to obtain the playback URL only for a specific video in a specific period of time. You cannot obtain the playback URL if the credential expires or is incorrect. You can use PlayAuth-based playback when you require high security for audio and video playback.
-     *  *
-     * @description *   You can call this operation to obtain a playback credential when you use ApsaraVideo Player SDK to play a media file based on PlayAuth. The credential is used to obtain the playback URL. For more information, see [ApsaraVideo Player SDK](https://help.aliyun.com/document_detail/125579.html).
-     * *   You cannot obtain the playback URL of a video by using a credential that has expired. A new credential is required.
-     *  *
-     * @param GetVideoPlayAuthRequest $request GetVideoPlayAuthRequest
+     * Queries the credential required for media playback. ApsaraVideo Player SDK automatically obtains the playback URL based on the playback credential. Each playback credential can be used to obtain the playback URL only for a specific video in a specific period of time. You cannot obtain the playback URL if the credential expires or is incorrect. You can use PlayAuth-based playback when you require high security for audio and video playback.
      *
-     * @return GetVideoPlayAuthResponse GetVideoPlayAuthResponse
+     * @remarks
+     *   You can call this operation to obtain a playback credential when you use ApsaraVideo Player SDK to play a media file based on PlayAuth. The credential is used to obtain the playback URL. For more information, see [ApsaraVideo Player SDK](https://help.aliyun.com/document_detail/125579.html).
+     * *   You cannot obtain the playback URL of a video by using a credential that has expired. A new credential is required.
+     *
+     * @param request - GetVideoPlayAuthRequest
+     *
+     * @returns GetVideoPlayAuthResponse
+     *
+     * @param GetVideoPlayAuthRequest $request
+     *
+     * @return GetVideoPlayAuthResponse
      */
     public function getVideoPlayAuth($request)
     {
@@ -8292,22 +9671,28 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries a single snapshot template.
-     *  *
-     * @param GetVodTemplateRequest $request GetVodTemplateRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries a single snapshot template.
      *
-     * @return GetVodTemplateResponse GetVodTemplateResponse
+     * @param request - GetVodTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVodTemplateResponse
+     *
+     * @param GetVodTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetVodTemplateResponse
      */
     public function getVodTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->vodTemplateId)) {
-            $query['VodTemplateId'] = $request->vodTemplateId;
+        if (null !== $request->vodTemplateId) {
+            @$query['VodTemplateId'] = $request->vodTemplateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetVodTemplate',
@@ -8320,19 +9705,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVodTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a single snapshot template.
-     *  *
-     * @param GetVodTemplateRequest $request GetVodTemplateRequest
+     * Queries a single snapshot template.
      *
-     * @return GetVodTemplateResponse GetVodTemplateResponse
+     * @param request - GetVodTemplateRequest
+     *
+     * @returns GetVodTemplateResponse
+     *
+     * @param GetVodTemplateRequest $request
+     *
+     * @return GetVodTemplateResponse
      */
     public function getVodTemplate($request)
     {
@@ -8342,22 +9728,28 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an image or text watermark based on the watermark template ID. You can call this operation to obtain information such as the position, size, and display time of an image watermark or the content, position, font, and font color of a text watermark.
-     *  *
-     * @param GetWatermarkRequest $request GetWatermarkRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the information about an image or text watermark based on the watermark template ID. You can call this operation to obtain information such as the position, size, and display time of an image watermark or the content, position, font, and font color of a text watermark.
      *
-     * @return GetWatermarkResponse GetWatermarkResponse
+     * @param request - GetWatermarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWatermarkResponse
+     *
+     * @param GetWatermarkRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetWatermarkResponse
      */
     public function getWatermarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->watermarkId)) {
-            $query['WatermarkId'] = $request->watermarkId;
+        if (null !== $request->watermarkId) {
+            @$query['WatermarkId'] = $request->watermarkId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetWatermark',
@@ -8370,19 +9762,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetWatermarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about an image or text watermark based on the watermark template ID. You can call this operation to obtain information such as the position, size, and display time of an image watermark or the content, position, font, and font color of a text watermark.
-     *  *
-     * @param GetWatermarkRequest $request GetWatermarkRequest
+     * Queries the information about an image or text watermark based on the watermark template ID. You can call this operation to obtain information such as the position, size, and display time of an image watermark or the content, position, font, and font color of a text watermark.
      *
-     * @return GetWatermarkResponse GetWatermarkResponse
+     * @param request - GetWatermarkRequest
+     *
+     * @returns GetWatermarkResponse
+     *
+     * @param GetWatermarkRequest $request
+     *
+     * @return GetWatermarkResponse
      */
     public function getWatermark($request)
     {
@@ -8392,25 +9785,32 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the AI processing results about the images of a specified video.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)** and **China (Shanghai)**.
-     * *   You can call this operation to query AI processing results about images of a specified video. Images of different videos cannot be queried in one request.
-     *  *
-     * @param ListAIImageInfoRequest $request ListAIImageInfoRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the AI processing results about the images of a specified video.
      *
-     * @return ListAIImageInfoResponse ListAIImageInfoResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)** and **China (Shanghai)**.
+     * *   You can call this operation to query AI processing results about images of a specified video. Images of different videos cannot be queried in one request.
+     *
+     * @param request - ListAIImageInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAIImageInfoResponse
+     *
+     * @param ListAIImageInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListAIImageInfoResponse
      */
     public function listAIImageInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAIImageInfo',
@@ -8423,22 +9823,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAIImageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAIImageInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAIImageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the AI processing results about the images of a specified video.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)** and **China (Shanghai)**.
-     * *   You can call this operation to query AI processing results about images of a specified video. Images of different videos cannot be queried in one request.
-     *  *
-     * @param ListAIImageInfoRequest $request ListAIImageInfoRequest
+     * Queries the AI processing results about the images of a specified video.
      *
-     * @return ListAIImageInfoResponse ListAIImageInfoResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)** and **China (Shanghai)**.
+     * *   You can call this operation to query AI processing results about images of a specified video. Images of different videos cannot be queried in one request.
+     *
+     * @param request - ListAIImageInfoRequest
+     *
+     * @returns ListAIImageInfoResponse
+     *
+     * @param ListAIImageInfoRequest $request
+     *
+     * @return ListAIImageInfoResponse
      */
     public function listAIImageInfo($request)
     {
@@ -8448,37 +9850,48 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries AI jobs. After a job is submitted, ApsaraVideo VOD asynchronously processes the job. You can call this operation to query the job information in real time.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     * *   You can call this operation to query video fingerprinting jobs and smart tagging jobs.
-     *  *
-     * @param ListAIJobRequest $request ListAIJobRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries AI jobs. After a job is submitted, ApsaraVideo VOD asynchronously processes the job. You can call this operation to query the job information in real time.
      *
-     * @return ListAIJobResponse ListAIJobResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     * *   You can call this operation to query video fingerprinting jobs and smart tagging jobs.
+     *
+     * @param request - ListAIJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAIJobResponse
+     *
+     * @param ListAIJobRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListAIJobResponse
      */
     public function listAIJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobIds)) {
-            $query['JobIds'] = $request->jobIds;
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAIJob',
@@ -8491,22 +9904,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAIJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAIJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAIJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries AI jobs. After a job is submitted, ApsaraVideo VOD asynchronously processes the job. You can call this operation to query the job information in real time.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     * *   You can call this operation to query video fingerprinting jobs and smart tagging jobs.
-     *  *
-     * @param ListAIJobRequest $request ListAIJobRequest
+     * Queries AI jobs. After a job is submitted, ApsaraVideo VOD asynchronously processes the job. You can call this operation to query the job information in real time.
      *
-     * @return ListAIJobResponse ListAIJobResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     * *   You can call this operation to query video fingerprinting jobs and smart tagging jobs.
+     *
+     * @param request - ListAIJobRequest
+     *
+     * @returns ListAIJobResponse
+     *
+     * @param ListAIJobRequest $request
+     *
+     * @return ListAIJobResponse
      */
     public function listAIJob($request)
     {
@@ -8516,25 +9931,32 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries AI templates.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     * *   You can call this operation to query AI templates of a specified type.
-     *  *
-     * @param ListAITemplateRequest $request ListAITemplateRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries AI templates.
      *
-     * @return ListAITemplateResponse ListAITemplateResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     * *   You can call this operation to query AI templates of a specified type.
+     *
+     * @param request - ListAITemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAITemplateResponse
+     *
+     * @param ListAITemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAITemplateResponse
      */
     public function listAITemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAITemplate',
@@ -8547,22 +9969,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAITemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries AI templates.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     * *   You can call this operation to query AI templates of a specified type.
-     *  *
-     * @param ListAITemplateRequest $request ListAITemplateRequest
+     * Queries AI templates.
      *
-     * @return ListAITemplateResponse ListAITemplateResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     * *   You can call this operation to query AI templates of a specified type.
+     *
+     * @param request - ListAITemplateRequest
+     *
+     * @returns ListAITemplateResponse
+     *
+     * @param ListAITemplateRequest $request
+     *
+     * @return ListAITemplateResponse
      */
     public function listAITemplate($request)
     {
@@ -8572,36 +9996,46 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the applications that you are authorized to manage based on query conditions.
-     *  *
-     * @description ### [](#)Usage notes
+     * Queries the applications that you are authorized to manage based on query conditions.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * You can query applications based on states.
      * ### [](#qps-)QPS limit
      * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param ListAppInfoRequest $request ListAppInfoRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAppInfoResponse ListAppInfoResponse
+     * @param request - ListAppInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppInfoResponse
+     *
+     * @param ListAppInfoRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListAppInfoResponse
      */
     public function listAppInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAppInfo',
@@ -8614,24 +10048,26 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAppInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the applications that you are authorized to manage based on query conditions.
-     *  *
-     * @description ### [](#)Usage notes
+     * Queries the applications that you are authorized to manage based on query conditions.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * You can query applications based on states.
      * ### [](#qps-)QPS limit
      * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param ListAppInfoRequest $request ListAppInfoRequest
      *
-     * @return ListAppInfoResponse ListAppInfoResponse
+     * @param request - ListAppInfoRequest
+     *
+     * @returns ListAppInfoResponse
+     *
+     * @param ListAppInfoRequest $request
+     *
+     * @return ListAppInfoResponse
      */
     public function listAppInfo($request)
     {
@@ -8641,30 +10077,39 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the application policies that are attached to the specified identity. The identity may be a RAM user or RAM role.
-     *  *
-     * @description > The IdentityType and IdentityName parameters take effect only when an identity assumes the application administrator role to call this operation. Otherwise, only application policies that are attached to the current identity are returned.
-     *  *
-     * @param ListAppPoliciesForIdentityRequest $request ListAppPoliciesForIdentityRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the application policies that are attached to the specified identity. The identity may be a RAM user or RAM role.
      *
-     * @return ListAppPoliciesForIdentityResponse ListAppPoliciesForIdentityResponse
+     * @remarks
+     * > The IdentityType and IdentityName parameters take effect only when an identity assumes the application administrator role to call this operation. Otherwise, only application policies that are attached to the current identity are returned.
+     *
+     * @param request - ListAppPoliciesForIdentityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppPoliciesForIdentityResponse
+     *
+     * @param ListAppPoliciesForIdentityRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListAppPoliciesForIdentityResponse
      */
     public function listAppPoliciesForIdentityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->identityName)) {
-            $query['IdentityName'] = $request->identityName;
+
+        if (null !== $request->identityName) {
+            @$query['IdentityName'] = $request->identityName;
         }
-        if (!Utils::isUnset($request->identityType)) {
-            $query['IdentityType'] = $request->identityType;
+
+        if (null !== $request->identityType) {
+            @$query['IdentityType'] = $request->identityType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAppPoliciesForIdentity',
@@ -8677,21 +10122,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAppPoliciesForIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAppPoliciesForIdentityResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAppPoliciesForIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the application policies that are attached to the specified identity. The identity may be a RAM user or RAM role.
-     *  *
-     * @description > The IdentityType and IdentityName parameters take effect only when an identity assumes the application administrator role to call this operation. Otherwise, only application policies that are attached to the current identity are returned.
-     *  *
-     * @param ListAppPoliciesForIdentityRequest $request ListAppPoliciesForIdentityRequest
+     * Queries the application policies that are attached to the specified identity. The identity may be a RAM user or RAM role.
      *
-     * @return ListAppPoliciesForIdentityResponse ListAppPoliciesForIdentityResponse
+     * @remarks
+     * > The IdentityType and IdentityName parameters take effect only when an identity assumes the application administrator role to call this operation. Otherwise, only application policies that are attached to the current identity are returned.
+     *
+     * @param request - ListAppPoliciesForIdentityRequest
+     *
+     * @returns ListAppPoliciesForIdentityResponse
+     *
+     * @param ListAppPoliciesForIdentityRequest $request
+     *
+     * @return ListAppPoliciesForIdentityResponse
      */
     public function listAppPoliciesForIdentity($request)
     {
@@ -8701,22 +10148,28 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the IP addresses in a review security group.
-     *  *
-     * @param ListAuditSecurityIpRequest $request ListAuditSecurityIpRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the IP addresses in a review security group.
      *
-     * @return ListAuditSecurityIpResponse ListAuditSecurityIpResponse
+     * @param request - ListAuditSecurityIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuditSecurityIpResponse
+     *
+     * @param ListAuditSecurityIpRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListAuditSecurityIpResponse
      */
     public function listAuditSecurityIpWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->securityGroupName)) {
-            $query['SecurityGroupName'] = $request->securityGroupName;
+        if (null !== $request->securityGroupName) {
+            @$query['SecurityGroupName'] = $request->securityGroupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAuditSecurityIp',
@@ -8729,19 +10182,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAuditSecurityIpResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAuditSecurityIpResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAuditSecurityIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the IP addresses in a review security group.
-     *  *
-     * @param ListAuditSecurityIpRequest $request ListAuditSecurityIpRequest
+     * Queries the IP addresses in a review security group.
      *
-     * @return ListAuditSecurityIpResponse ListAuditSecurityIpResponse
+     * @param request - ListAuditSecurityIpRequest
+     *
+     * @returns ListAuditSecurityIpResponse
+     *
+     * @param ListAuditSecurityIpRequest $request
+     *
+     * @return ListAuditSecurityIpResponse
      */
     public function listAuditSecurityIp($request)
     {
@@ -8751,22 +10205,28 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about animated stickers of a video based on the video ID.
-     *  *
-     * @param ListDynamicImageRequest $request ListDynamicImageRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about animated stickers of a video based on the video ID.
      *
-     * @return ListDynamicImageResponse ListDynamicImageResponse
+     * @param request - ListDynamicImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDynamicImageResponse
+     *
+     * @param ListDynamicImageRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListDynamicImageResponse
      */
     public function listDynamicImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDynamicImage',
@@ -8779,19 +10239,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDynamicImageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDynamicImageResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDynamicImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about animated stickers of a video based on the video ID.
-     *  *
-     * @param ListDynamicImageRequest $request ListDynamicImageRequest
+     * Queries the information about animated stickers of a video based on the video ID.
      *
-     * @return ListDynamicImageResponse ListDynamicImageResponse
+     * @param request - ListDynamicImageRequest
+     *
+     * @returns ListDynamicImageResponse
+     *
+     * @param ListDynamicImageRequest $request
+     *
+     * @return ListDynamicImageResponse
      */
     public function listDynamicImage($request)
     {
@@ -8801,31 +10262,39 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries historical tasks based on the media asset ID.
-     *  *
-     * @description ****
+     * Queries historical tasks based on the media asset ID.
+     *
+     * @remarks
+     * ***
      * *   You can call the [GetJobDetail](https://apiworkbench.aliyun-inc.com/document/vod/2017-03-21/GetJobDetail?spm=openapi-amp.newDocPublishment.0.0.616a281fSegn0e) operation to query detailed information about the tasks.
      * *   You can call this operation to query only asynchronous tasks of the last six months. The types of tasks that you can query include transcoding tasks, snapshot tasks, and AI tasks.
      * **QPS limits**
      * You can call this operation up to 15 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param ListJobInfoRequest $request ListJobInfoRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListJobInfoResponse ListJobInfoResponse
+     * @param request - ListJobInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListJobInfoResponse
+     *
+     * @param ListJobInfoRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListJobInfoResponse
      */
     public function listJobInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobType)) {
-            $query['JobType'] = $request->jobType;
+        if (null !== $request->jobType) {
+            @$query['JobType'] = $request->jobType;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListJobInfo',
@@ -8838,25 +10307,27 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListJobInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListJobInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListJobInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries historical tasks based on the media asset ID.
-     *  *
-     * @description ****
+     * Queries historical tasks based on the media asset ID.
+     *
+     * @remarks
+     * ***
      * *   You can call the [GetJobDetail](https://apiworkbench.aliyun-inc.com/document/vod/2017-03-21/GetJobDetail?spm=openapi-amp.newDocPublishment.0.0.616a281fSegn0e) operation to query detailed information about the tasks.
      * *   You can call this operation to query only asynchronous tasks of the last six months. The types of tasks that you can query include transcoding tasks, snapshot tasks, and AI tasks.
      * **QPS limits**
      * You can call this operation up to 15 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param ListJobInfoRequest $request ListJobInfoRequest
      *
-     * @return ListJobInfoResponse ListJobInfoResponse
+     * @param request - ListJobInfoRequest
+     *
+     * @returns ListJobInfoResponse
+     *
+     * @param ListJobInfoRequest $request
+     *
+     * @return ListJobInfoResponse
      */
     public function listJobInfo($request)
     {
@@ -8866,45 +10337,59 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries live-to-VOD videos.
-     *  *
-     * @description You can query up to 5,000 videos based on the specified filter condition.
-     *  *
-     * @param ListLiveRecordVideoRequest $request ListLiveRecordVideoRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries live-to-VOD videos.
      *
-     * @return ListLiveRecordVideoResponse ListLiveRecordVideoResponse
+     * @remarks
+     * You can query up to 5,000 videos based on the specified filter condition.
+     *
+     * @param request - ListLiveRecordVideoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLiveRecordVideoResponse
+     *
+     * @param ListLiveRecordVideoRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListLiveRecordVideoResponse
      */
     public function listLiveRecordVideoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->streamName)) {
-            $query['StreamName'] = $request->streamName;
+
+        if (null !== $request->streamName) {
+            @$query['StreamName'] = $request->streamName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListLiveRecordVideo',
@@ -8917,21 +10402,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListLiveRecordVideoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListLiveRecordVideoResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListLiveRecordVideoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries live-to-VOD videos.
-     *  *
-     * @description You can query up to 5,000 videos based on the specified filter condition.
-     *  *
-     * @param ListLiveRecordVideoRequest $request ListLiveRecordVideoRequest
+     * Queries live-to-VOD videos.
      *
-     * @return ListLiveRecordVideoResponse ListLiveRecordVideoResponse
+     * @remarks
+     * You can query up to 5,000 videos based on the specified filter condition.
+     *
+     * @param request - ListLiveRecordVideoRequest
+     *
+     * @returns ListLiveRecordVideoResponse
+     *
+     * @param ListLiveRecordVideoRequest $request
+     *
+     * @return ListLiveRecordVideoResponse
      */
     public function listLiveRecordVideo($request)
     {
@@ -8941,36 +10428,47 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the snapshots that are captured by submitting snapshot jobs or snapshots that are generated by the system when you upload the video.
-     *  *
-     * @description If multiple snapshots exist for a video, you can call this operation to query information about the latest snapshot.
-     *  *
-     * @param ListSnapshotsRequest $request ListSnapshotsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the snapshots that are captured by submitting snapshot jobs or snapshots that are generated by the system when you upload the video.
      *
-     * @return ListSnapshotsResponse ListSnapshotsResponse
+     * @remarks
+     * If multiple snapshots exist for a video, you can call this operation to query information about the latest snapshot.
+     *
+     * @param request - ListSnapshotsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSnapshotsResponse
+     *
+     * @param ListSnapshotsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListSnapshotsResponse
      */
     public function listSnapshotsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authTimeout)) {
-            $query['AuthTimeout'] = $request->authTimeout;
+        if (null !== $request->authTimeout) {
+            @$query['AuthTimeout'] = $request->authTimeout;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->snapshotType)) {
-            $query['SnapshotType'] = $request->snapshotType;
+
+        if (null !== $request->snapshotType) {
+            @$query['SnapshotType'] = $request->snapshotType;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListSnapshots',
@@ -8983,21 +10481,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSnapshotsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the snapshots that are captured by submitting snapshot jobs or snapshots that are generated by the system when you upload the video.
-     *  *
-     * @description If multiple snapshots exist for a video, you can call this operation to query information about the latest snapshot.
-     *  *
-     * @param ListSnapshotsRequest $request ListSnapshotsRequest
+     * Queries the snapshots that are captured by submitting snapshot jobs or snapshots that are generated by the system when you upload the video.
      *
-     * @return ListSnapshotsResponse ListSnapshotsResponse
+     * @remarks
+     * If multiple snapshots exist for a video, you can call this operation to query information about the latest snapshot.
+     *
+     * @param request - ListSnapshotsRequest
+     *
+     * @returns ListSnapshotsResponse
+     *
+     * @param ListSnapshotsRequest $request
+     *
+     * @return ListSnapshotsResponse
      */
     public function listSnapshots($request)
     {
@@ -9007,37 +10507,48 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries transcoding tasks based on the media ID. This operation does not return specific job information.
-     *  *
-     * @description *   You can call the [GetTranscodeTask](https://help.aliyun.com/document_detail/109121.html) operation to query details about transcoding jobs.
-     * *   **You can call this operation to query only transcoding tasks created within the past year.**
-     *  *
-     * @param ListTranscodeTaskRequest $request ListTranscodeTaskRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries transcoding tasks based on the media ID. This operation does not return specific job information.
      *
-     * @return ListTranscodeTaskResponse ListTranscodeTaskResponse
+     * @remarks
+     *   You can call the [GetTranscodeTask](https://help.aliyun.com/document_detail/109121.html) operation to query details about transcoding jobs.
+     * *   **You can call this operation to query only transcoding tasks created within the past year.**
+     *
+     * @param request - ListTranscodeTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTranscodeTaskResponse
+     *
+     * @param ListTranscodeTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListTranscodeTaskResponse
      */
     public function listTranscodeTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTranscodeTask',
@@ -9050,22 +10561,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTranscodeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTranscodeTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTranscodeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries transcoding tasks based on the media ID. This operation does not return specific job information.
-     *  *
-     * @description *   You can call the [GetTranscodeTask](https://help.aliyun.com/document_detail/109121.html) operation to query details about transcoding jobs.
-     * *   **You can call this operation to query only transcoding tasks created within the past year.**
-     *  *
-     * @param ListTranscodeTaskRequest $request ListTranscodeTaskRequest
+     * Queries transcoding tasks based on the media ID. This operation does not return specific job information.
      *
-     * @return ListTranscodeTaskResponse ListTranscodeTaskResponse
+     * @remarks
+     *   You can call the [GetTranscodeTask](https://help.aliyun.com/document_detail/109121.html) operation to query details about transcoding jobs.
+     * *   **You can call this operation to query only transcoding tasks created within the past year.**
+     *
+     * @param request - ListTranscodeTaskRequest
+     *
+     * @returns ListTranscodeTaskResponse
+     *
+     * @param ListTranscodeTaskRequest $request
+     *
+     * @return ListTranscodeTaskResponse
      */
     public function listTranscodeTask($request)
     {
@@ -9075,24 +10588,31 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries transcoding template groups.
-     *  *
-     * @description > This operation does not return the configurations of transcoding templates in each transcoding template group. To query the configurations of transcoding templates in a specific transcoding template group, call the [GetTranscodeTemplateGroup](https://help.aliyun.com/document_detail/102670.html) operation.
-     *  *
-     * @param ListTranscodeTemplateGroupRequest $request ListTranscodeTemplateGroupRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries transcoding template groups.
      *
-     * @return ListTranscodeTemplateGroupResponse ListTranscodeTemplateGroupResponse
+     * @remarks
+     * > This operation does not return the configurations of transcoding templates in each transcoding template group. To query the configurations of transcoding templates in a specific transcoding template group, call the [GetTranscodeTemplateGroup](https://help.aliyun.com/document_detail/102670.html) operation.
+     *
+     * @param request - ListTranscodeTemplateGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTranscodeTemplateGroupResponse
+     *
+     * @param ListTranscodeTemplateGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListTranscodeTemplateGroupResponse
      */
     public function listTranscodeTemplateGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTranscodeTemplateGroup',
@@ -9105,21 +10625,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTranscodeTemplateGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries transcoding template groups.
-     *  *
-     * @description > This operation does not return the configurations of transcoding templates in each transcoding template group. To query the configurations of transcoding templates in a specific transcoding template group, call the [GetTranscodeTemplateGroup](https://help.aliyun.com/document_detail/102670.html) operation.
-     *  *
-     * @param ListTranscodeTemplateGroupRequest $request ListTranscodeTemplateGroupRequest
+     * Queries transcoding template groups.
      *
-     * @return ListTranscodeTemplateGroupResponse ListTranscodeTemplateGroupResponse
+     * @remarks
+     * > This operation does not return the configurations of transcoding templates in each transcoding template group. To query the configurations of transcoding templates in a specific transcoding template group, call the [GetTranscodeTemplateGroup](https://help.aliyun.com/document_detail/102670.html) operation.
+     *
+     * @param request - ListTranscodeTemplateGroupRequest
+     *
+     * @returns ListTranscodeTemplateGroupResponse
+     *
+     * @param ListTranscodeTemplateGroupRequest $request
+     *
+     * @return ListTranscodeTemplateGroupResponse
      */
     public function listTranscodeTemplateGroup($request)
     {
@@ -9129,25 +10651,32 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries snapshot templates.
-     *  *
-     * @param ListVodTemplateRequest $request ListVodTemplateRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries snapshot templates.
      *
-     * @return ListVodTemplateResponse ListVodTemplateResponse
+     * @param request - ListVodTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVodTemplateResponse
+     *
+     * @param ListVodTemplateRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListVodTemplateResponse
      */
     public function listVodTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListVodTemplate',
@@ -9160,19 +10689,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVodTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries snapshot templates.
-     *  *
-     * @param ListVodTemplateRequest $request ListVodTemplateRequest
+     * Queries snapshot templates.
      *
-     * @return ListVodTemplateResponse ListVodTemplateResponse
+     * @param request - ListVodTemplateRequest
+     *
+     * @returns ListVodTemplateResponse
+     *
+     * @param ListVodTemplateRequest $request
+     *
+     * @return ListVodTemplateResponse
      */
     public function listVodTemplate($request)
     {
@@ -9182,22 +10712,28 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configuration information about all image and text watermark templates in a region. You can call this operation to obtain information such as the position, size, and display time of image watermarks or the content, position, font, and font color of text watermarks.
-     *  *
-     * @param ListWatermarkRequest $request ListWatermarkRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the configuration information about all image and text watermark templates in a region. You can call this operation to obtain information such as the position, size, and display time of image watermarks or the content, position, font, and font color of text watermarks.
      *
-     * @return ListWatermarkResponse ListWatermarkResponse
+     * @param request - ListWatermarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWatermarkResponse
+     *
+     * @param ListWatermarkRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListWatermarkResponse
      */
     public function listWatermarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListWatermark',
@@ -9210,19 +10746,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWatermarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configuration information about all image and text watermark templates in a region. You can call this operation to obtain information such as the position, size, and display time of image watermarks or the content, position, font, and font color of text watermarks.
-     *  *
-     * @param ListWatermarkRequest $request ListWatermarkRequest
+     * Queries the configuration information about all image and text watermark templates in a region. You can call this operation to obtain information such as the position, size, and display time of image watermarks or the content, position, font, and font color of text watermarks.
      *
-     * @return ListWatermarkResponse ListWatermarkResponse
+     * @param request - ListWatermarkRequest
+     *
+     * @returns ListWatermarkResponse
+     *
+     * @param ListWatermarkRequest $request
+     *
+     * @return ListWatermarkResponse
      */
     public function listWatermark($request)
     {
@@ -9232,28 +10769,36 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Migrates resources between applications. The application administrator can directly migrate resources between applications. Resource Access Management (RAM) users or RAM roles must obtain the write permissions on the source and destination applications before they migrate resources between applications. Multiple resources can be migrated at a time.
-     *  *
-     * @param MoveAppResourceRequest $request MoveAppResourceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Migrates resources between applications. The application administrator can directly migrate resources between applications. Resource Access Management (RAM) users or RAM roles must obtain the write permissions on the source and destination applications before they migrate resources between applications. Multiple resources can be migrated at a time.
      *
-     * @return MoveAppResourceResponse MoveAppResourceResponse
+     * @param request - MoveAppResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MoveAppResourceResponse
+     *
+     * @param MoveAppResourceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return MoveAppResourceResponse
      */
     public function moveAppResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceIds)) {
-            $query['ResourceIds'] = $request->resourceIds;
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->targetAppId)) {
-            $query['TargetAppId'] = $request->targetAppId;
+
+        if (null !== $request->targetAppId) {
+            @$query['TargetAppId'] = $request->targetAppId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'MoveAppResource',
@@ -9266,19 +10811,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return MoveAppResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveAppResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveAppResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Migrates resources between applications. The application administrator can directly migrate resources between applications. Resource Access Management (RAM) users or RAM roles must obtain the write permissions on the source and destination applications before they migrate resources between applications. Multiple resources can be migrated at a time.
-     *  *
-     * @param MoveAppResourceRequest $request MoveAppResourceRequest
+     * Migrates resources between applications. The application administrator can directly migrate resources between applications. Resource Access Management (RAM) users or RAM roles must obtain the write permissions on the source and destination applications before they migrate resources between applications. Multiple resources can be migrated at a time.
      *
-     * @return MoveAppResourceResponse MoveAppResourceResponse
+     * @param request - MoveAppResourceRequest
+     *
+     * @returns MoveAppResourceResponse
+     *
+     * @param MoveAppResourceRequest $request
+     *
+     * @return MoveAppResourceResponse
      */
     public function moveAppResource($request)
     {
@@ -9288,41 +10834,53 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Prefetches resources from an origin server to L2 nodes. Users can directly hit the cache upon their first visits. This way, workloads on the origin server can be reduced.
-     *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
+     * Prefetches resources from an origin server to L2 nodes. Users can directly hit the cache upon their first visits. This way, workloads on the origin server can be reduced.
+     *
+     * @remarks
+     * > *   This operation is available only in the **China (Shanghai)** region.
      * > *   You can submit a maximum of 500 requests to prefetch resources based on URLs each day by using an Alibaba Cloud account. You cannot prefetch resources based on directories.
      * > *   You can call the [RefreshVodObjectCaches](https://help.aliyun.com/document_detail/69215.html) operation to refresh content and the [PreloadVodObjectCaches](https://help.aliyun.com/document_detail/69211.htmll) operation to prefetch content.
-     *  *
-     * @param PreloadVodObjectCachesRequest $request PreloadVodObjectCachesRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return PreloadVodObjectCachesResponse PreloadVodObjectCachesResponse
+     * @param request - PreloadVodObjectCachesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PreloadVodObjectCachesResponse
+     *
+     * @param PreloadVodObjectCachesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return PreloadVodObjectCachesResponse
      */
     public function preloadVodObjectCachesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->area)) {
-            $query['Area'] = $request->area;
+        if (null !== $request->area) {
+            @$query['Area'] = $request->area;
         }
-        if (!Utils::isUnset($request->l2Preload)) {
-            $query['L2Preload'] = $request->l2Preload;
+
+        if (null !== $request->l2Preload) {
+            @$query['L2Preload'] = $request->l2Preload;
         }
-        if (!Utils::isUnset($request->objectPath)) {
-            $query['ObjectPath'] = $request->objectPath;
+
+        if (null !== $request->objectPath) {
+            @$query['ObjectPath'] = $request->objectPath;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->withHeader)) {
-            $query['WithHeader'] = $request->withHeader;
+
+        if (null !== $request->withHeader) {
+            @$query['WithHeader'] = $request->withHeader;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'PreloadVodObjectCaches',
@@ -9335,23 +10893,25 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PreloadVodObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PreloadVodObjectCachesResponse::fromMap($this->execute($params, $req, $runtime));
+        return PreloadVodObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Prefetches resources from an origin server to L2 nodes. Users can directly hit the cache upon their first visits. This way, workloads on the origin server can be reduced.
-     *  *
-     * @description > *   This operation is available only in the **China (Shanghai)** region.
+     * Prefetches resources from an origin server to L2 nodes. Users can directly hit the cache upon their first visits. This way, workloads on the origin server can be reduced.
+     *
+     * @remarks
+     * > *   This operation is available only in the **China (Shanghai)** region.
      * > *   You can submit a maximum of 500 requests to prefetch resources based on URLs each day by using an Alibaba Cloud account. You cannot prefetch resources based on directories.
      * > *   You can call the [RefreshVodObjectCaches](https://help.aliyun.com/document_detail/69215.html) operation to refresh content and the [PreloadVodObjectCaches](https://help.aliyun.com/document_detail/69211.htmll) operation to prefetch content.
-     *  *
-     * @param PreloadVodObjectCachesRequest $request PreloadVodObjectCachesRequest
      *
-     * @return PreloadVodObjectCachesResponse PreloadVodObjectCachesResponse
+     * @param request - PreloadVodObjectCachesRequest
+     *
+     * @returns PreloadVodObjectCachesResponse
+     *
+     * @param PreloadVodObjectCachesRequest $request
+     *
+     * @return PreloadVodObjectCachesResponse
      */
     public function preloadVodObjectCaches($request)
     {
@@ -9361,9 +10921,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Produces a video from one or more source files. You can directly specify source files by configuring the Timeline parameter. Alternatively, you can specify source files after you create an online editing project.
-     *  *
-     * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged for using the online editing feature. For more information, see [Billing](~~188310#section-pyv-b8h-bo7~~).**
+     * Produces a video from one or more source files. You can directly specify source files by configuring the Timeline parameter. Alternatively, you can specify source files after you create an online editing project.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged for using the online editing feature. For more information, see [Billing](~~188310#section-pyv-b8h-bo7~~).**
      * *   This operation returns only the submission result of a video production task. When the submission result is returned, video production may still be in progress. After a video production task is submitted, the task is queued in the background for asynchronous processing.
      * *   The source files that are used in the timeline of an online editing project can be materials directly uploaded to the online project or selected from the media asset library. Only media assets that are in the Normal state can be used in the project.
      * *   Videos are produced based on ProjectId and Timeline. The following content describes the parameter configurations:
@@ -9380,54 +10941,71 @@ class Vod extends OpenApiClient
      *     *   The width cannot exceed 2,160 pixels.
      * *   After a video is produced, the video is automatically uploaded to ApsaraVideo VOD. Then, the **ProduceMediaComplete** and **FileUploadComplete** event notifications are sent to you. After the produced video is transcoded, the **StreamTranscodeComplete** and **TranscodeComplete** event notifications are sent to you.
      * *   You can add special effects to the video. For more information, see [Special effects](https://help.aliyun.com/document_detail/69082.html).
-     *  *
-     * @param ProduceEditingProjectVideoRequest $request ProduceEditingProjectVideoRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ProduceEditingProjectVideoResponse ProduceEditingProjectVideoResponse
+     * @param request - ProduceEditingProjectVideoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ProduceEditingProjectVideoResponse
+     *
+     * @param ProduceEditingProjectVideoRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ProduceEditingProjectVideoResponse
      */
     public function produceEditingProjectVideoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->coverURL)) {
-            $query['CoverURL'] = $request->coverURL;
+
+        if (null !== $request->coverURL) {
+            @$query['CoverURL'] = $request->coverURL;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->mediaMetadata)) {
-            $query['MediaMetadata'] = $request->mediaMetadata;
+
+        if (null !== $request->mediaMetadata) {
+            @$query['MediaMetadata'] = $request->mediaMetadata;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->produceConfig)) {
-            $query['ProduceConfig'] = $request->produceConfig;
+
+        if (null !== $request->produceConfig) {
+            @$query['ProduceConfig'] = $request->produceConfig;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->timeline)) {
-            $query['Timeline'] = $request->timeline;
+
+        if (null !== $request->timeline) {
+            @$query['Timeline'] = $request->timeline;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ProduceEditingProjectVideo',
@@ -9440,17 +11018,15 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ProduceEditingProjectVideoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ProduceEditingProjectVideoResponse::fromMap($this->execute($params, $req, $runtime));
+        return ProduceEditingProjectVideoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Produces a video from one or more source files. You can directly specify source files by configuring the Timeline parameter. Alternatively, you can specify source files after you create an online editing project.
-     *  *
-     * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged for using the online editing feature. For more information, see [Billing](~~188310#section-pyv-b8h-bo7~~).**
+     * Produces a video from one or more source files. You can directly specify source files by configuring the Timeline parameter. Alternatively, you can specify source files after you create an online editing project.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged for using the online editing feature. For more information, see [Billing](~~188310#section-pyv-b8h-bo7~~).**
      * *   This operation returns only the submission result of a video production task. When the submission result is returned, video production may still be in progress. After a video production task is submitted, the task is queued in the background for asynchronous processing.
      * *   The source files that are used in the timeline of an online editing project can be materials directly uploaded to the online project or selected from the media asset library. Only media assets that are in the Normal state can be used in the project.
      * *   Videos are produced based on ProjectId and Timeline. The following content describes the parameter configurations:
@@ -9467,10 +11043,14 @@ class Vod extends OpenApiClient
      *     *   The width cannot exceed 2,160 pixels.
      * *   After a video is produced, the video is automatically uploaded to ApsaraVideo VOD. Then, the **ProduceMediaComplete** and **FileUploadComplete** event notifications are sent to you. After the produced video is transcoded, the **StreamTranscodeComplete** and **TranscodeComplete** event notifications are sent to you.
      * *   You can add special effects to the video. For more information, see [Special effects](https://help.aliyun.com/document_detail/69082.html).
-     *  *
-     * @param ProduceEditingProjectVideoRequest $request ProduceEditingProjectVideoRequest
      *
-     * @return ProduceEditingProjectVideoResponse ProduceEditingProjectVideoResponse
+     * @param request - ProduceEditingProjectVideoRequest
+     *
+     * @returns ProduceEditingProjectVideoResponse
+     *
+     * @param ProduceEditingProjectVideoRequest $request
+     *
+     * @return ProduceEditingProjectVideoResponse
      */
     public function produceEditingProjectVideo($request)
     {
@@ -9480,50 +11060,65 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Submits media refresh or prefetch tasks based on the media IDs.
-     *  *
-     * @description *   ApsaraVideo VOD allows you to purge and prefetch resources. The purge feature forces the point of presence (POP) to clear cached resources and retrieve the latest resources from origin servers. The prefetch feature allows the POP to retrieve frequently accessed resources from origin servers during off-peak hours. This increases the cache hit ratio.
+     * Submits media refresh or prefetch tasks based on the media IDs.
+     *
+     * @remarks
+     *   ApsaraVideo VOD allows you to purge and prefetch resources. The purge feature forces the point of presence (POP) to clear cached resources and retrieve the latest resources from origin servers. The prefetch feature allows the POP to retrieve frequently accessed resources from origin servers during off-peak hours. This increases the cache hit ratio.
      * *   You can call this operation to submit purge or prefetch tasks based on the media ID. You can also specify the format and resolution of the media streams to purge or prefetch based on your business requirements.
      * *   You can submit a maximum of 20 purge or prefetch tasks at a time.
-     *  *
-     * @param RefreshMediaPlayUrlsRequest $request RefreshMediaPlayUrlsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshMediaPlayUrlsResponse RefreshMediaPlayUrlsResponse
+     * @param request - RefreshMediaPlayUrlsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshMediaPlayUrlsResponse
+     *
+     * @param RefreshMediaPlayUrlsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RefreshMediaPlayUrlsResponse
      */
     public function refreshMediaPlayUrlsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->definitions)) {
-            $query['Definitions'] = $request->definitions;
+        if (null !== $request->definitions) {
+            @$query['Definitions'] = $request->definitions;
         }
-        if (!Utils::isUnset($request->formats)) {
-            $query['Formats'] = $request->formats;
+
+        if (null !== $request->formats) {
+            @$query['Formats'] = $request->formats;
         }
-        if (!Utils::isUnset($request->mediaIds)) {
-            $query['MediaIds'] = $request->mediaIds;
+
+        if (null !== $request->mediaIds) {
+            @$query['MediaIds'] = $request->mediaIds;
         }
-        if (!Utils::isUnset($request->resultType)) {
-            $query['ResultType'] = $request->resultType;
+
+        if (null !== $request->resultType) {
+            @$query['ResultType'] = $request->resultType;
         }
-        if (!Utils::isUnset($request->sliceCount)) {
-            $query['SliceCount'] = $request->sliceCount;
+
+        if (null !== $request->sliceCount) {
+            @$query['SliceCount'] = $request->sliceCount;
         }
-        if (!Utils::isUnset($request->sliceFlag)) {
-            $query['SliceFlag'] = $request->sliceFlag;
+
+        if (null !== $request->sliceFlag) {
+            @$query['SliceFlag'] = $request->sliceFlag;
         }
-        if (!Utils::isUnset($request->streamType)) {
-            $query['StreamType'] = $request->streamType;
+
+        if (null !== $request->streamType) {
+            @$query['StreamType'] = $request->streamType;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RefreshMediaPlayUrls',
@@ -9536,23 +11131,25 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RefreshMediaPlayUrlsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RefreshMediaPlayUrlsResponse::fromMap($this->execute($params, $req, $runtime));
+        return RefreshMediaPlayUrlsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits media refresh or prefetch tasks based on the media IDs.
-     *  *
-     * @description *   ApsaraVideo VOD allows you to purge and prefetch resources. The purge feature forces the point of presence (POP) to clear cached resources and retrieve the latest resources from origin servers. The prefetch feature allows the POP to retrieve frequently accessed resources from origin servers during off-peak hours. This increases the cache hit ratio.
+     * Submits media refresh or prefetch tasks based on the media IDs.
+     *
+     * @remarks
+     *   ApsaraVideo VOD allows you to purge and prefetch resources. The purge feature forces the point of presence (POP) to clear cached resources and retrieve the latest resources from origin servers. The prefetch feature allows the POP to retrieve frequently accessed resources from origin servers during off-peak hours. This increases the cache hit ratio.
      * *   You can call this operation to submit purge or prefetch tasks based on the media ID. You can also specify the format and resolution of the media streams to purge or prefetch based on your business requirements.
      * *   You can submit a maximum of 20 purge or prefetch tasks at a time.
-     *  *
-     * @param RefreshMediaPlayUrlsRequest $request RefreshMediaPlayUrlsRequest
      *
-     * @return RefreshMediaPlayUrlsResponse RefreshMediaPlayUrlsResponse
+     * @param request - RefreshMediaPlayUrlsRequest
+     *
+     * @returns RefreshMediaPlayUrlsResponse
+     *
+     * @param RefreshMediaPlayUrlsRequest $request
+     *
+     * @return RefreshMediaPlayUrlsResponse
      */
     public function refreshMediaPlayUrls($request)
     {
@@ -9562,33 +11159,43 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a new upload credential after a file failed to be uploaded.
-     *  *
-     * @description You can also call this operation to overwrite the source file of an audio or video file. After you call this operation, the system obtains the upload URL and uploads a new source file without changing the ID of the audio or video file. If you have configured transcoding or snapshot capture for the upload, the transcoding or snapshot capture job is automatically triggered. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
-     *  *
-     * @param RefreshUploadVideoRequest $request RefreshUploadVideoRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Obtains a new upload credential after a file failed to be uploaded.
      *
-     * @return RefreshUploadVideoResponse RefreshUploadVideoResponse
+     * @remarks
+     * You can also call this operation to overwrite the source file of an audio or video file. After you call this operation, the system obtains the upload URL and uploads a new source file without changing the ID of the audio or video file. If you have configured transcoding or snapshot capture for the upload, the transcoding or snapshot capture job is automatically triggered. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
+     *
+     * @param request - RefreshUploadVideoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshUploadVideoResponse
+     *
+     * @param RefreshUploadVideoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RefreshUploadVideoResponse
      */
     public function refreshUploadVideoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RefreshUploadVideo',
@@ -9601,21 +11208,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RefreshUploadVideoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RefreshUploadVideoResponse::fromMap($this->execute($params, $req, $runtime));
+        return RefreshUploadVideoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains a new upload credential after a file failed to be uploaded.
-     *  *
-     * @description You can also call this operation to overwrite the source file of an audio or video file. After you call this operation, the system obtains the upload URL and uploads a new source file without changing the ID of the audio or video file. If you have configured transcoding or snapshot capture for the upload, the transcoding or snapshot capture job is automatically triggered. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
-     *  *
-     * @param RefreshUploadVideoRequest $request RefreshUploadVideoRequest
+     * Obtains a new upload credential after a file failed to be uploaded.
      *
-     * @return RefreshUploadVideoResponse RefreshUploadVideoResponse
+     * @remarks
+     * You can also call this operation to overwrite the source file of an audio or video file. After you call this operation, the system obtains the upload URL and uploads a new source file without changing the ID of the audio or video file. If you have configured transcoding or snapshot capture for the upload, the transcoding or snapshot capture job is automatically triggered. For more information, see [Upload URLs and credentials](https://help.aliyun.com/document_detail/55397.html).
+     *
+     * @param request - RefreshUploadVideoRequest
+     *
+     * @returns RefreshUploadVideoResponse
+     *
+     * @param RefreshUploadVideoRequest $request
+     *
+     * @return RefreshUploadVideoResponse
      */
     public function refreshUploadVideo($request)
     {
@@ -9625,38 +11234,49 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Refreshes files on Alibaba Cloud CDN nodes. You can refresh multiple files at a time based on URLs.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * Refreshes files on Alibaba Cloud CDN nodes. You can refresh multiple files at a time based on URLs.
+     *
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
      * *   You can submit a maximum of 2,000 requests to refresh resources based on URLs and 100 requests to refresh resources based on directories each day by using an Alibaba Cloud account.
      * *   You can call the [RefreshVodObjectCaches](https://help.aliyun.com/document_detail/69215.html) operation to refresh content and the [PreloadVodObjectCaches](https://help.aliyun.com/document_detail/69211.html) operation to prefetch content.
-     *  *
-     * @param RefreshVodObjectCachesRequest $request RefreshVodObjectCachesRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshVodObjectCachesResponse RefreshVodObjectCachesResponse
+     * @param request - RefreshVodObjectCachesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshVodObjectCachesResponse
+     *
+     * @param RefreshVodObjectCachesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RefreshVodObjectCachesResponse
      */
     public function refreshVodObjectCachesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->force)) {
-            $query['Force'] = $request->force;
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
         }
-        if (!Utils::isUnset($request->objectPath)) {
-            $query['ObjectPath'] = $request->objectPath;
+
+        if (null !== $request->objectPath) {
+            @$query['ObjectPath'] = $request->objectPath;
         }
-        if (!Utils::isUnset($request->objectType)) {
-            $query['ObjectType'] = $request->objectType;
+
+        if (null !== $request->objectType) {
+            @$query['ObjectType'] = $request->objectType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RefreshVodObjectCaches',
@@ -9669,23 +11289,25 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RefreshVodObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RefreshVodObjectCachesResponse::fromMap($this->execute($params, $req, $runtime));
+        return RefreshVodObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Refreshes files on Alibaba Cloud CDN nodes. You can refresh multiple files at a time based on URLs.
-     *  *
-     * @description *   This operation is available only in the **China (Shanghai)** region.
+     * Refreshes files on Alibaba Cloud CDN nodes. You can refresh multiple files at a time based on URLs.
+     *
+     * @remarks
+     *   This operation is available only in the **China (Shanghai)** region.
      * *   You can submit a maximum of 2,000 requests to refresh resources based on URLs and 100 requests to refresh resources based on directories each day by using an Alibaba Cloud account.
      * *   You can call the [RefreshVodObjectCaches](https://help.aliyun.com/document_detail/69215.html) operation to refresh content and the [PreloadVodObjectCaches](https://help.aliyun.com/document_detail/69211.html) operation to prefetch content.
-     *  *
-     * @param RefreshVodObjectCachesRequest $request RefreshVodObjectCachesRequest
      *
-     * @return RefreshVodObjectCachesResponse RefreshVodObjectCachesResponse
+     * @param request - RefreshVodObjectCachesRequest
+     *
+     * @returns RefreshVodObjectCachesResponse
+     *
+     * @param RefreshVodObjectCachesRequest $request
+     *
+     * @return RefreshVodObjectCachesResponse
      */
     public function refreshVodObjectCaches($request)
     {
@@ -9695,37 +11317,47 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Registers media files. After you add an Object Storage Service (OSS) bucket to ApsaraVideo VOD, you must register the media files in the bucket to generate the required information before you use features such as transcoding and snapshot capture on the media files.
-     *  *
-     * @description *   After you add an OSS bucket to ApsaraVideo VOD, you must register media files in the OSS bucket to generate the required information. Then, you can use media IDs for features such as transcoding, snapshot capture, and AI processing.use features such as xxx on media files by specifying their IDs?
+     * Registers media files. After you add an Object Storage Service (OSS) bucket to ApsaraVideo VOD, you must register the media files in the bucket to generate the required information before you use features such as transcoding and snapshot capture on the media files.
+     *
+     * @remarks
+     *   After you add an OSS bucket to ApsaraVideo VOD, you must register media files in the OSS bucket to generate the required information. Then, you can use media IDs for features such as transcoding, snapshot capture, and AI processing.use features such as xxx on media files by specifying their IDs?
      * *   You can register up to 10 media files in an OSS bucket in a request. The media files must be stored in the same bucket.
      * *   If you do not specify a transcoding template group ID when you upload a media file to ApsaraVideo VOD, the media file is automatically transcoded based on the default template group. If you do not specify a transcoding template group ID after you register a media file, the media file is not automatically transcoded. The registered media files are automatically transcoded only if you specify a transcoding template group ID.
      * *   If the media file that you want to register has been registered, this operation returns only the unique media ID that is associated with the media file. No further operation is performed.
      * *   Make sure that the media file that you want to register has a valid suffix. Otherwise, the registration fails.
-     *  *
-     * @param RegisterMediaRequest $request RegisterMediaRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RegisterMediaResponse RegisterMediaResponse
+     * @param request - RegisterMediaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RegisterMediaResponse
+     *
+     * @param RegisterMediaRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RegisterMediaResponse
      */
     public function registerMediaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->registerMetadatas)) {
-            $query['RegisterMetadatas'] = $request->registerMetadatas;
+        if (null !== $request->registerMetadatas) {
+            @$query['RegisterMetadatas'] = $request->registerMetadatas;
         }
-        if (!Utils::isUnset($request->templateGroupId)) {
-            $query['TemplateGroupId'] = $request->templateGroupId;
+
+        if (null !== $request->templateGroupId) {
+            @$query['TemplateGroupId'] = $request->templateGroupId;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
-        if (!Utils::isUnset($request->workflowId)) {
-            $query['WorkflowId'] = $request->workflowId;
+
+        if (null !== $request->workflowId) {
+            @$query['WorkflowId'] = $request->workflowId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RegisterMedia',
@@ -9738,25 +11370,27 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RegisterMediaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RegisterMediaResponse::fromMap($this->execute($params, $req, $runtime));
+        return RegisterMediaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Registers media files. After you add an Object Storage Service (OSS) bucket to ApsaraVideo VOD, you must register the media files in the bucket to generate the required information before you use features such as transcoding and snapshot capture on the media files.
-     *  *
-     * @description *   After you add an OSS bucket to ApsaraVideo VOD, you must register media files in the OSS bucket to generate the required information. Then, you can use media IDs for features such as transcoding, snapshot capture, and AI processing.use features such as xxx on media files by specifying their IDs?
+     * Registers media files. After you add an Object Storage Service (OSS) bucket to ApsaraVideo VOD, you must register the media files in the bucket to generate the required information before you use features such as transcoding and snapshot capture on the media files.
+     *
+     * @remarks
+     *   After you add an OSS bucket to ApsaraVideo VOD, you must register media files in the OSS bucket to generate the required information. Then, you can use media IDs for features such as transcoding, snapshot capture, and AI processing.use features such as xxx on media files by specifying their IDs?
      * *   You can register up to 10 media files in an OSS bucket in a request. The media files must be stored in the same bucket.
      * *   If you do not specify a transcoding template group ID when you upload a media file to ApsaraVideo VOD, the media file is automatically transcoded based on the default template group. If you do not specify a transcoding template group ID after you register a media file, the media file is not automatically transcoded. The registered media files are automatically transcoded only if you specify a transcoding template group ID.
      * *   If the media file that you want to register has been registered, this operation returns only the unique media ID that is associated with the media file. No further operation is performed.
      * *   Make sure that the media file that you want to register has a valid suffix. Otherwise, the registration fails.
-     *  *
-     * @param RegisterMediaRequest $request RegisterMediaRequest
      *
-     * @return RegisterMediaResponse RegisterMediaResponse
+     * @param request - RegisterMediaRequest
+     *
+     * @returns RegisterMediaResponse
+     *
+     * @param RegisterMediaRequest $request
+     *
+     * @return RegisterMediaResponse
      */
     public function registerMedia($request)
     {
@@ -9766,33 +11400,43 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Restores media assets.
-     *  *
-     * @description You can call this operation to restore only Archive and Cold Archive audio and video files. You can access the audio and video files after the files are restored. You cannot change the storage class of an audio or video file that is being restored. You are charged for the retrieval traffic generated during restoration. After a Cold Archive audio or video file is restored, a Standard replica of the file is generated for access. You are charged for the storage of the replica before the file returns to the frozen state.
-     *  *
-     * @param RestoreMediaRequest $request RestoreMediaRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Restores media assets.
      *
-     * @return RestoreMediaResponse RestoreMediaResponse
+     * @remarks
+     * You can call this operation to restore only Archive and Cold Archive audio and video files. You can access the audio and video files after the files are restored. You cannot change the storage class of an audio or video file that is being restored. You are charged for the retrieval traffic generated during restoration. After a Cold Archive audio or video file is restored, a Standard replica of the file is generated for access. You are charged for the storage of the replica before the file returns to the frozen state.
+     *
+     * @param request - RestoreMediaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestoreMediaResponse
+     *
+     * @param RestoreMediaRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RestoreMediaResponse
      */
     public function restoreMediaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaIds)) {
-            $query['MediaIds'] = $request->mediaIds;
+        if (null !== $request->mediaIds) {
+            @$query['MediaIds'] = $request->mediaIds;
         }
-        if (!Utils::isUnset($request->restoreDays)) {
-            $query['RestoreDays'] = $request->restoreDays;
+
+        if (null !== $request->restoreDays) {
+            @$query['RestoreDays'] = $request->restoreDays;
         }
-        if (!Utils::isUnset($request->restoreTier)) {
-            $query['RestoreTier'] = $request->restoreTier;
+
+        if (null !== $request->restoreTier) {
+            @$query['RestoreTier'] = $request->restoreTier;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RestoreMedia',
@@ -9805,21 +11449,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RestoreMediaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestoreMediaResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestoreMediaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Restores media assets.
-     *  *
-     * @description You can call this operation to restore only Archive and Cold Archive audio and video files. You can access the audio and video files after the files are restored. You cannot change the storage class of an audio or video file that is being restored. You are charged for the retrieval traffic generated during restoration. After a Cold Archive audio or video file is restored, a Standard replica of the file is generated for access. You are charged for the storage of the replica before the file returns to the frozen state.
-     *  *
-     * @param RestoreMediaRequest $request RestoreMediaRequest
+     * Restores media assets.
      *
-     * @return RestoreMediaResponse RestoreMediaResponse
+     * @remarks
+     * You can call this operation to restore only Archive and Cold Archive audio and video files. You can access the audio and video files after the files are restored. You cannot change the storage class of an audio or video file that is being restored. You are charged for the retrieval traffic generated during restoration. After a Cold Archive audio or video file is restored, a Standard replica of the file is generated for access. You are charged for the storage of the replica before the file returns to the frozen state.
+     *
+     * @param request - RestoreMediaRequest
+     *
+     * @returns RestoreMediaResponse
+     *
+     * @param RestoreMediaRequest $request
+     *
+     * @return RestoreMediaResponse
      */
     public function restoreMedia($request)
     {
@@ -9829,52 +11475,68 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries online editing projects.
-     *  *
-     * @param SearchEditingProjectRequest $request SearchEditingProjectRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries online editing projects.
      *
-     * @return SearchEditingProjectResponse SearchEditingProjectResponse
+     * @param request - SearchEditingProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchEditingProjectResponse
+     *
+     * @param SearchEditingProjectRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SearchEditingProjectResponse
      */
     public function searchEditingProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SearchEditingProject',
@@ -9887,19 +11549,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SearchEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchEditingProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries online editing projects.
-     *  *
-     * @param SearchEditingProjectRequest $request SearchEditingProjectRequest
+     * Queries online editing projects.
      *
-     * @return SearchEditingProjectResponse SearchEditingProjectResponse
+     * @param request - SearchEditingProjectRequest
+     *
+     * @returns SearchEditingProjectResponse
+     *
+     * @param SearchEditingProjectRequest $request
+     *
+     * @return SearchEditingProjectResponse
      */
     public function searchEditingProject($request)
     {
@@ -9909,9 +11572,10 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about videos, audio, images, and auxiliary media assets. You can call this operation and specify the search protocol to query media assets based on the return fields, fields used for exact match, fields used for fuzzy match, fields used for a multi-value query, fields used for a range query, and sort fields.
-     *  *
-     * @description The maximum number of data records that you can query varies based on the method used to query the data. You can use the following methods to query data:
+     * Queries information about videos, audio, images, and auxiliary media assets. You can call this operation and specify the search protocol to query media assets based on the return fields, fields used for exact match, fields used for fuzzy match, fields used for a multi-value query, fields used for a range query, and sort fields.
+     *
+     * @remarks
+     * The maximum number of data records that you can query varies based on the method used to query the data. You can use the following methods to query data:
      * *   Method 1: Traverse data by page
      *     You can use the PageNo and PageSize parameters to traverse up to 5,000 data records that meet the specified filter condition. PageNo specifies the page number and PageSize specifies the number of data records displayed on a page. If the number of data records that meet the specified filter condition exceeds 5,000, change the filter conditions to narrow down the results. You cannot use this method to traverse all data records. If you want to traverse more data records, use Method 2.
      * *   Method 2: Traverse all data (available only for audio and video files)
@@ -9919,39 +11583,51 @@ class Vod extends OpenApiClient
      *     *   When the PageNo parameter is set to 1, you can traverse data records from page 1 to page 5.
      *     *   When the PageNo parameter is set to 2, you can traverse data records from page 2 to page 6.
      * Make sure that you set the appropriate page number and page size, and use a traverse method based on the number of results that meet your filter condition.
-     *  *
-     * @param SearchMediaRequest $request SearchMediaRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchMediaResponse SearchMediaResponse
+     * @param request - SearchMediaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchMediaResponse
+     *
+     * @param SearchMediaRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SearchMediaResponse
      */
     public function searchMediaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fields)) {
-            $query['Fields'] = $request->fields;
+        if (null !== $request->fields) {
+            @$query['Fields'] = $request->fields;
         }
-        if (!Utils::isUnset($request->match)) {
-            $query['Match'] = $request->match;
+
+        if (null !== $request->match) {
+            @$query['Match'] = $request->match;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->scrollToken)) {
-            $query['ScrollToken'] = $request->scrollToken;
+
+        if (null !== $request->scrollToken) {
+            @$query['ScrollToken'] = $request->scrollToken;
         }
-        if (!Utils::isUnset($request->searchType)) {
-            $query['SearchType'] = $request->searchType;
+
+        if (null !== $request->searchType) {
+            @$query['SearchType'] = $request->searchType;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SearchMedia',
@@ -9964,17 +11640,15 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SearchMediaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchMediaResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchMediaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about videos, audio, images, and auxiliary media assets. You can call this operation and specify the search protocol to query media assets based on the return fields, fields used for exact match, fields used for fuzzy match, fields used for a multi-value query, fields used for a range query, and sort fields.
-     *  *
-     * @description The maximum number of data records that you can query varies based on the method used to query the data. You can use the following methods to query data:
+     * Queries information about videos, audio, images, and auxiliary media assets. You can call this operation and specify the search protocol to query media assets based on the return fields, fields used for exact match, fields used for fuzzy match, fields used for a multi-value query, fields used for a range query, and sort fields.
+     *
+     * @remarks
+     * The maximum number of data records that you can query varies based on the method used to query the data. You can use the following methods to query data:
      * *   Method 1: Traverse data by page
      *     You can use the PageNo and PageSize parameters to traverse up to 5,000 data records that meet the specified filter condition. PageNo specifies the page number and PageSize specifies the number of data records displayed on a page. If the number of data records that meet the specified filter condition exceeds 5,000, change the filter conditions to narrow down the results. You cannot use this method to traverse all data records. If you want to traverse more data records, use Method 2.
      * *   Method 2: Traverse all data (available only for audio and video files)
@@ -9982,10 +11656,14 @@ class Vod extends OpenApiClient
      *     *   When the PageNo parameter is set to 1, you can traverse data records from page 1 to page 5.
      *     *   When the PageNo parameter is set to 2, you can traverse data records from page 2 to page 6.
      * Make sure that you set the appropriate page number and page size, and use a traverse method based on the number of results that meet your filter condition.
-     *  *
-     * @param SearchMediaRequest $request SearchMediaRequest
      *
-     * @return SearchMediaResponse SearchMediaResponse
+     * @param request - SearchMediaRequest
+     *
+     * @returns SearchMediaResponse
+     *
+     * @param SearchMediaRequest $request
+     *
+     * @return SearchMediaResponse
      */
     public function searchMedia($request)
     {
@@ -9995,30 +11673,39 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Manages the IP addresses in review security groups.
-     *  *
-     * @description You can play videos in the Checking or Blocked state only from the IP addresses that are added to review security groups.
-     *  *
-     * @param SetAuditSecurityIpRequest $request SetAuditSecurityIpRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Manages the IP addresses in review security groups.
      *
-     * @return SetAuditSecurityIpResponse SetAuditSecurityIpResponse
+     * @remarks
+     * You can play videos in the Checking or Blocked state only from the IP addresses that are added to review security groups.
+     *
+     * @param request - SetAuditSecurityIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetAuditSecurityIpResponse
+     *
+     * @param SetAuditSecurityIpRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SetAuditSecurityIpResponse
      */
     public function setAuditSecurityIpWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ips)) {
-            $query['Ips'] = $request->ips;
+        if (null !== $request->ips) {
+            @$query['Ips'] = $request->ips;
         }
-        if (!Utils::isUnset($request->operateMode)) {
-            $query['OperateMode'] = $request->operateMode;
+
+        if (null !== $request->operateMode) {
+            @$query['OperateMode'] = $request->operateMode;
         }
-        if (!Utils::isUnset($request->securityGroupName)) {
-            $query['SecurityGroupName'] = $request->securityGroupName;
+
+        if (null !== $request->securityGroupName) {
+            @$query['SecurityGroupName'] = $request->securityGroupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SetAuditSecurityIp',
@@ -10031,21 +11718,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetAuditSecurityIpResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetAuditSecurityIpResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetAuditSecurityIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Manages the IP addresses in review security groups.
-     *  *
-     * @description You can play videos in the Checking or Blocked state only from the IP addresses that are added to review security groups.
-     *  *
-     * @param SetAuditSecurityIpRequest $request SetAuditSecurityIpRequest
+     * Manages the IP addresses in review security groups.
      *
-     * @return SetAuditSecurityIpResponse SetAuditSecurityIpResponse
+     * @remarks
+     * You can play videos in the Checking or Blocked state only from the IP addresses that are added to review security groups.
+     *
+     * @param request - SetAuditSecurityIpRequest
+     *
+     * @returns SetAuditSecurityIpResponse
+     *
+     * @param SetAuditSecurityIpRequest $request
+     *
+     * @return SetAuditSecurityIpResponse
      */
     public function setAuditSecurityIp($request)
     {
@@ -10055,42 +11744,55 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Updates the cross-domain policy file crossdomain.xml.
-     *  *
-     * @description > After you use the cross-domain policy file to update the resources on the origin server, you must refresh the resources that are cached on Alibaba Cloud CDN nodes. You can use the ApsaraVideo VOD console to refresh resources. For more information, see [Refresh and prefetch](https://help.aliyun.com/document_detail/86098.html). Alternatively, you can call the [RefreshVodObjectCaches](https://help.aliyun.com/document_detail/69215.html) operation to refresh resources.
-     *  *
-     * @param SetCrossdomainContentRequest $request SetCrossdomainContentRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Updates the cross-domain policy file crossdomain.xml.
      *
-     * @return SetCrossdomainContentResponse SetCrossdomainContentResponse
+     * @remarks
+     * > After you use the cross-domain policy file to update the resources on the origin server, you must refresh the resources that are cached on Alibaba Cloud CDN nodes. You can use the ApsaraVideo VOD console to refresh resources. For more information, see [Refresh and prefetch](https://help.aliyun.com/document_detail/86098.html). Alternatively, you can call the [RefreshVodObjectCaches](https://help.aliyun.com/document_detail/69215.html) operation to refresh resources.
+     *
+     * @param request - SetCrossdomainContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetCrossdomainContentResponse
+     *
+     * @param SetCrossdomainContentRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SetCrossdomainContentResponse
      */
     public function setCrossdomainContentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->resourceRealOwnerId)) {
-            $query['ResourceRealOwnerId'] = $request->resourceRealOwnerId;
+
+        if (null !== $request->resourceRealOwnerId) {
+            @$query['ResourceRealOwnerId'] = $request->resourceRealOwnerId;
         }
-        if (!Utils::isUnset($request->storageLocation)) {
-            $query['StorageLocation'] = $request->storageLocation;
+
+        if (null !== $request->storageLocation) {
+            @$query['StorageLocation'] = $request->storageLocation;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SetCrossdomainContent',
@@ -10103,21 +11805,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetCrossdomainContentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetCrossdomainContentResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetCrossdomainContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the cross-domain policy file crossdomain.xml.
-     *  *
-     * @description > After you use the cross-domain policy file to update the resources on the origin server, you must refresh the resources that are cached on Alibaba Cloud CDN nodes. You can use the ApsaraVideo VOD console to refresh resources. For more information, see [Refresh and prefetch](https://help.aliyun.com/document_detail/86098.html). Alternatively, you can call the [RefreshVodObjectCaches](https://help.aliyun.com/document_detail/69215.html) operation to refresh resources.
-     *  *
-     * @param SetCrossdomainContentRequest $request SetCrossdomainContentRequest
+     * Updates the cross-domain policy file crossdomain.xml.
      *
-     * @return SetCrossdomainContentResponse SetCrossdomainContentResponse
+     * @remarks
+     * > After you use the cross-domain policy file to update the resources on the origin server, you must refresh the resources that are cached on Alibaba Cloud CDN nodes. You can use the ApsaraVideo VOD console to refresh resources. For more information, see [Refresh and prefetch](https://help.aliyun.com/document_detail/86098.html). Alternatively, you can call the [RefreshVodObjectCaches](https://help.aliyun.com/document_detail/69215.html) operation to refresh resources.
+     *
+     * @param request - SetCrossdomainContentRequest
+     *
+     * @returns SetCrossdomainContentResponse
+     *
+     * @param SetCrossdomainContentRequest $request
+     *
+     * @return SetCrossdomainContentResponse
      */
     public function setCrossdomainContent($request)
     {
@@ -10127,24 +11831,31 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Specifies an AI template as the default template.
-     *  *
-     * @description Specifies an AI template as the default template.
-     *  *
-     * @param SetDefaultAITemplateRequest $request SetDefaultAITemplateRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Specifies an AI template as the default template.
      *
-     * @return SetDefaultAITemplateResponse SetDefaultAITemplateResponse
+     * @remarks
+     * Specifies an AI template as the default template.
+     *
+     * @param request - SetDefaultAITemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetDefaultAITemplateResponse
+     *
+     * @param SetDefaultAITemplateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SetDefaultAITemplateResponse
      */
     public function setDefaultAITemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SetDefaultAITemplate',
@@ -10157,21 +11868,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetDefaultAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDefaultAITemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDefaultAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Specifies an AI template as the default template.
-     *  *
-     * @description Specifies an AI template as the default template.
-     *  *
-     * @param SetDefaultAITemplateRequest $request SetDefaultAITemplateRequest
+     * Specifies an AI template as the default template.
      *
-     * @return SetDefaultAITemplateResponse SetDefaultAITemplateResponse
+     * @remarks
+     * Specifies an AI template as the default template.
+     *
+     * @param request - SetDefaultAITemplateRequest
+     *
+     * @returns SetDefaultAITemplateResponse
+     *
+     * @param SetDefaultAITemplateRequest $request
+     *
+     * @return SetDefaultAITemplateResponse
      */
     public function setDefaultAITemplate($request)
     {
@@ -10181,22 +11894,28 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Specifies a transcoding template group as the default one.
-     *  *
-     * @param SetDefaultTranscodeTemplateGroupRequest $request SetDefaultTranscodeTemplateGroupRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Specifies a transcoding template group as the default one.
      *
-     * @return SetDefaultTranscodeTemplateGroupResponse SetDefaultTranscodeTemplateGroupResponse
+     * @param request - SetDefaultTranscodeTemplateGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetDefaultTranscodeTemplateGroupResponse
+     *
+     * @param SetDefaultTranscodeTemplateGroupRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return SetDefaultTranscodeTemplateGroupResponse
      */
     public function setDefaultTranscodeTemplateGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->transcodeTemplateGroupId)) {
-            $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+        if (null !== $request->transcodeTemplateGroupId) {
+            @$query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SetDefaultTranscodeTemplateGroup',
@@ -10209,19 +11928,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetDefaultTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDefaultTranscodeTemplateGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDefaultTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Specifies a transcoding template group as the default one.
-     *  *
-     * @param SetDefaultTranscodeTemplateGroupRequest $request SetDefaultTranscodeTemplateGroupRequest
+     * Specifies a transcoding template group as the default one.
      *
-     * @return SetDefaultTranscodeTemplateGroupResponse SetDefaultTranscodeTemplateGroupResponse
+     * @param request - SetDefaultTranscodeTemplateGroupRequest
+     *
+     * @returns SetDefaultTranscodeTemplateGroupResponse
+     *
+     * @param SetDefaultTranscodeTemplateGroupRequest $request
+     *
+     * @return SetDefaultTranscodeTemplateGroupResponse
      */
     public function setDefaultTranscodeTemplateGroup($request)
     {
@@ -10231,22 +11951,28 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Sets a watermark template as the default one.
-     *  *
-     * @param SetDefaultWatermarkRequest $request SetDefaultWatermarkRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Sets a watermark template as the default one.
      *
-     * @return SetDefaultWatermarkResponse SetDefaultWatermarkResponse
+     * @param request - SetDefaultWatermarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetDefaultWatermarkResponse
+     *
+     * @param SetDefaultWatermarkRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SetDefaultWatermarkResponse
      */
     public function setDefaultWatermarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->watermarkId)) {
-            $query['WatermarkId'] = $request->watermarkId;
+        if (null !== $request->watermarkId) {
+            @$query['WatermarkId'] = $request->watermarkId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SetDefaultWatermark',
@@ -10259,19 +11985,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetDefaultWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDefaultWatermarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDefaultWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Sets a watermark template as the default one.
-     *  *
-     * @param SetDefaultWatermarkRequest $request SetDefaultWatermarkRequest
+     * Sets a watermark template as the default one.
      *
-     * @return SetDefaultWatermarkResponse SetDefaultWatermarkResponse
+     * @param request - SetDefaultWatermarkRequest
+     *
+     * @returns SetDefaultWatermarkResponse
+     *
+     * @param SetDefaultWatermarkRequest $request
+     *
+     * @return SetDefaultWatermarkResponse
      */
     public function setDefaultWatermark($request)
     {
@@ -10281,37 +12008,48 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Specifies the media assets that you want to edit in an online editing project.
-     *  *
-     * @param SetEditingProjectMaterialsRequest $request SetEditingProjectMaterialsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Specifies the media assets that you want to edit in an online editing project.
      *
-     * @return SetEditingProjectMaterialsResponse SetEditingProjectMaterialsResponse
+     * @param request - SetEditingProjectMaterialsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetEditingProjectMaterialsResponse
+     *
+     * @param SetEditingProjectMaterialsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SetEditingProjectMaterialsResponse
      */
     public function setEditingProjectMaterialsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->materialIds)) {
-            $query['MaterialIds'] = $request->materialIds;
+        if (null !== $request->materialIds) {
+            @$query['MaterialIds'] = $request->materialIds;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SetEditingProjectMaterials',
@@ -10324,19 +12062,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetEditingProjectMaterialsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Specifies the media assets that you want to edit in an online editing project.
-     *  *
-     * @param SetEditingProjectMaterialsRequest $request SetEditingProjectMaterialsRequest
+     * Specifies the media assets that you want to edit in an online editing project.
      *
-     * @return SetEditingProjectMaterialsResponse SetEditingProjectMaterialsResponse
+     * @param request - SetEditingProjectMaterialsRequest
+     *
+     * @returns SetEditingProjectMaterialsResponse
+     *
+     * @param SetEditingProjectMaterialsRequest $request
+     *
+     * @return SetEditingProjectMaterialsResponse
      */
     public function setEditingProjectMaterials($request)
     {
@@ -10346,48 +12085,63 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Sets the callback method, callback URL, and event type of an event notification.
-     *  *
-     * @description HTTP callbacks and MNS callbacks are supported. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
-     *  *
-     * @param SetMessageCallbackRequest $request SetMessageCallbackRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Sets the callback method, callback URL, and event type of an event notification.
      *
-     * @return SetMessageCallbackResponse SetMessageCallbackResponse
+     * @remarks
+     * HTTP callbacks and MNS callbacks are supported. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
+     *
+     * @param request - SetMessageCallbackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetMessageCallbackResponse
+     *
+     * @param SetMessageCallbackRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SetMessageCallbackResponse
      */
     public function setMessageCallbackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->authKey)) {
-            $query['AuthKey'] = $request->authKey;
+
+        if (null !== $request->authKey) {
+            @$query['AuthKey'] = $request->authKey;
         }
-        if (!Utils::isUnset($request->authSwitch)) {
-            $query['AuthSwitch'] = $request->authSwitch;
+
+        if (null !== $request->authSwitch) {
+            @$query['AuthSwitch'] = $request->authSwitch;
         }
-        if (!Utils::isUnset($request->callbackType)) {
-            $query['CallbackType'] = $request->callbackType;
+
+        if (null !== $request->callbackType) {
+            @$query['CallbackType'] = $request->callbackType;
         }
-        if (!Utils::isUnset($request->callbackURL)) {
-            $query['CallbackURL'] = $request->callbackURL;
+
+        if (null !== $request->callbackURL) {
+            @$query['CallbackURL'] = $request->callbackURL;
         }
-        if (!Utils::isUnset($request->eventTypeList)) {
-            $query['EventTypeList'] = $request->eventTypeList;
+
+        if (null !== $request->eventTypeList) {
+            @$query['EventTypeList'] = $request->eventTypeList;
         }
-        if (!Utils::isUnset($request->mnsEndpoint)) {
-            $query['MnsEndpoint'] = $request->mnsEndpoint;
+
+        if (null !== $request->mnsEndpoint) {
+            @$query['MnsEndpoint'] = $request->mnsEndpoint;
         }
-        if (!Utils::isUnset($request->mnsQueueName)) {
-            $query['MnsQueueName'] = $request->mnsQueueName;
+
+        if (null !== $request->mnsQueueName) {
+            @$query['MnsQueueName'] = $request->mnsQueueName;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SetMessageCallback',
@@ -10400,21 +12154,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetMessageCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetMessageCallbackResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetMessageCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Sets the callback method, callback URL, and event type of an event notification.
-     *  *
-     * @description HTTP callbacks and MNS callbacks are supported. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
-     *  *
-     * @param SetMessageCallbackRequest $request SetMessageCallbackRequest
+     * Sets the callback method, callback URL, and event type of an event notification.
      *
-     * @return SetMessageCallbackResponse SetMessageCallbackResponse
+     * @remarks
+     * HTTP callbacks and MNS callbacks are supported. For more information, see [Overview](https://help.aliyun.com/document_detail/55627.html).
+     *
+     * @param request - SetMessageCallbackRequest
+     *
+     * @returns SetMessageCallbackResponse
+     *
+     * @param SetMessageCallbackRequest $request
+     *
+     * @return SetMessageCallbackResponse
      */
     public function setMessageCallback($request)
     {
@@ -10424,42 +12180,55 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the certificate of a domain name and modifies the certificate information.
-     *  *
-     * @description > This operation is available only in the **China (Shanghai)** region.
-     *  *
-     * @param SetVodDomainCertificateRequest $request SetVodDomainCertificateRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Enables or disables the certificate of a domain name and modifies the certificate information.
      *
-     * @return SetVodDomainCertificateResponse SetVodDomainCertificateResponse
+     * @remarks
+     * > This operation is available only in the **China (Shanghai)** region.
+     *
+     * @param request - SetVodDomainCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetVodDomainCertificateResponse
+     *
+     * @param SetVodDomainCertificateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SetVodDomainCertificateResponse
      */
     public function setVodDomainCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certName)) {
-            $query['CertName'] = $request->certName;
+        if (null !== $request->certName) {
+            @$query['CertName'] = $request->certName;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->SSLPri)) {
-            $query['SSLPri'] = $request->SSLPri;
+
+        if (null !== $request->SSLPri) {
+            @$query['SSLPri'] = $request->SSLPri;
         }
-        if (!Utils::isUnset($request->SSLProtocol)) {
-            $query['SSLProtocol'] = $request->SSLProtocol;
+
+        if (null !== $request->SSLProtocol) {
+            @$query['SSLProtocol'] = $request->SSLProtocol;
         }
-        if (!Utils::isUnset($request->SSLPub)) {
-            $query['SSLPub'] = $request->SSLPub;
+
+        if (null !== $request->SSLPub) {
+            @$query['SSLPub'] = $request->SSLPub;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SetVodDomainCertificate',
@@ -10472,21 +12241,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetVodDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetVodDomainCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetVodDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables the certificate of a domain name and modifies the certificate information.
-     *  *
-     * @description > This operation is available only in the **China (Shanghai)** region.
-     *  *
-     * @param SetVodDomainCertificateRequest $request SetVodDomainCertificateRequest
+     * Enables or disables the certificate of a domain name and modifies the certificate information.
      *
-     * @return SetVodDomainCertificateResponse SetVodDomainCertificateResponse
+     * @remarks
+     * > This operation is available only in the **China (Shanghai)** region.
+     *
+     * @param request - SetVodDomainCertificateRequest
+     *
+     * @returns SetVodDomainCertificateResponse
+     *
+     * @param SetVodDomainCertificateRequest $request
+     *
+     * @return SetVodDomainCertificateResponse
      */
     public function setVodDomainCertificate($request)
     {
@@ -10496,52 +12267,68 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the SSL certificate of a domain name and updates the certificate information.
-     *  *
-     * @param SetVodDomainSSLCertificateRequest $request SetVodDomainSSLCertificateRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Enables or disables the SSL certificate of a domain name and updates the certificate information.
      *
-     * @return SetVodDomainSSLCertificateResponse SetVodDomainSSLCertificateResponse
+     * @param request - SetVodDomainSSLCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetVodDomainSSLCertificateResponse
+     *
+     * @param SetVodDomainSSLCertificateRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SetVodDomainSSLCertificateResponse
      */
     public function setVodDomainSSLCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certId)) {
-            $query['CertId'] = $request->certId;
+        if (null !== $request->certId) {
+            @$query['CertId'] = $request->certId;
         }
-        if (!Utils::isUnset($request->certName)) {
-            $query['CertName'] = $request->certName;
+
+        if (null !== $request->certName) {
+            @$query['CertName'] = $request->certName;
         }
-        if (!Utils::isUnset($request->certRegion)) {
-            $query['CertRegion'] = $request->certRegion;
+
+        if (null !== $request->certRegion) {
+            @$query['CertRegion'] = $request->certRegion;
         }
-        if (!Utils::isUnset($request->certType)) {
-            $query['CertType'] = $request->certType;
+
+        if (null !== $request->certType) {
+            @$query['CertType'] = $request->certType;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->env)) {
-            $query['Env'] = $request->env;
+
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->SSLPri)) {
-            $query['SSLPri'] = $request->SSLPri;
+
+        if (null !== $request->SSLPri) {
+            @$query['SSLPri'] = $request->SSLPri;
         }
-        if (!Utils::isUnset($request->SSLProtocol)) {
-            $query['SSLProtocol'] = $request->SSLProtocol;
+
+        if (null !== $request->SSLProtocol) {
+            @$query['SSLProtocol'] = $request->SSLProtocol;
         }
-        if (!Utils::isUnset($request->SSLPub)) {
-            $query['SSLPub'] = $request->SSLPub;
+
+        if (null !== $request->SSLPub) {
+            @$query['SSLPub'] = $request->SSLPub;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SetVodDomainSSLCertificate',
@@ -10554,19 +12341,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetVodDomainSSLCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetVodDomainSSLCertificateResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetVodDomainSSLCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables the SSL certificate of a domain name and updates the certificate information.
-     *  *
-     * @param SetVodDomainSSLCertificateRequest $request SetVodDomainSSLCertificateRequest
+     * Enables or disables the SSL certificate of a domain name and updates the certificate information.
      *
-     * @return SetVodDomainSSLCertificateResponse SetVodDomainSSLCertificateResponse
+     * @param request - SetVodDomainSSLCertificateRequest
+     *
+     * @returns SetVodDomainSSLCertificateResponse
+     *
+     * @param SetVodDomainSSLCertificateRequest $request
+     *
+     * @return SetVodDomainSSLCertificateResponse
      */
     public function setVodDomainSSLCertificate($request)
     {
@@ -10576,42 +12364,55 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Submits an automated review job for an image. After the job is submitted, the job is processed in an asynchronous manner. The operation may return a response before the job is complete.
-     *  *
-     * @description This operation is available only in the Singapore region.
-     *  *
-     * @param SubmitAIImageAuditJobRequest $request SubmitAIImageAuditJobRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Submits an automated review job for an image. After the job is submitted, the job is processed in an asynchronous manner. The operation may return a response before the job is complete.
      *
-     * @return SubmitAIImageAuditJobResponse SubmitAIImageAuditJobResponse
+     * @remarks
+     * This operation is available only in the Singapore region.
+     *
+     * @param request - SubmitAIImageAuditJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitAIImageAuditJobResponse
+     *
+     * @param SubmitAIImageAuditJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitAIImageAuditJobResponse
      */
     public function submitAIImageAuditJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaAuditConfiguration)) {
-            $query['MediaAuditConfiguration'] = $request->mediaAuditConfiguration;
+        if (null !== $request->mediaAuditConfiguration) {
+            @$query['MediaAuditConfiguration'] = $request->mediaAuditConfiguration;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitAIImageAuditJob',
@@ -10624,21 +12425,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitAIImageAuditJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitAIImageAuditJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitAIImageAuditJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits an automated review job for an image. After the job is submitted, the job is processed in an asynchronous manner. The operation may return a response before the job is complete.
-     *  *
-     * @description This operation is available only in the Singapore region.
-     *  *
-     * @param SubmitAIImageAuditJobRequest $request SubmitAIImageAuditJobRequest
+     * Submits an automated review job for an image. After the job is submitted, the job is processed in an asynchronous manner. The operation may return a response before the job is complete.
      *
-     * @return SubmitAIImageAuditJobResponse SubmitAIImageAuditJobResponse
+     * @remarks
+     * This operation is available only in the Singapore region.
+     *
+     * @param request - SubmitAIImageAuditJobRequest
+     *
+     * @returns SubmitAIImageAuditJobResponse
+     *
+     * @param SubmitAIImageAuditJobRequest $request
+     *
+     * @return SubmitAIImageAuditJobResponse
      */
     public function submitAIImageAuditJob($request)
     {
@@ -10648,46 +12451,60 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Submits jobs of image AI processing.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)** and **China (Shanghai)**.
-     * *   After you call this operation, you can call the [GetAIImageJobs](https://help.aliyun.com/document_detail/186923.html) operation to query the job execution result.
-     *  *
-     * @param SubmitAIImageJobRequest $request SubmitAIImageJobRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Submits jobs of image AI processing.
      *
-     * @return SubmitAIImageJobResponse SubmitAIImageJobResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)** and **China (Shanghai)**.
+     * *   After you call this operation, you can call the [GetAIImageJobs](https://help.aliyun.com/document_detail/186923.html) operation to query the job execution result.
+     *
+     * @param request - SubmitAIImageJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitAIImageJobResponse
+     *
+     * @param SubmitAIImageJobRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SubmitAIImageJobResponse
      */
     public function submitAIImageJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->AIPipelineId)) {
-            $query['AIPipelineId'] = $request->AIPipelineId;
+        if (null !== $request->AIPipelineId) {
+            @$query['AIPipelineId'] = $request->AIPipelineId;
         }
-        if (!Utils::isUnset($request->AITemplateId)) {
-            $query['AITemplateId'] = $request->AITemplateId;
+
+        if (null !== $request->AITemplateId) {
+            @$query['AITemplateId'] = $request->AITemplateId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitAIImageJob',
@@ -10700,22 +12517,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitAIImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitAIImageJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitAIImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits jobs of image AI processing.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)** and **China (Shanghai)**.
-     * *   After you call this operation, you can call the [GetAIImageJobs](https://help.aliyun.com/document_detail/186923.html) operation to query the job execution result.
-     *  *
-     * @param SubmitAIImageJobRequest $request SubmitAIImageJobRequest
+     * Submits jobs of image AI processing.
      *
-     * @return SubmitAIImageJobResponse SubmitAIImageJobResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)** and **China (Shanghai)**.
+     * *   After you call this operation, you can call the [GetAIImageJobs](https://help.aliyun.com/document_detail/186923.html) operation to query the job execution result.
+     *
+     * @param request - SubmitAIImageJobRequest
+     *
+     * @returns SubmitAIImageJobResponse
+     *
+     * @param SubmitAIImageJobRequest $request
+     *
+     * @return SubmitAIImageJobResponse
      */
     public function submitAIImageJob($request)
     {
@@ -10725,49 +12544,63 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Submits a smart tagging or video fingerprinting job.
-     *  *
-     * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged for using the smart tagging and video fingerprinting features. For more information, see [Billing of video AI](~~188310#section-g7l-s3o-9ng~~).**
+     * Submits a smart tagging or video fingerprinting job.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged for using the smart tagging and video fingerprinting features. For more information, see [Billing of video AI](~~188310#section-g7l-s3o-9ng~~).**
      * *   Regions that support the video fingerprinting feature: **China (Beijing)**, **China (Shanghai)**, and **Singapore**. Regions that support the smart tagging feature: **China (Beijing)** and **China (Shanghai)**.
      * *   You need to enable the video fingerprinting feature or the smart tagging feature before you can call this operation to submit jobs. For more information, see [Overview](https://help.aliyun.com/document_detail/101148.html).
      * *   If this is the first time you use the video fingerprinting feature, you must submit a ticket to apply for using the media fingerprint library for free. Otherwise, the video fingerprinting feature will be affected. For more information about how to submit a ticket, see [Contact us](https://help.aliyun.com/document_detail/464625.html).
      * *   After you submit an AI job, ApsaraVideo VOD asynchronously processes the job. The operation may return a response before the job is complete. You can configure the [Event Notification](https://help.aliyun.com/document_detail/55627.html) feature and set the callback event to **AI Processing Completed**. After you receive the event notification, you can query the execution result of the AI job.
-     *  *
-     * @param SubmitAIJobRequest $request SubmitAIJobRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitAIJobResponse SubmitAIJobResponse
+     * @param request - SubmitAIJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitAIJobResponse
+     *
+     * @param SubmitAIJobRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SubmitAIJobResponse
      */
     public function submitAIJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->types)) {
-            $query['Types'] = $request->types;
+
+        if (null !== $request->types) {
+            @$query['Types'] = $request->types;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitAIJob',
@@ -10780,25 +12613,27 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitAIJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitAIJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitAIJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a smart tagging or video fingerprinting job.
-     *  *
-     * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged for using the smart tagging and video fingerprinting features. For more information, see [Billing of video AI](~~188310#section-g7l-s3o-9ng~~).**
+     * Submits a smart tagging or video fingerprinting job.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged for using the smart tagging and video fingerprinting features. For more information, see [Billing of video AI](~~188310#section-g7l-s3o-9ng~~).**
      * *   Regions that support the video fingerprinting feature: **China (Beijing)**, **China (Shanghai)**, and **Singapore**. Regions that support the smart tagging feature: **China (Beijing)** and **China (Shanghai)**.
      * *   You need to enable the video fingerprinting feature or the smart tagging feature before you can call this operation to submit jobs. For more information, see [Overview](https://help.aliyun.com/document_detail/101148.html).
      * *   If this is the first time you use the video fingerprinting feature, you must submit a ticket to apply for using the media fingerprint library for free. Otherwise, the video fingerprinting feature will be affected. For more information about how to submit a ticket, see [Contact us](https://help.aliyun.com/document_detail/464625.html).
      * *   After you submit an AI job, ApsaraVideo VOD asynchronously processes the job. The operation may return a response before the job is complete. You can configure the [Event Notification](https://help.aliyun.com/document_detail/55627.html) feature and set the callback event to **AI Processing Completed**. After you receive the event notification, you can query the execution result of the AI job.
-     *  *
-     * @param SubmitAIJobRequest $request SubmitAIJobRequest
      *
-     * @return SubmitAIJobResponse SubmitAIJobResponse
+     * @param request - SubmitAIJobRequest
+     *
+     * @returns SubmitAIJobResponse
+     *
+     * @param SubmitAIJobRequest $request
+     *
+     * @return SubmitAIJobResponse
      */
     public function submitAIJob($request)
     {
@@ -10808,39 +12643,50 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Submits an automated review job for a media file. After the job is submitted, ApsaraVideo VOD asynchronously processes the job. Therefore, the operation may return a response before the job is complete.
-     *  *
-     * @description *   **Make sure that you understand the billing methods and price of ApsaraVideo VOD before you call this operation. You are charged for using the automated review feature. For more information about billing, submit a ticket or contact your account manager.**
+     * Submits an automated review job for a media file. After the job is submitted, ApsaraVideo VOD asynchronously processes the job. Therefore, the operation may return a response before the job is complete.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing methods and price of ApsaraVideo VOD before you call this operation. You are charged for using the automated review feature. For more information about billing, submit a ticket or contact your account manager.**
      * *   You can call this operation only in the **China (Shanghai)**, **China (Beijing)**, and **Singapore** regions.
      * *   For more information, see [Automated review](https://help.aliyun.com/document_detail/101148.html).
      * *   After an automated review job is complete, the images generated during the review are stored in the VOD bucket for two weeks free of charge. The images are automatically deleted after two weeks.
-     *  *
-     * @param SubmitAIMediaAuditJobRequest $request SubmitAIMediaAuditJobRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitAIMediaAuditJobResponse SubmitAIMediaAuditJobResponse
+     * @param request - SubmitAIMediaAuditJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitAIMediaAuditJobResponse
+     *
+     * @param SubmitAIMediaAuditJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitAIMediaAuditJobResponse
      */
     public function submitAIMediaAuditJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaAuditConfiguration)) {
-            $query['MediaAuditConfiguration'] = $request->mediaAuditConfiguration;
+        if (null !== $request->mediaAuditConfiguration) {
+            @$query['MediaAuditConfiguration'] = $request->mediaAuditConfiguration;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->mediaType)) {
-            $query['MediaType'] = $request->mediaType;
+
+        if (null !== $request->mediaType) {
+            @$query['MediaType'] = $request->mediaType;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitAIMediaAuditJob',
@@ -10853,24 +12699,26 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitAIMediaAuditJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitAIMediaAuditJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitAIMediaAuditJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits an automated review job for a media file. After the job is submitted, ApsaraVideo VOD asynchronously processes the job. Therefore, the operation may return a response before the job is complete.
-     *  *
-     * @description *   **Make sure that you understand the billing methods and price of ApsaraVideo VOD before you call this operation. You are charged for using the automated review feature. For more information about billing, submit a ticket or contact your account manager.**
+     * Submits an automated review job for a media file. After the job is submitted, ApsaraVideo VOD asynchronously processes the job. Therefore, the operation may return a response before the job is complete.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing methods and price of ApsaraVideo VOD before you call this operation. You are charged for using the automated review feature. For more information about billing, submit a ticket or contact your account manager.**
      * *   You can call this operation only in the **China (Shanghai)**, **China (Beijing)**, and **Singapore** regions.
      * *   For more information, see [Automated review](https://help.aliyun.com/document_detail/101148.html).
      * *   After an automated review job is complete, the images generated during the review are stored in the VOD bucket for two weeks free of charge. The images are automatically deleted after two weeks.
-     *  *
-     * @param SubmitAIMediaAuditJobRequest $request SubmitAIMediaAuditJobRequest
      *
-     * @return SubmitAIMediaAuditJobResponse SubmitAIMediaAuditJobResponse
+     * @param request - SubmitAIMediaAuditJobRequest
+     *
+     * @returns SubmitAIMediaAuditJobResponse
+     *
+     * @param SubmitAIMediaAuditJobRequest $request
+     *
+     * @return SubmitAIMediaAuditJobResponse
      */
     public function submitAIMediaAuditJob($request)
     {
@@ -10880,43 +12728,55 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Submits a digital watermark extraction job. You can call this operation to asynchronously extract a copyright watermark or user-tracing watermark.
-     *  *
-     * @description *   **Make sure that you understand the billing methods and price of ApsaraVideo VOD before you call this operation. You are charged for generating and extracting digital watermarks. For more information, see [Billing](~~188310#62b9c940403se~~).**
+     * Submits a digital watermark extraction job. You can call this operation to asynchronously extract a copyright watermark or user-tracing watermark.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing methods and price of ApsaraVideo VOD before you call this operation. You are charged for generating and extracting digital watermarks. For more information, see [Billing](~~188310#62b9c940403se~~).**
      * *   This operation is supported only in the **China (Shanghai)** and **China (Beijing)** regions.
      * *   Before you submit a digital watermark extraction job, make sure that the following conditions are met:
      *     *   The video from which you want to extract the watermark is uploaded to the ApsaraVideo VOD.
      *     *   The video from which you want to extract the watermark is longer than 6 minutes.
-     *  *
-     * @param SubmitDigitalWatermarkExtractJobRequest $request SubmitDigitalWatermarkExtractJobRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitDigitalWatermarkExtractJobResponse SubmitDigitalWatermarkExtractJobResponse
+     * @param request - SubmitDigitalWatermarkExtractJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitDigitalWatermarkExtractJobResponse
+     *
+     * @param SubmitDigitalWatermarkExtractJobRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return SubmitDigitalWatermarkExtractJobResponse
      */
     public function submitDigitalWatermarkExtractJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->extractType)) {
-            $query['ExtractType'] = $request->extractType;
+        if (null !== $request->extractType) {
+            @$query['ExtractType'] = $request->extractType;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitDigitalWatermarkExtractJob',
@@ -10929,25 +12789,27 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitDigitalWatermarkExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitDigitalWatermarkExtractJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitDigitalWatermarkExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a digital watermark extraction job. You can call this operation to asynchronously extract a copyright watermark or user-tracing watermark.
-     *  *
-     * @description *   **Make sure that you understand the billing methods and price of ApsaraVideo VOD before you call this operation. You are charged for generating and extracting digital watermarks. For more information, see [Billing](~~188310#62b9c940403se~~).**
+     * Submits a digital watermark extraction job. You can call this operation to asynchronously extract a copyright watermark or user-tracing watermark.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing methods and price of ApsaraVideo VOD before you call this operation. You are charged for generating and extracting digital watermarks. For more information, see [Billing](~~188310#62b9c940403se~~).**
      * *   This operation is supported only in the **China (Shanghai)** and **China (Beijing)** regions.
      * *   Before you submit a digital watermark extraction job, make sure that the following conditions are met:
      *     *   The video from which you want to extract the watermark is uploaded to the ApsaraVideo VOD.
      *     *   The video from which you want to extract the watermark is longer than 6 minutes.
-     *  *
-     * @param SubmitDigitalWatermarkExtractJobRequest $request SubmitDigitalWatermarkExtractJobRequest
      *
-     * @return SubmitDigitalWatermarkExtractJobResponse SubmitDigitalWatermarkExtractJobResponse
+     * @param request - SubmitDigitalWatermarkExtractJobRequest
+     *
+     * @returns SubmitDigitalWatermarkExtractJobResponse
+     *
+     * @param SubmitDigitalWatermarkExtractJobRequest $request
+     *
+     * @return SubmitDigitalWatermarkExtractJobResponse
      */
     public function submitDigitalWatermarkExtractJob($request)
     {
@@ -10957,33 +12819,42 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Submits a frame animation job and starts asynchronous processing.
-     *  *
-     * @description *   You can capture a part of a video and generate animated images only when the video is in the **Uploaded**, **Transcoding**, **Normal**, **Reviewing**, or **Flagged** state.
+     * Submits a frame animation job and starts asynchronous processing.
+     *
+     * @remarks
+     *   You can capture a part of a video and generate animated images only when the video is in the **Uploaded**, **Transcoding**, **Normal**, **Reviewing**, or **Flagged** state.
      * *   The fees for frame animation are included in your video transcoding bill. You are charged based on the output resolution and the duration. For more information, see [Billing of basic services](https://help.aliyun.com/document_detail/188308.html).
      * ### QPS limits
      * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit on API operations](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param SubmitDynamicImageJobRequest $request SubmitDynamicImageJobRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitDynamicImageJobResponse SubmitDynamicImageJobResponse
+     * @param request - SubmitDynamicImageJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitDynamicImageJobResponse
+     *
+     * @param SubmitDynamicImageJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitDynamicImageJobResponse
      */
     public function submitDynamicImageJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dynamicImageTemplateId)) {
-            $query['DynamicImageTemplateId'] = $request->dynamicImageTemplateId;
+        if (null !== $request->dynamicImageTemplateId) {
+            @$query['DynamicImageTemplateId'] = $request->dynamicImageTemplateId;
         }
-        if (!Utils::isUnset($request->overrideParams)) {
-            $query['OverrideParams'] = $request->overrideParams;
+
+        if (null !== $request->overrideParams) {
+            @$query['OverrideParams'] = $request->overrideParams;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitDynamicImageJob',
@@ -10996,24 +12867,26 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitDynamicImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitDynamicImageJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitDynamicImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a frame animation job and starts asynchronous processing.
-     *  *
-     * @description *   You can capture a part of a video and generate animated images only when the video is in the **Uploaded**, **Transcoding**, **Normal**, **Reviewing**, or **Flagged** state.
+     * Submits a frame animation job and starts asynchronous processing.
+     *
+     * @remarks
+     *   You can capture a part of a video and generate animated images only when the video is in the **Uploaded**, **Transcoding**, **Normal**, **Reviewing**, or **Flagged** state.
      * *   The fees for frame animation are included in your video transcoding bill. You are charged based on the output resolution and the duration. For more information, see [Billing of basic services](https://help.aliyun.com/document_detail/188308.html).
      * ### QPS limits
      * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit on API operations](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param SubmitDynamicImageJobRequest $request SubmitDynamicImageJobRequest
      *
-     * @return SubmitDynamicImageJobResponse SubmitDynamicImageJobResponse
+     * @param request - SubmitDynamicImageJobRequest
+     *
+     * @returns SubmitDynamicImageJobResponse
+     *
+     * @param SubmitDynamicImageJobRequest $request
+     *
+     * @return SubmitDynamicImageJobResponse
      */
     public function submitDynamicImageJob($request)
     {
@@ -11023,36 +12896,47 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a video fingerprinting job.
-     *  *
-     * @description Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     *  *
-     * @param SubmitMediaDNADeleteJobRequest $request SubmitMediaDNADeleteJobRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Deletes a video fingerprinting job.
      *
-     * @return SubmitMediaDNADeleteJobResponse SubmitMediaDNADeleteJobResponse
+     * @remarks
+     * Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     *
+     * @param request - SubmitMediaDNADeleteJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitMediaDNADeleteJobResponse
+     *
+     * @param SubmitMediaDNADeleteJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SubmitMediaDNADeleteJobResponse
      */
     public function submitMediaDNADeleteJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitMediaDNADeleteJob',
@@ -11065,21 +12949,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitMediaDNADeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitMediaDNADeleteJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitMediaDNADeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a video fingerprinting job.
-     *  *
-     * @description Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     *  *
-     * @param SubmitMediaDNADeleteJobRequest $request SubmitMediaDNADeleteJobRequest
+     * Deletes a video fingerprinting job.
      *
-     * @return SubmitMediaDNADeleteJobResponse SubmitMediaDNADeleteJobResponse
+     * @remarks
+     * Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     *
+     * @param request - SubmitMediaDNADeleteJobRequest
+     *
+     * @returns SubmitMediaDNADeleteJobResponse
+     *
+     * @param SubmitMediaDNADeleteJobRequest $request
+     *
+     * @return SubmitMediaDNADeleteJobResponse
      */
     public function submitMediaDNADeleteJob($request)
     {
@@ -11089,28 +12975,36 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Transcodes a video by using the production studio.
-     *  *
-     * @description *   During video preprocessing, videos are transcoded to meet the playback requirements of the production studio. Therefore, **you are charged for video preprocessing**. For more information about billing, see [Billing of production studios](https://help.aliyun.com/document_detail/64531.html).
-     * *   You can obtain the preprocessing result in the [TranscodeComplete](https://help.aliyun.com/document_detail/55638.html) event notification. If **Preprocess=true** is returned in the event notification, the video is transcoded.
-     *  *
-     * @param SubmitPreprocessJobsRequest $request SubmitPreprocessJobsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Transcodes a video by using the production studio.
      *
-     * @return SubmitPreprocessJobsResponse SubmitPreprocessJobsResponse
+     * @remarks
+     *   During video preprocessing, videos are transcoded to meet the playback requirements of the production studio. Therefore, **you are charged for video preprocessing**. For more information about billing, see [Billing of production studios](https://help.aliyun.com/document_detail/64531.html).
+     * *   You can obtain the preprocessing result in the [TranscodeComplete](https://help.aliyun.com/document_detail/55638.html) event notification. If **Preprocess=true** is returned in the event notification, the video is transcoded.
+     *
+     * @param request - SubmitPreprocessJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitPreprocessJobsResponse
+     *
+     * @param SubmitPreprocessJobsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitPreprocessJobsResponse
      */
     public function submitPreprocessJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->preprocessType)) {
-            $query['PreprocessType'] = $request->preprocessType;
+        if (null !== $request->preprocessType) {
+            @$query['PreprocessType'] = $request->preprocessType;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitPreprocessJobs',
@@ -11123,22 +13017,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitPreprocessJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitPreprocessJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitPreprocessJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Transcodes a video by using the production studio.
-     *  *
-     * @description *   During video preprocessing, videos are transcoded to meet the playback requirements of the production studio. Therefore, **you are charged for video preprocessing**. For more information about billing, see [Billing of production studios](https://help.aliyun.com/document_detail/64531.html).
-     * *   You can obtain the preprocessing result in the [TranscodeComplete](https://help.aliyun.com/document_detail/55638.html) event notification. If **Preprocess=true** is returned in the event notification, the video is transcoded.
-     *  *
-     * @param SubmitPreprocessJobsRequest $request SubmitPreprocessJobsRequest
+     * Transcodes a video by using the production studio.
      *
-     * @return SubmitPreprocessJobsResponse SubmitPreprocessJobsResponse
+     * @remarks
+     *   During video preprocessing, videos are transcoded to meet the playback requirements of the production studio. Therefore, **you are charged for video preprocessing**. For more information about billing, see [Billing of production studios](https://help.aliyun.com/document_detail/64531.html).
+     * *   You can obtain the preprocessing result in the [TranscodeComplete](https://help.aliyun.com/document_detail/55638.html) event notification. If **Preprocess=true** is returned in the event notification, the video is transcoded.
+     *
+     * @param request - SubmitPreprocessJobsRequest
+     *
+     * @returns SubmitPreprocessJobsResponse
+     *
+     * @param SubmitPreprocessJobsRequest $request
+     *
+     * @return SubmitPreprocessJobsResponse
      */
     public function submitPreprocessJobs($request)
     {
@@ -11148,59 +13044,76 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Submits a snapshot job for a video and starts asynchronous snapshot processing.
-     *  *
-     * @description *   Only snapshots in the JPG format are generated.
+     * Submits a snapshot job for a video and starts asynchronous snapshot processing.
+     *
+     * @remarks
+     *   Only snapshots in the JPG format are generated.
      * *   After a snapshot is captured, the [SnapshotComplete](https://help.aliyun.com/document_detail/57337.html) callback is fired and EventType=SnapshotComplete, SubType=SpecifiedTime is returned.
      * ### [](#qps-)QPS limits
      * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param SubmitSnapshotJobRequest $tmpReq  SubmitSnapshotJobRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitSnapshotJobResponse SubmitSnapshotJobResponse
+     * @param tmpReq - SubmitSnapshotJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitSnapshotJobResponse
+     *
+     * @param SubmitSnapshotJobRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SubmitSnapshotJobResponse
      */
     public function submitSnapshotJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitSnapshotJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->specifiedOffsetTimes)) {
-            $request->specifiedOffsetTimesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->specifiedOffsetTimes, 'SpecifiedOffsetTimes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->specifiedOffsetTimes) {
+            $request->specifiedOffsetTimesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->specifiedOffsetTimes, 'SpecifiedOffsetTimes', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->count)) {
-            $query['Count'] = $request->count;
+        if (null !== $request->count) {
+            @$query['Count'] = $request->count;
         }
-        if (!Utils::isUnset($request->height)) {
-            $query['Height'] = $request->height;
+
+        if (null !== $request->height) {
+            @$query['Height'] = $request->height;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->snapshotTemplateId)) {
-            $query['SnapshotTemplateId'] = $request->snapshotTemplateId;
+
+        if (null !== $request->snapshotTemplateId) {
+            @$query['SnapshotTemplateId'] = $request->snapshotTemplateId;
         }
-        if (!Utils::isUnset($request->specifiedOffsetTime)) {
-            $query['SpecifiedOffsetTime'] = $request->specifiedOffsetTime;
+
+        if (null !== $request->specifiedOffsetTime) {
+            @$query['SpecifiedOffsetTime'] = $request->specifiedOffsetTime;
         }
-        if (!Utils::isUnset($request->specifiedOffsetTimesShrink)) {
-            $query['SpecifiedOffsetTimes'] = $request->specifiedOffsetTimesShrink;
+
+        if (null !== $request->specifiedOffsetTimesShrink) {
+            @$query['SpecifiedOffsetTimes'] = $request->specifiedOffsetTimesShrink;
         }
-        if (!Utils::isUnset($request->spriteSnapshotConfig)) {
-            $query['SpriteSnapshotConfig'] = $request->spriteSnapshotConfig;
+
+        if (null !== $request->spriteSnapshotConfig) {
+            @$query['SpriteSnapshotConfig'] = $request->spriteSnapshotConfig;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
-        if (!Utils::isUnset($request->width)) {
-            $query['Width'] = $request->width;
+
+        if (null !== $request->width) {
+            @$query['Width'] = $request->width;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitSnapshotJob',
@@ -11213,24 +13126,26 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitSnapshotJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitSnapshotJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitSnapshotJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a snapshot job for a video and starts asynchronous snapshot processing.
-     *  *
-     * @description *   Only snapshots in the JPG format are generated.
+     * Submits a snapshot job for a video and starts asynchronous snapshot processing.
+     *
+     * @remarks
+     *   Only snapshots in the JPG format are generated.
      * *   After a snapshot is captured, the [SnapshotComplete](https://help.aliyun.com/document_detail/57337.html) callback is fired and EventType=SnapshotComplete, SubType=SpecifiedTime is returned.
      * ### [](#qps-)QPS limits
      * You can call this operation up to 30 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param SubmitSnapshotJobRequest $request SubmitSnapshotJobRequest
      *
-     * @return SubmitSnapshotJobResponse SubmitSnapshotJobResponse
+     * @param request - SubmitSnapshotJobRequest
+     *
+     * @returns SubmitSnapshotJobResponse
+     *
+     * @param SubmitSnapshotJobRequest $request
+     *
+     * @return SubmitSnapshotJobResponse
      */
     public function submitSnapshotJob($request)
     {
@@ -11240,49 +13155,63 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Submits a transcoding job to start transcoding in an asynchronous manner.
-     *  *
-     * @description ### [](#)Usage notes
+     * Submits a transcoding job to start transcoding in an asynchronous manner.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   **Make sure that you understand the billing methods and prices of ApsaraVideo VOD before you call this operation. For more information about billing of the transcoding feature, see [Billing of basic services](~~188308#section-ejb-nii-nqa~~).**
      * *   You can transcode a video only in the Uploaded, Normal, or Reviewing state.
      * *   You can obtain the transcoding results from the [StreamTranscodeComplete](https://help.aliyun.com/document_detail/55636.html) or [TranscodeComplete](https://help.aliyun.com/document_detail/55638.html) callback.
      * *   You can call this operation to dynamically override the subtitle URL in an HTTP Live Streaming (HLS) packaging task. If the packaging task does not contain subtitles, we recommend that you specify the ID of the specific packaging template group when you upload the video instead of calling this operation.
-     *  *
-     * @param SubmitTranscodeJobsRequest $request SubmitTranscodeJobsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitTranscodeJobsResponse SubmitTranscodeJobsResponse
+     * @param request - SubmitTranscodeJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitTranscodeJobsResponse
+     *
+     * @param SubmitTranscodeJobsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SubmitTranscodeJobsResponse
      */
     public function submitTranscodeJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->encryptConfig)) {
-            $query['EncryptConfig'] = $request->encryptConfig;
+        if (null !== $request->encryptConfig) {
+            @$query['EncryptConfig'] = $request->encryptConfig;
         }
-        if (!Utils::isUnset($request->overrideParams)) {
-            $query['OverrideParams'] = $request->overrideParams;
+
+        if (null !== $request->overrideParams) {
+            @$query['OverrideParams'] = $request->overrideParams;
         }
-        if (!Utils::isUnset($request->pipelineId)) {
-            $query['PipelineId'] = $request->pipelineId;
+
+        if (null !== $request->pipelineId) {
+            @$query['PipelineId'] = $request->pipelineId;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->templateGroupId)) {
-            $query['TemplateGroupId'] = $request->templateGroupId;
+
+        if (null !== $request->templateGroupId) {
+            @$query['TemplateGroupId'] = $request->templateGroupId;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitTranscodeJobs',
@@ -11295,25 +13224,27 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitTranscodeJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitTranscodeJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitTranscodeJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a transcoding job to start transcoding in an asynchronous manner.
-     *  *
-     * @description ### [](#)Usage notes
+     * Submits a transcoding job to start transcoding in an asynchronous manner.
+     *
+     * @remarks
+     * ### [](#)Usage notes
      * *   **Make sure that you understand the billing methods and prices of ApsaraVideo VOD before you call this operation. For more information about billing of the transcoding feature, see [Billing of basic services](~~188308#section-ejb-nii-nqa~~).**
      * *   You can transcode a video only in the Uploaded, Normal, or Reviewing state.
      * *   You can obtain the transcoding results from the [StreamTranscodeComplete](https://help.aliyun.com/document_detail/55636.html) or [TranscodeComplete](https://help.aliyun.com/document_detail/55638.html) callback.
      * *   You can call this operation to dynamically override the subtitle URL in an HTTP Live Streaming (HLS) packaging task. If the packaging task does not contain subtitles, we recommend that you specify the ID of the specific packaging template group when you upload the video instead of calling this operation.
-     *  *
-     * @param SubmitTranscodeJobsRequest $request SubmitTranscodeJobsRequest
      *
-     * @return SubmitTranscodeJobsResponse SubmitTranscodeJobsResponse
+     * @param request - SubmitTranscodeJobsRequest
+     *
+     * @returns SubmitTranscodeJobsResponse
+     *
+     * @param SubmitTranscodeJobsRequest $request
+     *
+     * @return SubmitTranscodeJobsResponse
      */
     public function submitTranscodeJobs($request)
     {
@@ -11323,28 +13254,36 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Initiates a workflow to process media files.
-     *  *
-     * @description * **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. When you use workflows to process videos, you may be charged for transcoding, encryption, and automated review. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188307.html).**
-     * * You can call this operation to initiate a VOD workflow to process media files. For more information, see [Workflows](https://help.aliyun.com/document_detail/115347.html).
-     *  *
-     * @param SubmitWorkflowJobRequest $request SubmitWorkflowJobRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Initiates a workflow to process media files.
      *
-     * @return SubmitWorkflowJobResponse SubmitWorkflowJobResponse
+     * @remarks
+     * **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. When you use workflows to process videos, you may be charged for transcoding, encryption, and automated review. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188307.html).**
+     * * You can call this operation to initiate a VOD workflow to process media files. For more information, see [Workflows](https://help.aliyun.com/document_detail/115347.html).
+     *
+     * @param request - SubmitWorkflowJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitWorkflowJobResponse
+     *
+     * @param SubmitWorkflowJobRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SubmitWorkflowJobResponse
      */
     public function submitWorkflowJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->workflowId)) {
-            $query['WorkflowId'] = $request->workflowId;
+
+        if (null !== $request->workflowId) {
+            @$query['WorkflowId'] = $request->workflowId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitWorkflowJob',
@@ -11357,22 +13296,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitWorkflowJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitWorkflowJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitWorkflowJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Initiates a workflow to process media files.
-     *  *
-     * @description * **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. When you use workflows to process videos, you may be charged for transcoding, encryption, and automated review. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188307.html).**
-     * * You can call this operation to initiate a VOD workflow to process media files. For more information, see [Workflows](https://help.aliyun.com/document_detail/115347.html).
-     *  *
-     * @param SubmitWorkflowJobRequest $request SubmitWorkflowJobRequest
+     * Initiates a workflow to process media files.
      *
-     * @return SubmitWorkflowJobResponse SubmitWorkflowJobResponse
+     * @remarks
+     * **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. When you use workflows to process videos, you may be charged for transcoding, encryption, and automated review. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188307.html).**
+     * * You can call this operation to initiate a VOD workflow to process media files. For more information, see [Workflows](https://help.aliyun.com/document_detail/115347.html).
+     *
+     * @param request - SubmitWorkflowJobRequest
+     *
+     * @returns SubmitWorkflowJobResponse
+     *
+     * @param SubmitWorkflowJobRequest $request
+     *
+     * @return SubmitWorkflowJobResponse
      */
     public function submitWorkflowJob($request)
     {
@@ -11382,31 +13323,40 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an AI template.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     * *   After you call the [AddAITemplate](https://help.aliyun.com/document_detail/102930.html) operation to add an AI template, you can call this operation to modify the AI template.
-     *  *
-     * @param UpdateAITemplateRequest $request UpdateAITemplateRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modifies an AI template.
      *
-     * @return UpdateAITemplateResponse UpdateAITemplateResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     * *   After you call the [AddAITemplate](https://help.aliyun.com/document_detail/102930.html) operation to add an AI template, you can call this operation to modify the AI template.
+     *
+     * @param request - UpdateAITemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAITemplateResponse
+     *
+     * @param UpdateAITemplateRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateAITemplateResponse
      */
     public function updateAITemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateConfig)) {
-            $query['TemplateConfig'] = $request->templateConfig;
+        if (null !== $request->templateConfig) {
+            @$query['TemplateConfig'] = $request->templateConfig;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateAITemplate',
@@ -11419,22 +13369,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAITemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies an AI template.
-     *  *
-     * @description *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
-     * *   After you call the [AddAITemplate](https://help.aliyun.com/document_detail/102930.html) operation to add an AI template, you can call this operation to modify the AI template.
-     *  *
-     * @param UpdateAITemplateRequest $request UpdateAITemplateRequest
+     * Modifies an AI template.
      *
-     * @return UpdateAITemplateResponse UpdateAITemplateResponse
+     * @remarks
+     *   Regions that support this operation: **China (Beijing)**, **China (Shanghai)**, and **Singapore**.
+     * *   After you call the [AddAITemplate](https://help.aliyun.com/document_detail/102930.html) operation to add an AI template, you can call this operation to modify the AI template.
+     *
+     * @param request - UpdateAITemplateRequest
+     *
+     * @returns UpdateAITemplateResponse
+     *
+     * @param UpdateAITemplateRequest $request
+     *
+     * @return UpdateAITemplateResponse
      */
     public function updateAITemplate($request)
     {
@@ -11444,34 +13396,44 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about an application.
-     *  *
-     * @description ## QPS limit
-     * A single user can perform a maximum of 30 queries per second (QPS). Throttling is triggered when the number of calls per second exceeds the QPS limit. The throttling may affect your business. Thus, we recommend that you observe the QPS limit on this operation.
-     *  *
-     * @param UpdateAppInfoRequest $request UpdateAppInfoRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Updates the information about an application.
      *
-     * @return UpdateAppInfoResponse UpdateAppInfoResponse
+     * @remarks
+     * ## QPS limit
+     * A single user can perform a maximum of 30 queries per second (QPS). Throttling is triggered when the number of calls per second exceeds the QPS limit. The throttling may affect your business. Thus, we recommend that you observe the QPS limit on this operation.
+     *
+     * @param request - UpdateAppInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAppInfoResponse
+     *
+     * @param UpdateAppInfoRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateAppInfoResponse
      */
     public function updateAppInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateAppInfo',
@@ -11484,22 +13446,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAppInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the information about an application.
-     *  *
-     * @description ## QPS limit
-     * A single user can perform a maximum of 30 queries per second (QPS). Throttling is triggered when the number of calls per second exceeds the QPS limit. The throttling may affect your business. Thus, we recommend that you observe the QPS limit on this operation.
-     *  *
-     * @param UpdateAppInfoRequest $request UpdateAppInfoRequest
+     * Updates the information about an application.
      *
-     * @return UpdateAppInfoResponse UpdateAppInfoResponse
+     * @remarks
+     * ## QPS limit
+     * A single user can perform a maximum of 30 queries per second (QPS). Throttling is triggered when the number of calls per second exceeds the QPS limit. The throttling may affect your business. Thus, we recommend that you observe the QPS limit on this operation.
+     *
+     * @param request - UpdateAppInfoRequest
+     *
+     * @returns UpdateAppInfoResponse
+     *
+     * @param UpdateAppInfoRequest $request
+     *
+     * @return UpdateAppInfoResponse
      */
     public function updateAppInfo($request)
     {
@@ -11509,24 +13473,31 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch based on IDs. You can modify information such as the title, description, tags, and category.
-     *  *
-     * @description You can modify the information about up to 20 auxiliary media assets at a time.
-     *  *
-     * @param UpdateAttachedMediaInfosRequest $request UpdateAttachedMediaInfosRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Modifies the information about multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch based on IDs. You can modify information such as the title, description, tags, and category.
      *
-     * @return UpdateAttachedMediaInfosResponse UpdateAttachedMediaInfosResponse
+     * @remarks
+     * You can modify the information about up to 20 auxiliary media assets at a time.
+     *
+     * @param request - UpdateAttachedMediaInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAttachedMediaInfosResponse
+     *
+     * @param UpdateAttachedMediaInfosRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateAttachedMediaInfosResponse
      */
     public function updateAttachedMediaInfosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->updateContent)) {
-            $query['UpdateContent'] = $request->updateContent;
+        if (null !== $request->updateContent) {
+            @$query['UpdateContent'] = $request->updateContent;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateAttachedMediaInfos',
@@ -11539,21 +13510,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateAttachedMediaInfosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAttachedMediaInfosResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAttachedMediaInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the information about multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch based on IDs. You can modify information such as the title, description, tags, and category.
-     *  *
-     * @description You can modify the information about up to 20 auxiliary media assets at a time.
-     *  *
-     * @param UpdateAttachedMediaInfosRequest $request UpdateAttachedMediaInfosRequest
+     * Modifies the information about multiple auxiliary media assets such as watermark images, subtitle files, and materials in a batch based on IDs. You can modify information such as the title, description, tags, and category.
      *
-     * @return UpdateAttachedMediaInfosResponse UpdateAttachedMediaInfosResponse
+     * @remarks
+     * You can modify the information about up to 20 auxiliary media assets at a time.
+     *
+     * @param request - UpdateAttachedMediaInfosRequest
+     *
+     * @returns UpdateAttachedMediaInfosResponse
+     *
+     * @param UpdateAttachedMediaInfosRequest $request
+     *
+     * @return UpdateAttachedMediaInfosResponse
      */
     public function updateAttachedMediaInfos($request)
     {
@@ -11563,27 +13536,35 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a video category.
-     *  *
-     * @description After you create a category, you can call this operation to modify the name of the category. If you have classified specific media resources to this category, the category names that are labeled on the media resources are automatically updated.
-     *  *
-     * @param UpdateCategoryRequest $request UpdateCategoryRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Modifies a video category.
      *
-     * @return UpdateCategoryResponse UpdateCategoryResponse
+     * @remarks
+     * After you create a category, you can call this operation to modify the name of the category. If you have classified specific media resources to this category, the category names that are labeled on the media resources are automatically updated.
+     *
+     * @param request - UpdateCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCategoryResponse
+     *
+     * @param UpdateCategoryRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateCategoryResponse
      */
     public function updateCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cateId)) {
-            $query['CateId'] = $request->cateId;
+        if (null !== $request->cateId) {
+            @$query['CateId'] = $request->cateId;
         }
-        if (!Utils::isUnset($request->cateName)) {
-            $query['CateName'] = $request->cateName;
+
+        if (null !== $request->cateName) {
+            @$query['CateName'] = $request->cateName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCategory',
@@ -11596,21 +13577,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCategoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a video category.
-     *  *
-     * @description After you create a category, you can call this operation to modify the name of the category. If you have classified specific media resources to this category, the category names that are labeled on the media resources are automatically updated.
-     *  *
-     * @param UpdateCategoryRequest $request UpdateCategoryRequest
+     * Modifies a video category.
      *
-     * @return UpdateCategoryResponse UpdateCategoryResponse
+     * @remarks
+     * After you create a category, you can call this operation to modify the name of the category. If you have classified specific media resources to this category, the category names that are labeled on the media resources are automatically updated.
+     *
+     * @param request - UpdateCategoryRequest
+     *
+     * @returns UpdateCategoryResponse
+     *
+     * @param UpdateCategoryRequest $request
+     *
+     * @return UpdateCategoryResponse
      */
     public function updateCategory($request)
     {
@@ -11620,46 +13603,60 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an online editing project.
-     *  *
-     * @param UpdateEditingProjectRequest $request UpdateEditingProjectRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Modifies an online editing project.
      *
-     * @return UpdateEditingProjectResponse UpdateEditingProjectResponse
+     * @param request - UpdateEditingProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEditingProjectResponse
+     *
+     * @param UpdateEditingProjectRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateEditingProjectResponse
      */
     public function updateEditingProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->coverURL)) {
-            $query['CoverURL'] = $request->coverURL;
+        if (null !== $request->coverURL) {
+            @$query['CoverURL'] = $request->coverURL;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->timeline)) {
-            $query['Timeline'] = $request->timeline;
+
+        if (null !== $request->timeline) {
+            @$query['Timeline'] = $request->timeline;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateEditingProject',
@@ -11672,19 +13669,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateEditingProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies an online editing project.
-     *  *
-     * @param UpdateEditingProjectRequest $request UpdateEditingProjectRequest
+     * Modifies an online editing project.
      *
-     * @return UpdateEditingProjectResponse UpdateEditingProjectResponse
+     * @param request - UpdateEditingProjectRequest
+     *
+     * @returns UpdateEditingProjectResponse
+     *
+     * @param UpdateEditingProjectRequest $request
+     *
+     * @return UpdateEditingProjectResponse
      */
     public function updateEditingProject($request)
     {
@@ -11694,25 +13692,32 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about one or more images at a time.
-     *  *
-     * @description *   You can call this operation to modify information such as the title, tags, description, and category about images based on image IDs. You must pass in the parameters that you want to modify. Otherwise, parameter configurations are not overwritten.
-     * *   You can modify the information about up to 20 images at a time.
-     *  *
-     * @param UpdateImageInfosRequest $request UpdateImageInfosRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modifies the information about one or more images at a time.
      *
-     * @return UpdateImageInfosResponse UpdateImageInfosResponse
+     * @remarks
+     *   You can call this operation to modify information such as the title, tags, description, and category about images based on image IDs. You must pass in the parameters that you want to modify. Otherwise, parameter configurations are not overwritten.
+     * *   You can modify the information about up to 20 images at a time.
+     *
+     * @param request - UpdateImageInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateImageInfosResponse
+     *
+     * @param UpdateImageInfosRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateImageInfosResponse
      */
     public function updateImageInfosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->updateContent)) {
-            $query['UpdateContent'] = $request->updateContent;
+        if (null !== $request->updateContent) {
+            @$query['UpdateContent'] = $request->updateContent;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateImageInfos',
@@ -11725,22 +13730,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateImageInfosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateImageInfosResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateImageInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the information about one or more images at a time.
-     *  *
-     * @description *   You can call this operation to modify information such as the title, tags, description, and category about images based on image IDs. You must pass in the parameters that you want to modify. Otherwise, parameter configurations are not overwritten.
-     * *   You can modify the information about up to 20 images at a time.
-     *  *
-     * @param UpdateImageInfosRequest $request UpdateImageInfosRequest
+     * Modifies the information about one or more images at a time.
      *
-     * @return UpdateImageInfosResponse UpdateImageInfosResponse
+     * @remarks
+     *   You can call this operation to modify information such as the title, tags, description, and category about images based on image IDs. You must pass in the parameters that you want to modify. Otherwise, parameter configurations are not overwritten.
+     * *   You can modify the information about up to 20 images at a time.
+     *
+     * @param request - UpdateImageInfosRequest
+     *
+     * @returns UpdateImageInfosResponse
+     *
+     * @param UpdateImageInfosRequest $request
+     *
+     * @return UpdateImageInfosResponse
      */
     public function updateImageInfos($request)
     {
@@ -11750,39 +13757,50 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the storage classes of media assets.
-     *  *
-     * @description *   This operation is an asynchronous operation. You can call this operation to modify the storage classes of media assets. After the storage class is modified, a callback notification is sent.
+     * Modifies the storage classes of media assets.
+     *
+     * @remarks
+     *   This operation is an asynchronous operation. You can call this operation to modify the storage classes of media assets. After the storage class is modified, a callback notification is sent.
      * *   If the storage class of the media asset is Archive or Cold Archive and you call this operation to modify the storage class of the media asset, the media asset is automatically restored before the storage class is modified. You do not need to call the RestoreMedia operation to restore the media asset. You must specify the restoration priority for Cold Archive objects. Default configuration: RestoreTier=Standard.
      * *   Media assets whose storage classes are being modified cannot be used or processed.
      * *   Non-Standard objects have minimum storage durations. If an object is stored for less than the minimum storage duration, the storage class of the object cannot be changed. The following content describes the minimum storage durations for objects in different storage classes: IA or IA storage for source files: 30 days, Archive or Archive storage for source files: 60 days, Cold Archive or Cold Archive for source files: 180 days.
-     *  *
-     * @param UpdateMediaStorageClassRequest $request UpdateMediaStorageClassRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMediaStorageClassResponse UpdateMediaStorageClassResponse
+     * @param request - UpdateMediaStorageClassRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMediaStorageClassResponse
+     *
+     * @param UpdateMediaStorageClassRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateMediaStorageClassResponse
      */
     public function updateMediaStorageClassWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allowUpdateWithoutTimeLimit)) {
-            $query['AllowUpdateWithoutTimeLimit'] = $request->allowUpdateWithoutTimeLimit;
+        if (null !== $request->allowUpdateWithoutTimeLimit) {
+            @$query['AllowUpdateWithoutTimeLimit'] = $request->allowUpdateWithoutTimeLimit;
         }
-        if (!Utils::isUnset($request->mediaIds)) {
-            $query['MediaIds'] = $request->mediaIds;
+
+        if (null !== $request->mediaIds) {
+            @$query['MediaIds'] = $request->mediaIds;
         }
-        if (!Utils::isUnset($request->restoreTier)) {
-            $query['RestoreTier'] = $request->restoreTier;
+
+        if (null !== $request->restoreTier) {
+            @$query['RestoreTier'] = $request->restoreTier;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->storageClass)) {
-            $query['StorageClass'] = $request->storageClass;
+
+        if (null !== $request->storageClass) {
+            @$query['StorageClass'] = $request->storageClass;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateMediaStorageClass',
@@ -11795,24 +13813,26 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateMediaStorageClassResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateMediaStorageClassResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateMediaStorageClassResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the storage classes of media assets.
-     *  *
-     * @description *   This operation is an asynchronous operation. You can call this operation to modify the storage classes of media assets. After the storage class is modified, a callback notification is sent.
+     * Modifies the storage classes of media assets.
+     *
+     * @remarks
+     *   This operation is an asynchronous operation. You can call this operation to modify the storage classes of media assets. After the storage class is modified, a callback notification is sent.
      * *   If the storage class of the media asset is Archive or Cold Archive and you call this operation to modify the storage class of the media asset, the media asset is automatically restored before the storage class is modified. You do not need to call the RestoreMedia operation to restore the media asset. You must specify the restoration priority for Cold Archive objects. Default configuration: RestoreTier=Standard.
      * *   Media assets whose storage classes are being modified cannot be used or processed.
      * *   Non-Standard objects have minimum storage durations. If an object is stored for less than the minimum storage duration, the storage class of the object cannot be changed. The following content describes the minimum storage durations for objects in different storage classes: IA or IA storage for source files: 30 days, Archive or Archive storage for source files: 60 days, Cold Archive or Cold Archive for source files: 180 days.
-     *  *
-     * @param UpdateMediaStorageClassRequest $request UpdateMediaStorageClassRequest
      *
-     * @return UpdateMediaStorageClassResponse UpdateMediaStorageClassResponse
+     * @param request - UpdateMediaStorageClassRequest
+     *
+     * @returns UpdateMediaStorageClassResponse
+     *
+     * @param UpdateMediaStorageClassRequest $request
+     *
+     * @return UpdateMediaStorageClassResponse
      */
     public function updateMediaStorageClass($request)
     {
@@ -11822,33 +13842,43 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a transcoding template group or configurations of transcoding templates in the transcoding template group.
-     *  *
-     * @description For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. You can call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation to query the configurations of a transcoding template group, check whether the transcoding template group is locked by using the response parameter Locked, and unlock the transcoding template group before you perform operations such as add, modify, and delete transcoding templates.
-     *  *
-     * @param UpdateTranscodeTemplateGroupRequest $request UpdateTranscodeTemplateGroupRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of a transcoding template group or configurations of transcoding templates in the transcoding template group.
      *
-     * @return UpdateTranscodeTemplateGroupResponse UpdateTranscodeTemplateGroupResponse
+     * @remarks
+     * For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. You can call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation to query the configurations of a transcoding template group, check whether the transcoding template group is locked by using the response parameter Locked, and unlock the transcoding template group before you perform operations such as add, modify, and delete transcoding templates.
+     *
+     * @param request - UpdateTranscodeTemplateGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTranscodeTemplateGroupResponse
+     *
+     * @param UpdateTranscodeTemplateGroupRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateTranscodeTemplateGroupResponse
      */
     public function updateTranscodeTemplateGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->locked)) {
-            $query['Locked'] = $request->locked;
+        if (null !== $request->locked) {
+            @$query['Locked'] = $request->locked;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->transcodeTemplateGroupId)) {
-            $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+
+        if (null !== $request->transcodeTemplateGroupId) {
+            @$query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
         }
-        if (!Utils::isUnset($request->transcodeTemplateList)) {
-            $query['TranscodeTemplateList'] = $request->transcodeTemplateList;
+
+        if (null !== $request->transcodeTemplateList) {
+            @$query['TranscodeTemplateList'] = $request->transcodeTemplateList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateTranscodeTemplateGroup',
@@ -11861,21 +13891,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTranscodeTemplateGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a transcoding template group or configurations of transcoding templates in the transcoding template group.
-     *  *
-     * @description For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. You can call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation to query the configurations of a transcoding template group, check whether the transcoding template group is locked by using the response parameter Locked, and unlock the transcoding template group before you perform operations such as add, modify, and delete transcoding templates.
-     *  *
-     * @param UpdateTranscodeTemplateGroupRequest $request UpdateTranscodeTemplateGroupRequest
+     * Modifies the configurations of a transcoding template group or configurations of transcoding templates in the transcoding template group.
      *
-     * @return UpdateTranscodeTemplateGroupResponse UpdateTranscodeTemplateGroupResponse
+     * @remarks
+     * For security purposes, you cannot add, modify, or delete transcoding templates in a transcoding template group that is locked. You can call the [GetTranscodeTemplateGroup](~~GetTranscodeTemplateGroup~~) operation to query the configurations of a transcoding template group, check whether the transcoding template group is locked by using the response parameter Locked, and unlock the transcoding template group before you perform operations such as add, modify, and delete transcoding templates.
+     *
+     * @param request - UpdateTranscodeTemplateGroupRequest
+     *
+     * @returns UpdateTranscodeTemplateGroupResponse
+     *
+     * @param UpdateTranscodeTemplateGroupRequest $request
+     *
+     * @return UpdateTranscodeTemplateGroupResponse
      */
     public function updateTranscodeTemplateGroup($request)
     {
@@ -11885,45 +13917,58 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about an audio or video file.
-     *  *
-     * @description ### [](#)
+     * Modifies the information about an audio or video file.
+     *
+     * @remarks
+     * ### [](#)
      * You can call this operation to modify information such as the title, tags, and description about audio and video files based on audio or video IDs. You must pass in the parameters that you want to modify. Otherwise, parameter configurations are not overwritten.
      * ### [](#qps-)Queries per second (QPS) limit
      * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param UpdateVideoInfoRequest $request UpdateVideoInfoRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateVideoInfoResponse UpdateVideoInfoResponse
+     * @param request - UpdateVideoInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVideoInfoResponse
+     *
+     * @param UpdateVideoInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateVideoInfoResponse
      */
     public function updateVideoInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cateId)) {
-            $query['CateId'] = $request->cateId;
+        if (null !== $request->cateId) {
+            @$query['CateId'] = $request->cateId;
         }
-        if (!Utils::isUnset($request->coverURL)) {
-            $query['CoverURL'] = $request->coverURL;
+
+        if (null !== $request->coverURL) {
+            @$query['CoverURL'] = $request->coverURL;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
-        if (!Utils::isUnset($request->videoId)) {
-            $query['VideoId'] = $request->videoId;
+
+        if (null !== $request->videoId) {
+            @$query['VideoId'] = $request->videoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateVideoInfo',
@@ -11936,24 +13981,26 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateVideoInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVideoInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVideoInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the information about an audio or video file.
-     *  *
-     * @description ### [](#)
+     * Modifies the information about an audio or video file.
+     *
+     * @remarks
+     * ### [](#)
      * You can call this operation to modify information such as the title, tags, and description about audio and video files based on audio or video IDs. You must pass in the parameters that you want to modify. Otherwise, parameter configurations are not overwritten.
      * ### [](#qps-)Queries per second (QPS) limit
      * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits on API operations](https://help.aliyun.com/document_detail/342790.html).
-     *  *
-     * @param UpdateVideoInfoRequest $request UpdateVideoInfoRequest
      *
-     * @return UpdateVideoInfoResponse UpdateVideoInfoResponse
+     * @param request - UpdateVideoInfoRequest
+     *
+     * @returns UpdateVideoInfoResponse
+     *
+     * @param UpdateVideoInfoRequest $request
+     *
+     * @return UpdateVideoInfoResponse
      */
     public function updateVideoInfo($request)
     {
@@ -11963,24 +14010,31 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about multiple videos at a time.
-     *  *
-     * @description The specific parameter of a video is updated only when a new value is passed in the parameter.
-     *  *
-     * @param UpdateVideoInfosRequest $request UpdateVideoInfosRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modifies the information about multiple videos at a time.
      *
-     * @return UpdateVideoInfosResponse UpdateVideoInfosResponse
+     * @remarks
+     * The specific parameter of a video is updated only when a new value is passed in the parameter.
+     *
+     * @param request - UpdateVideoInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVideoInfosResponse
+     *
+     * @param UpdateVideoInfosRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateVideoInfosResponse
      */
     public function updateVideoInfosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->updateContent)) {
-            $query['UpdateContent'] = $request->updateContent;
+        if (null !== $request->updateContent) {
+            @$query['UpdateContent'] = $request->updateContent;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateVideoInfos',
@@ -11993,21 +14047,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateVideoInfosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVideoInfosResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVideoInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the information about multiple videos at a time.
-     *  *
-     * @description The specific parameter of a video is updated only when a new value is passed in the parameter.
-     *  *
-     * @param UpdateVideoInfosRequest $request UpdateVideoInfosRequest
+     * Modifies the information about multiple videos at a time.
      *
-     * @return UpdateVideoInfosResponse UpdateVideoInfosResponse
+     * @remarks
+     * The specific parameter of a video is updated only when a new value is passed in the parameter.
+     *
+     * @param request - UpdateVideoInfosRequest
+     *
+     * @returns UpdateVideoInfosResponse
+     *
+     * @param UpdateVideoInfosRequest $request
+     *
+     * @return UpdateVideoInfosResponse
      */
     public function updateVideoInfos($request)
     {
@@ -12017,36 +14073,47 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a specific accelerated domain name.
-     *  *
-     * @description UpdateVodDomain
-     *  *
-     * @param UpdateVodDomainRequest $request UpdateVodDomainRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Modifies a specific accelerated domain name.
      *
-     * @return UpdateVodDomainResponse UpdateVodDomainResponse
+     * @remarks
+     * UpdateVodDomain
+     *
+     * @param request - UpdateVodDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVodDomainResponse
+     *
+     * @param UpdateVodDomainRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateVodDomainResponse
      */
     public function updateVodDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->sources)) {
-            $query['Sources'] = $request->sources;
+
+        if (null !== $request->sources) {
+            @$query['Sources'] = $request->sources;
         }
-        if (!Utils::isUnset($request->topLevelDomain)) {
-            $query['TopLevelDomain'] = $request->topLevelDomain;
+
+        if (null !== $request->topLevelDomain) {
+            @$query['TopLevelDomain'] = $request->topLevelDomain;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateVodDomain',
@@ -12059,21 +14126,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVodDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a specific accelerated domain name.
-     *  *
-     * @description UpdateVodDomain
-     *  *
-     * @param UpdateVodDomainRequest $request UpdateVodDomainRequest
+     * Modifies a specific accelerated domain name.
      *
-     * @return UpdateVodDomainResponse UpdateVodDomainResponse
+     * @remarks
+     * UpdateVodDomain
+     *
+     * @param request - UpdateVodDomainRequest
+     *
+     * @returns UpdateVodDomainResponse
+     *
+     * @param UpdateVodDomainRequest $request
+     *
+     * @return UpdateVodDomainResponse
      */
     public function updateVodDomain($request)
     {
@@ -12083,28 +14152,36 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a snapshot template.
-     *  *
-     * @param UpdateVodTemplateRequest $request UpdateVodTemplateRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modifies a snapshot template.
      *
-     * @return UpdateVodTemplateResponse UpdateVodTemplateResponse
+     * @param request - UpdateVodTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVodTemplateResponse
+     *
+     * @param UpdateVodTemplateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateVodTemplateResponse
      */
     public function updateVodTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->templateConfig)) {
-            $query['TemplateConfig'] = $request->templateConfig;
+
+        if (null !== $request->templateConfig) {
+            @$query['TemplateConfig'] = $request->templateConfig;
         }
-        if (!Utils::isUnset($request->vodTemplateId)) {
-            $query['VodTemplateId'] = $request->vodTemplateId;
+
+        if (null !== $request->vodTemplateId) {
+            @$query['VodTemplateId'] = $request->vodTemplateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateVodTemplate',
@@ -12117,19 +14194,20 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVodTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a snapshot template.
-     *  *
-     * @param UpdateVodTemplateRequest $request UpdateVodTemplateRequest
+     * Modifies a snapshot template.
      *
-     * @return UpdateVodTemplateResponse UpdateVodTemplateResponse
+     * @param request - UpdateVodTemplateRequest
+     *
+     * @returns UpdateVodTemplateResponse
+     *
+     * @param UpdateVodTemplateRequest $request
+     *
+     * @return UpdateVodTemplateResponse
      */
     public function updateVodTemplate($request)
     {
@@ -12139,31 +14217,40 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the name and configurations of a watermark template after you create a watermark template.
-     *  *
-     * @description *   You can modify the name and configurations of the watermark template after you call the [AddWatermark](~~AddWatermark~~) operation to create a watermark template.
-     * *   You cannot call this operation to change the image in an image watermark template.
-     *  *
-     * @param UpdateWatermarkRequest $request UpdateWatermarkRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Modifies the name and configurations of a watermark template after you create a watermark template.
      *
-     * @return UpdateWatermarkResponse UpdateWatermarkResponse
+     * @remarks
+     *   You can modify the name and configurations of the watermark template after you call the [AddWatermark](~~AddWatermark~~) operation to create a watermark template.
+     * *   You cannot call this operation to change the image in an image watermark template.
+     *
+     * @param request - UpdateWatermarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWatermarkResponse
+     *
+     * @param UpdateWatermarkRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateWatermarkResponse
      */
     public function updateWatermarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->watermarkConfig)) {
-            $query['WatermarkConfig'] = $request->watermarkConfig;
+
+        if (null !== $request->watermarkConfig) {
+            @$query['WatermarkConfig'] = $request->watermarkConfig;
         }
-        if (!Utils::isUnset($request->watermarkId)) {
-            $query['WatermarkId'] = $request->watermarkId;
+
+        if (null !== $request->watermarkId) {
+            @$query['WatermarkId'] = $request->watermarkId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateWatermark',
@@ -12176,22 +14263,24 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateWatermarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the name and configurations of a watermark template after you create a watermark template.
-     *  *
-     * @description *   You can modify the name and configurations of the watermark template after you call the [AddWatermark](~~AddWatermark~~) operation to create a watermark template.
-     * *   You cannot call this operation to change the image in an image watermark template.
-     *  *
-     * @param UpdateWatermarkRequest $request UpdateWatermarkRequest
+     * Modifies the name and configurations of a watermark template after you create a watermark template.
      *
-     * @return UpdateWatermarkResponse UpdateWatermarkResponse
+     * @remarks
+     *   You can modify the name and configurations of the watermark template after you call the [AddWatermark](~~AddWatermark~~) operation to create a watermark template.
+     * *   You cannot call this operation to change the image in an image watermark template.
+     *
+     * @param request - UpdateWatermarkRequest
+     *
+     * @returns UpdateWatermarkResponse
+     *
+     * @param UpdateWatermarkRequest $request
+     *
+     * @return UpdateWatermarkResponse
      */
     public function updateWatermark($request)
     {
@@ -12201,50 +14290,64 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Uploads media files based on URLs.
-     *  *
-     * @description *   You can call this operation to upload media files that are not stored on a local server or device and must be uploaded based on URLs over the Internet.
+     * Uploads media files based on URLs.
+     *
+     * @remarks
+     *   You can call this operation to upload media files that are not stored on a local server or device and must be uploaded based on URLs over the Internet.
      * *   The URL-based upload jobs are asynchronous. After you submit a URL-based upload job by calling this operation, it may take hours, even days to complete. If you require high timeliness, we recommend that you use the upload SDK.
      * *   If you configure callbacks, you can receive an [UploadByURLComplete](https://help.aliyun.com/document_detail/86326.html) event notification after the media file is uploaded. You can query the upload status by calling the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
      * *   After you submit an upload job, the job is asynchronously processed on the cloud. All URL-based upload jobs that are submitted in each region are queued. The waiting time for the upload job depends on the number of queued jobs. After the upload job is complete, you can associate the playback URL included in the callback with the media ID.
      * *   You can call this operation only in the **China (Shanghai)** and **Singapore** regions.
      * *   Every time you submit a URL-based upload job, a new media ID is generated in ApsaraVideo VOD.
-     *  *
-     * @param UploadMediaByURLRequest $request UploadMediaByURLRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadMediaByURLResponse UploadMediaByURLResponse
+     * @param request - UploadMediaByURLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadMediaByURLResponse
+     *
+     * @param UploadMediaByURLRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UploadMediaByURLResponse
      */
     public function uploadMediaByURLWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->storageLocation)) {
-            $query['StorageLocation'] = $request->storageLocation;
+
+        if (null !== $request->storageLocation) {
+            @$query['StorageLocation'] = $request->storageLocation;
         }
-        if (!Utils::isUnset($request->templateGroupId)) {
-            $query['TemplateGroupId'] = $request->templateGroupId;
+
+        if (null !== $request->templateGroupId) {
+            @$query['TemplateGroupId'] = $request->templateGroupId;
         }
-        if (!Utils::isUnset($request->uploadMetadatas)) {
-            $query['UploadMetadatas'] = $request->uploadMetadatas;
+
+        if (null !== $request->uploadMetadatas) {
+            @$query['UploadMetadatas'] = $request->uploadMetadatas;
         }
-        if (!Utils::isUnset($request->uploadURLs)) {
-            $query['UploadURLs'] = $request->uploadURLs;
+
+        if (null !== $request->uploadURLs) {
+            @$query['UploadURLs'] = $request->uploadURLs;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
-        if (!Utils::isUnset($request->workflowId)) {
-            $query['WorkflowId'] = $request->workflowId;
+
+        if (null !== $request->workflowId) {
+            @$query['WorkflowId'] = $request->workflowId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UploadMediaByURL',
@@ -12257,26 +14360,28 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UploadMediaByURLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UploadMediaByURLResponse::fromMap($this->execute($params, $req, $runtime));
+        return UploadMediaByURLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Uploads media files based on URLs.
-     *  *
-     * @description *   You can call this operation to upload media files that are not stored on a local server or device and must be uploaded based on URLs over the Internet.
+     * Uploads media files based on URLs.
+     *
+     * @remarks
+     *   You can call this operation to upload media files that are not stored on a local server or device and must be uploaded based on URLs over the Internet.
      * *   The URL-based upload jobs are asynchronous. After you submit a URL-based upload job by calling this operation, it may take hours, even days to complete. If you require high timeliness, we recommend that you use the upload SDK.
      * *   If you configure callbacks, you can receive an [UploadByURLComplete](https://help.aliyun.com/document_detail/86326.html) event notification after the media file is uploaded. You can query the upload status by calling the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
      * *   After you submit an upload job, the job is asynchronously processed on the cloud. All URL-based upload jobs that are submitted in each region are queued. The waiting time for the upload job depends on the number of queued jobs. After the upload job is complete, you can associate the playback URL included in the callback with the media ID.
      * *   You can call this operation only in the **China (Shanghai)** and **Singapore** regions.
      * *   Every time you submit a URL-based upload job, a new media ID is generated in ApsaraVideo VOD.
-     *  *
-     * @param UploadMediaByURLRequest $request UploadMediaByURLRequest
      *
-     * @return UploadMediaByURLResponse UploadMediaByURLResponse
+     * @param request - UploadMediaByURLRequest
+     *
+     * @returns UploadMediaByURLResponse
+     *
+     * @param UploadMediaByURLRequest $request
+     *
+     * @return UploadMediaByURLResponse
      */
     public function uploadMediaByURL($request)
     {
@@ -12286,45 +14391,58 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Uploads transcoded streams to ApsaraVideo VOD from external storage.
-     *  *
-     * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
+     * Uploads transcoded streams to ApsaraVideo VOD from external storage.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
      * *   This operation is available only in the **China (Shanghai)** and **Singapore** regions.
      * *   You can call this operation to upload transcoded streams to ApsaraVideo VOD from external storage. The following HDR types of transcoded streams are supported: HDR, HDR 10, HLG, Dolby Vision, HDR Vivid, and SDR+.
      * *   You can call the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation to query the upload status. After the upload is complete, the callback of the [UploadByURLComplete](https://help.aliyun.com/document_detail/376427.html) event is returned.
-     *  *
-     * @param UploadStreamByURLRequest $request UploadStreamByURLRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadStreamByURLResponse UploadStreamByURLResponse
+     * @param request - UploadStreamByURLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadStreamByURLResponse
+     *
+     * @param UploadStreamByURLRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UploadStreamByURLResponse
      */
     public function uploadStreamByURLWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->definition)) {
-            $query['Definition'] = $request->definition;
+        if (null !== $request->definition) {
+            @$query['Definition'] = $request->definition;
         }
-        if (!Utils::isUnset($request->fileExtension)) {
-            $query['FileExtension'] = $request->fileExtension;
+
+        if (null !== $request->fileExtension) {
+            @$query['FileExtension'] = $request->fileExtension;
         }
-        if (!Utils::isUnset($request->HDRType)) {
-            $query['HDRType'] = $request->HDRType;
+
+        if (null !== $request->HDRType) {
+            @$query['HDRType'] = $request->HDRType;
         }
-        if (!Utils::isUnset($request->mediaId)) {
-            $query['MediaId'] = $request->mediaId;
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
         }
-        if (!Utils::isUnset($request->streamURL)) {
-            $query['StreamURL'] = $request->streamURL;
+
+        if (null !== $request->streamURL) {
+            @$query['StreamURL'] = $request->streamURL;
         }
-        if (!Utils::isUnset($request->uploadMetadata)) {
-            $query['UploadMetadata'] = $request->uploadMetadata;
+
+        if (null !== $request->uploadMetadata) {
+            @$query['UploadMetadata'] = $request->uploadMetadata;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UploadStreamByURL',
@@ -12337,24 +14455,26 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UploadStreamByURLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UploadStreamByURLResponse::fromMap($this->execute($params, $req, $runtime));
+        return UploadStreamByURLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Uploads transcoded streams to ApsaraVideo VOD from external storage.
-     *  *
-     * @description *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
+     * Uploads transcoded streams to ApsaraVideo VOD from external storage.
+     *
+     * @remarks
+     *   **Make sure that you understand the billing method and price of ApsaraVideo VOD before you call this operation. You are charged storage fees after you upload media files to ApsaraVideo VOD. For more information, see [Billing of media asset storage](~~188308#section_e97_xrp_mzz~~). If you have activated the acceleration service, you are charged acceleration fees when you upload media files to ApsaraVideo VOD. For more information, see [Billing of acceleration traffic](~~188310#section_sta_zm2_tsv~~).**
      * *   This operation is available only in the **China (Shanghai)** and **Singapore** regions.
      * *   You can call this operation to upload transcoded streams to ApsaraVideo VOD from external storage. The following HDR types of transcoded streams are supported: HDR, HDR 10, HLG, Dolby Vision, HDR Vivid, and SDR+.
      * *   You can call the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation to query the upload status. After the upload is complete, the callback of the [UploadByURLComplete](https://help.aliyun.com/document_detail/376427.html) event is returned.
-     *  *
-     * @param UploadStreamByURLRequest $request UploadStreamByURLRequest
      *
-     * @return UploadStreamByURLResponse UploadStreamByURLResponse
+     * @param request - UploadStreamByURLRequest
+     *
+     * @returns UploadStreamByURLResponse
+     *
+     * @param UploadStreamByURLRequest $request
+     *
+     * @return UploadStreamByURLResponse
      */
     public function uploadStreamByURL($request)
     {
@@ -12364,30 +14484,39 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @summary Verifies the ownership of a specified domain name.
-     *  *
-     * @description This operation is available only in the **China (Shanghai)** region.
-     *  *
-     * @param VerifyVodDomainOwnerRequest $request VerifyVodDomainOwnerRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Verifies the ownership of a specified domain name.
      *
-     * @return VerifyVodDomainOwnerResponse VerifyVodDomainOwnerResponse
+     * @remarks
+     * This operation is available only in the **China (Shanghai)** region.
+     *
+     * @param request - VerifyVodDomainOwnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyVodDomainOwnerResponse
+     *
+     * @param VerifyVodDomainOwnerRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return VerifyVodDomainOwnerResponse
      */
     public function verifyVodDomainOwnerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->verifyType)) {
-            $query['VerifyType'] = $request->verifyType;
+
+        if (null !== $request->verifyType) {
+            @$query['VerifyType'] = $request->verifyType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'VerifyVodDomainOwner',
@@ -12400,21 +14529,23 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return VerifyVodDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return VerifyVodDomainOwnerResponse::fromMap($this->execute($params, $req, $runtime));
+        return VerifyVodDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Verifies the ownership of a specified domain name.
-     *  *
-     * @description This operation is available only in the **China (Shanghai)** region.
-     *  *
-     * @param VerifyVodDomainOwnerRequest $request VerifyVodDomainOwnerRequest
+     * Verifies the ownership of a specified domain name.
      *
-     * @return VerifyVodDomainOwnerResponse VerifyVodDomainOwnerResponse
+     * @remarks
+     * This operation is available only in the **China (Shanghai)** region.
+     *
+     * @param request - VerifyVodDomainOwnerRequest
+     *
+     * @returns VerifyVodDomainOwnerResponse
+     *
+     * @param VerifyVodDomainOwnerRequest $request
+     *
+     * @return VerifyVodDomainOwnerResponse
      */
     public function verifyVodDomainOwner($request)
     {

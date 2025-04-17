@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AttachAppPolicyToIdentityResponseBody extends Model
 {
     /**
-     * @description The names of the policies that failed to be granted to the RAM user or RAM role.
-     *
      * @var string[]
      */
     public $failedPolicyNames;
 
     /**
-     * @description The names of the policies that were not found.
-     *
      * @var string[]
      */
     public $nonExistPolicyNames;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4A13-****-D7393642CA58
-     *
      * @var string
      */
     public $requestId;
@@ -36,17 +28,40 @@ class AttachAppPolicyToIdentityResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->failedPolicyNames)) {
+            Model::validateArray($this->failedPolicyNames);
+        }
+        if (\is_array($this->nonExistPolicyNames)) {
+            Model::validateArray($this->nonExistPolicyNames);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedPolicyNames) {
-            $res['FailedPolicyNames'] = $this->failedPolicyNames;
+            if (\is_array($this->failedPolicyNames)) {
+                $res['FailedPolicyNames'] = [];
+                $n1 = 0;
+                foreach ($this->failedPolicyNames as $item1) {
+                    $res['FailedPolicyNames'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->nonExistPolicyNames) {
-            $res['NonExistPolicyNames'] = $this->nonExistPolicyNames;
+            if (\is_array($this->nonExistPolicyNames)) {
+                $res['NonExistPolicyNames'] = [];
+                $n1 = 0;
+                foreach ($this->nonExistPolicyNames as $item1) {
+                    $res['NonExistPolicyNames'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -54,24 +69,34 @@ class AttachAppPolicyToIdentityResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachAppPolicyToIdentityResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedPolicyNames'])) {
             if (!empty($map['FailedPolicyNames'])) {
-                $model->failedPolicyNames = $map['FailedPolicyNames'];
+                $model->failedPolicyNames = [];
+                $n1 = 0;
+                foreach ($map['FailedPolicyNames'] as $item1) {
+                    $model->failedPolicyNames[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['NonExistPolicyNames'])) {
             if (!empty($map['NonExistPolicyNames'])) {
-                $model->nonExistPolicyNames = $map['NonExistPolicyNames'];
+                $model->nonExistPolicyNames = [];
+                $n1 = 0;
+                foreach ($map['NonExistPolicyNames'] as $item1) {
+                    $model->nonExistPolicyNames[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

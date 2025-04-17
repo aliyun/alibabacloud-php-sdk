@@ -4,37 +4,27 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetUploadDetailsResponseBody\uploadDetails;
-use AlibabaCloud\Tea\Model;
 
 class GetUploadDetailsResponseBody extends Model
 {
     /**
-     * @description The IDs of the media files that cannot be accessed.
-     *
      * @var string[]
      */
     public $forbiddenMediaIds;
 
     /**
-     * @description The IDs of the media files that do not exist.
-     *
      * @var string[]
      */
     public $nonExistMediaIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 9E290613-04F4-47F4-795D30732077****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The upload details.
-     *
      * @var uploadDetails[]
      */
     public $uploadDetails;
@@ -45,26 +35,53 @@ class GetUploadDetailsResponseBody extends Model
         'uploadDetails' => 'UploadDetails',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->forbiddenMediaIds)) {
+            Model::validateArray($this->forbiddenMediaIds);
+        }
+        if (\is_array($this->nonExistMediaIds)) {
+            Model::validateArray($this->nonExistMediaIds);
+        }
+        if (\is_array($this->uploadDetails)) {
+            Model::validateArray($this->uploadDetails);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->forbiddenMediaIds) {
-            $res['ForbiddenMediaIds'] = $this->forbiddenMediaIds;
+            if (\is_array($this->forbiddenMediaIds)) {
+                $res['ForbiddenMediaIds'] = [];
+                $n1 = 0;
+                foreach ($this->forbiddenMediaIds as $item1) {
+                    $res['ForbiddenMediaIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->nonExistMediaIds) {
-            $res['NonExistMediaIds'] = $this->nonExistMediaIds;
+            if (\is_array($this->nonExistMediaIds)) {
+                $res['NonExistMediaIds'] = [];
+                $n1 = 0;
+                foreach ($this->nonExistMediaIds as $item1) {
+                    $res['NonExistMediaIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->uploadDetails) {
-            $res['UploadDetails'] = [];
-            if (null !== $this->uploadDetails && \is_array($this->uploadDetails)) {
-                $n = 0;
-                foreach ($this->uploadDetails as $item) {
-                    $res['UploadDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->uploadDetails)) {
+                $res['UploadDetails'] = [];
+                $n1 = 0;
+                foreach ($this->uploadDetails as $item1) {
+                    $res['UploadDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -72,33 +89,44 @@ class GetUploadDetailsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUploadDetailsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ForbiddenMediaIds'])) {
             if (!empty($map['ForbiddenMediaIds'])) {
-                $model->forbiddenMediaIds = $map['ForbiddenMediaIds'];
+                $model->forbiddenMediaIds = [];
+                $n1 = 0;
+                foreach ($map['ForbiddenMediaIds'] as $item1) {
+                    $model->forbiddenMediaIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['NonExistMediaIds'])) {
             if (!empty($map['NonExistMediaIds'])) {
-                $model->nonExistMediaIds = $map['NonExistMediaIds'];
+                $model->nonExistMediaIds = [];
+                $n1 = 0;
+                foreach ($map['NonExistMediaIds'] as $item1) {
+                    $model->nonExistMediaIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UploadDetails'])) {
             if (!empty($map['UploadDetails'])) {
                 $model->uploadDetails = [];
-                $n = 0;
-                foreach ($map['UploadDetails'] as $item) {
-                    $model->uploadDetails[$n++] = null !== $item ? uploadDetails::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UploadDetails'] as $item1) {
+                    $model->uploadDetails[$n1++] = uploadDetails::fromMap($item1);
                 }
             }
         }

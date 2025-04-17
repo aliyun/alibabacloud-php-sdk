@@ -4,31 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteStreamRequest extends Model
 {
     /**
-     * @description The job IDs for deleting media streams.
-     *
-     *   Separate multiple IDs with commas (,). A maximum of 20 IDs can be specified for one video.
-     *   You can obtain job IDs from the PlayInfo parameter that is returned after you call the [GetPlayInfo](https://help.aliyun.com/document_detail/56124.html) operation. Each media stream has a unique job ID.
-     *
-     * This parameter is required.
-     *
-     * @example 35eb4dbda18c49cc0025df374b46****
-     *
      * @var string
      */
     public $jobIds;
 
     /**
-     * @description The ID of the video.
-     *
-     * This parameter is required.
-     *
-     * @example 95948ddba24446b6aed5db985e78****
-     *
      * @var string
      */
     public $videoId;
@@ -37,14 +22,18 @@ class DeleteStreamRequest extends Model
         'videoId' => 'VideoId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobIds) {
             $res['JobIds'] = $this->jobIds;
         }
+
         if (null !== $this->videoId) {
             $res['VideoId'] = $this->videoId;
         }
@@ -52,17 +41,18 @@ class DeleteStreamRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteStreamRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobIds'])) {
             $model->jobIds = $map['JobIds'];
         }
+
         if (isset($map['VideoId'])) {
             $model->videoId = $map['VideoId'];
         }

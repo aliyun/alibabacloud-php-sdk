@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SubmitAIMediaAuditJobResponseBody extends Model
 {
     /**
-     * @description The ID of the job.
-     *
-     * @example bdbc266af6893943a70176d92e99****
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description The ID of the media file.
-     *
-     * @example fe028d09441afffb138cd7ee****
-     *
      * @var string
      */
     public $mediaId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example F4631053-8D9F-42B2-4A67281DB88E****
-     *
      * @var string
      */
     public $requestId;
@@ -40,17 +28,22 @@ class SubmitAIMediaAuditJobResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,20 +51,22 @@ class SubmitAIMediaAuditJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitAIMediaAuditJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

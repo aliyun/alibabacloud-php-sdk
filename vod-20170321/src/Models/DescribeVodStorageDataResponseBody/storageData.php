@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodStorageDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodStorageDataResponseBody\storageData\storageDataItem;
-use AlibabaCloud\Tea\Model;
 
 class storageData extends Model
 {
@@ -17,17 +17,23 @@ class storageData extends Model
         'storageDataItem' => 'StorageDataItem',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->storageDataItem)) {
+            Model::validateArray($this->storageDataItem);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->storageDataItem) {
-            $res['StorageDataItem'] = [];
-            if (null !== $this->storageDataItem && \is_array($this->storageDataItem)) {
-                $n = 0;
-                foreach ($this->storageDataItem as $item) {
-                    $res['StorageDataItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->storageDataItem)) {
+                $res['StorageDataItem'] = [];
+                $n1 = 0;
+                foreach ($this->storageDataItem as $item1) {
+                    $res['StorageDataItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class storageData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return storageData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StorageDataItem'])) {
             if (!empty($map['StorageDataItem'])) {
                 $model->storageDataItem = [];
-                $n = 0;
-                foreach ($map['StorageDataItem'] as $item) {
-                    $model->storageDataItem[$n++] = null !== $item ? storageDataItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['StorageDataItem'] as $item1) {
+                    $model->storageDataItem[$n1++] = storageDataItem::fromMap($item1);
                 }
             }
         }

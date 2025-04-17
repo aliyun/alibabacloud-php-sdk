@@ -4,86 +4,57 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponseBody\mediaList\aiData;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponseBody\mediaList\aiRoughData;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponseBody\mediaList\attachedMedia;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponseBody\mediaList\audio;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponseBody\mediaList\image;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SearchMediaResponseBody\mediaList\video;
-use AlibabaCloud\Tea\Model;
 
 class mediaList extends Model
 {
     /**
-     * @description Details about AI data.
-     *
      * @var aiData
      */
     public $aiData;
 
     /**
-     * @description The basic information about AI data.
-     *
      * @var aiRoughData
      */
     public $aiRoughData;
 
     /**
-     * @description [The information about the auxiliary media asset](https://help.aliyun.com/document_detail/86991.html).
-     *
      * @var attachedMedia
      */
     public $attachedMedia;
 
     /**
-     * @description [The information about the audio](https://help.aliyun.com/document_detail/86991.html).
-     *
      * @var audio
      */
     public $audio;
 
     /**
-     * @description The time when the media asset was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
-     *
-     * @example 2018-07-19T03:45:25Z
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description [The information about the image](https://help.aliyun.com/document_detail/86991.html).
-     *
      * @var image
      */
     public $image;
 
     /**
-     * @description The ID of the file.
-     *
-     * @example a82a2cd7d4e147bbed6c1ee372****
-     *
      * @var string
      */
     public $mediaId;
 
     /**
-     * @description The type of the media asset. Valid values:
-     *
-     *   **video**
-     *   **audio**
-     *   **image**
-     *   **attached**
-     *
-     * @example video
-     *
      * @var string
      */
     public $mediaType;
 
     /**
-     * @description [The information about the video](https://help.aliyun.com/document_detail/86991.html).
-     *
      * @var video
      */
     public $video;
@@ -99,74 +70,111 @@ class mediaList extends Model
         'video' => 'Video',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->aiData) {
+            $this->aiData->validate();
+        }
+        if (null !== $this->aiRoughData) {
+            $this->aiRoughData->validate();
+        }
+        if (null !== $this->attachedMedia) {
+            $this->attachedMedia->validate();
+        }
+        if (null !== $this->audio) {
+            $this->audio->validate();
+        }
+        if (null !== $this->image) {
+            $this->image->validate();
+        }
+        if (null !== $this->video) {
+            $this->video->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aiData) {
-            $res['AiData'] = null !== $this->aiData ? $this->aiData->toMap() : null;
+            $res['AiData'] = null !== $this->aiData ? $this->aiData->toArray($noStream) : $this->aiData;
         }
+
         if (null !== $this->aiRoughData) {
-            $res['AiRoughData'] = null !== $this->aiRoughData ? $this->aiRoughData->toMap() : null;
+            $res['AiRoughData'] = null !== $this->aiRoughData ? $this->aiRoughData->toArray($noStream) : $this->aiRoughData;
         }
+
         if (null !== $this->attachedMedia) {
-            $res['AttachedMedia'] = null !== $this->attachedMedia ? $this->attachedMedia->toMap() : null;
+            $res['AttachedMedia'] = null !== $this->attachedMedia ? $this->attachedMedia->toArray($noStream) : $this->attachedMedia;
         }
+
         if (null !== $this->audio) {
-            $res['Audio'] = null !== $this->audio ? $this->audio->toMap() : null;
+            $res['Audio'] = null !== $this->audio ? $this->audio->toArray($noStream) : $this->audio;
         }
+
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->image) {
-            $res['Image'] = null !== $this->image ? $this->image->toMap() : null;
+            $res['Image'] = null !== $this->image ? $this->image->toArray($noStream) : $this->image;
         }
+
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
+
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
         }
+
         if (null !== $this->video) {
-            $res['Video'] = null !== $this->video ? $this->video->toMap() : null;
+            $res['Video'] = null !== $this->video ? $this->video->toArray($noStream) : $this->video;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mediaList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AiData'])) {
             $model->aiData = aiData::fromMap($map['AiData']);
         }
+
         if (isset($map['AiRoughData'])) {
             $model->aiRoughData = aiRoughData::fromMap($map['AiRoughData']);
         }
+
         if (isset($map['AttachedMedia'])) {
             $model->attachedMedia = attachedMedia::fromMap($map['AttachedMedia']);
         }
+
         if (isset($map['Audio'])) {
             $model->audio = audio::fromMap($map['Audio']);
         }
+
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['Image'])) {
             $model->image = image::fromMap($map['Image']);
         }
+
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }
+
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
         }
+
         if (isset($map['Video'])) {
             $model->video = video::fromMap($map['Video']);
         }

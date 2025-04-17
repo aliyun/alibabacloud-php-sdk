@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodTieringStorageDataResponseBody\storageData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeVodTieringStorageDataResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4AF6-D7393642CA58****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The storage usage data returned.
-     *
      * @var storageData[]
      */
     public $storageData;
@@ -29,20 +23,27 @@ class DescribeVodTieringStorageDataResponseBody extends Model
         'storageData' => 'StorageData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->storageData)) {
+            Model::validateArray($this->storageData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->storageData) {
-            $res['StorageData'] = [];
-            if (null !== $this->storageData && \is_array($this->storageData)) {
-                $n = 0;
-                foreach ($this->storageData as $item) {
-                    $res['StorageData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->storageData)) {
+                $res['StorageData'] = [];
+                $n1 = 0;
+                foreach ($this->storageData as $item1) {
+                    $res['StorageData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -50,23 +51,24 @@ class DescribeVodTieringStorageDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVodTieringStorageDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StorageData'])) {
             if (!empty($map['StorageData'])) {
                 $model->storageData = [];
-                $n = 0;
-                foreach ($map['StorageData'] as $item) {
-                    $model->storageData[$n++] = null !== $item ? storageData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['StorageData'] as $item1) {
+                    $model->storageData[$n1++] = storageData::fromMap($item1);
                 }
             }
         }

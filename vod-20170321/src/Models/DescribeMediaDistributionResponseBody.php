@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeMediaDistributionResponseBody\mediaDistributionList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeMediaDistributionResponseBody extends Model
 {
     /**
-     * @description The distribution list of media assets. The data is displayed based on the statistical cycle of the natural hour, day, week, or month of the start and end time.
-     *
      * @var mediaDistributionList[]
      */
     public $mediaDistributionList;
 
     /**
-     * @description The request ID.
-     *
-     * @example 25818875-5F78-4AF6-D7393642CA58****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of media assets returned.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $total;
@@ -39,23 +29,31 @@ class DescribeMediaDistributionResponseBody extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->mediaDistributionList)) {
+            Model::validateArray($this->mediaDistributionList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaDistributionList) {
-            $res['MediaDistributionList'] = [];
-            if (null !== $this->mediaDistributionList && \is_array($this->mediaDistributionList)) {
-                $n = 0;
-                foreach ($this->mediaDistributionList as $item) {
-                    $res['MediaDistributionList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mediaDistributionList)) {
+                $res['MediaDistributionList'] = [];
+                $n1 = 0;
+                foreach ($this->mediaDistributionList as $item1) {
+                    $res['MediaDistributionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -63,26 +61,28 @@ class DescribeMediaDistributionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMediaDistributionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaDistributionList'])) {
             if (!empty($map['MediaDistributionList'])) {
                 $model->mediaDistributionList = [];
-                $n = 0;
-                foreach ($map['MediaDistributionList'] as $item) {
-                    $model->mediaDistributionList[$n++] = null !== $item ? mediaDistributionList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MediaDistributionList'] as $item1) {
+                    $model->mediaDistributionList[$n1++] = mediaDistributionList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

@@ -4,46 +4,22 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodUserDomainsRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class DescribeVodUserDomainsRequest extends Model
 {
     /**
-     * @description The domain name. The value of this parameter is used as a filter condition for a fuzzy match.
-     *
-     * @example example.aliyundoc.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The search method. Valid values:
-     *
-     *   **fuzzy_match** (default): fuzzy match.
-     *   **pre_match**: prefix match
-     *   **suf_match**: suffix match
-     *   **full_match**: exact match
-     *
-     * @example fuzzy_match
-     *
      * @var string
      */
     public $domainSearchType;
 
     /**
-     * @description The status of the domain name. Value values:
-     *
-     *   **online**: indicates that the domain name is enabled.
-     *   **offline**: indicates that the domain name is disabled.
-     *   **configuring**: indicates that the domain name is being configured.
-     *   **configure_failed**: indicates that the domain name failed to be configured.
-     *   **checking**: indicates that the domain name is under review.
-     *   **check_failed**: indicates that the domain name failed the review.
-     *
-     * @example online
-     *
      * @var string
      */
     public $domainStatus;
@@ -54,19 +30,11 @@ class DescribeVodUserDomainsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Default value: **20**. Maximum value: **50**. Valid values: **1** to **50**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
@@ -77,8 +45,6 @@ class DescribeVodUserDomainsRequest extends Model
     public $securityToken;
 
     /**
-     * @description The tags.
-     *
      * @var tag[]
      */
     public $tag;
@@ -93,38 +59,51 @@ class DescribeVodUserDomainsRequest extends Model
         'tag' => 'Tag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->domainSearchType) {
             $res['DomainSearchType'] = $this->domainSearchType;
         }
+
         if (null !== $this->domainStatus) {
             $res['DomainStatus'] = $this->domainStatus;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -132,41 +111,48 @@ class DescribeVodUserDomainsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVodUserDomainsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['DomainSearchType'])) {
             $model->domainSearchType = $map['DomainSearchType'];
         }
+
         if (isset($map['DomainStatus'])) {
             $model->domainStatus = $map['DomainStatus'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }

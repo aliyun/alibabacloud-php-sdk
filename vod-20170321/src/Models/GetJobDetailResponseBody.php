@@ -4,48 +4,34 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetJobDetailResponseBody\AIJobDetail;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetJobDetailResponseBody\snapshotJobDetail;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetJobDetailResponseBody\transcodeJobDetail;
-use AlibabaCloud\Tea\Model;
 
 class GetJobDetailResponseBody extends Model
 {
     /**
-     * @description The details of the AI task. This parameter takes effect only when the TaskType parameter is set to AI.
-     *
      * @var AIJobDetail
      */
     public $AIJobDetail;
 
     /**
-     * @description The type of the task. Valid values:
-     *
-     * @example transcode
-     *
      * @var string
      */
     public $jobType;
 
     /**
-     * @description The request ID.
-     *
-     * @example 6708D849-F109-1A6C-AC91-************
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The details of the snapshot task. This parameter takes effect only when the jobType parameter is set to Snapshot.
-     *
      * @var snapshotJobDetail
      */
     public $snapshotJobDetail;
 
     /**
-     * @description The details of the transcoding task. This parameter takes effect only when the jobType parameter is set to Transcode.
-     *
      * @var transcodeJobDetail
      */
     public $transcodeJobDetail;
@@ -57,50 +43,70 @@ class GetJobDetailResponseBody extends Model
         'transcodeJobDetail' => 'TranscodeJobDetail',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->AIJobDetail) {
+            $this->AIJobDetail->validate();
+        }
+        if (null !== $this->snapshotJobDetail) {
+            $this->snapshotJobDetail->validate();
+        }
+        if (null !== $this->transcodeJobDetail) {
+            $this->transcodeJobDetail->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->AIJobDetail) {
-            $res['AIJobDetail'] = null !== $this->AIJobDetail ? $this->AIJobDetail->toMap() : null;
+            $res['AIJobDetail'] = null !== $this->AIJobDetail ? $this->AIJobDetail->toArray($noStream) : $this->AIJobDetail;
         }
+
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->snapshotJobDetail) {
-            $res['SnapshotJobDetail'] = null !== $this->snapshotJobDetail ? $this->snapshotJobDetail->toMap() : null;
+            $res['SnapshotJobDetail'] = null !== $this->snapshotJobDetail ? $this->snapshotJobDetail->toArray($noStream) : $this->snapshotJobDetail;
         }
+
         if (null !== $this->transcodeJobDetail) {
-            $res['TranscodeJobDetail'] = null !== $this->transcodeJobDetail ? $this->transcodeJobDetail->toMap() : null;
+            $res['TranscodeJobDetail'] = null !== $this->transcodeJobDetail ? $this->transcodeJobDetail->toArray($noStream) : $this->transcodeJobDetail;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetJobDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AIJobDetail'])) {
             $model->AIJobDetail = AIJobDetail::fromMap($map['AIJobDetail']);
         }
+
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SnapshotJobDetail'])) {
             $model->snapshotJobDetail = snapshotJobDetail::fromMap($map['SnapshotJobDetail']);
         }
+
         if (isset($map['TranscodeJobDetail'])) {
             $model->transcodeJobDetail = transcodeJobDetail::fromMap($map['TranscodeJobDetail']);
         }

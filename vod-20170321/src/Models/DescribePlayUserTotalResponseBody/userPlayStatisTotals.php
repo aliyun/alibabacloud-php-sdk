@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\DescribePlayUserTotalResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribePlayUserTotalResponseBody\userPlayStatisTotals\userPlayStatisTotal;
-use AlibabaCloud\Tea\Model;
 
 class userPlayStatisTotals extends Model
 {
@@ -17,17 +17,23 @@ class userPlayStatisTotals extends Model
         'userPlayStatisTotal' => 'UserPlayStatisTotal',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userPlayStatisTotal)) {
+            Model::validateArray($this->userPlayStatisTotal);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userPlayStatisTotal) {
-            $res['UserPlayStatisTotal'] = [];
-            if (null !== $this->userPlayStatisTotal && \is_array($this->userPlayStatisTotal)) {
-                $n = 0;
-                foreach ($this->userPlayStatisTotal as $item) {
-                    $res['UserPlayStatisTotal'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->userPlayStatisTotal)) {
+                $res['UserPlayStatisTotal'] = [];
+                $n1 = 0;
+                foreach ($this->userPlayStatisTotal as $item1) {
+                    $res['UserPlayStatisTotal'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class userPlayStatisTotals extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userPlayStatisTotals
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserPlayStatisTotal'])) {
             if (!empty($map['UserPlayStatisTotal'])) {
                 $model->userPlayStatisTotal = [];
-                $n = 0;
-                foreach ($map['UserPlayStatisTotal'] as $item) {
-                    $model->userPlayStatisTotal[$n++] = null !== $item ? userPlayStatisTotal::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UserPlayStatisTotal'] as $item1) {
+                    $model->userPlayStatisTotal[$n1++] = userPlayStatisTotal::fromMap($item1);
                 }
             }
         }

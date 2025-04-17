@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodEditingUsageDataResponseBody\editingData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeVodEditingUsageDataResponseBody extends Model
 {
@@ -15,22 +15,16 @@ class DescribeVodEditingUsageDataResponseBody extends Model
     public $editingData;
 
     /**
-     * @example 2024-11-07T16:00:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @example 6CB55B62-6E5F-54D1-80BF-DFA3DE9F0***
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 2024-11-06T16:00:00Z
-     *
      * @var string
      */
     public $startTime;
@@ -41,26 +35,35 @@ class DescribeVodEditingUsageDataResponseBody extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->editingData)) {
+            Model::validateArray($this->editingData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->editingData) {
-            $res['EditingData'] = [];
-            if (null !== $this->editingData && \is_array($this->editingData)) {
-                $n = 0;
-                foreach ($this->editingData as $item) {
-                    $res['EditingData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->editingData)) {
+                $res['EditingData'] = [];
+                $n1 = 0;
+                foreach ($this->editingData as $item1) {
+                    $res['EditingData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -68,29 +71,32 @@ class DescribeVodEditingUsageDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVodEditingUsageDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EditingData'])) {
             if (!empty($map['EditingData'])) {
                 $model->editingData = [];
-                $n = 0;
-                foreach ($map['EditingData'] as $item) {
-                    $model->editingData[$n++] = null !== $item ? editingData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EditingData'] as $item1) {
+                    $model->editingData[$n1++] = editingData::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

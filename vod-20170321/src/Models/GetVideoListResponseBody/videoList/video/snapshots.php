@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetVideoListResponseBody\videoList\video;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class snapshots extends Model
 {
@@ -16,29 +16,45 @@ class snapshots extends Model
         'snapshot' => 'Snapshot',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->snapshot)) {
+            Model::validateArray($this->snapshot);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->snapshot) {
-            $res['Snapshot'] = $this->snapshot;
+            if (\is_array($this->snapshot)) {
+                $res['Snapshot'] = [];
+                $n1 = 0;
+                foreach ($this->snapshot as $item1) {
+                    $res['Snapshot'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return snapshots
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Snapshot'])) {
             if (!empty($map['Snapshot'])) {
-                $model->snapshot = $map['Snapshot'];
+                $model->snapshot = [];
+                $n1 = 0;
+                foreach ($map['Snapshot'] as $item1) {
+                    $model->snapshot[$n1++] = $item1;
+                }
             }
         }
 

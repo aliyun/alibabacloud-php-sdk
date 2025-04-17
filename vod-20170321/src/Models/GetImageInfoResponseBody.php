@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetImageInfoResponseBody\imageInfo;
-use AlibabaCloud\Tea\Model;
 
 class GetImageInfoResponseBody extends Model
 {
     /**
-     * @description The information about the image.
-     *
      * @var imageInfo
      */
     public $imageInfo;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example AB99D4DF-FAFA-49DC-9C548C1E261E****
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetImageInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->imageInfo) {
+            $this->imageInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageInfo) {
-            $res['ImageInfo'] = null !== $this->imageInfo ? $this->imageInfo->toMap() : null;
+            $res['ImageInfo'] = null !== $this->imageInfo ? $this->imageInfo->toArray($noStream) : $this->imageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetImageInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetImageInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageInfo'])) {
             $model->imageInfo = imageInfo::fromMap($map['ImageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

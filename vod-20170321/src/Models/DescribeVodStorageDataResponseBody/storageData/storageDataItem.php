@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodStorageDataResponseBody\storageData;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class storageDataItem extends Model
 {
     /**
-     * @description The outbound traffic. Unit: bytes. The outbound traffic is generated when videos are directly downloaded or played from OSS buckets without Alibaba Cloud CDN acceleration.
-     *
-     * @example 111111
-     *
      * @var string
      */
     public $networkOut;
 
     /**
-     * @description The detailed usage data of storage-related resources. Unit: bytes.
-     *
-     * @example 111111
-     *
      * @var string
      */
     public $storageUtilization;
 
     /**
-     * @description The timestamp of the returned data. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-     *
-     * @example 2019-02-01T15:00:00Z
-     *
      * @var string
      */
     public $timeStamp;
@@ -40,17 +28,22 @@ class storageDataItem extends Model
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkOut) {
             $res['NetworkOut'] = $this->networkOut;
         }
+
         if (null !== $this->storageUtilization) {
             $res['StorageUtilization'] = $this->storageUtilization;
         }
+
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -58,20 +51,22 @@ class storageDataItem extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return storageDataItem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkOut'])) {
             $model->networkOut = $map['NetworkOut'];
         }
+
         if (isset($map['StorageUtilization'])) {
             $model->storageUtilization = $map['StorageUtilization'];
         }
+
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

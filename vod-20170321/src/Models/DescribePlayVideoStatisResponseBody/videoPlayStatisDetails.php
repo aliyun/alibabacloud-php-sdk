@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\DescribePlayVideoStatisResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribePlayVideoStatisResponseBody\videoPlayStatisDetails\videoPlayStatisDetail;
-use AlibabaCloud\Tea\Model;
 
 class videoPlayStatisDetails extends Model
 {
@@ -17,17 +17,23 @@ class videoPlayStatisDetails extends Model
         'videoPlayStatisDetail' => 'VideoPlayStatisDetail',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->videoPlayStatisDetail)) {
+            Model::validateArray($this->videoPlayStatisDetail);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->videoPlayStatisDetail) {
-            $res['VideoPlayStatisDetail'] = [];
-            if (null !== $this->videoPlayStatisDetail && \is_array($this->videoPlayStatisDetail)) {
-                $n = 0;
-                foreach ($this->videoPlayStatisDetail as $item) {
-                    $res['VideoPlayStatisDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->videoPlayStatisDetail)) {
+                $res['VideoPlayStatisDetail'] = [];
+                $n1 = 0;
+                foreach ($this->videoPlayStatisDetail as $item1) {
+                    $res['VideoPlayStatisDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class videoPlayStatisDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videoPlayStatisDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VideoPlayStatisDetail'])) {
             if (!empty($map['VideoPlayStatisDetail'])) {
                 $model->videoPlayStatisDetail = [];
-                $n = 0;
-                foreach ($map['VideoPlayStatisDetail'] as $item) {
-                    $model->videoPlayStatisDetail[$n++] = null !== $item ? videoPlayStatisDetail::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VideoPlayStatisDetail'] as $item1) {
+                    $model->videoPlayStatisDetail[$n1++] = videoPlayStatisDetail::fromMap($item1);
                 }
             }
         }

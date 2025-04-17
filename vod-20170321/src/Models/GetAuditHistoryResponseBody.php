@@ -4,43 +4,27 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAuditHistoryResponseBody\histories;
-use AlibabaCloud\Tea\Model;
 
 class GetAuditHistoryResponseBody extends Model
 {
     /**
-     * @description The review records.
-     *
      * @var histories[]
      */
     public $histories;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 04F0F334-1335-43*****D7-6C044FE73368
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The manual review result. Valid values:
-     * - **Normal**: The video can be played.
-     * - **Blocked**: The video is blocked.
-     *
-     * @example Normal
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The total number of review records.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $total;
@@ -51,26 +35,35 @@ class GetAuditHistoryResponseBody extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->histories)) {
+            Model::validateArray($this->histories);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->histories) {
-            $res['Histories'] = [];
-            if (null !== $this->histories && \is_array($this->histories)) {
-                $n = 0;
-                foreach ($this->histories as $item) {
-                    $res['Histories'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->histories)) {
+                $res['Histories'] = [];
+                $n1 = 0;
+                foreach ($this->histories as $item1) {
+                    $res['Histories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -78,29 +71,32 @@ class GetAuditHistoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAuditHistoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Histories'])) {
             if (!empty($map['Histories'])) {
                 $model->histories = [];
-                $n = 0;
-                foreach ($map['Histories'] as $item) {
-                    $model->histories[$n++] = null !== $item ? histories::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Histories'] as $item1) {
+                    $model->histories[$n1++] = histories::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

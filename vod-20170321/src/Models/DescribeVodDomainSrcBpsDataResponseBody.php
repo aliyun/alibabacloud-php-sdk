@@ -4,59 +4,37 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcBpsDataResponseBody\srcBpsDataPerInterval;
-use AlibabaCloud\Tea\Model;
 
 class DescribeVodDomainSrcBpsDataResponseBody extends Model
 {
     /**
-     * @description The time interval at which data is returned, which is the time granularity. Unit: seconds.
-     *
-     * @example 300
-     *
      * @var string
      */
     public $dataInterval;
 
     /**
-     * @description The accelerated domain name whose ICP filing status you want to update.
-     *
-     * @example sample.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The end of the time range.
-     *
-     * @example 2022-08-23T02:02:57Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4A13-BEF6-****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The origin bandwidth data at each time interval.
-     *
      * @var srcBpsDataPerInterval
      */
     public $srcBpsDataPerInterval;
 
     /**
-     * @description The beginning of the time range.
-     *
-     * @example 2022-07-12T16:00:00Z
-     *
      * @var string
      */
     public $startTime;
@@ -69,26 +47,37 @@ class DescribeVodDomainSrcBpsDataResponseBody extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->srcBpsDataPerInterval) {
+            $this->srcBpsDataPerInterval->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->srcBpsDataPerInterval) {
-            $res['SrcBpsDataPerInterval'] = null !== $this->srcBpsDataPerInterval ? $this->srcBpsDataPerInterval->toMap() : null;
+            $res['SrcBpsDataPerInterval'] = null !== $this->srcBpsDataPerInterval ? $this->srcBpsDataPerInterval->toArray($noStream) : $this->srcBpsDataPerInterval;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -96,29 +85,34 @@ class DescribeVodDomainSrcBpsDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVodDomainSrcBpsDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SrcBpsDataPerInterval'])) {
             $model->srcBpsDataPerInterval = srcBpsDataPerInterval::fromMap($map['SrcBpsDataPerInterval']);
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MoveAppResourceResponseBody extends Model
 {
     /**
-     * @description The IDs of the resources that failed to be migrated.
-     *
      * @var string[]
      */
     public $failedResourceIds;
 
     /**
-     * @description The IDs of the resources that were not found.
-     *
      * @var string[]
      */
     public $nonExistResourceIds;
 
     /**
-     * @description The request ID.
-     *
-     * @example 25818875-5F78-4A13-BEF6-****
-     *
      * @var string
      */
     public $requestId;
@@ -36,17 +28,40 @@ class MoveAppResourceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->failedResourceIds)) {
+            Model::validateArray($this->failedResourceIds);
+        }
+        if (\is_array($this->nonExistResourceIds)) {
+            Model::validateArray($this->nonExistResourceIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedResourceIds) {
-            $res['FailedResourceIds'] = $this->failedResourceIds;
+            if (\is_array($this->failedResourceIds)) {
+                $res['FailedResourceIds'] = [];
+                $n1 = 0;
+                foreach ($this->failedResourceIds as $item1) {
+                    $res['FailedResourceIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->nonExistResourceIds) {
-            $res['NonExistResourceIds'] = $this->nonExistResourceIds;
+            if (\is_array($this->nonExistResourceIds)) {
+                $res['NonExistResourceIds'] = [];
+                $n1 = 0;
+                foreach ($this->nonExistResourceIds as $item1) {
+                    $res['NonExistResourceIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -54,24 +69,34 @@ class MoveAppResourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MoveAppResourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedResourceIds'])) {
             if (!empty($map['FailedResourceIds'])) {
-                $model->failedResourceIds = $map['FailedResourceIds'];
+                $model->failedResourceIds = [];
+                $n1 = 0;
+                foreach ($map['FailedResourceIds'] as $item1) {
+                    $model->failedResourceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['NonExistResourceIds'])) {
             if (!empty($map['NonExistResourceIds'])) {
-                $model->nonExistResourceIds = $map['NonExistResourceIds'];
+                $model->nonExistResourceIds = [];
+                $n1 = 0;
+                foreach ($map['NonExistResourceIds'] as $item1) {
+                    $model->nonExistResourceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

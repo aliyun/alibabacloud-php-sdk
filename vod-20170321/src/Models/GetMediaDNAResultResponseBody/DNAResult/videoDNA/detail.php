@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaDNAResultResponseBody\DNAResult\videoDNA;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaDNAResultResponseBody\DNAResult\videoDNA\detail\duplication;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaDNAResultResponseBody\DNAResult\videoDNA\detail\input;
-use AlibabaCloud\Tea\Model;
 
 class detail extends Model
 {
     /**
-     * @description The start time and duration of the matched video.
-     *
      * @var duplication
      */
     public $duplication;
 
     /**
-     * @description The start time and duration of the input video.
-     *
      * @var input
      */
     public $input;
@@ -28,32 +24,43 @@ class detail extends Model
         'input' => 'Input',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->duplication) {
+            $this->duplication->validate();
+        }
+        if (null !== $this->input) {
+            $this->input->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->duplication) {
-            $res['Duplication'] = null !== $this->duplication ? $this->duplication->toMap() : null;
+            $res['Duplication'] = null !== $this->duplication ? $this->duplication->toArray($noStream) : $this->duplication;
         }
+
         if (null !== $this->input) {
-            $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
+            $res['Input'] = null !== $this->input ? $this->input->toArray($noStream) : $this->input;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return detail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Duplication'])) {
             $model->duplication = duplication::fromMap($map['Duplication']);
         }
+
         if (isset($map['Input'])) {
             $model->input = input::fromMap($map['Input']);
         }

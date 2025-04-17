@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIImageJobsResponseBody\AIImageJobList;
-use AlibabaCloud\Tea\Model;
 
 class GetAIImageJobsResponseBody extends Model
 {
     /**
-     * @description The image AI processing jobs.
-     *
      * @var AIImageJobList[]
      */
     public $AIImageJobList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 7721B494-1F78-4E*****E8-A7CEE7315BFA
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,27 @@ class GetAIImageJobsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->AIImageJobList)) {
+            Model::validateArray($this->AIImageJobList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->AIImageJobList) {
-            $res['AIImageJobList'] = [];
-            if (null !== $this->AIImageJobList && \is_array($this->AIImageJobList)) {
-                $n = 0;
-                foreach ($this->AIImageJobList as $item) {
-                    $res['AIImageJobList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->AIImageJobList)) {
+                $res['AIImageJobList'] = [];
+                $n1 = 0;
+                foreach ($this->AIImageJobList as $item1) {
+                    $res['AIImageJobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +51,24 @@ class GetAIImageJobsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAIImageJobsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AIImageJobList'])) {
             if (!empty($map['AIImageJobList'])) {
                 $model->AIImageJobList = [];
-                $n = 0;
-                foreach ($map['AIImageJobList'] as $item) {
-                    $model->AIImageJobList[$n++] = null !== $item ? AIImageJobList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AIImageJobList'] as $item1) {
+                    $model->AIImageJobList[$n1++] = AIImageJobList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

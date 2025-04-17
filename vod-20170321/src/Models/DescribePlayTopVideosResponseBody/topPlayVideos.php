@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\DescribePlayTopVideosResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribePlayTopVideosResponseBody\topPlayVideos\topPlayVideoStatis;
-use AlibabaCloud\Tea\Model;
 
 class topPlayVideos extends Model
 {
@@ -17,17 +17,23 @@ class topPlayVideos extends Model
         'topPlayVideoStatis' => 'TopPlayVideoStatis',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->topPlayVideoStatis)) {
+            Model::validateArray($this->topPlayVideoStatis);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->topPlayVideoStatis) {
-            $res['TopPlayVideoStatis'] = [];
-            if (null !== $this->topPlayVideoStatis && \is_array($this->topPlayVideoStatis)) {
-                $n = 0;
-                foreach ($this->topPlayVideoStatis as $item) {
-                    $res['TopPlayVideoStatis'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->topPlayVideoStatis)) {
+                $res['TopPlayVideoStatis'] = [];
+                $n1 = 0;
+                foreach ($this->topPlayVideoStatis as $item1) {
+                    $res['TopPlayVideoStatis'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class topPlayVideos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return topPlayVideos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TopPlayVideoStatis'])) {
             if (!empty($map['TopPlayVideoStatis'])) {
                 $model->topPlayVideoStatis = [];
-                $n = 0;
-                foreach ($map['TopPlayVideoStatis'] as $item) {
-                    $model->topPlayVideoStatis[$n++] = null !== $item ? topPlayVideoStatis::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TopPlayVideoStatis'] as $item1) {
+                    $model->topPlayVideoStatis[$n1++] = topPlayVideoStatis::fromMap($item1);
                 }
             }
         }

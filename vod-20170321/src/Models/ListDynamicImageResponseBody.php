@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListDynamicImageResponseBody\dynamicImageList;
-use AlibabaCloud\Tea\Model;
 
 class ListDynamicImageResponseBody extends Model
 {
     /**
-     * @description The list of animated stickers.
-     *
      * @var dynamicImageList[]
      */
     public $dynamicImageList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 570189B6-572E-4953-13B4278EE0D8****
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,27 @@ class ListDynamicImageResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dynamicImageList)) {
+            Model::validateArray($this->dynamicImageList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dynamicImageList) {
-            $res['DynamicImageList'] = [];
-            if (null !== $this->dynamicImageList && \is_array($this->dynamicImageList)) {
-                $n = 0;
-                foreach ($this->dynamicImageList as $item) {
-                    $res['DynamicImageList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dynamicImageList)) {
+                $res['DynamicImageList'] = [];
+                $n1 = 0;
+                foreach ($this->dynamicImageList as $item1) {
+                    $res['DynamicImageList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +51,24 @@ class ListDynamicImageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDynamicImageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DynamicImageList'])) {
             if (!empty($map['DynamicImageList'])) {
                 $model->dynamicImageList = [];
-                $n = 0;
-                foreach ($map['DynamicImageList'] as $item) {
-                    $model->dynamicImageList[$n++] = null !== $item ? dynamicImageList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DynamicImageList'] as $item1) {
+                    $model->dynamicImageList[$n1++] = dynamicImageList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

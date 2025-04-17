@@ -4,72 +4,46 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultResponseBody\mediaAuditResult;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultResponseBody\mediaAuditResult\videoResult\adResult;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultResponseBody\mediaAuditResult\videoResult\liveResult;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultResponseBody\mediaAuditResult\videoResult\logoResult;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultResponseBody\mediaAuditResult\videoResult\pornResult;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultResponseBody\mediaAuditResult\videoResult\terrorismResult;
-use AlibabaCloud\Tea\Model;
 
 class videoResult extends Model
 {
     /**
-     * @description The results of ad review.
-     *
      * @var adResult
      */
     public $adResult;
 
     /**
-     * @description The category of the review result. Separate multiple values with commas (,). Valid values:
-     *
-     * - **porn**
-     * - **terrorism**
-     * - **normal**
-     *
-     * @example porn
-     *
      * @var string
      */
     public $label;
 
     /**
-     * @description The results of undesired content review.
-     *
      * @var liveResult
      */
     public $liveResult;
 
     /**
-     * @description The results of logo review.
-     *
      * @var logoResult
      */
     public $logoResult;
 
     /**
-     * @description The results of pornographic content review.
-     *
      * @var pornResult
      */
     public $pornResult;
 
     /**
-     * @description The recommendation for review results. Valid values:
-     *
-     * - **block**
-     * - **review**
-     * - **pass**
-     *
-     * @example pass
-     *
      * @var string
      */
     public $suggestion;
 
     /**
-     * @description The results of terrorist content review.
-     *
      * @var terrorismResult
      */
     public $terrorismResult;
@@ -83,62 +57,92 @@ class videoResult extends Model
         'terrorismResult' => 'TerrorismResult',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->adResult) {
+            $this->adResult->validate();
+        }
+        if (null !== $this->liveResult) {
+            $this->liveResult->validate();
+        }
+        if (null !== $this->logoResult) {
+            $this->logoResult->validate();
+        }
+        if (null !== $this->pornResult) {
+            $this->pornResult->validate();
+        }
+        if (null !== $this->terrorismResult) {
+            $this->terrorismResult->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->adResult) {
-            $res['AdResult'] = null !== $this->adResult ? $this->adResult->toMap() : null;
+            $res['AdResult'] = null !== $this->adResult ? $this->adResult->toArray($noStream) : $this->adResult;
         }
+
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->liveResult) {
-            $res['LiveResult'] = null !== $this->liveResult ? $this->liveResult->toMap() : null;
+            $res['LiveResult'] = null !== $this->liveResult ? $this->liveResult->toArray($noStream) : $this->liveResult;
         }
+
         if (null !== $this->logoResult) {
-            $res['LogoResult'] = null !== $this->logoResult ? $this->logoResult->toMap() : null;
+            $res['LogoResult'] = null !== $this->logoResult ? $this->logoResult->toArray($noStream) : $this->logoResult;
         }
+
         if (null !== $this->pornResult) {
-            $res['PornResult'] = null !== $this->pornResult ? $this->pornResult->toMap() : null;
+            $res['PornResult'] = null !== $this->pornResult ? $this->pornResult->toArray($noStream) : $this->pornResult;
         }
+
         if (null !== $this->suggestion) {
             $res['Suggestion'] = $this->suggestion;
         }
+
         if (null !== $this->terrorismResult) {
-            $res['TerrorismResult'] = null !== $this->terrorismResult ? $this->terrorismResult->toMap() : null;
+            $res['TerrorismResult'] = null !== $this->terrorismResult ? $this->terrorismResult->toArray($noStream) : $this->terrorismResult;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videoResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdResult'])) {
             $model->adResult = adResult::fromMap($map['AdResult']);
         }
+
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['LiveResult'])) {
             $model->liveResult = liveResult::fromMap($map['LiveResult']);
         }
+
         if (isset($map['LogoResult'])) {
             $model->logoResult = logoResult::fromMap($map['LogoResult']);
         }
+
         if (isset($map['PornResult'])) {
             $model->pornResult = pornResult::fromMap($map['PornResult']);
         }
+
         if (isset($map['Suggestion'])) {
             $model->suggestion = $map['Suggestion'];
         }
+
         if (isset($map['TerrorismResult'])) {
             $model->terrorismResult = terrorismResult::fromMap($map['TerrorismResult']);
         }

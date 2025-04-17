@@ -4,20 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetDefaultWatermarkRequest extends Model
 {
     /**
-     * @description The ID of the watermark template. You can specify only one watermark template ID. You can obtain the ID by using one of the following methods:
-     *
-     *   Obtain the watermark template ID from the response to the [AddWatermark](~~AddWatermark~~) operation that you call to create a watermark template.
-     *   Obtain the watermark template ID from the response to the [ListWatermark](~~ListWatermark~~) operation that you call to query all watermark templates within your account.
-     *
-     * This parameter is required.
-     *
-     * @example 9bcc8bfadb843f*****09a2671d0df97
-     *
      * @var string
      */
     public $watermarkId;
@@ -25,9 +16,12 @@ class SetDefaultWatermarkRequest extends Model
         'watermarkId' => 'WatermarkId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->watermarkId) {
@@ -37,11 +31,11 @@ class SetDefaultWatermarkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetDefaultWatermarkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

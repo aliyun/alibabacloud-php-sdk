@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMediaAuditResultRequest extends Model
 {
     /**
-     * @description The ID of the video or image.
-     *
-     * This parameter is required.
-     *
-     * @example 93ab850b4f6f*****54b6e91d24d81d4
-     *
      * @var string
      */
     public $mediaId;
@@ -22,9 +16,12 @@ class GetMediaAuditResultRequest extends Model
         'mediaId' => 'MediaId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaId) {
@@ -34,11 +31,11 @@ class GetMediaAuditResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMediaAuditResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

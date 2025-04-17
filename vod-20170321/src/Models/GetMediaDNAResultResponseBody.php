@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaDNAResultResponseBody\DNAResult;
-use AlibabaCloud\Tea\Model;
 
 class GetMediaDNAResultResponseBody extends Model
 {
     /**
-     * @description The media fingerprinting results.
-     *
      * @var DNAResult
      */
     public $DNAResult;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 63FC4896-E956-4B*****7D-134FF1BC597A
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetMediaDNAResultResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->DNAResult) {
+            $this->DNAResult->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DNAResult) {
-            $res['DNAResult'] = null !== $this->DNAResult ? $this->DNAResult->toMap() : null;
+            $res['DNAResult'] = null !== $this->DNAResult ? $this->DNAResult->toArray($noStream) : $this->DNAResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetMediaDNAResultResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMediaDNAResultResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DNAResult'])) {
             $model->DNAResult = DNAResult::fromMap($map['DNAResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

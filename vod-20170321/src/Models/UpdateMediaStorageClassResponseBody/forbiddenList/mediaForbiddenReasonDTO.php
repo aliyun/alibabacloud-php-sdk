@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\UpdateMediaStorageClassResponseBody\forbiddenList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class mediaForbiddenReasonDTO extends Model
 {
     /**
-     * @description The ID of the media asset.
-     *
-     * @example 19e231ee6e3e417fbf2e92ec2680****
-     *
      * @var string
      */
     public $mediaId;
 
     /**
-     * @description The reason for the failure.
-     *
-     * @example TargetStorageClassInconsistent
-     *
      * @var string
      */
     public $reason;
@@ -30,14 +22,18 @@ class mediaForbiddenReasonDTO extends Model
         'reason' => 'Reason',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
+
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
@@ -45,17 +41,18 @@ class mediaForbiddenReasonDTO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mediaForbiddenReasonDTO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }
+
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }

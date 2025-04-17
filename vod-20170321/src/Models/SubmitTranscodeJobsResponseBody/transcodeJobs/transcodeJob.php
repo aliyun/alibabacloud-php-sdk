@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\SubmitTranscodeJobsResponseBody\transcodeJobs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class transcodeJob extends Model
 {
     /**
-     * @description The ID of the transcoding job.
-     *
-     * >  This parameter is not returned for HLS packaging tasks. You must asynchronously receive the transcoding result.
-     *
-     * @example d8921ce8505716cfe86fb112c4****
-     *
      * @var string
      */
     public $jobId;
@@ -22,9 +16,12 @@ class transcodeJob extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -34,11 +31,11 @@ class transcodeJob extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return transcodeJob
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

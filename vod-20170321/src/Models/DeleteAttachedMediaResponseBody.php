@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAttachedMediaResponseBody extends Model
 {
     /**
-     * @description The IDs of the auxiliary media assets that failed to be deleted.
-     *
      * @var string[]
      */
     public $nonExistMediaIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4AF6-D7393642CA58****
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +22,27 @@ class DeleteAttachedMediaResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->nonExistMediaIds)) {
+            Model::validateArray($this->nonExistMediaIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nonExistMediaIds) {
-            $res['NonExistMediaIds'] = $this->nonExistMediaIds;
+            if (\is_array($this->nonExistMediaIds)) {
+                $res['NonExistMediaIds'] = [];
+                $n1 = 0;
+                foreach ($this->nonExistMediaIds as $item1) {
+                    $res['NonExistMediaIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,19 +50,24 @@ class DeleteAttachedMediaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAttachedMediaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NonExistMediaIds'])) {
             if (!empty($map['NonExistMediaIds'])) {
-                $model->nonExistMediaIds = $map['NonExistMediaIds'];
+                $model->nonExistMediaIds = [];
+                $n1 = 0;
+                foreach ($map['NonExistMediaIds'] as $item1) {
+                    $model->nonExistMediaIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

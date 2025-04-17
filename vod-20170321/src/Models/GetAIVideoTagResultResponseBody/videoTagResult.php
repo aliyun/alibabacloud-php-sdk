@@ -4,46 +4,36 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetAIVideoTagResultResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIVideoTagResultResponseBody\videoTagResult\category;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIVideoTagResultResponseBody\videoTagResult\keyword;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIVideoTagResultResponseBody\videoTagResult\location;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIVideoTagResultResponseBody\videoTagResult\person;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIVideoTagResultResponseBody\videoTagResult\time;
-use AlibabaCloud\Tea\Model;
 
 class videoTagResult extends Model
 {
     /**
-     * @description The video categories.
-     *
      * @var category[]
      */
     public $category;
 
     /**
-     * @description The keyword tags.
-     *
      * @var keyword[]
      */
     public $keyword;
 
     /**
-     * @description The location tags.
-     *
      * @var location[]
      */
     public $location;
 
     /**
-     * @description The figure tags.
-     *
      * @var person[]
      */
     public $person;
 
     /**
-     * @description The time tags.
-     *
      * @var time[]
      */
     public $time;
@@ -55,53 +45,75 @@ class videoTagResult extends Model
         'time' => 'Time',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->category)) {
+            Model::validateArray($this->category);
+        }
+        if (\is_array($this->keyword)) {
+            Model::validateArray($this->keyword);
+        }
+        if (\is_array($this->location)) {
+            Model::validateArray($this->location);
+        }
+        if (\is_array($this->person)) {
+            Model::validateArray($this->person);
+        }
+        if (\is_array($this->time)) {
+            Model::validateArray($this->time);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
-            $res['Category'] = [];
-            if (null !== $this->category && \is_array($this->category)) {
-                $n = 0;
-                foreach ($this->category as $item) {
-                    $res['Category'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->category)) {
+                $res['Category'] = [];
+                $n1 = 0;
+                foreach ($this->category as $item1) {
+                    $res['Category'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->keyword) {
-            $res['Keyword'] = [];
-            if (null !== $this->keyword && \is_array($this->keyword)) {
-                $n = 0;
-                foreach ($this->keyword as $item) {
-                    $res['Keyword'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->keyword)) {
+                $res['Keyword'] = [];
+                $n1 = 0;
+                foreach ($this->keyword as $item1) {
+                    $res['Keyword'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->location) {
-            $res['Location'] = [];
-            if (null !== $this->location && \is_array($this->location)) {
-                $n = 0;
-                foreach ($this->location as $item) {
-                    $res['Location'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->location)) {
+                $res['Location'] = [];
+                $n1 = 0;
+                foreach ($this->location as $item1) {
+                    $res['Location'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->person) {
-            $res['Person'] = [];
-            if (null !== $this->person && \is_array($this->person)) {
-                $n = 0;
-                foreach ($this->person as $item) {
-                    $res['Person'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->person)) {
+                $res['Person'] = [];
+                $n1 = 0;
+                foreach ($this->person as $item1) {
+                    $res['Person'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->time) {
-            $res['Time'] = [];
-            if (null !== $this->time && \is_array($this->time)) {
-                $n = 0;
-                foreach ($this->time as $item) {
-                    $res['Time'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->time)) {
+                $res['Time'] = [];
+                $n1 = 0;
+                foreach ($this->time as $item1) {
+                    $res['Time'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -109,56 +121,60 @@ class videoTagResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videoTagResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             if (!empty($map['Category'])) {
                 $model->category = [];
-                $n = 0;
-                foreach ($map['Category'] as $item) {
-                    $model->category[$n++] = null !== $item ? category::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Category'] as $item1) {
+                    $model->category[$n1++] = category::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Keyword'])) {
             if (!empty($map['Keyword'])) {
                 $model->keyword = [];
-                $n = 0;
-                foreach ($map['Keyword'] as $item) {
-                    $model->keyword[$n++] = null !== $item ? keyword::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Keyword'] as $item1) {
+                    $model->keyword[$n1++] = keyword::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Location'])) {
             if (!empty($map['Location'])) {
                 $model->location = [];
-                $n = 0;
-                foreach ($map['Location'] as $item) {
-                    $model->location[$n++] = null !== $item ? location::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Location'] as $item1) {
+                    $model->location[$n1++] = location::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Person'])) {
             if (!empty($map['Person'])) {
                 $model->person = [];
-                $n = 0;
-                foreach ($map['Person'] as $item) {
-                    $model->person[$n++] = null !== $item ? person::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Person'] as $item1) {
+                    $model->person[$n1++] = person::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Time'])) {
             if (!empty($map['Time'])) {
                 $model->time = [];
-                $n = 0;
-                foreach ($map['Time'] as $item) {
-                    $model->time[$n++] = null !== $item ? time::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Time'] as $item1) {
+                    $model->time[$n1++] = time::fromMap($item1);
                 }
             }
         }

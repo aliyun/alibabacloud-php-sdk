@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteMezzaninesResponseBody extends Model
 {
     /**
-     * @description The IDs of the audio or video files that do not exist.
-     *
      * @var string[]
      */
     public $nonExistVideoIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4AF6-D7393642CA58****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The IDs of the audio or video files whose source files cannot be deleted.
-     *
-     * >  In most cases, source files cannot be deleted if they are used for original-quality playback or you do not have required permissions to delete them. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
-     *
      * @var string[]
      */
     public $unRemoveableVideoIds;
@@ -38,43 +28,76 @@ class DeleteMezzaninesResponseBody extends Model
         'unRemoveableVideoIds' => 'UnRemoveableVideoIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->nonExistVideoIds)) {
+            Model::validateArray($this->nonExistVideoIds);
+        }
+        if (\is_array($this->unRemoveableVideoIds)) {
+            Model::validateArray($this->unRemoveableVideoIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nonExistVideoIds) {
-            $res['NonExistVideoIds'] = $this->nonExistVideoIds;
+            if (\is_array($this->nonExistVideoIds)) {
+                $res['NonExistVideoIds'] = [];
+                $n1 = 0;
+                foreach ($this->nonExistVideoIds as $item1) {
+                    $res['NonExistVideoIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->unRemoveableVideoIds) {
-            $res['UnRemoveableVideoIds'] = $this->unRemoveableVideoIds;
+            if (\is_array($this->unRemoveableVideoIds)) {
+                $res['UnRemoveableVideoIds'] = [];
+                $n1 = 0;
+                foreach ($this->unRemoveableVideoIds as $item1) {
+                    $res['UnRemoveableVideoIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMezzaninesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NonExistVideoIds'])) {
             if (!empty($map['NonExistVideoIds'])) {
-                $model->nonExistVideoIds = $map['NonExistVideoIds'];
+                $model->nonExistVideoIds = [];
+                $n1 = 0;
+                foreach ($map['NonExistVideoIds'] as $item1) {
+                    $model->nonExistVideoIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UnRemoveableVideoIds'])) {
             if (!empty($map['UnRemoveableVideoIds'])) {
-                $model->unRemoveableVideoIds = $map['UnRemoveableVideoIds'];
+                $model->unRemoveableVideoIds = [];
+                $n1 = 0;
+                foreach ($map['UnRemoveableVideoIds'] as $item1) {
+                    $model->unRemoveableVideoIds[$n1++] = $item1;
+                }
             }
         }
 

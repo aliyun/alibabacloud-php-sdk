@@ -4,40 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteVodSpecificConfigRequest extends Model
 {
     /**
-     * @description The ID of the configuration.
-     *
-     * This parameter is required.
-     *
-     * @example 2317****
-     *
      * @var string
      */
     public $configId;
 
     /**
-     * @description The accelerated domain name.
-     *
-     * This parameter is required.
-     *
-     * @example www.example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The environment from which the domain name configurations are deleted. Valid values:
-     *
-     *   online: production environment
-     *   gray: simulation environment
-     *
-     * @example online
-     *
      * @var string
      */
     public $env;
@@ -59,23 +40,30 @@ class DeleteVodSpecificConfigRequest extends Model
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -83,26 +71,30 @@ class DeleteVodSpecificConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteVodSpecificConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

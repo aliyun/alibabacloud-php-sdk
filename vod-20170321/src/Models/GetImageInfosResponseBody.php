@@ -4,30 +4,22 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetImageInfosResponseBody\imageInfo;
-use AlibabaCloud\Tea\Model;
 
 class GetImageInfosResponseBody extends Model
 {
     /**
-     * @description The image information.
-     *
      * @var imageInfo[]
      */
     public $imageInfo;
 
     /**
-     * @description The IDs of the images that do not exist.
-     *
      * @var string[]
      */
     public $nonExistImageIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 25818875-5F78-4AF6-D7393642CA58*****
-     *
      * @var string
      */
     public $requestId;
@@ -37,23 +29,40 @@ class GetImageInfosResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->imageInfo)) {
+            Model::validateArray($this->imageInfo);
+        }
+        if (\is_array($this->nonExistImageIds)) {
+            Model::validateArray($this->nonExistImageIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageInfo) {
-            $res['ImageInfo'] = [];
-            if (null !== $this->imageInfo && \is_array($this->imageInfo)) {
-                $n = 0;
-                foreach ($this->imageInfo as $item) {
-                    $res['ImageInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->imageInfo)) {
+                $res['ImageInfo'] = [];
+                $n1 = 0;
+                foreach ($this->imageInfo as $item1) {
+                    $res['ImageInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nonExistImageIds) {
-            $res['NonExistImageIds'] = $this->nonExistImageIds;
+            if (\is_array($this->nonExistImageIds)) {
+                $res['NonExistImageIds'] = [];
+                $n1 = 0;
+                foreach ($this->nonExistImageIds as $item1) {
+                    $res['NonExistImageIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -61,28 +70,34 @@ class GetImageInfosResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetImageInfosResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageInfo'])) {
             if (!empty($map['ImageInfo'])) {
                 $model->imageInfo = [];
-                $n = 0;
-                foreach ($map['ImageInfo'] as $item) {
-                    $model->imageInfo[$n++] = null !== $item ? imageInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ImageInfo'] as $item1) {
+                    $model->imageInfo[$n1++] = imageInfo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NonExistImageIds'])) {
             if (!empty($map['NonExistImageIds'])) {
-                $model->nonExistImageIds = $map['NonExistImageIds'];
+                $model->nonExistImageIds = [];
+                $n1 = 0;
+                foreach ($map['NonExistImageIds'] as $item1) {
+                    $model->nonExistImageIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,46 +4,36 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultTimelineResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultTimelineResponseBody\mediaAuditResultTimeline\ad;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultTimelineResponseBody\mediaAuditResultTimeline\live;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultTimelineResponseBody\mediaAuditResultTimeline\logo;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultTimelineResponseBody\mediaAuditResultTimeline\porn;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultTimelineResponseBody\mediaAuditResultTimeline\terrorism;
-use AlibabaCloud\Tea\Model;
 
 class mediaAuditResultTimeline extends Model
 {
     /**
-     * @description The collection of ad timelines.
-     *
      * @var ad[]
      */
     public $ad;
 
     /**
-     * @description The collection of undesirable content timelines.
-     *
      * @var live[]
      */
     public $live;
 
     /**
-     * @description The collection of logo timelines.
-     *
      * @var logo[]
      */
     public $logo;
 
     /**
-     * @description The collection of pornographic content timelines.
-     *
      * @var porn[]
      */
     public $porn;
 
     /**
-     * @description The collection of terrorist content timelines.
-     *
      * @var terrorism[]
      */
     public $terrorism;
@@ -55,53 +45,75 @@ class mediaAuditResultTimeline extends Model
         'terrorism' => 'Terrorism',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ad)) {
+            Model::validateArray($this->ad);
+        }
+        if (\is_array($this->live)) {
+            Model::validateArray($this->live);
+        }
+        if (\is_array($this->logo)) {
+            Model::validateArray($this->logo);
+        }
+        if (\is_array($this->porn)) {
+            Model::validateArray($this->porn);
+        }
+        if (\is_array($this->terrorism)) {
+            Model::validateArray($this->terrorism);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ad) {
-            $res['Ad'] = [];
-            if (null !== $this->ad && \is_array($this->ad)) {
-                $n = 0;
-                foreach ($this->ad as $item) {
-                    $res['Ad'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ad)) {
+                $res['Ad'] = [];
+                $n1 = 0;
+                foreach ($this->ad as $item1) {
+                    $res['Ad'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->live) {
-            $res['Live'] = [];
-            if (null !== $this->live && \is_array($this->live)) {
-                $n = 0;
-                foreach ($this->live as $item) {
-                    $res['Live'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->live)) {
+                $res['Live'] = [];
+                $n1 = 0;
+                foreach ($this->live as $item1) {
+                    $res['Live'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->logo) {
-            $res['Logo'] = [];
-            if (null !== $this->logo && \is_array($this->logo)) {
-                $n = 0;
-                foreach ($this->logo as $item) {
-                    $res['Logo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logo)) {
+                $res['Logo'] = [];
+                $n1 = 0;
+                foreach ($this->logo as $item1) {
+                    $res['Logo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->porn) {
-            $res['Porn'] = [];
-            if (null !== $this->porn && \is_array($this->porn)) {
-                $n = 0;
-                foreach ($this->porn as $item) {
-                    $res['Porn'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->porn)) {
+                $res['Porn'] = [];
+                $n1 = 0;
+                foreach ($this->porn as $item1) {
+                    $res['Porn'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->terrorism) {
-            $res['Terrorism'] = [];
-            if (null !== $this->terrorism && \is_array($this->terrorism)) {
-                $n = 0;
-                foreach ($this->terrorism as $item) {
-                    $res['Terrorism'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->terrorism)) {
+                $res['Terrorism'] = [];
+                $n1 = 0;
+                foreach ($this->terrorism as $item1) {
+                    $res['Terrorism'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -109,56 +121,60 @@ class mediaAuditResultTimeline extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mediaAuditResultTimeline
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ad'])) {
             if (!empty($map['Ad'])) {
                 $model->ad = [];
-                $n = 0;
-                foreach ($map['Ad'] as $item) {
-                    $model->ad[$n++] = null !== $item ? ad::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Ad'] as $item1) {
+                    $model->ad[$n1++] = ad::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Live'])) {
             if (!empty($map['Live'])) {
                 $model->live = [];
-                $n = 0;
-                foreach ($map['Live'] as $item) {
-                    $model->live[$n++] = null !== $item ? live::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Live'] as $item1) {
+                    $model->live[$n1++] = live::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Logo'])) {
             if (!empty($map['Logo'])) {
                 $model->logo = [];
-                $n = 0;
-                foreach ($map['Logo'] as $item) {
-                    $model->logo[$n++] = null !== $item ? logo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Logo'] as $item1) {
+                    $model->logo[$n1++] = logo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Porn'])) {
             if (!empty($map['Porn'])) {
                 $model->porn = [];
-                $n = 0;
-                foreach ($map['Porn'] as $item) {
-                    $model->porn[$n++] = null !== $item ? porn::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Porn'] as $item1) {
+                    $model->porn[$n1++] = porn::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Terrorism'])) {
             if (!empty($map['Terrorism'])) {
                 $model->terrorism = [];
-                $n = 0;
-                foreach ($map['Terrorism'] as $item) {
-                    $model->terrorism[$n++] = null !== $item ? terrorism::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Terrorism'] as $item1) {
+                    $model->terrorism[$n1++] = terrorism::fromMap($item1);
                 }
             }
         }

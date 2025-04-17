@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddEditingProjectRequest extends Model
 {
     /**
-     * @description The thumbnail URL of the online editing project. If you leave this parameter empty and materials exist on the video track in the timeline, the thumbnail of the first material is used by default.
-     *
-     * @example https://demo.aliyundoc.com/6AB4D0E1E1C74468883516C2349D1FC2-6-2.png
-     *
      * @var string
      */
     public $coverURL;
 
     /**
-     * @description The description of the online editing project.
-     *
-     * @example testtimeline001desciption
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The region in which ApsaraVideo VOD is activated.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $division;
@@ -56,23 +44,11 @@ class AddEditingProjectRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The timeline of the online editing project in JSON format. For more information about the structure, see [Timeline](https://help.aliyun.com/document_detail/52839.html).
-     *
-     * If you leave this parameter empty, an empty timeline is created and the duration of the online editing project is zero.
-     *
-     * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"cc3308ac5006aed55a54328bc3443****"},{"MediaId":"95948ddba24446b6aed5db985e78****"}]}]}
-     *
      * @var string
      */
     public $timeline;
 
     /**
-     * @description The title of the online editing project.
-     *
-     * This parameter is required.
-     *
-     * @example testtimeline
-     *
      * @var string
      */
     public $title;
@@ -88,35 +64,46 @@ class AddEditingProjectRequest extends Model
         'title' => 'Title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->coverURL) {
             $res['CoverURL'] = $this->coverURL;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->division) {
             $res['Division'] = $this->division;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->timeline) {
             $res['Timeline'] = $this->timeline;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -124,38 +111,46 @@ class AddEditingProjectRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddEditingProjectRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CoverURL'])) {
             $model->coverURL = $map['CoverURL'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Division'])) {
             $model->division = $map['Division'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Timeline'])) {
             $model->timeline = $map['Timeline'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

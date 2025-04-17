@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetDailyPlayRegionStatisResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dailyPlayRegionStatisList extends Model
 {
     /**
-     * @example 2025-03-20
-     *
      * @var string
      */
     public $date;
 
     /**
-     * @example https://outin-e70266d4ed*******0163e1403e7.oss-cn-shanghai.aliyuncs.com/dataexport/play/cn_hangzhou_20250320_video_traffic.csv?*******
-     *
      * @var string
      */
     public $fileUrl;
@@ -26,14 +22,18 @@ class dailyPlayRegionStatisList extends Model
         'fileUrl' => 'FileUrl',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
+
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
@@ -41,17 +41,18 @@ class dailyPlayRegionStatisList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dailyPlayRegionStatisList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }
+
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }

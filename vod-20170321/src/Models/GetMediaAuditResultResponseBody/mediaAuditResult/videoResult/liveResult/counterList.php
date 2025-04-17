@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultResponseBody\mediaAuditResult\videoResult\liveResult;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class counterList extends Model
 {
     /**
-     * @description The number of frames.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The category of the review result. Valid values:
-     *
-     * - **live**: The content contains undesirable scenes.
-     * - **normal**: normal content.
-     *
-     * @example live
-     *
      * @var string
      */
     public $label;
@@ -33,14 +22,18 @@ class counterList extends Model
         'label' => 'Label',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
@@ -48,17 +41,18 @@ class counterList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return counterList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }

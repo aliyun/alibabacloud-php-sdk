@@ -4,87 +4,51 @@
 
 namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeVodRefreshQuotaResponseBody extends Model
 {
     /**
-     * @description The maximum number of Object Storage Service (OSS) buckets that can be refreshed each day.
-     *
-     * @example 500
-     *
      * @var string
      */
     public $blockQuota;
 
     /**
-     * @description The maximum number of directories of files that can be refreshed each day.
-     *
-     * @example 100
-     *
      * @var string
      */
     public $dirQuota;
 
     /**
-     * @description The remaining number of directories of files that can be refreshed on the current day.
-     *
-     * @example 99
-     *
      * @var string
      */
     public $dirRemain;
 
     /**
-     * @description The maximum number of URLs of files that can be prefetched each day.
-     *
-     * @example 500
-     *
      * @var string
      */
     public $preloadQuota;
 
     /**
-     * @description The remaining number of URLs of files that can be prefetched on the current day.
-     *
-     * @example 500
-     *
      * @var string
      */
     public $preloadRemain;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 42E0554B-80F4-4921-****-ACFB22CAAAD0
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The maximum number of URLs of files that can be refreshed each day.
-     *
-     * @example 2000
-     *
      * @var string
      */
     public $urlQuota;
 
     /**
-     * @description The remaining number of URLs of files that can be refreshed on the current day.
-     *
-     * @example 1996
-     *
      * @var string
      */
     public $urlRemain;
 
     /**
-     * @description The remaining number of OSS buckets that can be refreshed on the current day.
-     *
-     * @example 500
-     *
      * @var string
      */
     public $blockRemain;
@@ -100,35 +64,46 @@ class DescribeVodRefreshQuotaResponseBody extends Model
         'blockRemain' => 'blockRemain',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->blockQuota) {
             $res['BlockQuota'] = $this->blockQuota;
         }
+
         if (null !== $this->dirQuota) {
             $res['DirQuota'] = $this->dirQuota;
         }
+
         if (null !== $this->dirRemain) {
             $res['DirRemain'] = $this->dirRemain;
         }
+
         if (null !== $this->preloadQuota) {
             $res['PreloadQuota'] = $this->preloadQuota;
         }
+
         if (null !== $this->preloadRemain) {
             $res['PreloadRemain'] = $this->preloadRemain;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->urlQuota) {
             $res['UrlQuota'] = $this->urlQuota;
         }
+
         if (null !== $this->urlRemain) {
             $res['UrlRemain'] = $this->urlRemain;
         }
+
         if (null !== $this->blockRemain) {
             $res['blockRemain'] = $this->blockRemain;
         }
@@ -136,38 +111,46 @@ class DescribeVodRefreshQuotaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVodRefreshQuotaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BlockQuota'])) {
             $model->blockQuota = $map['BlockQuota'];
         }
+
         if (isset($map['DirQuota'])) {
             $model->dirQuota = $map['DirQuota'];
         }
+
         if (isset($map['DirRemain'])) {
             $model->dirRemain = $map['DirRemain'];
         }
+
         if (isset($map['PreloadQuota'])) {
             $model->preloadQuota = $map['PreloadQuota'];
         }
+
         if (isset($map['PreloadRemain'])) {
             $model->preloadRemain = $map['PreloadRemain'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UrlQuota'])) {
             $model->urlQuota = $map['UrlQuota'];
         }
+
         if (isset($map['UrlRemain'])) {
             $model->urlRemain = $map['UrlRemain'];
         }
+
         if (isset($map['blockRemain'])) {
             $model->blockRemain = $map['blockRemain'];
         }
