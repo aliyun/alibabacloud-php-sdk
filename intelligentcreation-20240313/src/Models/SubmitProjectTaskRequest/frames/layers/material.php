@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SubmitProjectTaskRequest\frames\layers;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SubmitProjectTaskRequest\frames\layers\material\mask;
 
 class material extends Model
 {
@@ -24,6 +25,11 @@ class material extends Model
     public $id;
 
     /**
+     * @var mask
+     */
+    public $mask;
+
+    /**
      * @var string
      */
     public $speed;
@@ -41,6 +47,7 @@ class material extends Model
         'anchorStyleLevel' => 'anchorStyleLevel',
         'format' => 'format',
         'id' => 'id',
+        'mask' => 'mask',
         'speed' => 'speed',
         'url' => 'url',
         'volume' => 'volume',
@@ -48,6 +55,9 @@ class material extends Model
 
     public function validate()
     {
+        if (null !== $this->mask) {
+            $this->mask->validate();
+        }
         parent::validate();
     }
 
@@ -64,6 +74,10 @@ class material extends Model
 
         if (null !== $this->id) {
             $res['id'] = $this->id;
+        }
+
+        if (null !== $this->mask) {
+            $res['mask'] = null !== $this->mask ? $this->mask->toArray($noStream) : $this->mask;
         }
 
         if (null !== $this->speed) {
@@ -99,6 +113,10 @@ class material extends Model
 
         if (isset($map['id'])) {
             $model->id = $map['id'];
+        }
+
+        if (isset($map['mask'])) {
+            $model->mask = mask::fromMap($map['mask']);
         }
 
         if (isset($map['speed'])) {

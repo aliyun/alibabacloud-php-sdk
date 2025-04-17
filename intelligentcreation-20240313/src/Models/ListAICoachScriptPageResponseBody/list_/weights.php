@@ -14,6 +14,11 @@ class weights extends Model
     public $assessmentPoint;
 
     /**
+     * @var bool
+     */
+    public $assessmentPointEnabled;
+
+    /**
      * @var int
      */
     public $expressiveness;
@@ -44,6 +49,7 @@ class weights extends Model
     public $standardEnabled;
     protected $_name = [
         'assessmentPoint' => 'assessmentPoint',
+        'assessmentPointEnabled' => 'assessmentPointEnabled',
         'expressiveness' => 'expressiveness',
         'expressivenessEnabled' => 'expressivenessEnabled',
         'pointDeductionRule' => 'pointDeductionRule',
@@ -62,6 +68,10 @@ class weights extends Model
         $res = [];
         if (null !== $this->assessmentPoint) {
             $res['assessmentPoint'] = $this->assessmentPoint;
+        }
+
+        if (null !== $this->assessmentPointEnabled) {
+            $res['assessmentPointEnabled'] = $this->assessmentPointEnabled;
         }
 
         if (null !== $this->expressiveness) {
@@ -101,6 +111,10 @@ class weights extends Model
         $model = new self();
         if (isset($map['assessmentPoint'])) {
             $model->assessmentPoint = $map['assessmentPoint'];
+        }
+
+        if (isset($map['assessmentPointEnabled'])) {
+            $model->assessmentPointEnabled = $map['assessmentPointEnabled'];
         }
 
         if (isset($map['expressiveness'])) {

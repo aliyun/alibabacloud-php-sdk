@@ -23,6 +23,11 @@ class list_ extends Model
     public $assessmentScope;
 
     /**
+     * @var string
+     */
+    public $closingRemarks;
+
+    /**
      * @var completeStrategy
      */
     public $completeStrategy;
@@ -55,6 +60,16 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $gifDynamicUrl;
+
+    /**
+     * @var string
+     */
+    public $gifStaticUrl;
+
+    /**
+     * @var string
+     */
     public $gmtCreate;
 
     /**
@@ -81,6 +96,11 @@ class list_ extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $openingRemarks;
 
     /**
      * @var bool
@@ -134,18 +154,22 @@ class list_ extends Model
     protected $_name = [
         'appendQuestionFlag' => 'appendQuestionFlag',
         'assessmentScope' => 'assessmentScope',
+        'closingRemarks' => 'closingRemarks',
         'completeStrategy' => 'completeStrategy',
         'coverUrl' => 'coverUrl',
         'dialogueTextFlag' => 'dialogueTextFlag',
         'dialogueTipFlag' => 'dialogueTipFlag',
         'evaluateReportFlag' => 'evaluateReportFlag',
         'expressiveness' => 'expressiveness',
+        'gifDynamicUrl' => 'gifDynamicUrl',
+        'gifStaticUrl' => 'gifStaticUrl',
         'gmtCreate' => 'gmtCreate',
         'gmtModified' => 'gmtModified',
         'initiator' => 'initiator',
         'interactionType' => 'interactionType',
         'introduce' => 'introduce',
         'name' => 'name',
+        'openingRemarks' => 'openingRemarks',
         'orderAckFlag' => 'orderAckFlag',
         'sampleDialogueList' => 'sampleDialogueList',
         'scoreConfig' => 'scoreConfig',
@@ -189,6 +213,10 @@ class list_ extends Model
             $res['assessmentScope'] = $this->assessmentScope;
         }
 
+        if (null !== $this->closingRemarks) {
+            $res['closingRemarks'] = $this->closingRemarks;
+        }
+
         if (null !== $this->completeStrategy) {
             $res['completeStrategy'] = null !== $this->completeStrategy ? $this->completeStrategy->toArray($noStream) : $this->completeStrategy;
         }
@@ -218,6 +246,14 @@ class list_ extends Model
             }
         }
 
+        if (null !== $this->gifDynamicUrl) {
+            $res['gifDynamicUrl'] = $this->gifDynamicUrl;
+        }
+
+        if (null !== $this->gifStaticUrl) {
+            $res['gifStaticUrl'] = $this->gifStaticUrl;
+        }
+
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
         }
@@ -240,6 +276,10 @@ class list_ extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->openingRemarks) {
+            $res['openingRemarks'] = $this->openingRemarks;
         }
 
         if (null !== $this->orderAckFlag) {
@@ -307,6 +347,10 @@ class list_ extends Model
             $model->assessmentScope = $map['assessmentScope'];
         }
 
+        if (isset($map['closingRemarks'])) {
+            $model->closingRemarks = $map['closingRemarks'];
+        }
+
         if (isset($map['completeStrategy'])) {
             $model->completeStrategy = completeStrategy::fromMap($map['completeStrategy']);
         }
@@ -336,6 +380,14 @@ class list_ extends Model
             }
         }
 
+        if (isset($map['gifDynamicUrl'])) {
+            $model->gifDynamicUrl = $map['gifDynamicUrl'];
+        }
+
+        if (isset($map['gifStaticUrl'])) {
+            $model->gifStaticUrl = $map['gifStaticUrl'];
+        }
+
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];
         }
@@ -358,6 +410,10 @@ class list_ extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['openingRemarks'])) {
+            $model->openingRemarks = $map['openingRemarks'];
         }
 
         if (isset($map['orderAckFlag'])) {

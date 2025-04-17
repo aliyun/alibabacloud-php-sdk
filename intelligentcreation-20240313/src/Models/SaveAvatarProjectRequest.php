@@ -62,6 +62,11 @@ class SaveAvatarProjectRequest extends Model
     /**
      * @var string
      */
+    public $scriptModelTag;
+
+    /**
+     * @var string
+     */
     public $synchronizedDisplay;
     protected $_name = [
         'agentId' => 'agentId',
@@ -74,6 +79,7 @@ class SaveAvatarProjectRequest extends Model
         'resSpecType' => 'resSpecType',
         'resolution' => 'resolution',
         'scaleType' => 'scaleType',
+        'scriptModelTag' => 'scriptModelTag',
         'synchronizedDisplay' => 'synchronizedDisplay',
     ];
 
@@ -132,6 +138,10 @@ class SaveAvatarProjectRequest extends Model
 
         if (null !== $this->scaleType) {
             $res['scaleType'] = $this->scaleType;
+        }
+
+        if (null !== $this->scriptModelTag) {
+            $res['scriptModelTag'] = $this->scriptModelTag;
         }
 
         if (null !== $this->synchronizedDisplay) {
@@ -193,6 +203,10 @@ class SaveAvatarProjectRequest extends Model
 
         if (isset($map['scaleType'])) {
             $model->scaleType = $map['scaleType'];
+        }
+
+        if (isset($map['scriptModelTag'])) {
+            $model->scriptModelTag = $map['scriptModelTag'];
         }
 
         if (isset($map['synchronizedDisplay'])) {

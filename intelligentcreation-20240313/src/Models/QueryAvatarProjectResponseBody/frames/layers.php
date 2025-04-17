@@ -15,6 +15,11 @@ class layers extends Model
     public $height;
 
     /**
+     * @var int
+     */
+    public $index;
+
+    /**
      * @var material
      */
     public $material;
@@ -40,6 +45,7 @@ class layers extends Model
     public $width;
     protected $_name = [
         'height' => 'height',
+        'index' => 'index',
         'material' => 'material',
         'positionX' => 'positionX',
         'positionY' => 'positionY',
@@ -60,6 +66,10 @@ class layers extends Model
         $res = [];
         if (null !== $this->height) {
             $res['height'] = $this->height;
+        }
+
+        if (null !== $this->index) {
+            $res['index'] = $this->index;
         }
 
         if (null !== $this->material) {
@@ -95,6 +105,10 @@ class layers extends Model
         $model = new self();
         if (isset($map['height'])) {
             $model->height = $map['height'];
+        }
+
+        if (isset($map['index'])) {
+            $model->index = $map['index'];
         }
 
         if (isset($map['material'])) {

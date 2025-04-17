@@ -2,41 +2,47 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachTaskPageResponseBody;
+namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class taskList extends Model
+class QueryImageToVideoTaskResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $finishTime;
+    public $message;
 
     /**
      * @var string
      */
-    public $gmtCreate;
+    public $originUrl;
 
     /**
      * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var int
      */
     public $status;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $studentId;
+    public $success;
 
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'finishTime' => 'finishTime',
-        'gmtCreate' => 'gmtCreate',
+        'message' => 'message',
+        'originUrl' => 'originUrl',
+        'requestId' => 'requestId',
         'status' => 'status',
-        'studentId' => 'studentId',
+        'success' => 'success',
         'taskId' => 'taskId',
     ];
 
@@ -48,20 +54,24 @@ class taskList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->finishTime) {
-            $res['finishTime'] = $this->finishTime;
+        if (null !== $this->message) {
+            $res['message'] = $this->message;
         }
 
-        if (null !== $this->gmtCreate) {
-            $res['gmtCreate'] = $this->gmtCreate;
+        if (null !== $this->originUrl) {
+            $res['originUrl'] = $this->originUrl;
+        }
+
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
 
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
 
-        if (null !== $this->studentId) {
-            $res['studentId'] = $this->studentId;
+        if (null !== $this->success) {
+            $res['success'] = $this->success;
         }
 
         if (null !== $this->taskId) {
@@ -79,20 +89,24 @@ class taskList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['finishTime'])) {
-            $model->finishTime = $map['finishTime'];
+        if (isset($map['message'])) {
+            $model->message = $map['message'];
         }
 
-        if (isset($map['gmtCreate'])) {
-            $model->gmtCreate = $map['gmtCreate'];
+        if (isset($map['originUrl'])) {
+            $model->originUrl = $map['originUrl'];
+        }
+
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
 
-        if (isset($map['studentId'])) {
-            $model->studentId = $map['studentId'];
+        if (isset($map['success'])) {
+            $model->success = $map['success'];
         }
 
         if (isset($map['taskId'])) {

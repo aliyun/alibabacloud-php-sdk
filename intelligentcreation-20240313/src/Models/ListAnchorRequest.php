@@ -16,6 +16,11 @@ class ListAnchorRequest extends Model
     /**
      * @var string
      */
+    public $anchorId;
+
+    /**
+     * @var string
+     */
     public $anchorType;
 
     /**
@@ -49,6 +54,7 @@ class ListAnchorRequest extends Model
     public $useScene;
     protected $_name = [
         'anchorCategory' => 'anchorCategory',
+        'anchorId' => 'anchorId',
         'anchorType' => 'anchorType',
         'coverRate' => 'coverRate',
         'digitalHumanType' => 'digitalHumanType',
@@ -68,6 +74,10 @@ class ListAnchorRequest extends Model
         $res = [];
         if (null !== $this->anchorCategory) {
             $res['anchorCategory'] = $this->anchorCategory;
+        }
+
+        if (null !== $this->anchorId) {
+            $res['anchorId'] = $this->anchorId;
         }
 
         if (null !== $this->anchorType) {
@@ -111,6 +121,10 @@ class ListAnchorRequest extends Model
         $model = new self();
         if (isset($map['anchorCategory'])) {
             $model->anchorCategory = $map['anchorCategory'];
+        }
+
+        if (isset($map['anchorId'])) {
+            $model->anchorId = $map['anchorId'];
         }
 
         if (isset($map['anchorType'])) {

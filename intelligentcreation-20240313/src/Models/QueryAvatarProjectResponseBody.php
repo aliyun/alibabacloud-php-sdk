@@ -47,6 +47,11 @@ class QueryAvatarProjectResponseBody extends Model
     /**
      * @var string
      */
+    public $scriptModelTag;
+
+    /**
+     * @var string
+     */
     public $status;
     protected $_name = [
         'agentId' => 'agentId',
@@ -56,6 +61,7 @@ class QueryAvatarProjectResponseBody extends Model
         'requestId' => 'requestId',
         'resSpecType' => 'resSpecType',
         'scaleType' => 'scaleType',
+        'scriptModelTag' => 'scriptModelTag',
         'status' => 'status',
     ];
 
@@ -102,6 +108,10 @@ class QueryAvatarProjectResponseBody extends Model
 
         if (null !== $this->scaleType) {
             $res['scaleType'] = $this->scaleType;
+        }
+
+        if (null !== $this->scriptModelTag) {
+            $res['scriptModelTag'] = $this->scriptModelTag;
         }
 
         if (null !== $this->status) {
@@ -151,6 +161,10 @@ class QueryAvatarProjectResponseBody extends Model
 
         if (isset($map['scaleType'])) {
             $model->scaleType = $map['scaleType'];
+        }
+
+        if (isset($map['scriptModelTag'])) {
+            $model->scriptModelTag = $map['scriptModelTag'];
         }
 
         if (isset($map['status'])) {

@@ -11,6 +11,11 @@ class CreateAnchorRequest extends Model
     /**
      * @var string
      */
+    public $anchorCategory;
+
+    /**
+     * @var string
+     */
     public $anchorMaterialName;
 
     /**
@@ -32,12 +37,19 @@ class CreateAnchorRequest extends Model
      * @var string
      */
     public $useScene;
+
+    /**
+     * @var string
+     */
+    public $videoOssKey;
     protected $_name = [
+        'anchorCategory' => 'anchorCategory',
         'anchorMaterialName' => 'anchorMaterialName',
         'coverUrl' => 'coverUrl',
         'digitalHumanType' => 'digitalHumanType',
         'gender' => 'gender',
         'useScene' => 'useScene',
+        'videoOssKey' => 'videoOssKey',
     ];
 
     public function validate()
@@ -48,6 +60,10 @@ class CreateAnchorRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->anchorCategory) {
+            $res['anchorCategory'] = $this->anchorCategory;
+        }
+
         if (null !== $this->anchorMaterialName) {
             $res['anchorMaterialName'] = $this->anchorMaterialName;
         }
@@ -68,6 +84,10 @@ class CreateAnchorRequest extends Model
             $res['useScene'] = $this->useScene;
         }
 
+        if (null !== $this->videoOssKey) {
+            $res['videoOssKey'] = $this->videoOssKey;
+        }
+
         return $res;
     }
 
@@ -79,6 +99,10 @@ class CreateAnchorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['anchorCategory'])) {
+            $model->anchorCategory = $map['anchorCategory'];
+        }
+
         if (isset($map['anchorMaterialName'])) {
             $model->anchorMaterialName = $map['anchorMaterialName'];
         }
@@ -97,6 +121,10 @@ class CreateAnchorRequest extends Model
 
         if (isset($map['useScene'])) {
             $model->useScene = $map['useScene'];
+        }
+
+        if (isset($map['videoOssKey'])) {
+            $model->videoOssKey = $map['videoOssKey'];
         }
 
         return $model;

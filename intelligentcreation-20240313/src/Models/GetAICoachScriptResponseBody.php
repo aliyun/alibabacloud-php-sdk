@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\checkCheatConfig;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\completeStrategy;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\expressivenessList;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\pointDeductionRuleList;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\points;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\sampleDialogueList;
@@ -28,6 +29,11 @@ class GetAICoachScriptResponseBody extends Model
      * @var checkCheatConfig
      */
     public $checkCheatConfig;
+
+    /**
+     * @var string
+     */
+    public $closingRemarks;
 
     /**
      * @var completeStrategy
@@ -70,6 +76,21 @@ class GetAICoachScriptResponseBody extends Model
     public $expressiveness;
 
     /**
+     * @var expressivenessList[]
+     */
+    public $expressivenessList;
+
+    /**
+     * @var string
+     */
+    public $gifDynamicUrl;
+
+    /**
+     * @var string
+     */
+    public $gifStaticUrl;
+
+    /**
      * @var string
      */
     public $gmtCreate;
@@ -103,6 +124,11 @@ class GetAICoachScriptResponseBody extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $openingRemarks;
 
     /**
      * @var bool
@@ -172,6 +198,7 @@ class GetAICoachScriptResponseBody extends Model
         'appendQuestionFlag' => 'appendQuestionFlag',
         'assessmentScope' => 'assessmentScope',
         'checkCheatConfig' => 'checkCheatConfig',
+        'closingRemarks' => 'closingRemarks',
         'completeStrategy' => 'completeStrategy',
         'coverUrl' => 'coverUrl',
         'dialogueInputTextLimit' => 'dialogueInputTextLimit',
@@ -180,6 +207,9 @@ class GetAICoachScriptResponseBody extends Model
         'dialogueVoiceLimit' => 'dialogueVoiceLimit',
         'evaluateReportFlag' => 'evaluateReportFlag',
         'expressiveness' => 'expressiveness',
+        'expressivenessList' => 'expressivenessList',
+        'gifDynamicUrl' => 'gifDynamicUrl',
+        'gifStaticUrl' => 'gifStaticUrl',
         'gmtCreate' => 'gmtCreate',
         'gmtModified' => 'gmtModified',
         'initiator' => 'initiator',
@@ -187,6 +217,7 @@ class GetAICoachScriptResponseBody extends Model
         'interactionType' => 'interactionType',
         'introduce' => 'introduce',
         'name' => 'name',
+        'openingRemarks' => 'openingRemarks',
         'orderAckFlag' => 'orderAckFlag',
         'pointDeductionRuleList' => 'pointDeductionRuleList',
         'points' => 'points',
@@ -212,6 +243,9 @@ class GetAICoachScriptResponseBody extends Model
         }
         if (\is_array($this->expressiveness)) {
             Model::validateArray($this->expressiveness);
+        }
+        if (\is_array($this->expressivenessList)) {
+            Model::validateArray($this->expressivenessList);
         }
         if (\is_array($this->interactionInputTypes)) {
             Model::validateArray($this->interactionInputTypes);
@@ -244,6 +278,10 @@ class GetAICoachScriptResponseBody extends Model
 
         if (null !== $this->checkCheatConfig) {
             $res['checkCheatConfig'] = null !== $this->checkCheatConfig ? $this->checkCheatConfig->toArray($noStream) : $this->checkCheatConfig;
+        }
+
+        if (null !== $this->closingRemarks) {
+            $res['closingRemarks'] = $this->closingRemarks;
         }
 
         if (null !== $this->completeStrategy) {
@@ -283,6 +321,24 @@ class GetAICoachScriptResponseBody extends Model
             }
         }
 
+        if (null !== $this->expressivenessList) {
+            if (\is_array($this->expressivenessList)) {
+                $res['expressivenessList'] = [];
+                $n1 = 0;
+                foreach ($this->expressivenessList as $item1) {
+                    $res['expressivenessList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
+        if (null !== $this->gifDynamicUrl) {
+            $res['gifDynamicUrl'] = $this->gifDynamicUrl;
+        }
+
+        if (null !== $this->gifStaticUrl) {
+            $res['gifStaticUrl'] = $this->gifStaticUrl;
+        }
+
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
         }
@@ -315,6 +371,10 @@ class GetAICoachScriptResponseBody extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->openingRemarks) {
+            $res['openingRemarks'] = $this->openingRemarks;
         }
 
         if (null !== $this->orderAckFlag) {
@@ -410,6 +470,10 @@ class GetAICoachScriptResponseBody extends Model
             $model->checkCheatConfig = checkCheatConfig::fromMap($map['checkCheatConfig']);
         }
 
+        if (isset($map['closingRemarks'])) {
+            $model->closingRemarks = $map['closingRemarks'];
+        }
+
         if (isset($map['completeStrategy'])) {
             $model->completeStrategy = completeStrategy::fromMap($map['completeStrategy']);
         }
@@ -447,6 +511,24 @@ class GetAICoachScriptResponseBody extends Model
             }
         }
 
+        if (isset($map['expressivenessList'])) {
+            if (!empty($map['expressivenessList'])) {
+                $model->expressivenessList = [];
+                $n1 = 0;
+                foreach ($map['expressivenessList'] as $item1) {
+                    $model->expressivenessList[$n1++] = expressivenessList::fromMap($item1);
+                }
+            }
+        }
+
+        if (isset($map['gifDynamicUrl'])) {
+            $model->gifDynamicUrl = $map['gifDynamicUrl'];
+        }
+
+        if (isset($map['gifStaticUrl'])) {
+            $model->gifStaticUrl = $map['gifStaticUrl'];
+        }
+
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];
         }
@@ -479,6 +561,10 @@ class GetAICoachScriptResponseBody extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['openingRemarks'])) {
+            $model->openingRemarks = $map['openingRemarks'];
         }
 
         if (isset($map['orderAckFlag'])) {

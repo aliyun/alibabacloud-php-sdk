@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SaveAvatarProjectReque
 class frames extends Model
 {
     /**
+     * @var int
+     */
+    public $index;
+
+    /**
      * @var layers[]
      */
     public $layers;
@@ -20,6 +25,7 @@ class frames extends Model
      */
     public $videoScript;
     protected $_name = [
+        'index' => 'index',
         'layers' => 'layers',
         'videoScript' => 'videoScript',
     ];
@@ -38,6 +44,10 @@ class frames extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->index) {
+            $res['index'] = $this->index;
+        }
+
         if (null !== $this->layers) {
             if (\is_array($this->layers)) {
                 $res['layers'] = [];
@@ -63,6 +73,10 @@ class frames extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['index'])) {
+            $model->index = $map['index'];
+        }
+
         if (isset($map['layers'])) {
             if (!empty($map['layers'])) {
                 $model->layers = [];
