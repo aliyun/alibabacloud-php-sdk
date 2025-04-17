@@ -39,6 +39,11 @@ class GetWafRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @var int
+     */
+    public $rulesetId;
+
+    /**
      * @var string
      */
     public $status;
@@ -54,6 +59,7 @@ class GetWafRuleResponseBody extends Model
         'phase' => 'Phase',
         'position' => 'Position',
         'requestId' => 'RequestId',
+        'rulesetId' => 'RulesetId',
         'status' => 'Status',
         'updateTime' => 'UpdateTime',
     ];
@@ -91,6 +97,10 @@ class GetWafRuleResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->rulesetId) {
+            $res['RulesetId'] = $this->rulesetId;
         }
 
         if (null !== $this->status) {
@@ -134,6 +144,10 @@ class GetWafRuleResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['RulesetId'])) {
+            $model->rulesetId = $map['RulesetId'];
         }
 
         if (isset($map['Status'])) {

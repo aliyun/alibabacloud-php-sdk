@@ -16,6 +16,31 @@ class CreateOriginRuleRequest extends Model
     /**
      * @var string
      */
+    public $follow302Enable;
+
+    /**
+     * @var string
+     */
+    public $follow302MaxTries;
+
+    /**
+     * @var string
+     */
+    public $follow302RetainArgs;
+
+    /**
+     * @var string
+     */
+    public $follow302RetainHeader;
+
+    /**
+     * @var string
+     */
+    public $follow302TargetHost;
+
+    /**
+     * @var string
+     */
     public $originHost;
 
     /**
@@ -94,6 +119,11 @@ class CreateOriginRuleRequest extends Model
     public $siteVersion;
     protected $_name = [
         'dnsRecord' => 'DnsRecord',
+        'follow302Enable' => 'Follow302Enable',
+        'follow302MaxTries' => 'Follow302MaxTries',
+        'follow302RetainArgs' => 'Follow302RetainArgs',
+        'follow302RetainHeader' => 'Follow302RetainHeader',
+        'follow302TargetHost' => 'Follow302TargetHost',
         'originHost' => 'OriginHost',
         'originHttpPort' => 'OriginHttpPort',
         'originHttpsPort' => 'OriginHttpsPort',
@@ -122,6 +152,26 @@ class CreateOriginRuleRequest extends Model
         $res = [];
         if (null !== $this->dnsRecord) {
             $res['DnsRecord'] = $this->dnsRecord;
+        }
+
+        if (null !== $this->follow302Enable) {
+            $res['Follow302Enable'] = $this->follow302Enable;
+        }
+
+        if (null !== $this->follow302MaxTries) {
+            $res['Follow302MaxTries'] = $this->follow302MaxTries;
+        }
+
+        if (null !== $this->follow302RetainArgs) {
+            $res['Follow302RetainArgs'] = $this->follow302RetainArgs;
+        }
+
+        if (null !== $this->follow302RetainHeader) {
+            $res['Follow302RetainHeader'] = $this->follow302RetainHeader;
+        }
+
+        if (null !== $this->follow302TargetHost) {
+            $res['Follow302TargetHost'] = $this->follow302TargetHost;
         }
 
         if (null !== $this->originHost) {
@@ -201,6 +251,26 @@ class CreateOriginRuleRequest extends Model
         $model = new self();
         if (isset($map['DnsRecord'])) {
             $model->dnsRecord = $map['DnsRecord'];
+        }
+
+        if (isset($map['Follow302Enable'])) {
+            $model->follow302Enable = $map['Follow302Enable'];
+        }
+
+        if (isset($map['Follow302MaxTries'])) {
+            $model->follow302MaxTries = $map['Follow302MaxTries'];
+        }
+
+        if (isset($map['Follow302RetainArgs'])) {
+            $model->follow302RetainArgs = $map['Follow302RetainArgs'];
+        }
+
+        if (isset($map['Follow302RetainHeader'])) {
+            $model->follow302RetainHeader = $map['Follow302RetainHeader'];
+        }
+
+        if (isset($map['Follow302TargetHost'])) {
+            $model->follow302TargetHost = $map['Follow302TargetHost'];
         }
 
         if (isset($map['OriginHost'])) {
