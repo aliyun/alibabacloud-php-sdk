@@ -4,79 +4,46 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetServiceRequest extends Model
 {
     /**
-     * @description Specifies whether to filter information based on Alibaba Cloud account IDs.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $filterAliUid;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The service ID.
-     *
-     * @example service-4ee86df83fd948******
-     *
      * @var string
      */
     public $serviceId;
 
     /**
-     * @description The Service Instance Id.
-     *
-     * @example si-85b1exxx
-     *
      * @var string
      */
     public $serviceInstanceId;
 
     /**
-     * @description The Service Name.
-     *
-     * @example Wordpress社区版
-     *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description The service version.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $serviceVersion;
 
     /**
-     * @description The share type of the service. Default value: SharedAccount. Valid values:
-     *
-     *   SharedAccount: The service is shared by multiple accounts.
-     *   Resell: The service is distributed.
-     *
-     * @example SharedAccount
-     *
      * @var string
      */
     public $sharedAccountType;
 
     /**
-     * @description The information that you want to query.
-     *
      * @var string[]
      */
     public $showDetail;
@@ -91,71 +58,101 @@ class GetServiceRequest extends Model
         'showDetail' => 'ShowDetail',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->showDetail)) {
+            Model::validateArray($this->showDetail);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filterAliUid) {
             $res['FilterAliUid'] = $this->filterAliUid;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
+
         if (null !== $this->serviceInstanceId) {
             $res['ServiceInstanceId'] = $this->serviceInstanceId;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
+
         if (null !== $this->serviceVersion) {
             $res['ServiceVersion'] = $this->serviceVersion;
         }
+
         if (null !== $this->sharedAccountType) {
             $res['SharedAccountType'] = $this->sharedAccountType;
         }
+
         if (null !== $this->showDetail) {
-            $res['ShowDetail'] = $this->showDetail;
+            if (\is_array($this->showDetail)) {
+                $res['ShowDetail'] = [];
+                $n1 = 0;
+                foreach ($this->showDetail as $item1) {
+                    $res['ShowDetail'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetServiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FilterAliUid'])) {
             $model->filterAliUid = $map['FilterAliUid'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }
+
         if (isset($map['ServiceInstanceId'])) {
             $model->serviceInstanceId = $map['ServiceInstanceId'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
+
         if (isset($map['ServiceVersion'])) {
             $model->serviceVersion = $map['ServiceVersion'];
         }
+
         if (isset($map['SharedAccountType'])) {
             $model->sharedAccountType = $map['SharedAccountType'];
         }
+
         if (isset($map['ShowDetail'])) {
             if (!empty($map['ShowDetail'])) {
-                $model->showDetail = $map['ShowDetail'];
+                $model->showDetail = [];
+                $n1 = 0;
+                foreach ($map['ShowDetail'] as $item1) {
+                    $model->showDetail[$n1++] = $item1;
+                }
             }
         }
 

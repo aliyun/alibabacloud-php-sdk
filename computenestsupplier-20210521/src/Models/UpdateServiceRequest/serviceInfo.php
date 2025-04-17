@@ -4,70 +4,43 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest\serviceInfo\agreements;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateServiceRequest\serviceInfo\softwares;
-use AlibabaCloud\Tea\Model;
 
 class serviceInfo extends Model
 {
     /**
-     * @description Protocol document information about the service.
-     *
      * @var agreements[]
      */
     public $agreements;
 
     /**
-     * @description The URL of the service icon.
-     *
-     * @example http://img.tidb.oss.url
-     *
      * @var string
      */
     public $image;
 
     /**
-     * @description The language of the service. Valid values:
-     *
-     *   zh-CN: Chinese
-     *   en-US: English
-     *
-     * @example zh-CN
-     *
      * @var string
      */
     public $locale;
 
     /**
-     * @description The URL of the detailed description of the service.
-     *
-     * @example http://description.tidb.oss.url
-     *
      * @var string
      */
     public $longDescriptionUrl;
 
     /**
-     * @description The service name.
-     *
-     * @example Metric Name, filled in when Type is ComputeNestBill or ComputeNestPrometheus
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The description of the service.
-     *
-     * @example The URL of the detailed description of the service.
-     *
      * @var string
      */
     public $shortDescription;
 
     /**
-     * @description The list of the software in the service.
-     *
      * @var softwares[]
      */
     public $softwares;
@@ -81,41 +54,56 @@ class serviceInfo extends Model
         'softwares' => 'Softwares',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->agreements)) {
+            Model::validateArray($this->agreements);
+        }
+        if (\is_array($this->softwares)) {
+            Model::validateArray($this->softwares);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agreements) {
-            $res['Agreements'] = [];
-            if (null !== $this->agreements && \is_array($this->agreements)) {
-                $n = 0;
-                foreach ($this->agreements as $item) {
-                    $res['Agreements'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->agreements)) {
+                $res['Agreements'] = [];
+                $n1 = 0;
+                foreach ($this->agreements as $item1) {
+                    $res['Agreements'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
+
         if (null !== $this->locale) {
             $res['Locale'] = $this->locale;
         }
+
         if (null !== $this->longDescriptionUrl) {
             $res['LongDescriptionUrl'] = $this->longDescriptionUrl;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->shortDescription) {
             $res['ShortDescription'] = $this->shortDescription;
         }
+
         if (null !== $this->softwares) {
-            $res['Softwares'] = [];
-            if (null !== $this->softwares && \is_array($this->softwares)) {
-                $n = 0;
-                foreach ($this->softwares as $item) {
-                    $res['Softwares'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->softwares)) {
+                $res['Softwares'] = [];
+                $n1 = 0;
+                foreach ($this->softwares as $item1) {
+                    $res['Softwares'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -123,44 +111,50 @@ class serviceInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return serviceInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Agreements'])) {
             if (!empty($map['Agreements'])) {
                 $model->agreements = [];
-                $n = 0;
-                foreach ($map['Agreements'] as $item) {
-                    $model->agreements[$n++] = null !== $item ? agreements::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Agreements'] as $item1) {
+                    $model->agreements[$n1++] = agreements::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
+
         if (isset($map['Locale'])) {
             $model->locale = $map['Locale'];
         }
+
         if (isset($map['LongDescriptionUrl'])) {
             $model->longDescriptionUrl = $map['LongDescriptionUrl'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ShortDescription'])) {
             $model->shortDescription = $map['ShortDescription'];
         }
+
         if (isset($map['Softwares'])) {
             if (!empty($map['Softwares'])) {
                 $model->softwares = [];
-                $n = 0;
-                foreach ($map['Softwares'] as $item) {
-                    $model->softwares[$n++] = null !== $item ? softwares::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Softwares'] as $item1) {
+                    $model->softwares[$n1++] = softwares::fromMap($item1);
                 }
             }
         }

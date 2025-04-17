@@ -4,59 +4,32 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\AddServiceSharedAccountsRequest\sharedAccounts;
-use AlibabaCloud\Tea\Model;
 
 class AddServiceSharedAccountsRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-     *
-     * @example BBBAAfu+XtuBE55iRLHEYYuojI4=
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The service ID.
-     *
-     * This parameter is required.
-     *
-     * @example service-63b8a060e9d54cxxxxxx
-     *
      * @var string
      */
     public $serviceId;
 
     /**
-     * @description The shared account and permissions of the service.
-     *
-     * This parameter is required.
-     *
      * @var sharedAccounts[]
      */
     public $sharedAccounts;
 
     /**
-     * @description The share type of the service. Default value: SharedAccount. Valid values:
-     *
-     *   SharedAccount: The service is shared by multiple accounts.
-     *   Reseller: The service is distributed.
-     *
-     * @example SharedAccount
-     *
      * @var string
      */
     public $type;
@@ -68,29 +41,39 @@ class AddServiceSharedAccountsRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->sharedAccounts)) {
+            Model::validateArray($this->sharedAccounts);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
+
         if (null !== $this->sharedAccounts) {
-            $res['SharedAccounts'] = [];
-            if (null !== $this->sharedAccounts && \is_array($this->sharedAccounts)) {
-                $n = 0;
-                foreach ($this->sharedAccounts as $item) {
-                    $res['SharedAccounts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sharedAccounts)) {
+                $res['SharedAccounts'] = [];
+                $n1 = 0;
+                foreach ($this->sharedAccounts as $item1) {
+                    $res['SharedAccounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -98,32 +81,36 @@ class AddServiceSharedAccountsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddServiceSharedAccountsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }
+
         if (isset($map['SharedAccounts'])) {
             if (!empty($map['SharedAccounts'])) {
                 $model->sharedAccounts = [];
-                $n = 0;
-                foreach ($map['SharedAccounts'] as $item) {
-                    $model->sharedAccounts[$n++] = null !== $item ? sharedAccounts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SharedAccounts'] as $item1) {
+                    $model->sharedAccounts[$n1++] = sharedAccounts::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

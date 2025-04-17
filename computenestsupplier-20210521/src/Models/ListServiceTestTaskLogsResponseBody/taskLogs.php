@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceTestTaskLogsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class taskLogs extends Model
 {
     /**
-     * @description The log content.
-     *
-     * @example log content
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The UTC timestamp when the response is returned.
-     *
-     * Use the UTC time format: yyyy-MM-ddTHH:mmZ
-     *
-     * @example 2022-12-12T20:00:09Z
-     *
      * @var string
      */
     public $timestamp;
@@ -32,14 +22,18 @@ class taskLogs extends Model
         'timestamp' => 'Timestamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -47,17 +41,18 @@ class taskLogs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taskLogs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

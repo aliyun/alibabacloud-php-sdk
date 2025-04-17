@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteServiceInstancesResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example DB140E67-D75F-5585-946E-41D8DC8F4E00
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class DeleteServiceInstancesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class DeleteServiceInstancesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteServiceInstancesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

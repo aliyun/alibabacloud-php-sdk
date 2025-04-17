@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListResellersResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class supplierInformation extends Model
 {
     /**
-     * @description The description of distributor.
-     *
-     * @example It is a XXXX  company
-     *
      * @var string
      */
     public $supplierDesc;
 
     /**
-     * @description The Logo of distributor
-     *
-     * @example https://service-info-public.oss-cn-hangzhou.aliyuncs.com/31978070/service-image/d5c3b585-ff6b-4e4e-8885-xxxx.png
-     *
      * @var string
      */
     public $supplierLogo;
 
     /**
-     * @description The name of the distributor
-     *
-     * @example Distributor A
-     *
      * @var string
      */
     public $supplierName;
 
     /**
-     * @description The Alibaba Cloud account ID of the distributor.
-     *
-     * @example 152xxxxxxxxxxx
-     *
      * @var int
      */
     public $supplierUid;
 
     /**
-     * @description The URL of the distributor.
-     *
-     * @example http://www.aliyun.com
-     *
      * @var string
      */
     public $supplierUrl;
@@ -60,23 +40,30 @@ class supplierInformation extends Model
         'supplierUrl' => 'SupplierUrl',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->supplierDesc) {
             $res['SupplierDesc'] = $this->supplierDesc;
         }
+
         if (null !== $this->supplierLogo) {
             $res['SupplierLogo'] = $this->supplierLogo;
         }
+
         if (null !== $this->supplierName) {
             $res['SupplierName'] = $this->supplierName;
         }
+
         if (null !== $this->supplierUid) {
             $res['SupplierUid'] = $this->supplierUid;
         }
+
         if (null !== $this->supplierUrl) {
             $res['SupplierUrl'] = $this->supplierUrl;
         }
@@ -84,26 +71,30 @@ class supplierInformation extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supplierInformation
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupplierDesc'])) {
             $model->supplierDesc = $map['SupplierDesc'];
         }
+
         if (isset($map['SupplierLogo'])) {
             $model->supplierLogo = $map['SupplierLogo'];
         }
+
         if (isset($map['SupplierName'])) {
             $model->supplierName = $map['SupplierName'];
         }
+
         if (isset($map['SupplierUid'])) {
             $model->supplierUid = $map['SupplierUid'];
         }
+
         if (isset($map['SupplierUrl'])) {
             $model->supplierUrl = $map['SupplierUrl'];
         }

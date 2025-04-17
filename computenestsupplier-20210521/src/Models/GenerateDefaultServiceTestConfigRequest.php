@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenerateDefaultServiceTestConfigRequest extends Model
 {
     /**
-     * @description The service ID.
-     *
-     * This parameter is required.
-     *
-     * @example service-41ad58439b4b4bf8ae73
-     *
      * @var string
      */
     public $serviceId;
 
     /**
-     * @description The service version.
-     *
-     * This parameter is required.
-     *
-     * @example draft
-     *
      * @var string
      */
     public $serviceVersion;
 
     /**
-     * @description The template name.
-     *
-     * @example test-1
-     *
      * @var string
      */
     public $templateName;
@@ -44,17 +28,22 @@ class GenerateDefaultServiceTestConfigRequest extends Model
         'templateName' => 'TemplateName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
+
         if (null !== $this->serviceVersion) {
             $res['ServiceVersion'] = $this->serviceVersion;
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
@@ -62,20 +51,22 @@ class GenerateDefaultServiceTestConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateDefaultServiceTestConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }
+
         if (isset($map['ServiceVersion'])) {
             $model->serviceVersion = $map['ServiceVersion'];
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }

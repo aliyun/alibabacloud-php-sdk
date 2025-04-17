@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelServiceRegistrationResponseBody extends Model
 {
     /**
-     * @description Request ID.
-     *
-     * @example C4A145D8-6F6C-532A-9001-9730CDA27578
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class CancelServiceRegistrationResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class CancelServiceRegistrationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelServiceRegistrationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
