@@ -72,6 +72,31 @@ class items extends Model
      * @var string
      */
     public $upgradeMode;
+
+    /**
+     * @var bool
+     */
+    public $cutOver;
+
+    /**
+     * @var int
+     */
+    public $totalLogicRepDelayTime;
+
+    /**
+     * @var int
+     */
+    public $totalLogicRepLatencyMB;
+
+    /**
+     * @var string
+     */
+    public $zeroDownTimeConnectionString;
+
+    /**
+     * @var int
+     */
+    public $zeroDownTimePort;
     protected $_name = [
         'collectStatMode' => 'CollectStatMode',
         'detail' => 'Detail',
@@ -86,6 +111,11 @@ class items extends Model
         'targetMajorVersion' => 'TargetMajorVersion',
         'taskId' => 'TaskId',
         'upgradeMode' => 'UpgradeMode',
+        'cutOver' => 'cutOver',
+        'totalLogicRepDelayTime' => 'totalLogicRepDelayTime',
+        'totalLogicRepLatencyMB' => 'totalLogicRepLatencyMB',
+        'zeroDownTimeConnectionString' => 'zeroDownTimeConnectionString',
+        'zeroDownTimePort' => 'zeroDownTimePort',
     ];
 
     public function validate()
@@ -146,6 +176,26 @@ class items extends Model
 
         if (null !== $this->upgradeMode) {
             $res['UpgradeMode'] = $this->upgradeMode;
+        }
+
+        if (null !== $this->cutOver) {
+            $res['cutOver'] = $this->cutOver;
+        }
+
+        if (null !== $this->totalLogicRepDelayTime) {
+            $res['totalLogicRepDelayTime'] = $this->totalLogicRepDelayTime;
+        }
+
+        if (null !== $this->totalLogicRepLatencyMB) {
+            $res['totalLogicRepLatencyMB'] = $this->totalLogicRepLatencyMB;
+        }
+
+        if (null !== $this->zeroDownTimeConnectionString) {
+            $res['zeroDownTimeConnectionString'] = $this->zeroDownTimeConnectionString;
+        }
+
+        if (null !== $this->zeroDownTimePort) {
+            $res['zeroDownTimePort'] = $this->zeroDownTimePort;
         }
 
         return $res;
@@ -209,6 +259,26 @@ class items extends Model
 
         if (isset($map['UpgradeMode'])) {
             $model->upgradeMode = $map['UpgradeMode'];
+        }
+
+        if (isset($map['cutOver'])) {
+            $model->cutOver = $map['cutOver'];
+        }
+
+        if (isset($map['totalLogicRepDelayTime'])) {
+            $model->totalLogicRepDelayTime = $map['totalLogicRepDelayTime'];
+        }
+
+        if (isset($map['totalLogicRepLatencyMB'])) {
+            $model->totalLogicRepLatencyMB = $map['totalLogicRepLatencyMB'];
+        }
+
+        if (isset($map['zeroDownTimeConnectionString'])) {
+            $model->zeroDownTimeConnectionString = $map['zeroDownTimeConnectionString'];
+        }
+
+        if (isset($map['zeroDownTimePort'])) {
+            $model->zeroDownTimePort = $map['zeroDownTimePort'];
         }
 
         return $model;

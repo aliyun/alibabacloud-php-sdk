@@ -36,6 +36,16 @@ class ModifyRCInstanceRequest extends Model
     /**
      * @var string
      */
+    public $rebootTime;
+
+    /**
+     * @var bool
+     */
+    public $rebootWhenFinished;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
         'autoPay' => 'AutoPay',
@@ -43,6 +53,8 @@ class ModifyRCInstanceRequest extends Model
         'dryRun' => 'DryRun',
         'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
+        'rebootTime' => 'RebootTime',
+        'rebootWhenFinished' => 'RebootWhenFinished',
         'regionId' => 'RegionId',
     ];
 
@@ -72,6 +84,14 @@ class ModifyRCInstanceRequest extends Model
 
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+
+        if (null !== $this->rebootTime) {
+            $res['RebootTime'] = $this->rebootTime;
+        }
+
+        if (null !== $this->rebootWhenFinished) {
+            $res['RebootWhenFinished'] = $this->rebootWhenFinished;
         }
 
         if (null !== $this->regionId) {
@@ -107,6 +127,14 @@ class ModifyRCInstanceRequest extends Model
 
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['RebootTime'])) {
+            $model->rebootTime = $map['RebootTime'];
+        }
+
+        if (isset($map['RebootWhenFinished'])) {
+            $model->rebootWhenFinished = $map['RebootWhenFinished'];
         }
 
         if (isset($map['RegionId'])) {

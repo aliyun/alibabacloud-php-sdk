@@ -22,10 +22,16 @@ class UpgradeDBInstanceMajorVersionPrecheckRequest extends Model
      * @var string
      */
     public $targetMajorVersion;
+
+    /**
+     * @var string
+     */
+    public $upgradeMode;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'resourceOwnerId' => 'ResourceOwnerId',
         'targetMajorVersion' => 'TargetMajorVersion',
+        'upgradeMode' => 'UpgradeMode',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class UpgradeDBInstanceMajorVersionPrecheckRequest extends Model
 
         if (null !== $this->targetMajorVersion) {
             $res['TargetMajorVersion'] = $this->targetMajorVersion;
+        }
+
+        if (null !== $this->upgradeMode) {
+            $res['UpgradeMode'] = $this->upgradeMode;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class UpgradeDBInstanceMajorVersionPrecheckRequest extends Model
 
         if (isset($map['TargetMajorVersion'])) {
             $model->targetMajorVersion = $map['TargetMajorVersion'];
+        }
+
+        if (isset($map['UpgradeMode'])) {
+            $model->upgradeMode = $map['UpgradeMode'];
         }
 
         return $model;

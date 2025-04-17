@@ -57,6 +57,11 @@ class items extends Model
      * @var int
      */
     public $taskId;
+
+    /**
+     * @var string
+     */
+    public $upgradeMode;
     protected $_name = [
         'checkTime' => 'CheckTime',
         'detail' => 'Detail',
@@ -68,6 +73,7 @@ class items extends Model
         'sourceMajorVersion' => 'SourceMajorVersion',
         'targetMajorVersion' => 'TargetMajorVersion',
         'taskId' => 'TaskId',
+        'upgradeMode' => 'UpgradeMode',
     ];
 
     public function validate()
@@ -116,6 +122,10 @@ class items extends Model
 
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+
+        if (null !== $this->upgradeMode) {
+            $res['UpgradeMode'] = $this->upgradeMode;
         }
 
         return $res;
@@ -167,6 +177,10 @@ class items extends Model
 
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+
+        if (isset($map['UpgradeMode'])) {
+            $model->upgradeMode = $map['UpgradeMode'];
         }
 
         return $model;
