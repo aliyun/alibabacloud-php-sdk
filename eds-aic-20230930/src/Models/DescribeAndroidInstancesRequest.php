@@ -22,6 +22,11 @@ class DescribeAndroidInstancesRequest extends Model
     /**
      * @var string
      */
+    public $authorizedUserId;
+
+    /**
+     * @var string
+     */
     public $bizRegionId;
 
     /**
@@ -91,6 +96,7 @@ class DescribeAndroidInstancesRequest extends Model
     protected $_name = [
         'androidInstanceIds' => 'AndroidInstanceIds',
         'androidInstanceName' => 'AndroidInstanceName',
+        'authorizedUserId' => 'AuthorizedUserId',
         'bizRegionId' => 'BizRegionId',
         'chargeType' => 'ChargeType',
         'instanceGroupId' => 'InstanceGroupId',
@@ -139,6 +145,10 @@ class DescribeAndroidInstancesRequest extends Model
 
         if (null !== $this->androidInstanceName) {
             $res['AndroidInstanceName'] = $this->androidInstanceName;
+        }
+
+        if (null !== $this->authorizedUserId) {
+            $res['AuthorizedUserId'] = $this->authorizedUserId;
         }
 
         if (null !== $this->bizRegionId) {
@@ -238,6 +248,10 @@ class DescribeAndroidInstancesRequest extends Model
 
         if (isset($map['AndroidInstanceName'])) {
             $model->androidInstanceName = $map['AndroidInstanceName'];
+        }
+
+        if (isset($map['AuthorizedUserId'])) {
+            $model->authorizedUserId = $map['AuthorizedUserId'];
         }
 
         if (isset($map['BizRegionId'])) {

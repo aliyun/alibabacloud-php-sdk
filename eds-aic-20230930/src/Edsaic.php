@@ -1823,6 +1823,10 @@ class Edsaic extends OpenApiClient
             @$query['AndroidInstanceName'] = $request->androidInstanceName;
         }
 
+        if (null !== $request->authorizedUserId) {
+            @$query['AuthorizedUserId'] = $request->authorizedUserId;
+        }
+
         if (null !== $request->bizRegionId) {
             @$query['BizRegionId'] = $request->bizRegionId;
         }

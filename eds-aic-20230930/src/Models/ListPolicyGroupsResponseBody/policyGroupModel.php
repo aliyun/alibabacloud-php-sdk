@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponseBody\policyGroupModel\netRedirectPolicy;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponseBody\policyGroupModel\policyRelatedResources;
 
 class policyGroupModel extends Model
 {
@@ -55,6 +56,11 @@ class policyGroupModel extends Model
     public $policyGroupName;
 
     /**
+     * @var policyRelatedResources
+     */
+    public $policyRelatedResources;
+
+    /**
      * @var int
      */
     public $sessionResolutionHeight;
@@ -73,6 +79,7 @@ class policyGroupModel extends Model
         'netRedirectPolicy' => 'NetRedirectPolicy',
         'policyGroupId' => 'PolicyGroupId',
         'policyGroupName' => 'PolicyGroupName',
+        'policyRelatedResources' => 'PolicyRelatedResources',
         'sessionResolutionHeight' => 'SessionResolutionHeight',
         'sessionResolutionWidth' => 'SessionResolutionWidth',
     ];
@@ -81,6 +88,9 @@ class policyGroupModel extends Model
     {
         if (null !== $this->netRedirectPolicy) {
             $this->netRedirectPolicy->validate();
+        }
+        if (null !== $this->policyRelatedResources) {
+            $this->policyRelatedResources->validate();
         }
         parent::validate();
     }
@@ -122,6 +132,10 @@ class policyGroupModel extends Model
 
         if (null !== $this->policyGroupName) {
             $res['PolicyGroupName'] = $this->policyGroupName;
+        }
+
+        if (null !== $this->policyRelatedResources) {
+            $res['PolicyRelatedResources'] = null !== $this->policyRelatedResources ? $this->policyRelatedResources->toArray($noStream) : $this->policyRelatedResources;
         }
 
         if (null !== $this->sessionResolutionHeight) {
@@ -177,6 +191,10 @@ class policyGroupModel extends Model
 
         if (isset($map['PolicyGroupName'])) {
             $model->policyGroupName = $map['PolicyGroupName'];
+        }
+
+        if (isset($map['PolicyRelatedResources'])) {
+            $model->policyRelatedResources = policyRelatedResources::fromMap($map['PolicyRelatedResources']);
         }
 
         if (isset($map['SessionResolutionHeight'])) {
