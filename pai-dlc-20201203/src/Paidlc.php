@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodEventsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodEventsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodLogsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodLogsResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetRayDashboardRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetRayDashboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardSharedUrlRequest;
@@ -256,11 +258,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -399,11 +398,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTensorboardResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -455,11 +451,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -518,11 +511,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTensorboardResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -584,11 +574,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -658,11 +645,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetJobEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetJobEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetJobEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -740,11 +724,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetJobMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetJobMetricsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetJobMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -814,11 +795,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetJobSanityCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetJobSanityCheckResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetJobSanityCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -893,11 +871,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPodEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPodEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPodEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -977,11 +952,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPodLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPodLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPodLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1003,6 +975,73 @@ class Paidlc extends OpenApiClient
         $headers = [];
 
         return $this->getPodLogsWithOptions($JobId, $PodId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取 Ray Dashboard 链接.
+     *
+     * @param request - GetRayDashboardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRayDashboardResponse
+     *
+     * @param string                 $jobId
+     * @param GetRayDashboardRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetRayDashboardResponse
+     */
+    public function getRayDashboardWithOptions($jobId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->isShared) {
+            @$query['isShared'] = $request->isShared;
+        }
+
+        if (null !== $request->token) {
+            @$query['token'] = $request->token;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRayDashboard',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($jobId) . '/rayDashboard',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRayDashboardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取 Ray Dashboard 链接.
+     *
+     * @param request - GetRayDashboardRequest
+     *
+     * @returns GetRayDashboardResponse
+     *
+     * @param string                 $jobId
+     * @param GetRayDashboardRequest $request
+     *
+     * @return GetRayDashboardResponse
+     */
+    public function getRayDashboard($jobId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRayDashboardWithOptions($jobId, $request, $headers, $runtime);
     }
 
     /**
@@ -1052,11 +1091,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTensorboardResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1118,11 +1154,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTensorboardSharedUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTensorboardSharedUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTensorboardSharedUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1191,11 +1224,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1261,11 +1291,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetWebTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetWebTerminalResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetWebTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1351,11 +1378,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListEcsSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEcsSpecsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEcsSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1416,11 +1440,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListJobSanityCheckResultsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListJobSanityCheckResultsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListJobSanityCheckResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1579,11 +1600,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1719,11 +1737,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTensorboardsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTensorboardsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTensorboardsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1784,11 +1799,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartTensorboardResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1841,11 +1853,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1904,11 +1913,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopTensorboardResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1974,11 +1980,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2052,11 +2055,8 @@ class Paidlc extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTensorboardResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTensorboardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
