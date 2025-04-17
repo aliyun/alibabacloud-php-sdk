@@ -1,3 +1,8 @@
+2025-04-17 Version: 1.22.3
+- Update API RunDocBrainmap: add request parameters referenceContent.
+- Update API RunDocIntroduction: add request parameters referenceContent.
+
+
 2025-04-03 Version: 1.22.2
 - Update API DeleteCustomText: add request parameters RegionId.
 - Update API GetHotTopicBroadcast: add request parameters LocationQuery.

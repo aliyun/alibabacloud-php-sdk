@@ -410,11 +410,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddDatasetDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDatasetDocumentResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDatasetDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -476,11 +473,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelAsyncTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -536,11 +530,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ClearIntervenesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ClearIntervenesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ClearIntervenesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -630,11 +621,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDatasetResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -730,11 +718,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateGeneratedContentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateGeneratedContentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateGeneratedContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -790,11 +775,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -860,11 +842,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCustomTextResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -926,11 +905,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCustomTopicByTopicResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCustomTopicByTopicResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCustomTopicByTopicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -992,11 +968,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCustomTopicViewPointByIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCustomTopicViewPointByIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCustomTopicViewPointByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1056,11 +1029,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDatasetResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1132,11 +1102,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDatasetDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDatasetDocumentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDatasetDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1202,11 +1169,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDocsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDocsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDocsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1272,11 +1236,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteGeneratedContentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteGeneratedContentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteGeneratedContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1338,11 +1299,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteInterveneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteInterveneRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteInterveneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1404,11 +1362,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteMaterialByIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteMaterialByIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteMaterialByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1476,11 +1431,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DocumentExtractionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DocumentExtractionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DocumentExtractionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1550,11 +1502,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExportAnalysisTagDetailByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExportAnalysisTagDetailByTaskIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExportAnalysisTagDetailByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1616,11 +1565,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExportGeneratedContentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExportGeneratedContentResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExportGeneratedContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1712,11 +1658,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExportHotTopicPlanningProposalsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExportHotTopicPlanningProposalsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExportHotTopicPlanningProposalsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1772,11 +1715,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExportIntervenesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExportIntervenesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExportIntervenesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1868,11 +1808,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return FeedbackDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FeedbackDialogueResponse::fromMap($this->execute($params, $req, $runtime));
+        return FeedbackDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1944,11 +1881,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return FetchImageTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FetchImageTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return FetchImageTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2014,11 +1948,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateFileUrlByKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateFileUrlByKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateFileUrlByKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2098,11 +2029,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateImageTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateImageTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateImageTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2168,11 +2096,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateUploadConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateUploadConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateUploadConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2240,11 +2165,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateViewPointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateViewPointResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateViewPointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2304,11 +2226,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCategoriesByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCategoriesByTaskIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCategoriesByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2368,11 +2287,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCustomHotTopicBroadcastJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCustomHotTopicBroadcastJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCustomHotTopicBroadcastJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2438,11 +2354,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCustomTextResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2504,11 +2417,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCustomTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCustomTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCustomTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2570,11 +2480,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDataSourceOrderConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataSourceOrderConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataSourceOrderConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2638,11 +2545,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDatasetResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2714,11 +2618,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDatasetDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDatasetDocumentResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDatasetDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2780,11 +2681,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDocClusterTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDocClusterTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDocClusterTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2848,11 +2746,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDocInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDocInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDocInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2912,11 +2807,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetEnterpriseVocAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetEnterpriseVocAnalysisTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetEnterpriseVocAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2978,11 +2870,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetGeneratedContentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetGeneratedContentResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetGeneratedContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3100,11 +2989,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHotTopicBroadcastResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHotTopicBroadcastResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHotTopicBroadcastResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3160,11 +3046,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetInterveneGlobalReplyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInterveneGlobalReplyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInterveneGlobalReplyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3226,11 +3109,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetInterveneImportTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInterveneImportTaskInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInterveneImportTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3292,11 +3172,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetInterveneRuleDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInterveneRuleDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInterveneRuleDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3352,11 +3229,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetInterveneTemplateFileUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInterveneTemplateFileUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInterveneTemplateFileUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3418,11 +3292,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMaterialByIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMaterialByIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMaterialByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3478,11 +3349,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPropertiesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPropertiesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPropertiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3542,11 +3410,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSmartClipTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSmartClipTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSmartClipTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3608,11 +3473,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTopicByIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTopicByIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTopicByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3674,11 +3536,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3748,11 +3607,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ImportInterveneFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ImportInterveneFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return ImportInterveneFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3822,11 +3678,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ImportInterveneFileAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ImportInterveneFileAsyncResponse::fromMap($this->execute($params, $req, $runtime));
+        return ImportInterveneFileAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3894,11 +3747,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InsertInterveneGlobalReplyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InsertInterveneGlobalReplyResponse::fromMap($this->execute($params, $req, $runtime));
+        return InsertInterveneGlobalReplyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3966,11 +3816,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InsertInterveneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InsertInterveneRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return InsertInterveneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4056,11 +3903,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAnalysisTagDetailByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAnalysisTagDetailByTaskIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAnalysisTagDetailByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4168,11 +4012,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAsyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAsyncTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAsyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4238,11 +4079,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListBuildConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListBuildConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListBuildConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4304,11 +4142,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCustomTextResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4408,11 +4243,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCustomViewPointsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCustomViewPointsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCustomViewPointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4518,11 +4350,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDatasetDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDatasetDocumentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDatasetDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4610,11 +4439,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDatasetsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDatasetsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDatasetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4696,11 +4522,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDialoguesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDialoguesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDialoguesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4790,11 +4613,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDocsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDocsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDocsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4868,11 +4688,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListFreshViewPointsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListFreshViewPointsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListFreshViewPointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4962,11 +4779,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListGeneratedContentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListGeneratedContentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListGeneratedContentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5046,11 +4860,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListHotNewsWithTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListHotNewsWithTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListHotNewsWithTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5116,11 +4927,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListHotSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListHotSourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListHotSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5220,11 +5028,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListHotTopicsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListHotTopicsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListHotTopicsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5298,11 +5103,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListHotViewPointsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListHotViewPointsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListHotViewPointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5368,11 +5170,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListInterveneCntResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInterveneCntResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInterveneCntResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5438,11 +5237,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListInterveneImportTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInterveneImportTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInterveneImportTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5508,11 +5304,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListInterveneRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInterveneRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInterveneRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5590,11 +5383,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIntervenesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIntervenesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIntervenesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5722,11 +5512,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListMaterialDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListMaterialDocumentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListMaterialDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5830,11 +5617,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPlanningProposalResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPlanningProposalResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPlanningProposalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5930,11 +5714,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSearchTaskDialogueDatasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSearchTaskDialogueDatasResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSearchTaskDialogueDatasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6002,11 +5783,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSearchTaskDialoguesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSearchTaskDialoguesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSearchTaskDialoguesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6080,11 +5858,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSearchTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSearchTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSearchTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6150,11 +5925,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListStyleLearningResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListStyleLearningResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListStyleLearningResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6228,11 +6000,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTimedViewAttitudeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTimedViewAttitudeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTimedViewAttitudeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6298,11 +6067,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTopicRecommendEventListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTopicRecommendEventListResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTopicRecommendEventListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6372,11 +6138,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTopicViewPointRecommendEventListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTopicViewPointRecommendEventListResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTopicViewPointRecommendEventListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6432,11 +6195,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVersionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6510,11 +6270,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListWebReviewPointsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWebReviewPointsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWebReviewPointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6576,11 +6333,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryAsyncTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6640,11 +6394,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunAbbreviationContentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunAbbreviationContentResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunAbbreviationContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6716,11 +6467,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunBookIntroductionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunBookIntroductionResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunBookIntroductionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6784,11 +6532,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunBookSmartCardResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunBookSmartCardResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunBookSmartCardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6898,11 +6643,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunCommentGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunCommentGenerationResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunCommentGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6962,11 +6704,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunContinueContentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunContinueContentResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunContinueContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7046,11 +6785,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunCustomHotTopicAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunCustomHotTopicAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunCustomHotTopicAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7142,11 +6878,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunCustomHotTopicViewPointAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunCustomHotTopicViewPointAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunCustomHotTopicViewPointAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7212,6 +6945,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['WorkspaceId'] = $request->workspaceId;
         }
 
+        if (null !== $request->referenceContent) {
+            @$body['referenceContent'] = $request->referenceContent;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
@@ -7226,11 +6963,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunDocBrainmapResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunDocBrainmapResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunDocBrainmapResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7267,12 +7001,11 @@ class AiMiaoBi extends OpenApiClient
     public function runDocIntroductionWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = [];
+        $body = [];
         if (null !== $request->cleanCache) {
-            @$query['CleanCache'] = $request->cleanCache;
+            @$body['CleanCache'] = $request->cleanCache;
         }
 
-        $body = [];
         if (null !== $request->docId) {
             @$body['DocId'] = $request->docId;
         }
@@ -7297,8 +7030,11 @@ class AiMiaoBi extends OpenApiClient
             @$body['WorkspaceId'] = $request->workspaceId;
         }
 
+        if (null !== $request->referenceContent) {
+            @$body['referenceContent'] = $request->referenceContent;
+        }
+
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -7312,11 +7048,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunDocIntroductionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunDocIntroductionResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunDocIntroductionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7414,11 +7147,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunDocQaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunDocQaResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunDocQaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7482,11 +7212,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunDocSmartCardResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunDocSmartCardResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunDocSmartCardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7562,11 +7289,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunDocSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunDocSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunDocSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7642,11 +7366,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunDocTranslationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunDocTranslationResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunDocTranslationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7730,11 +7451,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunDocWashingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunDocWashingResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunDocWashingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7794,11 +7512,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunExpandContentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunExpandContentResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunExpandContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7866,11 +7581,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunGenerateQuestionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunGenerateQuestionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunGenerateQuestionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7942,11 +7654,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunHotwordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunHotwordResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunHotwordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8016,11 +7725,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunKeywordsExtractionGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunKeywordsExtractionGenerationResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunKeywordsExtractionGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8098,11 +7804,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunMultiDocIntroductionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunMultiDocIntroductionResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunMultiDocIntroductionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8188,11 +7891,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunSearchGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunSearchGenerationResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunSearchGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8270,11 +7970,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunSearchSimilarArticlesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunSearchSimilarArticlesResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunSearchSimilarArticlesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8364,11 +8061,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunStepByStepWritingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunStepByStepWritingResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunStepByStepWritingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8442,11 +8136,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunStyleFeatureAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunStyleFeatureAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunStyleFeatureAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8510,11 +8201,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunSummaryGenerateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunSummaryGenerateResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunSummaryGenerateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8574,11 +8262,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunTextPolishingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunTextPolishingResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunTextPolishingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8660,11 +8345,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunTitleGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunTitleGenerationResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunTitleGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8738,11 +8420,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunTranslateGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunTranslateGenerationResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunTranslateGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8816,11 +8495,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunWriteToneGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunWriteToneGenerationResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunWriteToneGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8910,11 +8586,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RunWritingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunWritingResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunWritingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8984,11 +8657,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SaveCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SaveCustomTextResponse::fromMap($this->execute($params, $req, $runtime));
+        return SaveCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9060,11 +8730,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SaveDataSourceOrderConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SaveDataSourceOrderConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return SaveDataSourceOrderConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9180,11 +8847,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SaveMaterialDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SaveMaterialDocumentResponse::fromMap($this->execute($params, $req, $runtime));
+        return SaveMaterialDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9264,11 +8928,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SearchDatasetDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchDatasetDocumentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchDatasetDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9356,11 +9017,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SearchNewsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchNewsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchNewsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9434,11 +9092,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitAsyncTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9516,11 +9171,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitCustomHotTopicBroadcastJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitCustomHotTopicBroadcastJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitCustomHotTopicBroadcastJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9596,11 +9248,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9680,11 +9329,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitDocClusterTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitDocClusterTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitDocClusterTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9790,11 +9436,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitEnterpriseVocAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitEnterpriseVocAnalysisTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitEnterpriseVocAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9880,11 +9523,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitSmartClipTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitSmartClipTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitSmartClipTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9964,11 +9604,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitTopicSelectionPerspectiveAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10042,11 +9679,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCustomTextResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10124,11 +9758,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDatasetResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10202,11 +9833,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDatasetDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDatasetDocumentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDatasetDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10294,11 +9922,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateGeneratedContentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGeneratedContentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGeneratedContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10418,11 +10043,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateMaterialDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateMaterialDocumentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateMaterialDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10492,11 +10114,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UploadBookResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UploadBookResponse::fromMap($this->execute($params, $req, $runtime));
+        return UploadBookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10566,11 +10185,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UploadDocResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UploadDocResponse::fromMap($this->execute($params, $req, $runtime));
+        return UploadDocResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10638,11 +10254,8 @@ class AiMiaoBi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ValidateUploadTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ValidateUploadTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ValidateUploadTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

@@ -42,6 +42,11 @@ class RunDocBrainmapRequest extends Model
      * @var string
      */
     public $workspaceId;
+
+    /**
+     * @var string
+     */
+    public $referenceContent;
     protected $_name = [
         'cleanCache' => 'CleanCache',
         'docId' => 'DocId',
@@ -50,6 +55,7 @@ class RunDocBrainmapRequest extends Model
         'sessionId' => 'SessionId',
         'wordNumber' => 'WordNumber',
         'workspaceId' => 'WorkspaceId',
+        'referenceContent' => 'referenceContent',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class RunDocBrainmapRequest extends Model
 
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
+        }
+
+        if (null !== $this->referenceContent) {
+            $res['referenceContent'] = $this->referenceContent;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class RunDocBrainmapRequest extends Model
 
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
+        }
+
+        if (isset($map['referenceContent'])) {
+            $model->referenceContent = $map['referenceContent'];
         }
 
         return $model;
