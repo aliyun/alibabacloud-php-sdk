@@ -2441,6 +2441,10 @@ class FC extends OpenApiClient
             @$query['fcVersion'] = $request->fcVersion;
         }
 
+        if (null !== $request->functionName) {
+            @$query['functionName'] = $request->functionName;
+        }
+
         if (null !== $request->gpuType) {
             @$query['gpuType'] = $request->gpuType;
         }

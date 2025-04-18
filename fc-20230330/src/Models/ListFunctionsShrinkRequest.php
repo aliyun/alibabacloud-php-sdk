@@ -21,6 +21,11 @@ class ListFunctionsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $functionName;
+
+    /**
+     * @var string
+     */
     public $gpuType;
 
     /**
@@ -50,6 +55,7 @@ class ListFunctionsShrinkRequest extends Model
     protected $_name = [
         'description' => 'description',
         'fcVersion' => 'fcVersion',
+        'functionName' => 'functionName',
         'gpuType' => 'gpuType',
         'limit' => 'limit',
         'nextToken' => 'nextToken',
@@ -72,6 +78,10 @@ class ListFunctionsShrinkRequest extends Model
 
         if (null !== $this->fcVersion) {
             $res['fcVersion'] = $this->fcVersion;
+        }
+
+        if (null !== $this->functionName) {
+            $res['functionName'] = $this->functionName;
         }
 
         if (null !== $this->gpuType) {
@@ -115,6 +125,10 @@ class ListFunctionsShrinkRequest extends Model
 
         if (isset($map['fcVersion'])) {
             $model->fcVersion = $map['fcVersion'];
+        }
+
+        if (isset($map['functionName'])) {
+            $model->functionName = $map['functionName'];
         }
 
         if (isset($map['gpuType'])) {
