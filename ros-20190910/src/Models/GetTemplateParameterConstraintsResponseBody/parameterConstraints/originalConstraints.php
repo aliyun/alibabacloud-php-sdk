@@ -26,7 +26,17 @@ class originalConstraints extends Model
     /**
      * @var string
      */
+    public $propertiesData;
+
+    /**
+     * @var string
+     */
     public $propertyName;
+
+    /**
+     * @var string
+     */
+    public $requestInfo;
 
     /**
      * @var string
@@ -41,7 +51,9 @@ class originalConstraints extends Model
         'allowedValues' => 'AllowedValues',
         'behavior' => 'Behavior',
         'behaviorReason' => 'BehaviorReason',
+        'propertiesData' => 'PropertiesData',
         'propertyName' => 'PropertyName',
+        'requestInfo' => 'RequestInfo',
         'resourceName' => 'ResourceName',
         'resourceType' => 'ResourceType',
     ];
@@ -75,8 +87,16 @@ class originalConstraints extends Model
             $res['BehaviorReason'] = $this->behaviorReason;
         }
 
+        if (null !== $this->propertiesData) {
+            $res['PropertiesData'] = $this->propertiesData;
+        }
+
         if (null !== $this->propertyName) {
             $res['PropertyName'] = $this->propertyName;
+        }
+
+        if (null !== $this->requestInfo) {
+            $res['RequestInfo'] = $this->requestInfo;
         }
 
         if (null !== $this->resourceName) {
@@ -116,8 +136,16 @@ class originalConstraints extends Model
             $model->behaviorReason = $map['BehaviorReason'];
         }
 
+        if (isset($map['PropertiesData'])) {
+            $model->propertiesData = $map['PropertiesData'];
+        }
+
         if (isset($map['PropertyName'])) {
             $model->propertyName = $map['PropertyName'];
+        }
+
+        if (isset($map['RequestInfo'])) {
+            $model->requestInfo = $map['RequestInfo'];
         }
 
         if (isset($map['ResourceName'])) {

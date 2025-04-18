@@ -275,11 +275,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelStackOperationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelStackOperationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelStackOperationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -343,11 +340,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelUpdateStackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelUpdateStackResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelUpdateStackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -454,11 +448,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ContinueCreateStackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ContinueCreateStackResponse::fromMap($this->execute($params, $req, $runtime));
+        return ContinueCreateStackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -531,11 +522,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAITaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAITaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAITaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -714,11 +702,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateChangeSetResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -803,11 +788,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDiagnosticResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDiagnosticResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDiagnosticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -956,11 +938,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateStackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateStackResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateStackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1103,11 +1082,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateStackGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1237,11 +1213,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateStackInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1330,11 +1303,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1470,11 +1440,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTemplateScratchResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1558,11 +1525,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteChangeSetResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1627,11 +1591,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDiagnosticResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDiagnosticResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDiagnosticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1711,11 +1672,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteStackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteStackResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteStackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1779,11 +1737,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteStackGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1896,11 +1851,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteStackInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1962,11 +1914,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2032,11 +1981,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTemplateScratchResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2106,11 +2052,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeregisterResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeregisterResourceTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeregisterResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2173,11 +2116,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2245,11 +2185,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetectStackDriftResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetectStackDriftResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetectStackDriftResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2321,11 +2258,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetectStackGroupDriftResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetectStackGroupDriftResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetectStackGroupDriftResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2391,11 +2325,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetectStackResourceDriftResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetectStackResourceDriftResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetectStackResourceDriftResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2462,11 +2393,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteChangeSetResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2541,11 +2469,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateTemplateByScratchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateTemplateByScratchResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateTemplateByScratchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2625,11 +2550,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateTemplatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateTemplatePolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateTemplatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2693,11 +2615,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAITaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAITaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAITaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2764,11 +2683,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetChangeSetResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2827,11 +2743,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDiagnosticResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDiagnosticResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDiagnosticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2896,11 +2809,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFeatureDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFeatureDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFeatureDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2968,11 +2878,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3035,11 +2942,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourceTypeTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceTypeTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceTypeTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3126,11 +3030,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetServiceProvisionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetServiceProvisionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetServiceProvisionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3214,11 +3115,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetStackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetStackResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetStackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3284,11 +3182,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetStackDriftDetectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetStackDriftDetectionStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetStackDriftDetectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3358,11 +3253,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetStackGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3428,11 +3320,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetStackGroupOperationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetStackGroupOperationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetStackGroupOperationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3510,11 +3399,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetStackInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetStackInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetStackInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3580,11 +3466,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetStackPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetStackPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetStackPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3669,11 +3552,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetStackResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetStackResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetStackResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3770,11 +3650,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3923,11 +3800,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTemplateEstimateCostResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTemplateEstimateCostResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTemplateEstimateCostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4087,11 +3961,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTemplateParameterConstraintsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTemplateParameterConstraintsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTemplateParameterConstraintsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4175,11 +4046,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTemplateRecommendParametersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTemplateRecommendParametersResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTemplateRecommendParametersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4246,11 +4114,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTemplateScratchResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4345,11 +4210,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTemplateSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTemplateSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTemplateSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4443,11 +4305,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ImportStacksToStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ImportStacksToStackGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ImportStacksToStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4511,11 +4370,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAITaskEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAITaskEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAITaskEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4583,11 +4439,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAITasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAITasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAITasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4671,11 +4524,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListChangeSetsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListChangeSetsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListChangeSetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4747,11 +4597,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDiagnosticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDiagnosticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDiagnosticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4827,11 +4674,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListResourceTypeRegistrationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourceTypeRegistrationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourceTypeRegistrationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4887,11 +4731,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListResourceTypeVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourceTypeVersionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourceTypeVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4958,11 +4799,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListResourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourceTypesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5045,11 +4883,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListStackEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListStackEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListStackEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5120,11 +4955,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListStackGroupOperationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListStackGroupOperationResultsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListStackGroupOperationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5195,11 +5027,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListStackGroupOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListStackGroupOperationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListStackGroupOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5278,11 +5107,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListStackGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListStackGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListStackGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5364,11 +5190,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListStackInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5474,11 +5297,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListStackOperationRisksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListStackOperationRisksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListStackOperationRisksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5555,11 +5375,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListStackResourceDriftsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListStackResourceDriftsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListStackResourceDriftsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5622,11 +5439,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListStackResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListStackResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListStackResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5737,11 +5551,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListStacksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListStacksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListStacksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5812,11 +5623,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5897,11 +5705,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5978,11 +5783,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6072,11 +5874,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTemplateScratchesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTemplateScratchesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTemplateScratchesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6143,11 +5942,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTemplateVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTemplateVersionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTemplateVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6231,11 +6027,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6306,11 +6099,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6438,11 +6228,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PreviewStackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PreviewStackResponse::fromMap($this->execute($params, $req, $runtime));
+        return PreviewStackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6527,11 +6314,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RegisterResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RegisterResourceTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return RegisterResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6597,11 +6381,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDeletionProtectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6667,11 +6448,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetResourceTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6742,11 +6520,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetStackPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetStackPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetStackPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6825,11 +6600,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetTemplatePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetTemplatePermissionResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetTemplatePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6909,11 +6681,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SignalResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SignalResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return SignalResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6976,11 +6745,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopStackGroupOperationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopStackGroupOperationResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopStackGroupOperationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7054,11 +6820,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7136,11 +6899,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7291,11 +7051,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateStackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateStackResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateStackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7461,11 +7218,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateStackGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7582,11 +7336,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateStackInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7669,11 +7420,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateStackTemplateByResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateStackTemplateByResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateStackTemplateByResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7769,11 +7517,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7907,11 +7652,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTemplateScratchResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8006,11 +7748,8 @@ class ROS extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ValidateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ValidateTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ValidateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
