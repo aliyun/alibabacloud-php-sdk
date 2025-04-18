@@ -12,43 +12,50 @@ class zero extends Model
      * @var float
      */
     public $carbonEmissionData;
+
     /**
      * @var string
      */
     public $dataUnit;
+
     /**
      * @var int
      */
     public $month;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nameKey;
+
     /**
      * @var float
      */
     public $ratio;
+
     /**
      * @var float
      */
     public $rawData;
+
     /**
      * @var string
      */
     public $year;
     protected $_name = [
         'carbonEmissionData' => 'carbonEmissionData',
-        'dataUnit'           => 'dataUnit',
-        'month'              => 'month',
-        'name'               => 'name',
-        'nameKey'            => 'nameKey',
-        'ratio'              => 'ratio',
-        'rawData'            => 'rawData',
-        'year'               => 'year',
+        'dataUnit' => 'dataUnit',
+        'month' => 'month',
+        'name' => 'name',
+        'nameKey' => 'nameKey',
+        'ratio' => 'ratio',
+        'rawData' => 'rawData',
+        'year' => 'year',
     ];
 
     public function validate()

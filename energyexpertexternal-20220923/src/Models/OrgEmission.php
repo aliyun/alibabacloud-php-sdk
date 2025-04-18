@@ -13,48 +13,56 @@ class OrgEmission extends Model
      * @var float
      */
     public $carbonEmissionData;
+
     /**
      * @var moduleEmissionList[]
      */
     public $moduleEmissionList;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nameKey;
+
     /**
      * @var float
      */
     public $ratio;
+
     /**
      * @var OrgEmission[]
      */
     public $subEmissionItems;
+
     /**
      * @var float
      */
     public $weightingCarbonEmissionData;
+
     /**
      * @var float
      */
     public $weightingProportion;
+
     /**
      * @var float
      */
     public $weightingRatio;
     protected $_name = [
-        'carbonEmissionData'          => 'carbonEmissionData',
-        'moduleEmissionList'          => 'moduleEmissionList',
-        'name'                        => 'name',
-        'nameKey'                     => 'nameKey',
-        'ratio'                       => 'ratio',
-        'subEmissionItems'            => 'subEmissionItems',
+        'carbonEmissionData' => 'carbonEmissionData',
+        'moduleEmissionList' => 'moduleEmissionList',
+        'name' => 'name',
+        'nameKey' => 'nameKey',
+        'ratio' => 'ratio',
+        'subEmissionItems' => 'subEmissionItems',
         'weightingCarbonEmissionData' => 'weightingCarbonEmissionData',
-        'weightingProportion'         => 'weightingProportion',
-        'weightingRatio'              => 'weightingRatio',
+        'weightingProportion' => 'weightingProportion',
+        'weightingRatio' => 'weightingRatio',
     ];
 
     public function validate()
@@ -78,7 +86,7 @@ class OrgEmission extends Model
         if (null !== $this->moduleEmissionList) {
             if (\is_array($this->moduleEmissionList)) {
                 $res['moduleEmissionList'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->moduleEmissionList as $item1) {
                     $res['moduleEmissionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +108,7 @@ class OrgEmission extends Model
         if (null !== $this->subEmissionItems) {
             if (\is_array($this->subEmissionItems)) {
                 $res['subEmissionItems'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->subEmissionItems as $item1) {
                     $res['subEmissionItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -137,7 +145,7 @@ class OrgEmission extends Model
         if (isset($map['moduleEmissionList'])) {
             if (!empty($map['moduleEmissionList'])) {
                 $model->moduleEmissionList = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['moduleEmissionList'] as $item1) {
                     $model->moduleEmissionList[$n1++] = moduleEmissionList::fromMap($item1);
                 }
@@ -159,7 +167,7 @@ class OrgEmission extends Model
         if (isset($map['subEmissionItems'])) {
             if (!empty($map['subEmissionItems'])) {
                 $model->subEmissionItems = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['subEmissionItems'] as $item1) {
                     $model->subEmissionItems[$n1++] = self::fromMap($item1);
                 }

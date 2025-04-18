@@ -12,42 +12,49 @@ class hvacDeviceConfigVOList extends Model
      * @var string
      */
     public $buildingId;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $deviceName;
+
     /**
      * @var string
      */
     public $deviceType;
+
     /**
      * @var string
      */
     public $fenceId;
+
     /**
      * @var string
      */
     public $floorId;
+
     /**
      * @var int
      */
     public $isForbidden;
+
     /**
      * @var int
      */
     public $isUnfavorableArea;
     protected $_name = [
-        'buildingId'        => 'buildingId',
-        'deviceId'          => 'deviceId',
-        'deviceName'        => 'deviceName',
-        'deviceType'        => 'deviceType',
-        'fenceId'           => 'fenceId',
-        'floorId'           => 'floorId',
-        'isForbidden'       => 'isForbidden',
+        'buildingId' => 'buildingId',
+        'deviceId' => 'deviceId',
+        'deviceName' => 'deviceName',
+        'deviceType' => 'deviceType',
+        'fenceId' => 'fenceId',
+        'floorId' => 'floorId',
+        'isForbidden' => 'isForbidden',
         'isUnfavorableArea' => 'isUnfavorableArea',
     ];
 

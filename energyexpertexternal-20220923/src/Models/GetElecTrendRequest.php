@@ -12,12 +12,13 @@ class GetElecTrendRequest extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int[]
      */
     public $yearList;
     protected $_name = [
-        'code'     => 'code',
+        'code' => 'code',
         'yearList' => 'yearList',
     ];
 
@@ -39,7 +40,7 @@ class GetElecTrendRequest extends Model
         if (null !== $this->yearList) {
             if (\is_array($this->yearList)) {
                 $res['yearList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->yearList as $item1) {
                     $res['yearList'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class GetElecTrendRequest extends Model
         if (isset($map['yearList'])) {
             if (!empty($map['yearList'])) {
                 $model->yearList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['yearList'] as $item1) {
                     $model->yearList[$n1++] = $item1;
                 }

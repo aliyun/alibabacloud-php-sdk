@@ -12,33 +12,38 @@ class recordList extends Model
      * @var string
      */
     public $identifier;
+
     /**
      * @var string
      */
     public $paramName;
+
     /**
      * @var string
      */
     public $statisticsDate;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $unit;
+
     /**
      * @var float
      */
     public $value;
     protected $_name = [
-        'identifier'     => 'identifier',
-        'paramName'      => 'paramName',
+        'identifier' => 'identifier',
+        'paramName' => 'paramName',
         'statisticsDate' => 'statisticsDate',
-        'type'           => 'type',
-        'unit'           => 'unit',
-        'value'          => 'value',
+        'type' => 'type',
+        'unit' => 'unit',
+        'value' => 'value',
     ];
 
     public function validate()

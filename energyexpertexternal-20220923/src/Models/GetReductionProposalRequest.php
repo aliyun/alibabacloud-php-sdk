@@ -12,23 +12,26 @@ class GetReductionProposalRequest extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $dataQualityEvaluationType;
+
     /**
      * @var int
      */
     public $productId;
+
     /**
      * @var int
      */
     public $productType;
     protected $_name = [
-        'code'                      => 'code',
+        'code' => 'code',
         'dataQualityEvaluationType' => 'dataQualityEvaluationType',
-        'productId'                 => 'productId',
-        'productType'               => 'productType',
+        'productId' => 'productId',
+        'productType' => 'productType',
     ];
 
     public function validate()

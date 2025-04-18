@@ -12,43 +12,50 @@ class data extends Model
      * @var float
      */
     public $carbonEmission;
+
     /**
      * @var string
      */
     public $indicator;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $method;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $num;
+
     /**
      * @var string
      */
     public $preUnit;
+
     /**
      * @var int
      */
     public $state;
     protected $_name = [
         'carbonEmission' => 'carbonEmission',
-        'indicator'      => 'indicator',
-        'key'            => 'key',
-        'method'         => 'method',
-        'name'           => 'name',
-        'num'            => 'num',
-        'preUnit'        => 'preUnit',
-        'state'          => 'state',
+        'indicator' => 'indicator',
+        'key' => 'key',
+        'method' => 'method',
+        'name' => 'name',
+        'num' => 'num',
+        'preUnit' => 'preUnit',
+        'state' => 'state',
     ];
 
     public function validate()

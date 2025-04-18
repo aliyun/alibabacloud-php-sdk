@@ -12,12 +12,13 @@ class EditUnfavorableAreaDevicesResponseBody extends Model
      * @var bool
      */
     public $data;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'data',
+        'data' => 'data',
         'requestId' => 'requestId',
     ];
 

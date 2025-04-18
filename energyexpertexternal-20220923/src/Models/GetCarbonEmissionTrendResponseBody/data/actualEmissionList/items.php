@@ -12,18 +12,20 @@ class items extends Model
      * @var float
      */
     public $carbonEmissionData;
+
     /**
      * @var int
      */
     public $month;
+
     /**
      * @var string
      */
     public $year;
     protected $_name = [
         'carbonEmissionData' => 'carbonEmissionData',
-        'month'              => 'month',
-        'year'               => 'year',
+        'month' => 'month',
+        'year' => 'year',
     ];
 
     public function validate()

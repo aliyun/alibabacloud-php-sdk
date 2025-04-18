@@ -13,22 +13,25 @@ class data extends Model
      * @var string
      */
     public $aliyunPk;
+
     /**
      * @var factoryList[]
      */
     public $factoryList;
+
     /**
      * @var string
      */
     public $organizationId;
+
     /**
      * @var string
      */
     public $organizationName;
     protected $_name = [
-        'aliyunPk'         => 'aliyunPk',
-        'factoryList'      => 'factoryList',
-        'organizationId'   => 'organizationId',
+        'aliyunPk' => 'aliyunPk',
+        'factoryList' => 'factoryList',
+        'organizationId' => 'organizationId',
         'organizationName' => 'organizationName',
     ];
 
@@ -50,7 +53,7 @@ class data extends Model
         if (null !== $this->factoryList) {
             if (\is_array($this->factoryList)) {
                 $res['factoryList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->factoryList as $item1) {
                     $res['factoryList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -83,7 +86,7 @@ class data extends Model
         if (isset($map['factoryList'])) {
             if (!empty($map['factoryList'])) {
                 $model->factoryList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['factoryList'] as $item1) {
                     $model->factoryList[$n1++] = factoryList::fromMap($item1);
                 }

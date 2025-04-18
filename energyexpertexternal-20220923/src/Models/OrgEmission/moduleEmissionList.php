@@ -12,23 +12,26 @@ class moduleEmissionList extends Model
      * @var float
      */
     public $carbonEmissionData;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nameKey;
+
     /**
      * @var float
      */
     public $ratio;
     protected $_name = [
         'carbonEmissionData' => 'carbonEmissionData',
-        'name'               => 'name',
-        'nameKey'            => 'nameKey',
-        'ratio'              => 'ratio',
+        'name' => 'name',
+        'nameKey' => 'nameKey',
+        'ratio' => 'ratio',
     ];
 
     public function validate()

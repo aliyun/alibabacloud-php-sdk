@@ -12,98 +12,116 @@ class EpdInventoryConstituteItem extends Model
      * @var float
      */
     public $carbonEmission;
+
     /**
      * @var string
      */
     public $factor;
+
     /**
      * @var string
      */
     public $factorDataset;
+
     /**
      * @var string
      */
     public $factorId;
+
     /**
      * @var int
      */
     public $factorType;
+
     /**
      * @var string
      */
     public $factorUnit;
+
     /**
      * @var int
      */
     public $inventoryId;
+
     /**
      * @var string
      */
     public $inventoryUnit;
+
     /**
      * @var float
      */
     public $inventoryValue;
+
     /**
      * @var float
      */
     public $inventoryValuePerProduct;
+
     /**
      * @var string
      */
     public $inventoryValuePerProductUnit;
+
     /**
      * @var EpdInventoryConstituteItem[]
      */
     public $items;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $num;
+
     /**
      * @var float
      */
     public $percent;
+
     /**
      * @var float
      */
     public $quantity;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var int
      */
     public $state;
+
     /**
      * @var string
      */
     public $unit;
     protected $_name = [
-        'carbonEmission'               => 'carbonEmission',
-        'factor'                       => 'factor',
-        'factorDataset'                => 'factorDataset',
-        'factorId'                     => 'factorId',
-        'factorType'                   => 'factorType',
-        'factorUnit'                   => 'factorUnit',
-        'inventoryId'                  => 'inventoryId',
-        'inventoryUnit'                => 'inventoryUnit',
-        'inventoryValue'               => 'inventoryValue',
-        'inventoryValuePerProduct'     => 'inventoryValuePerProduct',
+        'carbonEmission' => 'carbonEmission',
+        'factor' => 'factor',
+        'factorDataset' => 'factorDataset',
+        'factorId' => 'factorId',
+        'factorType' => 'factorType',
+        'factorUnit' => 'factorUnit',
+        'inventoryId' => 'inventoryId',
+        'inventoryUnit' => 'inventoryUnit',
+        'inventoryValue' => 'inventoryValue',
+        'inventoryValuePerProduct' => 'inventoryValuePerProduct',
         'inventoryValuePerProductUnit' => 'inventoryValuePerProductUnit',
-        'items'                        => 'items',
-        'name'                         => 'name',
-        'num'                          => 'num',
-        'percent'                      => 'percent',
-        'quantity'                     => 'quantity',
-        'resourceType'                 => 'resourceType',
-        'state'                        => 'state',
-        'unit'                         => 'unit',
+        'items' => 'items',
+        'name' => 'name',
+        'num' => 'num',
+        'percent' => 'percent',
+        'quantity' => 'quantity',
+        'resourceType' => 'resourceType',
+        'state' => 'state',
+        'unit' => 'unit',
     ];
 
     public function validate()
@@ -164,7 +182,7 @@ class EpdInventoryConstituteItem extends Model
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['items'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->items as $item1) {
                     $res['items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -257,7 +275,7 @@ class EpdInventoryConstituteItem extends Model
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['items'] as $item1) {
                     $model->items[$n1++] = self::fromMap($item1);
                 }

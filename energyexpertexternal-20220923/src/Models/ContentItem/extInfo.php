@@ -13,48 +13,56 @@ class extInfo extends Model
      * @var string
      */
     public $alignment;
+
     /**
      * @var int
      */
     public $index;
+
     /**
      * @var int
      */
     public $level;
+
     /**
      * @var int[]
      */
     public $pageNum;
+
     /**
      * @var pos[]
      */
     public $pos;
+
     /**
      * @var string
      */
     public $subType;
+
     /**
      * @var string
      */
     public $text;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $uniqueId;
     protected $_name = [
         'alignment' => 'alignment',
-        'index'     => 'index',
-        'level'     => 'level',
-        'pageNum'   => 'pageNum',
-        'pos'       => 'pos',
-        'subType'   => 'subType',
-        'text'      => 'text',
-        'type'      => 'type',
-        'uniqueId'  => 'uniqueId',
+        'index' => 'index',
+        'level' => 'level',
+        'pageNum' => 'pageNum',
+        'pos' => 'pos',
+        'subType' => 'subType',
+        'text' => 'text',
+        'type' => 'type',
+        'uniqueId' => 'uniqueId',
     ];
 
     public function validate()
@@ -86,7 +94,7 @@ class extInfo extends Model
         if (null !== $this->pageNum) {
             if (\is_array($this->pageNum)) {
                 $res['pageNum'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->pageNum as $item1) {
                     $res['pageNum'][$n1++] = $item1;
                 }
@@ -96,7 +104,7 @@ class extInfo extends Model
         if (null !== $this->pos) {
             if (\is_array($this->pos)) {
                 $res['pos'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->pos as $item1) {
                     $res['pos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -145,7 +153,7 @@ class extInfo extends Model
         if (isset($map['pageNum'])) {
             if (!empty($map['pageNum'])) {
                 $model->pageNum = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['pageNum'] as $item1) {
                     $model->pageNum[$n1++] = $item1;
                 }
@@ -155,7 +163,7 @@ class extInfo extends Model
         if (isset($map['pos'])) {
             if (!empty($map['pos'])) {
                 $model->pos = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['pos'] as $item1) {
                     $model->pos[$n1++] = pos::fromMap($item1);
                 }

@@ -12,26 +12,32 @@ class GwpInventoryConstitute extends Model
      * @var GwpResourceConstitute[]
      */
     public $byResourceType;
+
     /**
      * @var float
      */
     public $carbonEmission;
+
     /**
      * @var GwpInventoryConstitute[]
      */
     public $items;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var float
      */
     public $percent;
+
     /**
      * @var int
      */
     public $resourceType;
+
     /**
      * @var string
      */
@@ -39,11 +45,11 @@ class GwpInventoryConstitute extends Model
     protected $_name = [
         'byResourceType' => 'byResourceType',
         'carbonEmission' => 'carbonEmission',
-        'items'          => 'items',
-        'name'           => 'name',
-        'percent'        => 'percent',
-        'resourceType'   => 'resourceType',
-        'unit'           => 'unit',
+        'items' => 'items',
+        'name' => 'name',
+        'percent' => 'percent',
+        'resourceType' => 'resourceType',
+        'unit' => 'unit',
     ];
 
     public function validate()
@@ -63,7 +69,7 @@ class GwpInventoryConstitute extends Model
         if (null !== $this->byResourceType) {
             if (\is_array($this->byResourceType)) {
                 $res['byResourceType'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->byResourceType as $item1) {
                     $res['byResourceType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -77,7 +83,7 @@ class GwpInventoryConstitute extends Model
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['items'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->items as $item1) {
                     $res['items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -114,7 +120,7 @@ class GwpInventoryConstitute extends Model
         if (isset($map['byResourceType'])) {
             if (!empty($map['byResourceType'])) {
                 $model->byResourceType = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['byResourceType'] as $item1) {
                     $model->byResourceType[$n1++] = GwpResourceConstitute::fromMap($item1);
                 }
@@ -128,7 +134,7 @@ class GwpInventoryConstitute extends Model
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['items'] as $item1) {
                     $model->items[$n1++] = self::fromMap($item1);
                 }

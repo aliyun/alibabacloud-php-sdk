@@ -12,12 +12,13 @@ class uncertaintyValues extends Model
      * @var string
      */
     public $inventory;
+
     /**
      * @var string
      */
     public $uncertaintyContribution;
     protected $_name = [
-        'inventory'               => 'inventory',
+        'inventory' => 'inventory',
         'uncertaintyContribution' => 'uncertaintyContribution',
     ];
 

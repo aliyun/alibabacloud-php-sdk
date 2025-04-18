@@ -13,13 +13,14 @@ class PushDeviceDataRequest extends Model
      * @var string
      */
     public $deviceType;
+
     /**
      * @var devices[]
      */
     public $devices;
     protected $_name = [
         'deviceType' => 'deviceType',
-        'devices'    => 'devices',
+        'devices' => 'devices',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class PushDeviceDataRequest extends Model
         if (null !== $this->devices) {
             if (\is_array($this->devices)) {
                 $res['devices'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->devices as $item1) {
                     $res['devices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class PushDeviceDataRequest extends Model
         if (isset($map['devices'])) {
             if (!empty($map['devices'])) {
                 $model->devices = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['devices'] as $item1) {
                     $model->devices[$n1++] = devices::fromMap($item1);
                 }

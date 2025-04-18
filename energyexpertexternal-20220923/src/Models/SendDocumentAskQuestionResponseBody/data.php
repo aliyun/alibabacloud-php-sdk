@@ -12,12 +12,13 @@ class data extends Model
      * @var string
      */
     public $answer;
+
     /**
      * @var string[]
      */
     public $document;
     protected $_name = [
-        'answer'   => 'answer',
+        'answer' => 'answer',
         'document' => 'document',
     ];
 
@@ -39,7 +40,7 @@ class data extends Model
         if (null !== $this->document) {
             if (\is_array($this->document)) {
                 $res['document'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->document as $item1) {
                     $res['document'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class data extends Model
         if (isset($map['document'])) {
             if (!empty($map['document'])) {
                 $model->document = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['document'] as $item1) {
                     $model->document[$n1++] = $item1;
                 }

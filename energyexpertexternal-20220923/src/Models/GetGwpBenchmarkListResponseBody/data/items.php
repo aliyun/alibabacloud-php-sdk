@@ -12,33 +12,38 @@ class items extends Model
      * @var float
      */
     public $activeReduction;
+
     /**
      * @var float
      */
     public $benchmarkEmission;
+
     /**
      * @var string
      */
     public $benchmarkName;
+
     /**
      * @var float
      */
     public $carbonEmission;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $percent;
     protected $_name = [
-        'activeReduction'   => 'activeReduction',
+        'activeReduction' => 'activeReduction',
         'benchmarkEmission' => 'benchmarkEmission',
-        'benchmarkName'     => 'benchmarkName',
-        'carbonEmission'    => 'carbonEmission',
-        'name'              => 'name',
-        'percent'           => 'percent',
+        'benchmarkName' => 'benchmarkName',
+        'carbonEmission' => 'carbonEmission',
+        'name' => 'name',
+        'percent' => 'percent',
     ];
 
     public function validate()

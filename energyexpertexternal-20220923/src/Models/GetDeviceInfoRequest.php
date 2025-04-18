@@ -12,17 +12,19 @@ class GetDeviceInfoRequest extends Model
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $ds;
+
     /**
      * @var string
      */
     public $factoryId;
     protected $_name = [
-        'deviceId'  => 'deviceId',
-        'ds'        => 'ds',
+        'deviceId' => 'deviceId',
+        'ds' => 'ds',
         'factoryId' => 'factoryId',
     ];
 

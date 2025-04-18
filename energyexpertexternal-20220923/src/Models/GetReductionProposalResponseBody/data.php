@@ -12,12 +12,13 @@ class data extends Model
      * @var string
      */
     public $reduction;
+
     /**
      * @var string
      */
     public $reductionEvaluation;
     protected $_name = [
-        'reduction'           => 'reduction',
+        'reduction' => 'reduction',
         'reductionEvaluation' => 'reductionEvaluation',
     ];
 

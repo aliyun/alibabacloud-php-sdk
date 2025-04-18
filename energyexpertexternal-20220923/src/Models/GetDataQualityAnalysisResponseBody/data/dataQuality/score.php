@@ -12,14 +12,17 @@ class score extends Model
      * @var float
      */
     public $g1;
+
     /**
      * @var float
      */
     public $g2;
+
     /**
      * @var float
      */
     public $g3;
+
     /**
      * @var float
      */

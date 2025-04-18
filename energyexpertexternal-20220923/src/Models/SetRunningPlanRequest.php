@@ -12,83 +12,98 @@ class SetRunningPlanRequest extends Model
      * @var int
      */
     public $controlType;
+
     /**
      * @var int
      */
     public $dateType;
+
     /**
      * @var string
      */
     public $earliestStartupTime;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $factoryId;
+
     /**
      * @var string
      */
     public $latestShutdownTime;
+
     /**
      * @var float
      */
     public $maxCarbonDioxide;
+
     /**
      * @var float
      */
     public $maxTem;
+
     /**
      * @var float
      */
     public $minTem;
+
     /**
      * @var string
      */
     public $pKey;
+
     /**
      * @var int
      */
     public $seasonMode;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $statisticsTime;
+
     /**
      * @var string
      */
     public $systemId;
+
     /**
      * @var string
      */
     public $workingEndTime;
+
     /**
      * @var string
      */
     public $workingStartTime;
     protected $_name = [
-        'controlType'         => 'controlType',
-        'dateType'            => 'dateType',
+        'controlType' => 'controlType',
+        'dateType' => 'dateType',
         'earliestStartupTime' => 'earliestStartupTime',
-        'endTime'             => 'endTime',
-        'factoryId'           => 'factoryId',
-        'latestShutdownTime'  => 'latestShutdownTime',
-        'maxCarbonDioxide'    => 'maxCarbonDioxide',
-        'maxTem'              => 'maxTem',
-        'minTem'              => 'minTem',
-        'pKey'                => 'pKey',
-        'seasonMode'          => 'seasonMode',
-        'startTime'           => 'startTime',
-        'statisticsTime'      => 'statisticsTime',
-        'systemId'            => 'systemId',
-        'workingEndTime'      => 'workingEndTime',
-        'workingStartTime'    => 'workingStartTime',
+        'endTime' => 'endTime',
+        'factoryId' => 'factoryId',
+        'latestShutdownTime' => 'latestShutdownTime',
+        'maxCarbonDioxide' => 'maxCarbonDioxide',
+        'maxTem' => 'maxTem',
+        'minTem' => 'minTem',
+        'pKey' => 'pKey',
+        'seasonMode' => 'seasonMode',
+        'startTime' => 'startTime',
+        'statisticsTime' => 'statisticsTime',
+        'systemId' => 'systemId',
+        'workingEndTime' => 'workingEndTime',
+        'workingStartTime' => 'workingStartTime',
     ];
 
     public function validate()

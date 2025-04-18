@@ -12,68 +12,80 @@ class records extends Model
      * @var float
      */
     public $amount;
+
     /**
      * @var int
      */
     public $authStatus;
+
     /**
      * @var string
      */
     public $checkEndTime;
+
     /**
      * @var string
      */
     public $checkStartTime;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $createdBy;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $isDemoModel;
+
     /**
      * @var string
      */
     public $lifeCycle;
+
     /**
      * @var int
      */
     public $lifeCycleType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $unit;
     protected $_name = [
-        'amount'         => 'amount',
-        'authStatus'     => 'authStatus',
-        'checkEndTime'   => 'checkEndTime',
+        'amount' => 'amount',
+        'authStatus' => 'authStatus',
+        'checkEndTime' => 'checkEndTime',
         'checkStartTime' => 'checkStartTime',
-        'code'           => 'code',
-        'createdBy'      => 'createdBy',
-        'id'             => 'id',
-        'isDemoModel'    => 'isDemoModel',
-        'lifeCycle'      => 'lifeCycle',
-        'lifeCycleType'  => 'lifeCycleType',
-        'name'           => 'name',
-        'type'           => 'type',
-        'unit'           => 'unit',
+        'code' => 'code',
+        'createdBy' => 'createdBy',
+        'id' => 'id',
+        'isDemoModel' => 'isDemoModel',
+        'lifeCycle' => 'lifeCycle',
+        'lifeCycleType' => 'lifeCycleType',
+        'name' => 'name',
+        'type' => 'type',
+        'unit' => 'unit',
     ];
 
     public function validate()

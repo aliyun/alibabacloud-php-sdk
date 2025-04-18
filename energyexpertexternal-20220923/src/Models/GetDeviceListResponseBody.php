@@ -13,28 +13,32 @@ class GetDeviceListResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var int
      */
     public $httpCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'      => 'code',
-        'data'      => 'data',
-        'httpCode'  => 'httpCode',
+        'code' => 'code',
+        'data' => 'data',
+        'httpCode' => 'httpCode',
         'requestId' => 'requestId',
-        'success'   => 'success',
+        'success' => 'success',
     ];
 
     public function validate()

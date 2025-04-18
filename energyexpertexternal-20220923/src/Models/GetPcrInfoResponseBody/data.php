@@ -12,18 +12,20 @@ class data extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
         'createTime' => 'createTime',
-        'name'       => 'name',
-        'url'        => 'url',
+        'name' => 'name',
+        'url' => 'url',
     ];
 
     public function validate()

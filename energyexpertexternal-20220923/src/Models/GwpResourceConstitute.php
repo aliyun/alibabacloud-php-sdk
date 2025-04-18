@@ -12,28 +12,32 @@ class GwpResourceConstitute extends Model
      * @var float
      */
     public $carbonEmission;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $percent;
+
     /**
      * @var int
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $unit;
     protected $_name = [
         'carbonEmission' => 'carbonEmission',
-        'name'           => 'name',
-        'percent'        => 'percent',
-        'resourceType'   => 'resourceType',
-        'unit'           => 'unit',
+        'name' => 'name',
+        'percent' => 'percent',
+        'resourceType' => 'resourceType',
+        'unit' => 'unit',
     ];
 
     public function validate()

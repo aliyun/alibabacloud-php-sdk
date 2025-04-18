@@ -12,12 +12,13 @@ class factoryList extends Model
      * @var string
      */
     public $factoryId;
+
     /**
      * @var string
      */
     public $factoryName;
     protected $_name = [
-        'factoryId'   => 'factoryId',
+        'factoryId' => 'factoryId',
         'factoryName' => 'factoryName',
     ];
 

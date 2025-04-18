@@ -13,17 +13,19 @@ class GetElecTrendResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'code',
-        'data'      => 'data',
+        'code' => 'code',
+        'data' => 'data',
         'requestId' => 'requestId',
     ];
 

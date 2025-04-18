@@ -13,32 +13,37 @@ class deviceList extends Model
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $deviceName;
+
     /**
      * @var string
      */
     public $firstTypeName;
+
     /**
      * @var info
      */
     public $info;
+
     /**
      * @var string
      */
     public $parentDevice;
+
     /**
      * @var string
      */
     public $secondTypeName;
     protected $_name = [
-        'deviceId'       => 'deviceId',
-        'deviceName'     => 'deviceName',
-        'firstTypeName'  => 'firstTypeName',
-        'info'           => 'info',
-        'parentDevice'   => 'parentDevice',
+        'deviceId' => 'deviceId',
+        'deviceName' => 'deviceName',
+        'firstTypeName' => 'firstTypeName',
+        'info' => 'info',
+        'parentDevice' => 'parentDevice',
         'secondTypeName' => 'secondTypeName',
     ];
 

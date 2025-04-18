@@ -12,17 +12,19 @@ class devices extends Model
      * @var mixed[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $recordTime;
     protected $_name = [
-        'data'       => 'data',
-        'deviceId'   => 'deviceId',
+        'data' => 'data',
+        'deviceId' => 'deviceId',
         'recordTime' => 'recordTime',
     ];
 

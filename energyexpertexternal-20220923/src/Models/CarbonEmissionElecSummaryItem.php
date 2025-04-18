@@ -12,28 +12,32 @@ class CarbonEmissionElecSummaryItem extends Model
      * @var float
      */
     public $carbonEmissionData;
+
     /**
      * @var string
      */
     public $dataUnit;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var float
      */
     public $ratio;
+
     /**
      * @var float
      */
     public $rawData;
     protected $_name = [
         'carbonEmissionData' => 'carbonEmissionData',
-        'dataUnit'           => 'dataUnit',
-        'name'               => 'name',
-        'ratio'              => 'ratio',
-        'rawData'            => 'rawData',
+        'dataUnit' => 'dataUnit',
+        'name' => 'name',
+        'ratio' => 'ratio',
+        'rawData' => 'rawData',
     ];
 
     public function validate()

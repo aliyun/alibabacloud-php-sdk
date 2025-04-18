@@ -13,28 +13,32 @@ class data extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var records[]
      */
     public $records;
+
     /**
      * @var int
      */
     public $total;
+
     /**
      * @var int
      */
     public $totalPage;
     protected $_name = [
         'currentPage' => 'currentPage',
-        'pageSize'    => 'pageSize',
-        'records'     => 'records',
-        'total'       => 'total',
-        'totalPage'   => 'totalPage',
+        'pageSize' => 'pageSize',
+        'records' => 'records',
+        'total' => 'total',
+        'totalPage' => 'totalPage',
     ];
 
     public function validate()
@@ -59,7 +63,7 @@ class data extends Model
         if (null !== $this->records) {
             if (\is_array($this->records)) {
                 $res['records'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->records as $item1) {
                     $res['records'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +100,7 @@ class data extends Model
         if (isset($map['records'])) {
             if (!empty($map['records'])) {
                 $model->records = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['records'] as $item1) {
                     $model->records[$n1++] = records::fromMap($item1);
                 }

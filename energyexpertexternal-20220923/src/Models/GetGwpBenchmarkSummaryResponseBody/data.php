@@ -13,18 +13,20 @@ class data extends Model
      * @var items[]
      */
     public $items;
+
     /**
      * @var int
      */
     public $quantity;
+
     /**
      * @var string
      */
     public $unit;
     protected $_name = [
-        'items'    => 'items',
+        'items' => 'items',
         'quantity' => 'quantity',
-        'unit'     => 'unit',
+        'unit' => 'unit',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class data extends Model
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['items'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->items as $item1) {
                     $res['items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class data extends Model
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['items'] as $item1) {
                     $model->items[$n1++] = items::fromMap($item1);
                 }

@@ -12,33 +12,38 @@ class GetInventoryListRequest extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $emissionType;
+
     /**
      * @var string
      */
     public $group;
+
     /**
      * @var string
      */
     public $methodType;
+
     /**
      * @var int
      */
     public $productId;
+
     /**
      * @var int
      */
     public $productType;
     protected $_name = [
-        'code'         => 'code',
+        'code' => 'code',
         'emissionType' => 'emissionType',
-        'group'        => 'group',
-        'methodType'   => 'methodType',
-        'productId'    => 'productId',
-        'productType'  => 'productType',
+        'group' => 'group',
+        'methodType' => 'methodType',
+        'productId' => 'productId',
+        'productType' => 'productType',
     ];
 
     public function validate()

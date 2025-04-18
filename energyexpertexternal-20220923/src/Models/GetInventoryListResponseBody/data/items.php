@@ -12,23 +12,26 @@ class items extends Model
      * @var float
      */
     public $carbonEmission;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $percent;
+
     /**
      * @var string
      */
     public $processName;
     protected $_name = [
         'carbonEmission' => 'carbonEmission',
-        'name'           => 'name',
-        'percent'        => 'percent',
-        'processName'    => 'processName',
+        'name' => 'name',
+        'percent' => 'percent',
+        'processName' => 'processName',
     ];
 
     public function validate()

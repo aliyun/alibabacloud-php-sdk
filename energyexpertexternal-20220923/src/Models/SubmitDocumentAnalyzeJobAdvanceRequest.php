@@ -13,28 +13,32 @@ class SubmitDocumentAnalyzeJobAdvanceRequest extends Model
      * @var string
      */
     public $analysisType;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var Stream
      */
     public $fileUrlObject;
+
     /**
      * @var string
      */
     public $folderId;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'analysisType'  => 'analysisType',
-        'fileName'      => 'fileName',
+        'analysisType' => 'analysisType',
+        'fileName' => 'fileName',
         'fileUrlObject' => 'fileUrl',
-        'folderId'      => 'folderId',
-        'templateId'    => 'templateId',
+        'folderId' => 'folderId',
+        'templateId' => 'templateId',
     ];
 
     public function validate()

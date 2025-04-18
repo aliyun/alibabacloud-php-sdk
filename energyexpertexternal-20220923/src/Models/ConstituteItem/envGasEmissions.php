@@ -12,23 +12,26 @@ class envGasEmissions extends Model
      * @var float
      */
     public $carbonEmissionData;
+
     /**
      * @var float
      */
     public $gasEmissionData;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'carbonEmissionData' => 'carbonEmissionData',
-        'gasEmissionData'    => 'gasEmissionData',
-        'name'               => 'name',
-        'type'               => 'type',
+        'gasEmissionData' => 'gasEmissionData',
+        'name' => 'name',
+        'type' => 'type',
     ];
 
     public function validate()

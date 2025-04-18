@@ -12,12 +12,13 @@ class confidence extends Model
      * @var float
      */
     public $keyConfidence;
+
     /**
      * @var float
      */
     public $valueConfidence;
     protected $_name = [
-        'keyConfidence'   => 'keyConfidence',
+        'keyConfidence' => 'keyConfidence',
         'valueConfidence' => 'valueConfidence',
     ];
 

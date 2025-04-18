@@ -14,18 +14,20 @@ class context extends Model
      * @var confidence
      */
     public $confidence;
+
     /**
      * @var ContentItem[]
      */
     public $key;
+
     /**
      * @var ContentItem[]
      */
     public $value;
     protected $_name = [
         'confidence' => 'confidence',
-        'key'        => 'key',
-        'value'      => 'value',
+        'key' => 'key',
+        'value' => 'value',
     ];
 
     public function validate()
@@ -52,7 +54,7 @@ class context extends Model
         if (null !== $this->key) {
             if (\is_array($this->key)) {
                 $res['key'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->key as $item1) {
                     $res['key'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -62,7 +64,7 @@ class context extends Model
         if (null !== $this->value) {
             if (\is_array($this->value)) {
                 $res['value'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->value as $item1) {
                     $res['value'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +89,7 @@ class context extends Model
         if (isset($map['key'])) {
             if (!empty($map['key'])) {
                 $model->key = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['key'] as $item1) {
                     $model->key[$n1++] = ContentItem::fromMap($item1);
                 }
@@ -97,7 +99,7 @@ class context extends Model
         if (isset($map['value'])) {
             if (!empty($map['value'])) {
                 $model->value = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['value'] as $item1) {
                     $model->value[$n1++] = ContentItem::fromMap($item1);
                 }

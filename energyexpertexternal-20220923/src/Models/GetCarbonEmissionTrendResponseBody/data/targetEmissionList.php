@@ -13,13 +13,14 @@ class targetEmissionList extends Model
      * @var items[]
      */
     public $items;
+
     /**
      * @var string
      */
     public $year;
     protected $_name = [
         'items' => 'items',
-        'year'  => 'year',
+        'year' => 'year',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class targetEmissionList extends Model
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['items'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->items as $item1) {
                     $res['items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class targetEmissionList extends Model
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['items'] as $item1) {
                     $model->items[$n1++] = items::fromMap($item1);
                 }

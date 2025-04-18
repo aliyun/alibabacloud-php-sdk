@@ -12,6 +12,7 @@ class RecalculateCarbonEmissionRequest extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */

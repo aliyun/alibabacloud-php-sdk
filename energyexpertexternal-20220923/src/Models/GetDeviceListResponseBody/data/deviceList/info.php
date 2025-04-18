@@ -12,28 +12,32 @@ class info extends Model
      * @var int
      */
     public $constKva;
+
     /**
      * @var int
      */
     public $ct;
+
     /**
      * @var int
      */
     public $magnification;
+
     /**
      * @var int
      */
     public $pressure;
+
     /**
      * @var int
      */
     public $pt;
     protected $_name = [
-        'constKva'      => 'constKva',
-        'ct'            => 'ct',
+        'constKva' => 'constKva',
+        'ct' => 'ct',
         'magnification' => 'magnification',
-        'pressure'      => 'pressure',
-        'pt'            => 'pt',
+        'pressure' => 'pressure',
+        'pt' => 'pt',
     ];
 
     public function validate()

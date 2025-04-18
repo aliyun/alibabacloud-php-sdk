@@ -19,38 +19,44 @@ class data extends Model
      * @var light
      */
     public $light;
+
     /**
      * @var nuclear
      */
     public $nuclear;
+
     /**
      * @var renewing
      */
     public $renewing;
+
     /**
      * @var urban
      */
     public $urban;
+
     /**
      * @var water
      */
     public $water;
+
     /**
      * @var wind
      */
     public $wind;
+
     /**
      * @var zero
      */
     public $zero;
     protected $_name = [
-        'light'    => 'light',
-        'nuclear'  => 'nuclear',
+        'light' => 'light',
+        'nuclear' => 'nuclear',
         'renewing' => 'renewing',
-        'urban'    => 'urban',
-        'water'    => 'water',
-        'wind'     => 'wind',
-        'zero'     => 'zero',
+        'urban' => 'urban',
+        'water' => 'water',
+        'wind' => 'wind',
+        'zero' => 'zero',
     ];
 
     public function validate()

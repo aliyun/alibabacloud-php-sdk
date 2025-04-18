@@ -12,17 +12,19 @@ class BatchSaveInstructionStatusRequest extends Model
      * @var string
      */
     public $factoryId;
+
     /**
      * @var string
      */
     public $pKey;
+
     /**
      * @var string
      */
     public $statusList;
     protected $_name = [
-        'factoryId'  => 'factoryId',
-        'pKey'       => 'pKey',
+        'factoryId' => 'factoryId',
+        'pKey' => 'pKey',
         'statusList' => 'statusList',
     ];
 

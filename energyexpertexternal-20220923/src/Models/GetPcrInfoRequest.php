@@ -12,17 +12,19 @@ class GetPcrInfoRequest extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $productId;
+
     /**
      * @var int
      */
     public $productType;
     protected $_name = [
-        'code'        => 'code',
-        'productId'   => 'productId',
+        'code' => 'code',
+        'productId' => 'productId',
         'productType' => 'productType',
     ];
 

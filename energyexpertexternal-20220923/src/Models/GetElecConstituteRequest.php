@@ -12,6 +12,7 @@ class GetElecConstituteRequest extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */

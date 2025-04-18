@@ -13,12 +13,13 @@ class GetGwpInventoryConstituteResponseBody extends Model
      * @var data
      */
     public $data;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'data',
+        'data' => 'data',
         'requestId' => 'requestId',
     ];
 

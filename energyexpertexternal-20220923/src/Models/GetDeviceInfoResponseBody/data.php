@@ -13,27 +13,31 @@ class data extends Model
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $deviceName;
+
     /**
      * @var string
      */
     public $firstTypeName;
+
     /**
      * @var recordList[]
      */
     public $recordList;
+
     /**
      * @var string
      */
     public $secondTypeName;
     protected $_name = [
-        'deviceId'       => 'deviceId',
-        'deviceName'     => 'deviceName',
-        'firstTypeName'  => 'firstTypeName',
-        'recordList'     => 'recordList',
+        'deviceId' => 'deviceId',
+        'deviceName' => 'deviceName',
+        'firstTypeName' => 'firstTypeName',
+        'recordList' => 'recordList',
         'secondTypeName' => 'secondTypeName',
     ];
 
@@ -63,7 +67,7 @@ class data extends Model
         if (null !== $this->recordList) {
             if (\is_array($this->recordList)) {
                 $res['recordList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->recordList as $item1) {
                     $res['recordList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +104,7 @@ class data extends Model
         if (isset($map['recordList'])) {
             if (!empty($map['recordList'])) {
                 $model->recordList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['recordList'] as $item1) {
                     $model->recordList[$n1++] = recordList::fromMap($item1);
                 }

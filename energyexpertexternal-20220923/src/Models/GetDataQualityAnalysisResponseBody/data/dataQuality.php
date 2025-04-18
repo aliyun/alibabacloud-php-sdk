@@ -13,13 +13,14 @@ class dataQuality extends Model
      * @var string
      */
     public $inventory;
+
     /**
      * @var score
      */
     public $score;
     protected $_name = [
         'inventory' => 'inventory',
-        'score'     => 'score',
+        'score' => 'score',
     ];
 
     public function validate()

@@ -13,23 +13,26 @@ class ContentItem extends Model
      * @var extInfo[]
      */
     public $extInfo;
+
     /**
      * @var float
      */
     public $score;
+
     /**
      * @var string
      */
     public $text;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'extInfo' => 'extInfo',
-        'score'   => 'score',
-        'text'    => 'text',
-        'type'    => 'type',
+        'score' => 'score',
+        'text' => 'text',
+        'type' => 'type',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class ContentItem extends Model
         if (null !== $this->extInfo) {
             if (\is_array($this->extInfo)) {
                 $res['extInfo'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->extInfo as $item1) {
                     $res['extInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class ContentItem extends Model
         if (isset($map['extInfo'])) {
             if (!empty($map['extInfo'])) {
                 $model->extInfo = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['extInfo'] as $item1) {
                     $model->extInfo[$n1++] = extInfo::fromMap($item1);
                 }

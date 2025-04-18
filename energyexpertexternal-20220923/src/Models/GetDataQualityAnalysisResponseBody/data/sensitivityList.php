@@ -12,23 +12,26 @@ class sensitivityList extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $inventory;
+
     /**
      * @var string[]
      */
     public $reductionList;
+
     /**
      * @var float
      */
     public $sensitivity;
     protected $_name = [
-        'id'            => 'id',
-        'inventory'     => 'inventory',
+        'id' => 'id',
+        'inventory' => 'inventory',
         'reductionList' => 'reductionList',
-        'sensitivity'   => 'sensitivity',
+        'sensitivity' => 'sensitivity',
     ];
 
     public function validate()
@@ -53,7 +56,7 @@ class sensitivityList extends Model
         if (null !== $this->reductionList) {
             if (\is_array($this->reductionList)) {
                 $res['reductionList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->reductionList as $item1) {
                     $res['reductionList'][$n1++] = $item1;
                 }
@@ -86,7 +89,7 @@ class sensitivityList extends Model
         if (isset($map['reductionList'])) {
             if (!empty($map['reductionList'])) {
                 $model->reductionList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['reductionList'] as $item1) {
                     $model->reductionList[$n1++] = $item1;
                 }

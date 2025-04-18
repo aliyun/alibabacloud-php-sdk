@@ -12,23 +12,26 @@ class GetOrgConstituteRequest extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $moduleCode;
+
     /**
      * @var int
      */
     public $moduleType;
+
     /**
      * @var int
      */
     public $year;
     protected $_name = [
-        'code'       => 'code',
+        'code' => 'code',
         'moduleCode' => 'moduleCode',
         'moduleType' => 'moduleType',
-        'year'       => 'year',
+        'year' => 'year',
     ];
 
     public function validate()

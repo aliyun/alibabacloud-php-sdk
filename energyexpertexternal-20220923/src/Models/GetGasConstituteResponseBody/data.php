@@ -12,28 +12,32 @@ class data extends Model
      * @var float
      */
     public $carbonEmissionData;
+
     /**
      * @var float
      */
     public $gasEmissionData;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var float
      */
     public $ratio;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
         'carbonEmissionData' => 'carbonEmissionData',
-        'gasEmissionData'    => 'gasEmissionData',
-        'name'               => 'name',
-        'ratio'              => 'ratio',
-        'type'               => 'type',
+        'gasEmissionData' => 'gasEmissionData',
+        'name' => 'name',
+        'ratio' => 'ratio',
+        'type' => 'type',
     ];
 
     public function validate()

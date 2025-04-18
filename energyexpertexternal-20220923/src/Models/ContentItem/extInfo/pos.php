@@ -12,6 +12,7 @@ class pos extends Model
      * @var int
      */
     public $x;
+
     /**
      * @var int
      */

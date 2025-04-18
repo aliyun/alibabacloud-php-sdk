@@ -13,18 +13,20 @@ class PushItemDataRequest extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var items
      */
     public $items;
+
     /**
      * @var string
      */
     public $year;
     protected $_name = [
-        'code'  => 'code',
+        'code' => 'code',
         'items' => 'items',
-        'year'  => 'year',
+        'year' => 'year',
     ];
 
     public function validate()

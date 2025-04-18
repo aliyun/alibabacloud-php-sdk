@@ -12,23 +12,26 @@ class items extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $percent;
+
     /**
      * @var float
      */
     public $quantity;
+
     /**
      * @var string
      */
     public $unit;
     protected $_name = [
-        'name'     => 'name',
-        'percent'  => 'percent',
+        'name' => 'name',
+        'percent' => 'percent',
         'quantity' => 'quantity',
-        'unit'     => 'unit',
+        'unit' => 'unit',
     ];
 
     public function validate()

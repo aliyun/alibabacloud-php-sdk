@@ -12,17 +12,19 @@ class SendDocumentAskQuestionRequest extends Model
      * @var string
      */
     public $folderId;
+
     /**
      * @var string
      */
     public $prompt;
+
     /**
      * @var string
      */
     public $sessionId;
     protected $_name = [
-        'folderId'  => 'folderId',
-        'prompt'    => 'prompt',
+        'folderId' => 'folderId',
+        'prompt' => 'prompt',
         'sessionId' => 'sessionId',
     ];
 

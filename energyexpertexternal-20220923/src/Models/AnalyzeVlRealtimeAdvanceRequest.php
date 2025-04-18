@@ -13,18 +13,20 @@ class AnalyzeVlRealtimeAdvanceRequest extends Model
      * @var Stream
      */
     public $fileUrlObject;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
         'fileUrlObject' => 'fileUrl',
-        'language'      => 'language',
-        'templateId'    => 'templateId',
+        'language' => 'language',
+        'templateId' => 'templateId',
     ];
 
     public function validate()

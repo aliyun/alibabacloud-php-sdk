@@ -13,57 +13,67 @@ class ConstituteItem extends Model
      * @var float
      */
     public $carbonEmissionData;
+
     /**
      * @var string
      */
     public $dataUnit;
+
     /**
      * @var string
      */
     public $emissionSource;
+
     /**
      * @var string
      */
     public $emissionSourceKey;
+
     /**
      * @var string
      */
     public $enterpriseName;
+
     /**
      * @var envGasEmissions[]
      */
     public $envGasEmissions;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nameKey;
+
     /**
      * @var float
      */
     public $ratio;
+
     /**
      * @var float
      */
     public $rawData;
+
     /**
      * @var ConstituteItem[]
      */
     public $subConstituteItems;
     protected $_name = [
         'carbonEmissionData' => 'carbonEmissionData',
-        'dataUnit'           => 'dataUnit',
-        'emissionSource'     => 'emissionSource',
-        'emissionSourceKey'  => 'emissionSourceKey',
-        'enterpriseName'     => 'enterpriseName',
-        'envGasEmissions'    => 'envGasEmissions',
-        'name'               => 'name',
-        'nameKey'            => 'nameKey',
-        'ratio'              => 'ratio',
-        'rawData'            => 'rawData',
+        'dataUnit' => 'dataUnit',
+        'emissionSource' => 'emissionSource',
+        'emissionSourceKey' => 'emissionSourceKey',
+        'enterpriseName' => 'enterpriseName',
+        'envGasEmissions' => 'envGasEmissions',
+        'name' => 'name',
+        'nameKey' => 'nameKey',
+        'ratio' => 'ratio',
+        'rawData' => 'rawData',
         'subConstituteItems' => 'subConstituteItems',
     ];
 
@@ -104,7 +114,7 @@ class ConstituteItem extends Model
         if (null !== $this->envGasEmissions) {
             if (\is_array($this->envGasEmissions)) {
                 $res['envGasEmissions'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->envGasEmissions as $item1) {
                     $res['envGasEmissions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -130,7 +140,7 @@ class ConstituteItem extends Model
         if (null !== $this->subConstituteItems) {
             if (\is_array($this->subConstituteItems)) {
                 $res['subConstituteItems'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->subConstituteItems as $item1) {
                     $res['subConstituteItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -171,7 +181,7 @@ class ConstituteItem extends Model
         if (isset($map['envGasEmissions'])) {
             if (!empty($map['envGasEmissions'])) {
                 $model->envGasEmissions = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['envGasEmissions'] as $item1) {
                     $model->envGasEmissions[$n1++] = envGasEmissions::fromMap($item1);
                 }
@@ -197,7 +207,7 @@ class ConstituteItem extends Model
         if (isset($map['subConstituteItems'])) {
             if (!empty($map['subConstituteItems'])) {
                 $model->subConstituteItems = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['subConstituteItems'] as $item1) {
                     $model->subConstituteItems[$n1++] = self::fromMap($item1);
                 }

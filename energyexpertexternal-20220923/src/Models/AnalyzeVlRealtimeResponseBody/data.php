@@ -31,7 +31,7 @@ class data extends Model
         if (null !== $this->kvListInfo) {
             if (\is_array($this->kvListInfo)) {
                 $res['kvListInfo'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->kvListInfo as $item1) {
                     $res['kvListInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class data extends Model
         if (isset($map['kvListInfo'])) {
             if (!empty($map['kvListInfo'])) {
                 $model->kvListInfo = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['kvListInfo'] as $item1) {
                     $model->kvListInfo[$n1++] = kvListInfo::fromMap($item1);
                 }

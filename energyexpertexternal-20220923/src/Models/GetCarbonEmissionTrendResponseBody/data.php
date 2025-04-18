@@ -14,6 +14,7 @@ class data extends Model
      * @var actualEmissionList[]
      */
     public $actualEmissionList;
+
     /**
      * @var targetEmissionList[]
      */
@@ -40,7 +41,7 @@ class data extends Model
         if (null !== $this->actualEmissionList) {
             if (\is_array($this->actualEmissionList)) {
                 $res['actualEmissionList'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->actualEmissionList as $item1) {
                     $res['actualEmissionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -50,7 +51,7 @@ class data extends Model
         if (null !== $this->targetEmissionList) {
             if (\is_array($this->targetEmissionList)) {
                 $res['targetEmissionList'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->targetEmissionList as $item1) {
                     $res['targetEmissionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -71,7 +72,7 @@ class data extends Model
         if (isset($map['actualEmissionList'])) {
             if (!empty($map['actualEmissionList'])) {
                 $model->actualEmissionList = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['actualEmissionList'] as $item1) {
                     $model->actualEmissionList[$n1++] = actualEmissionList::fromMap($item1);
                 }
@@ -81,7 +82,7 @@ class data extends Model
         if (isset($map['targetEmissionList'])) {
             if (!empty($map['targetEmissionList'])) {
                 $model->targetEmissionList = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['targetEmissionList'] as $item1) {
                     $model->targetEmissionList[$n1++] = targetEmissionList::fromMap($item1);
                 }

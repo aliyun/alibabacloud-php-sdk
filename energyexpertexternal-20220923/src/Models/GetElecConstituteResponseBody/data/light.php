@@ -12,33 +12,38 @@ class light extends Model
      * @var float
      */
     public $carbonEmissionData;
+
     /**
      * @var string
      */
     public $dataUnit;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nameKey;
+
     /**
      * @var float
      */
     public $ratio;
+
     /**
      * @var float
      */
     public $rawData;
     protected $_name = [
         'carbonEmissionData' => 'carbonEmissionData',
-        'dataUnit'           => 'dataUnit',
-        'name'               => 'name',
-        'nameKey'            => 'nameKey',
-        'ratio'              => 'ratio',
-        'rawData'            => 'rawData',
+        'dataUnit' => 'dataUnit',
+        'name' => 'name',
+        'nameKey' => 'nameKey',
+        'ratio' => 'ratio',
+        'rawData' => 'rawData',
     ];
 
     public function validate()

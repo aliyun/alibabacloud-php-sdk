@@ -12,17 +12,19 @@ class AnalyzeVlRealtimeRequest extends Model
      * @var string
      */
     public $fileUrl;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'fileUrl'    => 'fileUrl',
-        'language'   => 'language',
+        'fileUrl' => 'fileUrl',
+        'language' => 'language',
         'templateId' => 'templateId',
     ];
 

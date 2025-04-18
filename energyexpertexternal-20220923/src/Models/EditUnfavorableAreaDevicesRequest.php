@@ -13,18 +13,20 @@ class EditUnfavorableAreaDevicesRequest extends Model
      * @var string
      */
     public $factoryId;
+
     /**
      * @var hvacDeviceConfigVOList[]
      */
     public $hvacDeviceConfigVOList;
+
     /**
      * @var string
      */
     public $systemId;
     protected $_name = [
-        'factoryId'              => 'factoryId',
+        'factoryId' => 'factoryId',
         'hvacDeviceConfigVOList' => 'hvacDeviceConfigVOList',
-        'systemId'               => 'systemId',
+        'systemId' => 'systemId',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class EditUnfavorableAreaDevicesRequest extends Model
         if (null !== $this->hvacDeviceConfigVOList) {
             if (\is_array($this->hvacDeviceConfigVOList)) {
                 $res['hvacDeviceConfigVOList'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->hvacDeviceConfigVOList as $item1) {
                     $res['hvacDeviceConfigVOList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class EditUnfavorableAreaDevicesRequest extends Model
         if (isset($map['hvacDeviceConfigVOList'])) {
             if (!empty($map['hvacDeviceConfigVOList'])) {
                 $model->hvacDeviceConfigVOList = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['hvacDeviceConfigVOList'] as $item1) {
                     $model->hvacDeviceConfigVOList[$n1++] = hvacDeviceConfigVOList::fromMap($item1);
                 }

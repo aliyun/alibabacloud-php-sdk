@@ -13,28 +13,32 @@ class data extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var deviceList[]
      */
     public $deviceList;
+
     /**
      * @var string
      */
     public $factoryId;
+
     /**
      * @var int
      */
     public $httpCode;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'       => 'code',
+        'code' => 'code',
         'deviceList' => 'deviceList',
-        'factoryId'  => 'factoryId',
-        'httpCode'   => 'httpCode',
-        'success'    => 'success',
+        'factoryId' => 'factoryId',
+        'httpCode' => 'httpCode',
+        'success' => 'success',
     ];
 
     public function validate()
@@ -55,7 +59,7 @@ class data extends Model
         if (null !== $this->deviceList) {
             if (\is_array($this->deviceList)) {
                 $res['deviceList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->deviceList as $item1) {
                     $res['deviceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -92,7 +96,7 @@ class data extends Model
         if (isset($map['deviceList'])) {
             if (!empty($map['deviceList'])) {
                 $model->deviceList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['deviceList'] as $item1) {
                     $model->deviceList[$n1++] = deviceList::fromMap($item1);
                 }

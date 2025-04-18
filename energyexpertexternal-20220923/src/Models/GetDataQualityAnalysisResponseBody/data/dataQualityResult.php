@@ -12,28 +12,32 @@ class dataQualityResult extends Model
      * @var float
      */
     public $dataQualityScore;
+
     /**
      * @var float
      */
     public $g1;
+
     /**
      * @var float
      */
     public $g2;
+
     /**
      * @var float
      */
     public $g3;
+
     /**
      * @var float
      */
     public $g4;
     protected $_name = [
         'dataQualityScore' => 'data_quality_score',
-        'g1'               => 'g1',
-        'g2'               => 'g2',
-        'g3'               => 'g3',
-        'g4'               => 'g4',
+        'g1' => 'g1',
+        'g2' => 'g2',
+        'g3' => 'g3',
+        'g4' => 'g4',
     ];
 
     public function validate()

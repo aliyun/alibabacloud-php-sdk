@@ -13,17 +13,19 @@ class kvListInfo extends Model
      * @var context
      */
     public $context;
+
     /**
      * @var string
      */
     public $keyName;
+
     /**
      * @var string
      */
     public $keyValue;
     protected $_name = [
-        'context'  => 'context',
-        'keyName'  => 'keyName',
+        'context' => 'context',
+        'keyName' => 'keyName',
         'keyValue' => 'keyValue',
     ];
 

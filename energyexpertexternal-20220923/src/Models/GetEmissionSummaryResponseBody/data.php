@@ -12,53 +12,62 @@ class data extends Model
      * @var float
      */
     public $actualEmissionRatio;
+
     /**
      * @var float
      */
     public $carbonSaveConversion;
+
     /**
      * @var float
      */
     public $currentPeriodCarbonEmissionData;
+
     /**
      * @var bool
      */
     public $isWeighting;
+
     /**
      * @var float
      */
     public $lastPeriodCarbonEmissionData;
+
     /**
      * @var float
      */
     public $lastPeriodWeightingCarbonEmissionData;
+
     /**
      * @var float
      */
     public $ratio;
+
     /**
      * @var float
      */
     public $totalCarbonEmissionData;
+
     /**
      * @var float
      */
     public $weightingCarbonEmissionData;
+
     /**
      * @var float
      */
     public $weightingRatio;
     protected $_name = [
-        'actualEmissionRatio'                   => 'actualEmissionRatio',
-        'carbonSaveConversion'                  => 'carbonSaveConversion',
-        'currentPeriodCarbonEmissionData'       => 'currentPeriodCarbonEmissionData',
-        'isWeighting'                           => 'isWeighting',
-        'lastPeriodCarbonEmissionData'          => 'lastPeriodCarbonEmissionData',
+        'actualEmissionRatio' => 'actualEmissionRatio',
+        'carbonSaveConversion' => 'carbonSaveConversion',
+        'currentPeriodCarbonEmissionData' => 'currentPeriodCarbonEmissionData',
+        'isWeighting' => 'isWeighting',
+        'lastPeriodCarbonEmissionData' => 'lastPeriodCarbonEmissionData',
         'lastPeriodWeightingCarbonEmissionData' => 'lastPeriodWeightingCarbonEmissionData',
-        'ratio'                                 => 'ratio',
-        'totalCarbonEmissionData'               => 'totalCarbonEmissionData',
-        'weightingCarbonEmissionData'           => 'weightingCarbonEmissionData',
-        'weightingRatio'                        => 'weightingRatio',
+        'ratio' => 'ratio',
+        'totalCarbonEmissionData' => 'totalCarbonEmissionData',
+        'weightingCarbonEmissionData' => 'weightingCarbonEmissionData',
+        'weightingRatio' => 'weightingRatio',
     ];
 
     public function validate()

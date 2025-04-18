@@ -12,16 +12,18 @@ class items extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $month;
+
     /**
      * @var float
      */
     public $value;
     protected $_name = [
-        'code'  => 'code',
+        'code' => 'code',
         'month' => 'month',
         'value' => 'value',
     ];

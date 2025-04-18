@@ -12,22 +12,25 @@ class GetFootprintListRequest extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $productType;
     protected $_name = [
-        'code'        => 'code',
+        'code' => 'code',
         'currentPage' => 'currentPage',
-        'pageSize'    => 'pageSize',
+        'pageSize' => 'pageSize',
         'productType' => 'productType',
     ];
 

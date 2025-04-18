@@ -12,6 +12,7 @@ class GetAreaElecConstituteRequest extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */

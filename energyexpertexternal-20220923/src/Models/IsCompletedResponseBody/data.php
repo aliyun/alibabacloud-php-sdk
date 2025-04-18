@@ -12,23 +12,26 @@ class data extends Model
      * @var int
      */
     public $modifiedTime;
+
     /**
      * @var string
      */
     public $taskKey;
+
     /**
      * @var string
      */
     public $taskShortResult;
+
     /**
      * @var string
      */
     public $taskStatus;
     protected $_name = [
-        'modifiedTime'    => 'modifiedTime',
-        'taskKey'         => 'taskKey',
+        'modifiedTime' => 'modifiedTime',
+        'taskKey' => 'taskKey',
         'taskShortResult' => 'taskShortResult',
-        'taskStatus'      => 'taskStatus',
+        'taskStatus' => 'taskStatus',
     ];
 
     public function validate()

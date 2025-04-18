@@ -12,28 +12,32 @@ class GetCarbonEmissionTrendRequest extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $moduleCode;
+
     /**
      * @var int
      */
     public $moduleType;
+
     /**
      * @var int
      */
     public $trendType;
+
     /**
      * @var int[]
      */
     public $yearList;
     protected $_name = [
-        'code'       => 'code',
+        'code' => 'code',
         'moduleCode' => 'moduleCode',
         'moduleType' => 'moduleType',
-        'trendType'  => 'trendType',
-        'yearList'   => 'yearList',
+        'trendType' => 'trendType',
+        'yearList' => 'yearList',
     ];
 
     public function validate()
@@ -66,7 +70,7 @@ class GetCarbonEmissionTrendRequest extends Model
         if (null !== $this->yearList) {
             if (\is_array($this->yearList)) {
                 $res['yearList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->yearList as $item1) {
                     $res['yearList'][$n1++] = $item1;
                 }
@@ -103,7 +107,7 @@ class GetCarbonEmissionTrendRequest extends Model
         if (isset($map['yearList'])) {
             if (!empty($map['yearList'])) {
                 $model->yearList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['yearList'] as $item1) {
                     $model->yearList[$n1++] = $item1;
                 }
