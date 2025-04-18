@@ -4,21 +4,23 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest;
 
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\BandwidthLimit;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ForwardInfo;
-use AlibabaCloud\Tea\Model;
 
 class userVpc extends Model
 {
     /**
-     * @example eth0 | eth1
-     *
+     * @var BandwidthLimit
+     */
+    public $bandwidthLimit;
+
+    /**
      * @var string
      */
     public $defaultRoute;
 
     /**
-     * @example ["192.168.0.1/24", "192.168.1.1/24"]
-     *
      * @var string[]
      */
     public $extendedCIDRs;
@@ -29,62 +31,82 @@ class userVpc extends Model
     public $forwardInfos;
 
     /**
-     * @example sg-xxxxxx
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @example vsw-xxxxx
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @example vpc-xxxxx
-     *
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'defaultRoute'    => 'DefaultRoute',
-        'extendedCIDRs'   => 'ExtendedCIDRs',
-        'forwardInfos'    => 'ForwardInfos',
+        'bandwidthLimit' => 'BandwidthLimit',
+        'defaultRoute' => 'DefaultRoute',
+        'extendedCIDRs' => 'ExtendedCIDRs',
+        'forwardInfos' => 'ForwardInfos',
         'securityGroupId' => 'SecurityGroupId',
-        'vSwitchId'       => 'VSwitchId',
-        'vpcId'           => 'VpcId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
     {
+        if (null !== $this->bandwidthLimit) {
+            $this->bandwidthLimit->validate();
+        }
+        if (\is_array($this->extendedCIDRs)) {
+            Model::validateArray($this->extendedCIDRs);
+        }
+        if (\is_array($this->forwardInfos)) {
+            Model::validateArray($this->forwardInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bandwidthLimit) {
+            $res['BandwidthLimit'] = null !== $this->bandwidthLimit ? $this->bandwidthLimit->toArray($noStream) : $this->bandwidthLimit;
+        }
+
         if (null !== $this->defaultRoute) {
             $res['DefaultRoute'] = $this->defaultRoute;
         }
+
         if (null !== $this->extendedCIDRs) {
-            $res['ExtendedCIDRs'] = $this->extendedCIDRs;
-        }
-        if (null !== $this->forwardInfos) {
-            $res['ForwardInfos'] = [];
-            if (null !== $this->forwardInfos && \is_array($this->forwardInfos)) {
-                $n = 0;
-                foreach ($this->forwardInfos as $item) {
-                    $res['ForwardInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->extendedCIDRs)) {
+                $res['ExtendedCIDRs'] = [];
+                $n1 = 0;
+                foreach ($this->extendedCIDRs as $item1) {
+                    $res['ExtendedCIDRs'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->forwardInfos) {
+            if (\is_array($this->forwardInfos)) {
+                $res['ForwardInfos'] = [];
+                $n1 = 0;
+                foreach ($this->forwardInfos as $item1) {
+                    $res['ForwardInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -92,37 +114,50 @@ class userVpc extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userVpc
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BandwidthLimit'])) {
+            $model->bandwidthLimit = BandwidthLimit::fromMap($map['BandwidthLimit']);
+        }
+
         if (isset($map['DefaultRoute'])) {
             $model->defaultRoute = $map['DefaultRoute'];
         }
+
         if (isset($map['ExtendedCIDRs'])) {
             if (!empty($map['ExtendedCIDRs'])) {
-                $model->extendedCIDRs = $map['ExtendedCIDRs'];
-            }
-        }
-        if (isset($map['ForwardInfos'])) {
-            if (!empty($map['ForwardInfos'])) {
-                $model->forwardInfos = [];
-                $n                   = 0;
-                foreach ($map['ForwardInfos'] as $item) {
-                    $model->forwardInfos[$n++] = null !== $item ? ForwardInfo::fromMap($item) : $item;
+                $model->extendedCIDRs = [];
+                $n1 = 0;
+                foreach ($map['ExtendedCIDRs'] as $item1) {
+                    $model->extendedCIDRs[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['ForwardInfos'])) {
+            if (!empty($map['ForwardInfos'])) {
+                $model->forwardInfos = [];
+                $n1 = 0;
+                foreach ($map['ForwardInfos'] as $item1) {
+                    $model->forwardInfos[$n1++] = ForwardInfo::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

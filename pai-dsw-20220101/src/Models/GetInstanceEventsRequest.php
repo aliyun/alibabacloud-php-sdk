@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetInstanceEventsRequest extends Model
 {
     /**
-     * @example 2020-11-08T15:00:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @example 2000
-     *
      * @var int
      */
     public $maxEventsNum;
 
     /**
-     * @example 2020-11-08T15:00:00Z
-     *
      * @var string
      */
     public $startTime;
@@ -34,28 +28,32 @@ class GetInstanceEventsRequest extends Model
      */
     public $token;
     protected $_name = [
-        'endTime'      => 'EndTime',
+        'endTime' => 'EndTime',
         'maxEventsNum' => 'MaxEventsNum',
-        'startTime'    => 'StartTime',
-        'token'        => 'Token',
+        'startTime' => 'StartTime',
+        'token' => 'Token',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->maxEventsNum) {
             $res['MaxEventsNum'] = $this->maxEventsNum;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->token) {
             $res['Token'] = $this->token;
         }
@@ -63,23 +61,26 @@ class GetInstanceEventsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceEventsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['MaxEventsNum'])) {
             $model->maxEventsNum = $map['MaxEventsNum'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
         }

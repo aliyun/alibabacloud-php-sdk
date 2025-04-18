@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\affinity;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CPU extends Model
 {
@@ -18,9 +18,10 @@ class CPU extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enable) {
@@ -30,11 +31,11 @@ class CPU extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CPU
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

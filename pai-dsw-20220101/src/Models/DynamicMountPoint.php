@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceMetricsResponseBody\podMetrics;
+namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class metrics extends Model
+class DynamicMountPoint extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $time;
+    public $options;
 
     /**
-     * @var float
+     * @var string
      */
-    public $value;
+    public $rootPath;
     protected $_name = [
-        'time' => 'Time',
-        'value' => 'Value',
+        'options' => 'Options',
+        'rootPath' => 'RootPath',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class metrics extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
+        if (null !== $this->options) {
+            $res['Options'] = $this->options;
         }
 
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->rootPath) {
+            $res['RootPath'] = $this->rootPath;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class metrics extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
+        if (isset($map['Options'])) {
+            $model->options = $map['Options'];
         }
 
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['RootPath'])) {
+            $model->rootPath = $map['RootPath'];
         }
 
         return $model;

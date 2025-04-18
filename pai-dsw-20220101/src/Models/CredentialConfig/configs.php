@@ -4,16 +4,12 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\CredentialConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CredentialConfig\configs\roles;
-use AlibabaCloud\Tea\Model;
 
 class configs extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $key;
@@ -24,38 +20,40 @@ class configs extends Model
     public $roles;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example Role
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'roles' => 'Roles',
-        'type'  => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->roles)) {
+            Model::validateArray($this->roles);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->roles) {
-            $res['Roles'] = [];
-            if (null !== $this->roles && \is_array($this->roles)) {
-                $n = 0;
-                foreach ($this->roles as $item) {
-                    $res['Roles'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->roles)) {
+                $res['Roles'] = [];
+                $n1 = 0;
+                foreach ($this->roles as $item1) {
+                    $res['Roles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -63,26 +61,28 @@ class configs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Roles'])) {
             if (!empty($map['Roles'])) {
                 $model->roles = [];
-                $n            = 0;
-                foreach ($map['Roles'] as $item) {
-                    $model->roles[$n++] = null !== $item ? roles::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Roles'] as $item1) {
+                    $model->roles[$n1++] = roles::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

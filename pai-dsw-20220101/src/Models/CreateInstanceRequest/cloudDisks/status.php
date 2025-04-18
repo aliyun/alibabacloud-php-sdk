@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\cloudDisks;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class status extends Model
 {
@@ -24,23 +24,26 @@ class status extends Model
     public $usage;
     protected $_name = [
         'available' => 'Available',
-        'capacity'  => 'Capacity',
-        'usage'     => 'Usage',
+        'capacity' => 'Capacity',
+        'usage' => 'Usage',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->available) {
             $res['Available'] = $this->available;
         }
+
         if (null !== $this->capacity) {
             $res['Capacity'] = $this->capacity;
         }
+
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
         }
@@ -48,20 +51,22 @@ class status extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return status
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Available'])) {
             $model->available = $map['Available'];
         }
+
         if (isset($map['Capacity'])) {
             $model->capacity = $map['Capacity'];
         }
+
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
         }

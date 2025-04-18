@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\affinity\CPU;
-use AlibabaCloud\Tea\Model;
 
 class affinity extends Model
 {
@@ -19,23 +19,27 @@ class affinity extends Model
 
     public function validate()
     {
+        if (null !== $this->CPU) {
+            $this->CPU->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->CPU) {
-            $res['CPU'] = null !== $this->CPU ? $this->CPU->toMap() : null;
+            $res['CPU'] = null !== $this->CPU ? $this->CPU->toArray($noStream) : $this->CPU;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return affinity
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

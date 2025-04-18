@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListInstanceStatisticsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 27218,34956
-     *
      * @var string
      */
     public $workspaceIds;
@@ -22,9 +18,10 @@ class ListInstanceStatisticsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->workspaceIds) {
@@ -34,11 +31,11 @@ class ListInstanceStatisticsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstanceStatisticsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

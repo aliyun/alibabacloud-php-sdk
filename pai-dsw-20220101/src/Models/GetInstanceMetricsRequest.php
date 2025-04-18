@@ -4,62 +4,56 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetInstanceMetricsRequest extends Model
 {
     /**
-     * @example 2020-11-08T15:00:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example GpuCoreUsage
-     *
      * @var string
      */
     public $metricType;
 
     /**
-     * @example 2020-11-08T15:00:00Z
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @example 15m
-     *
      * @var string
      */
     public $timeStep;
     protected $_name = [
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'metricType' => 'MetricType',
-        'startTime'  => 'StartTime',
-        'timeStep'   => 'TimeStep',
+        'startTime' => 'StartTime',
+        'timeStep' => 'TimeStep',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->metricType) {
             $res['MetricType'] = $this->metricType;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->timeStep) {
             $res['TimeStep'] = $this->timeStep;
         }
@@ -67,23 +61,26 @@ class GetInstanceMetricsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceMetricsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['MetricType'])) {
             $model->metricType = $map['MetricType'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['TimeStep'])) {
             $model->timeStep = $map['TimeStep'];
         }
