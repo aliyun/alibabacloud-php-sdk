@@ -1,3 +1,6 @@
+2025-04-18 Version: 1.0.6
+- Generated php 2020-03-20 for videoseg.
+
 2023-03-10 Version: 1.0.5
 - Update videoseg.
 
