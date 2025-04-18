@@ -7951,6 +7951,10 @@ class Aiccs extends OpenApiClient
         $tmpReq->validate();
         $request = new LlmSmartCallShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizParam) {
+            $request->bizParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizParam, 'BizParam', 'json');
+        }
+
         if (null !== $tmpReq->promptParam) {
             $request->promptParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->promptParam, 'PromptParam', 'json');
         }
@@ -7962,6 +7966,10 @@ class Aiccs extends OpenApiClient
         $query = [];
         if (null !== $request->applicationCode) {
             @$query['ApplicationCode'] = $request->applicationCode;
+        }
+
+        if (null !== $request->bizParamShrink) {
+            @$query['BizParam'] = $request->bizParamShrink;
         }
 
         if (null !== $request->calledNumber) {

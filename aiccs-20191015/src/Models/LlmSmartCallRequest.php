@@ -14,6 +14,11 @@ class LlmSmartCallRequest extends Model
     public $applicationCode;
 
     /**
+     * @var mixed[]
+     */
+    public $bizParam;
+
+    /**
      * @var string
      */
     public $calledNumber;
@@ -39,6 +44,7 @@ class LlmSmartCallRequest extends Model
     public $startWordParam;
     protected $_name = [
         'applicationCode' => 'ApplicationCode',
+        'bizParam' => 'BizParam',
         'calledNumber' => 'CalledNumber',
         'callerNumber' => 'CallerNumber',
         'outId' => 'OutId',
@@ -48,6 +54,9 @@ class LlmSmartCallRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->bizParam)) {
+            Model::validateArray($this->bizParam);
+        }
         if (\is_array($this->promptParam)) {
             Model::validateArray($this->promptParam);
         }
@@ -62,6 +71,15 @@ class LlmSmartCallRequest extends Model
         $res = [];
         if (null !== $this->applicationCode) {
             $res['ApplicationCode'] = $this->applicationCode;
+        }
+
+        if (null !== $this->bizParam) {
+            if (\is_array($this->bizParam)) {
+                $res['BizParam'] = [];
+                foreach ($this->bizParam as $key1 => $value1) {
+                    $res['BizParam'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->calledNumber) {
@@ -107,6 +125,15 @@ class LlmSmartCallRequest extends Model
         $model = new self();
         if (isset($map['ApplicationCode'])) {
             $model->applicationCode = $map['ApplicationCode'];
+        }
+
+        if (isset($map['BizParam'])) {
+            if (!empty($map['BizParam'])) {
+                $model->bizParam = [];
+                foreach ($map['BizParam'] as $key1 => $value1) {
+                    $model->bizParam[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['CalledNumber'])) {

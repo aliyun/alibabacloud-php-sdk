@@ -16,6 +16,11 @@ class LlmSmartCallShrinkRequest extends Model
     /**
      * @var string
      */
+    public $bizParamShrink;
+
+    /**
+     * @var string
+     */
     public $calledNumber;
 
     /**
@@ -39,6 +44,7 @@ class LlmSmartCallShrinkRequest extends Model
     public $startWordParamShrink;
     protected $_name = [
         'applicationCode' => 'ApplicationCode',
+        'bizParamShrink' => 'BizParam',
         'calledNumber' => 'CalledNumber',
         'callerNumber' => 'CallerNumber',
         'outId' => 'OutId',
@@ -56,6 +62,10 @@ class LlmSmartCallShrinkRequest extends Model
         $res = [];
         if (null !== $this->applicationCode) {
             $res['ApplicationCode'] = $this->applicationCode;
+        }
+
+        if (null !== $this->bizParamShrink) {
+            $res['BizParam'] = $this->bizParamShrink;
         }
 
         if (null !== $this->calledNumber) {
@@ -91,6 +101,10 @@ class LlmSmartCallShrinkRequest extends Model
         $model = new self();
         if (isset($map['ApplicationCode'])) {
             $model->applicationCode = $map['ApplicationCode'];
+        }
+
+        if (isset($map['BizParam'])) {
+            $model->bizParamShrink = $map['BizParam'];
         }
 
         if (isset($map['CalledNumber'])) {
