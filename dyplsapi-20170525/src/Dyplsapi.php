@@ -33,6 +33,8 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ConfigXResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\ConfigXShrinkRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateAxgGroupRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateAxgGroupResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateFixedNoAReportRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateFixedNoAReportResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePhoneNoAReportRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePhoneNoAReportResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillPreQueryRequest;
@@ -194,11 +196,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddAxnTrackNoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddAxnTrackNoResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddAxnTrackNoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -278,11 +277,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddSecretBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddSecretBlacklistResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddSecretBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -378,11 +374,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BindAXBCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BindAXBCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return BindAXBCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -515,11 +508,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BindAxbResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BindAxbResponse::fromMap($this->execute($params, $req, $runtime));
+        return BindAxbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -653,11 +643,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BindAxgResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BindAxgResponse::fromMap($this->execute($params, $req, $runtime));
+        return BindAxgResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -797,11 +784,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BindAxnResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BindAxnResponse::fromMap($this->execute($params, $req, $runtime));
+        return BindAxnResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -937,11 +921,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BindAxnExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BindAxnExtensionResponse::fromMap($this->execute($params, $req, $runtime));
+        return BindAxnExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1022,11 +1003,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BindBatchAxgResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BindBatchAxgResponse::fromMap($this->execute($params, $req, $runtime));
+        return BindBatchAxgResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1112,11 +1090,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BindXBResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BindXBResponse::fromMap($this->execute($params, $req, $runtime));
+        return BindXBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1206,11 +1181,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BuySecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BuySecretNoResponse::fromMap($this->execute($params, $req, $runtime));
+        return BuySecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1292,11 +1264,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelPickUpWaybillResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelPickUpWaybillResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelPickUpWaybillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1410,11 +1379,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfigXResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfigXResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfigXResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1498,11 +1464,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAxgGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAxgGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAxgGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1525,6 +1488,119 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAxgGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通过API收集小号a号码固话.
+     *
+     * @param request - CreateFixedNoAReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFixedNoAReportResponse
+     *
+     * @param CreateFixedNoAReportRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateFixedNoAReportResponse
+     */
+    public function createFixedNoAReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ANoWhiteGroupId) {
+            @$query['ANoWhiteGroupId'] = $request->ANoWhiteGroupId;
+        }
+
+        if (null !== $request->custName) {
+            @$query['CustName'] = $request->custName;
+        }
+
+        if (null !== $request->custPhoneNo) {
+            @$query['CustPhoneNo'] = $request->custPhoneNo;
+        }
+
+        if (null !== $request->custType) {
+            @$query['CustType'] = $request->custType;
+        }
+
+        if (null !== $request->documentNumber) {
+            @$query['DocumentNumber'] = $request->documentNumber;
+        }
+
+        if (null !== $request->documentType) {
+            @$query['DocumentType'] = $request->documentType;
+        }
+
+        if (null !== $request->fixedLineWorkId) {
+            @$query['FixedLineWorkId'] = $request->fixedLineWorkId;
+        }
+
+        if (null !== $request->fixedNoA) {
+            @$query['FixedNoA'] = $request->fixedNoA;
+        }
+
+        if (null !== $request->idCardAlivePhoto) {
+            @$query['IdCardAlivePhoto'] = $request->idCardAlivePhoto;
+        }
+
+        if (null !== $request->idCardBackPhoto) {
+            @$query['IdCardBackPhoto'] = $request->idCardBackPhoto;
+        }
+
+        if (null !== $request->idCardFrontPhoto) {
+            @$query['IdCardFrontPhoto'] = $request->idCardFrontPhoto;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFixedNoAReport',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateFixedNoAReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通过API收集小号a号码固话.
+     *
+     * @param request - CreateFixedNoAReportRequest
+     *
+     * @returns CreateFixedNoAReportResponse
+     *
+     * @param CreateFixedNoAReportRequest $request
+     *
+     * @return CreateFixedNoAReportResponse
+     */
+    public function createFixedNoAReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFixedNoAReportWithOptions($request, $runtime);
     }
 
     /**
@@ -1606,11 +1682,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePhoneNoAReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePhoneNoAReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePhoneNoAReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1744,11 +1817,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePickUpWaybillResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePickUpWaybillResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePickUpWaybillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1842,11 +1912,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePickUpWaybillPreQueryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePickUpWaybillPreQueryResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePickUpWaybillPreQueryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1934,11 +2001,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSmsSignResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2008,11 +2072,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAxgGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAxgGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAxgGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2086,11 +2147,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSecretBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSecretBlacklistResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSecretBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2162,11 +2220,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDyplsOSSInfoForUploadFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDyplsOSSInfoForUploadFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDyplsOSSInfoForUploadFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2235,11 +2290,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSecretAsrDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSecretAsrDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSecretAsrDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2328,11 +2380,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTotalPublicUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTotalPublicUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTotalPublicUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2416,11 +2465,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetXConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetXConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetXConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2500,11 +2546,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetXDefaultConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetXDefaultConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetXDefaultConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2588,11 +2631,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListXTelephonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListXTelephonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListXTelephonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2669,11 +2709,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return LockSecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return LockSecretNoResponse::fromMap($this->execute($params, $req, $runtime));
+        return LockSecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2763,11 +2800,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return OperateAxgGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OperateAxgGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return OperateAxgGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2857,11 +2891,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return OperateBlackNoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OperateBlackNoResponse::fromMap($this->execute($params, $req, $runtime));
+        return OperateBlackNoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2946,11 +2977,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryPhoneNoAByTrackNoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryPhoneNoAByTrackNoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryPhoneNoAByTrackNoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3045,11 +3073,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryRecordFileDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryRecordFileDownloadUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryRecordFileDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3136,11 +3161,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QuerySecretNoDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QuerySecretNoDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return QuerySecretNoDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3223,11 +3245,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QuerySecretNoRemainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QuerySecretNoRemainResponse::fromMap($this->execute($params, $req, $runtime));
+        return QuerySecretNoRemainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3310,11 +3329,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QuerySoundRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QuerySoundRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return QuerySoundRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3389,11 +3405,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QuerySubsIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QuerySubsIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return QuerySubsIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3482,11 +3495,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QuerySubscriptionDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QuerySubscriptionDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return QuerySubscriptionDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3568,11 +3578,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleaseSecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseSecretNoResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseSecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3656,11 +3663,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnBindAXBResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnBindAXBResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnBindAXBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3744,11 +3748,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnBindXBResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnBindXBResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnBindXBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3831,11 +3832,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnbindSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnbindSubscriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnbindSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3915,11 +3913,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnlockSecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnlockSecretNoResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnlockSecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4056,11 +4051,8 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSubscriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
