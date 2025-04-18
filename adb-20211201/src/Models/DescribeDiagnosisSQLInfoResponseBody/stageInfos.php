@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class stageInfos extends Model
 {
     /**
+     * @var string
+     */
+    public $executionType;
+
+    /**
      * @var int
      */
     public $inputDataSize;
@@ -53,6 +58,7 @@ class stageInfos extends Model
      */
     public $state;
     protected $_name = [
+        'executionType' => 'ExecutionType',
         'inputDataSize' => 'InputDataSize',
         'inputRows' => 'InputRows',
         'operatorCost' => 'OperatorCost',
@@ -72,6 +78,10 @@ class stageInfos extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->executionType) {
+            $res['ExecutionType'] = $this->executionType;
+        }
+
         if (null !== $this->inputDataSize) {
             $res['InputDataSize'] = $this->inputDataSize;
         }
@@ -119,6 +129,10 @@ class stageInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExecutionType'])) {
+            $model->executionType = $map['ExecutionType'];
+        }
+
         if (isset($map['InputDataSize'])) {
             $model->inputDataSize = $map['InputDataSize'];
         }

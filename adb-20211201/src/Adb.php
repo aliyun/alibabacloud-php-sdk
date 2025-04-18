@@ -6928,7 +6928,35 @@ class Adb extends OpenApiClient
     public function describeDiagnosisSQLInfoWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->processId) {
+            @$query['ProcessId'] = $request->processId;
+        }
+
+        if (null !== $request->processRcHost) {
+            @$query['ProcessRcHost'] = $request->processRcHost;
+        }
+
+        if (null !== $request->processStartTime) {
+            @$query['ProcessStartTime'] = $request->processStartTime;
+        }
+
+        if (null !== $request->processState) {
+            @$query['ProcessState'] = $request->processState;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -6937,7 +6965,7 @@ class Adb extends OpenApiClient
             'version' => '2021-12-01',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
