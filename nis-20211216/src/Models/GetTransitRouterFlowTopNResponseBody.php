@@ -4,47 +4,46 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetTransitRouterFlowTopNResponseBody\transitRouterFlowTopN;
-use AlibabaCloud\Tea\Model;
 
 class GetTransitRouterFlowTopNResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example D5E98683-355B-5867-8D3D-A24755F6895B
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ranking result of inter-region traffic data.
-     *
      * @var transitRouterFlowTopN[]
      */
     public $transitRouterFlowTopN;
     protected $_name = [
-        'requestId'             => 'RequestId',
+        'requestId' => 'RequestId',
         'transitRouterFlowTopN' => 'TransitRouterFlowTopN',
     ];
 
     public function validate()
     {
+        if (\is_array($this->transitRouterFlowTopN)) {
+            Model::validateArray($this->transitRouterFlowTopN);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->transitRouterFlowTopN) {
-            $res['TransitRouterFlowTopN'] = [];
-            if (null !== $this->transitRouterFlowTopN && \is_array($this->transitRouterFlowTopN)) {
-                $n = 0;
-                foreach ($this->transitRouterFlowTopN as $item) {
-                    $res['TransitRouterFlowTopN'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->transitRouterFlowTopN)) {
+                $res['TransitRouterFlowTopN'] = [];
+                $n1 = 0;
+                foreach ($this->transitRouterFlowTopN as $item1) {
+                    $res['TransitRouterFlowTopN'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +51,24 @@ class GetTransitRouterFlowTopNResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTransitRouterFlowTopNResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TransitRouterFlowTopN'])) {
             if (!empty($map['TransitRouterFlowTopN'])) {
                 $model->transitRouterFlowTopN = [];
-                $n                            = 0;
-                foreach ($map['TransitRouterFlowTopN'] as $item) {
-                    $model->transitRouterFlowTopN[$n++] = null !== $item ? transitRouterFlowTopN::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TransitRouterFlowTopN'] as $item1) {
+                    $model->transitRouterFlowTopN[$n1++] = transitRouterFlowTopN::fromMap($item1);
                 }
             }
         }

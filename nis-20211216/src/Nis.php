@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Nis\V20211216\Models\CreateAndAnalyzeNetworkPathRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\CreateAndAnalyzeNetworkPathResponse;
 use AlibabaCloud\SDK\Nis\V20211216\Models\CreateNetworkPathRequest;
@@ -61,11 +60,10 @@ use AlibabaCloud\SDK\Nis\V20211216\Models\StartNisInspectionTaskRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\StartNisInspectionTaskResponse;
 use AlibabaCloud\SDK\Nis\V20211216\Models\UpdateNisInspectionTaskRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\UpdateNisInspectionTaskResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Nis extends OpenApiClient
 {
@@ -90,56 +88,68 @@ class Nis extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Initiates a task for analyzing network reachability.
-     *  *
-     * @description You can call this operation to initiate a task for analyzing network reachability by specifying only the information about the source and destination. You do not need to create a network path for reachability analysis. The analysis result is not recorded in the system. If you want to record the path parameters and analysis result in the Network Intelligence Service (NIS) console, we recommend that you call the **createNetworkReachableAnalysis** operation.
-     *  *
-     * @param CreateAndAnalyzeNetworkPathRequest $request CreateAndAnalyzeNetworkPathRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Initiates a task for analyzing network reachability.
      *
-     * @return CreateAndAnalyzeNetworkPathResponse CreateAndAnalyzeNetworkPathResponse
+     * @remarks
+     * You can call this operation to initiate a task for analyzing network reachability by specifying only the information about the source and destination. You do not need to create a network path for reachability analysis. The analysis result is not recorded in the system. If you want to record the path parameters and analysis result in the Network Intelligence Service (NIS) console, we recommend that you call the **createNetworkReachableAnalysis** operation.
+     *
+     * @param request - CreateAndAnalyzeNetworkPathRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAndAnalyzeNetworkPathResponse
+     *
+     * @param CreateAndAnalyzeNetworkPathRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateAndAnalyzeNetworkPathResponse
      */
     public function createAndAnalyzeNetworkPathWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAndAnalyzeNetworkPath',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAndAnalyzeNetworkPath',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateAndAnalyzeNetworkPathResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Initiates a task for analyzing network reachability.
-     *  *
-     * @description You can call this operation to initiate a task for analyzing network reachability by specifying only the information about the source and destination. You do not need to create a network path for reachability analysis. The analysis result is not recorded in the system. If you want to record the path parameters and analysis result in the Network Intelligence Service (NIS) console, we recommend that you call the **createNetworkReachableAnalysis** operation.
-     *  *
-     * @param CreateAndAnalyzeNetworkPathRequest $request CreateAndAnalyzeNetworkPathRequest
+     * Initiates a task for analyzing network reachability.
      *
-     * @return CreateAndAnalyzeNetworkPathResponse CreateAndAnalyzeNetworkPathResponse
+     * @remarks
+     * You can call this operation to initiate a task for analyzing network reachability by specifying only the information about the source and destination. You do not need to create a network path for reachability analysis. The analysis result is not recorded in the system. If you want to record the path parameters and analysis result in the Network Intelligence Service (NIS) console, we recommend that you call the **createNetworkReachableAnalysis** operation.
+     *
+     * @param request - CreateAndAnalyzeNetworkPathRequest
+     *
+     * @returns CreateAndAnalyzeNetworkPathResponse
+     *
+     * @param CreateAndAnalyzeNetworkPathRequest $request
+     *
+     * @return CreateAndAnalyzeNetworkPathResponse
      */
     public function createAndAnalyzeNetworkPath($request)
     {
@@ -149,89 +159,114 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary Creates a network path in the cloud for reachability analysis.
-     *  *
-     * @description *   You can call the **CreateNetworkPath** operation to create network paths in multiple networking scenarios and between multiple resources. After a path is created, the path parameters are saved for repeated analysis.
-     * *   You can create up to 100 network paths within one Alibaba Cloud account.
-     *  *
-     * @param CreateNetworkPathRequest $request CreateNetworkPathRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates a network path in the cloud for reachability analysis.
      *
-     * @return CreateNetworkPathResponse CreateNetworkPathResponse
+     * @remarks
+     *   You can call the **CreateNetworkPath** operation to create network paths in multiple networking scenarios and between multiple resources. After a path is created, the path parameters are saved for repeated analysis.
+     * *   You can create up to 100 network paths within one Alibaba Cloud account.
+     *
+     * @param request - CreateNetworkPathRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNetworkPathResponse
+     *
+     * @param CreateNetworkPathRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateNetworkPathResponse
      */
     public function createNetworkPathWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->networkPathDescription)) {
-            $query['NetworkPathDescription'] = $request->networkPathDescription;
+        if (null !== $request->networkPathDescription) {
+            @$query['NetworkPathDescription'] = $request->networkPathDescription;
         }
-        if (!Utils::isUnset($request->networkPathName)) {
-            $query['NetworkPathName'] = $request->networkPathName;
+
+        if (null !== $request->networkPathName) {
+            @$query['NetworkPathName'] = $request->networkPathName;
         }
-        if (!Utils::isUnset($request->protocol)) {
-            $query['Protocol'] = $request->protocol;
+
+        if (null !== $request->protocol) {
+            @$query['Protocol'] = $request->protocol;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceId)) {
-            $query['SourceId'] = $request->sourceId;
+
+        if (null !== $request->sourceId) {
+            @$query['SourceId'] = $request->sourceId;
         }
-        if (!Utils::isUnset($request->sourceIpAddress)) {
-            $query['SourceIpAddress'] = $request->sourceIpAddress;
+
+        if (null !== $request->sourceIpAddress) {
+            @$query['SourceIpAddress'] = $request->sourceIpAddress;
         }
-        if (!Utils::isUnset($request->sourcePort)) {
-            $query['SourcePort'] = $request->sourcePort;
+
+        if (null !== $request->sourcePort) {
+            @$query['SourcePort'] = $request->sourcePort;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->targetId)) {
-            $query['TargetId'] = $request->targetId;
+
+        if (null !== $request->targetId) {
+            @$query['TargetId'] = $request->targetId;
         }
-        if (!Utils::isUnset($request->targetIpAddress)) {
-            $query['TargetIpAddress'] = $request->targetIpAddress;
+
+        if (null !== $request->targetIpAddress) {
+            @$query['TargetIpAddress'] = $request->targetIpAddress;
         }
-        if (!Utils::isUnset($request->targetPort)) {
-            $query['TargetPort'] = $request->targetPort;
+
+        if (null !== $request->targetPort) {
+            @$query['TargetPort'] = $request->targetPort;
         }
-        if (!Utils::isUnset($request->targetType)) {
-            $query['TargetType'] = $request->targetType;
+
+        if (null !== $request->targetType) {
+            @$query['TargetType'] = $request->targetType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateNetworkPath',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateNetworkPath',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateNetworkPathResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a network path in the cloud for reachability analysis.
-     *  *
-     * @description *   You can call the **CreateNetworkPath** operation to create network paths in multiple networking scenarios and between multiple resources. After a path is created, the path parameters are saved for repeated analysis.
-     * *   You can create up to 100 network paths within one Alibaba Cloud account.
-     *  *
-     * @param CreateNetworkPathRequest $request CreateNetworkPathRequest
+     * Creates a network path in the cloud for reachability analysis.
      *
-     * @return CreateNetworkPathResponse CreateNetworkPathResponse
+     * @remarks
+     *   You can call the **CreateNetworkPath** operation to create network paths in multiple networking scenarios and between multiple resources. After a path is created, the path parameters are saved for repeated analysis.
+     * *   You can create up to 100 network paths within one Alibaba Cloud account.
+     *
+     * @param request - CreateNetworkPathRequest
+     *
+     * @returns CreateNetworkPathResponse
+     *
+     * @param CreateNetworkPathRequest $request
+     *
+     * @return CreateNetworkPathResponse
      */
     public function createNetworkPath($request)
     {
@@ -241,58 +276,72 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary Creates a task for analyzing network reachability.
-     *  *
-     * @description *   The **CreateNetworkReachableAnalysis** operation is used to create a task for analyzing the reachability of the network path that is created by calling the **CreateNetworkPath** operation and record the analysis results.
+     * Creates a task for analyzing network reachability.
+     *
+     * @remarks
+     *   The **CreateNetworkReachableAnalysis** operation is used to create a task for analyzing the reachability of the network path that is created by calling the **CreateNetworkPath** operation and record the analysis results.
      * *   The **CreateNetworkReachableAnalysis** operation can be called to repeatedly analyze the reachability of a network path.
      * *   You can create up to 1,000 reachability analysis records within one Alibaba Cloud account.
-     *  *
-     * @param CreateNetworkReachableAnalysisRequest $request CreateNetworkReachableAnalysisRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNetworkReachableAnalysisResponse CreateNetworkReachableAnalysisResponse
+     * @param request - CreateNetworkReachableAnalysisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNetworkReachableAnalysisResponse
+     *
+     * @param CreateNetworkReachableAnalysisRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateNetworkReachableAnalysisResponse
      */
     public function createNetworkReachableAnalysisWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->networkPathId)) {
-            $query['NetworkPathId'] = $request->networkPathId;
+        if (null !== $request->networkPathId) {
+            @$query['NetworkPathId'] = $request->networkPathId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateNetworkReachableAnalysis',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateNetworkReachableAnalysis',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateNetworkReachableAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a task for analyzing network reachability.
-     *  *
-     * @description *   The **CreateNetworkReachableAnalysis** operation is used to create a task for analyzing the reachability of the network path that is created by calling the **CreateNetworkPath** operation and record the analysis results.
+     * Creates a task for analyzing network reachability.
+     *
+     * @remarks
+     *   The **CreateNetworkReachableAnalysis** operation is used to create a task for analyzing the reachability of the network path that is created by calling the **CreateNetworkPath** operation and record the analysis results.
      * *   The **CreateNetworkReachableAnalysis** operation can be called to repeatedly analyze the reachability of a network path.
      * *   You can create up to 1,000 reachability analysis records within one Alibaba Cloud account.
-     *  *
-     * @param CreateNetworkReachableAnalysisRequest $request CreateNetworkReachableAnalysisRequest
      *
-     * @return CreateNetworkReachableAnalysisResponse CreateNetworkReachableAnalysisResponse
+     * @param request - CreateNetworkReachableAnalysisRequest
+     *
+     * @returns CreateNetworkReachableAnalysisResponse
+     *
+     * @param CreateNetworkReachableAnalysisRequest $request
+     *
+     * @return CreateNetworkReachableAnalysisResponse
      */
     public function createNetworkReachableAnalysis($request)
     {
@@ -302,52 +351,64 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a network path.
-     *  *
-     * @param DeleteNetworkPathRequest $tmpReq  DeleteNetworkPathRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes a network path.
      *
-     * @return DeleteNetworkPathResponse DeleteNetworkPathResponse
+     * @param tmpReq - DeleteNetworkPathRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNetworkPathResponse
+     *
+     * @param DeleteNetworkPathRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteNetworkPathResponse
      */
     public function deleteNetworkPathWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteNetworkPathShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->networkPathIds)) {
-            $request->networkPathIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->networkPathIds, 'NetworkPathIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->networkPathIds) {
+            $request->networkPathIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->networkPathIds, 'NetworkPathIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->networkPathIdsShrink)) {
-            $query['NetworkPathIds'] = $request->networkPathIdsShrink;
+        if (null !== $request->networkPathIdsShrink) {
+            @$query['NetworkPathIds'] = $request->networkPathIdsShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNetworkPath',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNetworkPath',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteNetworkPathResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a network path.
-     *  *
-     * @param DeleteNetworkPathRequest $request DeleteNetworkPathRequest
+     * Deletes a network path.
      *
-     * @return DeleteNetworkPathResponse DeleteNetworkPathResponse
+     * @param request - DeleteNetworkPathRequest
+     *
+     * @returns DeleteNetworkPathResponse
+     *
+     * @param DeleteNetworkPathRequest $request
+     *
+     * @return DeleteNetworkPathResponse
      */
     public function deleteNetworkPath($request)
     {
@@ -357,52 +418,64 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a task for analyzing network reachability.
-     *  *
-     * @param DeleteNetworkReachableAnalysisRequest $tmpReq  DeleteNetworkReachableAnalysisRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Deletes a task for analyzing network reachability.
      *
-     * @return DeleteNetworkReachableAnalysisResponse DeleteNetworkReachableAnalysisResponse
+     * @param tmpReq - DeleteNetworkReachableAnalysisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNetworkReachableAnalysisResponse
+     *
+     * @param DeleteNetworkReachableAnalysisRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteNetworkReachableAnalysisResponse
      */
     public function deleteNetworkReachableAnalysisWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteNetworkReachableAnalysisShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->networkReachableAnalysisIds)) {
-            $request->networkReachableAnalysisIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->networkReachableAnalysisIds, 'NetworkReachableAnalysisIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->networkReachableAnalysisIds) {
+            $request->networkReachableAnalysisIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->networkReachableAnalysisIds, 'NetworkReachableAnalysisIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->networkReachableAnalysisIdsShrink)) {
-            $query['NetworkReachableAnalysisIds'] = $request->networkReachableAnalysisIdsShrink;
+        if (null !== $request->networkReachableAnalysisIdsShrink) {
+            @$query['NetworkReachableAnalysisIds'] = $request->networkReachableAnalysisIdsShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNetworkReachableAnalysis',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNetworkReachableAnalysis',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteNetworkReachableAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a task for analyzing network reachability.
-     *  *
-     * @param DeleteNetworkReachableAnalysisRequest $request DeleteNetworkReachableAnalysisRequest
+     * Deletes a task for analyzing network reachability.
      *
-     * @return DeleteNetworkReachableAnalysisResponse DeleteNetworkReachableAnalysisResponse
+     * @param request - DeleteNetworkReachableAnalysisRequest
+     *
+     * @returns DeleteNetworkReachableAnalysisResponse
+     *
+     * @param DeleteNetworkReachableAnalysisRequest $request
+     *
+     * @return DeleteNetworkReachableAnalysisResponse
      */
     public function deleteNetworkReachableAnalysis($request)
     {
@@ -412,44 +485,54 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary 删除报告
-     *  *
-     * @param DeleteNisInspectionReportRequest $request DeleteNisInspectionReportRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 删除报告.
      *
-     * @return DeleteNisInspectionReportResponse DeleteNisInspectionReportResponse
+     * @param request - DeleteNisInspectionReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNisInspectionReportResponse
+     *
+     * @param DeleteNisInspectionReportRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteNisInspectionReportResponse
      */
     public function deleteNisInspectionReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->inspectionReportId)) {
-            $query['InspectionReportId'] = $request->inspectionReportId;
+        if (null !== $request->inspectionReportId) {
+            @$query['InspectionReportId'] = $request->inspectionReportId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNisInspectionReport',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNisInspectionReport',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteNisInspectionReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除报告
-     *  *
-     * @param DeleteNisInspectionReportRequest $request DeleteNisInspectionReportRequest
+     * 删除报告.
      *
-     * @return DeleteNisInspectionReportResponse DeleteNisInspectionReportResponse
+     * @param request - DeleteNisInspectionReportRequest
+     *
+     * @returns DeleteNisInspectionReportResponse
+     *
+     * @param DeleteNisInspectionReportRequest $request
+     *
+     * @return DeleteNisInspectionReportResponse
      */
     public function deleteNisInspectionReport($request)
     {
@@ -459,44 +542,54 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary 删除巡检任务
-     *  *
-     * @param DeleteNisInspectionTaskRequest $request DeleteNisInspectionTaskRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 删除巡检任务
      *
-     * @return DeleteNisInspectionTaskResponse DeleteNisInspectionTaskResponse
+     * @param request - DeleteNisInspectionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNisInspectionTaskResponse
+     *
+     * @param DeleteNisInspectionTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteNisInspectionTaskResponse
      */
     public function deleteNisInspectionTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->inspectionTaskId)) {
-            $query['InspectionTaskId'] = $request->inspectionTaskId;
+        if (null !== $request->inspectionTaskId) {
+            @$query['InspectionTaskId'] = $request->inspectionTaskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNisInspectionTask',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNisInspectionTask',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteNisInspectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除巡检任务
-     *  *
-     * @param DeleteNisInspectionTaskRequest $request DeleteNisInspectionTaskRequest
+     * 删除巡检任务
      *
-     * @return DeleteNisInspectionTaskResponse DeleteNisInspectionTaskResponse
+     * @param request - DeleteNisInspectionTaskRequest
+     *
+     * @returns DeleteNisInspectionTaskResponse
+     *
+     * @param DeleteNisInspectionTaskRequest $request
+     *
+     * @return DeleteNisInspectionTaskResponse
      */
     public function deleteNisInspectionTask($request)
     {
@@ -506,56 +599,70 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary 受影响资源列表
-     *  *
-     * @param DescribeNisInspectionRecommendationResourcesRequest $request DescribeNisInspectionRecommendationResourcesRequest
-     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
+     * 受影响资源列表.
      *
-     * @return DescribeNisInspectionRecommendationResourcesResponse DescribeNisInspectionRecommendationResourcesResponse
+     * @param request - DescribeNisInspectionRecommendationResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNisInspectionRecommendationResourcesResponse
+     *
+     * @param DescribeNisInspectionRecommendationResourcesRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return DescribeNisInspectionRecommendationResourcesResponse
      */
     public function describeNisInspectionRecommendationResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->inspectionReportId)) {
-            $query['InspectionReportId'] = $request->inspectionReportId;
+        if (null !== $request->inspectionReportId) {
+            @$query['InspectionReportId'] = $request->inspectionReportId;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->recommendationCode)) {
-            $query['RecommendationCode'] = $request->recommendationCode;
+
+        if (null !== $request->recommendationCode) {
+            @$query['RecommendationCode'] = $request->recommendationCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNisInspectionRecommendationResources',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNisInspectionRecommendationResources',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeNisInspectionRecommendationResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 受影响资源列表
-     *  *
-     * @param DescribeNisInspectionRecommendationResourcesRequest $request DescribeNisInspectionRecommendationResourcesRequest
+     * 受影响资源列表.
      *
-     * @return DescribeNisInspectionRecommendationResourcesResponse DescribeNisInspectionRecommendationResourcesResponse
+     * @param request - DescribeNisInspectionRecommendationResourcesRequest
+     *
+     * @returns DescribeNisInspectionRecommendationResourcesResponse
+     *
+     * @param DescribeNisInspectionRecommendationResourcesRequest $request
+     *
+     * @return DescribeNisInspectionRecommendationResourcesResponse
      */
     public function describeNisInspectionRecommendationResources($request)
     {
@@ -565,70 +672,88 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary 报告巡检项列表
-     *  *
-     * @param DescribeNisInspectionReportCheckItemsRequest $tmpReq  DescribeNisInspectionReportCheckItemsRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * 报告巡检项列表.
      *
-     * @return DescribeNisInspectionReportCheckItemsResponse DescribeNisInspectionReportCheckItemsResponse
+     * @param tmpReq - DescribeNisInspectionReportCheckItemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNisInspectionReportCheckItemsResponse
+     *
+     * @param DescribeNisInspectionReportCheckItemsRequest $tmpReq
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeNisInspectionReportCheckItemsResponse
      */
     public function describeNisInspectionReportCheckItemsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DescribeNisInspectionReportCheckItemsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceType)) {
-            $request->resourceTypeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceType, 'ResourceType', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceType) {
+            $request->resourceTypeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceType, 'ResourceType', 'json');
         }
-        if (!Utils::isUnset($tmpReq->riskLevel)) {
-            $request->riskLevelShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->riskLevel, 'RiskLevel', 'json');
+
+        if (null !== $tmpReq->riskLevel) {
+            $request->riskLevelShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->riskLevel, 'RiskLevel', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->categoryCode)) {
-            $query['CategoryCode'] = $request->categoryCode;
+        if (null !== $request->categoryCode) {
+            @$query['CategoryCode'] = $request->categoryCode;
         }
-        if (!Utils::isUnset($request->inspectionReportId)) {
-            $query['InspectionReportId'] = $request->inspectionReportId;
+
+        if (null !== $request->inspectionReportId) {
+            @$query['InspectionReportId'] = $request->inspectionReportId;
         }
-        if (!Utils::isUnset($request->language)) {
-            $query['Language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceTypeShrink)) {
-            $query['ResourceType'] = $request->resourceTypeShrink;
+
+        if (null !== $request->resourceTypeShrink) {
+            @$query['ResourceType'] = $request->resourceTypeShrink;
         }
-        if (!Utils::isUnset($request->riskLevelShrink)) {
-            $query['RiskLevel'] = $request->riskLevelShrink;
+
+        if (null !== $request->riskLevelShrink) {
+            @$query['RiskLevel'] = $request->riskLevelShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNisInspectionReportCheckItems',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNisInspectionReportCheckItems',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeNisInspectionReportCheckItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 报告巡检项列表
-     *  *
-     * @param DescribeNisInspectionReportCheckItemsRequest $request DescribeNisInspectionReportCheckItemsRequest
+     * 报告巡检项列表.
      *
-     * @return DescribeNisInspectionReportCheckItemsResponse DescribeNisInspectionReportCheckItemsResponse
+     * @param request - DescribeNisInspectionReportCheckItemsRequest
+     *
+     * @returns DescribeNisInspectionReportCheckItemsResponse
+     *
+     * @param DescribeNisInspectionReportCheckItemsRequest $request
+     *
+     * @return DescribeNisInspectionReportCheckItemsResponse
      */
     public function describeNisInspectionReportCheckItems($request)
     {
@@ -638,44 +763,54 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary 查询报告状态
-     *  *
-     * @param DescribeNisInspectionReportStatusRequest $request DescribeNisInspectionReportStatusRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * 查询报告状态
      *
-     * @return DescribeNisInspectionReportStatusResponse DescribeNisInspectionReportStatusResponse
+     * @param request - DescribeNisInspectionReportStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNisInspectionReportStatusResponse
+     *
+     * @param DescribeNisInspectionReportStatusRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeNisInspectionReportStatusResponse
      */
     public function describeNisInspectionReportStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->inspectionReportId)) {
-            $query['InspectionReportId'] = $request->inspectionReportId;
+        if (null !== $request->inspectionReportId) {
+            @$query['InspectionReportId'] = $request->inspectionReportId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNisInspectionReportStatus',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNisInspectionReportStatus',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeNisInspectionReportStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询报告状态
-     *  *
-     * @param DescribeNisInspectionReportStatusRequest $request DescribeNisInspectionReportStatusRequest
+     * 查询报告状态
      *
-     * @return DescribeNisInspectionReportStatusResponse DescribeNisInspectionReportStatusResponse
+     * @param request - DescribeNisInspectionReportStatusRequest
+     *
+     * @returns DescribeNisInspectionReportStatusResponse
+     *
+     * @param DescribeNisInspectionReportStatusRequest $request
+     *
+     * @return DescribeNisInspectionReportStatusResponse
      */
     public function describeNisInspectionReportStatus($request)
     {
@@ -685,44 +820,54 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary 报告总结信息
-     *  *
-     * @param DescribeNisInspectionReportSummaryRequest $request DescribeNisInspectionReportSummaryRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * 报告总结信息.
      *
-     * @return DescribeNisInspectionReportSummaryResponse DescribeNisInspectionReportSummaryResponse
+     * @param request - DescribeNisInspectionReportSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNisInspectionReportSummaryResponse
+     *
+     * @param DescribeNisInspectionReportSummaryRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeNisInspectionReportSummaryResponse
      */
     public function describeNisInspectionReportSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->inspectionReportId)) {
-            $query['InspectionReportId'] = $request->inspectionReportId;
+        if (null !== $request->inspectionReportId) {
+            @$query['InspectionReportId'] = $request->inspectionReportId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNisInspectionReportSummary',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNisInspectionReportSummary',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeNisInspectionReportSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 报告总结信息
-     *  *
-     * @param DescribeNisInspectionReportSummaryRequest $request DescribeNisInspectionReportSummaryRequest
+     * 报告总结信息.
      *
-     * @return DescribeNisInspectionReportSummaryResponse DescribeNisInspectionReportSummaryResponse
+     * @param request - DescribeNisInspectionReportSummaryRequest
+     *
+     * @returns DescribeNisInspectionReportSummaryResponse
+     *
+     * @param DescribeNisInspectionReportSummaryRequest $request
+     *
+     * @return DescribeNisInspectionReportSummaryResponse
      */
     public function describeNisInspectionReportSummary($request)
     {
@@ -732,44 +877,54 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary 查询巡检任务
-     *  *
-     * @param DescribeNisInspectionTaskRequest $request DescribeNisInspectionTaskRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 查询巡检任务
      *
-     * @return DescribeNisInspectionTaskResponse DescribeNisInspectionTaskResponse
+     * @param request - DescribeNisInspectionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNisInspectionTaskResponse
+     *
+     * @param DescribeNisInspectionTaskRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeNisInspectionTaskResponse
      */
     public function describeNisInspectionTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->inspectionTaskId)) {
-            $query['InspectionTaskId'] = $request->inspectionTaskId;
+        if (null !== $request->inspectionTaskId) {
+            @$query['InspectionTaskId'] = $request->inspectionTaskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNisInspectionTask',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNisInspectionTask',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeNisInspectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询巡检任务
-     *  *
-     * @param DescribeNisInspectionTaskRequest $request DescribeNisInspectionTaskRequest
+     * 查询巡检任务
      *
-     * @return DescribeNisInspectionTaskResponse DescribeNisInspectionTaskResponse
+     * @param request - DescribeNisInspectionTaskRequest
+     *
+     * @returns DescribeNisInspectionTaskResponse
+     *
+     * @param DescribeNisInspectionTaskRequest $request
+     *
+     * @return DescribeNisInspectionTaskResponse
      */
     public function describeNisInspectionTask($request)
     {
@@ -778,124 +933,155 @@ class Nis extends OpenApiClient
         return $this->describeNisInspectionTaskWithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
+     * Queries the rankings of Internet traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Internet traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+     *
      * @deprecated openAPI GetInternetTuple is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead
-     *  *
-     * @summary Queries the rankings of Internet traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Internet traffic data can be ranked by metrics such as traffic volumes and the number of packets.
-     *  *
-     * Deprecated
      *
-     * @param GetInternetTupleRequest $tmpReq  GetInternetTupleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - GetInternetTupleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetInternetTupleResponse GetInternetTupleResponse
+     * @returns GetInternetTupleResponse
+     *
+     * @param GetInternetTupleRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetInternetTupleResponse
      */
     public function getInternetTupleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetInternetTupleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->cloudIpList)) {
-            $request->cloudIpListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cloudIpList, 'CloudIpList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cloudIpList) {
+            $request->cloudIpListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cloudIpList, 'CloudIpList', 'json');
         }
-        if (!Utils::isUnset($tmpReq->instanceList)) {
-            $request->instanceListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceList, 'InstanceList', 'json');
+
+        if (null !== $tmpReq->instanceList) {
+            $request->instanceListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceList, 'InstanceList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->accountIds)) {
-            $query['AccountIds'] = $request->accountIds;
+        if (null !== $request->accountIds) {
+            @$query['AccountIds'] = $request->accountIds;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['BeginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->cloudIp)) {
-            $query['CloudIp'] = $request->cloudIp;
+
+        if (null !== $request->cloudIp) {
+            @$query['CloudIp'] = $request->cloudIp;
         }
-        if (!Utils::isUnset($request->cloudIpListShrink)) {
-            $query['CloudIpList'] = $request->cloudIpListShrink;
+
+        if (null !== $request->cloudIpListShrink) {
+            @$query['CloudIpList'] = $request->cloudIpListShrink;
         }
-        if (!Utils::isUnset($request->cloudIsp)) {
-            $query['CloudIsp'] = $request->cloudIsp;
+
+        if (null !== $request->cloudIsp) {
+            @$query['CloudIsp'] = $request->cloudIsp;
         }
-        if (!Utils::isUnset($request->cloudPort)) {
-            $query['CloudPort'] = $request->cloudPort;
+
+        if (null !== $request->cloudPort) {
+            @$query['CloudPort'] = $request->cloudPort;
         }
-        if (!Utils::isUnset($request->direction)) {
-            $query['Direction'] = $request->direction;
+
+        if (null !== $request->direction) {
+            @$query['Direction'] = $request->direction;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceListShrink)) {
-            $query['InstanceList'] = $request->instanceListShrink;
+
+        if (null !== $request->instanceListShrink) {
+            @$query['InstanceList'] = $request->instanceListShrink;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->otherCity)) {
-            $query['OtherCity'] = $request->otherCity;
+
+        if (null !== $request->otherCity) {
+            @$query['OtherCity'] = $request->otherCity;
         }
-        if (!Utils::isUnset($request->otherCountry)) {
-            $query['OtherCountry'] = $request->otherCountry;
+
+        if (null !== $request->otherCountry) {
+            @$query['OtherCountry'] = $request->otherCountry;
         }
-        if (!Utils::isUnset($request->otherIp)) {
-            $query['OtherIp'] = $request->otherIp;
+
+        if (null !== $request->otherIp) {
+            @$query['OtherIp'] = $request->otherIp;
         }
-        if (!Utils::isUnset($request->otherIsp)) {
-            $query['OtherIsp'] = $request->otherIsp;
+
+        if (null !== $request->otherIsp) {
+            @$query['OtherIsp'] = $request->otherIsp;
         }
-        if (!Utils::isUnset($request->otherPort)) {
-            $query['OtherPort'] = $request->otherPort;
+
+        if (null !== $request->otherPort) {
+            @$query['OtherPort'] = $request->otherPort;
         }
-        if (!Utils::isUnset($request->protocol)) {
-            $query['Protocol'] = $request->protocol;
+
+        if (null !== $request->protocol) {
+            @$query['Protocol'] = $request->protocol;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->topN)) {
-            $query['TopN'] = $request->topN;
+
+        if (null !== $request->topN) {
+            @$query['TopN'] = $request->topN;
         }
-        if (!Utils::isUnset($request->tupleType)) {
-            $query['TupleType'] = $request->tupleType;
+
+        if (null !== $request->tupleType) {
+            @$query['TupleType'] = $request->tupleType;
         }
-        if (!Utils::isUnset($request->useMultiAccount)) {
-            $query['UseMultiAccount'] = $request->useMultiAccount;
+
+        if (null !== $request->useMultiAccount) {
+            @$query['UseMultiAccount'] = $request->useMultiAccount;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInternetTuple',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInternetTuple',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetInternetTupleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * Queries the rankings of Internet traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Internet traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+     *
      * @deprecated openAPI GetInternetTuple is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead
-     *  *
-     * @summary Queries the rankings of Internet traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Internet traffic data can be ranked by metrics such as traffic volumes and the number of packets.
-     *  *
-     * Deprecated
      *
-     * @param GetInternetTupleRequest $request GetInternetTupleRequest
+     * @param request - GetInternetTupleRequest
      *
-     * @return GetInternetTupleResponse GetInternetTupleResponse
+     * @returns GetInternetTupleResponse
+     *
+     * @param GetInternetTupleRequest $request
+     *
+     * @return GetInternetTupleResponse
      */
     public function getInternetTuple($request)
     {
@@ -904,71 +1090,85 @@ class Nis extends OpenApiClient
         return $this->getInternetTupleWithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
+     * Queries the real-time SNAT performance ranking of a NAT gateway.
+     *
      * @deprecated openAPI GetNatTopN is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead
-     *  *
-     * @summary Queries the real-time SNAT performance ranking of a NAT gateway.
-     *  *
-     * Deprecated
      *
-     * @param GetNatTopNRequest $request GetNatTopNRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - GetNatTopNRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetNatTopNResponse GetNatTopNResponse
+     * @returns GetNatTopNResponse
+     *
+     * @param GetNatTopNRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetNatTopNResponse
      */
     public function getNatTopNWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['BeginTime'] = $request->beginTime;
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->natGatewayId)) {
-            $query['NatGatewayId'] = $request->natGatewayId;
+
+        if (null !== $request->natGatewayId) {
+            @$query['NatGatewayId'] = $request->natGatewayId;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->topN)) {
-            $query['TopN'] = $request->topN;
+
+        if (null !== $request->topN) {
+            @$query['TopN'] = $request->topN;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetNatTopN',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNatTopN',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetNatTopNResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * Queries the real-time SNAT performance ranking of a NAT gateway.
+     *
      * @deprecated openAPI GetNatTopN is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead
-     *  *
-     * @summary Queries the real-time SNAT performance ranking of a NAT gateway.
-     *  *
-     * Deprecated
      *
-     * @param GetNatTopNRequest $request GetNatTopNRequest
+     * @param request - GetNatTopNRequest
      *
-     * @return GetNatTopNResponse GetNatTopNResponse
+     * @returns GetNatTopNResponse
+     *
+     * @param GetNatTopNRequest $request
+     *
+     * @return GetNatTopNResponse
      */
     public function getNatTopN($request)
     {
@@ -978,55 +1178,68 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the results of network reachability analysis.
-     *  *
-     * @description **GetNetworkReachableAnalysis** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can query the state of the task for analyzing network reachability.
+     * Obtains the results of network reachability analysis.
+     *
+     * @remarks
+     * *GetNetworkReachableAnalysis** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can query the state of the task for analyzing network reachability.
      * *   The **init** state indicates that the task is in progress.
      * *   The **finish** state indicates that the task is complete. In this state, you can obtain the analysis result.
-     *  *
-     * @param GetNetworkReachableAnalysisRequest $request GetNetworkReachableAnalysisRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetNetworkReachableAnalysisResponse GetNetworkReachableAnalysisResponse
+     * @param request - GetNetworkReachableAnalysisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNetworkReachableAnalysisResponse
+     *
+     * @param GetNetworkReachableAnalysisRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetNetworkReachableAnalysisResponse
      */
     public function getNetworkReachableAnalysisWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->networkReachableAnalysisId)) {
-            $query['NetworkReachableAnalysisId'] = $request->networkReachableAnalysisId;
+        if (null !== $request->networkReachableAnalysisId) {
+            @$query['NetworkReachableAnalysisId'] = $request->networkReachableAnalysisId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetNetworkReachableAnalysis',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNetworkReachableAnalysis',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetNetworkReachableAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the results of network reachability analysis.
-     *  *
-     * @description **GetNetworkReachableAnalysis** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can query the state of the task for analyzing network reachability.
+     * Obtains the results of network reachability analysis.
+     *
+     * @remarks
+     * *GetNetworkReachableAnalysis** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can query the state of the task for analyzing network reachability.
      * *   The **init** state indicates that the task is in progress.
      * *   The **finish** state indicates that the task is complete. In this state, you can obtain the analysis result.
-     *  *
-     * @param GetNetworkReachableAnalysisRequest $request GetNetworkReachableAnalysisRequest
      *
-     * @return GetNetworkReachableAnalysisResponse GetNetworkReachableAnalysisResponse
+     * @param request - GetNetworkReachableAnalysisRequest
+     *
+     * @returns GetNetworkReachableAnalysisResponse
+     *
+     * @param GetNetworkReachableAnalysisRequest $request
+     *
+     * @return GetNetworkReachableAnalysisResponse
      */
     public function getNetworkReachableAnalysis($request)
     {
@@ -1036,73 +1249,92 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary 获取云网络指标趋势
-     *  *
-     * @param GetNisNetworkMetricsRequest $tmpReq  GetNisNetworkMetricsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取云网络指标趋势
      *
-     * @return GetNisNetworkMetricsResponse GetNisNetworkMetricsResponse
+     * @param tmpReq - GetNisNetworkMetricsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNisNetworkMetricsResponse
+     *
+     * @param GetNisNetworkMetricsRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetNisNetworkMetricsResponse
      */
     public function getNisNetworkMetricsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetNisNetworkMetricsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->dimensions)) {
-            $request->dimensionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dimensions, 'Dimensions', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dimensions) {
+            $request->dimensionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dimensions, 'Dimensions', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->accountIds)) {
-            $query['AccountIds'] = $request->accountIds;
+        if (null !== $request->accountIds) {
+            @$query['AccountIds'] = $request->accountIds;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['BeginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->dimensionsShrink)) {
-            $query['Dimensions'] = $request->dimensionsShrink;
+
+        if (null !== $request->dimensionsShrink) {
+            @$query['Dimensions'] = $request->dimensionsShrink;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->regionNo)) {
-            $query['RegionNo'] = $request->regionNo;
+
+        if (null !== $request->regionNo) {
+            @$query['RegionNo'] = $request->regionNo;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->scanBy)) {
-            $query['ScanBy'] = $request->scanBy;
+
+        if (null !== $request->scanBy) {
+            @$query['ScanBy'] = $request->scanBy;
         }
-        if (!Utils::isUnset($request->useCrossAccount)) {
-            $query['UseCrossAccount'] = $request->useCrossAccount;
+
+        if (null !== $request->useCrossAccount) {
+            @$query['UseCrossAccount'] = $request->useCrossAccount;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetNisNetworkMetrics',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNisNetworkMetrics',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetNisNetworkMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取云网络指标趋势
-     *  *
-     * @param GetNisNetworkMetricsRequest $request GetNisNetworkMetricsRequest
+     * 获取云网络指标趋势
      *
-     * @return GetNisNetworkMetricsResponse GetNisNetworkMetricsResponse
+     * @param request - GetNisNetworkMetricsRequest
+     *
+     * @returns GetNisNetworkMetricsResponse
+     *
+     * @param GetNisNetworkMetricsRequest $request
+     *
+     * @return GetNisNetworkMetricsResponse
      */
     public function getNisNetworkMetrics($request)
     {
@@ -1112,82 +1344,104 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary 获取云网络指标排名
-     *  *
-     * @param GetNisNetworkRankingRequest $tmpReq  GetNisNetworkRankingRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取云网络指标排名.
      *
-     * @return GetNisNetworkRankingResponse GetNisNetworkRankingResponse
+     * @param tmpReq - GetNisNetworkRankingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNisNetworkRankingResponse
+     *
+     * @param GetNisNetworkRankingRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetNisNetworkRankingResponse
      */
     public function getNisNetworkRankingWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetNisNetworkRankingShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->filter)) {
-            $request->filterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->accountIds)) {
-            $query['AccountIds'] = $request->accountIds;
+        if (null !== $request->accountIds) {
+            @$query['AccountIds'] = $request->accountIds;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['BeginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->direction)) {
-            $query['Direction'] = $request->direction;
+
+        if (null !== $request->direction) {
+            @$query['Direction'] = $request->direction;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->filterShrink)) {
-            $query['Filter'] = $request->filterShrink;
+
+        if (null !== $request->filterShrink) {
+            @$query['Filter'] = $request->filterShrink;
         }
-        if (!Utils::isUnset($request->groupBy)) {
-            $query['GroupBy'] = $request->groupBy;
+
+        if (null !== $request->groupBy) {
+            @$query['GroupBy'] = $request->groupBy;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->regionNo)) {
-            $query['RegionNo'] = $request->regionNo;
+
+        if (null !== $request->regionNo) {
+            @$query['RegionNo'] = $request->regionNo;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->topN)) {
-            $query['TopN'] = $request->topN;
+
+        if (null !== $request->topN) {
+            @$query['TopN'] = $request->topN;
         }
-        if (!Utils::isUnset($request->useCrossAccount)) {
-            $query['UseCrossAccount'] = $request->useCrossAccount;
+
+        if (null !== $request->useCrossAccount) {
+            @$query['UseCrossAccount'] = $request->useCrossAccount;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetNisNetworkRanking',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNisNetworkRanking',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetNisNetworkRankingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取云网络指标排名
-     *  *
-     * @param GetNisNetworkRankingRequest $request GetNisNetworkRankingRequest
+     * 获取云网络指标排名.
      *
-     * @return GetNisNetworkRankingResponse GetNisNetworkRankingResponse
+     * @param request - GetNisNetworkRankingRequest
+     *
+     * @returns GetNisNetworkRankingResponse
+     *
+     * @param GetNisNetworkRankingRequest $request
+     *
+     * @return GetNisNetworkRankingResponse
      */
     public function getNisNetworkRanking($request)
     {
@@ -1196,109 +1450,135 @@ class Nis extends OpenApiClient
         return $this->getNisNetworkRankingWithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
+     * Queries the rankings of inter-region traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Inter-region traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+     *
      * @deprecated openAPI GetTransitRouterFlowTopN is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead
-     *  *
-     * @summary Queries the rankings of inter-region traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Inter-region traffic data can be ranked by metrics such as traffic volumes and the number of packets.
-     *  *
-     * Deprecated
      *
-     * @param GetTransitRouterFlowTopNRequest $tmpReq  GetTransitRouterFlowTopNRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - GetTransitRouterFlowTopNRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetTransitRouterFlowTopNResponse GetTransitRouterFlowTopNResponse
+     * @returns GetTransitRouterFlowTopNResponse
+     *
+     * @param GetTransitRouterFlowTopNRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetTransitRouterFlowTopNResponse
      */
     public function getTransitRouterFlowTopNWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetTransitRouterFlowTopNShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->accountIds)) {
-            $request->accountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->accountIds) {
+            $request->accountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->accountIdsShrink)) {
-            $query['AccountIds'] = $request->accountIdsShrink;
+        if (null !== $request->accountIdsShrink) {
+            @$query['AccountIds'] = $request->accountIdsShrink;
         }
-        if (!Utils::isUnset($request->bandwithPackageId)) {
-            $query['BandwithPackageId'] = $request->bandwithPackageId;
+
+        if (null !== $request->bandwithPackageId) {
+            @$query['BandwithPackageId'] = $request->bandwithPackageId;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['BeginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->cenId)) {
-            $query['CenId'] = $request->cenId;
+
+        if (null !== $request->cenId) {
+            @$query['CenId'] = $request->cenId;
         }
-        if (!Utils::isUnset($request->direction)) {
-            $query['Direction'] = $request->direction;
+
+        if (null !== $request->direction) {
+            @$query['Direction'] = $request->direction;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->groupBy)) {
-            $query['GroupBy'] = $request->groupBy;
+
+        if (null !== $request->groupBy) {
+            @$query['GroupBy'] = $request->groupBy;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->otherIp)) {
-            $query['OtherIp'] = $request->otherIp;
+
+        if (null !== $request->otherIp) {
+            @$query['OtherIp'] = $request->otherIp;
         }
-        if (!Utils::isUnset($request->otherPort)) {
-            $query['OtherPort'] = $request->otherPort;
+
+        if (null !== $request->otherPort) {
+            @$query['OtherPort'] = $request->otherPort;
         }
-        if (!Utils::isUnset($request->otherRegion)) {
-            $query['OtherRegion'] = $request->otherRegion;
+
+        if (null !== $request->otherRegion) {
+            @$query['OtherRegion'] = $request->otherRegion;
         }
-        if (!Utils::isUnset($request->protocol)) {
-            $query['Protocol'] = $request->protocol;
+
+        if (null !== $request->protocol) {
+            @$query['Protocol'] = $request->protocol;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->thisIp)) {
-            $query['ThisIp'] = $request->thisIp;
+
+        if (null !== $request->thisIp) {
+            @$query['ThisIp'] = $request->thisIp;
         }
-        if (!Utils::isUnset($request->thisPort)) {
-            $query['ThisPort'] = $request->thisPort;
+
+        if (null !== $request->thisPort) {
+            @$query['ThisPort'] = $request->thisPort;
         }
-        if (!Utils::isUnset($request->thisRegion)) {
-            $query['ThisRegion'] = $request->thisRegion;
+
+        if (null !== $request->thisRegion) {
+            @$query['ThisRegion'] = $request->thisRegion;
         }
-        if (!Utils::isUnset($request->topN)) {
-            $query['TopN'] = $request->topN;
+
+        if (null !== $request->topN) {
+            @$query['TopN'] = $request->topN;
         }
-        if (!Utils::isUnset($request->useMultiAccount)) {
-            $query['UseMultiAccount'] = $request->useMultiAccount;
+
+        if (null !== $request->useMultiAccount) {
+            @$query['UseMultiAccount'] = $request->useMultiAccount;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTransitRouterFlowTopN',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTransitRouterFlowTopN',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTransitRouterFlowTopNResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * Queries the rankings of inter-region traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Inter-region traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+     *
      * @deprecated openAPI GetTransitRouterFlowTopN is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead
-     *  *
-     * @summary Queries the rankings of inter-region traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Inter-region traffic data can be ranked by metrics such as traffic volumes and the number of packets.
-     *  *
-     * Deprecated
      *
-     * @param GetTransitRouterFlowTopNRequest $request GetTransitRouterFlowTopNRequest
+     * @param request - GetTransitRouterFlowTopNRequest
      *
-     * @return GetTransitRouterFlowTopNResponse GetTransitRouterFlowTopNResponse
+     * @returns GetTransitRouterFlowTopNResponse
+     *
+     * @param GetTransitRouterFlowTopNRequest $request
+     *
+     * @return GetTransitRouterFlowTopNResponse
      */
     public function getTransitRouterFlowTopN($request)
     {
@@ -1307,109 +1587,135 @@ class Nis extends OpenApiClient
         return $this->getTransitRouterFlowTopNWithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
+     * Queries the rankings of hybrid cloud traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Hybrid cloud traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+     *
      * @deprecated openAPI GetVbrFlowTopN is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead
-     *  *
-     * @summary Queries the rankings of hybrid cloud traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Hybrid cloud traffic data can be ranked by metrics such as traffic volumes and the number of packets.
-     *  *
-     * Deprecated
      *
-     * @param GetVbrFlowTopNRequest $tmpReq  GetVbrFlowTopNRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - GetVbrFlowTopNRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetVbrFlowTopNResponse GetVbrFlowTopNResponse
+     * @returns GetVbrFlowTopNResponse
+     *
+     * @param GetVbrFlowTopNRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetVbrFlowTopNResponse
      */
     public function getVbrFlowTopNWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetVbrFlowTopNShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->accountIds)) {
-            $request->accountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->accountIds) {
+            $request->accountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->accountIdsShrink)) {
-            $query['AccountIds'] = $request->accountIdsShrink;
+        if (null !== $request->accountIdsShrink) {
+            @$query['AccountIds'] = $request->accountIdsShrink;
         }
-        if (!Utils::isUnset($request->attachmentId)) {
-            $query['AttachmentId'] = $request->attachmentId;
+
+        if (null !== $request->attachmentId) {
+            @$query['AttachmentId'] = $request->attachmentId;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['BeginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->cenId)) {
-            $query['CenId'] = $request->cenId;
+
+        if (null !== $request->cenId) {
+            @$query['CenId'] = $request->cenId;
         }
-        if (!Utils::isUnset($request->cloudIp)) {
-            $query['CloudIp'] = $request->cloudIp;
+
+        if (null !== $request->cloudIp) {
+            @$query['CloudIp'] = $request->cloudIp;
         }
-        if (!Utils::isUnset($request->cloudPort)) {
-            $query['CloudPort'] = $request->cloudPort;
+
+        if (null !== $request->cloudPort) {
+            @$query['CloudPort'] = $request->cloudPort;
         }
-        if (!Utils::isUnset($request->direction)) {
-            $query['Direction'] = $request->direction;
+
+        if (null !== $request->direction) {
+            @$query['Direction'] = $request->direction;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->groupBy)) {
-            $query['GroupBy'] = $request->groupBy;
+
+        if (null !== $request->groupBy) {
+            @$query['GroupBy'] = $request->groupBy;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->otherIp)) {
-            $query['OtherIp'] = $request->otherIp;
+
+        if (null !== $request->otherIp) {
+            @$query['OtherIp'] = $request->otherIp;
         }
-        if (!Utils::isUnset($request->otherPort)) {
-            $query['OtherPort'] = $request->otherPort;
+
+        if (null !== $request->otherPort) {
+            @$query['OtherPort'] = $request->otherPort;
         }
-        if (!Utils::isUnset($request->protocol)) {
-            $query['Protocol'] = $request->protocol;
+
+        if (null !== $request->protocol) {
+            @$query['Protocol'] = $request->protocol;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['Sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->topN)) {
-            $query['TopN'] = $request->topN;
+
+        if (null !== $request->topN) {
+            @$query['TopN'] = $request->topN;
         }
-        if (!Utils::isUnset($request->useMultiAccount)) {
-            $query['UseMultiAccount'] = $request->useMultiAccount;
+
+        if (null !== $request->useMultiAccount) {
+            @$query['UseMultiAccount'] = $request->useMultiAccount;
         }
-        if (!Utils::isUnset($request->virtualBorderRouterId)) {
-            $query['VirtualBorderRouterId'] = $request->virtualBorderRouterId;
+
+        if (null !== $request->virtualBorderRouterId) {
+            @$query['VirtualBorderRouterId'] = $request->virtualBorderRouterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVbrFlowTopN',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVbrFlowTopN',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetVbrFlowTopNResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * Queries the rankings of hybrid cloud traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Hybrid cloud traffic data can be ranked by metrics such as traffic volumes and the number of packets.
+     *
      * @deprecated openAPI GetVbrFlowTopN is deprecated, please use nis::2021-12-16::GetNisNetworkRanking instead
-     *  *
-     * @summary Queries the rankings of hybrid cloud traffic data in the form of 1-tuple, 2-tuple, or 5-tuple. Hybrid cloud traffic data can be ranked by metrics such as traffic volumes and the number of packets.
-     *  *
-     * Deprecated
      *
-     * @param GetVbrFlowTopNRequest $request GetVbrFlowTopNRequest
+     * @param request - GetVbrFlowTopNRequest
      *
-     * @return GetVbrFlowTopNResponse GetVbrFlowTopNResponse
+     * @returns GetVbrFlowTopNResponse
+     *
+     * @param GetVbrFlowTopNRequest $request
+     *
+     * @return GetVbrFlowTopNResponse
      */
     public function getVbrFlowTopN($request)
     {
@@ -1419,34 +1725,41 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary 巡检资源类型列表
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 巡检资源类型列表.
      *
-     * @return ListNisInspectionResourceTypeResponse ListNisInspectionResourceTypeResponse
+     * @param request - ListNisInspectionResourceTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNisInspectionResourceTypeResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListNisInspectionResourceTypeResponse
      */
     public function listNisInspectionResourceTypeWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListNisInspectionResourceType',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNisInspectionResourceType',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListNisInspectionResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 巡检资源类型列表
-     *  *
-     * @return ListNisInspectionResourceTypeResponse ListNisInspectionResourceTypeResponse
+     * 巡检资源类型列表.
+     *
+     * @returns ListNisInspectionResourceTypeResponse
+     *
+     * @return ListNisInspectionResourceTypeResponse
      */
     public function listNisInspectionResourceType()
     {
@@ -1456,50 +1769,62 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary 查询巡检报告列表
-     *  *
-     * @param ListNisInspectionTaskReportsRequest $request ListNisInspectionTaskReportsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 查询巡检报告列表.
      *
-     * @return ListNisInspectionTaskReportsResponse ListNisInspectionTaskReportsResponse
+     * @param request - ListNisInspectionTaskReportsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNisInspectionTaskReportsResponse
+     *
+     * @param ListNisInspectionTaskReportsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListNisInspectionTaskReportsResponse
      */
     public function listNisInspectionTaskReportsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->inspectionTaskId)) {
-            $query['InspectionTaskId'] = $request->inspectionTaskId;
+        if (null !== $request->inspectionTaskId) {
+            @$query['InspectionTaskId'] = $request->inspectionTaskId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListNisInspectionTaskReports',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNisInspectionTaskReports',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListNisInspectionTaskReportsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询巡检报告列表
-     *  *
-     * @param ListNisInspectionTaskReportsRequest $request ListNisInspectionTaskReportsRequest
+     * 查询巡检报告列表.
      *
-     * @return ListNisInspectionTaskReportsResponse ListNisInspectionTaskReportsResponse
+     * @param request - ListNisInspectionTaskReportsRequest
+     *
+     * @returns ListNisInspectionTaskReportsResponse
+     *
+     * @param ListNisInspectionTaskReportsRequest $request
+     *
+     * @return ListNisInspectionTaskReportsResponse
      */
     public function listNisInspectionTaskReports($request)
     {
@@ -1509,59 +1834,74 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary 巡检任务列表
-     *  *
-     * @param ListNisInspectionTasksRequest $request ListNisInspectionTasksRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 巡检任务列表.
      *
-     * @return ListNisInspectionTasksResponse ListNisInspectionTasksResponse
+     * @param request - ListNisInspectionTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNisInspectionTasksResponse
+     *
+     * @param ListNisInspectionTasksRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListNisInspectionTasksResponse
      */
     public function listNisInspectionTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->inspectionName)) {
-            $query['InspectionName'] = $request->inspectionName;
+        if (null !== $request->inspectionName) {
+            @$query['InspectionName'] = $request->inspectionName;
         }
-        if (!Utils::isUnset($request->inspectionProject)) {
-            $query['InspectionProject'] = $request->inspectionProject;
+
+        if (null !== $request->inspectionProject) {
+            @$query['InspectionProject'] = $request->inspectionProject;
         }
-        if (!Utils::isUnset($request->inspectionTaskId)) {
-            $query['InspectionTaskId'] = $request->inspectionTaskId;
+
+        if (null !== $request->inspectionTaskId) {
+            @$query['InspectionTaskId'] = $request->inspectionTaskId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListNisInspectionTasks',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNisInspectionTasks',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListNisInspectionTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 巡检任务列表
-     *  *
-     * @param ListNisInspectionTasksRequest $request ListNisInspectionTasksRequest
+     * 巡检任务列表.
      *
-     * @return ListNisInspectionTasksResponse ListNisInspectionTasksResponse
+     * @param request - ListNisInspectionTasksRequest
+     *
+     * @returns ListNisInspectionTasksResponse
+     *
+     * @param ListNisInspectionTasksRequest $request
+     *
+     * @return ListNisInspectionTasksResponse
      */
     public function listNisInspectionTasks($request)
     {
@@ -1571,44 +1911,54 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary 请补充描述开启任务
-     *  *
-     * @param StartNisInspectionTaskRequest $request StartNisInspectionTaskRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 请补充描述开启任务
      *
-     * @return StartNisInspectionTaskResponse StartNisInspectionTaskResponse
+     * @param request - StartNisInspectionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartNisInspectionTaskResponse
+     *
+     * @param StartNisInspectionTaskRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return StartNisInspectionTaskResponse
      */
     public function startNisInspectionTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->inspectionTaskId)) {
-            $query['InspectionTaskId'] = $request->inspectionTaskId;
+        if (null !== $request->inspectionTaskId) {
+            @$query['InspectionTaskId'] = $request->inspectionTaskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartNisInspectionTask',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartNisInspectionTask',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartNisInspectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 请补充描述开启任务
-     *  *
-     * @param StartNisInspectionTaskRequest $request StartNisInspectionTaskRequest
+     * 请补充描述开启任务
      *
-     * @return StartNisInspectionTaskResponse StartNisInspectionTaskResponse
+     * @param request - StartNisInspectionTaskRequest
+     *
+     * @returns StartNisInspectionTaskResponse
+     *
+     * @param StartNisInspectionTaskRequest $request
+     *
+     * @return StartNisInspectionTaskResponse
      */
     public function startNisInspectionTask($request)
     {
@@ -1618,47 +1968,58 @@ class Nis extends OpenApiClient
     }
 
     /**
-     * @summary 修改巡检项
-     *  *
-     * @param UpdateNisInspectionTaskRequest $request UpdateNisInspectionTaskRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 修改巡检项.
      *
-     * @return UpdateNisInspectionTaskResponse UpdateNisInspectionTaskResponse
+     * @param request - UpdateNisInspectionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNisInspectionTaskResponse
+     *
+     * @param UpdateNisInspectionTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateNisInspectionTaskResponse
      */
     public function updateNisInspectionTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->inspectionTaskId)) {
-            $query['InspectionTaskId'] = $request->inspectionTaskId;
+        if (null !== $request->inspectionTaskId) {
+            @$query['InspectionTaskId'] = $request->inspectionTaskId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateNisInspectionTask',
-            'version'     => '2021-12-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateNisInspectionTask',
+            'version' => '2021-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateNisInspectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改巡检项
-     *  *
-     * @param UpdateNisInspectionTaskRequest $request UpdateNisInspectionTaskRequest
+     * 修改巡检项.
      *
-     * @return UpdateNisInspectionTaskResponse UpdateNisInspectionTaskResponse
+     * @param request - UpdateNisInspectionTaskRequest
+     *
+     * @returns UpdateNisInspectionTaskResponse
+     *
+     * @param UpdateNisInspectionTaskRequest $request
+     *
+     * @return UpdateNisInspectionTaskResponse
      */
     public function updateNisInspectionTask($request)
     {

@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionReportSummaryResponseBody\summary;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class passRateSummary extends Model
 {
     /**
-     * @example 0.98
-     *
      * @var float
      */
     public $passRate;
 
     /**
-     * @example Stability
-     *
      * @var string
      */
     public $passRateScope;
     protected $_name = [
-        'passRate'      => 'PassRate',
+        'passRate' => 'PassRate',
         'passRateScope' => 'PassRateScope',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->passRate) {
             $res['PassRate'] = $this->passRate;
         }
+
         if (null !== $this->passRateScope) {
             $res['PassRateScope'] = $this->passRateScope;
         }
@@ -43,17 +41,18 @@ class passRateSummary extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return passRateSummary
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PassRate'])) {
             $model->passRate = $map['PassRate'];
         }
+
         if (isset($map['PassRateScope'])) {
             $model->passRateScope = $map['PassRateScope'];
         }

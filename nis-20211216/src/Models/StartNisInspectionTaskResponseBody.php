@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartNisInspectionTaskResponseBody extends Model
 {
     /**
-     * @example nir-9923e262c106461d86ad
-     *
      * @var string
      */
     public $inspectionReportId;
 
     /**
-     * @example A7F0D6EC-E19E-58AC-AC9F-08036763960F
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'inspectionReportId' => 'InspectionReportId',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inspectionReportId) {
             $res['InspectionReportId'] = $this->inspectionReportId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class StartNisInspectionTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartNisInspectionTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InspectionReportId'])) {
             $model->inspectionReportId = $map['InspectionReportId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

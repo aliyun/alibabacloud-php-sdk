@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionReportSummaryResponseBody\summary;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class riskSummary extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $resourceCount;
 
     /**
-     * @example 3
-     *
      * @var int
      */
     public $riskCount;
 
     /**
-     * @example HighRisk
-     *
      * @var string
      */
     public $riskLevel;
 
     /**
-     * @example StabilityRisk
-     *
      * @var string
      */
     public $riskType;
     protected $_name = [
         'resourceCount' => 'ResourceCount',
-        'riskCount'     => 'RiskCount',
-        'riskLevel'     => 'RiskLevel',
-        'riskType'      => 'RiskType',
+        'riskCount' => 'RiskCount',
+        'riskLevel' => 'RiskLevel',
+        'riskType' => 'RiskType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceCount) {
             $res['ResourceCount'] = $this->resourceCount;
         }
+
         if (null !== $this->riskCount) {
             $res['RiskCount'] = $this->riskCount;
         }
+
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
+
         if (null !== $this->riskType) {
             $res['RiskType'] = $this->riskType;
         }
@@ -65,23 +61,26 @@ class riskSummary extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return riskSummary
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceCount'])) {
             $model->resourceCount = $map['ResourceCount'];
         }
+
         if (isset($map['RiskCount'])) {
             $model->riskCount = $map['RiskCount'];
         }
+
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }
+
         if (isset($map['RiskType'])) {
             $model->riskType = $map['RiskType'];
         }

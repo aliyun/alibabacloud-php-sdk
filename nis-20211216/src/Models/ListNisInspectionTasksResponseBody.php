@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Nis\V20211216\Models\ListNisInspectionTasksResponseBody\inspectionTaskList;
-use AlibabaCloud\Tea\Model;
 
 class ListNisInspectionTasksResponseBody extends Model
 {
@@ -15,65 +15,65 @@ class ListNisInspectionTasksResponseBody extends Model
     public $inspectionTaskList;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example hKrS+MVXkuOgztXnvdml194Cz/lMNdmr+DEh0th6dVlNEo/F148UPCh2itDku7Qj
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example A7F0D6EC-E19E-58AC-AC9F-08036763960F
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 5
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'inspectionTaskList' => 'InspectionTaskList',
-        'maxResults'         => 'MaxResults',
-        'nextToken'          => 'NextToken',
-        'requestId'          => 'RequestId',
-        'totalCount'         => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->inspectionTaskList)) {
+            Model::validateArray($this->inspectionTaskList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inspectionTaskList) {
-            $res['InspectionTaskList'] = [];
-            if (null !== $this->inspectionTaskList && \is_array($this->inspectionTaskList)) {
-                $n = 0;
-                foreach ($this->inspectionTaskList as $item) {
-                    $res['InspectionTaskList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->inspectionTaskList)) {
+                $res['InspectionTaskList'] = [];
+                $n1 = 0;
+                foreach ($this->inspectionTaskList as $item1) {
+                    $res['InspectionTaskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -81,32 +81,36 @@ class ListNisInspectionTasksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListNisInspectionTasksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InspectionTaskList'])) {
             if (!empty($map['InspectionTaskList'])) {
                 $model->inspectionTaskList = [];
-                $n                         = 0;
-                foreach ($map['InspectionTaskList'] as $item) {
-                    $model->inspectionTaskList[$n++] = null !== $item ? inspectionTaskList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InspectionTaskList'] as $item1) {
+                    $model->inspectionTaskList[$n1++] = inspectionTaskList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

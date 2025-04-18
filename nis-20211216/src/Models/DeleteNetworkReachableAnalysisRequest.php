@@ -4,41 +4,45 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteNetworkReachableAnalysisRequest extends Model
 {
     /**
-     * @description The IDs of the tasks for analyzing network reachability.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $networkReachableAnalysisIds;
 
     /**
-     * @description The ID of the region for which you want to delete a task for analyzing network reachability.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'networkReachableAnalysisIds' => 'NetworkReachableAnalysisIds',
-        'regionId'                    => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->networkReachableAnalysisIds)) {
+            Model::validateArray($this->networkReachableAnalysisIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkReachableAnalysisIds) {
-            $res['NetworkReachableAnalysisIds'] = $this->networkReachableAnalysisIds;
+            if (\is_array($this->networkReachableAnalysisIds)) {
+                $res['NetworkReachableAnalysisIds'] = [];
+                $n1 = 0;
+                foreach ($this->networkReachableAnalysisIds as $item1) {
+                    $res['NetworkReachableAnalysisIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -46,19 +50,24 @@ class DeleteNetworkReachableAnalysisRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteNetworkReachableAnalysisRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkReachableAnalysisIds'])) {
             if (!empty($map['NetworkReachableAnalysisIds'])) {
-                $model->networkReachableAnalysisIds = $map['NetworkReachableAnalysisIds'];
+                $model->networkReachableAnalysisIds = [];
+                $n1 = 0;
+                foreach ($map['NetworkReachableAnalysisIds'] as $item1) {
+                    $model->networkReachableAnalysisIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

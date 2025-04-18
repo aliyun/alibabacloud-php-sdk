@@ -4,61 +4,56 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Nis\V20211216\Models\CreateNetworkReachableAnalysisRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class CreateNetworkReachableAnalysisRequest extends Model
 {
     /**
-     * @description The ID of the network path. You can call the [CreateNetworkPath](https://help.aliyun.com/document_detail/2366522.html) operation to obtain the ID of the network path.
-     *
-     * This parameter is required.
-     * @example np-b2f618ceb2c84057****
-     *
      * @var string
      */
     public $networkPathId;
 
     /**
-     * @description The ID of the region for which you want to create a task for analyzing network reachability.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The tags to add to the resource.
-     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
         'networkPathId' => 'NetworkPathId',
-        'regionId'      => 'RegionId',
-        'tag'           => 'Tag',
+        'regionId' => 'RegionId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkPathId) {
             $res['NetworkPathId'] = $this->networkPathId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -66,26 +61,28 @@ class CreateNetworkReachableAnalysisRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateNetworkReachableAnalysisRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkPathId'])) {
             $model->networkPathId = $map['NetworkPathId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }

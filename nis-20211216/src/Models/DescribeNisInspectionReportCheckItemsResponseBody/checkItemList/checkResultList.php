@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216\Models\DescribeNisInspectionReportCheckItemsResponseBody\checkItemList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class checkResultList extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $count;
@@ -20,20 +18,22 @@ class checkResultList extends Model
      */
     public $riskLevel;
     protected $_name = [
-        'count'     => 'Count',
+        'count' => 'Count',
         'riskLevel' => 'RiskLevel',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
@@ -41,17 +41,18 @@ class checkResultList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return checkResultList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }

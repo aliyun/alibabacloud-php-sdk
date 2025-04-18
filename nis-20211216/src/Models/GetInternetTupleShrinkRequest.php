@@ -4,327 +4,245 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetInternetTupleShrinkRequest extends Model
 {
     /**
-     * @description The IDs of member accounts.
-     *
      * @var int[]
      */
     public $accountIds;
 
     /**
-     * @description The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * This parameter is required.
-     * @example 1684373600099
-     *
      * @var int
      */
     public $beginTime;
 
     /**
-     * @description The local IP address.
-     *
-     * @example 112.74.XX.XX
-     *
      * @var string
      */
     public $cloudIp;
 
     /**
-     * @description The local IP addresses for filtering.
-     *
      * @var string
      */
     public $cloudIpListShrink;
 
     /**
-     * @description The local Internet service provider (ISP).
-     *
-     * >  In most cases, the value is Alibaba or Alibaba Cloud.
-     * @example Alibaba
-     *
      * @var string
      */
     public $cloudIsp;
 
     /**
-     * @description The local port.
-     *
-     * >  This parameter is required only if you set GroupBy to CloudPort.
-     * @example 443
-     *
      * @var string
      */
     public $cloudPort;
 
     /**
-     * @description The direction of the Internet traffic that you want to query. Valid values:
-     *
-     *   **in**: inbound
-     *   **out**: outbound
-     *
-     * This parameter is required.
-     * @example in
-     *
      * @var string
      */
     public $direction;
 
     /**
-     * @description The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * This parameter is required.
-     * @example 1684373700099
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The ID of the Alibaba Cloud instance.
-     *
-     * @example eip-sample*
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The instance IDs for filtering.
-     *
      * @var string
      */
     public $instanceListShrink;
 
     /**
-     * @description The metric for data ranking. Default value: **ByteCount**. This value indicates that Internet traffic data is ranked by traffic volume.
-     *
-     * Valid values:
-     *
-     *   Rtt
-     *   ByteCount
-     *   PacketCount
-     *   RetransmitRate
-     *
-     * @example ByteCount
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description The remote city.
-     *
-     * >  This parameter is required only if you set **TupleType** to **2** or **5**.
-     * @example Hangzhou
-     *
      * @var string
      */
     public $otherCity;
 
     /**
-     * @description The remote country.
-     *
-     * >  This parameter is required only if you set **TupleType** to **2** or **5**.
-     * @example China
-     *
      * @var string
      */
     public $otherCountry;
 
     /**
-     * @description The remote IP address.
-     *
-     * > This parameter is required only when you set **TupleType** to **2** or **5**.
-     * @example 122.112.XX.XX
-     *
      * @var string
      */
     public $otherIp;
 
     /**
-     * @description The remote ISP.
-     *
-     * > This parameter is required if you want to view the information about the remote ISP.
-     * @example China Mobile
-     *
      * @var string
      */
     public $otherIsp;
 
     /**
-     * @description The remote port.
-     *
-     * > This parameter is required only when you set **TupleType** to **5**.
-     * @example 40002
-     *
      * @var string
      */
     public $otherPort;
 
     /**
-     * @description The protocol number.
-     *
-     * > All protocols are supported. This parameter is required only when you set **TupleType** to **5**.
-     * @example 6
-     *
      * @var string
      */
     public $protocol;
 
     /**
-     * @description The ID of the region for which you want to query the Internet traffic.
-     *
-     * This parameter is required.
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The order in which instances are ranked by Internet traffic. Valid values:
-     *
-     *   **desc**: the descending order
-     *   **asc**: the ascending order
-     *
-     * @example desc
-     *
      * @var string
      */
     public $sort;
 
     /**
-     * @description Specifies top-N traffic data to display. Default value: **10**. This value specifies to display top-10 traffic data by default. Max value: **100**.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $topN;
 
     /**
-     * @description The type of the tuple. Valid values:
-     *
-     *   **1**: 1-tuple
-     *   **2**: 2-tuple
-     *   **5**: 5-tuple
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $tupleType;
 
     /**
-     * @description Specifies whether to enable the multi-account management feature. Default value: **false**. This value specifies that the multi-account management feature is disabled.
-     *
-     * >  By default, the multi-account management feature is not available. If you want to use this feature, contact your account manager to apply for permissions.
-     * @example false
-     *
      * @var bool
      */
     public $useMultiAccount;
     protected $_name = [
-        'accountIds'         => 'AccountIds',
-        'beginTime'          => 'BeginTime',
-        'cloudIp'            => 'CloudIp',
-        'cloudIpListShrink'  => 'CloudIpList',
-        'cloudIsp'           => 'CloudIsp',
-        'cloudPort'          => 'CloudPort',
-        'direction'          => 'Direction',
-        'endTime'            => 'EndTime',
-        'instanceId'         => 'InstanceId',
+        'accountIds' => 'AccountIds',
+        'beginTime' => 'BeginTime',
+        'cloudIp' => 'CloudIp',
+        'cloudIpListShrink' => 'CloudIpList',
+        'cloudIsp' => 'CloudIsp',
+        'cloudPort' => 'CloudPort',
+        'direction' => 'Direction',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
         'instanceListShrink' => 'InstanceList',
-        'orderBy'            => 'OrderBy',
-        'otherCity'          => 'OtherCity',
-        'otherCountry'       => 'OtherCountry',
-        'otherIp'            => 'OtherIp',
-        'otherIsp'           => 'OtherIsp',
-        'otherPort'          => 'OtherPort',
-        'protocol'           => 'Protocol',
-        'regionId'           => 'RegionId',
-        'sort'               => 'Sort',
-        'topN'               => 'TopN',
-        'tupleType'          => 'TupleType',
-        'useMultiAccount'    => 'UseMultiAccount',
+        'orderBy' => 'OrderBy',
+        'otherCity' => 'OtherCity',
+        'otherCountry' => 'OtherCountry',
+        'otherIp' => 'OtherIp',
+        'otherIsp' => 'OtherIsp',
+        'otherPort' => 'OtherPort',
+        'protocol' => 'Protocol',
+        'regionId' => 'RegionId',
+        'sort' => 'Sort',
+        'topN' => 'TopN',
+        'tupleType' => 'TupleType',
+        'useMultiAccount' => 'UseMultiAccount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->accountIds)) {
+            Model::validateArray($this->accountIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountIds) {
-            $res['AccountIds'] = $this->accountIds;
+            if (\is_array($this->accountIds)) {
+                $res['AccountIds'] = [];
+                $n1 = 0;
+                foreach ($this->accountIds as $item1) {
+                    $res['AccountIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
         }
+
         if (null !== $this->cloudIp) {
             $res['CloudIp'] = $this->cloudIp;
         }
+
         if (null !== $this->cloudIpListShrink) {
             $res['CloudIpList'] = $this->cloudIpListShrink;
         }
+
         if (null !== $this->cloudIsp) {
             $res['CloudIsp'] = $this->cloudIsp;
         }
+
         if (null !== $this->cloudPort) {
             $res['CloudPort'] = $this->cloudPort;
         }
+
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceListShrink) {
             $res['InstanceList'] = $this->instanceListShrink;
         }
+
         if (null !== $this->orderBy) {
             $res['OrderBy'] = $this->orderBy;
         }
+
         if (null !== $this->otherCity) {
             $res['OtherCity'] = $this->otherCity;
         }
+
         if (null !== $this->otherCountry) {
             $res['OtherCountry'] = $this->otherCountry;
         }
+
         if (null !== $this->otherIp) {
             $res['OtherIp'] = $this->otherIp;
         }
+
         if (null !== $this->otherIsp) {
             $res['OtherIsp'] = $this->otherIsp;
         }
+
         if (null !== $this->otherPort) {
             $res['OtherPort'] = $this->otherPort;
         }
+
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
         }
+
         if (null !== $this->topN) {
             $res['TopN'] = $this->topN;
         }
+
         if (null !== $this->tupleType) {
             $res['TupleType'] = $this->tupleType;
         }
+
         if (null !== $this->useMultiAccount) {
             $res['UseMultiAccount'] = $this->useMultiAccount;
         }
@@ -332,79 +250,104 @@ class GetInternetTupleShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInternetTupleShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountIds'])) {
             if (!empty($map['AccountIds'])) {
-                $model->accountIds = $map['AccountIds'];
+                $model->accountIds = [];
+                $n1 = 0;
+                foreach ($map['AccountIds'] as $item1) {
+                    $model->accountIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
         }
+
         if (isset($map['CloudIp'])) {
             $model->cloudIp = $map['CloudIp'];
         }
+
         if (isset($map['CloudIpList'])) {
             $model->cloudIpListShrink = $map['CloudIpList'];
         }
+
         if (isset($map['CloudIsp'])) {
             $model->cloudIsp = $map['CloudIsp'];
         }
+
         if (isset($map['CloudPort'])) {
             $model->cloudPort = $map['CloudPort'];
         }
+
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceList'])) {
             $model->instanceListShrink = $map['InstanceList'];
         }
+
         if (isset($map['OrderBy'])) {
             $model->orderBy = $map['OrderBy'];
         }
+
         if (isset($map['OtherCity'])) {
             $model->otherCity = $map['OtherCity'];
         }
+
         if (isset($map['OtherCountry'])) {
             $model->otherCountry = $map['OtherCountry'];
         }
+
         if (isset($map['OtherIp'])) {
             $model->otherIp = $map['OtherIp'];
         }
+
         if (isset($map['OtherIsp'])) {
             $model->otherIsp = $map['OtherIsp'];
         }
+
         if (isset($map['OtherPort'])) {
             $model->otherPort = $map['OtherPort'];
         }
+
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
         }
+
         if (isset($map['TopN'])) {
             $model->topN = $map['TopN'];
         }
+
         if (isset($map['TupleType'])) {
             $model->tupleType = $map['TupleType'];
         }
+
         if (isset($map['UseMultiAccount'])) {
             $model->useMultiAccount = $map['UseMultiAccount'];
         }

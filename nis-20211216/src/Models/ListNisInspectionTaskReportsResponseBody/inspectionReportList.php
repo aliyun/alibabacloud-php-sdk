@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216\Models\ListNisInspectionTaskReportsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class inspectionReportList extends Model
 {
     /**
-     * @example nir-7c3dd178738a429abe6d
-     *
      * @var string
      */
     public $inspectionReportId;
@@ -20,9 +18,10 @@ class inspectionReportList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inspectionReportId) {
@@ -32,11 +31,11 @@ class inspectionReportList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return inspectionReportList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

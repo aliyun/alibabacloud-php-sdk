@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeNisInspectionTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ni-8svmpe0yso2bhzr7fh79
-     *
      * @var string
      */
     public $inspectionTaskId;
@@ -22,9 +18,10 @@ class DescribeNisInspectionTaskRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inspectionTaskId) {
@@ -34,11 +31,11 @@ class DescribeNisInspectionTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNisInspectionTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

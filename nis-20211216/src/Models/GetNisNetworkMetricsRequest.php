@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetNisNetworkMetricsRequest\dimensions;
-use AlibabaCloud\Tea\Model;
 
 class GetNisNetworkMetricsRequest extends Model
 {
@@ -15,115 +15,114 @@ class GetNisNetworkMetricsRequest extends Model
     public $accountIds;
 
     /**
-     * @example 1638239092000
-     *
      * @var int
      */
     public $beginTime;
 
     /**
-     * @description This parameter is required.
-     *
      * @var dimensions[]
      */
     public $dimensions;
 
     /**
-     * @example 1684373700099
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example bps
-     *
      * @var string
      */
     public $metricName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-shenzhen
-     *
      * @var string
      */
     public $regionNo;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example AccessInternetIPV4
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @example TimestampAscending
-     *
      * @var string
      */
     public $scanBy;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $useCrossAccount;
     protected $_name = [
-        'accountIds'      => 'AccountIds',
-        'beginTime'       => 'BeginTime',
-        'dimensions'      => 'Dimensions',
-        'endTime'         => 'EndTime',
-        'metricName'      => 'MetricName',
-        'regionNo'        => 'RegionNo',
-        'resourceType'    => 'ResourceType',
-        'scanBy'          => 'ScanBy',
+        'accountIds' => 'AccountIds',
+        'beginTime' => 'BeginTime',
+        'dimensions' => 'Dimensions',
+        'endTime' => 'EndTime',
+        'metricName' => 'MetricName',
+        'regionNo' => 'RegionNo',
+        'resourceType' => 'ResourceType',
+        'scanBy' => 'ScanBy',
         'useCrossAccount' => 'UseCrossAccount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->accountIds)) {
+            Model::validateArray($this->accountIds);
+        }
+        if (\is_array($this->dimensions)) {
+            Model::validateArray($this->dimensions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountIds) {
-            $res['AccountIds'] = $this->accountIds;
-        }
-        if (null !== $this->beginTime) {
-            $res['BeginTime'] = $this->beginTime;
-        }
-        if (null !== $this->dimensions) {
-            $res['Dimensions'] = [];
-            if (null !== $this->dimensions && \is_array($this->dimensions)) {
-                $n = 0;
-                foreach ($this->dimensions as $item) {
-                    $res['Dimensions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->accountIds)) {
+                $res['AccountIds'] = [];
+                $n1 = 0;
+                foreach ($this->accountIds as $item1) {
+                    $res['AccountIds'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->beginTime) {
+            $res['BeginTime'] = $this->beginTime;
+        }
+
+        if (null !== $this->dimensions) {
+            if (\is_array($this->dimensions)) {
+                $res['Dimensions'] = [];
+                $n1 = 0;
+                foreach ($this->dimensions as $item1) {
+                    $res['Dimensions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
+
         if (null !== $this->regionNo) {
             $res['RegionNo'] = $this->regionNo;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->scanBy) {
             $res['ScanBy'] = $this->scanBy;
         }
+
         if (null !== $this->useCrossAccount) {
             $res['UseCrossAccount'] = $this->useCrossAccount;
         }
@@ -131,46 +130,58 @@ class GetNisNetworkMetricsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetNisNetworkMetricsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountIds'])) {
             if (!empty($map['AccountIds'])) {
-                $model->accountIds = $map['AccountIds'];
-            }
-        }
-        if (isset($map['BeginTime'])) {
-            $model->beginTime = $map['BeginTime'];
-        }
-        if (isset($map['Dimensions'])) {
-            if (!empty($map['Dimensions'])) {
-                $model->dimensions = [];
-                $n                 = 0;
-                foreach ($map['Dimensions'] as $item) {
-                    $model->dimensions[$n++] = null !== $item ? dimensions::fromMap($item) : $item;
+                $model->accountIds = [];
+                $n1 = 0;
+                foreach ($map['AccountIds'] as $item1) {
+                    $model->accountIds[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['BeginTime'])) {
+            $model->beginTime = $map['BeginTime'];
+        }
+
+        if (isset($map['Dimensions'])) {
+            if (!empty($map['Dimensions'])) {
+                $model->dimensions = [];
+                $n1 = 0;
+                foreach ($map['Dimensions'] as $item1) {
+                    $model->dimensions[$n1++] = dimensions::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
+
         if (isset($map['RegionNo'])) {
             $model->regionNo = $map['RegionNo'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['ScanBy'])) {
             $model->scanBy = $map['ScanBy'];
         }
+
         if (isset($map['UseCrossAccount'])) {
             $model->useCrossAccount = $map['UseCrossAccount'];
         }

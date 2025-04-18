@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateNetworkPathResponseBody extends Model
 {
     /**
-     * @description The ID of the network path.
-     *
-     * @example np-4cbf598673d14d27****
-     *
      * @var string
      */
     public $networkPathId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 92DD9FFB-06FB-56F7-83EF-5CEF98F5562A
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'networkPathId' => 'NetworkPathId',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkPathId) {
             $res['NetworkPathId'] = $this->networkPathId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class CreateNetworkPathResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateNetworkPathResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkPathId'])) {
             $model->networkPathId = $map['NetworkPathId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

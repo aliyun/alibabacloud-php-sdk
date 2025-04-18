@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteNetworkReachableAnalysisResponseBody extends Model
 {
     /**
-     * @description Result of operation.
-     * - **true**: Delete Success.
-     * - **false**: Delete Fail.
-     * @example true
-     *
      * @var bool
      */
     public $data;
 
     /**
-     * @description The request ID.
-     *
-     * @example 4838F3F2-30E1-5D82-B25A-B9FE33BC3E25
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,17 +41,18 @@ class DeleteNetworkReachableAnalysisResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteNetworkReachableAnalysisResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

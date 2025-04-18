@@ -4,47 +4,46 @@
 
 namespace AlibabaCloud\SDK\Nis\V20211216\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetVbrFlowTopNResponseBody\virtualBorderRouterFlowlogTopN;
-use AlibabaCloud\Tea\Model;
 
 class GetVbrFlowTopNResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example A7F0D6EC-E19E-58AC-AC9F-08036763960F
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ranking result of hybrid cloud traffic data.
-     *
      * @var virtualBorderRouterFlowlogTopN[]
      */
     public $virtualBorderRouterFlowlogTopN;
     protected $_name = [
-        'requestId'                      => 'RequestId',
+        'requestId' => 'RequestId',
         'virtualBorderRouterFlowlogTopN' => 'VirtualBorderRouterFlowlogTopN',
     ];
 
     public function validate()
     {
+        if (\is_array($this->virtualBorderRouterFlowlogTopN)) {
+            Model::validateArray($this->virtualBorderRouterFlowlogTopN);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->virtualBorderRouterFlowlogTopN) {
-            $res['VirtualBorderRouterFlowlogTopN'] = [];
-            if (null !== $this->virtualBorderRouterFlowlogTopN && \is_array($this->virtualBorderRouterFlowlogTopN)) {
-                $n = 0;
-                foreach ($this->virtualBorderRouterFlowlogTopN as $item) {
-                    $res['VirtualBorderRouterFlowlogTopN'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->virtualBorderRouterFlowlogTopN)) {
+                $res['VirtualBorderRouterFlowlogTopN'] = [];
+                $n1 = 0;
+                foreach ($this->virtualBorderRouterFlowlogTopN as $item1) {
+                    $res['VirtualBorderRouterFlowlogTopN'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +51,24 @@ class GetVbrFlowTopNResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetVbrFlowTopNResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VirtualBorderRouterFlowlogTopN'])) {
             if (!empty($map['VirtualBorderRouterFlowlogTopN'])) {
                 $model->virtualBorderRouterFlowlogTopN = [];
-                $n                                     = 0;
-                foreach ($map['VirtualBorderRouterFlowlogTopN'] as $item) {
-                    $model->virtualBorderRouterFlowlogTopN[$n++] = null !== $item ? virtualBorderRouterFlowlogTopN::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VirtualBorderRouterFlowlogTopN'] as $item1) {
+                    $model->virtualBorderRouterFlowlogTopN[$n1++] = virtualBorderRouterFlowlogTopN::fromMap($item1);
                 }
             }
         }
