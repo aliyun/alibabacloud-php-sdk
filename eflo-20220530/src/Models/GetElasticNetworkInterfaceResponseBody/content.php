@@ -83,6 +83,11 @@ class content extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $securityGroupId;
 
     /**
@@ -124,6 +129,7 @@ class content extends Model
         'nodeId' => 'NodeId',
         'privateIpAddresses' => 'PrivateIpAddresses',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'securityGroupId' => 'SecurityGroupId',
         'status' => 'Status',
         'type' => 'Type',
@@ -212,6 +218,10 @@ class content extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->securityGroupId) {
@@ -315,6 +325,10 @@ class content extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['SecurityGroupId'])) {

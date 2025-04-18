@@ -15,11 +15,17 @@ class content extends Model
     public $data;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var int
      */
     public $total;
     protected $_name = [
         'data' => 'Data',
+        'resourceGroupId' => 'ResourceGroupId',
         'total' => 'Total',
     ];
 
@@ -42,6 +48,10 @@ class content extends Model
                     $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->total) {
@@ -67,6 +77,10 @@ class content extends Model
                     $model->data[$n1++] = data::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['Total'])) {

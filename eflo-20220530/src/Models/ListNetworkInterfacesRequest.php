@@ -46,6 +46,11 @@ class ListNetworkInterfacesRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $subnetId;
 
     /**
@@ -60,6 +65,7 @@ class ListNetworkInterfacesRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'subnetId' => 'SubnetId',
         'vpdId' => 'VpdId',
     ];
@@ -98,6 +104,10 @@ class ListNetworkInterfacesRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->subnetId) {
@@ -145,6 +155,10 @@ class ListNetworkInterfacesRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['SubnetId'])) {

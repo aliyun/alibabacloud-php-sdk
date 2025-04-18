@@ -41,6 +41,11 @@ class ListLeniPrivateIpAddressesRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $status;
     protected $_name = [
         'elasticNetworkInterfaceId' => 'ElasticNetworkInterfaceId',
@@ -49,6 +54,7 @@ class ListLeniPrivateIpAddressesRequest extends Model
         'pageSize' => 'PageSize',
         'privateIpAddress' => 'PrivateIpAddress',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'status' => 'Status',
     ];
 
@@ -82,6 +88,10 @@ class ListLeniPrivateIpAddressesRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->status) {
@@ -121,6 +131,10 @@ class ListLeniPrivateIpAddressesRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['Status'])) {

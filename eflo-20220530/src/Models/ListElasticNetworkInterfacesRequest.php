@@ -46,6 +46,11 @@ class ListElasticNetworkInterfacesRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -75,6 +80,7 @@ class ListElasticNetworkInterfacesRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'status' => 'Status',
         'type' => 'Type',
         'vSwitchId' => 'VSwitchId',
@@ -116,6 +122,10 @@ class ListElasticNetworkInterfacesRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->status) {
@@ -175,6 +185,10 @@ class ListElasticNetworkInterfacesRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['Status'])) {

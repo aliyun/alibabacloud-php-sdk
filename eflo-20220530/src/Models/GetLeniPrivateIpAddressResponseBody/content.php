@@ -51,6 +51,11 @@ class content extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $status;
     protected $_name = [
         'description' => 'Description',
@@ -61,6 +66,7 @@ class content extends Model
         'message' => 'Message',
         'privateIpAddress' => 'PrivateIpAddress',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'status' => 'Status',
     ];
 
@@ -102,6 +108,10 @@ class content extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->status) {
@@ -149,6 +159,10 @@ class content extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['Status'])) {

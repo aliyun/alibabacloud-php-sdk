@@ -69,6 +69,11 @@ class content extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $serviceMac;
 
     /**
@@ -107,6 +112,7 @@ class content extends Model
         'privateIpAddressMacGroup' => 'PrivateIpAddressMacGroup',
         'quota' => 'Quota',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'serviceMac' => 'ServiceMac',
         'status' => 'Status',
         'subnetBaseInfo' => 'SubnetBaseInfo',
@@ -189,6 +195,10 @@ class content extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->serviceMac) {
@@ -280,6 +290,10 @@ class content extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['ServiceMac'])) {

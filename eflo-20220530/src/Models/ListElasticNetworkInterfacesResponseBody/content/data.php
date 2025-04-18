@@ -66,6 +66,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $securityGroupId;
 
     /**
@@ -104,6 +109,7 @@ class data extends Model
         'message' => 'Message',
         'nodeId' => 'NodeId',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'securityGroupId' => 'SecurityGroupId',
         'status' => 'Status',
         'type' => 'Type',
@@ -162,6 +168,10 @@ class data extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->securityGroupId) {
@@ -241,6 +251,10 @@ class data extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['SecurityGroupId'])) {

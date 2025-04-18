@@ -252,11 +252,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssignLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssignLeniPrivateIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssignLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -350,11 +347,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssignPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssignPrivateIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssignPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -430,11 +424,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateVpdCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateVpdCidrBlockResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateVpdCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -508,11 +499,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachElasticNetworkInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -573,6 +561,10 @@ class Eflo extends OpenApiClient
             @$body['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->securityGroupId) {
             @$body['SecurityGroupId'] = $request->securityGroupId;
         }
@@ -603,11 +595,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateElasticNetworkInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -686,11 +675,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateErResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateErResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateErResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -785,11 +771,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateErAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -905,11 +888,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateErRouteMapResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1007,11 +987,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSubnetResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1149,11 +1126,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVccResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVccResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVccResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1234,11 +1208,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVccGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVccGrantRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVccGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1314,11 +1285,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVccRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVccRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVccRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1410,11 +1378,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVpdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVpdResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVpdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1496,11 +1461,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateVpdGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateVpdGrantRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateVpdGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1569,11 +1531,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteElasticNetworkInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1641,11 +1600,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteErResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteErResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteErResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1725,11 +1681,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteErAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1808,11 +1761,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteErRouteMapResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1894,11 +1844,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSubnetResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1973,11 +1920,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVccGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVccGrantRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVccGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2052,11 +1996,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVccRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVccRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVccRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2131,11 +2072,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVpdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVpdResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVpdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2215,11 +2153,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteVpdGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteVpdGrantRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteVpdGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2279,11 +2214,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSlrResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSlrResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSlrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2354,11 +2286,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetachElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachElasticNetworkInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2421,11 +2350,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDestinationCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDestinationCidrBlockResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDestinationCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2485,11 +2411,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetElasticNetworkInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2549,11 +2472,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetErResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetErResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetErResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2617,11 +2537,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetErAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2685,11 +2602,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetErRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetErRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetErRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2753,11 +2667,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetErRouteMapResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2833,11 +2744,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFabricTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFabricTopologyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFabricTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2901,11 +2809,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetLeniPrivateIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2969,11 +2874,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetLniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetLniPrivateIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetLniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3037,11 +2939,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNetworkInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3101,11 +3000,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetNodeInfoForPodResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNodeInfoForPodResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNodeInfoForPodResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3169,11 +3065,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSubnetResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3249,11 +3142,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVccResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVccResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVccResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3325,11 +3215,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVccGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVccGrantRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVccGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3393,11 +3280,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVccRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVccRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVccRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3457,11 +3341,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVpdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVpdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVpdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3533,11 +3414,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVpdGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVpdGrantRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVpdGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3601,11 +3479,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVpdRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVpdRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVpdRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3661,11 +3536,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InitializeVccResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InitializeVccResponse::fromMap($this->execute($params, $req, $runtime));
+        return InitializeVccResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3731,6 +3603,10 @@ class Eflo extends OpenApiClient
             @$body['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->status) {
             @$body['Status'] = $request->status;
         }
@@ -3765,11 +3641,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListElasticNetworkInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListElasticNetworkInterfacesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListElasticNetworkInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3873,11 +3746,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListErAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListErAttachmentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListErAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3981,11 +3851,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListErRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListErRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListErRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4101,11 +3968,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListErRouteMapsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListErRouteMapsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListErRouteMapsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4197,11 +4061,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListErsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListErsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListErsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4269,11 +4130,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListInstancesByNcdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstancesByNcdResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstancesByNcdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4335,6 +4193,10 @@ class Eflo extends OpenApiClient
             @$body['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->status) {
             @$body['Status'] = $request->status;
         }
@@ -4353,11 +4215,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListLeniPrivateIpAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListLeniPrivateIpAddressesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListLeniPrivateIpAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4427,6 +4286,10 @@ class Eflo extends OpenApiClient
             @$body['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
@@ -4441,11 +4304,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListLniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListLniPrivateIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListLniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4511,6 +4371,10 @@ class Eflo extends OpenApiClient
             @$body['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->subnetId) {
             @$body['SubnetId'] = $request->subnetId;
         }
@@ -4533,11 +4397,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListNetworkInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNetworkInterfacesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNetworkInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4605,11 +4466,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListNodeInfosForPodResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNodeInfosForPodResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNodeInfosForPodResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4709,11 +4567,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSubnetsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSubnetsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSubnetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4789,11 +4644,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVccFlowInfosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVccFlowInfosResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVccFlowInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4889,11 +4741,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVccGrantRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVccGrantRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVccGrantRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4997,11 +4846,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVccRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVccRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVccRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5109,11 +4955,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVccsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVccsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVccsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5209,11 +5052,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVpdGrantRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVpdGrantRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVpdGrantRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5317,11 +5157,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVpdRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVpdRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVpdRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5425,11 +5262,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListVpdsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVpdsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVpdsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5497,11 +5331,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryInstanceNcdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryInstanceNcdResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryInstanceNcdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5564,11 +5395,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RefundVccResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RefundVccResponse::fromMap($this->execute($params, $req, $runtime));
+        return RefundVccResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5634,11 +5462,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RetryVccResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RetryVccResponse::fromMap($this->execute($params, $req, $runtime));
+        return RetryVccResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5717,11 +5542,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnAssignPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnAssignPrivateIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnAssignPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5789,11 +5611,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnAssociateVpdCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnAssociateVpdCidrBlockResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnAssociateVpdCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5865,11 +5684,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnassignLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnassignLeniPrivateIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnassignLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5941,11 +5757,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateElasticNetworkInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6013,11 +5826,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateErResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateErResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateErResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6085,11 +5895,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateErAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6157,11 +5964,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateErRouteMapResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6229,11 +6033,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateLeniPrivateIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6305,11 +6106,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSubnetResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6381,11 +6179,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateVccResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVccResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVccResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6449,11 +6244,8 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateVpdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateVpdResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateVpdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

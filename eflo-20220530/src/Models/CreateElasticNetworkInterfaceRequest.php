@@ -36,6 +36,11 @@ class CreateElasticNetworkInterfaceRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $securityGroupId;
 
     /**
@@ -58,6 +63,7 @@ class CreateElasticNetworkInterfaceRequest extends Model
         'enableJumboFrame' => 'EnableJumboFrame',
         'nodeId' => 'NodeId',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'securityGroupId' => 'SecurityGroupId',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
@@ -90,6 +96,10 @@ class CreateElasticNetworkInterfaceRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->securityGroupId) {
@@ -137,6 +147,10 @@ class CreateElasticNetworkInterfaceRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['SecurityGroupId'])) {
