@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeGlobalDesktopsResponseBody\desktops;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sessions extends Model
 {
     /**
-     * @example User1
-     *
      * @var string
      */
     public $endUserId;
 
     /**
-     * @example 2021-03-07T08:23Z
-     *
      * @var string
      */
     public $establishmentTime;
@@ -26,14 +22,18 @@ class sessions extends Model
         'establishmentTime' => 'EstablishmentTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
+
         if (null !== $this->establishmentTime) {
             $res['EstablishmentTime'] = $this->establishmentTime;
         }
@@ -41,17 +41,18 @@ class sessions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sessions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
+
         if (isset($map['EstablishmentTime'])) {
             $model->establishmentTime = $map['EstablishmentTime'];
         }

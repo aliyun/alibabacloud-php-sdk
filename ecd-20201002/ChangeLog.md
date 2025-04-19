@@ -1,3 +1,9 @@
+2025-04-19 Version: 1.2.3
+- Update API RebootDesktops: add request parameters OsUpdate.
+- Update API StopDesktops: add request parameters OsUpdate.
+- Update API StopDesktops: add request parameters Uuid.
+
+
 2025-03-18 Version: 1.2.3
 - Update API RebootDesktops: add param OsUpdate.
 - Update API StopDesktops: add param OsUpdate.

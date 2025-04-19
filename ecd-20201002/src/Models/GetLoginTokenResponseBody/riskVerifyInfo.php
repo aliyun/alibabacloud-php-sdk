@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models\GetLoginTokenResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class riskVerifyInfo extends Model
 {
     /**
-     * @description The email used for authentication.
-     *
-     * @example user@example.com
-     *
      * @var string
      */
     public $email;
 
     /**
-     * @description The duration of the lock.
-     *
-     * @example 1713749778
-     *
      * @var int
      */
     public $lastLockDuration;
 
     /**
-     * @description Whether the account is locked or not.
-     *
-     * @example true
-     *
      * @var string
      */
     public $locked;
 
     /**
-     * @description The mobile number used for authentication.
-     *
-     * @example 1388888****
-     *
      * @var string
      */
     public $phone;
@@ -50,20 +34,26 @@ class riskVerifyInfo extends Model
         'phone' => 'Phone',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
+
         if (null !== $this->lastLockDuration) {
             $res['LastLockDuration'] = $this->lastLockDuration;
         }
+
         if (null !== $this->locked) {
             $res['Locked'] = $this->locked;
         }
+
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
         }
@@ -71,23 +61,26 @@ class riskVerifyInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return riskVerifyInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
+
         if (isset($map['LastLockDuration'])) {
             $model->lastLockDuration = $map['LastLockDuration'];
         }
+
         if (isset($map['Locked'])) {
             $model->locked = $map['Locked'];
         }
+
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
         }

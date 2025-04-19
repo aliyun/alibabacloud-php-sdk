@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeSnapshotsResponseBody\snapshots;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSnapshotsResponseBody extends Model
 {
     /**
-     * @example AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example 51592A88-0F2C-55E6-AD2C-2AD9C10D****
-     *
      * @var string
      */
     public $requestId;
@@ -33,23 +29,31 @@ class DescribeSnapshotsResponseBody extends Model
         'snapshots' => 'Snapshots',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->snapshots)) {
+            Model::validateArray($this->snapshots);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->snapshots) {
-            $res['Snapshots'] = [];
-            if (null !== $this->snapshots && \is_array($this->snapshots)) {
-                $n = 0;
-                foreach ($this->snapshots as $item) {
-                    $res['Snapshots'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->snapshots)) {
+                $res['Snapshots'] = [];
+                $n1 = 0;
+                foreach ($this->snapshots as $item1) {
+                    $res['Snapshots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -57,26 +61,28 @@ class DescribeSnapshotsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSnapshotsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Snapshots'])) {
             if (!empty($map['Snapshots'])) {
                 $model->snapshots = [];
-                $n = 0;
-                foreach ($map['Snapshots'] as $item) {
-                    $model->snapshots[$n++] = null !== $item ? snapshots::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Snapshots'] as $item1) {
+                    $model->snapshots[$n1++] = snapshots::fromMap($item1);
                 }
             }
         }

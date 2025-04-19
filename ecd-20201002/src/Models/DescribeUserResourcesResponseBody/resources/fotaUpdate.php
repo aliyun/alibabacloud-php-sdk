@@ -4,76 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeUserResourcesResponseBody\resources;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fotaUpdate extends Model
 {
     /**
-     * @example aliyun
-     *
      * @var string
      */
     public $channel;
 
     /**
-     * @example 2.7.0-R-20250122.154826
-     *
      * @var string
      */
     public $currentAppVersion;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $force;
 
     /**
-     * @example 2.7.0-R-20250125.154826
-     *
      * @var string
      */
     public $newAppVersion;
 
     /**
-     * @example 2.6.9-R-20250123.153415
-     *
      * @var string
      */
     public $newDcdVersion;
 
     /**
-     * @example wuying-asp_single_session_desktop_win_x64
-     *
      * @var string
      */
     public $project;
 
     /**
-     * @example up
-     *
      * @var string
      */
     public $releaseNote;
 
     /**
-     * @example up
-     *
      * @var string
      */
     public $releaseNoteEn;
 
     /**
-     * @example up
-     *
      * @var string
      */
     public $releaseNoteJp;
 
     /**
-     * @example 474981930
-     *
      * @var string
      */
     public $size;
@@ -90,38 +70,50 @@ class fotaUpdate extends Model
         'size' => 'Size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channel) {
             $res['Channel'] = $this->channel;
         }
+
         if (null !== $this->currentAppVersion) {
             $res['CurrentAppVersion'] = $this->currentAppVersion;
         }
+
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
+
         if (null !== $this->newAppVersion) {
             $res['NewAppVersion'] = $this->newAppVersion;
         }
+
         if (null !== $this->newDcdVersion) {
             $res['NewDcdVersion'] = $this->newDcdVersion;
         }
+
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
+
         if (null !== $this->releaseNote) {
             $res['ReleaseNote'] = $this->releaseNote;
         }
+
         if (null !== $this->releaseNoteEn) {
             $res['ReleaseNoteEn'] = $this->releaseNoteEn;
         }
+
         if (null !== $this->releaseNoteJp) {
             $res['ReleaseNoteJp'] = $this->releaseNoteJp;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -129,41 +121,50 @@ class fotaUpdate extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fotaUpdate
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Channel'])) {
             $model->channel = $map['Channel'];
         }
+
         if (isset($map['CurrentAppVersion'])) {
             $model->currentAppVersion = $map['CurrentAppVersion'];
         }
+
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
         }
+
         if (isset($map['NewAppVersion'])) {
             $model->newAppVersion = $map['NewAppVersion'];
         }
+
         if (isset($map['NewDcdVersion'])) {
             $model->newDcdVersion = $map['NewDcdVersion'];
         }
+
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
+
         if (isset($map['ReleaseNote'])) {
             $model->releaseNote = $map['ReleaseNote'];
         }
+
         if (isset($map['ReleaseNoteEn'])) {
             $model->releaseNoteEn = $map['ReleaseNoteEn'];
         }
+
         if (isset($map['ReleaseNoteJp'])) {
             $model->releaseNoteJp = $map['ReleaseNoteJp'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IsKeepAliveRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example f4a0dc8e-1702-4728-9a60-95b27a35****
-     *
      * @var string
      */
     public $clientId;
 
     /**
-     * @example cn-hangzhou+dir-885351****
-     *
      * @var string
      */
     public $officeSiteId;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -36,17 +28,22 @@ class IsKeepAliveRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
+
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -54,20 +51,22 @@ class IsKeepAliveRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IsKeepAliveRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
+
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
