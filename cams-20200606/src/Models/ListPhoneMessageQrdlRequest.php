@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListPhoneMessageQrdlRequest extends Model
 {
     /**
-     * @description The space ID of the user within the independent software vendor (ISV) account.
-     *
-     * @example 9383883
-     *
      * @var string
      */
     public $custSpaceId;
 
     /**
-     * @description The phone number. Add the country code before the phone number.
-     *
-     * This parameter is required.
-     *
-     * @example 861380000
-     *
      * @var string
      */
     public $phoneNumber;
@@ -32,14 +22,18 @@ class ListPhoneMessageQrdlRequest extends Model
         'phoneNumber' => 'PhoneNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->custSpaceId) {
             $res['CustSpaceId'] = $this->custSpaceId;
         }
+
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
@@ -47,17 +41,18 @@ class ListPhoneMessageQrdlRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPhoneMessageQrdlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustSpaceId'])) {
             $model->custSpaceId = $map['CustSpaceId'];
         }
+
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }

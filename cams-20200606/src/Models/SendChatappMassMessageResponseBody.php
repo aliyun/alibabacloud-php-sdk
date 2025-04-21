@@ -4,54 +4,31 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SendChatappMassMessageResponseBody extends Model
 {
     /**
-     * @description The details about the access denial.
-     *
-     * @example None
-     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
-     * @description The HTTP status code returned.
-     *
-     *   A value of OK indicates that the call is successful.
-     *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
-     *
-     * @example OK
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The ID of the message group.
-     *
-     * @example 890000010002****
-     *
      * @var string
      */
     public $groupMessageId;
 
     /**
-     * @description The error message returned.
-     *
-     * @example User not authorized to operate on the specified resource.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 90E63D28-E31D-1EB2-8939-A9486641****
-     *
      * @var string
      */
     public $requestId;
@@ -63,23 +40,30 @@ class SendChatappMassMessageResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->groupMessageId) {
             $res['GroupMessageId'] = $this->groupMessageId;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -87,26 +71,30 @@ class SendChatappMassMessageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SendChatappMassMessageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['GroupMessageId'])) {
             $model->groupMessageId = $map['GroupMessageId'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

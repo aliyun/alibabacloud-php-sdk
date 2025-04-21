@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateFlowJSONAssetRequest extends Model
 {
     /**
-     * @description SpaceId/instance ID of ISV sub customer.
-     *
-     * @example 9399393
-     *
      * @var string
      */
     public $custSpaceId;
 
     /**
-     * @description JSON file generated according to Facebook flow rules.
-     *
-     * This parameter is required.
-     *
-     * @example https://aliyun/json.json
-     *
      * @var string
      */
     public $filePath;
 
     /**
-     * @description The Flow ID.
-     *
-     * This parameter is required.
-     *
-     * @example flow_001
-     *
      * @var string
      */
     public $flowId;
@@ -44,17 +28,22 @@ class UpdateFlowJSONAssetRequest extends Model
         'flowId' => 'FlowId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->custSpaceId) {
             $res['CustSpaceId'] = $this->custSpaceId;
         }
+
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
         }
+
         if (null !== $this->flowId) {
             $res['FlowId'] = $this->flowId;
         }
@@ -62,20 +51,22 @@ class UpdateFlowJSONAssetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateFlowJSONAssetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustSpaceId'])) {
             $model->custSpaceId = $map['CustSpaceId'];
         }
+
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
         }
+
         if (isset($map['FlowId'])) {
             $model->flowId = $map['FlowId'];
         }

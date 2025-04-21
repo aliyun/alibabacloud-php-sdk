@@ -4,45 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdatePhoneEncryptionPublicKeyRequest extends Model
 {
     /**
-     * @description SpaceId/instanceId of ISV sub clients.
-     *
-     * @example 399382882
-     *
      * @var string
      */
     public $custSpaceId;
 
     /**
-     * @description Encrypt the public key.
-     *
-     * This parameter is required.
-     *
-     * @example -----BEGIN PUBLIC KEY-----
-     * AAA
-     * BBB
-     * CCC
-     * DDD
-     * EEE
-     * FFF
-     * GGG
-     * -----END PUBLIC KEY-----
-     *
      * @var string
      */
     public $encryptionPublicKey;
 
     /**
-     * @description The phone number.
-     *
-     * This parameter is required.
-     *
-     * @example 86138000
-     *
      * @var string
      */
     public $phoneNumber;
@@ -52,17 +28,22 @@ class UpdatePhoneEncryptionPublicKeyRequest extends Model
         'phoneNumber' => 'PhoneNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->custSpaceId) {
             $res['CustSpaceId'] = $this->custSpaceId;
         }
+
         if (null !== $this->encryptionPublicKey) {
             $res['EncryptionPublicKey'] = $this->encryptionPublicKey;
         }
+
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
@@ -70,20 +51,22 @@ class UpdatePhoneEncryptionPublicKeyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdatePhoneEncryptionPublicKeyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustSpaceId'])) {
             $model->custSpaceId = $map['CustSpaceId'];
         }
+
         if (isset($map['EncryptionPublicKey'])) {
             $model->encryptionPublicKey = $map['EncryptionPublicKey'];
         }
+
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }

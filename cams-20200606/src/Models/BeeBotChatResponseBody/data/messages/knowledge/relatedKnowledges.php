@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotChatResponseBody\data\messages\knowledge;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class relatedKnowledges extends Model
 {
     /**
-     * @description The ID of knowledge associated with knowledge.
-     *
-     * @example 735899
-     *
      * @var string
      */
     public $knowledgeId;
 
     /**
-     * @description The title of related knowledge.
-     *
-     * @example Withdrawal of housing provident fund.
-     *
      * @var string
      */
     public $title;
@@ -30,14 +22,18 @@ class relatedKnowledges extends Model
         'title' => 'Title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->knowledgeId) {
             $res['KnowledgeId'] = $this->knowledgeId;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -45,17 +41,18 @@ class relatedKnowledges extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return relatedKnowledges
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KnowledgeId'])) {
             $model->knowledgeId = $map['KnowledgeId'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

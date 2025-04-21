@@ -4,118 +4,72 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotChatResponseBody\data\messages;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotChatResponseBody\data\messages\text\slots;
-use AlibabaCloud\Tea\Model;
 
 class text extends Model
 {
     /**
-     * @description Distinguish answer types.
-     *
-     * @example BotFramework
-     *
      * @var string
      */
     public $answerSource;
 
     /**
-     * @description The content of the text message.
-     *
-     * @example May I ask where you want to check the weather?
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description Indication of plain/rich text answers.
-     *
-     * @example PLAIN_TEXT
-     *
      * @var string
      */
     public $contentType;
 
     /**
-     * @description When AnswerSource is BotFramework, this field returns the name of the dialogue unit.
-     *
-     * @example Example: Checking Weather
-     *
      * @var string
      */
     public $dialogName;
 
     /**
-     * @description This field returns transparent parameters.
-     *
      * @var mixed[]
      */
     public $ext;
 
     /**
-     * @description When AnswerSource is BotFramework, this field returns a transparent parameter.
-     *
      * @var mixed[]
      */
     public $externalFlags;
 
     /**
-     * @description Hit statement.
-     *
-     * @example Check the weather.
-     *
      * @var string
      */
     public $hitStatement;
 
     /**
-     * @description When AnswerSource is BotFramework, this field returns the intent name.
-     *
-     * @example Check weather intention.
-     *
      * @var string
      */
     public $intentName;
 
     /**
-     * @description Metadata.
-     *
-     * @example [[{\\"columnName\\":\\"name\\",\\"stringValue\\":\\"wangshanshan\\"}]]
-     *
      * @var string
      */
     public $metaData;
 
     /**
-     * @description When AnswerSource is BotFramework, this field returns the node ID.
-     *
-     * @example 1410-c7a72a78.__city
-     *
      * @var string
      */
     public $nodeId;
 
     /**
-     * @description When AnswerSource is BotFramework, this field returns the node name.
-     *
-     * @example Example: Checking Weather Check the weather and fill in the slots__ city
-     *
      * @var string
      */
     public $nodeName;
 
     /**
-     * @description Slot information list.
-     *
      * @var slots[]
      */
     public $slots;
 
     /**
-     * @description Custom Chat Topic Title.
-     *
-     * @example greet.
-     *
      * @var string
      */
     public $userDefinedChatTitle;
@@ -135,53 +89,87 @@ class text extends Model
         'userDefinedChatTitle' => 'UserDefinedChatTitle',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ext)) {
+            Model::validateArray($this->ext);
+        }
+        if (\is_array($this->externalFlags)) {
+            Model::validateArray($this->externalFlags);
+        }
+        if (\is_array($this->slots)) {
+            Model::validateArray($this->slots);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->answerSource) {
             $res['AnswerSource'] = $this->answerSource;
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->contentType) {
             $res['ContentType'] = $this->contentType;
         }
+
         if (null !== $this->dialogName) {
             $res['DialogName'] = $this->dialogName;
         }
+
         if (null !== $this->ext) {
-            $res['Ext'] = $this->ext;
-        }
-        if (null !== $this->externalFlags) {
-            $res['ExternalFlags'] = $this->externalFlags;
-        }
-        if (null !== $this->hitStatement) {
-            $res['HitStatement'] = $this->hitStatement;
-        }
-        if (null !== $this->intentName) {
-            $res['IntentName'] = $this->intentName;
-        }
-        if (null !== $this->metaData) {
-            $res['MetaData'] = $this->metaData;
-        }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
-        }
-        if (null !== $this->nodeName) {
-            $res['NodeName'] = $this->nodeName;
-        }
-        if (null !== $this->slots) {
-            $res['Slots'] = [];
-            if (null !== $this->slots && \is_array($this->slots)) {
-                $n = 0;
-                foreach ($this->slots as $item) {
-                    $res['Slots'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ext)) {
+                $res['Ext'] = [];
+                foreach ($this->ext as $key1 => $value1) {
+                    $res['Ext'][$key1] = $value1;
                 }
             }
         }
+
+        if (null !== $this->externalFlags) {
+            if (\is_array($this->externalFlags)) {
+                $res['ExternalFlags'] = [];
+                foreach ($this->externalFlags as $key1 => $value1) {
+                    $res['ExternalFlags'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->hitStatement) {
+            $res['HitStatement'] = $this->hitStatement;
+        }
+
+        if (null !== $this->intentName) {
+            $res['IntentName'] = $this->intentName;
+        }
+
+        if (null !== $this->metaData) {
+            $res['MetaData'] = $this->metaData;
+        }
+
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
+        }
+
+        if (null !== $this->nodeName) {
+            $res['NodeName'] = $this->nodeName;
+        }
+
+        if (null !== $this->slots) {
+            if (\is_array($this->slots)) {
+                $res['Slots'] = [];
+                $n1 = 0;
+                foreach ($this->slots as $item1) {
+                    $res['Slots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->userDefinedChatTitle) {
             $res['UserDefinedChatTitle'] = $this->userDefinedChatTitle;
         }
@@ -189,56 +177,78 @@ class text extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return text
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnswerSource'])) {
             $model->answerSource = $map['AnswerSource'];
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['ContentType'])) {
             $model->contentType = $map['ContentType'];
         }
+
         if (isset($map['DialogName'])) {
             $model->dialogName = $map['DialogName'];
         }
+
         if (isset($map['Ext'])) {
-            $model->ext = $map['Ext'];
-        }
-        if (isset($map['ExternalFlags'])) {
-            $model->externalFlags = $map['ExternalFlags'];
-        }
-        if (isset($map['HitStatement'])) {
-            $model->hitStatement = $map['HitStatement'];
-        }
-        if (isset($map['IntentName'])) {
-            $model->intentName = $map['IntentName'];
-        }
-        if (isset($map['MetaData'])) {
-            $model->metaData = $map['MetaData'];
-        }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
-        }
-        if (isset($map['NodeName'])) {
-            $model->nodeName = $map['NodeName'];
-        }
-        if (isset($map['Slots'])) {
-            if (!empty($map['Slots'])) {
-                $model->slots = [];
-                $n = 0;
-                foreach ($map['Slots'] as $item) {
-                    $model->slots[$n++] = null !== $item ? slots::fromMap($item) : $item;
+            if (!empty($map['Ext'])) {
+                $model->ext = [];
+                foreach ($map['Ext'] as $key1 => $value1) {
+                    $model->ext[$key1] = $value1;
                 }
             }
         }
+
+        if (isset($map['ExternalFlags'])) {
+            if (!empty($map['ExternalFlags'])) {
+                $model->externalFlags = [];
+                foreach ($map['ExternalFlags'] as $key1 => $value1) {
+                    $model->externalFlags[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['HitStatement'])) {
+            $model->hitStatement = $map['HitStatement'];
+        }
+
+        if (isset($map['IntentName'])) {
+            $model->intentName = $map['IntentName'];
+        }
+
+        if (isset($map['MetaData'])) {
+            $model->metaData = $map['MetaData'];
+        }
+
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
+        }
+
+        if (isset($map['NodeName'])) {
+            $model->nodeName = $map['NodeName'];
+        }
+
+        if (isset($map['Slots'])) {
+            if (!empty($map['Slots'])) {
+                $model->slots = [];
+                $n1 = 0;
+                foreach ($map['Slots'] as $item1) {
+                    $model->slots[$n1++] = slots::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['UserDefinedChatTitle'])) {
             $model->userDefinedChatTitle = $map['UserDefinedChatTitle'];
         }

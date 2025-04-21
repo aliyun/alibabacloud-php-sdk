@@ -4,77 +4,47 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateMetricResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateMetricResponseBody\data\cliented;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The statistics on button clicks.
-     *
      * @var cliented[]
      */
     public $cliented;
 
     /**
-     * @description The number of delivered messages.
-     *
-     * @example 6
-     *
      * @var int
      */
     public $deliveredCount;
 
     /**
-     * @description The end of the time range you queried.
-     *
-     * @example 1668138331485
-     *
      * @var int
      */
     public $end;
 
     /**
-     * @description The template language.
-     *
-     * @example en
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description The number of read messages.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $readCount;
 
     /**
-     * @description The number of sent messages.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $sentCount;
 
     /**
-     * @description The beginning of the time range you queried.
-     *
-     * @example 1673919240001
-     *
      * @var int
      */
     public $start;
 
     /**
-     * @description The template code.
-     *
-     * @example 83837774838*****
-     *
      * @var string
      */
     public $templateCode;
@@ -89,38 +59,51 @@ class data extends Model
         'templateCode' => 'TemplateCode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->cliented)) {
+            Model::validateArray($this->cliented);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cliented) {
-            $res['Cliented'] = [];
-            if (null !== $this->cliented && \is_array($this->cliented)) {
-                $n = 0;
-                foreach ($this->cliented as $item) {
-                    $res['Cliented'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cliented)) {
+                $res['Cliented'] = [];
+                $n1 = 0;
+                foreach ($this->cliented as $item1) {
+                    $res['Cliented'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->deliveredCount) {
             $res['DeliveredCount'] = $this->deliveredCount;
         }
+
         if (null !== $this->end) {
             $res['End'] = $this->end;
         }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+
         if (null !== $this->readCount) {
             $res['ReadCount'] = $this->readCount;
         }
+
         if (null !== $this->sentCount) {
             $res['SentCount'] = $this->sentCount;
         }
+
         if (null !== $this->start) {
             $res['Start'] = $this->start;
         }
+
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
         }
@@ -128,41 +111,48 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cliented'])) {
             if (!empty($map['Cliented'])) {
                 $model->cliented = [];
-                $n = 0;
-                foreach ($map['Cliented'] as $item) {
-                    $model->cliented[$n++] = null !== $item ? cliented::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Cliented'] as $item1) {
+                    $model->cliented[$n1++] = cliented::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['DeliveredCount'])) {
             $model->deliveredCount = $map['DeliveredCount'];
         }
+
         if (isset($map['End'])) {
             $model->end = $map['End'];
         }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+
         if (isset($map['ReadCount'])) {
             $model->readCount = $map['ReadCount'];
         }
+
         if (isset($map['SentCount'])) {
             $model->sentCount = $map['SentCount'];
         }
+
         if (isset($map['Start'])) {
             $model->start = $map['Start'];
         }
+
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotAssociateResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class associate extends Model
 {
     /**
-     * @description The metadata.
-     *
-     * @example {}
-     *
      * @var string
      */
     public $meta;
 
     /**
-     * @description The title of the related question.
-     *
-     * @example Policy on Withdrawal of Housing Provident Fund
-     *
      * @var string
      */
     public $title;
@@ -30,14 +22,18 @@ class associate extends Model
         'title' => 'Title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->meta) {
             $res['Meta'] = $this->meta;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -45,17 +41,18 @@ class associate extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return associate
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Meta'])) {
             $model->meta = $map['Meta'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

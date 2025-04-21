@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PublishFlowRequest extends Model
 {
     /**
-     * @description The space ID of the user within the independent software vendor (ISV) account.
-     *
-     * @example 28251486512358****
-     *
      * @var string
      */
     public $custSpaceId;
 
     /**
-     * @description The Flow ID.
-     *
-     * This parameter is required.
-     *
-     * @example flow_001
-     *
      * @var string
      */
     public $flowId;
@@ -32,14 +22,18 @@ class PublishFlowRequest extends Model
         'flowId' => 'FlowId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->custSpaceId) {
             $res['CustSpaceId'] = $this->custSpaceId;
         }
+
         if (null !== $this->flowId) {
             $res['FlowId'] = $this->flowId;
         }
@@ -47,17 +41,18 @@ class PublishFlowRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PublishFlowRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustSpaceId'])) {
             $model->custSpaceId = $map['CustSpaceId'];
         }
+
         if (isset($map['FlowId'])) {
             $model->flowId = $map['FlowId'];
         }

@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateChatappMigrationInitiateRequest extends Model
 {
     /**
-     * @description The code of the country or region.
-     *
-     * This parameter is required.
-     *
-     * @example 86
-     *
      * @var string
      */
     public $countryCode;
 
     /**
-     * @description The space ID of the user within the ISV account.
-     *
-     * This parameter is required.
-     *
-     * @example 293483938849493****
-     *
      * @var string
      */
     public $custSpaceId;
 
     /**
-     * @description The mobile number without the country code or region code.
-     *
-     * This parameter is required.
-     *
-     * @example 13900001234
-     *
      * @var string
      */
     public $mobileNumber;
@@ -46,17 +28,22 @@ class CreateChatappMigrationInitiateRequest extends Model
         'mobileNumber' => 'MobileNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->countryCode) {
             $res['CountryCode'] = $this->countryCode;
         }
+
         if (null !== $this->custSpaceId) {
             $res['CustSpaceId'] = $this->custSpaceId;
         }
+
         if (null !== $this->mobileNumber) {
             $res['MobileNumber'] = $this->mobileNumber;
         }
@@ -64,20 +51,22 @@ class CreateChatappMigrationInitiateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateChatappMigrationInitiateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CountryCode'])) {
             $model->countryCode = $map['CountryCode'];
         }
+
         if (isset($map['CustSpaceId'])) {
             $model->custSpaceId = $map['CustSpaceId'];
         }
+
         if (isset($map['MobileNumber'])) {
             $model->mobileNumber = $map['MobileNumber'];
         }

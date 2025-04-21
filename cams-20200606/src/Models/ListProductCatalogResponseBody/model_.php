@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\ListProductCatalogResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListProductCatalogResponseBody\model\paging;
-use AlibabaCloud\Tea\Model;
 
 class model_ extends Model
 {
     /**
-     * @description The returned data.
-     *
      * @var mixed[][]
      */
     public $data;
 
     /**
-     * @description The pagination details.
-     *
      * @var paging
      */
     public $paging;
@@ -27,34 +23,65 @@ class model_ extends Model
         'paging' => 'Paging',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        if (null !== $this->paging) {
+            $this->paging->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            if (\is_array($this->data)) {
+                $res['Data'] = [];
+                $n1 = 0;
+                foreach ($this->data as $item1) {
+                    if (\is_array($item1)) {
+                        $res['Data'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['Data'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->paging) {
-            $res['Paging'] = null !== $this->paging ? $this->paging->toMap() : null;
+            $res['Paging'] = null !== $this->paging ? $this->paging->toArray($noStream) : $this->paging;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return model_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
-                $model->data = $map['Data'];
+                $model->data = [];
+                $n1 = 0;
+                foreach ($map['Data'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->data[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->data[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
             }
         }
+
         if (isset($map['Paging'])) {
             $model->paging = paging::fromMap($map['Paging']);
         }

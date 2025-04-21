@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\GetMigrationVerifyCodeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The ID of the number.
-     *
-     * @example 82828893332
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description Phone number.
-     *
-     * @example 8613800001234
-     *
      * @var string
      */
     public $phoneNumber;
@@ -30,14 +22,18 @@ class data extends Model
         'phoneNumber' => 'PhoneNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
@@ -45,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }

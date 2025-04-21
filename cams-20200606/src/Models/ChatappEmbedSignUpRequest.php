@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ChatappEmbedSignUpRequest extends Model
 {
     /**
-     * @description The InputToken returned after the embedded signup flow is complete.
-     *
-     * This parameter is required.
-     *
-     * @example wlelkelwidilwloe-ewlwols0lwsllsld
-     *
      * @var string
      */
     public $inputToken;
@@ -22,9 +16,12 @@ class ChatappEmbedSignUpRequest extends Model
         'inputToken' => 'InputToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputToken) {
@@ -34,11 +31,11 @@ class ChatappEmbedSignUpRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChatappEmbedSignUpRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

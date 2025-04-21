@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotChatResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotChatResponseBody\data\messages;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The ID of the recommended knowledge.
-     *
-     * @example ab6be8af-cee4-40c3-9919-2ac7461d7d98
-     *
      * @var string
      */
     public $messageId;
 
     /**
-     * @description The source of the recommended answer. When AnswerType is set to Recommend, a value is returned for this parameter.
-     *
      * @var messages[]
      */
     public $messages;
 
     /**
-     * @description The source of the recommended answer.
-     *
-     * @example 1234
-     *
      * @var string
      */
     public $sessionId;
@@ -39,23 +29,31 @@ class data extends Model
         'sessionId' => 'SessionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->messages)) {
+            Model::validateArray($this->messages);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->messageId) {
             $res['MessageId'] = $this->messageId;
         }
+
         if (null !== $this->messages) {
-            $res['Messages'] = [];
-            if (null !== $this->messages && \is_array($this->messages)) {
-                $n = 0;
-                foreach ($this->messages as $item) {
-                    $res['Messages'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->messages)) {
+                $res['Messages'] = [];
+                $n1 = 0;
+                foreach ($this->messages as $item1) {
+                    $res['Messages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
@@ -63,26 +61,28 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MessageId'])) {
             $model->messageId = $map['MessageId'];
         }
+
         if (isset($map['Messages'])) {
             if (!empty($map['Messages'])) {
                 $model->messages = [];
-                $n = 0;
-                foreach ($map['Messages'] as $item) {
-                    $model->messages[$n++] = null !== $item ? messages::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Messages'] as $item1) {
+                    $model->messages[$n1++] = messages::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
