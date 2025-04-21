@@ -170,11 +170,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddCategoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -265,11 +262,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -361,11 +355,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ApplyFileUploadLeaseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ApplyFileUploadLeaseResponse::fromMap($this->execute($params, $req, $runtime));
+        return ApplyFileUploadLeaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -460,11 +451,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAndPulishAgentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAndPulishAgentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAndPulishAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -602,6 +590,10 @@ class Bailian extends OpenApiClient
             @$query['StructureType'] = $request->structureType;
         }
 
+        if (null !== $request->chunkMode) {
+            @$query['chunkMode'] = $request->chunkMode;
+        }
+
         if (null !== $request->enableHeaders) {
             @$query['enableHeaders'] = $request->enableHeaders;
         }
@@ -625,11 +617,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateIndexResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIndexResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -696,11 +685,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateMemoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -763,11 +749,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateMemoryNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -834,11 +817,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePromptTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -892,11 +872,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAgentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAgentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -948,11 +925,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCategoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1004,11 +978,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1075,11 +1046,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIndexResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIndexResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1165,11 +1133,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIndexDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIndexDocumentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIndexDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1230,11 +1195,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteMemoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1287,11 +1249,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteMemoryNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1344,11 +1303,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeletePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePromptTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1406,11 +1362,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1493,11 +1446,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetIndexJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIndexJobStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIndexJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1556,11 +1506,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMemoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1613,11 +1560,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMemoryNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1670,11 +1614,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPromptTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1726,11 +1667,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPublishedAgentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPublishedAgentResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPublishedAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1802,11 +1740,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCategoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1892,11 +1827,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListChunksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListChunksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListChunksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1974,11 +1906,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2060,11 +1989,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIndexDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIndexDocumentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIndexDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2141,11 +2067,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIndicesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIndicesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIndicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2214,11 +2137,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListMemoriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListMemoriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListMemoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2285,11 +2205,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListMemoryNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListMemoryNodesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListMemoryNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2364,11 +2281,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPromptTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPromptTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPromptTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2434,11 +2348,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPublishedAgentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPublishedAgentResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPublishedAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2579,11 +2490,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RetrieveResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RetrieveResponse::fromMap($this->execute($params, $req, $runtime));
+        return RetrieveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2678,11 +2586,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitIndexAddDocumentsJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitIndexAddDocumentsJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitIndexAddDocumentsJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2756,11 +2661,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitIndexJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitIndexJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitIndexJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2855,11 +2757,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAndPublishAgentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAndPublishAgentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAndPublishAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2949,11 +2848,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAndPublishAgentSelectiveResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAndPublishAgentSelectiveResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAndPublishAgentSelectiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3023,11 +2919,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateFileTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateFileTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateFileTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3091,11 +2984,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateMemoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3160,11 +3050,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateMemoryNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3233,11 +3120,8 @@ class Bailian extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdatePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdatePromptTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdatePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

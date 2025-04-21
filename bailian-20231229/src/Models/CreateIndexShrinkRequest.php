@@ -94,6 +94,11 @@ class CreateIndexShrinkRequest extends Model
     public $structureType;
 
     /**
+     * @var string
+     */
+    public $chunkMode;
+
+    /**
      * @var bool
      */
     public $enableHeaders;
@@ -120,6 +125,7 @@ class CreateIndexShrinkRequest extends Model
         'sinkType' => 'SinkType',
         'sourceType' => 'SourceType',
         'structureType' => 'StructureType',
+        'chunkMode' => 'chunkMode',
         'enableHeaders' => 'enableHeaders',
         'metaExtractColumnsShrink' => 'metaExtractColumns',
     ];
@@ -198,6 +204,10 @@ class CreateIndexShrinkRequest extends Model
 
         if (null !== $this->structureType) {
             $res['StructureType'] = $this->structureType;
+        }
+
+        if (null !== $this->chunkMode) {
+            $res['chunkMode'] = $this->chunkMode;
         }
 
         if (null !== $this->enableHeaders) {
@@ -285,6 +295,10 @@ class CreateIndexShrinkRequest extends Model
 
         if (isset($map['StructureType'])) {
             $model->structureType = $map['StructureType'];
+        }
+
+        if (isset($map['chunkMode'])) {
+            $model->chunkMode = $map['chunkMode'];
         }
 
         if (isset($map['enableHeaders'])) {
