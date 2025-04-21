@@ -4278,10 +4278,6 @@ class Mse extends OpenApiClient
             @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
 
-        if (null !== $request->config) {
-            @$query['Config'] = $request->config;
-        }
-
         if (null !== $request->configLevel) {
             @$query['ConfigLevel'] = $request->configLevel;
         }
@@ -4302,8 +4298,14 @@ class Mse extends OpenApiClient
             @$query['ResourceIdList'] = $request->resourceIdListShrink;
         }
 
+        $body = [];
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreatePluginConfig',
@@ -19249,10 +19251,6 @@ class Mse extends OpenApiClient
             @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
 
-        if (null !== $request->config) {
-            @$query['Config'] = $request->config;
-        }
-
         if (null !== $request->configLevel) {
             @$query['ConfigLevel'] = $request->configLevel;
         }
@@ -19289,8 +19287,14 @@ class Mse extends OpenApiClient
             @$query['ResourceIdList'] = $request->resourceIdListShrink;
         }
 
+        $body = [];
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdatePluginConfig',
