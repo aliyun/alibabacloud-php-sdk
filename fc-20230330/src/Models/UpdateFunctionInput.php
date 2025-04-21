@@ -114,6 +114,11 @@ class UpdateFunctionInput extends Model
     public $runtime;
 
     /**
+     * @var string
+     */
+    public $sessionAffinity;
+
+    /**
      * @var int
      */
     public $timeout;
@@ -149,6 +154,7 @@ class UpdateFunctionInput extends Model
         'ossMountConfig' => 'ossMountConfig',
         'role' => 'role',
         'runtime' => 'runtime',
+        'sessionAffinity' => 'sessionAffinity',
         'timeout' => 'timeout',
         'tracingConfig' => 'tracingConfig',
         'vpcConfig' => 'vpcConfig',
@@ -296,6 +302,10 @@ class UpdateFunctionInput extends Model
             $res['runtime'] = $this->runtime;
         }
 
+        if (null !== $this->sessionAffinity) {
+            $res['sessionAffinity'] = $this->sessionAffinity;
+        }
+
         if (null !== $this->timeout) {
             $res['timeout'] = $this->timeout;
         }
@@ -412,6 +422,10 @@ class UpdateFunctionInput extends Model
 
         if (isset($map['runtime'])) {
             $model->runtime = $map['runtime'];
+        }
+
+        if (isset($map['sessionAffinity'])) {
+            $model->sessionAffinity = $map['sessionAffinity'];
         }
 
         if (isset($map['timeout'])) {

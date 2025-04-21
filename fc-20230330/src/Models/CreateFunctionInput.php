@@ -119,6 +119,11 @@ class CreateFunctionInput extends Model
     public $runtime;
 
     /**
+     * @var string
+     */
+    public $sessionAffinity;
+
+    /**
      * @var Tag[]
      */
     public $tags;
@@ -160,6 +165,7 @@ class CreateFunctionInput extends Model
         'ossMountConfig' => 'ossMountConfig',
         'role' => 'role',
         'runtime' => 'runtime',
+        'sessionAffinity' => 'sessionAffinity',
         'tags' => 'tags',
         'timeout' => 'timeout',
         'tracingConfig' => 'tracingConfig',
@@ -315,6 +321,10 @@ class CreateFunctionInput extends Model
             $res['runtime'] = $this->runtime;
         }
 
+        if (null !== $this->sessionAffinity) {
+            $res['sessionAffinity'] = $this->sessionAffinity;
+        }
+
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['tags'] = [];
@@ -445,6 +455,10 @@ class CreateFunctionInput extends Model
 
         if (isset($map['runtime'])) {
             $model->runtime = $map['runtime'];
+        }
+
+        if (isset($map['sessionAffinity'])) {
+            $model->sessionAffinity = $map['sessionAffinity'];
         }
 
         if (isset($map['tags'])) {

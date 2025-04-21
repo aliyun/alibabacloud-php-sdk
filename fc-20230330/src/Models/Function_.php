@@ -166,6 +166,11 @@ class Function_ extends Model
     /**
      * @var string
      */
+    public $sessionAffinity;
+
+    /**
+     * @var string
+     */
     public $state;
 
     /**
@@ -229,6 +234,7 @@ class Function_ extends Model
         'ossMountConfig' => 'ossMountConfig',
         'role' => 'role',
         'runtime' => 'runtime',
+        'sessionAffinity' => 'sessionAffinity',
         'state' => 'state',
         'stateReason' => 'stateReason',
         'stateReasonCode' => 'stateReasonCode',
@@ -423,6 +429,10 @@ class Function_ extends Model
             $res['runtime'] = $this->runtime;
         }
 
+        if (null !== $this->sessionAffinity) {
+            $res['sessionAffinity'] = $this->sessionAffinity;
+        }
+
         if (null !== $this->state) {
             $res['state'] = $this->state;
         }
@@ -601,6 +611,10 @@ class Function_ extends Model
 
         if (isset($map['runtime'])) {
             $model->runtime = $map['runtime'];
+        }
+
+        if (isset($map['sessionAffinity'])) {
+            $model->sessionAffinity = $map['sessionAffinity'];
         }
 
         if (isset($map['state'])) {
