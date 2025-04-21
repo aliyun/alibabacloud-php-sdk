@@ -21,6 +21,11 @@ class LiveManifestConfig extends Model
     /**
      * @var int
      */
+    public $manifestDuration;
+
+    /**
+     * @var int
+     */
     public $maxVideoBitrate;
 
     /**
@@ -41,7 +46,17 @@ class LiveManifestConfig extends Model
     /**
      * @var int
      */
+    public $presentationDelay;
+
+    /**
+     * @var int
+     */
     public $segmentCount;
+
+    /**
+     * @var string
+     */
+    public $segmentTemplateFormat;
 
     /**
      * @var string
@@ -50,11 +65,14 @@ class LiveManifestConfig extends Model
     protected $_name = [
         'adMarkers' => 'AdMarkers',
         'dateTimeInterval' => 'DateTimeInterval',
+        'manifestDuration' => 'ManifestDuration',
         'maxVideoBitrate' => 'MaxVideoBitrate',
         'minBufferTime' => 'MinBufferTime',
         'minUpdatePeriod' => 'MinUpdatePeriod',
         'minVideoBitrate' => 'MinVideoBitrate',
+        'presentationDelay' => 'PresentationDelay',
         'segmentCount' => 'SegmentCount',
+        'segmentTemplateFormat' => 'SegmentTemplateFormat',
         'streamOrder' => 'StreamOrder',
     ];
 
@@ -74,6 +92,10 @@ class LiveManifestConfig extends Model
             $res['DateTimeInterval'] = $this->dateTimeInterval;
         }
 
+        if (null !== $this->manifestDuration) {
+            $res['ManifestDuration'] = $this->manifestDuration;
+        }
+
         if (null !== $this->maxVideoBitrate) {
             $res['MaxVideoBitrate'] = $this->maxVideoBitrate;
         }
@@ -90,8 +112,16 @@ class LiveManifestConfig extends Model
             $res['MinVideoBitrate'] = $this->minVideoBitrate;
         }
 
+        if (null !== $this->presentationDelay) {
+            $res['PresentationDelay'] = $this->presentationDelay;
+        }
+
         if (null !== $this->segmentCount) {
             $res['SegmentCount'] = $this->segmentCount;
+        }
+
+        if (null !== $this->segmentTemplateFormat) {
+            $res['SegmentTemplateFormat'] = $this->segmentTemplateFormat;
         }
 
         if (null !== $this->streamOrder) {
@@ -117,6 +147,10 @@ class LiveManifestConfig extends Model
             $model->dateTimeInterval = $map['DateTimeInterval'];
         }
 
+        if (isset($map['ManifestDuration'])) {
+            $model->manifestDuration = $map['ManifestDuration'];
+        }
+
         if (isset($map['MaxVideoBitrate'])) {
             $model->maxVideoBitrate = $map['MaxVideoBitrate'];
         }
@@ -133,8 +167,16 @@ class LiveManifestConfig extends Model
             $model->minVideoBitrate = $map['MinVideoBitrate'];
         }
 
+        if (isset($map['PresentationDelay'])) {
+            $model->presentationDelay = $map['PresentationDelay'];
+        }
+
         if (isset($map['SegmentCount'])) {
             $model->segmentCount = $map['SegmentCount'];
+        }
+
+        if (isset($map['SegmentTemplateFormat'])) {
+            $model->segmentTemplateFormat = $map['SegmentTemplateFormat'];
         }
 
         if (isset($map['StreamOrder'])) {

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class subJobList extends Model
 {
     /**
+     * @var float
+     */
+    public $duration;
+
+    /**
      * @var string
      */
     public $errorCode;
@@ -43,6 +48,7 @@ class subJobList extends Model
      */
     public $status;
     protected $_name = [
+        'duration' => 'Duration',
         'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
         'jobId' => 'JobId',
@@ -60,6 +66,10 @@ class subJobList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
@@ -99,6 +109,10 @@ class subJobList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }

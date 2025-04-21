@@ -11,6 +11,11 @@ class drmConfig extends Model
     /**
      * @var string
      */
+    public $contentId;
+
+    /**
+     * @var string
+     */
     public $encryptionMethod;
 
     /**
@@ -33,6 +38,7 @@ class drmConfig extends Model
      */
     public $url;
     protected $_name = [
+        'contentId' => 'ContentId',
         'encryptionMethod' => 'EncryptionMethod',
         'IV' => 'IV',
         'rotatePeriod' => 'RotatePeriod',
@@ -51,6 +57,10 @@ class drmConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->contentId) {
+            $res['ContentId'] = $this->contentId;
+        }
+
         if (null !== $this->encryptionMethod) {
             $res['EncryptionMethod'] = $this->encryptionMethod;
         }
@@ -88,6 +98,10 @@ class drmConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContentId'])) {
+            $model->contentId = $map['ContentId'];
+        }
+
         if (isset($map['EncryptionMethod'])) {
             $model->encryptionMethod = $map['EncryptionMethod'];
         }
