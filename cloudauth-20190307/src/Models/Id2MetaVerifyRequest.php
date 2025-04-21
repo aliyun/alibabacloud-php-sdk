@@ -12,18 +12,20 @@ class Id2MetaVerifyRequest extends Model
      * @var string
      */
     public $identifyNum;
+
     /**
      * @var string
      */
     public $paramType;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
         'identifyNum' => 'IdentifyNum',
-        'paramType'   => 'ParamType',
-        'userName'    => 'UserName',
+        'paramType' => 'ParamType',
+        'userName' => 'UserName',
     ];
 
     public function validate()

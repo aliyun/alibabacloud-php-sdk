@@ -12,73 +12,86 @@ class LivenessFaceVerifyRequest extends Model
      * @var string
      */
     public $certifyId;
+
     /**
      * @var string
      */
     public $crop;
+
     /**
      * @var string
      */
     public $deviceToken;
+
     /**
      * @var string
      */
     public $faceContrastPicture;
+
     /**
      * @var string
      */
     public $faceContrastPictureUrl;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $model;
+
     /**
      * @var string
      */
     public $ossBucketName;
+
     /**
      * @var string
      */
     public $ossObjectName;
+
     /**
      * @var string
      */
     public $outerOrderNo;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'certifyId'              => 'CertifyId',
-        'crop'                   => 'Crop',
-        'deviceToken'            => 'DeviceToken',
-        'faceContrastPicture'    => 'FaceContrastPicture',
+        'certifyId' => 'CertifyId',
+        'crop' => 'Crop',
+        'deviceToken' => 'DeviceToken',
+        'faceContrastPicture' => 'FaceContrastPicture',
         'faceContrastPictureUrl' => 'FaceContrastPictureUrl',
-        'ip'                     => 'Ip',
-        'mobile'                 => 'Mobile',
-        'model'                  => 'Model',
-        'ossBucketName'          => 'OssBucketName',
-        'ossObjectName'          => 'OssObjectName',
-        'outerOrderNo'           => 'OuterOrderNo',
-        'productCode'            => 'ProductCode',
-        'sceneId'                => 'SceneId',
-        'userId'                 => 'UserId',
+        'ip' => 'Ip',
+        'mobile' => 'Mobile',
+        'model' => 'Model',
+        'ossBucketName' => 'OssBucketName',
+        'ossObjectName' => 'OssObjectName',
+        'outerOrderNo' => 'OuterOrderNo',
+        'productCode' => 'ProductCode',
+        'sceneId' => 'SceneId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

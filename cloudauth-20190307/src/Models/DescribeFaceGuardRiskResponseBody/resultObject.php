@@ -12,18 +12,20 @@ class resultObject extends Model
      * @var string
      */
     public $certifyId;
+
     /**
      * @var string
      */
     public $riskExtends;
+
     /**
      * @var string
      */
     public $riskTags;
     protected $_name = [
-        'certifyId'   => 'CertifyId',
+        'certifyId' => 'CertifyId',
         'riskExtends' => 'RiskExtends',
-        'riskTags'    => 'RiskTags',
+        'riskTags' => 'RiskTags',
     ];
 
     public function validate()

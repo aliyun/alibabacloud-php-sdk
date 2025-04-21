@@ -12,43 +12,50 @@ class resultObject extends Model
      * @var string
      */
     public $deviceRisk;
+
     /**
      * @var string
      */
     public $deviceToken;
+
     /**
      * @var string
      */
     public $identityInfo;
+
     /**
      * @var string
      */
     public $materialInfo;
+
     /**
      * @var string
      */
     public $passed;
+
     /**
      * @var string
      */
     public $subCode;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var string
      */
     public $userInfo;
     protected $_name = [
-        'deviceRisk'   => 'DeviceRisk',
-        'deviceToken'  => 'DeviceToken',
+        'deviceRisk' => 'DeviceRisk',
+        'deviceToken' => 'DeviceToken',
         'identityInfo' => 'IdentityInfo',
         'materialInfo' => 'MaterialInfo',
-        'passed'       => 'Passed',
-        'subCode'      => 'SubCode',
-        'success'      => 'Success',
-        'userInfo'     => 'UserInfo',
+        'passed' => 'Passed',
+        'subCode' => 'SubCode',
+        'success' => 'Success',
+        'userInfo' => 'UserInfo',
     ];
 
     public function validate()

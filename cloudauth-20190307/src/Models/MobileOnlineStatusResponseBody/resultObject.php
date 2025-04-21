@@ -12,10 +12,12 @@ class resultObject extends Model
      * @var string
      */
     public $bizCode;
+
     /**
      * @var string
      */
     public $ispName;
+
     /**
      * @var string
      */

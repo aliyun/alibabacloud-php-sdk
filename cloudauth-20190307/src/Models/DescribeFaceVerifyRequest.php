@@ -12,18 +12,20 @@ class DescribeFaceVerifyRequest extends Model
      * @var string
      */
     public $certifyId;
+
     /**
      * @var string
      */
     public $pictureReturnType;
+
     /**
      * @var int
      */
     public $sceneId;
     protected $_name = [
-        'certifyId'         => 'CertifyId',
+        'certifyId' => 'CertifyId',
         'pictureReturnType' => 'PictureReturnType',
-        'sceneId'           => 'SceneId',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()

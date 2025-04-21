@@ -13,22 +13,27 @@ class VerifyMaterialResponseBody extends Model
      * @var float
      */
     public $authorityComparisionScore;
+
     /**
      * @var float
      */
     public $idCardFaceComparisonScore;
+
     /**
      * @var material
      */
     public $material;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $verifyStatus;
+
     /**
      * @var string
      */
@@ -36,10 +41,10 @@ class VerifyMaterialResponseBody extends Model
     protected $_name = [
         'authorityComparisionScore' => 'AuthorityComparisionScore',
         'idCardFaceComparisonScore' => 'IdCardFaceComparisonScore',
-        'material'                  => 'Material',
-        'requestId'                 => 'RequestId',
-        'verifyStatus'              => 'VerifyStatus',
-        'verifyToken'               => 'VerifyToken',
+        'material' => 'Material',
+        'requestId' => 'RequestId',
+        'verifyStatus' => 'VerifyStatus',
+        'verifyToken' => 'VerifyToken',
     ];
 
     public function validate()

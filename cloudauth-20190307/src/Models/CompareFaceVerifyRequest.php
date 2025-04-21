@@ -12,73 +12,86 @@ class CompareFaceVerifyRequest extends Model
      * @var string
      */
     public $crop;
+
     /**
      * @var string
      */
     public $outerOrderNo;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $sourceCertifyId;
+
     /**
      * @var string
      */
     public $sourceFaceContrastPicture;
+
     /**
      * @var string
      */
     public $sourceFaceContrastPictureUrl;
+
     /**
      * @var string
      */
     public $sourceOssBucketName;
+
     /**
      * @var string
      */
     public $sourceOssObjectName;
+
     /**
      * @var string
      */
     public $targetCertifyId;
+
     /**
      * @var string
      */
     public $targetFaceContrastPicture;
+
     /**
      * @var string
      */
     public $targetFaceContrastPictureUrl;
+
     /**
      * @var string
      */
     public $targetOssBucketName;
+
     /**
      * @var string
      */
     public $targetOssObjectName;
     protected $_name = [
-        'crop'                         => 'Crop',
-        'outerOrderNo'                 => 'OuterOrderNo',
-        'productCode'                  => 'ProductCode',
-        'sceneId'                      => 'SceneId',
-        'sourceCertifyId'              => 'SourceCertifyId',
-        'sourceFaceContrastPicture'    => 'SourceFaceContrastPicture',
+        'crop' => 'Crop',
+        'outerOrderNo' => 'OuterOrderNo',
+        'productCode' => 'ProductCode',
+        'sceneId' => 'SceneId',
+        'sourceCertifyId' => 'SourceCertifyId',
+        'sourceFaceContrastPicture' => 'SourceFaceContrastPicture',
         'sourceFaceContrastPictureUrl' => 'SourceFaceContrastPictureUrl',
-        'sourceOssBucketName'          => 'SourceOssBucketName',
-        'sourceOssObjectName'          => 'SourceOssObjectName',
-        'targetCertifyId'              => 'TargetCertifyId',
-        'targetFaceContrastPicture'    => 'TargetFaceContrastPicture',
+        'sourceOssBucketName' => 'SourceOssBucketName',
+        'sourceOssObjectName' => 'SourceOssObjectName',
+        'targetCertifyId' => 'TargetCertifyId',
+        'targetFaceContrastPicture' => 'TargetFaceContrastPicture',
         'targetFaceContrastPictureUrl' => 'TargetFaceContrastPictureUrl',
-        'targetOssBucketName'          => 'TargetOssBucketName',
-        'targetOssObjectName'          => 'TargetOssObjectName',
+        'targetOssBucketName' => 'TargetOssBucketName',
+        'targetOssObjectName' => 'TargetOssObjectName',
     ];
 
     public function validate()

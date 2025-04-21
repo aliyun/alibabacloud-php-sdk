@@ -12,27 +12,31 @@ class items extends Model
      * @var string
      */
     public $area;
+
     /**
      * @var string
      */
     public $bizCode;
+
     /**
      * @var string
      */
     public $ispName;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $subCode;
     protected $_name = [
-        'area'    => 'Area',
+        'area' => 'Area',
         'bizCode' => 'BizCode',
         'ispName' => 'IspName',
-        'mobile'  => 'Mobile',
+        'mobile' => 'Mobile',
         'subCode' => 'SubCode',
     ];
 

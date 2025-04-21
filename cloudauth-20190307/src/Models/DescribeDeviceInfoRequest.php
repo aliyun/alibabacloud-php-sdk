@@ -12,38 +12,44 @@ class DescribeDeviceInfoRequest extends Model
      * @var string
      */
     public $bizType;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $expiredEndDay;
+
     /**
      * @var string
      */
     public $expiredStartDay;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $userDeviceId;
     protected $_name = [
-        'bizType'         => 'BizType',
-        'currentPage'     => 'CurrentPage',
-        'deviceId'        => 'DeviceId',
-        'expiredEndDay'   => 'ExpiredEndDay',
+        'bizType' => 'BizType',
+        'currentPage' => 'CurrentPage',
+        'deviceId' => 'DeviceId',
+        'expiredEndDay' => 'ExpiredEndDay',
         'expiredStartDay' => 'ExpiredStartDay',
-        'pageSize'        => 'PageSize',
-        'userDeviceId'    => 'UserDeviceId',
+        'pageSize' => 'PageSize',
+        'userDeviceId' => 'UserDeviceId',
     ];
 
     public function validate()

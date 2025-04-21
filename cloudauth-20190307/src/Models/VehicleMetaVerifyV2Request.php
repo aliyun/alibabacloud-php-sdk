@@ -12,32 +12,37 @@ class VehicleMetaVerifyV2Request extends Model
      * @var string
      */
     public $identifyNum;
+
     /**
      * @var string
      */
     public $paramType;
+
     /**
      * @var string
      */
     public $userName;
+
     /**
      * @var string
      */
     public $vehicleNum;
+
     /**
      * @var string
      */
     public $vehicleType;
+
     /**
      * @var string
      */
     public $verifyMetaType;
     protected $_name = [
-        'identifyNum'    => 'IdentifyNum',
-        'paramType'      => 'ParamType',
-        'userName'       => 'UserName',
-        'vehicleNum'     => 'VehicleNum',
-        'vehicleType'    => 'VehicleType',
+        'identifyNum' => 'IdentifyNum',
+        'paramType' => 'ParamType',
+        'userName' => 'UserName',
+        'vehicleNum' => 'VehicleNum',
+        'vehicleType' => 'VehicleType',
         'verifyMetaType' => 'VerifyMetaType',
     ];
 

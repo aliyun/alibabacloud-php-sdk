@@ -12,33 +12,38 @@ class InsertWhiteListSettingRequest extends Model
      * @var string
      */
     public $certNo;
+
     /**
      * @var string
      */
     public $certifyId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var int
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $serviceCode;
+
     /**
      * @var int
      */
     public $validDay;
     protected $_name = [
-        'certNo'      => 'CertNo',
-        'certifyId'   => 'CertifyId',
-        'remark'      => 'Remark',
-        'sceneId'     => 'SceneId',
+        'certNo' => 'CertNo',
+        'certifyId' => 'CertifyId',
+        'remark' => 'Remark',
+        'sceneId' => 'SceneId',
         'serviceCode' => 'ServiceCode',
-        'validDay'    => 'ValidDay',
+        'validDay' => 'ValidDay',
     ];
 
     public function validate()

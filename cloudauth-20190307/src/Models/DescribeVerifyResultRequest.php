@@ -12,12 +12,13 @@ class DescribeVerifyResultRequest extends Model
      * @var string
      */
     public $bizId;
+
     /**
      * @var string
      */
     public $bizType;
     protected $_name = [
-        'bizId'   => 'BizId',
+        'bizId' => 'BizId',
         'bizType' => 'BizType',
     ];
 

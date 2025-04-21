@@ -12,38 +12,44 @@ class ossUploadToken extends Model
      * @var string
      */
     public $bucket;
+
     /**
      * @var string
      */
     public $endPoint;
+
     /**
      * @var int
      */
     public $expired;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $path;
+
     /**
      * @var string
      */
     public $secret;
+
     /**
      * @var string
      */
     public $token;
     protected $_name = [
-        'bucket'   => 'Bucket',
+        'bucket' => 'Bucket',
         'endPoint' => 'EndPoint',
-        'expired'  => 'Expired',
-        'key'      => 'Key',
-        'path'     => 'Path',
-        'secret'   => 'Secret',
-        'token'    => 'Token',
+        'expired' => 'Expired',
+        'key' => 'Key',
+        'path' => 'Path',
+        'secret' => 'Secret',
+        'token' => 'Token',
     ];
 
     public function validate()

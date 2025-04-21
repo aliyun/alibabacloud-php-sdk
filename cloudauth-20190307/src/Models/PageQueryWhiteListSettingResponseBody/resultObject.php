@@ -12,57 +12,67 @@ class resultObject extends Model
      * @var string
      */
     public $certNo;
+
     /**
      * @var string
      */
     public $certifyId;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var int
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $serviceCode;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $validEndDate;
+
     /**
      * @var string
      */
     public $validStartDate;
     protected $_name = [
-        'certNo'         => 'CertNo',
-        'certifyId'      => 'CertifyId',
-        'gmtCreate'      => 'GmtCreate',
-        'gmtModified'    => 'GmtModified',
-        'id'             => 'Id',
-        'remark'         => 'Remark',
-        'sceneId'        => 'SceneId',
-        'serviceCode'    => 'ServiceCode',
-        'status'         => 'Status',
-        'validEndDate'   => 'ValidEndDate',
+        'certNo' => 'CertNo',
+        'certifyId' => 'CertifyId',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'remark' => 'Remark',
+        'sceneId' => 'SceneId',
+        'serviceCode' => 'ServiceCode',
+        'status' => 'Status',
+        'validEndDate' => 'ValidEndDate',
         'validStartDate' => 'ValidStartDate',
     ];
 

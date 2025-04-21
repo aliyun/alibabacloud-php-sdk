@@ -12,18 +12,20 @@ class resultObject extends Model
      * @var string
      */
     public $result;
+
     /**
      * @var string[]
      */
     public $riskScore;
+
     /**
      * @var string
      */
     public $riskTag;
     protected $_name = [
-        'result'    => 'Result',
+        'result' => 'Result',
         'riskScore' => 'RiskScore',
-        'riskTag'   => 'RiskTag',
+        'riskTag' => 'RiskTag',
     ];
 
     public function validate()

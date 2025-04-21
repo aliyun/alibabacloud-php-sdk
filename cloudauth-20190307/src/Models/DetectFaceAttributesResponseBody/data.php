@@ -13,10 +13,12 @@ class data extends Model
      * @var faceInfos
      */
     public $faceInfos;
+
     /**
      * @var int
      */
     public $imgHeight;
+
     /**
      * @var int
      */
@@ -24,7 +26,7 @@ class data extends Model
     protected $_name = [
         'faceInfos' => 'FaceInfos',
         'imgHeight' => 'ImgHeight',
-        'imgWidth'  => 'ImgWidth',
+        'imgWidth' => 'ImgWidth',
     ];
 
     public function validate()

@@ -14,13 +14,14 @@ class faceAttributesDetectInfo extends Model
      * @var faceAttributes
      */
     public $faceAttributes;
+
     /**
      * @var faceRect
      */
     public $faceRect;
     protected $_name = [
         'faceAttributes' => 'FaceAttributes',
-        'faceRect'       => 'FaceRect',
+        'faceRect' => 'FaceRect',
     ];
 
     public function validate()

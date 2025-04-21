@@ -12,78 +12,92 @@ class DescribeVerifyTokenRequest extends Model
      * @var string
      */
     public $bizId;
+
     /**
      * @var string
      */
     public $bizType;
+
     /**
      * @var string
      */
     public $callbackSeed;
+
     /**
      * @var string
      */
     public $callbackUrl;
+
     /**
      * @var string
      */
     public $faceRetainedImageUrl;
+
     /**
      * @var string
      */
     public $failedRedirectUrl;
+
     /**
      * @var string
      */
     public $idCardBackImageUrl;
+
     /**
      * @var string
      */
     public $idCardFrontImageUrl;
+
     /**
      * @var string
      */
     public $idCardNumber;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $passedRedirectUrl;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userIp;
+
     /**
      * @var string
      */
     public $userPhoneNumber;
+
     /**
      * @var int
      */
     public $userRegistTime;
     protected $_name = [
-        'bizId'                => 'BizId',
-        'bizType'              => 'BizType',
-        'callbackSeed'         => 'CallbackSeed',
-        'callbackUrl'          => 'CallbackUrl',
+        'bizId' => 'BizId',
+        'bizType' => 'BizType',
+        'callbackSeed' => 'CallbackSeed',
+        'callbackUrl' => 'CallbackUrl',
         'faceRetainedImageUrl' => 'FaceRetainedImageUrl',
-        'failedRedirectUrl'    => 'FailedRedirectUrl',
-        'idCardBackImageUrl'   => 'IdCardBackImageUrl',
-        'idCardFrontImageUrl'  => 'IdCardFrontImageUrl',
-        'idCardNumber'         => 'IdCardNumber',
-        'name'                 => 'Name',
-        'passedRedirectUrl'    => 'PassedRedirectUrl',
-        'userId'               => 'UserId',
-        'userIp'               => 'UserIp',
-        'userPhoneNumber'      => 'UserPhoneNumber',
-        'userRegistTime'       => 'UserRegistTime',
+        'failedRedirectUrl' => 'FailedRedirectUrl',
+        'idCardBackImageUrl' => 'IdCardBackImageUrl',
+        'idCardFrontImageUrl' => 'IdCardFrontImageUrl',
+        'idCardNumber' => 'IdCardNumber',
+        'name' => 'Name',
+        'passedRedirectUrl' => 'PassedRedirectUrl',
+        'userId' => 'UserId',
+        'userIp' => 'UserIp',
+        'userPhoneNumber' => 'UserPhoneNumber',
+        'userRegistTime' => 'UserRegistTime',
     ];
 
     public function validate()

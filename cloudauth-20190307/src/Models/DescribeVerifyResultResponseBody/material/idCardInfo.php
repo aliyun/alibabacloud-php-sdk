@@ -12,53 +12,62 @@ class idCardInfo extends Model
      * @var string
      */
     public $address;
+
     /**
      * @var string
      */
     public $authority;
+
     /**
      * @var string
      */
     public $backImageUrl;
+
     /**
      * @var string
      */
     public $birth;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $frontImageUrl;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nationality;
+
     /**
      * @var string
      */
     public $number;
+
     /**
      * @var string
      */
     public $startDate;
     protected $_name = [
-        'address'       => 'Address',
-        'authority'     => 'Authority',
-        'backImageUrl'  => 'BackImageUrl',
-        'birth'         => 'Birth',
-        'endDate'       => 'EndDate',
+        'address' => 'Address',
+        'authority' => 'Authority',
+        'backImageUrl' => 'BackImageUrl',
+        'birth' => 'Birth',
+        'endDate' => 'EndDate',
         'frontImageUrl' => 'FrontImageUrl',
-        'name'          => 'Name',
-        'nationality'   => 'Nationality',
-        'number'        => 'Number',
-        'startDate'     => 'StartDate',
+        'name' => 'Name',
+        'nationality' => 'Nationality',
+        'number' => 'Number',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()

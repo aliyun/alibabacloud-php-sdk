@@ -12,38 +12,44 @@ class items extends Model
      * @var string
      */
     public $date;
+
     /**
      * @var string
      */
     public $passRate;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $sceneName;
+
     /**
      * @var int
      */
     public $successCount;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'date'         => 'Date',
-        'passRate'     => 'PassRate',
-        'productCode'  => 'ProductCode',
-        'sceneId'      => 'SceneId',
-        'sceneName'    => 'SceneName',
+        'date' => 'Date',
+        'passRate' => 'PassRate',
+        'productCode' => 'ProductCode',
+        'sceneId' => 'SceneId',
+        'sceneName' => 'SceneName',
         'successCount' => 'SuccessCount',
-        'totalCount'   => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

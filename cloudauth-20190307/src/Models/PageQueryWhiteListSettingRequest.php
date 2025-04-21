@@ -12,47 +12,55 @@ class PageQueryWhiteListSettingRequest extends Model
      * @var string
      */
     public $certNo;
+
     /**
      * @var string
      */
     public $certifyId;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $serviceCode;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $validEndDate;
+
     /**
      * @var string
      */
     public $validStartDate;
     protected $_name = [
-        'certNo'         => 'CertNo',
-        'certifyId'      => 'CertifyId',
-        'currentPage'    => 'CurrentPage',
-        'pageSize'       => 'PageSize',
-        'sceneId'        => 'SceneId',
-        'serviceCode'    => 'ServiceCode',
-        'status'         => 'Status',
-        'validEndDate'   => 'ValidEndDate',
+        'certNo' => 'CertNo',
+        'certifyId' => 'CertifyId',
+        'currentPage' => 'CurrentPage',
+        'pageSize' => 'PageSize',
+        'sceneId' => 'SceneId',
+        'serviceCode' => 'ServiceCode',
+        'status' => 'Status',
+        'validEndDate' => 'ValidEndDate',
         'validStartDate' => 'ValidStartDate',
     ];
 

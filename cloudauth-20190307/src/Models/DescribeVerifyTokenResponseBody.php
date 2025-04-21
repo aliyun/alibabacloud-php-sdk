@@ -13,23 +13,26 @@ class DescribeVerifyTokenResponseBody extends Model
      * @var ossUploadToken
      */
     public $ossUploadToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $verifyPageUrl;
+
     /**
      * @var string
      */
     public $verifyToken;
     protected $_name = [
         'ossUploadToken' => 'OssUploadToken',
-        'requestId'      => 'RequestId',
-        'verifyPageUrl'  => 'VerifyPageUrl',
-        'verifyToken'    => 'VerifyToken',
+        'requestId' => 'RequestId',
+        'verifyPageUrl' => 'VerifyPageUrl',
+        'verifyToken' => 'VerifyToken',
     ];
 
     public function validate()

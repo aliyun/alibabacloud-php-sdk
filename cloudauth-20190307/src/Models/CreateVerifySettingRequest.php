@@ -12,33 +12,38 @@ class CreateVerifySettingRequest extends Model
      * @var string
      */
     public $bizName;
+
     /**
      * @var string
      */
     public $bizType;
+
     /**
      * @var bool
      */
     public $guideStep;
+
     /**
      * @var bool
      */
     public $privacyStep;
+
     /**
      * @var bool
      */
     public $resultStep;
+
     /**
      * @var string
      */
     public $solution;
     protected $_name = [
-        'bizName'     => 'BizName',
-        'bizType'     => 'BizType',
-        'guideStep'   => 'GuideStep',
+        'bizName' => 'BizName',
+        'bizType' => 'BizType',
+        'guideStep' => 'GuideStep',
         'privacyStep' => 'PrivacyStep',
-        'resultStep'  => 'ResultStep',
-        'solution'    => 'Solution',
+        'resultStep' => 'ResultStep',
+        'solution' => 'Solution',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class BankMetaVerifyRequest extends Model
      * @var string
      */
     public $bankCard;
+
     /**
      * @var string
      */
     public $identifyNum;
+
     /**
      * @var string
      */
     public $identityType;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $paramType;
+
     /**
      * @var string
      */
     public $productType;
+
     /**
      * @var string
      */
     public $userName;
+
     /**
      * @var string
      */
     public $verifyMode;
     protected $_name = [
-        'bankCard'     => 'BankCard',
-        'identifyNum'  => 'IdentifyNum',
+        'bankCard' => 'BankCard',
+        'identifyNum' => 'IdentifyNum',
         'identityType' => 'IdentityType',
-        'mobile'       => 'Mobile',
-        'paramType'    => 'ParamType',
-        'productType'  => 'ProductType',
-        'userName'     => 'UserName',
-        'verifyMode'   => 'VerifyMode',
+        'mobile' => 'Mobile',
+        'paramType' => 'ParamType',
+        'productType' => 'ProductType',
+        'userName' => 'UserName',
+        'verifyMode' => 'VerifyMode',
     ];
 
     public function validate()

@@ -12,73 +12,86 @@ class CredentialVerifyShrinkRequest extends Model
      * @var string
      */
     public $certNum;
+
     /**
      * @var string
      */
     public $credName;
+
     /**
      * @var string
      */
     public $credType;
+
     /**
      * @var string
      */
     public $identifyNum;
+
     /**
      * @var string
      */
     public $imageContext;
+
     /**
      * @var string
      */
     public $imageUrl;
+
     /**
      * @var string
      */
     public $isCheck;
+
     /**
      * @var string
      */
     public $isOCR;
+
     /**
      * @var string
      */
     public $merchantDetailShrink;
+
     /**
      * @var string
      */
     public $merchantId;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $prompt;
+
     /**
      * @var string
      */
     public $promptModel;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'certNum'              => 'CertNum',
-        'credName'             => 'CredName',
-        'credType'             => 'CredType',
-        'identifyNum'          => 'IdentifyNum',
-        'imageContext'         => 'ImageContext',
-        'imageUrl'             => 'ImageUrl',
-        'isCheck'              => 'IsCheck',
-        'isOCR'                => 'IsOCR',
+        'certNum' => 'CertNum',
+        'credName' => 'CredName',
+        'credType' => 'CredType',
+        'identifyNum' => 'IdentifyNum',
+        'imageContext' => 'ImageContext',
+        'imageUrl' => 'ImageUrl',
+        'isCheck' => 'IsCheck',
+        'isOCR' => 'IsOCR',
         'merchantDetailShrink' => 'MerchantDetail',
-        'merchantId'           => 'MerchantId',
-        'productCode'          => 'ProductCode',
-        'prompt'               => 'Prompt',
-        'promptModel'          => 'PromptModel',
-        'userName'             => 'UserName',
+        'merchantId' => 'MerchantId',
+        'productCode' => 'ProductCode',
+        'prompt' => 'Prompt',
+        'promptModel' => 'PromptModel',
+        'userName' => 'UserName',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class DescribeFaceGuardRiskRequest extends Model
      * @var string
      */
     public $bizId;
+
     /**
      * @var string
      */
     public $deviceToken;
+
     /**
      * @var string
      */
     public $outerOrderNo;
+
     /**
      * @var string
      */
     public $productCode;
     protected $_name = [
-        'bizId'        => 'BizId',
-        'deviceToken'  => 'DeviceToken',
+        'bizId' => 'BizId',
+        'deviceToken' => 'DeviceToken',
         'outerOrderNo' => 'OuterOrderNo',
-        'productCode'  => 'ProductCode',
+        'productCode' => 'ProductCode',
     ];
 
     public function validate()

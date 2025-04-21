@@ -12,23 +12,26 @@ class DeepfakeDetectRequest extends Model
      * @var string
      */
     public $faceBase64;
+
     /**
      * @var string
      */
     public $faceInputType;
+
     /**
      * @var string
      */
     public $faceUrl;
+
     /**
      * @var string
      */
     public $outerOrderNo;
     protected $_name = [
-        'faceBase64'    => 'FaceBase64',
+        'faceBase64' => 'FaceBase64',
         'faceInputType' => 'FaceInputType',
-        'faceUrl'       => 'FaceUrl',
-        'outerOrderNo'  => 'OuterOrderNo',
+        'faceUrl' => 'FaceUrl',
+        'outerOrderNo' => 'OuterOrderNo',
     ];
 
     public function validate()

@@ -12,38 +12,44 @@ class AIGCFaceVerifyRequest extends Model
      * @var string
      */
     public $faceContrastPicture;
+
     /**
      * @var string
      */
     public $faceContrastPictureUrl;
+
     /**
      * @var string
      */
     public $ossBucketName;
+
     /**
      * @var string
      */
     public $ossObjectName;
+
     /**
      * @var string
      */
     public $outerOrderNo;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $sceneId;
     protected $_name = [
-        'faceContrastPicture'    => 'FaceContrastPicture',
+        'faceContrastPicture' => 'FaceContrastPicture',
         'faceContrastPictureUrl' => 'FaceContrastPictureUrl',
-        'ossBucketName'          => 'OssBucketName',
-        'ossObjectName'          => 'OssObjectName',
-        'outerOrderNo'           => 'OuterOrderNo',
-        'productCode'            => 'ProductCode',
-        'sceneId'                => 'SceneId',
+        'ossBucketName' => 'OssBucketName',
+        'ossObjectName' => 'OssObjectName',
+        'outerOrderNo' => 'OuterOrderNo',
+        'productCode' => 'ProductCode',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()

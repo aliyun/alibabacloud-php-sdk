@@ -12,12 +12,13 @@ class RemoveWhiteListSettingShrinkRequest extends Model
      * @var string
      */
     public $idsShrink;
+
     /**
      * @var string
      */
     public $serviceCode;
     protected $_name = [
-        'idsShrink'   => 'Ids',
+        'idsShrink' => 'Ids',
         'serviceCode' => 'ServiceCode',
     ];
 

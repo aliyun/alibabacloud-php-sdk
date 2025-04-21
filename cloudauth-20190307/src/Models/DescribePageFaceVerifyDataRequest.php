@@ -12,33 +12,38 @@ class DescribePageFaceVerifyDataRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $startDate;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'endDate'     => 'EndDate',
-        'pageSize'    => 'PageSize',
+        'endDate' => 'EndDate',
+        'pageSize' => 'PageSize',
         'productCode' => 'ProductCode',
-        'sceneId'     => 'SceneId',
-        'startDate'   => 'StartDate',
+        'sceneId' => 'SceneId',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()

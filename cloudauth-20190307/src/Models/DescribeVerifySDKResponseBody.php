@@ -12,13 +12,14 @@ class DescribeVerifySDKResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $sdkUrl;
     protected $_name = [
         'requestId' => 'RequestId',
-        'sdkUrl'    => 'SdkUrl',
+        'sdkUrl' => 'SdkUrl',
     ];
 
     public function validate()

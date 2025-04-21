@@ -12,23 +12,26 @@ class Mobile3MetaDetailStandardVerifyRequest extends Model
      * @var string
      */
     public $identifyNum;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $paramType;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
         'identifyNum' => 'IdentifyNum',
-        'mobile'      => 'Mobile',
-        'paramType'   => 'ParamType',
-        'userName'    => 'UserName',
+        'mobile' => 'Mobile',
+        'paramType' => 'ParamType',
+        'userName' => 'UserName',
     ];
 
     public function validate()

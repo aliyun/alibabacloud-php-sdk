@@ -31,7 +31,7 @@ class faceInfos extends Model
         if (null !== $this->faceAttributesDetectInfo) {
             if (\is_array($this->faceAttributesDetectInfo)) {
                 $res['FaceAttributesDetectInfo'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->faceAttributesDetectInfo as $item1) {
                     $res['FaceAttributesDetectInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class faceInfos extends Model
         if (isset($map['FaceAttributesDetectInfo'])) {
             if (!empty($map['FaceAttributesDetectInfo'])) {
                 $model->faceAttributesDetectInfo = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['FaceAttributesDetectInfo'] as $item1) {
                     $model->faceAttributesDetectInfo[$n1++] = faceAttributesDetectInfo::fromMap($item1);
                 }

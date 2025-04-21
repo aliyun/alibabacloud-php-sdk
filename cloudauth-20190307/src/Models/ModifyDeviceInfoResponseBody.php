@@ -12,32 +12,37 @@ class ModifyDeviceInfoResponseBody extends Model
      * @var string
      */
     public $beginDay;
+
     /**
      * @var string
      */
     public $bizType;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $expiredDay;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $userDeviceId;
     protected $_name = [
-        'beginDay'     => 'BeginDay',
-        'bizType'      => 'BizType',
-        'deviceId'     => 'DeviceId',
-        'expiredDay'   => 'ExpiredDay',
-        'requestId'    => 'RequestId',
+        'beginDay' => 'BeginDay',
+        'bizType' => 'BizType',
+        'deviceId' => 'DeviceId',
+        'expiredDay' => 'ExpiredDay',
+        'requestId' => 'RequestId',
         'userDeviceId' => 'UserDeviceId',
     ];
 

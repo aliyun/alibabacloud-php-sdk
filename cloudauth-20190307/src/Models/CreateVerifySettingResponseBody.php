@@ -12,28 +12,32 @@ class CreateVerifySettingResponseBody extends Model
      * @var string
      */
     public $bizName;
+
     /**
      * @var string
      */
     public $bizType;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $solution;
+
     /**
      * @var string[]
      */
     public $stepList;
     protected $_name = [
-        'bizName'   => 'BizName',
-        'bizType'   => 'BizType',
+        'bizName' => 'BizName',
+        'bizType' => 'BizType',
         'requestId' => 'RequestId',
-        'solution'  => 'Solution',
-        'stepList'  => 'StepList',
+        'solution' => 'Solution',
+        'stepList' => 'StepList',
     ];
 
     public function validate()
@@ -66,7 +70,7 @@ class CreateVerifySettingResponseBody extends Model
         if (null !== $this->stepList) {
             if (\is_array($this->stepList)) {
                 $res['StepList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->stepList as $item1) {
                     $res['StepList'][$n1++] = $item1;
                 }
@@ -103,7 +107,7 @@ class CreateVerifySettingResponseBody extends Model
         if (isset($map['StepList'])) {
             if (!empty($map['StepList'])) {
                 $model->stepList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['StepList'] as $item1) {
                     $model->stepList[$n1++] = $item1;
                 }

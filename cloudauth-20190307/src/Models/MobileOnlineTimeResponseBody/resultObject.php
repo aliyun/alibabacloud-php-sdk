@@ -12,17 +12,19 @@ class resultObject extends Model
      * @var string
      */
     public $bizCode;
+
     /**
      * @var string
      */
     public $ispName;
+
     /**
      * @var string
      */
     public $timeCode;
     protected $_name = [
-        'bizCode'  => 'BizCode',
-        'ispName'  => 'IspName',
+        'bizCode' => 'BizCode',
+        'ispName' => 'IspName',
         'timeCode' => 'TimeCode',
     ];
 

@@ -12,23 +12,26 @@ class faceRect extends Model
      * @var int
      */
     public $height;
+
     /**
      * @var int
      */
     public $left;
+
     /**
      * @var int
      */
     public $top;
+
     /**
      * @var int
      */
     public $width;
     protected $_name = [
         'height' => 'Height',
-        'left'   => 'Left',
-        'top'    => 'Top',
-        'width'  => 'Width',
+        'left' => 'Left',
+        'top' => 'Top',
+        'width' => 'Width',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class CreateAuthKeyResponseBody extends Model
      * @var string
      */
     public $authKey;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'authKey'   => 'AuthKey',
+        'authKey' => 'AuthKey',
         'requestId' => 'RequestId',
     ];
 

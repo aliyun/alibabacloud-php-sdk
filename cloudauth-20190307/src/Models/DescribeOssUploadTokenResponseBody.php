@@ -13,13 +13,14 @@ class DescribeOssUploadTokenResponseBody extends Model
      * @var ossUploadToken
      */
     public $ossUploadToken;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'ossUploadToken' => 'OssUploadToken',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

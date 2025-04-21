@@ -12,98 +12,116 @@ class ContrastFaceVerifyRequest extends Model
      * @var string
      */
     public $certName;
+
     /**
      * @var string
      */
     public $certNo;
+
     /**
      * @var string
      */
     public $certType;
+
     /**
      * @var string
      */
     public $certifyId;
+
     /**
      * @var string
      */
     public $crop;
+
     /**
      * @var string
      */
     public $deviceToken;
+
     /**
      * @var string
      */
     public $encryptType;
+
     /**
      * @var string
      */
     public $faceContrastFile;
+
     /**
      * @var string
      */
     public $faceContrastPicture;
+
     /**
      * @var string
      */
     public $faceContrastPictureUrl;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $model;
+
     /**
      * @var string
      */
     public $ossBucketName;
+
     /**
      * @var string
      */
     public $ossObjectName;
+
     /**
      * @var string
      */
     public $outerOrderNo;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'certName'               => 'CertName',
-        'certNo'                 => 'CertNo',
-        'certType'               => 'CertType',
-        'certifyId'              => 'CertifyId',
-        'crop'                   => 'Crop',
-        'deviceToken'            => 'DeviceToken',
-        'encryptType'            => 'EncryptType',
-        'faceContrastFile'       => 'FaceContrastFile',
-        'faceContrastPicture'    => 'FaceContrastPicture',
+        'certName' => 'CertName',
+        'certNo' => 'CertNo',
+        'certType' => 'CertType',
+        'certifyId' => 'CertifyId',
+        'crop' => 'Crop',
+        'deviceToken' => 'DeviceToken',
+        'encryptType' => 'EncryptType',
+        'faceContrastFile' => 'FaceContrastFile',
+        'faceContrastPicture' => 'FaceContrastPicture',
         'faceContrastPictureUrl' => 'FaceContrastPictureUrl',
-        'ip'                     => 'Ip',
-        'mobile'                 => 'Mobile',
-        'model'                  => 'Model',
-        'ossBucketName'          => 'OssBucketName',
-        'ossObjectName'          => 'OssObjectName',
-        'outerOrderNo'           => 'OuterOrderNo',
-        'productCode'            => 'ProductCode',
-        'sceneId'                => 'SceneId',
-        'userId'                 => 'UserId',
+        'ip' => 'Ip',
+        'mobile' => 'Mobile',
+        'model' => 'Model',
+        'ossBucketName' => 'OssBucketName',
+        'ossObjectName' => 'OssObjectName',
+        'outerOrderNo' => 'OuterOrderNo',
+        'productCode' => 'ProductCode',
+        'sceneId' => 'SceneId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

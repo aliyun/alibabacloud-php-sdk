@@ -13,48 +13,56 @@ class PageQueryWhiteListSettingResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var resultObject[]
      */
     public $resultObject;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalItem;
+
     /**
      * @var int
      */
     public $totalPage;
     protected $_name = [
-        'code'         => 'Code',
-        'currentPage'  => 'CurrentPage',
-        'message'      => 'Message',
-        'pageSize'     => 'PageSize',
-        'requestId'    => 'RequestId',
+        'code' => 'Code',
+        'currentPage' => 'CurrentPage',
+        'message' => 'Message',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'resultObject' => 'ResultObject',
-        'success'      => 'Success',
-        'totalItem'    => 'TotalItem',
-        'totalPage'    => 'TotalPage',
+        'success' => 'Success',
+        'totalItem' => 'TotalItem',
+        'totalPage' => 'TotalPage',
     ];
 
     public function validate()
@@ -91,7 +99,7 @@ class PageQueryWhiteListSettingResponseBody extends Model
         if (null !== $this->resultObject) {
             if (\is_array($this->resultObject)) {
                 $res['ResultObject'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->resultObject as $item1) {
                     $res['ResultObject'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -144,7 +152,7 @@ class PageQueryWhiteListSettingResponseBody extends Model
         if (isset($map['ResultObject'])) {
             if (!empty($map['ResultObject'])) {
                 $model->resultObject = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ResultObject'] as $item1) {
                     $model->resultObject[$n1++] = resultObject::fromMap($item1);
                 }

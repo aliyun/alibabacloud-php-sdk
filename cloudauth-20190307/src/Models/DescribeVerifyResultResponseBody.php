@@ -13,33 +13,38 @@ class DescribeVerifyResultResponseBody extends Model
      * @var float
      */
     public $authorityComparisionScore;
+
     /**
      * @var float
      */
     public $faceComparisonScore;
+
     /**
      * @var float
      */
     public $idCardFaceComparisonScore;
+
     /**
      * @var material
      */
     public $material;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $verifyStatus;
     protected $_name = [
         'authorityComparisionScore' => 'AuthorityComparisionScore',
-        'faceComparisonScore'       => 'FaceComparisonScore',
+        'faceComparisonScore' => 'FaceComparisonScore',
         'idCardFaceComparisonScore' => 'IdCardFaceComparisonScore',
-        'material'                  => 'Material',
-        'requestId'                 => 'RequestId',
-        'verifyStatus'              => 'VerifyStatus',
+        'material' => 'Material',
+        'requestId' => 'RequestId',
+        'verifyStatus' => 'VerifyStatus',
     ];
 
     public function validate()

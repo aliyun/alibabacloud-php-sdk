@@ -12,12 +12,13 @@ class MobileOnlineTimeRequest extends Model
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $paramType;
     protected $_name = [
-        'mobile'    => 'Mobile',
+        'mobile' => 'Mobile',
         'paramType' => 'ParamType',
     ];
 

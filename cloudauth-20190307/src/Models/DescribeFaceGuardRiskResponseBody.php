@@ -13,22 +13,25 @@ class DescribeFaceGuardRiskResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var resultObject
      */
     public $resultObject;
     protected $_name = [
-        'code'         => 'Code',
-        'message'      => 'Message',
-        'requestId'    => 'RequestId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
         'resultObject' => 'ResultObject',
     ];
 

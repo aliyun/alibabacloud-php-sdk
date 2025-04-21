@@ -13,73 +13,86 @@ class CredentialVerifyRequest extends Model
      * @var string
      */
     public $certNum;
+
     /**
      * @var string
      */
     public $credName;
+
     /**
      * @var string
      */
     public $credType;
+
     /**
      * @var string
      */
     public $identifyNum;
+
     /**
      * @var string
      */
     public $imageContext;
+
     /**
      * @var string
      */
     public $imageUrl;
+
     /**
      * @var string
      */
     public $isCheck;
+
     /**
      * @var string
      */
     public $isOCR;
+
     /**
      * @var merchantDetail[]
      */
     public $merchantDetail;
+
     /**
      * @var string
      */
     public $merchantId;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $prompt;
+
     /**
      * @var string
      */
     public $promptModel;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'certNum'        => 'CertNum',
-        'credName'       => 'CredName',
-        'credType'       => 'CredType',
-        'identifyNum'    => 'IdentifyNum',
-        'imageContext'   => 'ImageContext',
-        'imageUrl'       => 'ImageUrl',
-        'isCheck'        => 'IsCheck',
-        'isOCR'          => 'IsOCR',
+        'certNum' => 'CertNum',
+        'credName' => 'CredName',
+        'credType' => 'CredType',
+        'identifyNum' => 'IdentifyNum',
+        'imageContext' => 'ImageContext',
+        'imageUrl' => 'ImageUrl',
+        'isCheck' => 'IsCheck',
+        'isOCR' => 'IsOCR',
         'merchantDetail' => 'MerchantDetail',
-        'merchantId'     => 'MerchantId',
-        'productCode'    => 'ProductCode',
-        'prompt'         => 'Prompt',
-        'promptModel'    => 'PromptModel',
-        'userName'       => 'UserName',
+        'merchantId' => 'MerchantId',
+        'productCode' => 'ProductCode',
+        'prompt' => 'Prompt',
+        'promptModel' => 'PromptModel',
+        'userName' => 'UserName',
     ];
 
     public function validate()
@@ -128,7 +141,7 @@ class CredentialVerifyRequest extends Model
         if (null !== $this->merchantDetail) {
             if (\is_array($this->merchantDetail)) {
                 $res['MerchantDetail'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->merchantDetail as $item1) {
                     $res['MerchantDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -201,7 +214,7 @@ class CredentialVerifyRequest extends Model
         if (isset($map['MerchantDetail'])) {
             if (!empty($map['MerchantDetail'])) {
                 $model->merchantDetail = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['MerchantDetail'] as $item1) {
                     $model->merchantDetail[$n1++] = merchantDetail::fromMap($item1);
                 }

@@ -12,12 +12,13 @@ class MobileDetectRequest extends Model
      * @var string
      */
     public $mobiles;
+
     /**
      * @var string
      */
     public $paramType;
     protected $_name = [
-        'mobiles'   => 'Mobiles',
+        'mobiles' => 'Mobiles',
         'paramType' => 'ParamType',
     ];
 

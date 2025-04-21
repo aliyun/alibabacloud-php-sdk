@@ -12,22 +12,25 @@ class CompareFacesRequest extends Model
      * @var string
      */
     public $sourceImageType;
+
     /**
      * @var string
      */
     public $sourceImageValue;
+
     /**
      * @var string
      */
     public $targetImageType;
+
     /**
      * @var string
      */
     public $targetImageValue;
     protected $_name = [
-        'sourceImageType'  => 'SourceImageType',
+        'sourceImageType' => 'SourceImageType',
         'sourceImageValue' => 'SourceImageValue',
-        'targetImageType'  => 'TargetImageType',
+        'targetImageType' => 'TargetImageType',
         'targetImageValue' => 'TargetImageValue',
     ];
 

@@ -12,43 +12,50 @@ class VerifyMaterialRequest extends Model
      * @var string
      */
     public $bizId;
+
     /**
      * @var string
      */
     public $bizType;
+
     /**
      * @var string
      */
     public $faceImageUrl;
+
     /**
      * @var string
      */
     public $idCardBackImageUrl;
+
     /**
      * @var string
      */
     public $idCardFrontImageUrl;
+
     /**
      * @var string
      */
     public $idCardNumber;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'bizId'               => 'BizId',
-        'bizType'             => 'BizType',
-        'faceImageUrl'        => 'FaceImageUrl',
-        'idCardBackImageUrl'  => 'IdCardBackImageUrl',
+        'bizId' => 'BizId',
+        'bizType' => 'BizType',
+        'faceImageUrl' => 'FaceImageUrl',
+        'idCardBackImageUrl' => 'IdCardBackImageUrl',
         'idCardFrontImageUrl' => 'IdCardFrontImageUrl',
-        'idCardNumber'        => 'IdCardNumber',
-        'name'                => 'Name',
-        'userId'              => 'UserId',
+        'idCardNumber' => 'IdCardNumber',
+        'name' => 'Name',
+        'userId' => 'UserId',
     ];
 
     public function validate()

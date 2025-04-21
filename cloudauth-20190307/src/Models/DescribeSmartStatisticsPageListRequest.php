@@ -12,33 +12,38 @@ class DescribeSmartStatisticsPageListRequest extends Model
      * @var string
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $serviceCode;
+
     /**
      * @var string
      */
     public $startDate;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'endDate'     => 'EndDate',
-        'pageSize'    => 'PageSize',
-        'sceneId'     => 'SceneId',
+        'endDate' => 'EndDate',
+        'pageSize' => 'PageSize',
+        'sceneId' => 'SceneId',
         'serviceCode' => 'ServiceCode',
-        'startDate'   => 'StartDate',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()

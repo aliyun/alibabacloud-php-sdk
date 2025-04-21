@@ -12,28 +12,32 @@ class InsertWhiteListSettingResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $resultObject;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'         => 'Code',
-        'message'      => 'Message',
-        'requestId'    => 'RequestId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
         'resultObject' => 'ResultObject',
-        'success'      => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

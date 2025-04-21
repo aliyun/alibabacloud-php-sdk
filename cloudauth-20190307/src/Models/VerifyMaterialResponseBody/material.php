@@ -13,38 +13,44 @@ class material extends Model
      * @var string
      */
     public $faceGlobalUrl;
+
     /**
      * @var string
      */
     public $faceImageUrl;
+
     /**
      * @var string
      */
     public $faceMask;
+
     /**
      * @var string
      */
     public $faceQuality;
+
     /**
      * @var idCardInfo
      */
     public $idCardInfo;
+
     /**
      * @var string
      */
     public $idCardName;
+
     /**
      * @var string
      */
     public $idCardNumber;
     protected $_name = [
         'faceGlobalUrl' => 'FaceGlobalUrl',
-        'faceImageUrl'  => 'FaceImageUrl',
-        'faceMask'      => 'FaceMask',
-        'faceQuality'   => 'FaceQuality',
-        'idCardInfo'    => 'IdCardInfo',
-        'idCardName'    => 'IdCardName',
-        'idCardNumber'  => 'IdCardNumber',
+        'faceImageUrl' => 'FaceImageUrl',
+        'faceMask' => 'FaceMask',
+        'faceQuality' => 'FaceQuality',
+        'idCardInfo' => 'IdCardInfo',
+        'idCardName' => 'IdCardName',
+        'idCardNumber' => 'IdCardNumber',
     ];
 
     public function validate()

@@ -13,28 +13,32 @@ class DescribeDeviceInfoResponseBody extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var deviceInfoList
      */
     public $deviceInfoList;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'currentPage'    => 'CurrentPage',
+        'currentPage' => 'CurrentPage',
         'deviceInfoList' => 'DeviceInfoList',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

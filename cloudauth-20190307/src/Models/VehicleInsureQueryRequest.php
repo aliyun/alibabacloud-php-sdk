@@ -12,23 +12,26 @@ class VehicleInsureQueryRequest extends Model
      * @var string
      */
     public $paramType;
+
     /**
      * @var string
      */
     public $vehicleNum;
+
     /**
      * @var string
      */
     public $vehicleType;
+
     /**
      * @var string
      */
     public $vin;
     protected $_name = [
-        'paramType'   => 'ParamType',
-        'vehicleNum'  => 'VehicleNum',
+        'paramType' => 'ParamType',
+        'vehicleNum' => 'VehicleNum',
         'vehicleType' => 'VehicleType',
-        'vin'         => 'Vin',
+        'vin' => 'Vin',
     ];
 
     public function validate()

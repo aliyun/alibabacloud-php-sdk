@@ -12,187 +12,223 @@ class InitFaceVerifyRequest extends Model
      * @var string
      */
     public $appQualityCheck;
+
     /**
      * @var string
      */
     public $authId;
+
     /**
      * @var string
      */
     public $birthday;
+
     /**
      * @var string
      */
     public $callbackToken;
+
     /**
      * @var string
      */
     public $callbackUrl;
+
     /**
      * @var string
      */
     public $cameraSelection;
+
     /**
      * @var string
      */
     public $certName;
+
     /**
      * @var string
      */
     public $certNo;
+
     /**
      * @var string
      */
     public $certType;
+
     /**
      * @var string
      */
     public $certifyId;
+
     /**
      * @var string
      */
     public $certifyUrlStyle;
+
     /**
      * @var string
      */
     public $certifyUrlType;
+
     /**
      * @var string
      */
     public $crop;
+
     /**
      * @var string
      */
     public $encryptType;
+
     /**
      * @var string
      */
     public $faceContrastPicture;
+
     /**
      * @var string
      */
     public $faceContrastPictureUrl;
+
     /**
      * @var string
      */
     public $faceGuardOutput;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $metaInfo;
+
     /**
      * @var string
      */
     public $mobile;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $model;
+
     /**
      * @var string
      */
     public $ossBucketName;
+
     /**
      * @var string
      */
     public $ossObjectName;
+
     /**
      * @var string
      */
     public $outerOrderNo;
+
     /**
      * @var string
      */
     public $procedurePriority;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $rarelyCharacters;
+
     /**
      * @var string
      */
     public $readImg;
+
     /**
      * @var string
      */
     public $returnUrl;
+
     /**
      * @var int
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $suitableType;
+
     /**
      * @var string
      */
     public $uiCustomUrl;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $validityDate;
+
     /**
      * @var string
      */
     public $videoEvidence;
+
     /**
      * @var string
      */
     public $voluntaryCustomizedContent;
     protected $_name = [
-        'appQualityCheck'            => 'AppQualityCheck',
-        'authId'                     => 'AuthId',
-        'birthday'                   => 'Birthday',
-        'callbackToken'              => 'CallbackToken',
-        'callbackUrl'                => 'CallbackUrl',
-        'cameraSelection'            => 'CameraSelection',
-        'certName'                   => 'CertName',
-        'certNo'                     => 'CertNo',
-        'certType'                   => 'CertType',
-        'certifyId'                  => 'CertifyId',
-        'certifyUrlStyle'            => 'CertifyUrlStyle',
-        'certifyUrlType'             => 'CertifyUrlType',
-        'crop'                       => 'Crop',
-        'encryptType'                => 'EncryptType',
-        'faceContrastPicture'        => 'FaceContrastPicture',
-        'faceContrastPictureUrl'     => 'FaceContrastPictureUrl',
-        'faceGuardOutput'            => 'FaceGuardOutput',
-        'ip'                         => 'Ip',
-        'metaInfo'                   => 'MetaInfo',
-        'mobile'                     => 'Mobile',
-        'mode'                       => 'Mode',
-        'model'                      => 'Model',
-        'ossBucketName'              => 'OssBucketName',
-        'ossObjectName'              => 'OssObjectName',
-        'outerOrderNo'               => 'OuterOrderNo',
-        'procedurePriority'          => 'ProcedurePriority',
-        'productCode'                => 'ProductCode',
-        'rarelyCharacters'           => 'RarelyCharacters',
-        'readImg'                    => 'ReadImg',
-        'returnUrl'                  => 'ReturnUrl',
-        'sceneId'                    => 'SceneId',
-        'suitableType'               => 'SuitableType',
-        'uiCustomUrl'                => 'UiCustomUrl',
-        'userId'                     => 'UserId',
-        'validityDate'               => 'ValidityDate',
-        'videoEvidence'              => 'VideoEvidence',
+        'appQualityCheck' => 'AppQualityCheck',
+        'authId' => 'AuthId',
+        'birthday' => 'Birthday',
+        'callbackToken' => 'CallbackToken',
+        'callbackUrl' => 'CallbackUrl',
+        'cameraSelection' => 'CameraSelection',
+        'certName' => 'CertName',
+        'certNo' => 'CertNo',
+        'certType' => 'CertType',
+        'certifyId' => 'CertifyId',
+        'certifyUrlStyle' => 'CertifyUrlStyle',
+        'certifyUrlType' => 'CertifyUrlType',
+        'crop' => 'Crop',
+        'encryptType' => 'EncryptType',
+        'faceContrastPicture' => 'FaceContrastPicture',
+        'faceContrastPictureUrl' => 'FaceContrastPictureUrl',
+        'faceGuardOutput' => 'FaceGuardOutput',
+        'ip' => 'Ip',
+        'metaInfo' => 'MetaInfo',
+        'mobile' => 'Mobile',
+        'mode' => 'Mode',
+        'model' => 'Model',
+        'ossBucketName' => 'OssBucketName',
+        'ossObjectName' => 'OssObjectName',
+        'outerOrderNo' => 'OuterOrderNo',
+        'procedurePriority' => 'ProcedurePriority',
+        'productCode' => 'ProductCode',
+        'rarelyCharacters' => 'RarelyCharacters',
+        'readImg' => 'ReadImg',
+        'returnUrl' => 'ReturnUrl',
+        'sceneId' => 'SceneId',
+        'suitableType' => 'SuitableType',
+        'uiCustomUrl' => 'UiCustomUrl',
+        'userId' => 'UserId',
+        'validityDate' => 'ValidityDate',
+        'videoEvidence' => 'VideoEvidence',
         'voluntaryCustomizedContent' => 'VoluntaryCustomizedContent',
     ];
 

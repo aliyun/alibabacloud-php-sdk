@@ -12,17 +12,19 @@ class Vehicle5ItemQueryRequest extends Model
      * @var string
      */
     public $paramType;
+
     /**
      * @var string
      */
     public $vehicleNum;
+
     /**
      * @var string
      */
     public $vehicleType;
     protected $_name = [
-        'paramType'   => 'ParamType',
-        'vehicleNum'  => 'VehicleNum',
+        'paramType' => 'ParamType',
+        'vehicleNum' => 'VehicleNum',
         'vehicleType' => 'VehicleType',
     ];
 

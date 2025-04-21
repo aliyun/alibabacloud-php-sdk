@@ -12,12 +12,13 @@ class DeleteFaceVerifyResultRequest extends Model
      * @var string
      */
     public $certifyId;
+
     /**
      * @var string
      */
     public $deleteAfterQuery;
     protected $_name = [
-        'certifyId'        => 'CertifyId',
+        'certifyId' => 'CertifyId',
         'deleteAfterQuery' => 'DeleteAfterQuery',
     ];
 

@@ -12,22 +12,25 @@ class CreateAuthKeyRequest extends Model
      * @var int
      */
     public $authYears;
+
     /**
      * @var string
      */
     public $bizType;
+
     /**
      * @var bool
      */
     public $test;
+
     /**
      * @var string
      */
     public $userDeviceId;
     protected $_name = [
-        'authYears'    => 'AuthYears',
-        'bizType'      => 'BizType',
-        'test'         => 'Test',
+        'authYears' => 'AuthYears',
+        'bizType' => 'BizType',
+        'test' => 'Test',
         'userDeviceId' => 'UserDeviceId',
     ];
 

@@ -31,7 +31,7 @@ class deviceInfoList extends Model
         if (null !== $this->deviceInfo) {
             if (\is_array($this->deviceInfo)) {
                 $res['DeviceInfo'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->deviceInfo as $item1) {
                     $res['DeviceInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class deviceInfoList extends Model
         if (isset($map['DeviceInfo'])) {
             if (!empty($map['DeviceInfo'])) {
                 $model->deviceInfo = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['DeviceInfo'] as $item1) {
                     $model->deviceInfo[$n1++] = deviceInfo::fromMap($item1);
                 }

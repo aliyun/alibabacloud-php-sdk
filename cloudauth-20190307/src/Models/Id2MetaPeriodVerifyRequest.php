@@ -12,27 +12,31 @@ class Id2MetaPeriodVerifyRequest extends Model
      * @var string
      */
     public $identifyNum;
+
     /**
      * @var string
      */
     public $paramType;
+
     /**
      * @var string
      */
     public $userName;
+
     /**
      * @var string
      */
     public $validityEndDate;
+
     /**
      * @var string
      */
     public $validityStartDate;
     protected $_name = [
-        'identifyNum'       => 'IdentifyNum',
-        'paramType'         => 'ParamType',
-        'userName'          => 'UserName',
-        'validityEndDate'   => 'ValidityEndDate',
+        'identifyNum' => 'IdentifyNum',
+        'paramType' => 'ParamType',
+        'userName' => 'UserName',
+        'validityEndDate' => 'ValidityEndDate',
         'validityStartDate' => 'ValidityStartDate',
     ];
 

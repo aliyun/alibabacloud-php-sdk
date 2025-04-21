@@ -12,13 +12,14 @@ class data extends Model
      * @var string
      */
     public $confidenceThresholds;
+
     /**
      * @var float
      */
     public $similarityScore;
     protected $_name = [
         'confidenceThresholds' => 'ConfidenceThresholds',
-        'similarityScore'      => 'SimilarityScore',
+        'similarityScore' => 'SimilarityScore',
     ];
 
     public function validate()

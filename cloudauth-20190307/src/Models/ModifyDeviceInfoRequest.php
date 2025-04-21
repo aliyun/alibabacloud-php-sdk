@@ -12,27 +12,31 @@ class ModifyDeviceInfoRequest extends Model
      * @var string
      */
     public $bizType;
+
     /**
      * @var string
      */
     public $deviceId;
+
     /**
      * @var string
      */
     public $duration;
+
     /**
      * @var string
      */
     public $expiredDay;
+
     /**
      * @var string
      */
     public $userDeviceId;
     protected $_name = [
-        'bizType'      => 'BizType',
-        'deviceId'     => 'DeviceId',
-        'duration'     => 'Duration',
-        'expiredDay'   => 'ExpiredDay',
+        'bizType' => 'BizType',
+        'deviceId' => 'DeviceId',
+        'duration' => 'Duration',
+        'expiredDay' => 'ExpiredDay',
         'userDeviceId' => 'UserDeviceId',
     ];
 

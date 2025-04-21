@@ -12,18 +12,20 @@ class resultObject extends Model
      * @var string
      */
     public $certifyId;
+
     /**
      * @var string
      */
     public $deleteResult;
+
     /**
      * @var string
      */
     public $failReason;
     protected $_name = [
-        'certifyId'    => 'CertifyId',
+        'certifyId' => 'CertifyId',
         'deleteResult' => 'DeleteResult',
-        'failReason'   => 'FailReason',
+        'failReason' => 'FailReason',
     ];
 
     public function validate()

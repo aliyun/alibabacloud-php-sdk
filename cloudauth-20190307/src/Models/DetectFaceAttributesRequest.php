@@ -12,12 +12,13 @@ class DetectFaceAttributesRequest extends Model
      * @var string
      */
     public $bizType;
+
     /**
      * @var string
      */
     public $materialValue;
     protected $_name = [
-        'bizType'       => 'BizType',
+        'bizType' => 'BizType',
         'materialValue' => 'MaterialValue',
     ];
 

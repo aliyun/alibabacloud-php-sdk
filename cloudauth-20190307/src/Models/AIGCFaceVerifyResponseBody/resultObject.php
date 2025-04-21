@@ -12,18 +12,20 @@ class resultObject extends Model
      * @var string
      */
     public $certifyId;
+
     /**
      * @var string
      */
     public $result;
+
     /**
      * @var string
      */
     public $score;
     protected $_name = [
         'certifyId' => 'CertifyId',
-        'result'    => 'Result',
-        'score'     => 'Score',
+        'result' => 'Result',
+        'score' => 'Score',
     ];
 
     public function validate()

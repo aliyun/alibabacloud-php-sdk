@@ -12,13 +12,14 @@ class smiling extends Model
      * @var float
      */
     public $threshold;
+
     /**
      * @var float
      */
     public $value;
     protected $_name = [
         'threshold' => 'Threshold',
-        'value'     => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

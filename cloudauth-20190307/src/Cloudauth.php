@@ -23,6 +23,10 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CreateVerifySettingResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyShrinkRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyV2AdvanceRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyV2Request;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyV2Response;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\CredentialVerifyV2ShrinkRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeepfakeDetectRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeepfakeDetectResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DeleteFaceVerifyResultRequest;
@@ -143,6 +147,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - AIGCFaceVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AIGCFaceVerifyResponse
      *
      * @param AIGCFaceVerifyRequest $request
@@ -185,18 +190,18 @@ class Cloudauth extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AIGCFaceVerify',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AIGCFaceVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AIGCFaceVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -206,6 +211,7 @@ class Cloudauth extends OpenApiClient
      * 新增AIGC人脸检测能力.
      *
      * @param request - AIGCFaceVerifyRequest
+     *
      * @returns AIGCFaceVerifyResponse
      *
      * @param AIGCFaceVerifyRequest $request
@@ -224,6 +230,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - BankMetaVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BankMetaVerifyResponse
      *
      * @param BankMetaVerifyRequest $request
@@ -271,15 +278,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BankMetaVerify',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BankMetaVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BankMetaVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -289,6 +296,7 @@ class Cloudauth extends OpenApiClient
      * 银行卡要素核验接口.
      *
      * @param request - BankMetaVerifyRequest
+     *
      * @returns BankMetaVerifyResponse
      *
      * @param BankMetaVerifyRequest $request
@@ -305,6 +313,7 @@ class Cloudauth extends OpenApiClient
     /**
      * @param request - CompareFaceVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CompareFaceVerifyResponse
      *
      * @param CompareFaceVerifyRequest $request
@@ -376,15 +385,15 @@ class Cloudauth extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CompareFaceVerify',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CompareFaceVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CompareFaceVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -392,6 +401,7 @@ class Cloudauth extends OpenApiClient
 
     /**
      * @param request - CompareFaceVerifyRequest
+     *
      * @returns CompareFaceVerifyResponse
      *
      * @param CompareFaceVerifyRequest $request
@@ -408,6 +418,7 @@ class Cloudauth extends OpenApiClient
     /**
      * @param request - CompareFacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CompareFacesResponse
      *
      * @param CompareFacesRequest $request
@@ -439,15 +450,15 @@ class Cloudauth extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CompareFaces',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CompareFaces',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CompareFacesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -455,6 +466,7 @@ class Cloudauth extends OpenApiClient
 
     /**
      * @param request - CompareFacesRequest
+     *
      * @returns CompareFacesResponse
      *
      * @param CompareFacesRequest $request
@@ -471,6 +483,7 @@ class Cloudauth extends OpenApiClient
     /**
      * @param request - ContrastFaceVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ContrastFaceVerifyResponse
      *
      * @param ContrastFaceVerifyRequest $request
@@ -561,18 +574,18 @@ class Cloudauth extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ContrastFaceVerify',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ContrastFaceVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ContrastFaceVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -580,6 +593,7 @@ class Cloudauth extends OpenApiClient
 
     /**
      * @param request - ContrastFaceVerifyRequest
+     *
      * @returns ContrastFaceVerifyResponse
      *
      * @param ContrastFaceVerifyRequest $request
@@ -602,10 +616,10 @@ class Cloudauth extends OpenApiClient
     public function contrastFaceVerifyAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
@@ -616,56 +630,56 @@ class Cloudauth extends OpenApiClient
         }
 
         $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $authClient  = new OpenPlatform($authConfig);
+        $authClient = new OpenPlatform($authConfig);
         $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'Cloudauth',
+            'product' => 'Cloudauth',
             'regionId' => $this->_regionId,
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeyId'     => $accessKeyId,
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $ossClient     = new OSS($ossConfig);
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
         $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         Utils::convert($runtime, $ossRuntime);
         $contrastFaceVerifyReq = new ContrastFaceVerifyRequest([]);
         Utils::convert($request, $contrastFaceVerifyReq);
         if (null !== $request->faceContrastFileObject) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->faceContrastFileObject,
+            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->faceContrastFileObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
                 'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
+                'header' => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
             $contrastFaceVerifyReq->faceContrastFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
@@ -677,6 +691,7 @@ class Cloudauth extends OpenApiClient
     /**
      * @param request - CreateAuthKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAuthKeyResponse
      *
      * @param CreateAuthKeyRequest $request
@@ -708,15 +723,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAuthKey',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAuthKey',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateAuthKeyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -724,6 +739,7 @@ class Cloudauth extends OpenApiClient
 
     /**
      * @param request - CreateAuthKeyRequest
+     *
      * @returns CreateAuthKeyResponse
      *
      * @param CreateAuthKeyRequest $request
@@ -740,6 +756,7 @@ class Cloudauth extends OpenApiClient
     /**
      * @param request - CreateVerifySettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVerifySettingResponse
      *
      * @param CreateVerifySettingRequest $request
@@ -779,15 +796,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVerifySetting',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVerifySetting',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateVerifySettingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -795,6 +812,7 @@ class Cloudauth extends OpenApiClient
 
     /**
      * @param request - CreateVerifySettingRequest
+     *
      * @returns CreateVerifySettingResponse
      *
      * @param CreateVerifySettingRequest $request
@@ -813,6 +831,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param tmpReq - CredentialVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CredentialVerifyResponse
      *
      * @param CredentialVerifyRequest $tmpReq
@@ -889,18 +908,18 @@ class Cloudauth extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CredentialVerify',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CredentialVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CredentialVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -910,6 +929,7 @@ class Cloudauth extends OpenApiClient
      * 凭证核验.
      *
      * @param request - CredentialVerifyRequest
+     *
      * @returns CredentialVerifyResponse
      *
      * @param CredentialVerifyRequest $request
@@ -924,10 +944,209 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
+     * 凭证核验.
+     *
+     * @param tmpReq - CredentialVerifyV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CredentialVerifyV2Response
+     *
+     * @param CredentialVerifyV2Request $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CredentialVerifyV2Response
+     */
+    public function credentialVerifyV2WithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CredentialVerifyV2ShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->merchantDetail) {
+            $request->merchantDetailShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->merchantDetail, 'MerchantDetail', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->certNum) {
+            @$query['CertNum'] = $request->certNum;
+        }
+
+        if (null !== $request->credName) {
+            @$query['CredName'] = $request->credName;
+        }
+
+        if (null !== $request->credType) {
+            @$query['CredType'] = $request->credType;
+        }
+
+        if (null !== $request->identifyNum) {
+            @$query['IdentifyNum'] = $request->identifyNum;
+        }
+
+        if (null !== $request->imageUrl) {
+            @$query['ImageUrl'] = $request->imageUrl;
+        }
+
+        if (null !== $request->isCheck) {
+            @$query['IsCheck'] = $request->isCheck;
+        }
+
+        if (null !== $request->isOcr) {
+            @$query['IsOcr'] = $request->isOcr;
+        }
+
+        if (null !== $request->merchantDetailShrink) {
+            @$query['MerchantDetail'] = $request->merchantDetailShrink;
+        }
+
+        if (null !== $request->merchantId) {
+            @$query['MerchantId'] = $request->merchantId;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->prompt) {
+            @$query['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->promptModel) {
+            @$query['PromptModel'] = $request->promptModel;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        $body = [];
+        if (null !== $request->imageFile) {
+            @$body['ImageFile'] = $request->imageFile;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CredentialVerifyV2',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CredentialVerifyV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 凭证核验.
+     *
+     * @param request - CredentialVerifyV2Request
+     *
+     * @returns CredentialVerifyV2Response
+     *
+     * @param CredentialVerifyV2Request $request
+     *
+     * @return CredentialVerifyV2Response
+     */
+    public function credentialVerifyV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->credentialVerifyV2WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CredentialVerifyV2AdvanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CredentialVerifyV2Response
+     */
+    public function credentialVerifyV2Advance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product' => 'Cloudauth',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        Utils::convert($runtime, $ossRuntime);
+        $credentialVerifyV2Req = new CredentialVerifyV2Request([]);
+        Utils::convert($request, $credentialVerifyV2Req);
+        if (null !== $request->imageFileObject) {
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->imageFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header' => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $credentialVerifyV2Req->imageFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->credentialVerifyV2WithOptions($credentialVerifyV2Req, $runtime);
+    }
+
+    /**
      * 人脸凭证核验服务
      *
      * @param request - DeepfakeDetectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeepfakeDetectResponse
      *
      * @param DeepfakeDetectRequest $request
@@ -958,18 +1177,18 @@ class Cloudauth extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeepfakeDetect',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeepfakeDetect',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeepfakeDetectResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -979,6 +1198,7 @@ class Cloudauth extends OpenApiClient
      * 人脸凭证核验服务
      *
      * @param request - DeepfakeDetectRequest
+     *
      * @returns DeepfakeDetectResponse
      *
      * @param DeepfakeDetectRequest $request
@@ -997,6 +1217,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - DeleteFaceVerifyResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteFaceVerifyResultResponse
      *
      * @param DeleteFaceVerifyResultRequest $request
@@ -1020,15 +1241,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFaceVerifyResult',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteFaceVerifyResult',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteFaceVerifyResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1038,6 +1259,7 @@ class Cloudauth extends OpenApiClient
      * 金融级服务敏感数据删除接口.
      *
      * @param request - DeleteFaceVerifyResultRequest
+     *
      * @returns DeleteFaceVerifyResultResponse
      *
      * @param DeleteFaceVerifyResultRequest $request
@@ -1054,6 +1276,7 @@ class Cloudauth extends OpenApiClient
     /**
      * @param request - DescribeDeviceInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDeviceInfoResponse
      *
      * @param DescribeDeviceInfoRequest $request
@@ -1097,15 +1320,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDeviceInfo',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDeviceInfo',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDeviceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1113,6 +1336,7 @@ class Cloudauth extends OpenApiClient
 
     /**
      * @param request - DescribeDeviceInfoRequest
+     *
      * @returns DescribeDeviceInfoResponse
      *
      * @param DescribeDeviceInfoRequest $request
@@ -1131,6 +1355,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - DescribeFaceGuardRiskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFaceGuardRiskResponse
      *
      * @param DescribeFaceGuardRiskRequest $request
@@ -1162,15 +1387,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFaceGuardRisk',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFaceGuardRisk',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeFaceGuardRiskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1180,6 +1405,7 @@ class Cloudauth extends OpenApiClient
      * 金融级人脸保镖服务
      *
      * @param request - DescribeFaceGuardRiskRequest
+     *
      * @returns DescribeFaceGuardRiskResponse
      *
      * @param DescribeFaceGuardRiskRequest $request
@@ -1196,6 +1422,7 @@ class Cloudauth extends OpenApiClient
     /**
      * @param request - DescribeFaceVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFaceVerifyResponse
      *
      * @param DescribeFaceVerifyRequest $request
@@ -1223,15 +1450,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFaceVerify',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFaceVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeFaceVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1239,6 +1466,7 @@ class Cloudauth extends OpenApiClient
 
     /**
      * @param request - DescribeFaceVerifyRequest
+     *
      * @returns DescribeFaceVerifyResponse
      *
      * @param DescribeFaceVerifyRequest $request
@@ -1255,6 +1483,7 @@ class Cloudauth extends OpenApiClient
     /**
      * @param request - DescribeOssUploadTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeOssUploadTokenResponse
      *
      * @param RuntimeOptions $runtime
@@ -1263,17 +1492,17 @@ class Cloudauth extends OpenApiClient
      */
     public function describeOssUploadTokenWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeOssUploadToken',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOssUploadToken',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeOssUploadTokenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1296,6 +1525,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - DescribePageFaceVerifyDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePageFaceVerifyDataResponse
      *
      * @param DescribePageFaceVerifyDataRequest $request
@@ -1335,15 +1565,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePageFaceVerifyData',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePageFaceVerifyData',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePageFaceVerifyDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1353,6 +1583,7 @@ class Cloudauth extends OpenApiClient
      * Open API新增金融级数据统计API.
      *
      * @param request - DescribePageFaceVerifyDataRequest
+     *
      * @returns DescribePageFaceVerifyDataResponse
      *
      * @param DescribePageFaceVerifyDataRequest $request
@@ -1369,6 +1600,7 @@ class Cloudauth extends OpenApiClient
     /**
      * @param request - DescribeSmartStatisticsPageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSmartStatisticsPageListResponse
      *
      * @param DescribeSmartStatisticsPageListRequest $request
@@ -1408,15 +1640,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSmartStatisticsPageList',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSmartStatisticsPageList',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSmartStatisticsPageListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1424,6 +1656,7 @@ class Cloudauth extends OpenApiClient
 
     /**
      * @param request - DescribeSmartStatisticsPageListRequest
+     *
      * @returns DescribeSmartStatisticsPageListResponse
      *
      * @param DescribeSmartStatisticsPageListRequest $request
@@ -1440,6 +1673,7 @@ class Cloudauth extends OpenApiClient
     /**
      * @param request - DescribeVerifyResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVerifyResultResponse
      *
      * @param DescribeVerifyResultRequest $request
@@ -1463,15 +1697,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVerifyResult',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVerifyResult',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeVerifyResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1479,6 +1713,7 @@ class Cloudauth extends OpenApiClient
 
     /**
      * @param request - DescribeVerifyResultRequest
+     *
      * @returns DescribeVerifyResultResponse
      *
      * @param DescribeVerifyResultRequest $request
@@ -1495,6 +1730,7 @@ class Cloudauth extends OpenApiClient
     /**
      * @param request - DescribeVerifySDKRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVerifySDKResponse
      *
      * @param DescribeVerifySDKRequest $request
@@ -1514,15 +1750,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVerifySDK',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVerifySDK',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeVerifySDKResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1530,6 +1766,7 @@ class Cloudauth extends OpenApiClient
 
     /**
      * @param request - DescribeVerifySDKRequest
+     *
      * @returns DescribeVerifySDKResponse
      *
      * @param DescribeVerifySDKRequest $request
@@ -1546,6 +1783,7 @@ class Cloudauth extends OpenApiClient
     /**
      * @param request - DescribeVerifyTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVerifyTokenResponse
      *
      * @param DescribeVerifyTokenRequest $request
@@ -1621,15 +1859,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVerifyToken',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVerifyToken',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeVerifyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1637,6 +1875,7 @@ class Cloudauth extends OpenApiClient
 
     /**
      * @param request - DescribeVerifyTokenRequest
+     *
      * @returns DescribeVerifyTokenResponse
      *
      * @param DescribeVerifyTokenRequest $request
@@ -1653,6 +1892,7 @@ class Cloudauth extends OpenApiClient
     /**
      * @param request - DetectFaceAttributesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetectFaceAttributesResponse
      *
      * @param DetectFaceAttributesRequest $request
@@ -1676,15 +1916,15 @@ class Cloudauth extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DetectFaceAttributes',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetectFaceAttributes',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DetectFaceAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1692,6 +1932,7 @@ class Cloudauth extends OpenApiClient
 
     /**
      * @param request - DetectFaceAttributesRequest
+     *
      * @returns DetectFaceAttributesResponse
      *
      * @param DetectFaceAttributesRequest $request
@@ -1710,6 +1951,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - Id2MetaPeriodVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns Id2MetaPeriodVerifyResponse
      *
      * @param Id2MetaPeriodVerifyRequest $request
@@ -1745,15 +1987,15 @@ class Cloudauth extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'Id2MetaPeriodVerify',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Id2MetaPeriodVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return Id2MetaPeriodVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1763,6 +2005,7 @@ class Cloudauth extends OpenApiClient
      * 二要素有效期核验接口.
      *
      * @param request - Id2MetaPeriodVerifyRequest
+     *
      * @returns Id2MetaPeriodVerifyResponse
      *
      * @param Id2MetaPeriodVerifyRequest $request
@@ -1781,6 +2024,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - Id2MetaStandardVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns Id2MetaStandardVerifyResponse
      *
      * @param Id2MetaStandardVerifyRequest $request
@@ -1808,15 +2052,15 @@ class Cloudauth extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'Id2MetaStandardVerify',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Id2MetaStandardVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return Id2MetaStandardVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1826,6 +2070,7 @@ class Cloudauth extends OpenApiClient
      * 身份二要素标准版.
      *
      * @param request - Id2MetaStandardVerifyRequest
+     *
      * @returns Id2MetaStandardVerifyResponse
      *
      * @param Id2MetaStandardVerifyRequest $request
@@ -1844,6 +2089,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - Id2MetaVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns Id2MetaVerifyResponse
      *
      * @param Id2MetaVerifyRequest $request
@@ -1871,15 +2117,15 @@ class Cloudauth extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'Id2MetaVerify',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Id2MetaVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return Id2MetaVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1889,6 +2135,7 @@ class Cloudauth extends OpenApiClient
      * 身份二要素接口.
      *
      * @param request - Id2MetaVerifyRequest
+     *
      * @returns Id2MetaVerifyResponse
      *
      * @param Id2MetaVerifyRequest $request
@@ -1905,6 +2152,7 @@ class Cloudauth extends OpenApiClient
     /**
      * @param request - InitFaceVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InitFaceVerifyResponse
      *
      * @param InitFaceVerifyRequest $request
@@ -2067,18 +2315,18 @@ class Cloudauth extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InitFaceVerify',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InitFaceVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InitFaceVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2086,6 +2334,7 @@ class Cloudauth extends OpenApiClient
 
     /**
      * @param request - InitFaceVerifyRequest
+     *
      * @returns InitFaceVerifyResponse
      *
      * @param InitFaceVerifyRequest $request
@@ -2104,6 +2353,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - InsertWhiteListSettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InsertWhiteListSettingResponse
      *
      * @param InsertWhiteListSettingRequest $request
@@ -2143,15 +2393,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InsertWhiteListSetting',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InsertWhiteListSetting',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InsertWhiteListSettingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2161,6 +2411,7 @@ class Cloudauth extends OpenApiClient
      * 新增实人白名单.
      *
      * @param request - InsertWhiteListSettingRequest
+     *
      * @returns InsertWhiteListSettingResponse
      *
      * @param InsertWhiteListSettingRequest $request
@@ -2177,6 +2428,7 @@ class Cloudauth extends OpenApiClient
     /**
      * @param request - LivenessFaceVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns LivenessFaceVerifyResponse
      *
      * @param LivenessFaceVerifyRequest $request
@@ -2247,18 +2499,18 @@ class Cloudauth extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'LivenessFaceVerify',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LivenessFaceVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return LivenessFaceVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2266,6 +2518,7 @@ class Cloudauth extends OpenApiClient
 
     /**
      * @param request - LivenessFaceVerifyRequest
+     *
      * @returns LivenessFaceVerifyResponse
      *
      * @param LivenessFaceVerifyRequest $request
@@ -2284,6 +2537,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - Mobile3MetaDetailStandardVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns Mobile3MetaDetailStandardVerifyResponse
      *
      * @param Mobile3MetaDetailStandardVerifyRequest $request
@@ -2315,15 +2569,15 @@ class Cloudauth extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'Mobile3MetaDetailStandardVerify',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Mobile3MetaDetailStandardVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return Mobile3MetaDetailStandardVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2333,6 +2587,7 @@ class Cloudauth extends OpenApiClient
      * 手机号三要素详版_标准版.
      *
      * @param request - Mobile3MetaDetailStandardVerifyRequest
+     *
      * @returns Mobile3MetaDetailStandardVerifyResponse
      *
      * @param Mobile3MetaDetailStandardVerifyRequest $request
@@ -2351,6 +2606,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - Mobile3MetaDetailVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns Mobile3MetaDetailVerifyResponse
      *
      * @param Mobile3MetaDetailVerifyRequest $request
@@ -2382,15 +2638,15 @@ class Cloudauth extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'Mobile3MetaDetailVerify',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Mobile3MetaDetailVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return Mobile3MetaDetailVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2400,6 +2656,7 @@ class Cloudauth extends OpenApiClient
      * 手机三要素详版接口.
      *
      * @param request - Mobile3MetaDetailVerifyRequest
+     *
      * @returns Mobile3MetaDetailVerifyResponse
      *
      * @param Mobile3MetaDetailVerifyRequest $request
@@ -2418,6 +2675,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - Mobile3MetaSimpleStandardVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns Mobile3MetaSimpleStandardVerifyResponse
      *
      * @param Mobile3MetaSimpleStandardVerifyRequest $request
@@ -2449,15 +2707,15 @@ class Cloudauth extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'Mobile3MetaSimpleStandardVerify',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Mobile3MetaSimpleStandardVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return Mobile3MetaSimpleStandardVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2467,6 +2725,7 @@ class Cloudauth extends OpenApiClient
      * 手机号三要素简版_标准版.
      *
      * @param request - Mobile3MetaSimpleStandardVerifyRequest
+     *
      * @returns Mobile3MetaSimpleStandardVerifyResponse
      *
      * @param Mobile3MetaSimpleStandardVerifyRequest $request
@@ -2485,6 +2744,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - Mobile3MetaSimpleVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns Mobile3MetaSimpleVerifyResponse
      *
      * @param Mobile3MetaSimpleVerifyRequest $request
@@ -2516,15 +2776,15 @@ class Cloudauth extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'Mobile3MetaSimpleVerify',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Mobile3MetaSimpleVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return Mobile3MetaSimpleVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2534,6 +2794,7 @@ class Cloudauth extends OpenApiClient
      * 手机号三要素简版接口.
      *
      * @param request - Mobile3MetaSimpleVerifyRequest
+     *
      * @returns Mobile3MetaSimpleVerifyResponse
      *
      * @param Mobile3MetaSimpleVerifyRequest $request
@@ -2552,6 +2813,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - MobileDetectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MobileDetectResponse
      *
      * @param MobileDetectRequest $request
@@ -2575,15 +2837,15 @@ class Cloudauth extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'MobileDetect',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MobileDetect',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return MobileDetectResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2593,6 +2855,7 @@ class Cloudauth extends OpenApiClient
      * 号码检测.
      *
      * @param request - MobileDetectRequest
+     *
      * @returns MobileDetectResponse
      *
      * @param MobileDetectRequest $request
@@ -2611,6 +2874,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - MobileOnlineStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MobileOnlineStatusResponse
      *
      * @param MobileOnlineStatusRequest $request
@@ -2634,15 +2898,15 @@ class Cloudauth extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'MobileOnlineStatus',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MobileOnlineStatus',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return MobileOnlineStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2652,6 +2916,7 @@ class Cloudauth extends OpenApiClient
      * 查询手机号在网状态
      *
      * @param request - MobileOnlineStatusRequest
+     *
      * @returns MobileOnlineStatusResponse
      *
      * @param MobileOnlineStatusRequest $request
@@ -2670,6 +2935,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - MobileOnlineTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MobileOnlineTimeResponse
      *
      * @param MobileOnlineTimeRequest $request
@@ -2693,15 +2959,15 @@ class Cloudauth extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'MobileOnlineTime',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MobileOnlineTime',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return MobileOnlineTimeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2711,6 +2977,7 @@ class Cloudauth extends OpenApiClient
      * 查询手机号在网时长
      *
      * @param request - MobileOnlineTimeRequest
+     *
      * @returns MobileOnlineTimeResponse
      *
      * @param MobileOnlineTimeRequest $request
@@ -2727,6 +2994,7 @@ class Cloudauth extends OpenApiClient
     /**
      * @param request - ModifyDeviceInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDeviceInfoResponse
      *
      * @param ModifyDeviceInfoRequest $request
@@ -2762,15 +3030,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDeviceInfo',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDeviceInfo',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyDeviceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2778,6 +3046,7 @@ class Cloudauth extends OpenApiClient
 
     /**
      * @param request - ModifyDeviceInfoRequest
+     *
      * @returns ModifyDeviceInfoResponse
      *
      * @param ModifyDeviceInfoRequest $request
@@ -2796,6 +3065,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - PageQueryWhiteListSettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PageQueryWhiteListSettingResponse
      *
      * @param PageQueryWhiteListSettingRequest $request
@@ -2847,15 +3117,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PageQueryWhiteListSetting',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PageQueryWhiteListSetting',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PageQueryWhiteListSettingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2865,6 +3135,7 @@ class Cloudauth extends OpenApiClient
      * 分页查询实人白名单配置.
      *
      * @param request - PageQueryWhiteListSettingRequest
+     *
      * @returns PageQueryWhiteListSettingResponse
      *
      * @param PageQueryWhiteListSettingRequest $request
@@ -2883,6 +3154,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param tmpReq - RemoveWhiteListSettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveWhiteListSettingResponse
      *
      * @param RemoveWhiteListSettingRequest $tmpReq
@@ -2912,15 +3184,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveWhiteListSetting',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveWhiteListSetting',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveWhiteListSettingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2930,6 +3202,7 @@ class Cloudauth extends OpenApiClient
      * 删除实人白名单.
      *
      * @param request - RemoveWhiteListSettingRequest
+     *
      * @returns RemoveWhiteListSettingResponse
      *
      * @param RemoveWhiteListSettingRequest $request
@@ -2948,6 +3221,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - Vehicle5ItemQueryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns Vehicle5ItemQueryResponse
      *
      * @param Vehicle5ItemQueryRequest $request
@@ -2975,15 +3249,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'Vehicle5ItemQuery',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Vehicle5ItemQuery',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return Vehicle5ItemQueryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2993,6 +3267,7 @@ class Cloudauth extends OpenApiClient
      * 车五项信息识别.
      *
      * @param request - Vehicle5ItemQueryRequest
+     *
      * @returns Vehicle5ItemQueryResponse
      *
      * @param Vehicle5ItemQueryRequest $request
@@ -3011,6 +3286,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - VehicleInsureQueryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns VehicleInsureQueryResponse
      *
      * @param VehicleInsureQueryRequest $request
@@ -3042,15 +3318,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VehicleInsureQuery',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VehicleInsureQuery',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VehicleInsureQueryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3060,6 +3336,7 @@ class Cloudauth extends OpenApiClient
      * 车辆投保日期查询.
      *
      * @param request - VehicleInsureQueryRequest
+     *
      * @returns VehicleInsureQueryResponse
      *
      * @param VehicleInsureQueryRequest $request
@@ -3078,6 +3355,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - VehicleMetaVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns VehicleMetaVerifyResponse
      *
      * @param VehicleMetaVerifyRequest $request
@@ -3117,15 +3395,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VehicleMetaVerify',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VehicleMetaVerify',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VehicleMetaVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3135,6 +3413,7 @@ class Cloudauth extends OpenApiClient
      * 车辆要素核验.
      *
      * @param request - VehicleMetaVerifyRequest
+     *
      * @returns VehicleMetaVerifyResponse
      *
      * @param VehicleMetaVerifyRequest $request
@@ -3153,6 +3432,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - VehicleMetaVerifyV2Request
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns VehicleMetaVerifyV2Response
      *
      * @param VehicleMetaVerifyV2Request $request
@@ -3192,15 +3472,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VehicleMetaVerifyV2',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VehicleMetaVerifyV2',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VehicleMetaVerifyV2Response::fromMap($this->callApi($params, $req, $runtime));
@@ -3210,6 +3490,7 @@ class Cloudauth extends OpenApiClient
      * 车辆要素核验增强版.
      *
      * @param request - VehicleMetaVerifyV2Request
+     *
      * @returns VehicleMetaVerifyV2Response
      *
      * @param VehicleMetaVerifyV2Request $request
@@ -3228,6 +3509,7 @@ class Cloudauth extends OpenApiClient
      *
      * @param request - VehicleQueryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns VehicleQueryResponse
      *
      * @param VehicleQueryRequest $request
@@ -3255,15 +3537,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VehicleQuery',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VehicleQuery',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VehicleQueryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3273,6 +3555,7 @@ class Cloudauth extends OpenApiClient
      * 车辆信息识别.
      *
      * @param request - VehicleQueryRequest
+     *
      * @returns VehicleQueryResponse
      *
      * @param VehicleQueryRequest $request
@@ -3289,6 +3572,7 @@ class Cloudauth extends OpenApiClient
     /**
      * @param request - VerifyMaterialRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns VerifyMaterialResponse
      *
      * @param VerifyMaterialRequest $request
@@ -3336,15 +3620,15 @@ class Cloudauth extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifyMaterial',
-            'version'     => '2019-03-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyMaterial',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VerifyMaterialResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3352,6 +3636,7 @@ class Cloudauth extends OpenApiClient
 
     /**
      * @param request - VerifyMaterialRequest
+     *
      * @returns VerifyMaterialResponse
      *
      * @param VerifyMaterialRequest $request

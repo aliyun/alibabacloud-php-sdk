@@ -13,48 +13,56 @@ class DescribePageFaceVerifyDataResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $currentPage;
+
     /**
      * @var items[]
      */
     public $items;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var string
      */
     public $totalCount;
+
     /**
      * @var string
      */
     public $totalPage;
     protected $_name = [
-        'code'        => 'Code',
+        'code' => 'Code',
         'currentPage' => 'CurrentPage',
-        'items'       => 'Items',
-        'message'     => 'Message',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'success'     => 'Success',
-        'totalCount'  => 'TotalCount',
-        'totalPage'   => 'TotalPage',
+        'items' => 'Items',
+        'message' => 'Message',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'totalCount' => 'TotalCount',
+        'totalPage' => 'TotalPage',
     ];
 
     public function validate()
@@ -79,7 +87,7 @@ class DescribePageFaceVerifyDataResponseBody extends Model
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['Items'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->items as $item1) {
                     $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -132,7 +140,7 @@ class DescribePageFaceVerifyDataResponseBody extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Items'] as $item1) {
                     $model->items[$n1++] = items::fromMap($item1);
                 }

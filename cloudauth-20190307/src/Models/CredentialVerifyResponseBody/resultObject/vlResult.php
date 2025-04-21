@@ -12,12 +12,13 @@ class vlResult extends Model
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $vlContent;
     protected $_name = [
-        'success'   => 'Success',
+        'success' => 'Success',
         'vlContent' => 'VlContent',
     ];
 

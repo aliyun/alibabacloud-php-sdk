@@ -12,12 +12,13 @@ class resultObject extends Model
      * @var string
      */
     public $certifyId;
+
     /**
      * @var string
      */
     public $certifyUrl;
     protected $_name = [
-        'certifyId'  => 'CertifyId',
+        'certifyId' => 'CertifyId',
         'certifyUrl' => 'CertifyUrl',
     ];
 

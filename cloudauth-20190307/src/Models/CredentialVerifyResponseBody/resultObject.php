@@ -13,43 +13,50 @@ class resultObject extends Model
      * @var string
      */
     public $materialInfo;
+
     /**
      * @var string
      */
     public $ocrInfo;
+
     /**
      * @var string
      */
     public $result;
+
     /**
      * @var string[]
      */
     public $riskScore;
+
     /**
      * @var string
      */
     public $riskTag;
+
     /**
      * @var string
      */
     public $verifyDetail;
+
     /**
      * @var string
      */
     public $verifyResult;
+
     /**
      * @var vlResult
      */
     public $vlResult;
     protected $_name = [
         'materialInfo' => 'MaterialInfo',
-        'ocrInfo'      => 'OcrInfo',
-        'result'       => 'Result',
-        'riskScore'    => 'RiskScore',
-        'riskTag'      => 'RiskTag',
+        'ocrInfo' => 'OcrInfo',
+        'result' => 'Result',
+        'riskScore' => 'RiskScore',
+        'riskTag' => 'RiskTag',
         'verifyDetail' => 'VerifyDetail',
         'verifyResult' => 'VerifyResult',
-        'vlResult'     => 'VlResult',
+        'vlResult' => 'VlResult',
     ];
 
     public function validate()

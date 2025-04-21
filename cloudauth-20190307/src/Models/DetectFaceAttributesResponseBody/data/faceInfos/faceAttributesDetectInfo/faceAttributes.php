@@ -14,43 +14,50 @@ class faceAttributes extends Model
      * @var float
      */
     public $blur;
+
     /**
      * @var float
      */
     public $facequal;
+
     /**
      * @var string
      */
     public $facetype;
+
     /**
      * @var string
      */
     public $glasses;
+
     /**
      * @var headpose
      */
     public $headpose;
+
     /**
      * @var int
      */
     public $integrity;
+
     /**
      * @var string
      */
     public $respirator;
+
     /**
      * @var smiling
      */
     public $smiling;
     protected $_name = [
-        'blur'       => 'Blur',
-        'facequal'   => 'Facequal',
-        'facetype'   => 'Facetype',
-        'glasses'    => 'Glasses',
-        'headpose'   => 'Headpose',
-        'integrity'  => 'Integrity',
+        'blur' => 'Blur',
+        'facequal' => 'Facequal',
+        'facetype' => 'Facetype',
+        'glasses' => 'Glasses',
+        'headpose' => 'Headpose',
+        'integrity' => 'Integrity',
         'respirator' => 'Respirator',
-        'smiling'    => 'Smiling',
+        'smiling' => 'Smiling',
     ];
 
     public function validate()

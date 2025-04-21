@@ -12,18 +12,20 @@ class headpose extends Model
      * @var float
      */
     public $pitchAngle;
+
     /**
      * @var float
      */
     public $rollAngle;
+
     /**
      * @var float
      */
     public $yawAngle;
     protected $_name = [
         'pitchAngle' => 'PitchAngle',
-        'rollAngle'  => 'RollAngle',
-        'yawAngle'   => 'YawAngle',
+        'rollAngle' => 'RollAngle',
+        'yawAngle' => 'YawAngle',
     ];
 
     public function validate()
