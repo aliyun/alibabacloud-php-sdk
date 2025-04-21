@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Videorecog\V20200320\Models\RecognizeVideoCastCrewListResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Videorecog\V20200320\Models\RecognizeVideoCastCrewListResponseBody\data\videoOcrResults\detailInfo;
-use AlibabaCloud\Tea\Model;
 
 class videoOcrResults extends Model
 {
@@ -15,43 +15,45 @@ class videoOcrResults extends Model
     public $detailInfo;
 
     /**
-     * @example 0.92
-     *
      * @var float
      */
     public $endTime;
 
     /**
-     * @example 0.92
-     *
      * @var float
      */
     public $startTime;
     protected $_name = [
         'detailInfo' => 'DetailInfo',
-        'endTime'    => 'EndTime',
-        'startTime'  => 'StartTime',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
     {
+        if (\is_array($this->detailInfo)) {
+            Model::validateArray($this->detailInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->detailInfo) {
-            $res['DetailInfo'] = [];
-            if (null !== $this->detailInfo && \is_array($this->detailInfo)) {
-                $n = 0;
-                foreach ($this->detailInfo as $item) {
-                    $res['DetailInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->detailInfo)) {
+                $res['DetailInfo'] = [];
+                $n1 = 0;
+                foreach ($this->detailInfo as $item1) {
+                    $res['DetailInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -59,26 +61,28 @@ class videoOcrResults extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videoOcrResults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DetailInfo'])) {
             if (!empty($map['DetailInfo'])) {
                 $model->detailInfo = [];
-                $n                 = 0;
-                foreach ($map['DetailInfo'] as $item) {
-                    $model->detailInfo[$n++] = null !== $item ? detailInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DetailInfo'] as $item1) {
+                    $model->detailInfo[$n1++] = detailInfo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Videorecog\V20200320\Models\RecognizeVideoCastCrewListResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class subtitlesResults extends Model
 {
@@ -14,8 +14,6 @@ class subtitlesResults extends Model
     public $subtitlesAllResults;
 
     /**
-     * @example url
-     *
      * @var string
      */
     public $subtitlesAllResultsUrl;
@@ -26,56 +24,80 @@ class subtitlesResults extends Model
     public $subtitlesChineseResults;
 
     /**
-     * @example url1
-     *
      * @var string
      */
     public $subtitlesChineseResultsUrl;
 
     /**
-     * @example hello
-     *
      * @var mixed[]
      */
     public $subtitlesEnglishResults;
 
     /**
-     * @example url2
-     *
      * @var string
      */
     public $subtitlesEnglishResultsUrl;
     protected $_name = [
-        'subtitlesAllResults'        => 'SubtitlesAllResults',
-        'subtitlesAllResultsUrl'     => 'SubtitlesAllResultsUrl',
-        'subtitlesChineseResults'    => 'SubtitlesChineseResults',
+        'subtitlesAllResults' => 'SubtitlesAllResults',
+        'subtitlesAllResultsUrl' => 'SubtitlesAllResultsUrl',
+        'subtitlesChineseResults' => 'SubtitlesChineseResults',
         'subtitlesChineseResultsUrl' => 'SubtitlesChineseResultsUrl',
-        'subtitlesEnglishResults'    => 'SubtitlesEnglishResults',
+        'subtitlesEnglishResults' => 'SubtitlesEnglishResults',
         'subtitlesEnglishResultsUrl' => 'SubtitlesEnglishResultsUrl',
     ];
 
     public function validate()
     {
+        if (\is_array($this->subtitlesAllResults)) {
+            Model::validateArray($this->subtitlesAllResults);
+        }
+        if (\is_array($this->subtitlesChineseResults)) {
+            Model::validateArray($this->subtitlesChineseResults);
+        }
+        if (\is_array($this->subtitlesEnglishResults)) {
+            Model::validateArray($this->subtitlesEnglishResults);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subtitlesAllResults) {
-            $res['SubtitlesAllResults'] = $this->subtitlesAllResults;
+            if (\is_array($this->subtitlesAllResults)) {
+                $res['SubtitlesAllResults'] = [];
+                foreach ($this->subtitlesAllResults as $key1 => $value1) {
+                    $res['SubtitlesAllResults'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->subtitlesAllResultsUrl) {
             $res['SubtitlesAllResultsUrl'] = $this->subtitlesAllResultsUrl;
         }
+
         if (null !== $this->subtitlesChineseResults) {
-            $res['SubtitlesChineseResults'] = $this->subtitlesChineseResults;
+            if (\is_array($this->subtitlesChineseResults)) {
+                $res['SubtitlesChineseResults'] = [];
+                foreach ($this->subtitlesChineseResults as $key1 => $value1) {
+                    $res['SubtitlesChineseResults'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->subtitlesChineseResultsUrl) {
             $res['SubtitlesChineseResultsUrl'] = $this->subtitlesChineseResultsUrl;
         }
+
         if (null !== $this->subtitlesEnglishResults) {
-            $res['SubtitlesEnglishResults'] = $this->subtitlesEnglishResults;
+            if (\is_array($this->subtitlesEnglishResults)) {
+                $res['SubtitlesEnglishResults'] = [];
+                foreach ($this->subtitlesEnglishResults as $key1 => $value1) {
+                    $res['SubtitlesEnglishResults'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->subtitlesEnglishResultsUrl) {
             $res['SubtitlesEnglishResultsUrl'] = $this->subtitlesEnglishResultsUrl;
         }
@@ -83,29 +105,49 @@ class subtitlesResults extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subtitlesResults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubtitlesAllResults'])) {
-            $model->subtitlesAllResults = $map['SubtitlesAllResults'];
+            if (!empty($map['SubtitlesAllResults'])) {
+                $model->subtitlesAllResults = [];
+                foreach ($map['SubtitlesAllResults'] as $key1 => $value1) {
+                    $model->subtitlesAllResults[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['SubtitlesAllResultsUrl'])) {
             $model->subtitlesAllResultsUrl = $map['SubtitlesAllResultsUrl'];
         }
+
         if (isset($map['SubtitlesChineseResults'])) {
-            $model->subtitlesChineseResults = $map['SubtitlesChineseResults'];
+            if (!empty($map['SubtitlesChineseResults'])) {
+                $model->subtitlesChineseResults = [];
+                foreach ($map['SubtitlesChineseResults'] as $key1 => $value1) {
+                    $model->subtitlesChineseResults[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['SubtitlesChineseResultsUrl'])) {
             $model->subtitlesChineseResultsUrl = $map['SubtitlesChineseResultsUrl'];
         }
+
         if (isset($map['SubtitlesEnglishResults'])) {
-            $model->subtitlesEnglishResults = $map['SubtitlesEnglishResults'];
+            if (!empty($map['SubtitlesEnglishResults'])) {
+                $model->subtitlesEnglishResults = [];
+                foreach ($map['SubtitlesEnglishResults'] as $key1 => $value1) {
+                    $model->subtitlesEnglishResults[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['SubtitlesEnglishResultsUrl'])) {
             $model->subtitlesEnglishResultsUrl = $map['SubtitlesEnglishResultsUrl'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Videorecog\V20200320\Models\DetectVideoShotResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description 1
-     *
      * @var int[]
      */
     public $shotFrameIds;
@@ -20,29 +18,43 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->shotFrameIds)) {
+            Model::validateArray($this->shotFrameIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->shotFrameIds) {
-            $res['ShotFrameIds'] = $this->shotFrameIds;
+            if (\is_array($this->shotFrameIds)) {
+                $res['ShotFrameIds'] = [];
+                $n1 = 0;
+                foreach ($this->shotFrameIds as $item1) {
+                    $res['ShotFrameIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ShotFrameIds'])) {
             if (!empty($map['ShotFrameIds'])) {
-                $model->shotFrameIds = $map['ShotFrameIds'];
+                $model->shotFrameIds = [];
+                $n1 = 0;
+                foreach ($map['ShotFrameIds'] as $item1) {
+                    $model->shotFrameIds[$n1++] = $item1;
+                }
             }
         }
 

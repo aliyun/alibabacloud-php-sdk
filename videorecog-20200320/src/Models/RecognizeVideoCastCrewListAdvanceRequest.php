@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Videorecog\V20200320\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Videorecog\V20200320\Models\RecognizeVideoCastCrewListAdvanceRequest\params;
-use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class RecognizeVideoCastCrewListAdvanceRequest extends Model
@@ -16,32 +16,35 @@ class RecognizeVideoCastCrewListAdvanceRequest extends Model
     public $params;
 
     /**
-     * @example https://shanghai.oss-cn-shanghai.aliyuncs.com/download/xxxx.mp4
-     *
      * @var Stream
      */
     public $videoUrlObject;
     protected $_name = [
-        'params'         => 'Params',
+        'params' => 'Params',
         'videoUrlObject' => 'VideoUrl',
     ];
 
     public function validate()
     {
+        if (\is_array($this->params)) {
+            Model::validateArray($this->params);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->params) {
-            $res['Params'] = [];
-            if (null !== $this->params && \is_array($this->params)) {
-                $n = 0;
-                foreach ($this->params as $item) {
-                    $res['Params'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->params)) {
+                $res['Params'] = [];
+                $n1 = 0;
+                foreach ($this->params as $item1) {
+                    $res['Params'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->videoUrlObject) {
             $res['VideoUrl'] = $this->videoUrlObject;
         }
@@ -49,23 +52,24 @@ class RecognizeVideoCastCrewListAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecognizeVideoCastCrewListAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Params'])) {
             if (!empty($map['Params'])) {
                 $model->params = [];
-                $n             = 0;
-                foreach ($map['Params'] as $item) {
-                    $model->params[$n++] = null !== $item ? params::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Params'] as $item1) {
+                    $model->params[$n1++] = params::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['VideoUrl'])) {
             $model->videoUrlObject = $map['VideoUrl'];
         }

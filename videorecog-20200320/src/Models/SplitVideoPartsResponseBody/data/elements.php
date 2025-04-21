@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Videorecog\V20200320\Models\SplitVideoPartsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class elements extends Model
 {
     /**
-     * @example 10.06
-     *
      * @var float
      */
     public $beginTime;
 
     /**
-     * @example 17.3
-     *
      * @var float
      */
     public $endTime;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $index;
     protected $_name = [
         'beginTime' => 'BeginTime',
-        'endTime'   => 'EndTime',
-        'index'     => 'Index',
+        'endTime' => 'EndTime',
+        'index' => 'Index',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
@@ -54,20 +51,22 @@ class elements extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return elements
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }

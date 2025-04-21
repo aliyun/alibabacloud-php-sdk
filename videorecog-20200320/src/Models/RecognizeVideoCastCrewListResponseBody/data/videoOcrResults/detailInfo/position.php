@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Videorecog\V20200320\Models\RecognizeVideoCastCrewListResponseBody\data\videoOcrResults\detailInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class position extends Model
 {
     /**
-     * @example 269
-     *
      * @var int
      */
     public $x;
 
     /**
-     * @example 423
-     *
      * @var int
      */
     public $y;
@@ -28,14 +24,16 @@ class position extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->x) {
             $res['X'] = $this->x;
         }
+
         if (null !== $this->y) {
             $res['Y'] = $this->y;
         }
@@ -43,17 +41,18 @@ class position extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return position
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['X'])) {
             $model->x = $map['X'];
         }
+
         if (isset($map['Y'])) {
             $model->y = $map['Y'];
         }

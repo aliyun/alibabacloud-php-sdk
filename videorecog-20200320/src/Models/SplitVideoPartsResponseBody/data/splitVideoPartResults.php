@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Videorecog\V20200320\Models\SplitVideoPartsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class splitVideoPartResults extends Model
 {
@@ -34,31 +34,36 @@ class splitVideoPartResults extends Model
     public $type;
     protected $_name = [
         'beginTime' => 'BeginTime',
-        'by'        => 'By',
-        'endTime'   => 'EndTime',
-        'theme'     => 'Theme',
-        'type'      => 'Type',
+        'by' => 'By',
+        'endTime' => 'EndTime',
+        'theme' => 'Theme',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
         }
+
         if (null !== $this->by) {
             $res['By'] = $this->by;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->theme) {
             $res['Theme'] = $this->theme;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -66,26 +71,30 @@ class splitVideoPartResults extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return splitVideoPartResults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
         }
+
         if (isset($map['By'])) {
             $model->by = $map['By'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Theme'])) {
             $model->theme = $map['Theme'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

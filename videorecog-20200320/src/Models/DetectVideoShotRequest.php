@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Videorecog\V20200320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetectVideoShotRequest extends Model
 {
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videorecog/DetectVideoShot/DetectVideoShot2.mp4
-     *
      * @var string
      */
     public $videoUrl;
@@ -20,9 +18,10 @@ class DetectVideoShotRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->videoUrl) {
@@ -32,11 +31,11 @@ class DetectVideoShotRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectVideoShotRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

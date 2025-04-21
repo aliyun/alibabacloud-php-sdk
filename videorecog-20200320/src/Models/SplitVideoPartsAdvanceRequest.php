@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Videorecog\V20200320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class SplitVideoPartsAdvanceRequest extends Model
@@ -25,34 +25,36 @@ class SplitVideoPartsAdvanceRequest extends Model
     public $template;
 
     /**
-     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/ocr/xxxx.mp4
-     *
      * @var Stream
      */
     public $videoUrlObject;
     protected $_name = [
-        'maxTime'        => 'MaxTime',
-        'minTime'        => 'MinTime',
-        'template'       => 'Template',
+        'maxTime' => 'MaxTime',
+        'minTime' => 'MinTime',
+        'template' => 'Template',
         'videoUrlObject' => 'VideoUrl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxTime) {
             $res['MaxTime'] = $this->maxTime;
         }
+
         if (null !== $this->minTime) {
             $res['MinTime'] = $this->minTime;
         }
+
         if (null !== $this->template) {
             $res['Template'] = $this->template;
         }
+
         if (null !== $this->videoUrlObject) {
             $res['VideoUrl'] = $this->videoUrlObject;
         }
@@ -60,23 +62,26 @@ class SplitVideoPartsAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SplitVideoPartsAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxTime'])) {
             $model->maxTime = $map['MaxTime'];
         }
+
         if (isset($map['MinTime'])) {
             $model->minTime = $map['MinTime'];
         }
+
         if (isset($map['Template'])) {
             $model->template = $map['Template'];
         }
+
         if (isset($map['VideoUrl'])) {
             $model->videoUrlObject = $map['VideoUrl'];
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Videorecog\V20200320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class UnderstandVideoContentAdvanceRequest extends Model
 {
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videorecog/UnderstandVideoContent/UnderstandVideoContent1.mp4
-     *
      * @var Stream
      */
     public $videoURLObject;
@@ -21,9 +19,10 @@ class UnderstandVideoContentAdvanceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->videoURLObject) {
@@ -33,11 +32,11 @@ class UnderstandVideoContentAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnderstandVideoContentAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
