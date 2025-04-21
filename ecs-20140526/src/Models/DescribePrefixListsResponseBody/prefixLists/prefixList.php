@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePrefixListsResponseBody\prefixLists;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePrefixListsResponseBody\prefixLists\prefixList\tags;
 
 class prefixList extends Model
 {
@@ -42,6 +43,16 @@ class prefixList extends Model
      * @var string
      */
     public $prefixListName;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
         'addressFamily' => 'AddressFamily',
         'associationCount' => 'AssociationCount',
@@ -50,10 +61,15 @@ class prefixList extends Model
         'maxEntries' => 'MaxEntries',
         'prefixListId' => 'PrefixListId',
         'prefixListName' => 'PrefixListName',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        if (null !== $this->tags) {
+            $this->tags->validate();
+        }
         parent::validate();
     }
 
@@ -86,6 +102,14 @@ class prefixList extends Model
 
         if (null !== $this->prefixListName) {
             $res['PrefixListName'] = $this->prefixListName;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
         }
 
         return $res;
@@ -125,6 +149,14 @@ class prefixList extends Model
 
         if (isset($map['PrefixListName'])) {
             $model->prefixListName = $map['PrefixListName'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;
