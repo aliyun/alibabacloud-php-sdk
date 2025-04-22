@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateMountPointRequest extends Model
 {
     /**
-     * @example acg-e3755fb0-358d-4286-9942-8d461048****
-     *
      * @var string
      */
     public $accessGroupId;
@@ -26,67 +24,76 @@ class CreateMountPointRequest extends Model
     public $fileSystemId;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $inputRegionId;
 
     /**
-     * @example VPC
-     *
      * @var string
      */
     public $networkType;
 
     /**
-     * @example vsw-iq8fymi327krd14mt****
-     *
+     * @var bool
+     */
+    public $usePerformanceMode;
+
+    /**
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @example vpc-iq8hhsk3ymzv9m4wn****
-     *
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'accessGroupId' => 'AccessGroupId',
-        'description'   => 'Description',
-        'fileSystemId'  => 'FileSystemId',
+        'description' => 'Description',
+        'fileSystemId' => 'FileSystemId',
         'inputRegionId' => 'InputRegionId',
-        'networkType'   => 'NetworkType',
-        'vSwitchId'     => 'VSwitchId',
-        'vpcId'         => 'VpcId',
+        'networkType' => 'NetworkType',
+        'usePerformanceMode' => 'UsePerformanceMode',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessGroupId) {
             $res['AccessGroupId'] = $this->accessGroupId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
+
         if (null !== $this->inputRegionId) {
             $res['InputRegionId'] = $this->inputRegionId;
         }
+
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
+
+        if (null !== $this->usePerformanceMode) {
+            $res['UsePerformanceMode'] = $this->usePerformanceMode;
+        }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -94,32 +101,42 @@ class CreateMountPointRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMountPointRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessGroupId'])) {
             $model->accessGroupId = $map['AccessGroupId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
+
         if (isset($map['InputRegionId'])) {
             $model->inputRegionId = $map['InputRegionId'];
         }
+
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
+
+        if (isset($map['UsePerformanceMode'])) {
+            $model->usePerformanceMode = $map['UsePerformanceMode'];
+        }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BindVscMountPointAliasResponseBody extends Model
 {
     /**
-     * @example sdfe
-     *
      * @var string
      */
     public $mountPointAlias;
 
     /**
-     * @example 55C5FFD6-BF99-41BD-9C66-FFF39189****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'mountPointAlias' => 'MountPointAlias',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mountPointAlias) {
             $res['MountPointAlias'] = $this->mountPointAlias;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class BindVscMountPointAliasResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BindVscMountPointAliasResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MountPointAlias'])) {
             $model->mountPointAlias = $map['MountPointAlias'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

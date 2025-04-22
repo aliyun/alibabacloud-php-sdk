@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAccessRuleRequest extends Model
 {
     /**
-     * @example acg-e3755fb0-358d-4286-9942-8d461048****
-     *
      * @var string
      */
     public $accessGroupId;
 
     /**
-     * @example acr-c38028f0-f313-4385-9456-3501b1f5****
-     *
      * @var string
      */
     public $accessRuleId;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $inputRegionId;
     protected $_name = [
         'accessGroupId' => 'AccessGroupId',
-        'accessRuleId'  => 'AccessRuleId',
+        'accessRuleId' => 'AccessRuleId',
         'inputRegionId' => 'InputRegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessGroupId) {
             $res['AccessGroupId'] = $this->accessGroupId;
         }
+
         if (null !== $this->accessRuleId) {
             $res['AccessRuleId'] = $this->accessRuleId;
         }
+
         if (null !== $this->inputRegionId) {
             $res['InputRegionId'] = $this->inputRegionId;
         }
@@ -54,20 +51,22 @@ class DeleteAccessRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAccessRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessGroupId'])) {
             $model->accessGroupId = $map['AccessGroupId'];
         }
+
         if (isset($map['AccessRuleId'])) {
             $model->accessRuleId = $map['AccessRuleId'];
         }
+
         if (isset($map['InputRegionId'])) {
             $model->inputRegionId = $map['InputRegionId'];
         }

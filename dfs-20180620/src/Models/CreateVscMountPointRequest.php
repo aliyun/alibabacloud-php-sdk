@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateVscMountPointRequest extends Model
 {
@@ -14,77 +14,89 @@ class CreateVscMountPointRequest extends Model
     public $description;
 
     /**
-     * @example e389e5c7-bcb4-4558-846a-e5afc444****
-     *
      * @var string
      */
     public $fileSystemId;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $inputRegionId;
 
     /**
-     * @example [
-     * "i-bp1g6zv0ce8oghu7****",
-     * "i-bp1g6zv0ce8oghu1****"
-     * ]
      * @var string[]
      */
     public $instanceIds;
     protected $_name = [
-        'description'   => 'Description',
-        'fileSystemId'  => 'FileSystemId',
+        'description' => 'Description',
+        'fileSystemId' => 'FileSystemId',
         'inputRegionId' => 'InputRegionId',
-        'instanceIds'   => 'InstanceIds',
+        'instanceIds' => 'InstanceIds',
     ];
 
     public function validate()
     {
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
+
         if (null !== $this->inputRegionId) {
             $res['InputRegionId'] = $this->inputRegionId;
         }
+
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateVscMountPointRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
+
         if (isset($map['InputRegionId'])) {
             $model->inputRegionId = $map['InputRegionId'];
         }
+
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models\DescribeVscMountPointsResponseBody\mountPoints\instances;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vscs extends Model
 {
@@ -23,24 +23,27 @@ class vscs extends Model
      */
     public $vscType;
     protected $_name = [
-        'vscId'     => 'VscId',
+        'vscId' => 'VscId',
         'vscStatus' => 'VscStatus',
-        'vscType'   => 'VscType',
+        'vscType' => 'VscType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vscId) {
             $res['VscId'] = $this->vscId;
         }
+
         if (null !== $this->vscStatus) {
             $res['VscStatus'] = $this->vscStatus;
         }
+
         if (null !== $this->vscType) {
             $res['VscType'] = $this->vscType;
         }
@@ -48,20 +51,22 @@ class vscs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vscs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VscId'])) {
             $model->vscId = $map['VscId'];
         }
+
         if (isset($map['VscStatus'])) {
             $model->vscStatus = $map['VscStatus'];
         }
+
         if (isset($map['VscType'])) {
             $model->vscType = $map['VscType'];
         }

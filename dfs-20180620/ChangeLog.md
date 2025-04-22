@@ -1,3 +1,6 @@
+2025-04-22 Version: 1.0.3
+- Generated php 2018-06-20 for DFS.
+
 2024-04-07 Version: 1.0.2
 - Update API AttachVscMountPoint: update param InstanceIds.
 - Update API CreateVscMountPoint: update param InstanceIds.

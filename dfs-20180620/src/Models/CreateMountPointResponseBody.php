@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateMountPointResponseBody extends Model
 {
@@ -14,26 +14,26 @@ class CreateMountPointResponseBody extends Model
     public $mountPointId;
 
     /**
-     * @example 55C5FFD6-BF99-41BD-9C66-FFF39189****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'mountPointId' => 'MountPointId',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mountPointId) {
             $res['MountPointId'] = $this->mountPointId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,17 +41,18 @@ class CreateMountPointResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMountPointResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MountPointId'])) {
             $model->mountPointId = $map['MountPointId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DFS\V20180620\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AttachVscMountPointRequest extends Model
 {
@@ -14,32 +14,29 @@ class AttachVscMountPointRequest extends Model
     public $description;
 
     /**
-     * @example 037****e1d
-     *
      * @var string
      */
     public $fileSystemId;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $inputRegionId;
 
     /**
-     * @example ["ecs-instance1", "ecs-instance2"]
-     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @example 037cb49e1d-c***5
-     *
      * @var string
      */
     public $mountPointId;
+
+    /**
+     * @var bool
+     */
+    public $useAssumeRoleChkServerPerm;
 
     /**
      * @var string[]
@@ -51,40 +48,70 @@ class AttachVscMountPointRequest extends Model
      */
     public $vscType;
     protected $_name = [
-        'description'   => 'Description',
-        'fileSystemId'  => 'FileSystemId',
+        'description' => 'Description',
+        'fileSystemId' => 'FileSystemId',
         'inputRegionId' => 'InputRegionId',
-        'instanceIds'   => 'InstanceIds',
-        'mountPointId'  => 'MountPointId',
-        'vscIds'        => 'VscIds',
-        'vscType'       => 'VscType',
+        'instanceIds' => 'InstanceIds',
+        'mountPointId' => 'MountPointId',
+        'useAssumeRoleChkServerPerm' => 'UseAssumeRoleChkServerPerm',
+        'vscIds' => 'VscIds',
+        'vscType' => 'VscType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
+        if (\is_array($this->vscIds)) {
+            Model::validateArray($this->vscIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
+
         if (null !== $this->inputRegionId) {
             $res['InputRegionId'] = $this->inputRegionId;
         }
+
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->mountPointId) {
             $res['MountPointId'] = $this->mountPointId;
         }
-        if (null !== $this->vscIds) {
-            $res['VscIds'] = $this->vscIds;
+
+        if (null !== $this->useAssumeRoleChkServerPerm) {
+            $res['UseAssumeRoleChkServerPerm'] = $this->useAssumeRoleChkServerPerm;
         }
+
+        if (null !== $this->vscIds) {
+            if (\is_array($this->vscIds)) {
+                $res['VscIds'] = [];
+                $n1 = 0;
+                foreach ($this->vscIds as $item1) {
+                    $res['VscIds'][$n1++] = $item1;
+                }
+            }
+        }
+
         if (null !== $this->vscType) {
             $res['VscType'] = $this->vscType;
         }
@@ -92,36 +119,54 @@ class AttachVscMountPointRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachVscMountPointRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
+
         if (isset($map['InputRegionId'])) {
             $model->inputRegionId = $map['InputRegionId'];
         }
+
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['MountPointId'])) {
             $model->mountPointId = $map['MountPointId'];
         }
+
+        if (isset($map['UseAssumeRoleChkServerPerm'])) {
+            $model->useAssumeRoleChkServerPerm = $map['UseAssumeRoleChkServerPerm'];
+        }
+
         if (isset($map['VscIds'])) {
             if (!empty($map['VscIds'])) {
-                $model->vscIds = $map['VscIds'];
+                $model->vscIds = [];
+                $n1 = 0;
+                foreach ($map['VscIds'] as $item1) {
+                    $model->vscIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['VscType'])) {
             $model->vscType = $map['VscType'];
         }
