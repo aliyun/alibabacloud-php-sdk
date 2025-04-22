@@ -47,6 +47,8 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateSmsSignRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateSmsSignResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteAxgGroupRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteAxgGroupResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteSecretAPhoneNoToCustRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteSecretAPhoneNoToCustResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteSecretBlacklistRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\DeleteSecretBlacklistResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\GetDyplsOSSInfoForUploadFileRequest;
@@ -71,6 +73,8 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryPhoneNoAByTrackNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryPhoneNoAByTrackNoResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryRecordFileDownloadUrlRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryRecordFileDownloadUrlResponse;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QuerySecretAPhoneNoToCustRequest;
+use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QuerySecretAPhoneNoToCustResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QuerySecretNoDetailRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QuerySecretNoDetailResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QuerySecretNoRemainRequest;
@@ -2093,6 +2097,79 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
+     * A号码报备数据删除.
+     *
+     * @param request - DeleteSecretAPhoneNoToCustRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSecretAPhoneNoToCustResponse
+     *
+     * @param DeleteSecretAPhoneNoToCustRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteSecretAPhoneNoToCustResponse
+     */
+    public function deleteSecretAPhoneNoToCustWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ANoWhiteGroupId) {
+            @$query['ANoWhiteGroupId'] = $request->ANoWhiteGroupId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->phoneNoA) {
+            @$query['PhoneNoA'] = $request->phoneNoA;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSecretAPhoneNoToCust',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSecretAPhoneNoToCustResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * A号码报备数据删除.
+     *
+     * @param request - DeleteSecretAPhoneNoToCustRequest
+     *
+     * @returns DeleteSecretAPhoneNoToCustResponse
+     *
+     * @param DeleteSecretAPhoneNoToCustRequest $request
+     *
+     * @return DeleteSecretAPhoneNoToCustResponse
+     */
+    public function deleteSecretAPhoneNoToCust($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSecretAPhoneNoToCustWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a blacklist.
      *
      * @remarks
@@ -3104,6 +3181,79 @@ class Dyplsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryRecordFileDownloadUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * A号码报备状态查询.
+     *
+     * @param request - QuerySecretAPhoneNoToCustRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySecretAPhoneNoToCustResponse
+     *
+     * @param QuerySecretAPhoneNoToCustRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QuerySecretAPhoneNoToCustResponse
+     */
+    public function querySecretAPhoneNoToCustWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ANoWhiteGroupId) {
+            @$query['ANoWhiteGroupId'] = $request->ANoWhiteGroupId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->phoneNoA) {
+            @$query['PhoneNoA'] = $request->phoneNoA;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QuerySecretAPhoneNoToCust',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QuerySecretAPhoneNoToCustResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * A号码报备状态查询.
+     *
+     * @param request - QuerySecretAPhoneNoToCustRequest
+     *
+     * @returns QuerySecretAPhoneNoToCustResponse
+     *
+     * @param QuerySecretAPhoneNoToCustRequest $request
+     *
+     * @return QuerySecretAPhoneNoToCustResponse
+     */
+    public function querySecretAPhoneNoToCust($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySecretAPhoneNoToCustWithOptions($request, $runtime);
     }
 
     /**
