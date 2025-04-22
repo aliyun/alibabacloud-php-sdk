@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\AliGenie\Voauth2_1_0;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\CreatePlayingListRequest;
+use AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\CreatePlayingListResponse;
+use AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\CreatePlayingListShrinkRequest;
 use AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\ExecuteSceneRequest;
 use AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\ExecuteSceneResponse;
 use AlibabaCloud\SDK\AliGenie\Voauth2_1_0\Models\GetSceneListResponse;
@@ -60,6 +63,83 @@ class AliGenie extends OpenApiClient
     }
 
     /**
+     * 创建播放列表.
+     *
+     * @param tmpReq - CreatePlayingListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePlayingListResponse
+     *
+     * @param CreatePlayingListRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreatePlayingListResponse
+     */
+    public function createPlayingListWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreatePlayingListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deviceInfo) {
+            $request->deviceInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        }
+
+        if (null !== $tmpReq->openCreatePlayingListRequest) {
+            $request->openCreatePlayingListRequestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->openCreatePlayingListRequest, 'OpenCreatePlayingListRequest', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->deviceInfoShrink) {
+            @$query['DeviceInfo'] = $request->deviceInfoShrink;
+        }
+
+        $body = [];
+        if (null !== $request->openCreatePlayingListRequestShrink) {
+            @$body['OpenCreatePlayingListRequest'] = $request->openCreatePlayingListRequestShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePlayingList',
+            'version' => 'oauth2_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/oauth2/content/playing/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePlayingListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建播放列表.
+     *
+     * @param request - CreatePlayingListRequest
+     *
+     * @returns CreatePlayingListResponse
+     *
+     * @param CreatePlayingListRequest $request
+     *
+     * @return CreatePlayingListResponse
+     */
+    public function createPlayingList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createPlayingListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 执行场景.
      *
      * @param request - ExecuteSceneRequest
@@ -97,11 +177,8 @@ class AliGenie extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteSceneResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteSceneResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -152,11 +229,8 @@ class AliGenie extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSceneListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSceneListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSceneListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -203,11 +277,8 @@ class AliGenie extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetUserBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUserBasicInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUserBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -254,11 +325,8 @@ class AliGenie extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetUserPhoneResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUserPhoneResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUserPhoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -331,11 +399,8 @@ class AliGenie extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return OAuth2RevocationEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OAuth2RevocationEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return OAuth2RevocationEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -420,11 +485,8 @@ class AliGenie extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return OAuth2TokenEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OAuth2TokenEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return OAuth2TokenEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -498,11 +560,8 @@ class AliGenie extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PushDeviceNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PushDeviceNotificationResponse::fromMap($this->execute($params, $req, $runtime));
+        return PushDeviceNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -553,11 +612,8 @@ class AliGenie extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryDeviceListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDeviceListResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDeviceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
