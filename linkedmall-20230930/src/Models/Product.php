@@ -109,6 +109,11 @@ class Product extends Model
     public $requestId;
 
     /**
+     * @var string[]
+     */
+    public $servicePromises;
+
+    /**
      * @var string
      */
     public $shopId;
@@ -158,6 +163,7 @@ class Product extends Model
         'properties' => 'properties',
         'quantity' => 'quantity',
         'requestId' => 'requestId',
+        'servicePromises' => 'servicePromises',
         'shopId' => 'shopId',
         'skus' => 'skus',
         'soldQuantity' => 'soldQuantity',
@@ -185,6 +191,9 @@ class Product extends Model
         }
         if (\is_array($this->properties)) {
             Model::validateArray($this->properties);
+        }
+        if (\is_array($this->servicePromises)) {
+            Model::validateArray($this->servicePromises);
         }
         if (\is_array($this->skus)) {
             Model::validateArray($this->skus);
@@ -309,6 +318,16 @@ class Product extends Model
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->servicePromises) {
+            if (\is_array($this->servicePromises)) {
+                $res['servicePromises'] = [];
+                $n1 = 0;
+                foreach ($this->servicePromises as $item1) {
+                    $res['servicePromises'][$n1++] = $item1;
+                }
+            }
         }
 
         if (null !== $this->shopId) {
@@ -466,6 +485,16 @@ class Product extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['servicePromises'])) {
+            if (!empty($map['servicePromises'])) {
+                $model->servicePromises = [];
+                $n1 = 0;
+                foreach ($map['servicePromises'] as $item1) {
+                    $model->servicePromises[$n1++] = $item1;
+                }
+            }
         }
 
         if (isset($map['shopId'])) {

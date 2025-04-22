@@ -175,11 +175,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelRefundOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -232,11 +229,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ConfirmDisburseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ConfirmDisburseResponse::fromMap($this->execute($params, $req, $runtime));
+        return ConfirmDisburseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -291,11 +285,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateGoodsShippingNoticeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateGoodsShippingNoticeResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateGoodsShippingNoticeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -350,11 +341,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePurchaseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePurchaseOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePurchaseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -409,11 +397,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRefundOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -465,11 +450,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -519,11 +501,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPurchaseOrderStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPurchaseOrderStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPurchaseOrderStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -573,11 +552,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPurchaserShopResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPurchaserShopResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPurchaserShopResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -627,11 +603,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRefundOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -694,11 +667,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSelectionProductResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSelectionProductResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSelectionProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -764,11 +734,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSelectionProductSaleInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSelectionProductSaleInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSelectionProductSaleInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -824,11 +791,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCategoriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -880,11 +844,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListLogisticsOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListLogisticsOrdersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListLogisticsOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -946,11 +907,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPurchaserShopsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPurchaserShopsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPurchaserShopsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1005,11 +963,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSelectionProductSaleInfosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSelectionProductSaleInfosResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSelectionProductSaleInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1077,11 +1032,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSelectionProductsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSelectionProductsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSelectionProductsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1136,11 +1088,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSelectionSkuSaleInfosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSelectionSkuSaleInfosResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSelectionSkuSaleInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1195,11 +1144,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryChildDivisionCodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryChildDivisionCodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryChildDivisionCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1254,11 +1200,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryOrdersResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1313,11 +1256,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RenderPurchaseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RenderPurchaseOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return RenderPurchaseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1372,11 +1312,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RenderRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RenderRefundOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return RenderRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1552,11 +1489,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SearchProductsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchProductsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchProductsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1620,11 +1554,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SelectionGroupAddProductResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SelectionGroupAddProductResponse::fromMap($this->execute($params, $req, $runtime));
+        return SelectionGroupAddProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1688,11 +1619,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SelectionGroupRemoveProductResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SelectionGroupRemoveProductResponse::fromMap($this->execute($params, $req, $runtime));
+        return SelectionGroupRemoveProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1747,11 +1675,8 @@ class Linkedmall extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SplitPurchaseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SplitPurchaseOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return SplitPurchaseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
