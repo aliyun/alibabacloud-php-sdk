@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListIdentityRoleRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var Identity
      */
     public $identity;
@@ -18,23 +16,29 @@ class ListIdentityRoleRequest extends Model
         'identity' => 'identity',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->identity) {
+            $this->identity->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->identity) {
-            $res['identity'] = null !== $this->identity ? $this->identity->toMap() : null;
+            $res['identity'] = null !== $this->identity ? $this->identity->toArray($noStream) : $this->identity;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIdentityRoleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

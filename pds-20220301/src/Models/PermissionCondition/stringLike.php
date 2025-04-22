@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models\PermissionCondition;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class stringLike extends Model
 {
@@ -16,29 +16,45 @@ class stringLike extends Model
         'vpcId' => 'vpc_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->vpcId)) {
+            Model::validateArray($this->vpcId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vpcId) {
-            $res['vpc_id'] = $this->vpcId;
+            if (\is_array($this->vpcId)) {
+                $res['vpc_id'] = [];
+                $n1 = 0;
+                foreach ($this->vpcId as $item1) {
+                    $res['vpc_id'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stringLike
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['vpc_id'])) {
             if (!empty($map['vpc_id'])) {
-                $model->vpcId = $map['vpc_id'];
+                $model->vpcId = [];
+                $n1 = 0;
+                foreach ($map['vpc_id'] as $item1) {
+                    $model->vpcId[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Drive extends Model
 {
@@ -82,44 +82,58 @@ class Drive extends Model
         'usedSize' => 'used_size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createdAt) {
             $res['created_at'] = $this->createdAt;
         }
+
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->domainId) {
             $res['domain_id'] = $this->domainId;
         }
+
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
+
         if (null !== $this->driveName) {
             $res['drive_name'] = $this->driveName;
         }
+
         if (null !== $this->driveType) {
             $res['drive_type'] = $this->driveType;
         }
+
         if (null !== $this->owner) {
             $res['owner'] = $this->owner;
         }
+
         if (null !== $this->ownerType) {
             $res['owner_type'] = $this->ownerType;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->totalSize) {
             $res['total_size'] = $this->totalSize;
         }
+
         if (null !== $this->usedSize) {
             $res['used_size'] = $this->usedSize;
         }
@@ -127,47 +141,58 @@ class Drive extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Drive
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['created_at'])) {
             $model->createdAt = $map['created_at'];
         }
+
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['domain_id'])) {
             $model->domainId = $map['domain_id'];
         }
+
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
+
         if (isset($map['drive_name'])) {
             $model->driveName = $map['drive_name'];
         }
+
         if (isset($map['drive_type'])) {
             $model->driveType = $map['drive_type'];
         }
+
         if (isset($map['owner'])) {
             $model->owner = $map['owner'];
         }
+
         if (isset($map['owner_type'])) {
             $model->ownerType = $map['owner_type'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['total_size'])) {
             $model->totalSize = $map['total_size'];
         }
+
         if (isset($map['used_size'])) {
             $model->usedSize = $map['used_size'];
         }

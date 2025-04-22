@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListIdentityToBenefitPkgMappingResponseBody extends Model
 {
     /**
-     * @description The information about the benefit packages that are associated with an entity.
-     *
      * @var IdentityToBenefitPkgMapping[]
      */
     public $items;
@@ -18,17 +16,23 @@ class ListIdentityToBenefitPkgMappingResponseBody extends Model
         'items' => 'items',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->items)) {
+            Model::validateArray($this->items);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->items) {
-            $res['items'] = [];
-            if (null !== $this->items && \is_array($this->items)) {
-                $n = 0;
-                foreach ($this->items as $item) {
-                    $res['items'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->items)) {
+                $res['items'] = [];
+                $n1 = 0;
+                foreach ($this->items as $item1) {
+                    $res['items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +40,20 @@ class ListIdentityToBenefitPkgMappingResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIdentityToBenefitPkgMappingResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];
-                $n = 0;
-                foreach ($map['items'] as $item) {
-                    $model->items[$n++] = null !== $item ? IdentityToBenefitPkgMapping::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['items'] as $item1) {
+                    $model->items[$n1++] = IdentityToBenefitPkgMapping::fromMap($item1);
                 }
             }
         }

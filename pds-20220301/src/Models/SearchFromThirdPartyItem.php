@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SearchFromThirdPartyItem extends Model
 {
@@ -34,46 +34,68 @@ class SearchFromThirdPartyItem extends Model
         'others' => 'others',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->others)) {
+            Model::validateArray($this->others);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authenticationType) {
             $res['authentication_type'] = $this->authenticationType;
         }
+
         if (null !== $this->extra) {
             $res['extra'] = $this->extra;
         }
+
         if (null !== $this->identity) {
             $res['identity'] = $this->identity;
         }
+
         if (null !== $this->others) {
-            $res['others'] = $this->others;
+            if (\is_array($this->others)) {
+                $res['others'] = [];
+                foreach ($this->others as $key1 => $value1) {
+                    $res['others'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SearchFromThirdPartyItem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['authentication_type'])) {
             $model->authenticationType = $map['authentication_type'];
         }
+
         if (isset($map['extra'])) {
             $model->extra = $map['extra'];
         }
+
         if (isset($map['identity'])) {
             $model->identity = $map['identity'];
         }
+
         if (isset($map['others'])) {
-            $model->others = $map['others'];
+            if (!empty($map['others'])) {
+                $model->others = [];
+                foreach ($map['others'] as $key1 => $value1) {
+                    $model->others[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

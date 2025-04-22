@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOfficeEditUrlOption extends Model
 {
@@ -28,17 +28,22 @@ class GetOfficeEditUrlOption extends Model
         'readonly' => 'readonly',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->copy) {
             $res['copy'] = $this->copy;
         }
+
         if (null !== $this->print) {
             $res['print'] = $this->print;
         }
+
         if (null !== $this->readonly) {
             $res['readonly'] = $this->readonly;
         }
@@ -46,20 +51,22 @@ class GetOfficeEditUrlOption extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOfficeEditUrlOption
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['copy'])) {
             $model->copy = $map['copy'];
         }
+
         if (isset($map['print'])) {
             $model->print = $map['print'];
         }
+
         if (isset($map['readonly'])) {
             $model->readonly = $map['readonly'];
         }

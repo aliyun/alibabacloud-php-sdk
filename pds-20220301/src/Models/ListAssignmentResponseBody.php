@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListAssignmentResponseBody\assignmentList;
-use AlibabaCloud\Tea\Model;
 
 class ListAssignmentResponseBody extends Model
 {
     /**
-     * @description The assigned roles.
-     *
      * @var assignmentList[]
      */
     public $assignmentList;
 
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
-     *
-     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
-     *
      * @var string
      */
     public $nextMarker;
@@ -29,20 +23,27 @@ class ListAssignmentResponseBody extends Model
         'nextMarker' => 'next_marker',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->assignmentList)) {
+            Model::validateArray($this->assignmentList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assignmentList) {
-            $res['assignment_list'] = [];
-            if (null !== $this->assignmentList && \is_array($this->assignmentList)) {
-                $n = 0;
-                foreach ($this->assignmentList as $item) {
-                    $res['assignment_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->assignmentList)) {
+                $res['assignment_list'] = [];
+                $n1 = 0;
+                foreach ($this->assignmentList as $item1) {
+                    $res['assignment_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextMarker) {
             $res['next_marker'] = $this->nextMarker;
         }
@@ -50,23 +51,24 @@ class ListAssignmentResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAssignmentResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['assignment_list'])) {
             if (!empty($map['assignment_list'])) {
                 $model->assignmentList = [];
-                $n = 0;
-                foreach ($map['assignment_list'] as $item) {
-                    $model->assignmentList[$n++] = null !== $item ? assignmentList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['assignment_list'] as $item1) {
+                    $model->assignmentList[$n1++] = assignmentList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['next_marker'])) {
             $model->nextMarker = $map['next_marker'];
         }

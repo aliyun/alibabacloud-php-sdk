@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BaseRoleMemberResponse extends Model
 {
@@ -58,38 +58,54 @@ class BaseRoleMemberResponse extends Model
         'subdomainId' => 'subdomain_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->assignmentList)) {
+            Model::validateArray($this->assignmentList);
+        }
+        if (null !== $this->identity) {
+            $this->identity->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assignmentList) {
-            $res['assignment_list'] = [];
-            if (null !== $this->assignmentList && \is_array($this->assignmentList)) {
-                $n = 0;
-                foreach ($this->assignmentList as $item) {
-                    $res['assignment_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->assignmentList)) {
+                $res['assignment_list'] = [];
+                $n1 = 0;
+                foreach ($this->assignmentList as $item1) {
+                    $res['assignment_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->createdAt) {
             $res['created_at'] = $this->createdAt;
         }
+
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
         }
+
         if (null !== $this->domainId) {
             $res['domain_id'] = $this->domainId;
         }
+
         if (null !== $this->identity) {
-            $res['identity'] = null !== $this->identity ? $this->identity->toMap() : null;
+            $res['identity'] = null !== $this->identity ? $this->identity->toArray($noStream) : $this->identity;
         }
+
         if (null !== $this->identityName) {
             $res['identity_name'] = $this->identityName;
         }
+
         if (null !== $this->isAdmin) {
             $res['is_admin'] = $this->isAdmin;
         }
+
         if (null !== $this->subdomainId) {
             $res['subdomain_id'] = $this->subdomainId;
         }
@@ -97,41 +113,48 @@ class BaseRoleMemberResponse extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BaseRoleMemberResponse
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['assignment_list'])) {
             if (!empty($map['assignment_list'])) {
                 $model->assignmentList = [];
-                $n = 0;
-                foreach ($map['assignment_list'] as $item) {
-                    $model->assignmentList[$n++] = null !== $item ? BaseAssignmentResponse::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['assignment_list'] as $item1) {
+                    $model->assignmentList[$n1++] = BaseAssignmentResponse::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['created_at'])) {
             $model->createdAt = $map['created_at'];
         }
+
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }
+
         if (isset($map['domain_id'])) {
             $model->domainId = $map['domain_id'];
         }
+
         if (isset($map['identity'])) {
             $model->identity = Identity::fromMap($map['identity']);
         }
+
         if (isset($map['identity_name'])) {
             $model->identityName = $map['identity_name'];
         }
+
         if (isset($map['is_admin'])) {
             $model->isAdmin = $map['is_admin'];
         }
+
         if (isset($map['subdomain_id'])) {
             $model->subdomainId = $map['subdomain_id'];
         }

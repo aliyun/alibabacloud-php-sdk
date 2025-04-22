@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301;
 
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AddGroupMemberRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AddGroupMemberResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AddStoryFilesRequest;
@@ -229,12 +229,11 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateUserResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\VideoDRMLicenseRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\VideoDRMLicenseResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\GatewayPds\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Pds extends OpenApiClient
 {
@@ -249,30 +248,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Adds a member to a group.
-     *  *
-     * @param AddGroupMemberRequest $request AddGroupMemberRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Adds a member to a group.
      *
-     * @return AddGroupMemberResponse AddGroupMemberResponse
+     * @param request - AddGroupMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddGroupMemberResponse
+     *
+     * @param AddGroupMemberRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AddGroupMemberResponse
      */
     public function addGroupMemberWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $body['group_id'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$body['group_id'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->memberId)) {
-            $body['member_id'] = $request->memberId;
+
+        if (null !== $request->memberId) {
+            @$body['member_id'] = $request->memberId;
         }
-        if (!Utils::isUnset($request->memberType)) {
-            $body['member_type'] = $request->memberType;
+
+        if (null !== $request->memberType) {
+            @$body['member_type'] = $request->memberType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddGroupMember',
@@ -290,11 +298,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Adds a member to a group.
-     *  *
-     * @param AddGroupMemberRequest $request AddGroupMemberRequest
+     * Adds a member to a group.
      *
-     * @return AddGroupMemberResponse AddGroupMemberResponse
+     * @param request - AddGroupMemberRequest
+     *
+     * @returns AddGroupMemberResponse
+     *
+     * @param AddGroupMemberRequest $request
+     *
+     * @return AddGroupMemberResponse
      */
     public function addGroupMember($request)
     {
@@ -305,30 +317,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 故事添加文件
-     *  *
-     * @param AddStoryFilesRequest $request AddStoryFilesRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 故事添加文件.
      *
-     * @return AddStoryFilesResponse AddStoryFilesResponse
+     * @param request - AddStoryFilesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddStoryFilesResponse
+     *
+     * @param AddStoryFilesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddStoryFilesResponse
      */
     public function addStoryFilesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->files)) {
-            $body['files'] = $request->files;
+
+        if (null !== $request->files) {
+            @$body['files'] = $request->files;
         }
-        if (!Utils::isUnset($request->storyId)) {
-            $body['story_id'] = $request->storyId;
+
+        if (null !== $request->storyId) {
+            @$body['story_id'] = $request->storyId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddStoryFiles',
@@ -346,11 +367,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 故事添加文件
-     *  *
-     * @param AddStoryFilesRequest $request AddStoryFilesRequest
+     * 故事添加文件.
      *
-     * @return AddStoryFilesResponse AddStoryFilesResponse
+     * @param request - AddStoryFilesRequest
+     *
+     * @returns AddStoryFilesResponse
+     *
+     * @param AddStoryFilesRequest $request
+     *
+     * @return AddStoryFilesResponse
      */
     public function addStoryFiles($request)
     {
@@ -361,35 +386,46 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Assigns a group administrator role to a user.
-     *  *
-     * @description You can call this operation to assign a group administrator role to a user.
-     *  *
-     * @param AssignRoleRequest $request AssignRoleRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Assigns a group administrator role to a user.
      *
-     * @return AssignRoleResponse AssignRoleResponse
+     * @remarks
+     * You can call this operation to assign a group administrator role to a user.
+     *
+     * @param request - AssignRoleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssignRoleResponse
+     *
+     * @param AssignRoleRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return AssignRoleResponse
      */
     public function assignRoleWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->identity)) {
-            $body['identity'] = $request->identity;
+        if (null !== $request->identity) {
+            @$body['identity'] = $request->identity;
         }
-        if (!Utils::isUnset($request->manageResourceId)) {
-            $body['manage_resource_id'] = $request->manageResourceId;
+
+        if (null !== $request->manageResourceId) {
+            @$body['manage_resource_id'] = $request->manageResourceId;
         }
-        if (!Utils::isUnset($request->manageResourceType)) {
-            $body['manage_resource_type'] = $request->manageResourceType;
+
+        if (null !== $request->manageResourceType) {
+            @$body['manage_resource_type'] = $request->manageResourceType;
         }
-        if (!Utils::isUnset($request->roleId)) {
-            $body['role_id'] = $request->roleId;
+
+        if (null !== $request->roleId) {
+            @$body['role_id'] = $request->roleId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AssignRole',
@@ -407,13 +443,18 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Assigns a group administrator role to a user.
-     *  *
-     * @description You can call this operation to assign a group administrator role to a user.
-     *  *
-     * @param AssignRoleRequest $request AssignRoleRequest
+     * Assigns a group administrator role to a user.
      *
-     * @return AssignRoleResponse AssignRoleResponse
+     * @remarks
+     * You can call this operation to assign a group administrator role to a user.
+     *
+     * @param request - AssignRoleRequest
+     *
+     * @returns AssignRoleResponse
+     *
+     * @param AssignRoleRequest $request
+     *
+     * @return AssignRoleResponse
      */
     public function assignRole($request)
     {
@@ -424,33 +465,46 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 导出审计日志
-     *  *
-     * @param AuditLogExportRequest $request AuditLogExportRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Exports audit logs.
      *
-     * @return AuditLogExportResponse AuditLogExportResponse
+     * @remarks
+     * Log audit is a value-added feature that is provided by Drive and Photo Service (PDS) Developer Edition. Before you call this operation, make sure that you learn about the [value-added billable items](https://www.alibabacloud.com/help/document_detail/425220.html).
+     *
+     * @param request - AuditLogExportRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuditLogExportResponse
+     *
+     * @param AuditLogExportRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AuditLogExportResponse
      */
     public function auditLogExportWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $body['file_name'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$body['file_name'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->language)) {
-            $body['language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$body['language'] = $request->language;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $body['order_by'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$body['order_by'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->query)) {
-            $body['query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$body['query'] = $request->query;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AuditLogExport',
@@ -468,11 +522,18 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 导出审计日志
-     *  *
-     * @param AuditLogExportRequest $request AuditLogExportRequest
+     * Exports audit logs.
      *
-     * @return AuditLogExportResponse AuditLogExportResponse
+     * @remarks
+     * Log audit is a value-added feature that is provided by Drive and Photo Service (PDS) Developer Edition. Before you call this operation, make sure that you learn about the [value-added billable items](https://www.alibabacloud.com/help/document_detail/425220.html).
+     *
+     * @param request - AuditLogExportRequest
+     *
+     * @returns AuditLogExportResponse
+     *
+     * @param AuditLogExportRequest $request
+     *
+     * @return AuditLogExportResponse
      */
     public function auditLogExport($request)
     {
@@ -483,49 +544,64 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Requests permissions by using OAuth 2.0.
-     *  *
-     * @description For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
-     *  *
-     * @param AuthorizeRequest $tmpReq  AuthorizeRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Requests permissions by using OAuth 2.0.
      *
-     * @return AuthorizeResponse AuthorizeResponse
+     * @remarks
+     * For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
+     *
+     * @param tmpReq - AuthorizeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuthorizeResponse
+     *
+     * @param AuthorizeRequest $tmpReq
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return AuthorizeResponse
      */
     public function authorizeWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AuthorizeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->scope)) {
-            $request->scopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scope, 'scope', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->scope) {
+            $request->scopeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scope, 'scope', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['client_id'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['client_id'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->hideConsent)) {
-            $query['hide_consent'] = $request->hideConsent;
+
+        if (null !== $request->hideConsent) {
+            @$query['hide_consent'] = $request->hideConsent;
         }
-        if (!Utils::isUnset($request->loginType)) {
-            $query['login_type'] = $request->loginType;
+
+        if (null !== $request->loginType) {
+            @$query['login_type'] = $request->loginType;
         }
-        if (!Utils::isUnset($request->redirectUri)) {
-            $query['redirect_uri'] = $request->redirectUri;
+
+        if (null !== $request->redirectUri) {
+            @$query['redirect_uri'] = $request->redirectUri;
         }
-        if (!Utils::isUnset($request->responseType)) {
-            $query['response_type'] = $request->responseType;
+
+        if (null !== $request->responseType) {
+            @$query['response_type'] = $request->responseType;
         }
-        if (!Utils::isUnset($request->scopeShrink)) {
-            $query['scope'] = $request->scopeShrink;
+
+        if (null !== $request->scopeShrink) {
+            @$query['scope'] = $request->scopeShrink;
         }
-        if (!Utils::isUnset($request->state)) {
-            $query['state'] = $request->state;
+
+        if (null !== $request->state) {
+            @$query['state'] = $request->state;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'Authorize',
@@ -543,13 +619,18 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Requests permissions by using OAuth 2.0.
-     *  *
-     * @description For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
-     *  *
-     * @param AuthorizeRequest $request AuthorizeRequest
+     * Requests permissions by using OAuth 2.0.
      *
-     * @return AuthorizeResponse AuthorizeResponse
+     * @remarks
+     * For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
+     *
+     * @param request - AuthorizeRequest
+     *
+     * @returns AuthorizeResponse
+     *
+     * @param AuthorizeRequest $request
+     *
+     * @return AuthorizeResponse
      */
     public function authorize($request)
     {
@@ -560,27 +641,35 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Calls multiple operations at a time to improve call efficiency.
-     *  *
-     * @param BatchRequest   $request BatchRequest
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Calls multiple operations at a time to improve call efficiency.
      *
-     * @return BatchResponse BatchResponse
+     * @param request - BatchRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchResponse
+     *
+     * @param BatchRequest   $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return BatchResponse
      */
     public function batchWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->requests)) {
-            $body['requests'] = $request->requests;
+        if (null !== $request->requests) {
+            @$body['requests'] = $request->requests;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $body['resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$body['resource'] = $request->resource;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'Batch',
@@ -598,11 +687,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Calls multiple operations at a time to improve call efficiency.
-     *  *
-     * @param BatchRequest $request BatchRequest
+     * Calls multiple operations at a time to improve call efficiency.
      *
-     * @return BatchResponse BatchResponse
+     * @param request - BatchRequest
+     *
+     * @returns BatchResponse
+     *
+     * @param BatchRequest $request
+     *
+     * @return BatchResponse
      */
     public function batch($request)
     {
@@ -613,35 +706,46 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Cancels a role.
-     *  *
-     * @description You can cancel only the group administrator role.
-     *  *
-     * @param CancelAssignRoleRequest $request CancelAssignRoleRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Cancels a role.
      *
-     * @return CancelAssignRoleResponse CancelAssignRoleResponse
+     * @remarks
+     * You can cancel only the group administrator role.
+     *
+     * @param request - CancelAssignRoleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelAssignRoleResponse
+     *
+     * @param CancelAssignRoleRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CancelAssignRoleResponse
      */
     public function cancelAssignRoleWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->identity)) {
-            $body['identity'] = $request->identity;
+        if (null !== $request->identity) {
+            @$body['identity'] = $request->identity;
         }
-        if (!Utils::isUnset($request->manageResourceId)) {
-            $body['manage_resource_id'] = $request->manageResourceId;
+
+        if (null !== $request->manageResourceId) {
+            @$body['manage_resource_id'] = $request->manageResourceId;
         }
-        if (!Utils::isUnset($request->manageResourceType)) {
-            $body['manage_resource_type'] = $request->manageResourceType;
+
+        if (null !== $request->manageResourceType) {
+            @$body['manage_resource_type'] = $request->manageResourceType;
         }
-        if (!Utils::isUnset($request->roleId)) {
-            $body['role_id'] = $request->roleId;
+
+        if (null !== $request->roleId) {
+            @$body['role_id'] = $request->roleId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CancelAssignRole',
@@ -659,13 +763,18 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Cancels a role.
-     *  *
-     * @description You can cancel only the group administrator role.
-     *  *
-     * @param CancelAssignRoleRequest $request CancelAssignRoleRequest
+     * Cancels a role.
      *
-     * @return CancelAssignRoleResponse CancelAssignRoleResponse
+     * @remarks
+     * You can cancel only the group administrator role.
+     *
+     * @param request - CancelAssignRoleRequest
+     *
+     * @returns CancelAssignRoleResponse
+     *
+     * @param CancelAssignRoleRequest $request
+     *
+     * @return CancelAssignRoleResponse
      */
     public function cancelAssignRole($request)
     {
@@ -676,24 +785,31 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a share link.
-     *  *
-     * @param CancelShareLinkRequest $request CancelShareLinkRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Deletes a share link.
      *
-     * @return CancelShareLinkResponse CancelShareLinkResponse
+     * @param request - CancelShareLinkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelShareLinkResponse
+     *
+     * @param CancelShareLinkRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CancelShareLinkResponse
      */
     public function cancelShareLinkWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->shareId)) {
-            $body['share_id'] = $request->shareId;
+        if (null !== $request->shareId) {
+            @$body['share_id'] = $request->shareId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CancelShareLink',
@@ -711,11 +827,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a share link.
-     *  *
-     * @param CancelShareLinkRequest $request CancelShareLinkRequest
+     * Deletes a share link.
      *
-     * @return CancelShareLinkResponse CancelShareLinkResponse
+     * @param request - CancelShareLinkRequest
+     *
+     * @returns CancelShareLinkResponse
+     *
+     * @param CancelShareLinkRequest $request
+     *
+     * @return CancelShareLinkResponse
      */
     public function cancelShareLink($request)
     {
@@ -726,24 +846,31 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Empties the recycle bin.
-     *  *
-     * @param ClearRecyclebinRequest $request ClearRecyclebinRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Empties the recycle bin.
      *
-     * @return ClearRecyclebinResponse ClearRecyclebinResponse
+     * @param request - ClearRecyclebinRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ClearRecyclebinResponse
+     *
+     * @param ClearRecyclebinRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ClearRecyclebinResponse
      */
     public function clearRecyclebinWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ClearRecyclebin',
@@ -761,11 +888,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Empties the recycle bin.
-     *  *
-     * @param ClearRecyclebinRequest $request ClearRecyclebinRequest
+     * Empties the recycle bin.
      *
-     * @return ClearRecyclebinResponse ClearRecyclebinResponse
+     * @param request - ClearRecyclebinRequest
+     *
+     * @returns ClearRecyclebinResponse
+     *
+     * @param ClearRecyclebinRequest $request
+     *
+     * @return ClearRecyclebinResponse
      */
     public function clearRecyclebin($request)
     {
@@ -776,30 +907,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Completes the upload of a file.
-     *  *
-     * @param CompleteFileRequest $request CompleteFileRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Completes the upload of a file.
      *
-     * @return CompleteFileResponse CompleteFileResponse
+     * @param request - CompleteFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CompleteFileResponse
+     *
+     * @param CompleteFileRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CompleteFileResponse
      */
     public function completeFileWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->uploadId)) {
-            $body['upload_id'] = $request->uploadId;
+
+        if (null !== $request->uploadId) {
+            @$body['upload_id'] = $request->uploadId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CompleteFile',
@@ -817,11 +957,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Completes the upload of a file.
-     *  *
-     * @param CompleteFileRequest $request CompleteFileRequest
+     * Completes the upload of a file.
      *
-     * @return CompleteFileResponse CompleteFileResponse
+     * @param request - CompleteFileRequest
+     *
+     * @returns CompleteFileResponse
+     *
+     * @param CompleteFileRequest $request
+     *
+     * @return CompleteFileResponse
      */
     public function completeFile($request)
     {
@@ -832,39 +976,51 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Copies a file or folder.
-     *  *
-     * @param CopyFileRequest $request CopyFileRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Copies a file or folder.
      *
-     * @return CopyFileResponse CopyFileResponse
+     * @param request - CopyFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CopyFileResponse
+     *
+     * @param CopyFileRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return CopyFileResponse
      */
     public function copyFileWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->autoRename)) {
-            $body['auto_rename'] = $request->autoRename;
+        if (null !== $request->autoRename) {
+            @$body['auto_rename'] = $request->autoRename;
         }
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->shareId)) {
-            $body['share_id'] = $request->shareId;
+
+        if (null !== $request->shareId) {
+            @$body['share_id'] = $request->shareId;
         }
-        if (!Utils::isUnset($request->toDriveId)) {
-            $body['to_drive_id'] = $request->toDriveId;
+
+        if (null !== $request->toDriveId) {
+            @$body['to_drive_id'] = $request->toDriveId;
         }
-        if (!Utils::isUnset($request->toParentFileId)) {
-            $body['to_parent_file_id'] = $request->toParentFileId;
+
+        if (null !== $request->toParentFileId) {
+            @$body['to_parent_file_id'] = $request->toParentFileId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CopyFile',
@@ -882,11 +1038,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Copies a file or folder.
-     *  *
-     * @param CopyFileRequest $request CopyFileRequest
+     * Copies a file or folder.
      *
-     * @return CopyFileResponse CopyFileResponse
+     * @param request - CopyFileRequest
+     *
+     * @returns CopyFileResponse
+     *
+     * @param CopyFileRequest $request
+     *
+     * @return CopyFileResponse
      */
     public function copyFile($request)
     {
@@ -897,42 +1057,55 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 创建自定义故事
-     *  *
-     * @param CreateCustomizedStoryRequest $request CreateCustomizedStoryRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 创建自定义故事.
      *
-     * @return CreateCustomizedStoryResponse CreateCustomizedStoryResponse
+     * @param request - CreateCustomizedStoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCustomizedStoryResponse
+     *
+     * @param CreateCustomizedStoryRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateCustomizedStoryResponse
      */
     public function createCustomizedStoryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->customLabels)) {
-            $body['custom_labels'] = $request->customLabels;
+        if (null !== $request->customLabels) {
+            @$body['custom_labels'] = $request->customLabels;
         }
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->storyCover)) {
-            $body['story_cover'] = $request->storyCover;
+
+        if (null !== $request->storyCover) {
+            @$body['story_cover'] = $request->storyCover;
         }
-        if (!Utils::isUnset($request->storyFiles)) {
-            $body['story_files'] = $request->storyFiles;
+
+        if (null !== $request->storyFiles) {
+            @$body['story_files'] = $request->storyFiles;
         }
-        if (!Utils::isUnset($request->storyName)) {
-            $body['story_name'] = $request->storyName;
+
+        if (null !== $request->storyName) {
+            @$body['story_name'] = $request->storyName;
         }
-        if (!Utils::isUnset($request->storySubType)) {
-            $body['story_sub_type'] = $request->storySubType;
+
+        if (null !== $request->storySubType) {
+            @$body['story_sub_type'] = $request->storySubType;
         }
-        if (!Utils::isUnset($request->storyType)) {
-            $body['story_type'] = $request->storyType;
+
+        if (null !== $request->storyType) {
+            @$body['story_type'] = $request->storyType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateCustomizedStory',
@@ -950,11 +1123,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 创建自定义故事
-     *  *
-     * @param CreateCustomizedStoryRequest $request CreateCustomizedStoryRequest
+     * 创建自定义故事.
      *
-     * @return CreateCustomizedStoryResponse CreateCustomizedStoryResponse
+     * @param request - CreateCustomizedStoryRequest
+     *
+     * @returns CreateCustomizedStoryResponse
+     *
+     * @param CreateCustomizedStoryRequest $request
+     *
+     * @return CreateCustomizedStoryResponse
      */
     public function createCustomizedStory($request)
     {
@@ -965,44 +1142,58 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary test_domain
-     *  *
-     * @description The description of the domain.
-     *  *
-     * @param CreateDomainRequest $request CreateDomainRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * test_domain.
      *
-     * @return CreateDomainResponse CreateDomainResponse
+     * @remarks
+     * The description of the domain.
+     *
+     * @param request - CreateDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDomainResponse
+     *
+     * @param CreateDomainRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateDomainResponse
      */
     public function createDomainWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $body['domain_name'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$body['domain_name'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->initDriveEnable)) {
-            $body['init_drive_enable'] = $request->initDriveEnable;
+
+        if (null !== $request->initDriveEnable) {
+            @$body['init_drive_enable'] = $request->initDriveEnable;
         }
-        if (!Utils::isUnset($request->initDriveSize)) {
-            $body['init_drive_size'] = $request->initDriveSize;
+
+        if (null !== $request->initDriveSize) {
+            @$body['init_drive_size'] = $request->initDriveSize;
         }
-        if (!Utils::isUnset($request->parentDomainId)) {
-            $body['parent_domain_id'] = $request->parentDomainId;
+
+        if (null !== $request->parentDomainId) {
+            @$body['parent_domain_id'] = $request->parentDomainId;
         }
-        if (!Utils::isUnset($request->sizeQuota)) {
-            $body['size_quota'] = $request->sizeQuota;
+
+        if (null !== $request->sizeQuota) {
+            @$body['size_quota'] = $request->sizeQuota;
         }
-        if (!Utils::isUnset($request->userCountQuota)) {
-            $body['user_count_quota'] = $request->userCountQuota;
+
+        if (null !== $request->userCountQuota) {
+            @$body['user_count_quota'] = $request->userCountQuota;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateDomain',
@@ -1020,13 +1211,18 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary test_domain
-     *  *
-     * @description The description of the domain.
-     *  *
-     * @param CreateDomainRequest $request CreateDomainRequest
+     * test_domain.
      *
-     * @return CreateDomainResponse CreateDomainResponse
+     * @remarks
+     * The description of the domain.
+     *
+     * @param request - CreateDomainRequest
+     *
+     * @returns CreateDomainResponse
+     *
+     * @param CreateDomainRequest $request
+     *
+     * @return CreateDomainResponse
      */
     public function createDomain($request)
     {
@@ -1037,45 +1233,59 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Creates a drive.
-     *  *
-     * @param CreateDriveRequest $request CreateDriveRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Creates a drive.
      *
-     * @return CreateDriveResponse CreateDriveResponse
+     * @param request - CreateDriveRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDriveResponse
+     *
+     * @param CreateDriveRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateDriveResponse
      */
     public function createDriveWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->default_)) {
-            $body['default'] = $request->default_;
+        if (null !== $request->default) {
+            @$body['default'] = $request->default;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->driveName)) {
-            $body['drive_name'] = $request->driveName;
+
+        if (null !== $request->driveName) {
+            @$body['drive_name'] = $request->driveName;
         }
-        if (!Utils::isUnset($request->driveType)) {
-            $body['drive_type'] = $request->driveType;
+
+        if (null !== $request->driveType) {
+            @$body['drive_type'] = $request->driveType;
         }
-        if (!Utils::isUnset($request->owner)) {
-            $body['owner'] = $request->owner;
+
+        if (null !== $request->owner) {
+            @$body['owner'] = $request->owner;
         }
-        if (!Utils::isUnset($request->ownerType)) {
-            $body['owner_type'] = $request->ownerType;
+
+        if (null !== $request->ownerType) {
+            @$body['owner_type'] = $request->ownerType;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->totalSize)) {
-            $body['total_size'] = $request->totalSize;
+
+        if (null !== $request->totalSize) {
+            @$body['total_size'] = $request->totalSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateDrive',
@@ -1093,11 +1303,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Creates a drive.
-     *  *
-     * @param CreateDriveRequest $request CreateDriveRequest
+     * Creates a drive.
      *
-     * @return CreateDriveResponse CreateDriveResponse
+     * @param request - CreateDriveRequest
+     *
+     * @returns CreateDriveResponse
+     *
+     * @param CreateDriveRequest $request
+     *
+     * @return CreateDriveResponse
      */
     public function createDrive($request)
     {
@@ -1108,84 +1322,111 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Creates a file or folder.
-     *  *
-     * @param CreateFileRequest $request CreateFileRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Creates a file or folder.
      *
-     * @return CreateFileResponse CreateFileResponse
+     * @param request - CreateFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFileResponse
+     *
+     * @param CreateFileRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateFileResponse
      */
     public function createFileWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->checkNameMode)) {
-            $body['check_name_mode'] = $request->checkNameMode;
+        if (null !== $request->checkNameMode) {
+            @$body['check_name_mode'] = $request->checkNameMode;
         }
-        if (!Utils::isUnset($request->contentHash)) {
-            $body['content_hash'] = $request->contentHash;
+
+        if (null !== $request->contentHash) {
+            @$body['content_hash'] = $request->contentHash;
         }
-        if (!Utils::isUnset($request->contentHashName)) {
-            $body['content_hash_name'] = $request->contentHashName;
+
+        if (null !== $request->contentHashName) {
+            @$body['content_hash_name'] = $request->contentHashName;
         }
-        if (!Utils::isUnset($request->contentType)) {
-            $body['content_type'] = $request->contentType;
+
+        if (null !== $request->contentType) {
+            @$body['content_type'] = $request->contentType;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->hidden)) {
-            $body['hidden'] = $request->hidden;
+
+        if (null !== $request->hidden) {
+            @$body['hidden'] = $request->hidden;
         }
-        if (!Utils::isUnset($request->imageMediaMetadata)) {
-            $body['image_media_metadata'] = $request->imageMediaMetadata;
+
+        if (null !== $request->imageMediaMetadata) {
+            @$body['image_media_metadata'] = $request->imageMediaMetadata;
         }
-        if (!Utils::isUnset($request->localCreatedAt)) {
-            $body['local_created_at'] = $request->localCreatedAt;
+
+        if (null !== $request->localCreatedAt) {
+            @$body['local_created_at'] = $request->localCreatedAt;
         }
-        if (!Utils::isUnset($request->localModifiedAt)) {
-            $body['local_modified_at'] = $request->localModifiedAt;
+
+        if (null !== $request->localModifiedAt) {
+            @$body['local_modified_at'] = $request->localModifiedAt;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->parallelUpload)) {
-            $body['parallel_upload'] = $request->parallelUpload;
+
+        if (null !== $request->parallelUpload) {
+            @$body['parallel_upload'] = $request->parallelUpload;
         }
-        if (!Utils::isUnset($request->parentFileId)) {
-            $body['parent_file_id'] = $request->parentFileId;
+
+        if (null !== $request->parentFileId) {
+            @$body['parent_file_id'] = $request->parentFileId;
         }
-        if (!Utils::isUnset($request->partInfoList)) {
-            $body['part_info_list'] = $request->partInfoList;
+
+        if (null !== $request->partInfoList) {
+            @$body['part_info_list'] = $request->partInfoList;
         }
-        if (!Utils::isUnset($request->preHash)) {
-            $body['pre_hash'] = $request->preHash;
+
+        if (null !== $request->preHash) {
+            @$body['pre_hash'] = $request->preHash;
         }
-        if (!Utils::isUnset($request->shareId)) {
-            $body['share_id'] = $request->shareId;
+
+        if (null !== $request->shareId) {
+            @$body['share_id'] = $request->shareId;
         }
-        if (!Utils::isUnset($request->size)) {
-            $body['size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$body['size'] = $request->size;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
-        if (!Utils::isUnset($request->userTags)) {
-            $body['user_tags'] = $request->userTags;
+
+        if (null !== $request->userTags) {
+            @$body['user_tags'] = $request->userTags;
         }
-        if (!Utils::isUnset($request->videoMediaMetadata)) {
-            $body['video_media_metadata'] = $request->videoMediaMetadata;
+
+        if (null !== $request->videoMediaMetadata) {
+            @$body['video_media_metadata'] = $request->videoMediaMetadata;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateFile',
@@ -1203,11 +1444,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Creates a file or folder.
-     *  *
-     * @param CreateFileRequest $request CreateFileRequest
+     * Creates a file or folder.
      *
-     * @return CreateFileResponse CreateFileResponse
+     * @param request - CreateFileRequest
+     *
+     * @returns CreateFileResponse
+     *
+     * @param CreateFileRequest $request
+     *
+     * @return CreateFileResponse
      */
     public function createFile($request)
     {
@@ -1218,33 +1463,43 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Creates a group.
-     *  *
-     * @param CreateGroupRequest $request CreateGroupRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Creates a group.
      *
-     * @return CreateGroupResponse CreateGroupResponse
+     * @param request - CreateGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGroupResponse
+     *
+     * @param CreateGroupRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateGroupResponse
      */
     public function createGroupWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $body['group_name'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$body['group_name'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->isRoot)) {
-            $body['is_root'] = $request->isRoot;
+
+        if (null !== $request->isRoot) {
+            @$body['is_root'] = $request->isRoot;
         }
-        if (!Utils::isUnset($request->parentGroupId)) {
-            $body['parent_group_id'] = $request->parentGroupId;
+
+        if (null !== $request->parentGroupId) {
+            @$body['parent_group_id'] = $request->parentGroupId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateGroup',
@@ -1262,11 +1517,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Creates a group.
-     *  *
-     * @param CreateGroupRequest $request CreateGroupRequest
+     * Creates a group.
      *
-     * @return CreateGroupResponse CreateGroupResponse
+     * @param request - CreateGroupRequest
+     *
+     * @returns CreateGroupResponse
+     *
+     * @param CreateGroupRequest $request
+     *
+     * @return CreateGroupResponse
      */
     public function createGroup($request)
     {
@@ -1277,38 +1536,50 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Creates a mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
-     *  *
-     * @description If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
-     *  *
-     * @param CreateIdentityToBenefitPkgMappingRequest $request CreateIdentityToBenefitPkgMappingRequest
-     * @param string[]                                 $headers map
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Creates a mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
      *
-     * @return CreateIdentityToBenefitPkgMappingResponse CreateIdentityToBenefitPkgMappingResponse
+     * @remarks
+     * If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
+     *
+     * @param request - CreateIdentityToBenefitPkgMappingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateIdentityToBenefitPkgMappingResponse
+     *
+     * @param CreateIdentityToBenefitPkgMappingRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return CreateIdentityToBenefitPkgMappingResponse
      */
     public function createIdentityToBenefitPkgMappingWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->amount)) {
-            $body['amount'] = $request->amount;
+        if (null !== $request->amount) {
+            @$body['amount'] = $request->amount;
         }
-        if (!Utils::isUnset($request->benefitPkgId)) {
-            $body['benefit_pkg_id'] = $request->benefitPkgId;
+
+        if (null !== $request->benefitPkgId) {
+            @$body['benefit_pkg_id'] = $request->benefitPkgId;
         }
-        if (!Utils::isUnset($request->expireTime)) {
-            $body['expire_time'] = $request->expireTime;
+
+        if (null !== $request->expireTime) {
+            @$body['expire_time'] = $request->expireTime;
         }
-        if (!Utils::isUnset($request->identityId)) {
-            $body['identity_id'] = $request->identityId;
+
+        if (null !== $request->identityId) {
+            @$body['identity_id'] = $request->identityId;
         }
-        if (!Utils::isUnset($request->identityType)) {
-            $body['identity_type'] = $request->identityType;
+
+        if (null !== $request->identityType) {
+            @$body['identity_type'] = $request->identityType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateIdentityToBenefitPkgMapping',
@@ -1326,13 +1597,18 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Creates a mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
-     *  *
-     * @description If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
-     *  *
-     * @param CreateIdentityToBenefitPkgMappingRequest $request CreateIdentityToBenefitPkgMappingRequest
+     * Creates a mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
      *
-     * @return CreateIdentityToBenefitPkgMappingResponse CreateIdentityToBenefitPkgMappingResponse
+     * @remarks
+     * If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
+     *
+     * @param request - CreateIdentityToBenefitPkgMappingRequest
+     *
+     * @returns CreateIdentityToBenefitPkgMappingResponse
+     *
+     * @param CreateIdentityToBenefitPkgMappingRequest $request
+     *
+     * @return CreateIdentityToBenefitPkgMappingResponse
      */
     public function createIdentityToBenefitPkgMapping($request)
     {
@@ -1343,51 +1619,67 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 创建凌霄订单
-     *  *
-     * @param CreateOrderRequest $request CreateOrderRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 创建凌霄订单.
      *
-     * @return CreateOrderResponse CreateOrderResponse
+     * @param request - CreateOrderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOrderResponse
+     *
+     * @param CreateOrderRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateOrderResponse
      */
     public function createOrderWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $body['auto_pay'] = $request->autoPay;
+        if (null !== $request->autoPay) {
+            @$body['auto_pay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->autoRenew)) {
-            $body['auto_renew'] = $request->autoRenew;
+
+        if (null !== $request->autoRenew) {
+            @$body['auto_renew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['instance_id'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['instance_id'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $body['order_type'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$body['order_type'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->package)) {
-            $body['package'] = $request->package;
+
+        if (null !== $request->package) {
+            @$body['package'] = $request->package;
         }
-        if (!Utils::isUnset($request->period)) {
-            $body['period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$body['period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $body['period_unit'] = $request->periodUnit;
+
+        if (null !== $request->periodUnit) {
+            @$body['period_unit'] = $request->periodUnit;
         }
-        if (!Utils::isUnset($request->totalSize)) {
-            $body['total_size'] = $request->totalSize;
+
+        if (null !== $request->totalSize) {
+            @$body['total_size'] = $request->totalSize;
         }
-        if (!Utils::isUnset($request->userCount)) {
-            $body['user_count'] = $request->userCount;
+
+        if (null !== $request->userCount) {
+            @$body['user_count'] = $request->userCount;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateOrder',
@@ -1405,11 +1697,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 创建凌霄订单
-     *  *
-     * @param CreateOrderRequest $request CreateOrderRequest
+     * 创建凌霄订单.
      *
-     * @return CreateOrderResponse CreateOrderResponse
+     * @param request - CreateOrderRequest
+     *
+     * @returns CreateOrderResponse
+     *
+     * @param CreateOrderRequest $request
+     *
+     * @return CreateOrderResponse
      */
     public function createOrder($request)
     {
@@ -1420,77 +1716,102 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Creates a share URL.
-     *  *
-     * @description A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
-     *  *
-     * @param CreateShareLinkRequest $request CreateShareLinkRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Creates a share URL.
      *
-     * @return CreateShareLinkResponse CreateShareLinkResponse
+     * @remarks
+     * A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
+     *
+     * @param request - CreateShareLinkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateShareLinkResponse
+     *
+     * @param CreateShareLinkRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateShareLinkResponse
      */
     public function createShareLinkWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->creatable)) {
-            $body['creatable'] = $request->creatable;
+        if (null !== $request->creatable) {
+            @$body['creatable'] = $request->creatable;
         }
-        if (!Utils::isUnset($request->creatableFileIdList)) {
-            $body['creatable_file_id_list'] = $request->creatableFileIdList;
+
+        if (null !== $request->creatableFileIdList) {
+            @$body['creatable_file_id_list'] = $request->creatableFileIdList;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->disableDownload)) {
-            $body['disable_download'] = $request->disableDownload;
+
+        if (null !== $request->disableDownload) {
+            @$body['disable_download'] = $request->disableDownload;
         }
-        if (!Utils::isUnset($request->disablePreview)) {
-            $body['disable_preview'] = $request->disablePreview;
+
+        if (null !== $request->disablePreview) {
+            @$body['disable_preview'] = $request->disablePreview;
         }
-        if (!Utils::isUnset($request->disableSave)) {
-            $body['disable_save'] = $request->disableSave;
+
+        if (null !== $request->disableSave) {
+            @$body['disable_save'] = $request->disableSave;
         }
-        if (!Utils::isUnset($request->downloadLimit)) {
-            $body['download_limit'] = $request->downloadLimit;
+
+        if (null !== $request->downloadLimit) {
+            @$body['download_limit'] = $request->downloadLimit;
         }
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->expiration)) {
-            $body['expiration'] = $request->expiration;
+
+        if (null !== $request->expiration) {
+            @$body['expiration'] = $request->expiration;
         }
-        if (!Utils::isUnset($request->fileIdList)) {
-            $body['file_id_list'] = $request->fileIdList;
+
+        if (null !== $request->fileIdList) {
+            @$body['file_id_list'] = $request->fileIdList;
         }
-        if (!Utils::isUnset($request->officeEditable)) {
-            $body['office_editable'] = $request->officeEditable;
+
+        if (null !== $request->officeEditable) {
+            @$body['office_editable'] = $request->officeEditable;
         }
-        if (!Utils::isUnset($request->previewLimit)) {
-            $body['preview_limit'] = $request->previewLimit;
+
+        if (null !== $request->previewLimit) {
+            @$body['preview_limit'] = $request->previewLimit;
         }
-        if (!Utils::isUnset($request->requireLogin)) {
-            $body['require_login'] = $request->requireLogin;
+
+        if (null !== $request->requireLogin) {
+            @$body['require_login'] = $request->requireLogin;
         }
-        if (!Utils::isUnset($request->saveLimit)) {
-            $body['save_limit'] = $request->saveLimit;
+
+        if (null !== $request->saveLimit) {
+            @$body['save_limit'] = $request->saveLimit;
         }
-        if (!Utils::isUnset($request->shareAllFiles)) {
-            $body['share_all_files'] = $request->shareAllFiles;
+
+        if (null !== $request->shareAllFiles) {
+            @$body['share_all_files'] = $request->shareAllFiles;
         }
-        if (!Utils::isUnset($request->shareName)) {
-            $body['share_name'] = $request->shareName;
+
+        if (null !== $request->shareName) {
+            @$body['share_name'] = $request->shareName;
         }
-        if (!Utils::isUnset($request->sharePwd)) {
-            $body['share_pwd'] = $request->sharePwd;
+
+        if (null !== $request->sharePwd) {
+            @$body['share_pwd'] = $request->sharePwd;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateShareLink',
@@ -1508,13 +1829,18 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Creates a share URL.
-     *  *
-     * @description A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
-     *  *
-     * @param CreateShareLinkRequest $request CreateShareLinkRequest
+     * Creates a share URL.
      *
-     * @return CreateShareLinkResponse CreateShareLinkResponse
+     * @remarks
+     * A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
+     *
+     * @param request - CreateShareLinkRequest
+     *
+     * @returns CreateShareLinkResponse
+     *
+     * @param CreateShareLinkRequest $request
+     *
+     * @return CreateShareLinkResponse
      */
     public function createShareLink($request)
     {
@@ -1525,24 +1851,31 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 创建相似图片聚类任务
-     *  *
-     * @param CreateSimilarImageClusterTaskRequest $request CreateSimilarImageClusterTaskRequest
-     * @param string[]                             $headers map
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 创建相似图片聚类任务
      *
-     * @return CreateSimilarImageClusterTaskResponse CreateSimilarImageClusterTaskResponse
+     * @param request - CreateSimilarImageClusterTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSimilarImageClusterTaskResponse
+     *
+     * @param CreateSimilarImageClusterTaskRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateSimilarImageClusterTaskResponse
      */
     public function createSimilarImageClusterTaskWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateSimilarImageClusterTask',
@@ -1560,11 +1893,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 创建相似图片聚类任务
-     *  *
-     * @param CreateSimilarImageClusterTaskRequest $request CreateSimilarImageClusterTaskRequest
+     * 创建相似图片聚类任务
      *
-     * @return CreateSimilarImageClusterTaskResponse CreateSimilarImageClusterTaskResponse
+     * @param request - CreateSimilarImageClusterTaskRequest
+     *
+     * @returns CreateSimilarImageClusterTaskResponse
+     *
+     * @param CreateSimilarImageClusterTaskRequest $request
+     *
+     * @return CreateSimilarImageClusterTaskResponse
      */
     public function createSimilarImageClusterTask($request)
     {
@@ -1575,54 +1912,71 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 创建推荐故事
-     *  *
-     * @param CreateStoryRequest $request CreateStoryRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 创建推荐故事.
      *
-     * @return CreateStoryResponse CreateStoryResponse
+     * @param request - CreateStoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStoryResponse
+     *
+     * @param CreateStoryRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateStoryResponse
      */
     public function createStoryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->address)) {
-            $body['address'] = $request->address;
+        if (null !== $request->address) {
+            @$body['address'] = $request->address;
         }
-        if (!Utils::isUnset($request->customLabels)) {
-            $body['custom_labels'] = $request->customLabels;
+
+        if (null !== $request->customLabels) {
+            @$body['custom_labels'] = $request->customLabels;
         }
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->maxImageCount)) {
-            $body['max_image_count'] = $request->maxImageCount;
+
+        if (null !== $request->maxImageCount) {
+            @$body['max_image_count'] = $request->maxImageCount;
         }
-        if (!Utils::isUnset($request->minImageCount)) {
-            $body['min_image_count'] = $request->minImageCount;
+
+        if (null !== $request->minImageCount) {
+            @$body['min_image_count'] = $request->minImageCount;
         }
-        if (!Utils::isUnset($request->storyEndTime)) {
-            $body['story_end_time'] = $request->storyEndTime;
+
+        if (null !== $request->storyEndTime) {
+            @$body['story_end_time'] = $request->storyEndTime;
         }
-        if (!Utils::isUnset($request->storyId)) {
-            $body['story_id'] = $request->storyId;
+
+        if (null !== $request->storyId) {
+            @$body['story_id'] = $request->storyId;
         }
-        if (!Utils::isUnset($request->storyName)) {
-            $body['story_name'] = $request->storyName;
+
+        if (null !== $request->storyName) {
+            @$body['story_name'] = $request->storyName;
         }
-        if (!Utils::isUnset($request->storyStartTime)) {
-            $body['story_start_time'] = $request->storyStartTime;
+
+        if (null !== $request->storyStartTime) {
+            @$body['story_start_time'] = $request->storyStartTime;
         }
-        if (!Utils::isUnset($request->storySubType)) {
-            $body['story_sub_type'] = $request->storySubType;
+
+        if (null !== $request->storySubType) {
+            @$body['story_sub_type'] = $request->storySubType;
         }
-        if (!Utils::isUnset($request->storyType)) {
-            $body['story_type'] = $request->storyType;
+
+        if (null !== $request->storyType) {
+            @$body['story_type'] = $request->storyType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateStory',
@@ -1640,11 +1994,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 创建推荐故事
-     *  *
-     * @param CreateStoryRequest $request CreateStoryRequest
+     * 创建推荐故事.
      *
-     * @return CreateStoryResponse CreateStoryResponse
+     * @param request - CreateStoryRequest
+     *
+     * @returns CreateStoryResponse
+     *
+     * @param CreateStoryRequest $request
+     *
+     * @return CreateStoryResponse
      */
     public function createStory($request)
     {
@@ -1655,54 +2013,71 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Creates a user.
-     *  *
-     * @param CreateUserRequest $request CreateUserRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Creates a user.
      *
-     * @return CreateUserResponse CreateUserResponse
+     * @param request - CreateUserRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUserResponse
+     *
+     * @param CreateUserRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateUserResponse
      */
     public function createUserWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->avatar)) {
-            $body['avatar'] = $request->avatar;
+        if (null !== $request->avatar) {
+            @$body['avatar'] = $request->avatar;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->email)) {
-            $body['email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$body['email'] = $request->email;
         }
-        if (!Utils::isUnset($request->groupInfoList)) {
-            $body['group_info_list'] = $request->groupInfoList;
+
+        if (null !== $request->groupInfoList) {
+            @$body['group_info_list'] = $request->groupInfoList;
         }
-        if (!Utils::isUnset($request->nickName)) {
-            $body['nick_name'] = $request->nickName;
+
+        if (null !== $request->nickName) {
+            @$body['nick_name'] = $request->nickName;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $body['phone'] = $request->phone;
+
+        if (null !== $request->phone) {
+            @$body['phone'] = $request->phone;
         }
-        if (!Utils::isUnset($request->role)) {
-            $body['role'] = $request->role;
+
+        if (null !== $request->role) {
+            @$body['role'] = $request->role;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $body['user_data'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$body['user_data'] = $request->userData;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $body['user_name'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$body['user_name'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateUser',
@@ -1720,11 +2095,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Creates a user.
-     *  *
-     * @param CreateUserRequest $request CreateUserRequest
+     * Creates a user.
      *
-     * @return CreateUserResponse CreateUserResponse
+     * @param request - CreateUserRequest
+     *
+     * @returns CreateUserResponse
+     *
+     * @param CreateUserRequest $request
+     *
+     * @return CreateUserResponse
      */
     public function createUser($request)
     {
@@ -1735,30 +2114,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 获取文件内容安全信息
-     *  *
-     * @param CsiGetFileInfoRequest $request CsiGetFileInfoRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 获取文件内容安全信息.
      *
-     * @return CsiGetFileInfoResponse CsiGetFileInfoResponse
+     * @param request - CsiGetFileInfoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CsiGetFileInfoResponse
+     *
+     * @param CsiGetFileInfoRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CsiGetFileInfoResponse
      */
     public function csiGetFileInfoWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->urlExpireSec)) {
-            $body['url_expire_sec'] = $request->urlExpireSec;
+
+        if (null !== $request->urlExpireSec) {
+            @$body['url_expire_sec'] = $request->urlExpireSec;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CsiGetFileInfo',
@@ -1776,11 +2164,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 获取文件内容安全信息
-     *  *
-     * @param CsiGetFileInfoRequest $request CsiGetFileInfoRequest
+     * 获取文件内容安全信息.
      *
-     * @return CsiGetFileInfoResponse CsiGetFileInfoResponse
+     * @param request - CsiGetFileInfoRequest
+     *
+     * @returns CsiGetFileInfoResponse
+     *
+     * @param CsiGetFileInfoRequest $request
+     *
+     * @return CsiGetFileInfoResponse
      */
     public function csiGetFileInfo($request)
     {
@@ -1791,24 +2183,31 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Delete the domain
-     *  *
-     * @param DeleteDomainRequest $request DeleteDomainRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Delete the domain.
      *
-     * @return DeleteDomainResponse DeleteDomainResponse
+     * @param request - DeleteDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDomainResponse
+     *
+     * @param DeleteDomainRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteDomainResponse
      */
     public function deleteDomainWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->domainId)) {
-            $body['domain_id'] = $request->domainId;
+        if (null !== $request->domainId) {
+            @$body['domain_id'] = $request->domainId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteDomain',
@@ -1826,11 +2225,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Delete the domain
-     *  *
-     * @param DeleteDomainRequest $request DeleteDomainRequest
+     * Delete the domain.
      *
-     * @return DeleteDomainResponse DeleteDomainResponse
+     * @param request - DeleteDomainRequest
+     *
+     * @returns DeleteDomainResponse
+     *
+     * @param DeleteDomainRequest $request
+     *
+     * @return DeleteDomainResponse
      */
     public function deleteDomain($request)
     {
@@ -1841,24 +2244,31 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a drive.
-     *  *
-     * @param DeleteDriveRequest $request DeleteDriveRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Deletes a drive.
      *
-     * @return DeleteDriveResponse DeleteDriveResponse
+     * @param request - DeleteDriveRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDriveResponse
+     *
+     * @param DeleteDriveRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteDriveResponse
      */
     public function deleteDriveWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteDrive',
@@ -1876,11 +2286,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a drive.
-     *  *
-     * @param DeleteDriveRequest $request DeleteDriveRequest
+     * Deletes a drive.
      *
-     * @return DeleteDriveResponse DeleteDriveResponse
+     * @param request - DeleteDriveRequest
+     *
+     * @returns DeleteDriveResponse
+     *
+     * @param DeleteDriveRequest $request
+     *
+     * @return DeleteDriveResponse
      */
     public function deleteDrive($request)
     {
@@ -1891,27 +2305,35 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a file or folder.
-     *  *
-     * @param DeleteFileRequest $request DeleteFileRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes a file or folder.
      *
-     * @return DeleteFileResponse DeleteFileResponse
+     * @param request - DeleteFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFileResponse
+     *
+     * @param DeleteFileRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteFileResponse
      */
     public function deleteFileWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteFile',
@@ -1929,11 +2351,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a file or folder.
-     *  *
-     * @param DeleteFileRequest $request DeleteFileRequest
+     * Deletes a file or folder.
      *
-     * @return DeleteFileResponse DeleteFileResponse
+     * @param request - DeleteFileRequest
+     *
+     * @returns DeleteFileResponse
+     *
+     * @param DeleteFileRequest $request
+     *
+     * @return DeleteFileResponse
      */
     public function deleteFile($request)
     {
@@ -1944,24 +2370,31 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Deletes groups. Before you delete a group, make sure that no other groups or users exist in the group. Otherwise, the group fails to be deleted.
-     *  *
-     * @param DeleteGroupRequest $request DeleteGroupRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Deletes groups. Before you delete a group, make sure that no other groups or users exist in the group. Otherwise, the group fails to be deleted.
      *
-     * @return DeleteGroupResponse DeleteGroupResponse
+     * @param request - DeleteGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGroupResponse
+     *
+     * @param DeleteGroupRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteGroupResponse
      */
     public function deleteGroupWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $body['group_id'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$body['group_id'] = $request->groupId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteGroup',
@@ -1979,11 +2412,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Deletes groups. Before you delete a group, make sure that no other groups or users exist in the group. Otherwise, the group fails to be deleted.
-     *  *
-     * @param DeleteGroupRequest $request DeleteGroupRequest
+     * Deletes groups. Before you delete a group, make sure that no other groups or users exist in the group. Otherwise, the group fails to be deleted.
      *
-     * @return DeleteGroupResponse DeleteGroupResponse
+     * @param request - DeleteGroupRequest
+     *
+     * @returns DeleteGroupResponse
+     *
+     * @param DeleteGroupRequest $request
+     *
+     * @return DeleteGroupResponse
      */
     public function deleteGroup($request)
     {
@@ -1994,30 +2431,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a historical version of a file. You cannot delete the latest version of a file.
-     *  *
-     * @param DeleteRevisionRequest $request DeleteRevisionRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes a historical version of a file. You cannot delete the latest version of a file.
      *
-     * @return DeleteRevisionResponse DeleteRevisionResponse
+     * @param request - DeleteRevisionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRevisionResponse
+     *
+     * @param DeleteRevisionRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteRevisionResponse
      */
     public function deleteRevisionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->revisionId)) {
-            $body['revision_id'] = $request->revisionId;
+
+        if (null !== $request->revisionId) {
+            @$body['revision_id'] = $request->revisionId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteRevision',
@@ -2035,11 +2481,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a historical version of a file. You cannot delete the latest version of a file.
-     *  *
-     * @param DeleteRevisionRequest $request DeleteRevisionRequest
+     * Deletes a historical version of a file. You cannot delete the latest version of a file.
      *
-     * @return DeleteRevisionResponse DeleteRevisionResponse
+     * @param request - DeleteRevisionRequest
+     *
+     * @returns DeleteRevisionResponse
+     *
+     * @param DeleteRevisionRequest $request
+     *
+     * @return DeleteRevisionResponse
      */
     public function deleteRevision($request)
     {
@@ -2050,27 +2500,35 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 删除故事
-     *  *
-     * @param DeleteStoryRequest $request DeleteStoryRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 删除故事.
      *
-     * @return DeleteStoryResponse DeleteStoryResponse
+     * @param request - DeleteStoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteStoryResponse
+     *
+     * @param DeleteStoryRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteStoryResponse
      */
     public function deleteStoryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->storyId)) {
-            $body['story_id'] = $request->storyId;
+
+        if (null !== $request->storyId) {
+            @$body['story_id'] = $request->storyId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteStory',
@@ -2088,11 +2546,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 删除故事
-     *  *
-     * @param DeleteStoryRequest $request DeleteStoryRequest
+     * 删除故事.
      *
-     * @return DeleteStoryResponse DeleteStoryResponse
+     * @param request - DeleteStoryRequest
+     *
+     * @returns DeleteStoryResponse
+     *
+     * @param DeleteStoryRequest $request
+     *
+     * @return DeleteStoryResponse
      */
     public function deleteStory($request)
     {
@@ -2103,24 +2565,31 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a user.
-     *  *
-     * @param DeleteUserRequest $request DeleteUserRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes a user.
      *
-     * @return DeleteUserResponse DeleteUserResponse
+     * @param request - DeleteUserRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUserResponse
+     *
+     * @param DeleteUserRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteUserResponse
      */
     public function deleteUserWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteUser',
@@ -2138,11 +2607,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a user.
-     *  *
-     * @param DeleteUserRequest $request DeleteUserRequest
+     * Deletes a user.
      *
-     * @return DeleteUserResponse DeleteUserResponse
+     * @param request - DeleteUserRequest
+     *
+     * @returns DeleteUserResponse
+     *
+     * @param DeleteUserRequest $request
+     *
+     * @return DeleteUserResponse
      */
     public function deleteUser($request)
     {
@@ -2153,27 +2626,35 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the cursor of incremental information.
-     *  *
-     * @param DeltaGetLastCursorRequest $request DeltaGetLastCursorRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the cursor of incremental information.
      *
-     * @return DeltaGetLastCursorResponse DeltaGetLastCursorResponse
+     * @param request - DeltaGetLastCursorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeltaGetLastCursorResponse
+     *
+     * @param DeltaGetLastCursorRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeltaGetLastCursorResponse
      */
     public function deltaGetLastCursorWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->syncRootId)) {
-            $body['sync_root_id'] = $request->syncRootId;
+
+        if (null !== $request->syncRootId) {
+            @$body['sync_root_id'] = $request->syncRootId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeltaGetLastCursor',
@@ -2191,11 +2672,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the cursor of incremental information.
-     *  *
-     * @param DeltaGetLastCursorRequest $request DeltaGetLastCursorRequest
+     * Queries the cursor of incremental information.
      *
-     * @return DeltaGetLastCursorResponse DeltaGetLastCursorResponse
+     * @param request - DeltaGetLastCursorRequest
+     *
+     * @returns DeltaGetLastCursorResponse
+     *
+     * @param DeltaGetLastCursorRequest $request
+     *
+     * @return DeltaGetLastCursorResponse
      */
     public function deltaGetLastCursor($request)
     {
@@ -2206,41 +2691,54 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Downloads a file.
-     *  *
-     * @description For information about best practices for downloading a file.
-     *  *
-     * @param DownloadFileRequest $request DownloadFileRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Downloads a file.
      *
-     * @return DownloadFileResponse DownloadFileResponse
+     * @remarks
+     * For information about best practices for downloading a file.
+     *
+     * @param request - DownloadFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DownloadFileResponse
+     *
+     * @param DownloadFileRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DownloadFileResponse
      */
     public function downloadFileWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $query['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$query['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $query['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$query['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->imageThumbnailProcess)) {
-            $query['image_thumbnail_process'] = $request->imageThumbnailProcess;
+
+        if (null !== $request->imageThumbnailProcess) {
+            @$query['image_thumbnail_process'] = $request->imageThumbnailProcess;
         }
-        if (!Utils::isUnset($request->officeThumbnailProcess)) {
-            $query['office_thumbnail_process'] = $request->officeThumbnailProcess;
+
+        if (null !== $request->officeThumbnailProcess) {
+            @$query['office_thumbnail_process'] = $request->officeThumbnailProcess;
         }
-        if (!Utils::isUnset($request->shareId)) {
-            $query['share_id'] = $request->shareId;
+
+        if (null !== $request->shareId) {
+            @$query['share_id'] = $request->shareId;
         }
-        if (!Utils::isUnset($request->videoThumbnailProcess)) {
-            $query['video_thumbnail_process'] = $request->videoThumbnailProcess;
+
+        if (null !== $request->videoThumbnailProcess) {
+            @$query['video_thumbnail_process'] = $request->videoThumbnailProcess;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DownloadFile',
@@ -2258,13 +2756,18 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Downloads a file.
-     *  *
-     * @description For information about best practices for downloading a file.
-     *  *
-     * @param DownloadFileRequest $request DownloadFileRequest
+     * Downloads a file.
      *
-     * @return DownloadFileResponse DownloadFileResponse
+     * @remarks
+     * For information about best practices for downloading a file.
+     *
+     * @param request - DownloadFileRequest
+     *
+     * @returns DownloadFileResponse
+     *
+     * @param DownloadFileRequest $request
+     *
+     * @return DownloadFileResponse
      */
     public function downloadFile($request)
     {
@@ -2275,30 +2778,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Grants permissions to access files to a user or group.
-     *  *
-     * @param FileAddPermissionRequest $request FileAddPermissionRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Grants permissions to access files to a user or group.
      *
-     * @return FileAddPermissionResponse FileAddPermissionResponse
+     * @param request - FileAddPermissionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FileAddPermissionResponse
+     *
+     * @param FileAddPermissionRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return FileAddPermissionResponse
      */
     public function fileAddPermissionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->memberList)) {
-            $body['member_list'] = $request->memberList;
+
+        if (null !== $request->memberList) {
+            @$body['member_list'] = $request->memberList;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'FileAddPermission',
@@ -2316,11 +2828,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Grants permissions to access files to a user or group.
-     *  *
-     * @param FileAddPermissionRequest $request FileAddPermissionRequest
+     * Grants permissions to access files to a user or group.
      *
-     * @return FileAddPermissionResponse FileAddPermissionResponse
+     * @param request - FileAddPermissionRequest
+     *
+     * @returns FileAddPermissionResponse
+     *
+     * @param FileAddPermissionRequest $request
+     *
+     * @return FileAddPermissionResponse
      */
     public function fileAddPermission($request)
     {
@@ -2331,30 +2847,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Removes custom tags from a file.
-     *  *
-     * @param FileDeleteUserTagsRequest $request FileDeleteUserTagsRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Removes custom tags from a file.
      *
-     * @return FileDeleteUserTagsResponse FileDeleteUserTagsResponse
+     * @param request - FileDeleteUserTagsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FileDeleteUserTagsResponse
+     *
+     * @param FileDeleteUserTagsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return FileDeleteUserTagsResponse
      */
     public function fileDeleteUserTagsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->keyList)) {
-            $body['key_list'] = $request->keyList;
+
+        if (null !== $request->keyList) {
+            @$body['key_list'] = $request->keyList;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'FileDeleteUserTags',
@@ -2372,11 +2897,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Removes custom tags from a file.
-     *  *
-     * @param FileDeleteUserTagsRequest $request FileDeleteUserTagsRequest
+     * Removes custom tags from a file.
      *
-     * @return FileDeleteUserTagsResponse FileDeleteUserTagsResponse
+     * @param request - FileDeleteUserTagsRequest
+     *
+     * @returns FileDeleteUserTagsResponse
+     *
+     * @param FileDeleteUserTagsRequest $request
+     *
+     * @return FileDeleteUserTagsResponse
      */
     public function fileDeleteUserTags($request)
     {
@@ -2387,27 +2916,35 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the sharing authorization records of a file.
-     *  *
-     * @param FileListPermissionRequest $request FileListPermissionRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the sharing authorization records of a file.
      *
-     * @return FileListPermissionResponse FileListPermissionResponse
+     * @param request - FileListPermissionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FileListPermissionResponse
+     *
+     * @param FileListPermissionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return FileListPermissionResponse
      */
     public function fileListPermissionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'FileListPermission',
@@ -2425,11 +2962,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the sharing authorization records of a file.
-     *  *
-     * @param FileListPermissionRequest $request FileListPermissionRequest
+     * Queries the sharing authorization records of a file.
      *
-     * @return FileListPermissionResponse FileListPermissionResponse
+     * @param request - FileListPermissionRequest
+     *
+     * @returns FileListPermissionResponse
+     *
+     * @param FileListPermissionRequest $request
+     *
+     * @return FileListPermissionResponse
      */
     public function fileListPermission($request)
     {
@@ -2440,35 +2981,45 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Adds custom tags to a file.
-     *  *
-     * @description This operation is an incremental update operation. Take note of the following items:
+     * Adds custom tags to a file.
+     *
+     * @remarks
+     * This operation is an incremental update operation. Take note of the following items:
      * *   If a tag name specified in the request is the same as an existing tag name, the existing tag is overwritten.
      * *   If a tag name specified in the request is different from the existing tag names, the specified tag is added.
      * *   The existing tags with unique names are not affected.
-     *  *
-     * @param FilePutUserTagsRequest $request FilePutUserTagsRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return FilePutUserTagsResponse FilePutUserTagsResponse
+     * @param request - FilePutUserTagsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FilePutUserTagsResponse
+     *
+     * @param FilePutUserTagsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return FilePutUserTagsResponse
      */
     public function filePutUserTagsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->userTags)) {
-            $body['user_tags'] = $request->userTags;
+
+        if (null !== $request->userTags) {
+            @$body['user_tags'] = $request->userTags;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'FilePutUserTags',
@@ -2486,16 +3037,21 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Adds custom tags to a file.
-     *  *
-     * @description This operation is an incremental update operation. Take note of the following items:
+     * Adds custom tags to a file.
+     *
+     * @remarks
+     * This operation is an incremental update operation. Take note of the following items:
      * *   If a tag name specified in the request is the same as an existing tag name, the existing tag is overwritten.
      * *   If a tag name specified in the request is different from the existing tag names, the specified tag is added.
      * *   The existing tags with unique names are not affected.
-     *  *
-     * @param FilePutUserTagsRequest $request FilePutUserTagsRequest
      *
-     * @return FilePutUserTagsResponse FilePutUserTagsResponse
+     * @param request - FilePutUserTagsRequest
+     *
+     * @returns FilePutUserTagsResponse
+     *
+     * @param FilePutUserTagsRequest $request
+     *
+     * @return FilePutUserTagsResponse
      */
     public function filePutUserTags($request)
     {
@@ -2506,30 +3062,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Cancels the permissions on a shared file.
-     *  *
-     * @param FileRemovePermissionRequest $request FileRemovePermissionRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Cancels the permissions on a shared file.
      *
-     * @return FileRemovePermissionResponse FileRemovePermissionResponse
+     * @param request - FileRemovePermissionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FileRemovePermissionResponse
+     *
+     * @param FileRemovePermissionRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return FileRemovePermissionResponse
      */
     public function fileRemovePermissionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->memberList)) {
-            $body['member_list'] = $request->memberList;
+
+        if (null !== $request->memberList) {
+            @$body['member_list'] = $request->memberList;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'FileRemovePermission',
@@ -2547,11 +3112,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Cancels the permissions on a shared file.
-     *  *
-     * @param FileRemovePermissionRequest $request FileRemovePermissionRequest
+     * Cancels the permissions on a shared file.
      *
-     * @return FileRemovePermissionResponse FileRemovePermissionResponse
+     * @param request - FileRemovePermissionRequest
+     *
+     * @returns FileRemovePermissionResponse
+     *
+     * @param FileRemovePermissionRequest $request
+     *
+     * @return FileRemovePermissionResponse
      */
     public function fileRemovePermission($request)
     {
@@ -2562,24 +3131,31 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an asynchronous task.
-     *  *
-     * @param GetAsyncTaskRequest $request GetAsyncTaskRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the information about an asynchronous task.
      *
-     * @return GetAsyncTaskResponse GetAsyncTaskResponse
+     * @param request - GetAsyncTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAsyncTaskResponse
+     *
+     * @param GetAsyncTaskRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAsyncTaskResponse
      */
     public function getAsyncTaskWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->asyncTaskId)) {
-            $body['async_task_id'] = $request->asyncTaskId;
+        if (null !== $request->asyncTaskId) {
+            @$body['async_task_id'] = $request->asyncTaskId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetAsyncTask',
@@ -2597,11 +3173,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an asynchronous task.
-     *  *
-     * @param GetAsyncTaskRequest $request GetAsyncTaskRequest
+     * Queries the information about an asynchronous task.
      *
-     * @return GetAsyncTaskResponse GetAsyncTaskResponse
+     * @param request - GetAsyncTaskRequest
+     *
+     * @returns GetAsyncTaskResponse
+     *
+     * @param GetAsyncTaskRequest $request
+     *
+     * @return GetAsyncTaskResponse
      */
     public function getAsyncTask($request)
     {
@@ -2612,24 +3192,31 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the default drive of a user.
-     *  *
-     * @param GetDefaultDriveRequest $request GetDefaultDriveRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the default drive of a user.
      *
-     * @return GetDefaultDriveResponse GetDefaultDriveResponse
+     * @param request - GetDefaultDriveRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDefaultDriveResponse
+     *
+     * @param GetDefaultDriveRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetDefaultDriveResponse
      */
     public function getDefaultDriveWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetDefaultDrive',
@@ -2647,11 +3234,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the default drive of a user.
-     *  *
-     * @param GetDefaultDriveRequest $request GetDefaultDriveRequest
+     * Queries the default drive of a user.
      *
-     * @return GetDefaultDriveResponse GetDefaultDriveResponse
+     * @param request - GetDefaultDriveRequest
+     *
+     * @returns GetDefaultDriveResponse
+     *
+     * @param GetDefaultDriveRequest $request
+     *
+     * @return GetDefaultDriveResponse
      */
     public function getDefaultDrive($request)
     {
@@ -2662,30 +3253,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Get domain information.
-     *  *
-     * @param GetDomainRequest $request GetDomainRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Get domain information.
      *
-     * @return GetDomainResponse GetDomainResponse
+     * @param request - GetDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDomainResponse
+     *
+     * @param GetDomainRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetDomainResponse
      */
     public function getDomainWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->domainId)) {
-            $body['domain_id'] = $request->domainId;
+        if (null !== $request->domainId) {
+            @$body['domain_id'] = $request->domainId;
         }
-        if (!Utils::isUnset($request->fields)) {
-            $body['fields'] = $request->fields;
+
+        if (null !== $request->fields) {
+            @$body['fields'] = $request->fields;
         }
-        if (!Utils::isUnset($request->getQuotaUsed)) {
-            $body['get_quota_used'] = $request->getQuotaUsed;
+
+        if (null !== $request->getQuotaUsed) {
+            @$body['get_quota_used'] = $request->getQuotaUsed;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetDomain',
@@ -2703,11 +3303,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Get domain information.
-     *  *
-     * @param GetDomainRequest $request GetDomainRequest
+     * Get domain information.
      *
-     * @return GetDomainResponse GetDomainResponse
+     * @param request - GetDomainRequest
+     *
+     * @returns GetDomainResponse
+     *
+     * @param GetDomainRequest $request
+     *
+     * @return GetDomainResponse
      */
     public function getDomain($request)
     {
@@ -2718,12 +3322,17 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 获取domain限额
-     *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取domain限额.
      *
-     * @return GetDomainQuotaResponse GetDomainQuotaResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDomainQuotaResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetDomainQuotaResponse
      */
     public function getDomainQuotaWithOptions($headers, $runtime)
     {
@@ -2746,9 +3355,11 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 获取domain限额
-     *  *
-     * @return GetDomainQuotaResponse GetDomainQuotaResponse
+     * 获取domain限额.
+     *
+     * @returns GetDomainQuotaResponse
+     *
+     * @return GetDomainQuotaResponse
      */
     public function getDomainQuota()
     {
@@ -2759,39 +3370,51 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the download URL of a file. For more information about best practices, visit https://help.aliyun.com/document_detail/175889.html.
-     *  *
-     * @param GetDownloadUrlRequest $request GetDownloadUrlRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the download URL of a file. For more information about best practices, visit https://help.aliyun.com/document_detail/175889.html.
      *
-     * @return GetDownloadUrlResponse GetDownloadUrlResponse
+     * @param request - GetDownloadUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDownloadUrlResponse
+     *
+     * @param GetDownloadUrlRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetDownloadUrlResponse
      */
     public function getDownloadUrlWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->expireSec)) {
-            $body['expire_sec'] = $request->expireSec;
+
+        if (null !== $request->expireSec) {
+            @$body['expire_sec'] = $request->expireSec;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $body['file_name'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$body['file_name'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->responseContentType)) {
-            $body['response_content_type'] = $request->responseContentType;
+
+        if (null !== $request->responseContentType) {
+            @$body['response_content_type'] = $request->responseContentType;
         }
-        if (!Utils::isUnset($request->shareId)) {
-            $body['share_id'] = $request->shareId;
+
+        if (null !== $request->shareId) {
+            @$body['share_id'] = $request->shareId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetDownloadUrl',
@@ -2809,11 +3432,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the download URL of a file. For more information about best practices, visit https://help.aliyun.com/document_detail/175889.html.
-     *  *
-     * @param GetDownloadUrlRequest $request GetDownloadUrlRequest
+     * Queries the download URL of a file. For more information about best practices, visit https://help.aliyun.com/document_detail/175889.html.
      *
-     * @return GetDownloadUrlResponse GetDownloadUrlResponse
+     * @param request - GetDownloadUrlRequest
+     *
+     * @returns GetDownloadUrlResponse
+     *
+     * @param GetDownloadUrlRequest $request
+     *
+     * @return GetDownloadUrlResponse
      */
     public function getDownloadUrl($request)
     {
@@ -2824,24 +3451,31 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a drive.
-     *  *
-     * @param GetDriveRequest $request GetDriveRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a drive.
      *
-     * @return GetDriveResponse GetDriveResponse
+     * @param request - GetDriveRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDriveResponse
+     *
+     * @param GetDriveRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetDriveResponse
      */
     public function getDriveWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetDrive',
@@ -2859,11 +3493,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a drive.
-     *  *
-     * @param GetDriveRequest $request GetDriveRequest
+     * Queries the information about a drive.
      *
-     * @return GetDriveResponse GetDriveResponse
+     * @param request - GetDriveRequest
+     *
+     * @returns GetDriveResponse
+     *
+     * @param GetDriveRequest $request
+     *
+     * @return GetDriveResponse
      */
     public function getDrive($request)
     {
@@ -2874,39 +3512,51 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a file.
-     *  *
-     * @param GetFileRequest $request GetFileRequest
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a file.
      *
-     * @return GetFileResponse GetFileResponse
+     * @param request - GetFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFileResponse
+     *
+     * @param GetFileRequest $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetFileResponse
      */
     public function getFileWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fields)) {
-            $body['fields'] = $request->fields;
+
+        if (null !== $request->fields) {
+            @$body['fields'] = $request->fields;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->shareId)) {
-            $body['share_id'] = $request->shareId;
+
+        if (null !== $request->shareId) {
+            @$body['share_id'] = $request->shareId;
         }
-        if (!Utils::isUnset($request->thumbnailProcesses)) {
-            $body['thumbnail_processes'] = $request->thumbnailProcesses;
+
+        if (null !== $request->thumbnailProcesses) {
+            @$body['thumbnail_processes'] = $request->thumbnailProcesses;
         }
-        if (!Utils::isUnset($request->urlExpireSec)) {
-            $body['url_expire_sec'] = $request->urlExpireSec;
+
+        if (null !== $request->urlExpireSec) {
+            @$body['url_expire_sec'] = $request->urlExpireSec;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetFile',
@@ -2924,11 +3574,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a file.
-     *  *
-     * @param GetFileRequest $request GetFileRequest
+     * Queries the information about a file.
      *
-     * @return GetFileResponse GetFileResponse
+     * @param request - GetFileRequest
+     *
+     * @returns GetFileResponse
+     *
+     * @param GetFileRequest $request
+     *
+     * @return GetFileResponse
      */
     public function getFile($request)
     {
@@ -2939,24 +3593,31 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a group.
-     *  *
-     * @param GetGroupRequest $request GetGroupRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a group.
      *
-     * @return GetGroupResponse GetGroupResponse
+     * @param request - GetGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGroupResponse
+     *
+     * @param GetGroupRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetGroupResponse
      */
     public function getGroupWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $body['group_id'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$body['group_id'] = $request->groupId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetGroup',
@@ -2974,11 +3635,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a group.
-     *  *
-     * @param GetGroupRequest $request GetGroupRequest
+     * Queries the information about a group.
      *
-     * @return GetGroupResponse GetGroupResponse
+     * @param request - GetGroupRequest
+     *
+     * @returns GetGroupResponse
+     *
+     * @param GetGroupRequest $request
+     *
+     * @return GetGroupResponse
      */
     public function getGroup($request)
     {
@@ -2989,30 +3654,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the mapping between an entity and a benefit package. You can call this operation to query the benefit package that is associated with a user.
-     *  *
-     * @param GetIdentityToBenefitPkgMappingRequest $request GetIdentityToBenefitPkgMappingRequest
-     * @param string[]                              $headers map
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the mapping between an entity and a benefit package. You can call this operation to query the benefit package that is associated with a user.
      *
-     * @return GetIdentityToBenefitPkgMappingResponse GetIdentityToBenefitPkgMappingResponse
+     * @param request - GetIdentityToBenefitPkgMappingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIdentityToBenefitPkgMappingResponse
+     *
+     * @param GetIdentityToBenefitPkgMappingRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetIdentityToBenefitPkgMappingResponse
      */
     public function getIdentityToBenefitPkgMappingWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->benefitPkgId)) {
-            $body['benefit_pkg_id'] = $request->benefitPkgId;
+        if (null !== $request->benefitPkgId) {
+            @$body['benefit_pkg_id'] = $request->benefitPkgId;
         }
-        if (!Utils::isUnset($request->identityId)) {
-            $body['identity_id'] = $request->identityId;
+
+        if (null !== $request->identityId) {
+            @$body['identity_id'] = $request->identityId;
         }
-        if (!Utils::isUnset($request->identityType)) {
-            $body['identity_type'] = $request->identityType;
+
+        if (null !== $request->identityType) {
+            @$body['identity_type'] = $request->identityType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetIdentityToBenefitPkgMapping',
@@ -3030,11 +3704,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the mapping between an entity and a benefit package. You can call this operation to query the benefit package that is associated with a user.
-     *  *
-     * @param GetIdentityToBenefitPkgMappingRequest $request GetIdentityToBenefitPkgMappingRequest
+     * Queries the mapping between an entity and a benefit package. You can call this operation to query the benefit package that is associated with a user.
      *
-     * @return GetIdentityToBenefitPkgMappingResponse GetIdentityToBenefitPkgMappingResponse
+     * @param request - GetIdentityToBenefitPkgMappingRequest
+     *
+     * @returns GetIdentityToBenefitPkgMappingResponse
+     *
+     * @param GetIdentityToBenefitPkgMappingRequest $request
+     *
+     * @return GetIdentityToBenefitPkgMappingResponse
      */
     public function getIdentityToBenefitPkgMapping($request)
     {
@@ -3045,30 +3723,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an account.
-     *  *
-     * @param GetLinkInfoRequest $request GetLinkInfoRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the information about an account.
      *
-     * @return GetLinkInfoResponse GetLinkInfoResponse
+     * @param request - GetLinkInfoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLinkInfoResponse
+     *
+     * @param GetLinkInfoRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetLinkInfoResponse
      */
     public function getLinkInfoWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->extra)) {
-            $body['extra'] = $request->extra;
+        if (null !== $request->extra) {
+            @$body['extra'] = $request->extra;
         }
-        if (!Utils::isUnset($request->identity)) {
-            $body['identity'] = $request->identity;
+
+        if (null !== $request->identity) {
+            @$body['identity'] = $request->identity;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetLinkInfo',
@@ -3086,11 +3773,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an account.
-     *  *
-     * @param GetLinkInfoRequest $request GetLinkInfoRequest
+     * Queries the information about an account.
      *
-     * @return GetLinkInfoResponse GetLinkInfoResponse
+     * @param request - GetLinkInfoRequest
+     *
+     * @returns GetLinkInfoResponse
+     *
+     * @param GetLinkInfoRequest $request
+     *
+     * @return GetLinkInfoResponse
      */
     public function getLinkInfo($request)
     {
@@ -3101,24 +3792,31 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a user based on the user ID.
-     *  *
-     * @param GetLinkInfoByUserIdRequest $request GetLinkInfoByUserIdRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a user based on the user ID.
      *
-     * @return GetLinkInfoByUserIdResponse GetLinkInfoByUserIdResponse
+     * @param request - GetLinkInfoByUserIdRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLinkInfoByUserIdResponse
+     *
+     * @param GetLinkInfoByUserIdRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetLinkInfoByUserIdResponse
      */
     public function getLinkInfoByUserIdWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetLinkInfoByUserId',
@@ -3136,11 +3834,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a user based on the user ID.
-     *  *
-     * @param GetLinkInfoByUserIdRequest $request GetLinkInfoByUserIdRequest
+     * Queries the information about a user based on the user ID.
      *
-     * @return GetLinkInfoByUserIdResponse GetLinkInfoByUserIdResponse
+     * @param request - GetLinkInfoByUserIdRequest
+     *
+     * @returns GetLinkInfoByUserIdResponse
+     *
+     * @param GetLinkInfoByUserIdRequest $request
+     *
+     * @return GetLinkInfoByUserIdResponse
      */
     public function getLinkInfoByUserId($request)
     {
@@ -3151,36 +3853,47 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a version.
-     *  *
-     * @param GetRevisionRequest $request GetRevisionRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a version.
      *
-     * @return GetRevisionResponse GetRevisionResponse
+     * @param request - GetRevisionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRevisionResponse
+     *
+     * @param GetRevisionRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetRevisionResponse
      */
     public function getRevisionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fields)) {
-            $body['fields'] = $request->fields;
+
+        if (null !== $request->fields) {
+            @$body['fields'] = $request->fields;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->revisionId)) {
-            $body['revision_id'] = $request->revisionId;
+
+        if (null !== $request->revisionId) {
+            @$body['revision_id'] = $request->revisionId;
         }
-        if (!Utils::isUnset($request->urlExpireSec)) {
-            $body['url_expire_sec'] = $request->urlExpireSec;
+
+        if (null !== $request->urlExpireSec) {
+            @$body['url_expire_sec'] = $request->urlExpireSec;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetRevision',
@@ -3198,11 +3911,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a version.
-     *  *
-     * @param GetRevisionRequest $request GetRevisionRequest
+     * Queries the information about a version.
      *
-     * @return GetRevisionResponse GetRevisionResponse
+     * @param request - GetRevisionRequest
+     *
+     * @returns GetRevisionResponse
+     *
+     * @param GetRevisionRequest $request
+     *
+     * @return GetRevisionResponse
      */
     public function getRevision($request)
     {
@@ -3213,24 +3930,31 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the share URL of a file.
-     *  *
-     * @param GetShareLinkRequest $request GetShareLinkRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the share URL of a file.
      *
-     * @return GetShareLinkResponse GetShareLinkResponse
+     * @param request - GetShareLinkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetShareLinkResponse
+     *
+     * @param GetShareLinkRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetShareLinkResponse
      */
     public function getShareLinkWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->shareId)) {
-            $body['share_id'] = $request->shareId;
+        if (null !== $request->shareId) {
+            @$body['share_id'] = $request->shareId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetShareLink',
@@ -3248,11 +3972,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the share URL of a file.
-     *  *
-     * @param GetShareLinkRequest $request GetShareLinkRequest
+     * Queries the share URL of a file.
      *
-     * @return GetShareLinkResponse GetShareLinkResponse
+     * @param request - GetShareLinkRequest
+     *
+     * @returns GetShareLinkResponse
+     *
+     * @param GetShareLinkRequest $request
+     *
+     * @return GetShareLinkResponse
      */
     public function getShareLink($request)
     {
@@ -3263,24 +3991,31 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a share link anonymously.
-     *  *
-     * @param GetShareLinkByAnonymousRequest $request GetShareLinkByAnonymousRequest
-     * @param string[]                       $headers map
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a share link anonymously.
      *
-     * @return GetShareLinkByAnonymousResponse GetShareLinkByAnonymousResponse
+     * @param request - GetShareLinkByAnonymousRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetShareLinkByAnonymousResponse
+     *
+     * @param GetShareLinkByAnonymousRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetShareLinkByAnonymousResponse
      */
     public function getShareLinkByAnonymousWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->shareId)) {
-            $body['share_id'] = $request->shareId;
+        if (null !== $request->shareId) {
+            @$body['share_id'] = $request->shareId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetShareLinkByAnonymous',
@@ -3298,11 +4033,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a share link anonymously.
-     *  *
-     * @param GetShareLinkByAnonymousRequest $request GetShareLinkByAnonymousRequest
+     * Queries the information about a share link anonymously.
      *
-     * @return GetShareLinkByAnonymousResponse GetShareLinkByAnonymousResponse
+     * @param request - GetShareLinkByAnonymousRequest
+     *
+     * @returns GetShareLinkByAnonymousResponse
+     *
+     * @param GetShareLinkByAnonymousRequest $request
+     *
+     * @return GetShareLinkByAnonymousResponse
      */
     public function getShareLinkByAnonymous($request)
     {
@@ -3313,32 +4052,42 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries a share token anonymously.
-     *  *
-     * @description To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
-     *  *
-     * @param GetShareLinkTokenRequest $request GetShareLinkTokenRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries a share token anonymously.
      *
-     * @return GetShareLinkTokenResponse GetShareLinkTokenResponse
+     * @remarks
+     * To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
+     *
+     * @param request - GetShareLinkTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetShareLinkTokenResponse
+     *
+     * @param GetShareLinkTokenRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetShareLinkTokenResponse
      */
     public function getShareLinkTokenWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->expireSec)) {
-            $body['expire_sec'] = $request->expireSec;
+        if (null !== $request->expireSec) {
+            @$body['expire_sec'] = $request->expireSec;
         }
-        if (!Utils::isUnset($request->shareId)) {
-            $body['share_id'] = $request->shareId;
+
+        if (null !== $request->shareId) {
+            @$body['share_id'] = $request->shareId;
         }
-        if (!Utils::isUnset($request->sharePwd)) {
-            $body['share_pwd'] = $request->sharePwd;
+
+        if (null !== $request->sharePwd) {
+            @$body['share_pwd'] = $request->sharePwd;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetShareLinkToken',
@@ -3356,13 +4105,18 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries a share token anonymously.
-     *  *
-     * @description To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
-     *  *
-     * @param GetShareLinkTokenRequest $request GetShareLinkTokenRequest
+     * Queries a share token anonymously.
      *
-     * @return GetShareLinkTokenResponse GetShareLinkTokenResponse
+     * @remarks
+     * To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
+     *
+     * @param request - GetShareLinkTokenRequest
+     *
+     * @returns GetShareLinkTokenResponse
+     *
+     * @param GetShareLinkTokenRequest $request
+     *
+     * @return GetShareLinkTokenResponse
      */
     public function getShareLinkToken($request)
     {
@@ -3373,45 +4127,59 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 获取故事详情
-     *  *
-     * @param GetStoryRequest $request GetStoryRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 获取故事详情.
      *
-     * @return GetStoryResponse GetStoryResponse
+     * @param request - GetStoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStoryResponse
+     *
+     * @param GetStoryRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetStoryResponse
      */
     public function getStoryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->coverImageThumbnailProcess)) {
-            $body['cover_image_thumbnail_process'] = $request->coverImageThumbnailProcess;
+        if (null !== $request->coverImageThumbnailProcess) {
+            @$body['cover_image_thumbnail_process'] = $request->coverImageThumbnailProcess;
         }
-        if (!Utils::isUnset($request->coverVideoThumbnailProcess)) {
-            $body['cover_video_thumbnail_process'] = $request->coverVideoThumbnailProcess;
+
+        if (null !== $request->coverVideoThumbnailProcess) {
+            @$body['cover_video_thumbnail_process'] = $request->coverVideoThumbnailProcess;
         }
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->imageThumbnailProcess)) {
-            $body['image_thumbnail_process'] = $request->imageThumbnailProcess;
+
+        if (null !== $request->imageThumbnailProcess) {
+            @$body['image_thumbnail_process'] = $request->imageThumbnailProcess;
         }
-        if (!Utils::isUnset($request->imageUrlProcess)) {
-            $body['image_url_process'] = $request->imageUrlProcess;
+
+        if (null !== $request->imageUrlProcess) {
+            @$body['image_url_process'] = $request->imageUrlProcess;
         }
-        if (!Utils::isUnset($request->storyId)) {
-            $body['story_id'] = $request->storyId;
+
+        if (null !== $request->storyId) {
+            @$body['story_id'] = $request->storyId;
         }
-        if (!Utils::isUnset($request->urlExpireSec)) {
-            $body['url_expire_sec'] = $request->urlExpireSec;
+
+        if (null !== $request->urlExpireSec) {
+            @$body['url_expire_sec'] = $request->urlExpireSec;
         }
-        if (!Utils::isUnset($request->videoThumbnailProcess)) {
-            $body['video_thumbnail_process'] = $request->videoThumbnailProcess;
+
+        if (null !== $request->videoThumbnailProcess) {
+            @$body['video_thumbnail_process'] = $request->videoThumbnailProcess;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetStory',
@@ -3429,11 +4197,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 获取故事详情
-     *  *
-     * @param GetStoryRequest $request GetStoryRequest
+     * 获取故事详情.
      *
-     * @return GetStoryResponse GetStoryResponse
+     * @param request - GetStoryRequest
+     *
+     * @returns GetStoryResponse
+     *
+     * @param GetStoryRequest $request
+     *
+     * @return GetStoryResponse
      */
     public function getStory($request)
     {
@@ -3444,31 +4216,40 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the execution status of a value-added asynchronous task. You can call this operation to query the execution status of an asynchronous task that is created by calling the CreateSimilarImageClusterTask operation.
-     *  *
-     * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/425220.html) of Drive and Photo Service**.
+     * Queries the execution status of a value-added asynchronous task. You can call this operation to query the execution status of an asynchronous task that is created by calling the CreateSimilarImageClusterTask operation.
+     *
+     * @remarks
+     * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/425220.html) of Drive and Photo Service**.
      * To call this operation, make sure that the value-added image processing feature is enabled.
      * Before you call this operation, a value-added asynchronous task must be created. For example, you can call the CreateSimilarImageClusterTask operation to create an asynchronous task. Then, you can call this operation to query the execution status of the asynchronous task based on the task ID.
-     *  *
-     * @param GetTaskStatusRequest $request GetTaskStatusRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTaskStatusResponse GetTaskStatusResponse
+     * @param request - GetTaskStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskStatusResponse
+     *
+     * @param GetTaskStatusRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetTaskStatusResponse
      */
     public function getTaskStatusWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['task_id'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['task_id'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetTaskStatus',
@@ -3486,15 +4267,20 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the execution status of a value-added asynchronous task. You can call this operation to query the execution status of an asynchronous task that is created by calling the CreateSimilarImageClusterTask operation.
-     *  *
-     * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/425220.html) of Drive and Photo Service**.
+     * Queries the execution status of a value-added asynchronous task. You can call this operation to query the execution status of an asynchronous task that is created by calling the CreateSimilarImageClusterTask operation.
+     *
+     * @remarks
+     * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/425220.html) of Drive and Photo Service**.
      * To call this operation, make sure that the value-added image processing feature is enabled.
      * Before you call this operation, a value-added asynchronous task must be created. For example, you can call the CreateSimilarImageClusterTask operation to create an asynchronous task. Then, you can call this operation to query the execution status of the asynchronous task based on the task ID.
-     *  *
-     * @param GetTaskStatusRequest $request GetTaskStatusRequest
      *
-     * @return GetTaskStatusResponse GetTaskStatusResponse
+     * @param request - GetTaskStatusRequest
+     *
+     * @returns GetTaskStatusResponse
+     *
+     * @param GetTaskStatusRequest $request
+     *
+     * @return GetTaskStatusResponse
      */
     public function getTaskStatus($request)
     {
@@ -3505,36 +4291,47 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the upload URL of a file.
-     *  *
-     * @param GetUploadUrlRequest $request GetUploadUrlRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the upload URL of a file.
      *
-     * @return GetUploadUrlResponse GetUploadUrlResponse
+     * @param request - GetUploadUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUploadUrlResponse
+     *
+     * @param GetUploadUrlRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetUploadUrlResponse
      */
     public function getUploadUrlWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->partInfoList)) {
-            $body['part_info_list'] = $request->partInfoList;
+
+        if (null !== $request->partInfoList) {
+            @$body['part_info_list'] = $request->partInfoList;
         }
-        if (!Utils::isUnset($request->shareId)) {
-            $body['share_id'] = $request->shareId;
+
+        if (null !== $request->shareId) {
+            @$body['share_id'] = $request->shareId;
         }
-        if (!Utils::isUnset($request->uploadId)) {
-            $body['upload_id'] = $request->uploadId;
+
+        if (null !== $request->uploadId) {
+            @$body['upload_id'] = $request->uploadId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetUploadUrl',
@@ -3552,11 +4349,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the upload URL of a file.
-     *  *
-     * @param GetUploadUrlRequest $request GetUploadUrlRequest
+     * Queries the upload URL of a file.
      *
-     * @return GetUploadUrlResponse GetUploadUrlResponse
+     * @param request - GetUploadUrlRequest
+     *
+     * @returns GetUploadUrlResponse
+     *
+     * @param GetUploadUrlRequest $request
+     *
+     * @return GetUploadUrlResponse
      */
     public function getUploadUrl($request)
     {
@@ -3567,24 +4368,31 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a user.
-     *  *
-     * @param GetUserRequest $request GetUserRequest
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a user.
      *
-     * @return GetUserResponse GetUserResponse
+     * @param request - GetUserRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserResponse
+     *
+     * @param GetUserRequest $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetUserResponse
      */
     public function getUserWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetUser',
@@ -3602,11 +4410,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a user.
-     *  *
-     * @param GetUserRequest $request GetUserRequest
+     * Queries the information about a user.
      *
-     * @return GetUserResponse GetUserResponse
+     * @param request - GetUserRequest
+     *
+     * @returns GetUserResponse
+     *
+     * @param GetUserRequest $request
+     *
+     * @return GetUserResponse
      */
     public function getUser($request)
     {
@@ -3617,50 +4429,66 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about video playback.
-     *  *
-     * @description For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
-     *  *
-     * @param GetVideoPreviewPlayInfoRequest $request GetVideoPreviewPlayInfoRequest
-     * @param string[]                       $headers map
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the information about video playback.
      *
-     * @return GetVideoPreviewPlayInfoResponse GetVideoPreviewPlayInfoResponse
+     * @remarks
+     * For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
+     *
+     * @param request - GetVideoPreviewPlayInfoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoPreviewPlayInfoResponse
+     *
+     * @param GetVideoPreviewPlayInfoRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetVideoPreviewPlayInfoResponse
      */
     public function getVideoPreviewPlayInfoWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->category)) {
-            $body['category'] = $request->category;
+        if (null !== $request->category) {
+            @$body['category'] = $request->category;
         }
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->getMasterUrl)) {
-            $body['get_master_url'] = $request->getMasterUrl;
+
+        if (null !== $request->getMasterUrl) {
+            @$body['get_master_url'] = $request->getMasterUrl;
         }
-        if (!Utils::isUnset($request->getWithoutUrl)) {
-            $body['get_without_url'] = $request->getWithoutUrl;
+
+        if (null !== $request->getWithoutUrl) {
+            @$body['get_without_url'] = $request->getWithoutUrl;
         }
-        if (!Utils::isUnset($request->reTranscode)) {
-            $body['re_transcode'] = $request->reTranscode;
+
+        if (null !== $request->reTranscode) {
+            @$body['re_transcode'] = $request->reTranscode;
         }
-        if (!Utils::isUnset($request->shareId)) {
-            $body['share_id'] = $request->shareId;
+
+        if (null !== $request->shareId) {
+            @$body['share_id'] = $request->shareId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $body['template_id'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$body['template_id'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->urlExpireSec)) {
-            $body['url_expire_sec'] = $request->urlExpireSec;
+
+        if (null !== $request->urlExpireSec) {
+            @$body['url_expire_sec'] = $request->urlExpireSec;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetVideoPreviewPlayInfo',
@@ -3678,13 +4506,18 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about video playback.
-     *  *
-     * @description For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
-     *  *
-     * @param GetVideoPreviewPlayInfoRequest $request GetVideoPreviewPlayInfoRequest
+     * Queries the information about video playback.
      *
-     * @return GetVideoPreviewPlayInfoResponse GetVideoPreviewPlayInfoResponse
+     * @remarks
+     * For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
+     *
+     * @param request - GetVideoPreviewPlayInfoRequest
+     *
+     * @returns GetVideoPreviewPlayInfoResponse
+     *
+     * @param GetVideoPreviewPlayInfoRequest $request
+     *
+     * @return GetVideoPreviewPlayInfoResponse
      */
     public function getVideoPreviewPlayInfo($request)
     {
@@ -3695,35 +4528,46 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the preview metadata of a video.
-     *  *
-     * @description For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
-     *  *
-     * @param GetVideoPreviewPlayMetaRequest $request GetVideoPreviewPlayMetaRequest
-     * @param string[]                       $headers map
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the preview metadata of a video.
      *
-     * @return GetVideoPreviewPlayMetaResponse GetVideoPreviewPlayMetaResponse
+     * @remarks
+     * For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
+     *
+     * @param request - GetVideoPreviewPlayMetaRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoPreviewPlayMetaResponse
+     *
+     * @param GetVideoPreviewPlayMetaRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetVideoPreviewPlayMetaResponse
      */
     public function getVideoPreviewPlayMetaWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->category)) {
-            $body['category'] = $request->category;
+        if (null !== $request->category) {
+            @$body['category'] = $request->category;
         }
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->shareId)) {
-            $body['share_id'] = $request->shareId;
+
+        if (null !== $request->shareId) {
+            @$body['share_id'] = $request->shareId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetVideoPreviewPlayMeta',
@@ -3741,13 +4585,18 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the preview metadata of a video.
-     *  *
-     * @description For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
-     *  *
-     * @param GetVideoPreviewPlayMetaRequest $request GetVideoPreviewPlayMetaRequest
+     * Queries the preview metadata of a video.
      *
-     * @return GetVideoPreviewPlayMetaResponse GetVideoPreviewPlayMetaResponse
+     * @remarks
+     * For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
+     *
+     * @param request - GetVideoPreviewPlayMetaRequest
+     *
+     * @returns GetVideoPreviewPlayMetaResponse
+     *
+     * @param GetVideoPreviewPlayMetaRequest $request
+     *
+     * @return GetVideoPreviewPlayMetaResponse
      */
     public function getVideoPreviewPlayMeta($request)
     {
@@ -3758,27 +4607,35 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 更新用户组名字
-     *  *
-     * @param GroupUpdateNameRequest $request GroupUpdateNameRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 更新用户组名字.
      *
-     * @return GroupUpdateNameResponse GroupUpdateNameResponse
+     * @param request - GroupUpdateNameRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GroupUpdateNameResponse
+     *
+     * @param GroupUpdateNameRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GroupUpdateNameResponse
      */
     public function groupUpdateNameWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $body['group_id'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$body['group_id'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GroupUpdateName',
@@ -3796,11 +4653,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 更新用户组名字
-     *  *
-     * @param GroupUpdateNameRequest $request GroupUpdateNameRequest
+     * 更新用户组名字.
      *
-     * @return GroupUpdateNameResponse GroupUpdateNameResponse
+     * @param request - GroupUpdateNameRequest
+     *
+     * @returns GroupUpdateNameResponse
+     *
+     * @param GroupUpdateNameRequest $request
+     *
+     * @return GroupUpdateNameResponse
      */
     public function groupUpdateName($request)
     {
@@ -3811,45 +4672,59 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Imports a user.
-     *  *
-     * @param ImportUserRequest $request ImportUserRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Imports a user.
      *
-     * @return ImportUserResponse ImportUserResponse
+     * @param request - ImportUserRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportUserResponse
+     *
+     * @param ImportUserRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ImportUserResponse
      */
     public function importUserWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->authenticationDisplayName)) {
-            $body['authentication_display_name'] = $request->authenticationDisplayName;
+        if (null !== $request->authenticationDisplayName) {
+            @$body['authentication_display_name'] = $request->authenticationDisplayName;
         }
-        if (!Utils::isUnset($request->authenticationType)) {
-            $body['authentication_type'] = $request->authenticationType;
+
+        if (null !== $request->authenticationType) {
+            @$body['authentication_type'] = $request->authenticationType;
         }
-        if (!Utils::isUnset($request->autoCreateDrive)) {
-            $body['auto_create_drive'] = $request->autoCreateDrive;
+
+        if (null !== $request->autoCreateDrive) {
+            @$body['auto_create_drive'] = $request->autoCreateDrive;
         }
-        if (!Utils::isUnset($request->driveTotalSize)) {
-            $body['drive_total_size'] = $request->driveTotalSize;
+
+        if (null !== $request->driveTotalSize) {
+            @$body['drive_total_size'] = $request->driveTotalSize;
         }
-        if (!Utils::isUnset($request->extra)) {
-            $body['extra'] = $request->extra;
+
+        if (null !== $request->extra) {
+            @$body['extra'] = $request->extra;
         }
-        if (!Utils::isUnset($request->identity)) {
-            $body['identity'] = $request->identity;
+
+        if (null !== $request->identity) {
+            @$body['identity'] = $request->identity;
         }
-        if (!Utils::isUnset($request->nickName)) {
-            $body['nick_name'] = $request->nickName;
+
+        if (null !== $request->nickName) {
+            @$body['nick_name'] = $request->nickName;
         }
-        if (!Utils::isUnset($request->parentGroupId)) {
-            $body['parent_group_id'] = $request->parentGroupId;
+
+        if (null !== $request->parentGroupId) {
+            @$body['parent_group_id'] = $request->parentGroupId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ImportUser',
@@ -3867,11 +4742,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Imports a user.
-     *  *
-     * @param ImportUserRequest $request ImportUserRequest
+     * Imports a user.
      *
-     * @return ImportUserResponse ImportUserResponse
+     * @param request - ImportUserRequest
+     *
+     * @returns ImportUserResponse
+     *
+     * @param ImportUserRequest $request
+     *
+     * @return ImportUserResponse
      */
     public function importUser($request)
     {
@@ -3882,24 +4761,31 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 送审文件
-     *  *
-     * @param InvestigateFileRequest $request InvestigateFileRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 送审文件.
      *
-     * @return InvestigateFileResponse InvestigateFileResponse
+     * @param request - InvestigateFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvestigateFileResponse
+     *
+     * @param InvestigateFileRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return InvestigateFileResponse
      */
     public function investigateFileWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveFileIds)) {
-            $body['drive_file_ids'] = $request->driveFileIds;
+        if (null !== $request->driveFileIds) {
+            @$body['drive_file_ids'] = $request->driveFileIds;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'InvestigateFile',
@@ -3917,11 +4803,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 送审文件
-     *  *
-     * @param InvestigateFileRequest $request InvestigateFileRequest
+     * 送审文件.
      *
-     * @return InvestigateFileResponse InvestigateFileResponse
+     * @param request - InvestigateFileRequest
+     *
+     * @returns InvestigateFileResponse
+     *
+     * @param InvestigateFileRequest $request
+     *
+     * @return InvestigateFileResponse
      */
     public function investigateFile($request)
     {
@@ -3932,33 +4822,43 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Associates an account with a user.
-     *  *
-     * @param LinkAccountRequest $request LinkAccountRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Associates an account with a user.
      *
-     * @return LinkAccountResponse LinkAccountResponse
+     * @param request - LinkAccountRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LinkAccountResponse
+     *
+     * @param LinkAccountRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return LinkAccountResponse
      */
     public function linkAccountWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->extra)) {
-            $body['extra'] = $request->extra;
+        if (null !== $request->extra) {
+            @$body['extra'] = $request->extra;
         }
-        if (!Utils::isUnset($request->identity)) {
-            $body['identity'] = $request->identity;
+
+        if (null !== $request->identity) {
+            @$body['identity'] = $request->identity;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'LinkAccount',
@@ -3976,11 +4876,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Associates an account with a user.
-     *  *
-     * @param LinkAccountRequest $request LinkAccountRequest
+     * Associates an account with a user.
      *
-     * @return LinkAccountResponse LinkAccountResponse
+     * @param request - LinkAccountRequest
+     *
+     * @returns LinkAccountResponse
+     *
+     * @param LinkAccountRequest $request
+     *
+     * @return LinkAccountResponse
      */
     public function linkAccount($request)
     {
@@ -3991,36 +4895,47 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries location-based groups.
-     *  *
-     * @param ListAddressGroupsRequest $request ListAddressGroupsRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries location-based groups.
      *
-     * @return ListAddressGroupsResponse ListAddressGroupsResponse
+     * @param request - ListAddressGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAddressGroupsResponse
+     *
+     * @param ListAddressGroupsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListAddressGroupsResponse
      */
     public function listAddressGroupsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->imageThumbnailProcess)) {
-            $body['image_thumbnail_process'] = $request->imageThumbnailProcess;
+
+        if (null !== $request->imageThumbnailProcess) {
+            @$body['image_thumbnail_process'] = $request->imageThumbnailProcess;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->videoThumbnailProcess)) {
-            $body['video_thumbnail_process'] = $request->videoThumbnailProcess;
+
+        if (null !== $request->videoThumbnailProcess) {
+            @$body['video_thumbnail_process'] = $request->videoThumbnailProcess;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListAddressGroups',
@@ -4038,11 +4953,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries location-based groups.
-     *  *
-     * @param ListAddressGroupsRequest $request ListAddressGroupsRequest
+     * Queries location-based groups.
      *
-     * @return ListAddressGroupsResponse ListAddressGroupsResponse
+     * @param request - ListAddressGroupsRequest
+     *
+     * @returns ListAddressGroupsResponse
+     *
+     * @param ListAddressGroupsRequest $request
+     *
+     * @return ListAddressGroupsResponse
      */
     public function listAddressGroups($request)
     {
@@ -4053,33 +4972,43 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of assigned roles. For example, you can query the administrators of a group by group ID.
-     *  *
-     * @param ListAssignmentRequest $request ListAssignmentRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries a list of assigned roles. For example, you can query the administrators of a group by group ID.
      *
-     * @return ListAssignmentResponse ListAssignmentResponse
+     * @param request - ListAssignmentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAssignmentResponse
+     *
+     * @param ListAssignmentRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAssignmentResponse
      */
     public function listAssignmentWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->manageResourceId)) {
-            $body['manage_resource_id'] = $request->manageResourceId;
+
+        if (null !== $request->manageResourceId) {
+            @$body['manage_resource_id'] = $request->manageResourceId;
         }
-        if (!Utils::isUnset($request->manageResourceType)) {
-            $body['manage_resource_type'] = $request->manageResourceType;
+
+        if (null !== $request->manageResourceType) {
+            @$body['manage_resource_type'] = $request->manageResourceType;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListAssignment',
@@ -4097,11 +5026,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of assigned roles. For example, you can query the administrators of a group by group ID.
-     *  *
-     * @param ListAssignmentRequest $request ListAssignmentRequest
+     * Queries a list of assigned roles. For example, you can query the administrators of a group by group ID.
      *
-     * @return ListAssignmentResponse ListAssignmentResponse
+     * @param request - ListAssignmentRequest
+     *
+     * @returns ListAssignmentResponse
+     *
+     * @param ListAssignmentRequest $request
+     *
+     * @return ListAssignmentResponse
      */
     public function listAssignment($request)
     {
@@ -4112,33 +5045,43 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries incremental information.
-     *  *
-     * @param ListDeltaRequest $request ListDeltaRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries incremental information.
      *
-     * @return ListDeltaResponse ListDeltaResponse
+     * @param request - ListDeltaRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDeltaResponse
+     *
+     * @param ListDeltaRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListDeltaResponse
      */
     public function listDeltaWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cursor)) {
-            $body['cursor'] = $request->cursor;
+        if (null !== $request->cursor) {
+            @$body['cursor'] = $request->cursor;
         }
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->syncRootId)) {
-            $body['sync_root_id'] = $request->syncRootId;
+
+        if (null !== $request->syncRootId) {
+            @$body['sync_root_id'] = $request->syncRootId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListDelta',
@@ -4156,11 +5099,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries incremental information.
-     *  *
-     * @param ListDeltaRequest $request ListDeltaRequest
+     * Queries incremental information.
      *
-     * @return ListDeltaResponse ListDeltaResponse
+     * @param request - ListDeltaRequest
+     *
+     * @returns ListDeltaResponse
+     *
+     * @param ListDeltaRequest $request
+     *
+     * @return ListDeltaResponse
      */
     public function listDelta($request)
     {
@@ -4171,33 +5118,43 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 列举 domain
-     *  *
-     * @param ListDomainsRequest $request ListDomainsRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 列举 domain.
      *
-     * @return ListDomainsResponse ListDomainsResponse
+     * @param request - ListDomainsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDomainsResponse
+     *
+     * @param ListDomainsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListDomainsResponse
      */
     public function listDomainsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->parentDomainId)) {
-            $body['parent_domain_id'] = $request->parentDomainId;
+
+        if (null !== $request->parentDomainId) {
+            @$body['parent_domain_id'] = $request->parentDomainId;
         }
-        if (!Utils::isUnset($request->serviceCode)) {
-            $body['service_code'] = $request->serviceCode;
+
+        if (null !== $request->serviceCode) {
+            @$body['service_code'] = $request->serviceCode;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListDomains',
@@ -4215,11 +5172,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 列举 domain
-     *  *
-     * @param ListDomainsRequest $request ListDomainsRequest
+     * 列举 domain.
      *
-     * @return ListDomainsResponse ListDomainsResponse
+     * @param request - ListDomainsRequest
+     *
+     * @returns ListDomainsResponse
+     *
+     * @param ListDomainsRequest $request
+     *
+     * @return ListDomainsResponse
      */
     public function listDomains($request)
     {
@@ -4230,33 +5191,43 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of drives.
-     *  *
-     * @param ListDriveRequest $request ListDriveRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries a list of drives.
      *
-     * @return ListDriveResponse ListDriveResponse
+     * @param request - ListDriveRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDriveResponse
+     *
+     * @param ListDriveRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListDriveResponse
      */
     public function listDriveWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->owner)) {
-            $body['owner'] = $request->owner;
+
+        if (null !== $request->owner) {
+            @$body['owner'] = $request->owner;
         }
-        if (!Utils::isUnset($request->ownerType)) {
-            $body['owner_type'] = $request->ownerType;
+
+        if (null !== $request->ownerType) {
+            @$body['owner_type'] = $request->ownerType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListDrive',
@@ -4274,11 +5245,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of drives.
-     *  *
-     * @param ListDriveRequest $request ListDriveRequest
+     * Queries a list of drives.
      *
-     * @return ListDriveResponse ListDriveResponse
+     * @param request - ListDriveRequest
+     *
+     * @returns ListDriveResponse
+     *
+     * @param ListDriveRequest $request
+     *
+     * @return ListDriveResponse
      */
     public function listDrive($request)
     {
@@ -4289,36 +5264,47 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries face-based groups.
-     *  *
-     * @param ListFacegroupsRequest $request ListFacegroupsRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries face-based groups.
      *
-     * @return ListFacegroupsResponse ListFacegroupsResponse
+     * @param request - ListFacegroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFacegroupsResponse
+     *
+     * @param ListFacegroupsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListFacegroupsResponse
      */
     public function listFacegroupsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->remarks)) {
-            $body['remarks'] = $request->remarks;
+
+        if (null !== $request->remarks) {
+            @$body['remarks'] = $request->remarks;
         }
-        if (!Utils::isUnset($request->returnTotalCount)) {
-            $body['return_total_count'] = $request->returnTotalCount;
+
+        if (null !== $request->returnTotalCount) {
+            @$body['return_total_count'] = $request->returnTotalCount;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListFacegroups',
@@ -4336,11 +5322,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries face-based groups.
-     *  *
-     * @param ListFacegroupsRequest $request ListFacegroupsRequest
+     * Queries face-based groups.
      *
-     * @return ListFacegroupsResponse ListFacegroupsResponse
+     * @param request - ListFacegroupsRequest
+     *
+     * @returns ListFacegroupsResponse
+     *
+     * @param ListFacegroupsRequest $request
+     *
+     * @return ListFacegroupsResponse
      */
     public function listFacegroups($request)
     {
@@ -4351,57 +5341,75 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of files and folders.
-     *  *
-     * @param ListFileRequest $request ListFileRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries a list of files and folders.
      *
-     * @return ListFileResponse ListFileResponse
+     * @param request - ListFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFileResponse
+     *
+     * @param ListFileRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListFileResponse
      */
     public function listFileWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->category)) {
-            $body['category'] = $request->category;
+        if (null !== $request->category) {
+            @$body['category'] = $request->category;
         }
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fields)) {
-            $body['fields'] = $request->fields;
+
+        if (null !== $request->fields) {
+            @$body['fields'] = $request->fields;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $body['order_by'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$body['order_by'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->orderDirection)) {
-            $body['order_direction'] = $request->orderDirection;
+
+        if (null !== $request->orderDirection) {
+            @$body['order_direction'] = $request->orderDirection;
         }
-        if (!Utils::isUnset($request->parentFileId)) {
-            $body['parent_file_id'] = $request->parentFileId;
+
+        if (null !== $request->parentFileId) {
+            @$body['parent_file_id'] = $request->parentFileId;
         }
-        if (!Utils::isUnset($request->shareId)) {
-            $body['share_id'] = $request->shareId;
+
+        if (null !== $request->shareId) {
+            @$body['share_id'] = $request->shareId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->thumbnailProcesses)) {
-            $body['thumbnail_processes'] = $request->thumbnailProcesses;
+
+        if (null !== $request->thumbnailProcesses) {
+            @$body['thumbnail_processes'] = $request->thumbnailProcesses;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListFile',
@@ -4419,11 +5427,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of files and folders.
-     *  *
-     * @param ListFileRequest $request ListFileRequest
+     * Queries a list of files and folders.
      *
-     * @return ListFileResponse ListFileResponse
+     * @param request - ListFileRequest
+     *
+     * @returns ListFileResponse
+     *
+     * @param ListFileRequest $request
+     *
+     * @return ListFileResponse
      */
     public function listFile($request)
     {
@@ -4434,27 +5446,35 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries groups.
-     *  *
-     * @param ListGroupRequest $request ListGroupRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries groups.
      *
-     * @return ListGroupResponse ListGroupResponse
+     * @param request - ListGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGroupResponse
+     *
+     * @param ListGroupRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListGroupResponse
      */
     public function listGroupWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListGroup',
@@ -4472,11 +5492,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries groups.
-     *  *
-     * @param ListGroupRequest $request ListGroupRequest
+     * Queries groups.
      *
-     * @return ListGroupResponse ListGroupResponse
+     * @param request - ListGroupRequest
+     *
+     * @returns ListGroupResponse
+     *
+     * @param ListGroupRequest $request
+     *
+     * @return ListGroupResponse
      */
     public function listGroup($request)
     {
@@ -4487,33 +5511,43 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the members of a group.
-     *  *
-     * @param ListGroupMemberRequest $request ListGroupMemberRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the members of a group.
      *
-     * @return ListGroupMemberResponse ListGroupMemberResponse
+     * @param request - ListGroupMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGroupMemberResponse
+     *
+     * @param ListGroupMemberRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListGroupMemberResponse
      */
     public function listGroupMemberWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $body['group_id'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$body['group_id'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->memberType)) {
-            $body['member_type'] = $request->memberType;
+
+        if (null !== $request->memberType) {
+            @$body['member_type'] = $request->memberType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListGroupMember',
@@ -4531,11 +5565,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the members of a group.
-     *  *
-     * @param ListGroupMemberRequest $request ListGroupMemberRequest
+     * Queries the members of a group.
      *
-     * @return ListGroupMemberResponse ListGroupMemberResponse
+     * @param request - ListGroupMemberRequest
+     *
+     * @returns ListGroupMemberResponse
+     *
+     * @param ListGroupMemberRequest $request
+     *
+     * @return ListGroupMemberResponse
      */
     public function listGroupMember($request)
     {
@@ -4546,24 +5584,31 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 列举用户或团队已分配的角色列表
-     *  *
-     * @param ListIdentityRoleRequest $request ListIdentityRoleRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 列举用户或团队已分配的角色列表.
      *
-     * @return ListIdentityRoleResponse ListIdentityRoleResponse
+     * @param request - ListIdentityRoleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIdentityRoleResponse
+     *
+     * @param ListIdentityRoleRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListIdentityRoleResponse
      */
     public function listIdentityRoleWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->identity)) {
-            $body['identity'] = $request->identity;
+        if (null !== $request->identity) {
+            @$body['identity'] = $request->identity;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListIdentityRole',
@@ -4581,11 +5626,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 列举用户或团队已分配的角色列表
-     *  *
-     * @param ListIdentityRoleRequest $request ListIdentityRoleRequest
+     * 列举用户或团队已分配的角色列表.
      *
-     * @return ListIdentityRoleResponse ListIdentityRoleResponse
+     * @param request - ListIdentityRoleRequest
+     *
+     * @returns ListIdentityRoleResponse
+     *
+     * @param ListIdentityRoleRequest $request
+     *
+     * @return ListIdentityRoleResponse
      */
     public function listIdentityRole($request)
     {
@@ -4596,30 +5645,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the mappings between entities and benefit packages. You can call this operation to query the benefit packages that are associated with a user.
-     *  *
-     * @param ListIdentityToBenefitPkgMappingRequest $request ListIdentityToBenefitPkgMappingRequest
-     * @param string[]                               $headers map
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the mappings between entities and benefit packages. You can call this operation to query the benefit packages that are associated with a user.
      *
-     * @return ListIdentityToBenefitPkgMappingResponse ListIdentityToBenefitPkgMappingResponse
+     * @param request - ListIdentityToBenefitPkgMappingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIdentityToBenefitPkgMappingResponse
+     *
+     * @param ListIdentityToBenefitPkgMappingRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListIdentityToBenefitPkgMappingResponse
      */
     public function listIdentityToBenefitPkgMappingWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->identityId)) {
-            $body['identity_id'] = $request->identityId;
+        if (null !== $request->identityId) {
+            @$body['identity_id'] = $request->identityId;
         }
-        if (!Utils::isUnset($request->identityType)) {
-            $body['identity_type'] = $request->identityType;
+
+        if (null !== $request->identityType) {
+            @$body['identity_type'] = $request->identityType;
         }
-        if (!Utils::isUnset($request->includeExpired)) {
-            $body['include_expired'] = $request->includeExpired;
+
+        if (null !== $request->includeExpired) {
+            @$body['include_expired'] = $request->includeExpired;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListIdentityToBenefitPkgMapping',
@@ -4637,11 +5695,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the mappings between entities and benefit packages. You can call this operation to query the benefit packages that are associated with a user.
-     *  *
-     * @param ListIdentityToBenefitPkgMappingRequest $request ListIdentityToBenefitPkgMappingRequest
+     * Queries the mappings between entities and benefit packages. You can call this operation to query the benefit packages that are associated with a user.
      *
-     * @return ListIdentityToBenefitPkgMappingResponse ListIdentityToBenefitPkgMappingResponse
+     * @param request - ListIdentityToBenefitPkgMappingRequest
+     *
+     * @returns ListIdentityToBenefitPkgMappingResponse
+     *
+     * @param ListIdentityToBenefitPkgMappingRequest $request
+     *
+     * @return ListIdentityToBenefitPkgMappingResponse
      */
     public function listIdentityToBenefitPkgMapping($request)
     {
@@ -4652,27 +5714,35 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the drives of the current user.
-     *  *
-     * @param ListMyDrivesRequest $request ListMyDrivesRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the drives of the current user.
      *
-     * @return ListMyDrivesResponse ListMyDrivesResponse
+     * @param request - ListMyDrivesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMyDrivesResponse
+     *
+     * @param ListMyDrivesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListMyDrivesResponse
      */
     public function listMyDrivesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListMyDrives',
@@ -4690,11 +5760,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the drives of the current user.
-     *  *
-     * @param ListMyDrivesRequest $request ListMyDrivesRequest
+     * Queries the drives of the current user.
      *
-     * @return ListMyDrivesResponse ListMyDrivesResponse
+     * @param request - ListMyDrivesRequest
+     *
+     * @returns ListMyDrivesResponse
+     *
+     * @param ListMyDrivesRequest $request
+     *
+     * @return ListMyDrivesResponse
      */
     public function listMyDrives($request)
     {
@@ -4705,30 +5779,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the team drives that can be accessed by the authorized users.
-     *  *
-     * @param ListMyGroupDriveRequest $request ListMyGroupDriveRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the team drives that can be accessed by the authorized users.
      *
-     * @return ListMyGroupDriveResponse ListMyGroupDriveResponse
+     * @param request - ListMyGroupDriveRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMyGroupDriveResponse
+     *
+     * @param ListMyGroupDriveRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListMyGroupDriveResponse
      */
     public function listMyGroupDriveWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveName)) {
-            $body['drive_name'] = $request->driveName;
+        if (null !== $request->driveName) {
+            @$body['drive_name'] = $request->driveName;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListMyGroupDrive',
@@ -4746,11 +5829,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the team drives that can be accessed by the authorized users.
-     *  *
-     * @param ListMyGroupDriveRequest $request ListMyGroupDriveRequest
+     * Queries the team drives that can be accessed by the authorized users.
      *
-     * @return ListMyGroupDriveResponse ListMyGroupDriveResponse
+     * @param request - ListMyGroupDriveRequest
+     *
+     * @returns ListMyGroupDriveResponse
+     *
+     * @param ListMyGroupDriveRequest $request
+     *
+     * @return ListMyGroupDriveResponse
      */
     public function listMyGroupDrive($request)
     {
@@ -4761,27 +5848,35 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of files that are shared with a user. You can call this operation to query a list of files in a personal drive on which a user is granted permissions.
-     *  *
-     * @param ListReceivedFileRequest $request ListReceivedFileRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries a list of files that are shared with a user. You can call this operation to query a list of files in a personal drive on which a user is granted permissions.
      *
-     * @return ListReceivedFileResponse ListReceivedFileResponse
+     * @param request - ListReceivedFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListReceivedFileResponse
+     *
+     * @param ListReceivedFileRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListReceivedFileResponse
      */
     public function listReceivedFileWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListReceivedFile',
@@ -4799,11 +5894,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of files that are shared with a user. You can call this operation to query a list of files in a personal drive on which a user is granted permissions.
-     *  *
-     * @param ListReceivedFileRequest $request ListReceivedFileRequest
+     * Queries a list of files that are shared with a user. You can call this operation to query a list of files in a personal drive on which a user is granted permissions.
      *
-     * @return ListReceivedFileResponse ListReceivedFileResponse
+     * @param request - ListReceivedFileRequest
+     *
+     * @returns ListReceivedFileResponse
+     *
+     * @param ListReceivedFileRequest $request
+     *
+     * @return ListReceivedFileResponse
      */
     public function listReceivedFile($request)
     {
@@ -4814,36 +5913,47 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about files and folders in the recycle bin.
-     *  *
-     * @param ListRecyclebinRequest $request ListRecyclebinRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the information about files and folders in the recycle bin.
      *
-     * @return ListRecyclebinResponse ListRecyclebinResponse
+     * @param request - ListRecyclebinRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRecyclebinResponse
+     *
+     * @param ListRecyclebinRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListRecyclebinResponse
      */
     public function listRecyclebinWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fields)) {
-            $body['fields'] = $request->fields;
+
+        if (null !== $request->fields) {
+            @$body['fields'] = $request->fields;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->thumbnailProcesses)) {
-            $body['thumbnail_processes'] = $request->thumbnailProcesses;
+
+        if (null !== $request->thumbnailProcesses) {
+            @$body['thumbnail_processes'] = $request->thumbnailProcesses;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListRecyclebin',
@@ -4861,11 +5971,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about files and folders in the recycle bin.
-     *  *
-     * @param ListRecyclebinRequest $request ListRecyclebinRequest
+     * Queries the information about files and folders in the recycle bin.
      *
-     * @return ListRecyclebinResponse ListRecyclebinResponse
+     * @param request - ListRecyclebinRequest
+     *
+     * @returns ListRecyclebinResponse
+     *
+     * @param ListRecyclebinRequest $request
+     *
+     * @return ListRecyclebinResponse
      */
     public function listRecyclebin($request)
     {
@@ -4876,36 +5990,47 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the versions of a file.
-     *  *
-     * @param ListRevisionRequest $request ListRevisionRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the versions of a file.
      *
-     * @return ListRevisionResponse ListRevisionResponse
+     * @param request - ListRevisionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRevisionResponse
+     *
+     * @param ListRevisionRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListRevisionResponse
      */
     public function listRevisionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fields)) {
-            $body['fields'] = $request->fields;
+
+        if (null !== $request->fields) {
+            @$body['fields'] = $request->fields;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListRevision',
@@ -4923,11 +6048,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the versions of a file.
-     *  *
-     * @param ListRevisionRequest $request ListRevisionRequest
+     * Queries the versions of a file.
      *
-     * @return ListRevisionResponse ListRevisionResponse
+     * @param request - ListRevisionRequest
+     *
+     * @returns ListRevisionResponse
+     *
+     * @param ListRevisionRequest $request
+     *
+     * @return ListRevisionResponse
      */
     public function listRevision($request)
     {
@@ -4938,41 +6067,54 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries shares.
-     *  *
-     * @description This operation is discontinued. To query shares, you can call the SearchShareLink operation.
-     *  *
-     * @param ListShareLinkRequest $request ListShareLinkRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries shares.
      *
-     * @return ListShareLinkResponse ListShareLinkResponse
+     * @remarks
+     * This operation is discontinued. To query shares, you can call the SearchShareLink operation.
+     *
+     * @param request - ListShareLinkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListShareLinkResponse
+     *
+     * @param ListShareLinkRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListShareLinkResponse
      */
     public function listShareLinkWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->creator)) {
-            $body['creator'] = $request->creator;
+        if (null !== $request->creator) {
+            @$body['creator'] = $request->creator;
         }
-        if (!Utils::isUnset($request->includeCancelled)) {
-            $body['include_cancelled'] = $request->includeCancelled;
+
+        if (null !== $request->includeCancelled) {
+            @$body['include_cancelled'] = $request->includeCancelled;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $body['order_by'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$body['order_by'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->orderDirection)) {
-            $body['order_direction'] = $request->orderDirection;
+
+        if (null !== $request->orderDirection) {
+            @$body['order_direction'] = $request->orderDirection;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListShareLink',
@@ -4990,13 +6132,18 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries shares.
-     *  *
-     * @description This operation is discontinued. To query shares, you can call the SearchShareLink operation.
-     *  *
-     * @param ListShareLinkRequest $request ListShareLinkRequest
+     * Queries shares.
      *
-     * @return ListShareLinkResponse ListShareLinkResponse
+     * @remarks
+     * This operation is discontinued. To query shares, you can call the SearchShareLink operation.
+     *
+     * @param request - ListShareLinkRequest
+     *
+     * @returns ListShareLinkResponse
+     *
+     * @param ListShareLinkRequest $request
+     *
+     * @return ListShareLinkResponse
      */
     public function listShareLink($request)
     {
@@ -5007,32 +6154,42 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries tags.
-     *  *
-     * @description You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
-     *  *
-     * @param ListTagsRequest $request ListTagsRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries tags.
      *
-     * @return ListTagsResponse ListTagsResponse
+     * @remarks
+     * You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
+     *
+     * @param request - ListTagsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagsResponse
+     *
+     * @param ListTagsRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListTagsResponse
      */
     public function listTagsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->imageThumbnailProcess)) {
-            $body['image_thumbnail_process'] = $request->imageThumbnailProcess;
+
+        if (null !== $request->imageThumbnailProcess) {
+            @$body['image_thumbnail_process'] = $request->imageThumbnailProcess;
         }
-        if (!Utils::isUnset($request->videoThumbnailProcess)) {
-            $body['video_thumbnail_process'] = $request->videoThumbnailProcess;
+
+        if (null !== $request->videoThumbnailProcess) {
+            @$body['video_thumbnail_process'] = $request->videoThumbnailProcess;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListTags',
@@ -5050,13 +6207,18 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries tags.
-     *  *
-     * @description You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
-     *  *
-     * @param ListTagsRequest $request ListTagsRequest
+     * Queries tags.
      *
-     * @return ListTagsResponse ListTagsResponse
+     * @remarks
+     * You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
+     *
+     * @param request - ListTagsRequest
+     *
+     * @returns ListTagsResponse
+     *
+     * @param ListTagsRequest $request
+     *
+     * @return ListTagsResponse
      */
     public function listTags($request)
     {
@@ -5067,39 +6229,51 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the file parts that are uploaded.
-     *  *
-     * @param ListUploadedPartsRequest $request ListUploadedPartsRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the file parts that are uploaded.
      *
-     * @return ListUploadedPartsResponse ListUploadedPartsResponse
+     * @param request - ListUploadedPartsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUploadedPartsResponse
+     *
+     * @param ListUploadedPartsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListUploadedPartsResponse
      */
     public function listUploadedPartsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->partNumberMarker)) {
-            $body['part_number_marker'] = $request->partNumberMarker;
+
+        if (null !== $request->partNumberMarker) {
+            @$body['part_number_marker'] = $request->partNumberMarker;
         }
-        if (!Utils::isUnset($request->shareId)) {
-            $body['share_id'] = $request->shareId;
+
+        if (null !== $request->shareId) {
+            @$body['share_id'] = $request->shareId;
         }
-        if (!Utils::isUnset($request->uploadId)) {
-            $body['upload_id'] = $request->uploadId;
+
+        if (null !== $request->uploadId) {
+            @$body['upload_id'] = $request->uploadId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListUploadedParts',
@@ -5117,11 +6291,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries the file parts that are uploaded.
-     *  *
-     * @param ListUploadedPartsRequest $request ListUploadedPartsRequest
+     * Queries the file parts that are uploaded.
      *
-     * @return ListUploadedPartsResponse ListUploadedPartsResponse
+     * @param request - ListUploadedPartsRequest
+     *
+     * @returns ListUploadedPartsResponse
+     *
+     * @param ListUploadedPartsRequest $request
+     *
+     * @return ListUploadedPartsResponse
      */
     public function listUploadedParts($request)
     {
@@ -5132,27 +6310,35 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries users.
-     *  *
-     * @param ListUserRequest $request ListUserRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries users.
      *
-     * @return ListUserResponse ListUserResponse
+     * @param request - ListUserRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserResponse
+     *
+     * @param ListUserRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListUserResponse
      */
     public function listUserWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListUser',
@@ -5170,11 +6356,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries users.
-     *  *
-     * @param ListUserRequest $request ListUserRequest
+     * Queries users.
      *
-     * @return ListUserResponse ListUserResponse
+     * @param request - ListUserRequest
+     *
+     * @returns ListUserResponse
+     *
+     * @param ListUserRequest $request
+     *
+     * @return ListUserResponse
      */
     public function listUser($request)
     {
@@ -5185,33 +6375,43 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Moves files or folders.
-     *  *
-     * @param MoveFileRequest $request MoveFileRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Moves files or folders.
      *
-     * @return MoveFileResponse MoveFileResponse
+     * @param request - MoveFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MoveFileResponse
+     *
+     * @param MoveFileRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return MoveFileResponse
      */
     public function moveFileWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->checkNameMode)) {
-            $body['check_name_mode'] = $request->checkNameMode;
+        if (null !== $request->checkNameMode) {
+            @$body['check_name_mode'] = $request->checkNameMode;
         }
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->toParentFileId)) {
-            $body['to_parent_file_id'] = $request->toParentFileId;
+
+        if (null !== $request->toParentFileId) {
+            @$body['to_parent_file_id'] = $request->toParentFileId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'MoveFile',
@@ -5229,11 +6429,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Moves files or folders.
-     *  *
-     * @param MoveFileRequest $request MoveFileRequest
+     * Moves files or folders.
      *
-     * @return MoveFileResponse MoveFileResponse
+     * @param request - MoveFileRequest
+     *
+     * @returns MoveFileResponse
+     *
+     * @param MoveFileRequest $request
+     *
+     * @return MoveFileResponse
      */
     public function moveFile($request)
     {
@@ -5244,45 +6448,59 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 查询凌霄订单价格
-     *  *
-     * @param QueryOrderPriceRequest $request QueryOrderPriceRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询凌霄订单价格
      *
-     * @return QueryOrderPriceResponse QueryOrderPriceResponse
+     * @param request - QueryOrderPriceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryOrderPriceResponse
+     *
+     * @param QueryOrderPriceRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryOrderPriceResponse
      */
     public function queryOrderPriceWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['instance_id'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['instance_id'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $body['order_type'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$body['order_type'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->package)) {
-            $body['package'] = $request->package;
+
+        if (null !== $request->package) {
+            @$body['package'] = $request->package;
         }
-        if (!Utils::isUnset($request->period)) {
-            $body['period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$body['period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $body['period_unit'] = $request->periodUnit;
+
+        if (null !== $request->periodUnit) {
+            @$body['period_unit'] = $request->periodUnit;
         }
-        if (!Utils::isUnset($request->totalSize)) {
-            $body['total_size'] = $request->totalSize;
+
+        if (null !== $request->totalSize) {
+            @$body['total_size'] = $request->totalSize;
         }
-        if (!Utils::isUnset($request->userCount)) {
-            $body['user_count'] = $request->userCount;
+
+        if (null !== $request->userCount) {
+            @$body['user_count'] = $request->userCount;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'QueryOrderPrice',
@@ -5300,11 +6518,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 查询凌霄订单价格
-     *  *
-     * @param QueryOrderPriceRequest $request QueryOrderPriceRequest
+     * 查询凌霄订单价格
      *
-     * @return QueryOrderPriceResponse QueryOrderPriceResponse
+     * @param request - QueryOrderPriceRequest
+     *
+     * @returns QueryOrderPriceResponse
+     *
+     * @param QueryOrderPriceRequest $request
+     *
+     * @return QueryOrderPriceResponse
      */
     public function queryOrderPrice($request)
     {
@@ -5315,30 +6537,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 从人脸分组中的移除指定的文件
-     *  *
-     * @param RemoveFaceGroupFileRequest $request RemoveFaceGroupFileRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 从人脸分组中的移除指定的文件.
      *
-     * @return RemoveFaceGroupFileResponse RemoveFaceGroupFileResponse
+     * @param request - RemoveFaceGroupFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveFaceGroupFileResponse
+     *
+     * @param RemoveFaceGroupFileRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RemoveFaceGroupFileResponse
      */
     public function removeFaceGroupFileWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->faceGroupId)) {
-            $body['face_group_id'] = $request->faceGroupId;
+
+        if (null !== $request->faceGroupId) {
+            @$body['face_group_id'] = $request->faceGroupId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RemoveFaceGroupFile',
@@ -5356,11 +6587,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 从人脸分组中的移除指定的文件
-     *  *
-     * @param RemoveFaceGroupFileRequest $request RemoveFaceGroupFileRequest
+     * 从人脸分组中的移除指定的文件.
      *
-     * @return RemoveFaceGroupFileResponse RemoveFaceGroupFileResponse
+     * @param request - RemoveFaceGroupFileRequest
+     *
+     * @returns RemoveFaceGroupFileResponse
+     *
+     * @param RemoveFaceGroupFileRequest $request
+     *
+     * @return RemoveFaceGroupFileResponse
      */
     public function removeFaceGroupFile($request)
     {
@@ -5371,30 +6606,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Removes a member from a group.
-     *  *
-     * @param RemoveGroupMemberRequest $request RemoveGroupMemberRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Removes a member from a group.
      *
-     * @return RemoveGroupMemberResponse RemoveGroupMemberResponse
+     * @param request - RemoveGroupMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveGroupMemberResponse
+     *
+     * @param RemoveGroupMemberRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RemoveGroupMemberResponse
      */
     public function removeGroupMemberWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $body['group_id'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$body['group_id'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->memberId)) {
-            $body['member_id'] = $request->memberId;
+
+        if (null !== $request->memberId) {
+            @$body['member_id'] = $request->memberId;
         }
-        if (!Utils::isUnset($request->memberType)) {
-            $body['member_type'] = $request->memberType;
+
+        if (null !== $request->memberType) {
+            @$body['member_type'] = $request->memberType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RemoveGroupMember',
@@ -5412,11 +6656,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Removes a member from a group.
-     *  *
-     * @param RemoveGroupMemberRequest $request RemoveGroupMemberRequest
+     * Removes a member from a group.
      *
-     * @return RemoveGroupMemberResponse RemoveGroupMemberResponse
+     * @param request - RemoveGroupMemberRequest
+     *
+     * @returns RemoveGroupMemberResponse
+     *
+     * @param RemoveGroupMemberRequest $request
+     *
+     * @return RemoveGroupMemberResponse
      */
     public function removeGroupMember($request)
     {
@@ -5427,30 +6675,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 故事移除文件
-     *  *
-     * @param RemoveStoryFilesRequest $request RemoveStoryFilesRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 故事移除文件.
      *
-     * @return RemoveStoryFilesResponse RemoveStoryFilesResponse
+     * @param request - RemoveStoryFilesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveStoryFilesResponse
+     *
+     * @param RemoveStoryFilesRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RemoveStoryFilesResponse
      */
     public function removeStoryFilesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->files)) {
-            $body['files'] = $request->files;
+
+        if (null !== $request->files) {
+            @$body['files'] = $request->files;
         }
-        if (!Utils::isUnset($request->storyId)) {
-            $body['story_id'] = $request->storyId;
+
+        if (null !== $request->storyId) {
+            @$body['story_id'] = $request->storyId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RemoveStoryFiles',
@@ -5468,11 +6725,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 故事移除文件
-     *  *
-     * @param RemoveStoryFilesRequest $request RemoveStoryFilesRequest
+     * 故事移除文件.
      *
-     * @return RemoveStoryFilesResponse RemoveStoryFilesResponse
+     * @param request - RemoveStoryFilesRequest
+     *
+     * @returns RemoveStoryFilesResponse
+     *
+     * @param RemoveStoryFilesRequest $request
+     *
+     * @return RemoveStoryFilesResponse
      */
     public function removeStoryFiles($request)
     {
@@ -5483,27 +6744,35 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Restores a file or folder from the recycle bin.
-     *  *
-     * @param RestoreFileRequest $request RestoreFileRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Restores a file or folder from the recycle bin.
      *
-     * @return RestoreFileResponse RestoreFileResponse
+     * @param request - RestoreFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestoreFileResponse
+     *
+     * @param RestoreFileRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RestoreFileResponse
      */
     public function restoreFileWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RestoreFile',
@@ -5521,11 +6790,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Restores a file or folder from the recycle bin.
-     *  *
-     * @param RestoreFileRequest $request RestoreFileRequest
+     * Restores a file or folder from the recycle bin.
      *
-     * @return RestoreFileResponse RestoreFileResponse
+     * @param request - RestoreFileRequest
+     *
+     * @returns RestoreFileResponse
+     *
+     * @param RestoreFileRequest $request
+     *
+     * @return RestoreFileResponse
      */
     public function restoreFile($request)
     {
@@ -5536,30 +6809,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Restores a historical version of a file. You cannot restore the latest version of a file.
-     *  *
-     * @param RestoreRevisionRequest $request RestoreRevisionRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Restores a historical version of a file. You cannot restore the latest version of a file.
      *
-     * @return RestoreRevisionResponse RestoreRevisionResponse
+     * @param request - RestoreRevisionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestoreRevisionResponse
+     *
+     * @param RestoreRevisionRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RestoreRevisionResponse
      */
     public function restoreRevisionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->revisionId)) {
-            $body['revision_id'] = $request->revisionId;
+
+        if (null !== $request->revisionId) {
+            @$body['revision_id'] = $request->revisionId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RestoreRevision',
@@ -5577,11 +6859,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Restores a historical version of a file. You cannot restore the latest version of a file.
-     *  *
-     * @param RestoreRevisionRequest $request RestoreRevisionRequest
+     * Restores a historical version of a file. You cannot restore the latest version of a file.
      *
-     * @return RestoreRevisionResponse RestoreRevisionResponse
+     * @param request - RestoreRevisionRequest
+     *
+     * @returns RestoreRevisionResponse
+     *
+     * @param RestoreRevisionRequest $request
+     *
+     * @return RestoreRevisionResponse
      */
     public function restoreRevision($request)
     {
@@ -5592,33 +6878,43 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Scans files.
-     *  *
-     * @param ScanFileRequest $request ScanFileRequest
-     * @param string[]        $headers map
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Scans files.
      *
-     * @return ScanFileResponse ScanFileResponse
+     * @param request - ScanFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ScanFileResponse
+     *
+     * @param ScanFileRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ScanFileResponse
      */
     public function scanFileWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fields)) {
-            $body['fields'] = $request->fields;
+
+        if (null !== $request->fields) {
+            @$body['fields'] = $request->fields;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ScanFile',
@@ -5636,11 +6932,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Scans files.
-     *  *
-     * @param ScanFileRequest $request ScanFileRequest
+     * Scans files.
      *
-     * @return ScanFileResponse ScanFileResponse
+     * @param request - ScanFileRequest
+     *
+     * @returns ScanFileResponse
+     *
+     * @param ScanFileRequest $request
+     *
+     * @return ScanFileResponse
      */
     public function scanFile($request)
     {
@@ -5651,42 +6951,55 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries location-based groups based on specific locations.
-     *  *
-     * @param SearchAddressGroupsRequest $request SearchAddressGroupsRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries location-based groups based on specific locations.
      *
-     * @return SearchAddressGroupsResponse SearchAddressGroupsResponse
+     * @param request - SearchAddressGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchAddressGroupsResponse
+     *
+     * @param SearchAddressGroupsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SearchAddressGroupsResponse
      */
     public function searchAddressGroupsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->addressLevel)) {
-            $body['address_level'] = $request->addressLevel;
+        if (null !== $request->addressLevel) {
+            @$body['address_level'] = $request->addressLevel;
         }
-        if (!Utils::isUnset($request->addressNames)) {
-            $body['address_names'] = $request->addressNames;
+
+        if (null !== $request->addressNames) {
+            @$body['address_names'] = $request->addressNames;
         }
-        if (!Utils::isUnset($request->brGeoPoint)) {
-            $body['br_geo_point'] = $request->brGeoPoint;
+
+        if (null !== $request->brGeoPoint) {
+            @$body['br_geo_point'] = $request->brGeoPoint;
         }
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->imageThumbnailProcess)) {
-            $body['image_thumbnail_process'] = $request->imageThumbnailProcess;
+
+        if (null !== $request->imageThumbnailProcess) {
+            @$body['image_thumbnail_process'] = $request->imageThumbnailProcess;
         }
-        if (!Utils::isUnset($request->tlGeoPoint)) {
-            $body['tl_geo_point'] = $request->tlGeoPoint;
+
+        if (null !== $request->tlGeoPoint) {
+            @$body['tl_geo_point'] = $request->tlGeoPoint;
         }
-        if (!Utils::isUnset($request->videoThumbnailProcess)) {
-            $body['video_thumbnail_process'] = $request->videoThumbnailProcess;
+
+        if (null !== $request->videoThumbnailProcess) {
+            @$body['video_thumbnail_process'] = $request->videoThumbnailProcess;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SearchAddressGroups',
@@ -5704,11 +7017,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries location-based groups based on specific locations.
-     *  *
-     * @param SearchAddressGroupsRequest $request SearchAddressGroupsRequest
+     * Queries location-based groups based on specific locations.
      *
-     * @return SearchAddressGroupsResponse SearchAddressGroupsResponse
+     * @param request - SearchAddressGroupsRequest
+     *
+     * @returns SearchAddressGroupsResponse
+     *
+     * @param SearchAddressGroupsRequest $request
+     *
+     * @return SearchAddressGroupsResponse
      */
     public function searchAddressGroups($request)
     {
@@ -5719,33 +7036,43 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Search domain with specified attributes
-     *  *
-     * @param SearchDomainsRequest $request SearchDomainsRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Search domain with specified attributes.
      *
-     * @return SearchDomainsResponse SearchDomainsResponse
+     * @param request - SearchDomainsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchDomainsResponse
+     *
+     * @param SearchDomainsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SearchDomainsResponse
      */
     public function searchDomainsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $body['order_by'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$body['order_by'] = $request->orderBy;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SearchDomains',
@@ -5763,11 +7090,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Search domain with specified attributes
-     *  *
-     * @param SearchDomainsRequest $request SearchDomainsRequest
+     * Search domain with specified attributes.
      *
-     * @return SearchDomainsResponse SearchDomainsResponse
+     * @param request - SearchDomainsRequest
+     *
+     * @returns SearchDomainsResponse
+     *
+     * @param SearchDomainsRequest $request
+     *
+     * @return SearchDomainsResponse
      */
     public function searchDomains($request)
     {
@@ -5778,36 +7109,47 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries drives.
-     *  *
-     * @param SearchDriveRequest $request SearchDriveRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries drives.
      *
-     * @return SearchDriveResponse SearchDriveResponse
+     * @param request - SearchDriveRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchDriveResponse
+     *
+     * @param SearchDriveRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SearchDriveResponse
      */
     public function searchDriveWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveName)) {
-            $body['drive_name'] = $request->driveName;
+        if (null !== $request->driveName) {
+            @$body['drive_name'] = $request->driveName;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->owner)) {
-            $body['owner'] = $request->owner;
+
+        if (null !== $request->owner) {
+            @$body['owner'] = $request->owner;
         }
-        if (!Utils::isUnset($request->ownerType)) {
-            $body['owner_type'] = $request->ownerType;
+
+        if (null !== $request->ownerType) {
+            @$body['owner_type'] = $request->ownerType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SearchDrive',
@@ -5825,11 +7167,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries drives.
-     *  *
-     * @param SearchDriveRequest $request SearchDriveRequest
+     * Queries drives.
      *
-     * @return SearchDriveResponse SearchDriveResponse
+     * @param request - SearchDriveRequest
+     *
+     * @returns SearchDriveResponse
+     *
+     * @param SearchDriveRequest $request
+     *
+     * @return SearchDriveResponse
      */
     public function searchDrive($request)
     {
@@ -5840,48 +7186,63 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries files. For more information about best practices, visit https://help.aliyun.com/document_detail/175890.html.
-     *  *
-     * @param SearchFileRequest $request SearchFileRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Searches for files.
      *
-     * @return SearchFileResponse SearchFileResponse
+     * @param request - SearchFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchFileResponse
+     *
+     * @param SearchFileRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SearchFileResponse
      */
     public function searchFileWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fields)) {
-            $body['fields'] = $request->fields;
+
+        if (null !== $request->fields) {
+            @$body['fields'] = $request->fields;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $body['order_by'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$body['order_by'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->query)) {
-            $body['query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$body['query'] = $request->query;
         }
-        if (!Utils::isUnset($request->recursive)) {
-            $body['recursive'] = $request->recursive;
+
+        if (null !== $request->recursive) {
+            @$body['recursive'] = $request->recursive;
         }
-        if (!Utils::isUnset($request->returnTotalCount)) {
-            $body['return_total_count'] = $request->returnTotalCount;
+
+        if (null !== $request->returnTotalCount) {
+            @$body['return_total_count'] = $request->returnTotalCount;
         }
-        if (!Utils::isUnset($request->thumbnailProcesses)) {
-            $body['thumbnail_processes'] = $request->thumbnailProcesses;
+
+        if (null !== $request->thumbnailProcesses) {
+            @$body['thumbnail_processes'] = $request->thumbnailProcesses;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SearchFile',
@@ -5899,11 +7260,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries files. For more information about best practices, visit https://help.aliyun.com/document_detail/175890.html.
-     *  *
-     * @param SearchFileRequest $request SearchFileRequest
+     * Searches for files.
      *
-     * @return SearchFileResponse SearchFileResponse
+     * @param request - SearchFileRequest
+     *
+     * @returns SearchFileResponse
+     *
+     * @param SearchFileRequest $request
+     *
+     * @return SearchFileResponse
      */
     public function searchFile($request)
     {
@@ -5914,42 +7279,55 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries share URLs.
-     *  *
-     * @param SearchShareLinkRequest $request SearchShareLinkRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries share URLs.
      *
-     * @return SearchShareLinkResponse SearchShareLinkResponse
+     * @param request - SearchShareLinkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchShareLinkResponse
+     *
+     * @param SearchShareLinkRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SearchShareLinkResponse
      */
     public function searchShareLinkWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->creators)) {
-            $body['creators'] = $request->creators;
+        if (null !== $request->creators) {
+            @$body['creators'] = $request->creators;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $body['order_by'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$body['order_by'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->orderDirection)) {
-            $body['order_direction'] = $request->orderDirection;
+
+        if (null !== $request->orderDirection) {
+            @$body['order_direction'] = $request->orderDirection;
         }
-        if (!Utils::isUnset($request->query)) {
-            $body['query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$body['query'] = $request->query;
         }
-        if (!Utils::isUnset($request->returnTotalCount)) {
-            $body['return_total_count'] = $request->returnTotalCount;
+
+        if (null !== $request->returnTotalCount) {
+            @$body['return_total_count'] = $request->returnTotalCount;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SearchShareLink',
@@ -5967,11 +7345,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Queries share URLs.
-     *  *
-     * @param SearchShareLinkRequest $request SearchShareLinkRequest
+     * Queries share URLs.
      *
-     * @return SearchShareLinkResponse SearchShareLinkResponse
+     * @param request - SearchShareLinkRequest
+     *
+     * @returns SearchShareLinkResponse
+     *
+     * @param SearchShareLinkRequest $request
+     *
+     * @return SearchShareLinkResponse
      */
     public function searchShareLink($request)
     {
@@ -5982,36 +7364,47 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 获取相似图片聚类结果
-     *  *
-     * @param SearchSimilarImageClustersRequest $request SearchSimilarImageClustersRequest
-     * @param string[]                          $headers map
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 获取相似图片聚类结果.
      *
-     * @return SearchSimilarImageClustersResponse SearchSimilarImageClustersResponse
+     * @param request - SearchSimilarImageClustersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchSimilarImageClustersResponse
+     *
+     * @param SearchSimilarImageClustersRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SearchSimilarImageClustersResponse
      */
     public function searchSimilarImageClustersWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->imageThumbnailProcess)) {
-            $body['image_thumbnail_process'] = $request->imageThumbnailProcess;
+
+        if (null !== $request->imageThumbnailProcess) {
+            @$body['image_thumbnail_process'] = $request->imageThumbnailProcess;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->order)) {
-            $body['order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$body['order'] = $request->order;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SearchSimilarImageClusters',
@@ -6029,11 +7422,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 获取相似图片聚类结果
-     *  *
-     * @param SearchSimilarImageClustersRequest $request SearchSimilarImageClustersRequest
+     * 获取相似图片聚类结果.
      *
-     * @return SearchSimilarImageClustersResponse SearchSimilarImageClustersResponse
+     * @param request - SearchSimilarImageClustersRequest
+     *
+     * @returns SearchSimilarImageClustersResponse
+     *
+     * @param SearchSimilarImageClustersRequest $request
+     *
+     * @return SearchSimilarImageClustersResponse
      */
     public function searchSimilarImageClusters($request)
     {
@@ -6044,72 +7441,95 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 查询故事列表
-     *  *
-     * @param SearchStoriesRequest $request SearchStoriesRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 查询故事列表.
      *
-     * @return SearchStoriesResponse SearchStoriesResponse
+     * @param request - SearchStoriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchStoriesResponse
+     *
+     * @param SearchStoriesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SearchStoriesResponse
      */
     public function searchStoriesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->coverImageThumbnailProcess)) {
-            $body['cover_image_thumbnail_process'] = $request->coverImageThumbnailProcess;
+        if (null !== $request->coverImageThumbnailProcess) {
+            @$body['cover_image_thumbnail_process'] = $request->coverImageThumbnailProcess;
         }
-        if (!Utils::isUnset($request->coverVideoThumbnailProcess)) {
-            $body['cover_video_thumbnail_process'] = $request->coverVideoThumbnailProcess;
+
+        if (null !== $request->coverVideoThumbnailProcess) {
+            @$body['cover_video_thumbnail_process'] = $request->coverVideoThumbnailProcess;
         }
-        if (!Utils::isUnset($request->createTimeRange)) {
-            $body['create_time_range'] = $request->createTimeRange;
+
+        if (null !== $request->createTimeRange) {
+            @$body['create_time_range'] = $request->createTimeRange;
         }
-        if (!Utils::isUnset($request->customLabels)) {
-            $body['custom_labels'] = $request->customLabels;
+
+        if (null !== $request->customLabels) {
+            @$body['custom_labels'] = $request->customLabels;
         }
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->faceGroupIds)) {
-            $body['face_group_ids'] = $request->faceGroupIds;
+
+        if (null !== $request->faceGroupIds) {
+            @$body['face_group_ids'] = $request->faceGroupIds;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->order)) {
-            $body['order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$body['order'] = $request->order;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $body['sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$body['sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->storyEndTimeRange)) {
-            $body['story_end_time_range'] = $request->storyEndTimeRange;
+
+        if (null !== $request->storyEndTimeRange) {
+            @$body['story_end_time_range'] = $request->storyEndTimeRange;
         }
-        if (!Utils::isUnset($request->storyId)) {
-            $body['story_id'] = $request->storyId;
+
+        if (null !== $request->storyId) {
+            @$body['story_id'] = $request->storyId;
         }
-        if (!Utils::isUnset($request->storyName)) {
-            $body['story_name'] = $request->storyName;
+
+        if (null !== $request->storyName) {
+            @$body['story_name'] = $request->storyName;
         }
-        if (!Utils::isUnset($request->storyStartTimeRange)) {
-            $body['story_start_time_range'] = $request->storyStartTimeRange;
+
+        if (null !== $request->storyStartTimeRange) {
+            @$body['story_start_time_range'] = $request->storyStartTimeRange;
         }
-        if (!Utils::isUnset($request->storyType)) {
-            $body['story_type'] = $request->storyType;
+
+        if (null !== $request->storyType) {
+            @$body['story_type'] = $request->storyType;
         }
-        if (!Utils::isUnset($request->urlExpireSec)) {
-            $body['url_expire_sec'] = $request->urlExpireSec;
+
+        if (null !== $request->urlExpireSec) {
+            @$body['url_expire_sec'] = $request->urlExpireSec;
         }
-        if (!Utils::isUnset($request->withEmptyStories)) {
-            $body['with_empty_stories'] = $request->withEmptyStories;
+
+        if (null !== $request->withEmptyStories) {
+            @$body['with_empty_stories'] = $request->withEmptyStories;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SearchStories',
@@ -6127,11 +7547,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 查询故事列表
-     *  *
-     * @param SearchStoriesRequest $request SearchStoriesRequest
+     * 查询故事列表.
      *
-     * @return SearchStoriesResponse SearchStoriesResponse
+     * @param request - SearchStoriesRequest
+     *
+     * @returns SearchStoriesResponse
+     *
+     * @param SearchStoriesRequest $request
+     *
+     * @return SearchStoriesResponse
      */
     public function searchStories($request)
     {
@@ -6142,48 +7566,63 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Searches for users.
-     *  *
-     * @param SearchUserRequest $request SearchUserRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Searches for users.
      *
-     * @return SearchUserResponse SearchUserResponse
+     * @param request - SearchUserRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchUserResponse
+     *
+     * @param SearchUserRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SearchUserResponse
      */
     public function searchUserWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->email)) {
-            $body['email'] = $request->email;
+        if (null !== $request->email) {
+            @$body['email'] = $request->email;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $body['limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$body['limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $body['marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$body['marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->nickName)) {
-            $body['nick_name'] = $request->nickName;
+
+        if (null !== $request->nickName) {
+            @$body['nick_name'] = $request->nickName;
         }
-        if (!Utils::isUnset($request->nickNameForFuzzy)) {
-            $body['nick_name_for_fuzzy'] = $request->nickNameForFuzzy;
+
+        if (null !== $request->nickNameForFuzzy) {
+            @$body['nick_name_for_fuzzy'] = $request->nickNameForFuzzy;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $body['phone'] = $request->phone;
+
+        if (null !== $request->phone) {
+            @$body['phone'] = $request->phone;
         }
-        if (!Utils::isUnset($request->role)) {
-            $body['role'] = $request->role;
+
+        if (null !== $request->role) {
+            @$body['role'] = $request->role;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $body['user_name'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$body['user_name'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SearchUser',
@@ -6201,11 +7640,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Searches for users.
-     *  *
-     * @param SearchUserRequest $request SearchUserRequest
+     * Searches for users.
      *
-     * @return SearchUserResponse SearchUserResponse
+     * @param request - SearchUserRequest
+     *
+     * @returns SearchUserResponse
+     *
+     * @param SearchUserRequest $request
+     *
+     * @return SearchUserResponse
      */
     public function searchUser($request)
     {
@@ -6216,45 +7659,59 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Generates an access token based on Open Authorization (OAuth) 2.0.
-     *  *
-     * @description For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).
-     * For more information about how to access Drive and Photo Service by using a JSON Web Token (JWT) application, visit [Access process for JWT applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/access-process-for-jwt-applications).
-     *  *
-     * @param TokenRequest   $request TokenRequest
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Generates an access token based on Open Authorization (OAuth) 2.0.
      *
-     * @return TokenResponse TokenResponse
+     * @remarks
+     * For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).
+     * For more information about how to access Drive and Photo Service by using a JSON Web Token (JWT) application, visit [Access process for JWT applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/access-process-for-jwt-applications).
+     *
+     * @param request - TokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TokenResponse
+     *
+     * @param TokenRequest   $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return TokenResponse
      */
     public function tokenWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->assertion)) {
-            $body['assertion'] = $request->assertion;
+        if (null !== $request->assertion) {
+            @$body['assertion'] = $request->assertion;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $body['client_id'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$body['client_id'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientSecret)) {
-            $body['client_secret'] = $request->clientSecret;
+
+        if (null !== $request->clientSecret) {
+            @$body['client_secret'] = $request->clientSecret;
         }
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->grantType)) {
-            $body['grant_type'] = $request->grantType;
+
+        if (null !== $request->grantType) {
+            @$body['grant_type'] = $request->grantType;
         }
-        if (!Utils::isUnset($request->redirectUri)) {
-            $body['redirect_uri'] = $request->redirectUri;
+
+        if (null !== $request->redirectUri) {
+            @$body['redirect_uri'] = $request->redirectUri;
         }
-        if (!Utils::isUnset($request->refreshToken)) {
-            $body['refresh_token'] = $request->refreshToken;
+
+        if (null !== $request->refreshToken) {
+            @$body['refresh_token'] = $request->refreshToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'Token',
@@ -6272,14 +7729,19 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Generates an access token based on Open Authorization (OAuth) 2.0.
-     *  *
-     * @description For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).
-     * For more information about how to access Drive and Photo Service by using a JSON Web Token (JWT) application, visit [Access process for JWT applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/access-process-for-jwt-applications).
-     *  *
-     * @param TokenRequest $request TokenRequest
+     * Generates an access token based on Open Authorization (OAuth) 2.0.
      *
-     * @return TokenResponse TokenResponse
+     * @remarks
+     * For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).
+     * For more information about how to access Drive and Photo Service by using a JSON Web Token (JWT) application, visit [Access process for JWT applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/access-process-for-jwt-applications).
+     *
+     * @param request - TokenRequest
+     *
+     * @returns TokenResponse
+     *
+     * @param TokenRequest $request
+     *
+     * @return TokenResponse
      */
     public function token($request)
     {
@@ -6290,27 +7752,35 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Moves a file or folder to the recycle bin.
-     *  *
-     * @param TrashFileRequest $request TrashFileRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Moves a file or folder to the recycle bin.
      *
-     * @return TrashFileResponse TrashFileResponse
+     * @param request - TrashFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrashFileResponse
+     *
+     * @param TrashFileRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return TrashFileResponse
      */
     public function trashFileWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'TrashFile',
@@ -6328,11 +7798,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Moves a file or folder to the recycle bin.
-     *  *
-     * @param TrashFileRequest $request TrashFileRequest
+     * Moves a file or folder to the recycle bin.
      *
-     * @return TrashFileResponse TrashFileResponse
+     * @param request - TrashFileRequest
+     *
+     * @returns TrashFileResponse
+     *
+     * @param TrashFileRequest $request
+     *
+     * @return TrashFileResponse
      */
     public function trashFile($request)
     {
@@ -6343,33 +7817,43 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Unlink Account Binding
-     *  *
-     * @param UnLinkAccountRequest $request UnLinkAccountRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Unlink Account Binding.
      *
-     * @return UnLinkAccountResponse UnLinkAccountResponse
+     * @param request - UnLinkAccountRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnLinkAccountResponse
+     *
+     * @param UnLinkAccountRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UnLinkAccountResponse
      */
     public function unLinkAccountWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->extra)) {
-            $body['extra'] = $request->extra;
+        if (null !== $request->extra) {
+            @$body['extra'] = $request->extra;
         }
-        if (!Utils::isUnset($request->identity)) {
-            $body['identity'] = $request->identity;
+
+        if (null !== $request->identity) {
+            @$body['identity'] = $request->identity;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UnLinkAccount',
@@ -6387,11 +7871,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Unlink Account Binding
-     *  *
-     * @param UnLinkAccountRequest $request UnLinkAccountRequest
+     * Unlink Account Binding.
      *
-     * @return UnLinkAccountResponse UnLinkAccountResponse
+     * @param request - UnLinkAccountRequest
+     *
+     * @returns UnLinkAccountResponse
+     *
+     * @param UnLinkAccountRequest $request
+     *
+     * @return UnLinkAccountResponse
      */
     public function unLinkAccount($request)
     {
@@ -6402,45 +7890,59 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Update domain information.
-     *  *
-     * @param UpdateDomainRequest $request UpdateDomainRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Update domain information.
      *
-     * @return UpdateDomainResponse UpdateDomainResponse
+     * @param request - UpdateDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDomainResponse
+     *
+     * @param UpdateDomainRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateDomainResponse
      */
     public function updateDomainWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->domainId)) {
-            $body['domain_id'] = $request->domainId;
+
+        if (null !== $request->domainId) {
+            @$body['domain_id'] = $request->domainId;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $body['domain_name'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$body['domain_name'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->initDriveEnable)) {
-            $body['init_drive_enable'] = $request->initDriveEnable;
+
+        if (null !== $request->initDriveEnable) {
+            @$body['init_drive_enable'] = $request->initDriveEnable;
         }
-        if (!Utils::isUnset($request->initDriveSize)) {
-            $body['init_drive_size'] = $request->initDriveSize;
+
+        if (null !== $request->initDriveSize) {
+            @$body['init_drive_size'] = $request->initDriveSize;
         }
-        if (!Utils::isUnset($request->publishedAppAccessStrategy)) {
-            $body['published_app_access_strategy'] = $request->publishedAppAccessStrategy;
+
+        if (null !== $request->publishedAppAccessStrategy) {
+            @$body['published_app_access_strategy'] = $request->publishedAppAccessStrategy;
         }
-        if (!Utils::isUnset($request->sizeQuota)) {
-            $body['size_quota'] = $request->sizeQuota;
+
+        if (null !== $request->sizeQuota) {
+            @$body['size_quota'] = $request->sizeQuota;
         }
-        if (!Utils::isUnset($request->userCountQuota)) {
-            $body['user_count_quota'] = $request->userCountQuota;
+
+        if (null !== $request->userCountQuota) {
+            @$body['user_count_quota'] = $request->userCountQuota;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateDomain',
@@ -6458,11 +7960,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Update domain information.
-     *  *
-     * @param UpdateDomainRequest $request UpdateDomainRequest
+     * Update domain information.
      *
-     * @return UpdateDomainResponse UpdateDomainResponse
+     * @param request - UpdateDomainRequest
+     *
+     * @returns UpdateDomainResponse
+     *
+     * @param UpdateDomainRequest $request
+     *
+     * @return UpdateDomainResponse
      */
     public function updateDomain($request)
     {
@@ -6473,39 +7979,51 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a drive.
-     *  *
-     * @param UpdateDriveRequest $request UpdateDriveRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Modifies a drive.
      *
-     * @return UpdateDriveResponse UpdateDriveResponse
+     * @param request - UpdateDriveRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDriveResponse
+     *
+     * @param UpdateDriveRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateDriveResponse
      */
     public function updateDriveWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->driveName)) {
-            $body['drive_name'] = $request->driveName;
+
+        if (null !== $request->driveName) {
+            @$body['drive_name'] = $request->driveName;
         }
-        if (!Utils::isUnset($request->owner)) {
-            $body['owner'] = $request->owner;
+
+        if (null !== $request->owner) {
+            @$body['owner'] = $request->owner;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->totalSize)) {
-            $body['total_size'] = $request->totalSize;
+
+        if (null !== $request->totalSize) {
+            @$body['total_size'] = $request->totalSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateDrive',
@@ -6523,11 +8041,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a drive.
-     *  *
-     * @param UpdateDriveRequest $request UpdateDriveRequest
+     * Modifies a drive.
      *
-     * @return UpdateDriveResponse UpdateDriveResponse
+     * @param request - UpdateDriveRequest
+     *
+     * @returns UpdateDriveResponse
+     *
+     * @param UpdateDriveRequest $request
+     *
+     * @return UpdateDriveResponse
      */
     public function updateDrive($request)
     {
@@ -6538,36 +8060,47 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Updates a face-based group.
-     *  *
-     * @param UpdateFacegroupRequest $request UpdateFacegroupRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Updates a face-based group.
      *
-     * @return UpdateFacegroupResponse UpdateFacegroupResponse
+     * @param request - UpdateFacegroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFacegroupResponse
+     *
+     * @param UpdateFacegroupRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateFacegroupResponse
      */
     public function updateFacegroupWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->groupCoverFaceId)) {
-            $body['group_cover_face_id'] = $request->groupCoverFaceId;
+
+        if (null !== $request->groupCoverFaceId) {
+            @$body['group_cover_face_id'] = $request->groupCoverFaceId;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $body['group_id'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$body['group_id'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $body['group_name'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$body['group_name'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->remarks)) {
-            $body['remarks'] = $request->remarks;
+
+        if (null !== $request->remarks) {
+            @$body['remarks'] = $request->remarks;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateFacegroup',
@@ -6585,11 +8118,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Updates a face-based group.
-     *  *
-     * @param UpdateFacegroupRequest $request UpdateFacegroupRequest
+     * Updates a face-based group.
      *
-     * @return UpdateFacegroupResponse UpdateFacegroupResponse
+     * @param request - UpdateFacegroupRequest
+     *
+     * @returns UpdateFacegroupResponse
+     *
+     * @param UpdateFacegroupRequest $request
+     *
+     * @return UpdateFacegroupResponse
      */
     public function updateFacegroup($request)
     {
@@ -6600,48 +8137,63 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about a file instead of the file data.
-     *  *
-     * @param UpdateFileRequest $request UpdateFileRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Modifies the information about a file instead of the file data.
      *
-     * @return UpdateFileResponse UpdateFileResponse
+     * @param request - UpdateFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFileResponse
+     *
+     * @param UpdateFileRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateFileResponse
      */
     public function updateFileWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->checkNameMode)) {
-            $body['check_name_mode'] = $request->checkNameMode;
+        if (null !== $request->checkNameMode) {
+            @$body['check_name_mode'] = $request->checkNameMode;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->hidden)) {
-            $body['hidden'] = $request->hidden;
+
+        if (null !== $request->hidden) {
+            @$body['hidden'] = $request->hidden;
         }
-        if (!Utils::isUnset($request->labels)) {
-            $body['labels'] = $request->labels;
+
+        if (null !== $request->labels) {
+            @$body['labels'] = $request->labels;
         }
-        if (!Utils::isUnset($request->localModifiedAt)) {
-            $body['local_modified_at'] = $request->localModifiedAt;
+
+        if (null !== $request->localModifiedAt) {
+            @$body['local_modified_at'] = $request->localModifiedAt;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->starred)) {
-            $body['starred'] = $request->starred;
+
+        if (null !== $request->starred) {
+            @$body['starred'] = $request->starred;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateFile',
@@ -6659,11 +8211,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about a file instead of the file data.
-     *  *
-     * @param UpdateFileRequest $request UpdateFileRequest
+     * Modifies the information about a file instead of the file data.
      *
-     * @return UpdateFileResponse UpdateFileResponse
+     * @param request - UpdateFileRequest
+     *
+     * @returns UpdateFileResponse
+     *
+     * @param UpdateFileRequest $request
+     *
+     * @return UpdateFileResponse
      */
     public function updateFile($request)
     {
@@ -6674,30 +8230,39 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about a group.
-     *  *
-     * @param UpdateGroupRequest $request UpdateGroupRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Modifies the information about a group.
      *
-     * @return UpdateGroupResponse UpdateGroupResponse
+     * @param request - UpdateGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGroupResponse
+     *
+     * @param UpdateGroupRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateGroupResponse
      */
     public function updateGroupWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $body['group_id'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$body['group_id'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $body['group_name'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$body['group_name'] = $request->groupName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateGroup',
@@ -6715,11 +8280,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about a group.
-     *  *
-     * @param UpdateGroupRequest $request UpdateGroupRequest
+     * Modifies the information about a group.
      *
-     * @return UpdateGroupResponse UpdateGroupResponse
+     * @param request - UpdateGroupRequest
+     *
+     * @returns UpdateGroupResponse
+     *
+     * @param UpdateGroupRequest $request
+     *
+     * @return UpdateGroupResponse
      */
     public function updateGroup($request)
     {
@@ -6730,36 +8299,47 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Updates the mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
-     *  *
-     * @param UpdateIdentityToBenefitPkgMappingRequest $request UpdateIdentityToBenefitPkgMappingRequest
-     * @param string[]                                 $headers map
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Updates the mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
      *
-     * @return UpdateIdentityToBenefitPkgMappingResponse UpdateIdentityToBenefitPkgMappingResponse
+     * @param request - UpdateIdentityToBenefitPkgMappingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateIdentityToBenefitPkgMappingResponse
+     *
+     * @param UpdateIdentityToBenefitPkgMappingRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateIdentityToBenefitPkgMappingResponse
      */
     public function updateIdentityToBenefitPkgMappingWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->amount)) {
-            $body['amount'] = $request->amount;
+        if (null !== $request->amount) {
+            @$body['amount'] = $request->amount;
         }
-        if (!Utils::isUnset($request->benefitPkgId)) {
-            $body['benefit_pkg_id'] = $request->benefitPkgId;
+
+        if (null !== $request->benefitPkgId) {
+            @$body['benefit_pkg_id'] = $request->benefitPkgId;
         }
-        if (!Utils::isUnset($request->expireTime)) {
-            $body['expire_time'] = $request->expireTime;
+
+        if (null !== $request->expireTime) {
+            @$body['expire_time'] = $request->expireTime;
         }
-        if (!Utils::isUnset($request->identityId)) {
-            $body['identity_id'] = $request->identityId;
+
+        if (null !== $request->identityId) {
+            @$body['identity_id'] = $request->identityId;
         }
-        if (!Utils::isUnset($request->identityType)) {
-            $body['identity_type'] = $request->identityType;
+
+        if (null !== $request->identityType) {
+            @$body['identity_type'] = $request->identityType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateIdentityToBenefitPkgMapping',
@@ -6777,11 +8357,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Updates the mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
-     *  *
-     * @param UpdateIdentityToBenefitPkgMappingRequest $request UpdateIdentityToBenefitPkgMappingRequest
+     * Updates the mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
      *
-     * @return UpdateIdentityToBenefitPkgMappingResponse UpdateIdentityToBenefitPkgMappingResponse
+     * @param request - UpdateIdentityToBenefitPkgMappingRequest
+     *
+     * @returns UpdateIdentityToBenefitPkgMappingResponse
+     *
+     * @param UpdateIdentityToBenefitPkgMappingRequest $request
+     *
+     * @return UpdateIdentityToBenefitPkgMappingResponse
      */
     public function updateIdentityToBenefitPkgMapping($request)
     {
@@ -6792,36 +8376,47 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Updates the version information. You can call this operation to permanently retain a version or modify the description of a version. You can permanently retain up to 50 versions of a file.
-     *  *
-     * @param UpdateRevisionRequest $request UpdateRevisionRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Updates the version information. You can call this operation to permanently retain a version or modify the description of a version. You can permanently retain up to 50 versions of a file.
      *
-     * @return UpdateRevisionResponse UpdateRevisionResponse
+     * @param request - UpdateRevisionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRevisionResponse
+     *
+     * @param UpdateRevisionRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateRevisionResponse
      */
     public function updateRevisionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+
+        if (null !== $request->fileId) {
+            @$body['file_id'] = $request->fileId;
         }
-        if (!Utils::isUnset($request->keepForever)) {
-            $body['keep_forever'] = $request->keepForever;
+
+        if (null !== $request->keepForever) {
+            @$body['keep_forever'] = $request->keepForever;
         }
-        if (!Utils::isUnset($request->revisionDescription)) {
-            $body['revision_description'] = $request->revisionDescription;
+
+        if (null !== $request->revisionDescription) {
+            @$body['revision_description'] = $request->revisionDescription;
         }
-        if (!Utils::isUnset($request->revisionId)) {
-            $body['revision_id'] = $request->revisionId;
+
+        if (null !== $request->revisionId) {
+            @$body['revision_id'] = $request->revisionId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateRevision',
@@ -6839,11 +8434,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Updates the version information. You can call this operation to permanently retain a version or modify the description of a version. You can permanently retain up to 50 versions of a file.
-     *  *
-     * @param UpdateRevisionRequest $request UpdateRevisionRequest
+     * Updates the version information. You can call this operation to permanently retain a version or modify the description of a version. You can permanently retain up to 50 versions of a file.
      *
-     * @return UpdateRevisionResponse UpdateRevisionResponse
+     * @param request - UpdateRevisionRequest
+     *
+     * @returns UpdateRevisionResponse
+     *
+     * @param UpdateRevisionRequest $request
+     *
+     * @return UpdateRevisionResponse
      */
     public function updateRevision($request)
     {
@@ -6854,75 +8453,99 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a share link.
-     *  *
-     * @param UpdateShareLinkRequest $request UpdateShareLinkRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Modifies a share link.
      *
-     * @return UpdateShareLinkResponse UpdateShareLinkResponse
+     * @param request - UpdateShareLinkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateShareLinkResponse
+     *
+     * @param UpdateShareLinkRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateShareLinkResponse
      */
     public function updateShareLinkWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->disableDownload)) {
-            $body['disable_download'] = $request->disableDownload;
+
+        if (null !== $request->disableDownload) {
+            @$body['disable_download'] = $request->disableDownload;
         }
-        if (!Utils::isUnset($request->disablePreview)) {
-            $body['disable_preview'] = $request->disablePreview;
+
+        if (null !== $request->disablePreview) {
+            @$body['disable_preview'] = $request->disablePreview;
         }
-        if (!Utils::isUnset($request->disableSave)) {
-            $body['disable_save'] = $request->disableSave;
+
+        if (null !== $request->disableSave) {
+            @$body['disable_save'] = $request->disableSave;
         }
-        if (!Utils::isUnset($request->downloadCount)) {
-            $body['download_count'] = $request->downloadCount;
+
+        if (null !== $request->downloadCount) {
+            @$body['download_count'] = $request->downloadCount;
         }
-        if (!Utils::isUnset($request->downloadLimit)) {
-            $body['download_limit'] = $request->downloadLimit;
+
+        if (null !== $request->downloadLimit) {
+            @$body['download_limit'] = $request->downloadLimit;
         }
-        if (!Utils::isUnset($request->expiration)) {
-            $body['expiration'] = $request->expiration;
+
+        if (null !== $request->expiration) {
+            @$body['expiration'] = $request->expiration;
         }
-        if (!Utils::isUnset($request->officeEditable)) {
-            $body['office_editable'] = $request->officeEditable;
+
+        if (null !== $request->officeEditable) {
+            @$body['office_editable'] = $request->officeEditable;
         }
-        if (!Utils::isUnset($request->previewCount)) {
-            $body['preview_count'] = $request->previewCount;
+
+        if (null !== $request->previewCount) {
+            @$body['preview_count'] = $request->previewCount;
         }
-        if (!Utils::isUnset($request->previewLimit)) {
-            $body['preview_limit'] = $request->previewLimit;
+
+        if (null !== $request->previewLimit) {
+            @$body['preview_limit'] = $request->previewLimit;
         }
-        if (!Utils::isUnset($request->reportCount)) {
-            $body['report_count'] = $request->reportCount;
+
+        if (null !== $request->reportCount) {
+            @$body['report_count'] = $request->reportCount;
         }
-        if (!Utils::isUnset($request->saveCount)) {
-            $body['save_count'] = $request->saveCount;
+
+        if (null !== $request->saveCount) {
+            @$body['save_count'] = $request->saveCount;
         }
-        if (!Utils::isUnset($request->saveLimit)) {
-            $body['save_limit'] = $request->saveLimit;
+
+        if (null !== $request->saveLimit) {
+            @$body['save_limit'] = $request->saveLimit;
         }
-        if (!Utils::isUnset($request->shareId)) {
-            $body['share_id'] = $request->shareId;
+
+        if (null !== $request->shareId) {
+            @$body['share_id'] = $request->shareId;
         }
-        if (!Utils::isUnset($request->shareName)) {
-            $body['share_name'] = $request->shareName;
+
+        if (null !== $request->shareName) {
+            @$body['share_name'] = $request->shareName;
         }
-        if (!Utils::isUnset($request->sharePwd)) {
-            $body['share_pwd'] = $request->sharePwd;
+
+        if (null !== $request->sharePwd) {
+            @$body['share_pwd'] = $request->sharePwd;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->videoPreviewCount)) {
-            $body['video_preview_count'] = $request->videoPreviewCount;
+
+        if (null !== $request->videoPreviewCount) {
+            @$body['video_preview_count'] = $request->videoPreviewCount;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateShareLink',
@@ -6940,11 +8563,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a share link.
-     *  *
-     * @param UpdateShareLinkRequest $request UpdateShareLinkRequest
+     * Modifies a share link.
      *
-     * @return UpdateShareLinkResponse UpdateShareLinkResponse
+     * @param request - UpdateShareLinkRequest
+     *
+     * @returns UpdateShareLinkResponse
+     *
+     * @param UpdateShareLinkRequest $request
+     *
+     * @return UpdateShareLinkResponse
      */
     public function updateShareLink($request)
     {
@@ -6955,36 +8582,47 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 更新故事
-     *  *
-     * @param UpdateStoryRequest $request UpdateStoryRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 更新故事.
      *
-     * @return UpdateStoryResponse UpdateStoryResponse
+     * @param request - UpdateStoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateStoryResponse
+     *
+     * @param UpdateStoryRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateStoryResponse
      */
     public function updateStoryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cover)) {
-            $body['cover'] = $request->cover;
+        if (null !== $request->cover) {
+            @$body['cover'] = $request->cover;
         }
-        if (!Utils::isUnset($request->customLabels)) {
-            $body['custom_labels'] = $request->customLabels;
+
+        if (null !== $request->customLabels) {
+            @$body['custom_labels'] = $request->customLabels;
         }
-        if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+
+        if (null !== $request->driveId) {
+            @$body['drive_id'] = $request->driveId;
         }
-        if (!Utils::isUnset($request->storyId)) {
-            $body['story_id'] = $request->storyId;
+
+        if (null !== $request->storyId) {
+            @$body['story_id'] = $request->storyId;
         }
-        if (!Utils::isUnset($request->storyName)) {
-            $body['story_name'] = $request->storyName;
+
+        if (null !== $request->storyName) {
+            @$body['story_name'] = $request->storyName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateStory',
@@ -7002,11 +8640,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 更新故事
-     *  *
-     * @param UpdateStoryRequest $request UpdateStoryRequest
+     * 更新故事.
      *
-     * @return UpdateStoryResponse UpdateStoryResponse
+     * @param request - UpdateStoryRequest
+     *
+     * @returns UpdateStoryResponse
+     *
+     * @param UpdateStoryRequest $request
+     *
+     * @return UpdateStoryResponse
      */
     public function updateStory($request)
     {
@@ -7017,51 +8659,67 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about a user.
-     *  *
-     * @param UpdateUserRequest $request UpdateUserRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Modifies the information about a user.
      *
-     * @return UpdateUserResponse UpdateUserResponse
+     * @param request - UpdateUserRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUserResponse
+     *
+     * @param UpdateUserRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateUserResponse
      */
     public function updateUserWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->avatar)) {
-            $body['avatar'] = $request->avatar;
+        if (null !== $request->avatar) {
+            @$body['avatar'] = $request->avatar;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->email)) {
-            $body['email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$body['email'] = $request->email;
         }
-        if (!Utils::isUnset($request->groupInfoList)) {
-            $body['group_info_list'] = $request->groupInfoList;
+
+        if (null !== $request->groupInfoList) {
+            @$body['group_info_list'] = $request->groupInfoList;
         }
-        if (!Utils::isUnset($request->nickName)) {
-            $body['nick_name'] = $request->nickName;
+
+        if (null !== $request->nickName) {
+            @$body['nick_name'] = $request->nickName;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $body['phone'] = $request->phone;
+
+        if (null !== $request->phone) {
+            @$body['phone'] = $request->phone;
         }
-        if (!Utils::isUnset($request->role)) {
-            $body['role'] = $request->role;
+
+        if (null !== $request->role) {
+            @$body['role'] = $request->role;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $body['user_data'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$body['user_data'] = $request->userData;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['user_id'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['user_id'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateUser',
@@ -7079,11 +8737,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about a user.
-     *  *
-     * @param UpdateUserRequest $request UpdateUserRequest
+     * Modifies the information about a user.
      *
-     * @return UpdateUserResponse UpdateUserResponse
+     * @param request - UpdateUserRequest
+     *
+     * @returns UpdateUserResponse
+     *
+     * @param UpdateUserRequest $request
+     *
+     * @return UpdateUserResponse
      */
     public function updateUser($request)
     {
@@ -7094,27 +8756,35 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Obtain the digital rights management (DRM) license of a video.
-     *  *
-     * @param VideoDRMLicenseRequest $request VideoDRMLicenseRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Obtain the digital rights management (DRM) license of a video.
      *
-     * @return VideoDRMLicenseResponse VideoDRMLicenseResponse
+     * @param request - VideoDRMLicenseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VideoDRMLicenseResponse
+     *
+     * @param VideoDRMLicenseRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return VideoDRMLicenseResponse
      */
     public function videoDRMLicenseWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->drmType)) {
-            $body['drmType'] = $request->drmType;
+        if (null !== $request->drmType) {
+            @$body['drmType'] = $request->drmType;
         }
-        if (!Utils::isUnset($request->licenseRequest)) {
-            $body['licenseRequest'] = $request->licenseRequest;
+
+        if (null !== $request->licenseRequest) {
+            @$body['licenseRequest'] = $request->licenseRequest;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'VideoDRMLicense',
@@ -7132,11 +8802,15 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Obtain the digital rights management (DRM) license of a video.
-     *  *
-     * @param VideoDRMLicenseRequest $request VideoDRMLicenseRequest
+     * Obtain the digital rights management (DRM) license of a video.
      *
-     * @return VideoDRMLicenseResponse VideoDRMLicenseResponse
+     * @param request - VideoDRMLicenseRequest
+     *
+     * @returns VideoDRMLicenseResponse
+     *
+     * @param VideoDRMLicenseRequest $request
+     *
+     * @return VideoDRMLicenseResponse
      */
     public function videoDRMLicense($request)
     {

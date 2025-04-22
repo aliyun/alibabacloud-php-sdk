@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FileStreamInfo extends Model
 {
@@ -58,32 +58,45 @@ class FileStreamInfo extends Model
         'size' => 'size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->partInfoList) {
+            $this->partInfoList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contentHash) {
             $res['content_hash'] = $this->contentHash;
         }
+
         if (null !== $this->contentHashName) {
             $res['content_hash_name'] = $this->contentHashName;
         }
+
         if (null !== $this->contentMd5) {
             $res['content_md5'] = $this->contentMd5;
         }
+
         if (null !== $this->partInfoList) {
-            $res['part_info_list'] = null !== $this->partInfoList ? $this->partInfoList->toMap() : null;
+            $res['part_info_list'] = null !== $this->partInfoList ? $this->partInfoList->toArray($noStream) : $this->partInfoList;
         }
+
         if (null !== $this->preHash) {
             $res['pre_hash'] = $this->preHash;
         }
+
         if (null !== $this->proofCode) {
             $res['proof_code'] = $this->proofCode;
         }
+
         if (null !== $this->proofVersion) {
             $res['proof_version'] = $this->proofVersion;
         }
+
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
@@ -91,35 +104,42 @@ class FileStreamInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FileStreamInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content_hash'])) {
             $model->contentHash = $map['content_hash'];
         }
+
         if (isset($map['content_hash_name'])) {
             $model->contentHashName = $map['content_hash_name'];
         }
+
         if (isset($map['content_md5'])) {
             $model->contentMd5 = $map['content_md5'];
         }
+
         if (isset($map['part_info_list'])) {
             $model->partInfoList = UploadPartInfo::fromMap($map['part_info_list']);
         }
+
         if (isset($map['pre_hash'])) {
             $model->preHash = $map['pre_hash'];
         }
+
         if (isset($map['proof_code'])) {
             $model->proofCode = $map['proof_code'];
         }
+
         if (isset($map['proof_version'])) {
             $model->proofVersion = $map['proof_version'];
         }
+
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }

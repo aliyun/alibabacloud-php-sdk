@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BaseFileListInheritPermissionResponse extends Model
 {
@@ -22,32 +22,40 @@ class BaseFileListInheritPermissionResponse extends Model
         'member' => 'member',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->member) {
+            $this->member->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileId) {
             $res['file_id'] = $this->fileId;
         }
+
         if (null !== $this->member) {
-            $res['member'] = null !== $this->member ? $this->member->toMap() : null;
+            $res['member'] = null !== $this->member ? $this->member->toArray($noStream) : $this->member;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BaseFileListInheritPermissionResponse
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['file_id'])) {
             $model->fileId = $map['file_id'];
         }
+
         if (isset($map['member'])) {
             $model->member = FilePermissionMember::fromMap($map['member']);
         }

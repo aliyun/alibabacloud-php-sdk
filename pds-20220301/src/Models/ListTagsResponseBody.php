@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTagsResponseBody extends Model
 {
     /**
-     * @description The information about the tags.
-     *
      * @var ImageTag[]
      */
     public $tags;
@@ -18,17 +16,23 @@ class ListTagsResponseBody extends Model
         'tags' => 'tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tags) {
-            $res['tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +40,20 @@ class ListTagsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTagsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
-                $n = 0;
-                foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? ImageTag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1++] = ImageTag::fromMap($item1);
                 }
             }
         }

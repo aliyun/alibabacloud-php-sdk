@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetGroupRequest extends Model
 {
     /**
-     * @description The group ID.
-     *
-     * This parameter is required.
-     *
-     * @example 2e43ec8427dd45f19431b7504649a1b1
-     *
      * @var string
      */
     public $groupId;
@@ -22,9 +16,12 @@ class GetGroupRequest extends Model
         'groupId' => 'group_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
@@ -34,11 +31,11 @@ class GetGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

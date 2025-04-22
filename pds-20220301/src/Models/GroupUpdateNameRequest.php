@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GroupUpdateNameRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $groupId;
@@ -24,14 +22,18 @@ class GroupUpdateNameRequest extends Model
         'name' => 'name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['group_id'] = $this->groupId;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -39,17 +41,18 @@ class GroupUpdateNameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GroupUpdateNameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['group_id'])) {
             $model->groupId = $map['group_id'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

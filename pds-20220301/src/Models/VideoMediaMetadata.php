@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VideoMediaMetadata extends Model
 {
     /**
-     * @example 1080
-     *
      * @var int
      */
     public $height;
@@ -26,8 +24,6 @@ class VideoMediaMetadata extends Model
     public $videoMediaVideoStream;
 
     /**
-     * @example 1920
-     *
      * @var int
      */
     public $width;
@@ -38,32 +34,44 @@ class VideoMediaMetadata extends Model
         'width' => 'width',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->videoMediaAudioStream)) {
+            Model::validateArray($this->videoMediaAudioStream);
+        }
+        if (\is_array($this->videoMediaVideoStream)) {
+            Model::validateArray($this->videoMediaVideoStream);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->height) {
             $res['height'] = $this->height;
         }
+
         if (null !== $this->videoMediaAudioStream) {
-            $res['video_media_audio_stream'] = [];
-            if (null !== $this->videoMediaAudioStream && \is_array($this->videoMediaAudioStream)) {
-                $n = 0;
-                foreach ($this->videoMediaAudioStream as $item) {
-                    $res['video_media_audio_stream'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->videoMediaAudioStream)) {
+                $res['video_media_audio_stream'] = [];
+                $n1 = 0;
+                foreach ($this->videoMediaAudioStream as $item1) {
+                    $res['video_media_audio_stream'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->videoMediaVideoStream) {
-            $res['video_media_video_stream'] = [];
-            if (null !== $this->videoMediaVideoStream && \is_array($this->videoMediaVideoStream)) {
-                $n = 0;
-                foreach ($this->videoMediaVideoStream as $item) {
-                    $res['video_media_video_stream'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->videoMediaVideoStream)) {
+                $res['video_media_video_stream'] = [];
+                $n1 = 0;
+                foreach ($this->videoMediaVideoStream as $item1) {
+                    $res['video_media_video_stream'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->width) {
             $res['width'] = $this->width;
         }
@@ -71,35 +79,38 @@ class VideoMediaMetadata extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VideoMediaMetadata
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['height'])) {
             $model->height = $map['height'];
         }
+
         if (isset($map['video_media_audio_stream'])) {
             if (!empty($map['video_media_audio_stream'])) {
                 $model->videoMediaAudioStream = [];
-                $n = 0;
-                foreach ($map['video_media_audio_stream'] as $item) {
-                    $model->videoMediaAudioStream[$n++] = null !== $item ? VideoMediaAudioStream::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['video_media_audio_stream'] as $item1) {
+                    $model->videoMediaAudioStream[$n1++] = VideoMediaAudioStream::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['video_media_video_stream'])) {
             if (!empty($map['video_media_video_stream'])) {
                 $model->videoMediaVideoStream = [];
-                $n = 0;
-                foreach ($map['video_media_video_stream'] as $item) {
-                    $model->videoMediaVideoStream[$n++] = null !== $item ? VideoMediaVideoStream::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['video_media_video_stream'] as $item1) {
+                    $model->videoMediaVideoStream[$n1++] = VideoMediaVideoStream::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['width'])) {
             $model->width = $map['width'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteStoryRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $driveId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 9132e0d8-fe92-4e56-86c3-f5f112308003
-     *
      * @var string
      */
     public $storyId;
@@ -30,14 +22,18 @@ class DeleteStoryRequest extends Model
         'storyId' => 'story_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
+
         if (null !== $this->storyId) {
             $res['story_id'] = $this->storyId;
         }
@@ -45,17 +41,18 @@ class DeleteStoryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteStoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
+
         if (isset($map['story_id'])) {
             $model->storyId = $map['story_id'];
         }

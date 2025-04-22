@@ -4,37 +4,17 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Pds\V20220301\Models\BatchRequest\requests;
-use AlibabaCloud\Tea\Model;
 
 class BatchRequest extends Model
 {
     /**
-     * @description The child requests.
-     *
-     * The number of child requests. Valid value: 1 to 100.
-     *
-     * This parameter is required.
-     *
      * @var requests[]
      */
     public $requests;
 
     /**
-     * @description The type of the resource that you want to manage. Valid values:
-     *
-     *   file: a file.
-     *   drive: an individual drive or a team drive.
-     *   user: a user.
-     *   group: a group.
-     *   membership: a group member.
-     *   share_link: a share.
-     *   async_task: an asynchronous task.
-     *
-     * This parameter is required.
-     *
-     * @example file
-     *
      * @var string
      */
     public $resource;
@@ -43,20 +23,27 @@ class BatchRequest extends Model
         'resource' => 'resource',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->requests)) {
+            Model::validateArray($this->requests);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requests) {
-            $res['requests'] = [];
-            if (null !== $this->requests && \is_array($this->requests)) {
-                $n = 0;
-                foreach ($this->requests as $item) {
-                    $res['requests'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->requests)) {
+                $res['requests'] = [];
+                $n1 = 0;
+                foreach ($this->requests as $item1) {
+                    $res['requests'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->resource) {
             $res['resource'] = $this->resource;
         }
@@ -64,23 +51,24 @@ class BatchRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requests'])) {
             if (!empty($map['requests'])) {
                 $model->requests = [];
-                $n = 0;
-                foreach ($map['requests'] as $item) {
-                    $model->requests[$n++] = null !== $item ? requests::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['requests'] as $item1) {
+                    $model->requests[$n1++] = requests::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['resource'])) {
             $model->resource = $map['resource'];
         }

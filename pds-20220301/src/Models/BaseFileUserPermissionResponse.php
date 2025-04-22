@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BaseFileUserPermissionResponse extends Model
 {
@@ -29,8 +29,6 @@ class BaseFileUserPermissionResponse extends Model
     public $disinheritSubGroup;
 
     /**
-     * @example bj23
-     *
      * @var string
      */
     public $domainId;
@@ -78,41 +76,57 @@ class BaseFileUserPermissionResponse extends Model
         'roleId' => 'role_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->identity) {
+            $this->identity->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->canAccess) {
             $res['can_access'] = $this->canAccess;
         }
+
         if (null !== $this->createdAt) {
             $res['created_at'] = $this->createdAt;
         }
+
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
         }
+
         if (null !== $this->disinheritSubGroup) {
             $res['disinherit_sub_group'] = $this->disinheritSubGroup;
         }
+
         if (null !== $this->domainId) {
             $res['domain_id'] = $this->domainId;
         }
+
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
+
         if (null !== $this->expireTime) {
             $res['expire_time'] = $this->expireTime;
         }
+
         if (null !== $this->fileFullPath) {
             $res['file_full_path'] = $this->fileFullPath;
         }
+
         if (null !== $this->fileId) {
             $res['file_id'] = $this->fileId;
         }
+
         if (null !== $this->identity) {
-            $res['identity'] = null !== $this->identity ? $this->identity->toMap() : null;
+            $res['identity'] = null !== $this->identity ? $this->identity->toArray($noStream) : $this->identity;
         }
+
         if (null !== $this->roleId) {
             $res['role_id'] = $this->roleId;
         }
@@ -120,44 +134,54 @@ class BaseFileUserPermissionResponse extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BaseFileUserPermissionResponse
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['can_access'])) {
             $model->canAccess = $map['can_access'];
         }
+
         if (isset($map['created_at'])) {
             $model->createdAt = $map['created_at'];
         }
+
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }
+
         if (isset($map['disinherit_sub_group'])) {
             $model->disinheritSubGroup = $map['disinherit_sub_group'];
         }
+
         if (isset($map['domain_id'])) {
             $model->domainId = $map['domain_id'];
         }
+
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
+
         if (isset($map['expire_time'])) {
             $model->expireTime = $map['expire_time'];
         }
+
         if (isset($map['file_full_path'])) {
             $model->fileFullPath = $map['file_full_path'];
         }
+
         if (isset($map['file_id'])) {
             $model->fileId = $map['file_id'];
         }
+
         if (isset($map['identity'])) {
             $model->identity = Identity::fromMap($map['identity']);
         }
+
         if (isset($map['role_id'])) {
             $model->roleId = $map['role_id'];
         }

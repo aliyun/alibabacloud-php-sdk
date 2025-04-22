@@ -4,38 +4,22 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Pds\V20220301\Models\FileRemovePermissionRequest\memberList;
-use AlibabaCloud\Tea\Model;
 
 class FileRemovePermissionRequest extends Model
 {
     /**
-     * @description The drive ID.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $driveId;
 
     /**
-     * @description The file ID.
-     *
-     * This parameter is required.
-     *
-     * @example 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
-     *
      * @var string
      */
     public $fileId;
 
     /**
-     * @description The identities with whom the file is shared.
-     *
-     * This parameter is required.
-     *
      * @var memberList[]
      */
     public $memberList;
@@ -45,23 +29,31 @@ class FileRemovePermissionRequest extends Model
         'memberList' => 'member_list',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->memberList)) {
+            Model::validateArray($this->memberList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
+
         if (null !== $this->fileId) {
             $res['file_id'] = $this->fileId;
         }
+
         if (null !== $this->memberList) {
-            $res['member_list'] = [];
-            if (null !== $this->memberList && \is_array($this->memberList)) {
-                $n = 0;
-                foreach ($this->memberList as $item) {
-                    $res['member_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->memberList)) {
+                $res['member_list'] = [];
+                $n1 = 0;
+                foreach ($this->memberList as $item1) {
+                    $res['member_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -69,26 +61,28 @@ class FileRemovePermissionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FileRemovePermissionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
+
         if (isset($map['file_id'])) {
             $model->fileId = $map['file_id'];
         }
+
         if (isset($map['member_list'])) {
             if (!empty($map['member_list'])) {
                 $model->memberList = [];
-                $n = 0;
-                foreach ($map['member_list'] as $item) {
-                    $model->memberList[$n++] = null !== $item ? memberList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['member_list'] as $item1) {
+                    $model->memberList[$n1++] = memberList::fromMap($item1);
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CommonFileItem extends Model
 {
@@ -28,17 +28,22 @@ class CommonFileItem extends Model
         'revisionId' => 'revision_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
+
         if (null !== $this->fileId) {
             $res['file_id'] = $this->fileId;
         }
+
         if (null !== $this->revisionId) {
             $res['revision_id'] = $this->revisionId;
         }
@@ -46,20 +51,22 @@ class CommonFileItem extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CommonFileItem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
+
         if (isset($map['file_id'])) {
             $model->fileId = $map['file_id'];
         }
+
         if (isset($map['revision_id'])) {
             $model->revisionId = $map['revision_id'];
         }

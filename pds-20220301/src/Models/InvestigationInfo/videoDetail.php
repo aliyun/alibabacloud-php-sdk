@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models\InvestigationInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Pds\V20220301\Models\InvestigationInfo\videoDetail\blockFrames;
-use AlibabaCloud\Tea\Model;
 
 class videoDetail extends Model
 {
@@ -17,17 +17,23 @@ class videoDetail extends Model
         'blockFrames' => 'block_frames',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->blockFrames)) {
+            Model::validateArray($this->blockFrames);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->blockFrames) {
-            $res['block_frames'] = [];
-            if (null !== $this->blockFrames && \is_array($this->blockFrames)) {
-                $n = 0;
-                foreach ($this->blockFrames as $item) {
-                    $res['block_frames'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->blockFrames)) {
+                $res['block_frames'] = [];
+                $n1 = 0;
+                foreach ($this->blockFrames as $item1) {
+                    $res['block_frames'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class videoDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videoDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['block_frames'])) {
             if (!empty($map['block_frames'])) {
                 $model->blockFrames = [];
-                $n = 0;
-                foreach ($map['block_frames'] as $item) {
-                    $model->blockFrames[$n++] = null !== $item ? blockFrames::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['block_frames'] as $item1) {
+                    $model->blockFrames[$n1++] = blockFrames::fromMap($item1);
                 }
             }
         }

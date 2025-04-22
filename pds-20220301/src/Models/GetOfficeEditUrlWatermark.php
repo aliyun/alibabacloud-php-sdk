@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOfficeEditUrlWatermark extends Model
 {
@@ -52,29 +52,38 @@ class GetOfficeEditUrlWatermark extends Model
         'vertical' => 'vertical',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fillstyle) {
             $res['fillstyle'] = $this->fillstyle;
         }
+
         if (null !== $this->font) {
             $res['font'] = $this->font;
         }
+
         if (null !== $this->horizontal) {
             $res['horizontal'] = $this->horizontal;
         }
+
         if (null !== $this->rotate) {
             $res['rotate'] = $this->rotate;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
+
         if (null !== $this->vertical) {
             $res['vertical'] = $this->vertical;
         }
@@ -82,32 +91,38 @@ class GetOfficeEditUrlWatermark extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOfficeEditUrlWatermark
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fillstyle'])) {
             $model->fillstyle = $map['fillstyle'];
         }
+
         if (isset($map['font'])) {
             $model->font = $map['font'];
         }
+
         if (isset($map['horizontal'])) {
             $model->horizontal = $map['horizontal'];
         }
+
         if (isset($map['rotate'])) {
             $model->rotate = $map['rotate'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }
+
         if (isset($map['vertical'])) {
             $model->vertical = $map['vertical'];
         }

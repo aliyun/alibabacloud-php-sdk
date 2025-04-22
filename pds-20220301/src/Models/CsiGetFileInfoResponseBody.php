@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CsiGetFileInfoResponseBody extends Model
 {
@@ -14,8 +14,6 @@ class CsiGetFileInfoResponseBody extends Model
     public $investigationInfo;
 
     /**
-     * @example https://data.aliyunpds.com/hz22%2F5d5b986facbec311ef844c25954f96821497b383%2F5d5b986f955410dd991646bb87c6b4e899eff525?Expires=xxx&OSSAccessKeyId=xxx&Signature=xxx
-     *
      * @var string
      */
     public $url;
@@ -24,14 +22,21 @@ class CsiGetFileInfoResponseBody extends Model
         'url' => 'url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->investigationInfo) {
+            $this->investigationInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->investigationInfo) {
-            $res['investigation_info'] = null !== $this->investigationInfo ? $this->investigationInfo->toMap() : null;
+            $res['investigation_info'] = null !== $this->investigationInfo ? $this->investigationInfo->toArray($noStream) : $this->investigationInfo;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -39,17 +44,18 @@ class CsiGetFileInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CsiGetFileInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['investigation_info'])) {
             $model->investigationInfo = InvestigationInfo::fromMap($map['investigation_info']);
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

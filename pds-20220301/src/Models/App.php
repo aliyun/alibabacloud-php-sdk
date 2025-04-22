@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class App extends Model
 {
@@ -82,44 +82,67 @@ class App extends Model
         'updatedAt' => 'updated_at',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->scope)) {
+            Model::validateArray($this->scope);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['app_id'] = $this->appId;
         }
+
         if (null !== $this->appName) {
             $res['app_name'] = $this->appName;
         }
+
         if (null !== $this->appSecret) {
             $res['app_secret'] = $this->appSecret;
         }
+
         if (null !== $this->createdAt) {
             $res['created_at'] = $this->createdAt;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->logo) {
             $res['logo'] = $this->logo;
         }
+
         if (null !== $this->provider) {
             $res['provider'] = $this->provider;
         }
+
         if (null !== $this->redirectUri) {
             $res['redirect_uri'] = $this->redirectUri;
         }
+
         if (null !== $this->scope) {
-            $res['scope'] = $this->scope;
+            if (\is_array($this->scope)) {
+                $res['scope'] = [];
+                $n1 = 0;
+                foreach ($this->scope as $item1) {
+                    $res['scope'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->stage) {
             $res['stage'] = $this->stage;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->updatedAt) {
             $res['updated_at'] = $this->updatedAt;
         }
@@ -127,49 +150,64 @@ class App extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return App
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['app_id'])) {
             $model->appId = $map['app_id'];
         }
+
         if (isset($map['app_name'])) {
             $model->appName = $map['app_name'];
         }
+
         if (isset($map['app_secret'])) {
             $model->appSecret = $map['app_secret'];
         }
+
         if (isset($map['created_at'])) {
             $model->createdAt = $map['created_at'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['logo'])) {
             $model->logo = $map['logo'];
         }
+
         if (isset($map['provider'])) {
             $model->provider = $map['provider'];
         }
+
         if (isset($map['redirect_uri'])) {
             $model->redirectUri = $map['redirect_uri'];
         }
+
         if (isset($map['scope'])) {
             if (!empty($map['scope'])) {
-                $model->scope = $map['scope'];
+                $model->scope = [];
+                $n1 = 0;
+                foreach ($map['scope'] as $item1) {
+                    $model->scope[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['stage'])) {
             $model->stage = $map['stage'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['updated_at'])) {
             $model->updatedAt = $map['updated_at'];
         }

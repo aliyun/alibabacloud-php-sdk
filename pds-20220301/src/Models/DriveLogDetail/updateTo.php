@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models\DriveLogDetail;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class updateTo extends Model
 {
@@ -40,23 +40,30 @@ class updateTo extends Model
         'totalSize' => 'total_size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->ownerId) {
             $res['owner_id'] = $this->ownerId;
         }
+
         if (null !== $this->ownerName) {
             $res['owner_name'] = $this->ownerName;
         }
+
         if (null !== $this->ownerType) {
             $res['owner_type'] = $this->ownerType;
         }
+
         if (null !== $this->totalSize) {
             $res['total_size'] = $this->totalSize;
         }
@@ -64,26 +71,30 @@ class updateTo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return updateTo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['owner_id'])) {
             $model->ownerId = $map['owner_id'];
         }
+
         if (isset($map['owner_name'])) {
             $model->ownerName = $map['owner_name'];
         }
+
         if (isset($map['owner_type'])) {
             $model->ownerType = $map['owner_type'];
         }
+
         if (isset($map['total_size'])) {
             $model->totalSize = $map['total_size'];
         }

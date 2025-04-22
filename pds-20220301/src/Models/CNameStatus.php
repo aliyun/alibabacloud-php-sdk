@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CNameStatus extends Model
 {
     /**
-     * @example BINDING/BOUND
-     *
      * @var string
      */
     public $bingdingState;
 
     /**
-     * @example NORMAL/ABNORMAL
-     *
      * @var string
      */
     public $legalState;
 
     /**
-     * @example beian
-     *
      * @var string
      */
     public $remark;
@@ -34,17 +28,22 @@ class CNameStatus extends Model
         'remark' => 'remark',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bingdingState) {
             $res['bingding_state'] = $this->bingdingState;
         }
+
         if (null !== $this->legalState) {
             $res['legal_state'] = $this->legalState;
         }
+
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
         }
@@ -52,20 +51,22 @@ class CNameStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CNameStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['bingding_state'])) {
             $model->bingdingState = $map['bingding_state'];
         }
+
         if (isset($map['legal_state'])) {
             $model->legalState = $map['legal_state'];
         }
+
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
         }

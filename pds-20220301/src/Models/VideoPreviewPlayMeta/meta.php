@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models\VideoPreviewPlayMeta;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class meta extends Model
 {
     /**
-     * @example 10
-     *
      * @var float
      */
     public $duration;
 
     /**
-     * @example 720
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @example 1280
-     *
      * @var int
      */
     public $width;
@@ -34,17 +28,22 @@ class meta extends Model
         'width' => 'width',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->duration) {
             $res['duration'] = $this->duration;
         }
+
         if (null !== $this->height) {
             $res['height'] = $this->height;
         }
+
         if (null !== $this->width) {
             $res['width'] = $this->width;
         }
@@ -52,20 +51,22 @@ class meta extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return meta
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['duration'])) {
             $model->duration = $map['duration'];
         }
+
         if (isset($map['height'])) {
             $model->height = $map['height'];
         }
+
         if (isset($map['width'])) {
             $model->width = $map['width'];
         }

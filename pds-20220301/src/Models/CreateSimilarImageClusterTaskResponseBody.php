@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSimilarImageClusterTaskResponseBody extends Model
 {
     /**
-     * @example i:SimilarImageClustering-b67d53e7-2fe8-460f-9b95-1e93636923eb
-     *
      * @var string
      */
     public $taskId;
@@ -18,9 +16,12 @@ class CreateSimilarImageClusterTaskResponseBody extends Model
         'taskId' => 'task_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -30,11 +31,11 @@ class CreateSimilarImageClusterTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSimilarImageClusterTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

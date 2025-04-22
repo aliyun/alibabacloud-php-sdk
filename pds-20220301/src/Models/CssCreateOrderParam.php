@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CssCreateOrderParam extends Model
 {
@@ -184,101 +184,143 @@ class CssCreateOrderParam extends Model
         'userId' => 'userId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->commodities)) {
+            Model::validateArray($this->commodities);
+        }
+        if (\is_array($this->orderParams)) {
+            Model::validateArray($this->orderParams);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentId) {
             $res['agentId'] = $this->agentId;
         }
+
         if (null !== $this->autoPay) {
             $res['autoPay'] = $this->autoPay;
         }
+
         if (null !== $this->autoUseCoupon) {
             $res['autoUseCoupon'] = $this->autoUseCoupon;
         }
+
         if (null !== $this->bid) {
             $res['bid'] = $this->bid;
         }
+
         if (null !== $this->buyerId) {
             $res['buyerId'] = $this->buyerId;
         }
+
         if (null !== $this->certificate) {
             $res['certificate'] = $this->certificate;
         }
+
         if (null !== $this->childId) {
             $res['childId'] = $this->childId;
         }
+
         if (null !== $this->cilentIp) {
             $res['cilentIp'] = $this->cilentIp;
         }
+
         if (null !== $this->commodities) {
-            $res['commodities'] = [];
-            if (null !== $this->commodities && \is_array($this->commodities)) {
-                $n = 0;
-                foreach ($this->commodities as $item) {
-                    $res['commodities'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->commodities)) {
+                $res['commodities'] = [];
+                $n1 = 0;
+                foreach ($this->commodities as $item1) {
+                    $res['commodities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->createrNick) {
             $res['createrNick'] = $this->createrNick;
         }
+
         if (null !== $this->cssAuthRequestParam) {
             $res['cssAuthRequestParam'] = $this->cssAuthRequestParam;
         }
+
         if (null !== $this->fromApp) {
             $res['fromApp'] = $this->fromApp;
         }
+
         if (null !== $this->language) {
             $res['language'] = $this->language;
         }
+
         if (null !== $this->marketType) {
             $res['marketType'] = $this->marketType;
         }
+
         if (null !== $this->memo) {
             $res['memo'] = $this->memo;
         }
+
         if (null !== $this->orderOrigin) {
             $res['orderOrigin'] = $this->orderOrigin;
         }
+
         if (null !== $this->orderParams) {
-            $res['orderParams'] = $this->orderParams;
+            if (\is_array($this->orderParams)) {
+                $res['orderParams'] = [];
+                foreach ($this->orderParams as $key1 => $value1) {
+                    $res['orderParams'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->payerId) {
             $res['payerId'] = $this->payerId;
         }
+
         if (null !== $this->planGroupId) {
             $res['planGroupId'] = $this->planGroupId;
         }
+
         if (null !== $this->planId) {
             $res['planId'] = $this->planId;
         }
+
         if (null !== $this->planInstanceId) {
             $res['planInstanceId'] = $this->planInstanceId;
         }
+
         if (null !== $this->promotionCode) {
             $res['promotionCode'] = $this->promotionCode;
         }
+
         if (null !== $this->promotionInputParam) {
             $res['promotionInputParam'] = $this->promotionInputParam;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->skipChannel) {
             $res['skipChannel'] = $this->skipChannel;
         }
+
         if (null !== $this->token) {
             $res['token'] = $this->token;
         }
+
         if (null !== $this->transientAccess) {
             $res['transientAccess'] = $this->transientAccess;
         }
+
         if (null !== $this->umidToken) {
             $res['umidToken'] = $this->umidToken;
         }
+
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
         }
@@ -286,104 +328,137 @@ class CssCreateOrderParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CssCreateOrderParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['agentId'])) {
             $model->agentId = $map['agentId'];
         }
+
         if (isset($map['autoPay'])) {
             $model->autoPay = $map['autoPay'];
         }
+
         if (isset($map['autoUseCoupon'])) {
             $model->autoUseCoupon = $map['autoUseCoupon'];
         }
+
         if (isset($map['bid'])) {
             $model->bid = $map['bid'];
         }
+
         if (isset($map['buyerId'])) {
             $model->buyerId = $map['buyerId'];
         }
+
         if (isset($map['certificate'])) {
             $model->certificate = $map['certificate'];
         }
+
         if (isset($map['childId'])) {
             $model->childId = $map['childId'];
         }
+
         if (isset($map['cilentIp'])) {
             $model->cilentIp = $map['cilentIp'];
         }
+
         if (isset($map['commodities'])) {
             if (!empty($map['commodities'])) {
                 $model->commodities = [];
-                $n = 0;
-                foreach ($map['commodities'] as $item) {
-                    $model->commodities[$n++] = null !== $item ? CssInstanceCommodity::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['commodities'] as $item1) {
+                    $model->commodities[$n1++] = CssInstanceCommodity::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['createrNick'])) {
             $model->createrNick = $map['createrNick'];
         }
+
         if (isset($map['cssAuthRequestParam'])) {
             $model->cssAuthRequestParam = $map['cssAuthRequestParam'];
         }
+
         if (isset($map['fromApp'])) {
             $model->fromApp = $map['fromApp'];
         }
+
         if (isset($map['language'])) {
             $model->language = $map['language'];
         }
+
         if (isset($map['marketType'])) {
             $model->marketType = $map['marketType'];
         }
+
         if (isset($map['memo'])) {
             $model->memo = $map['memo'];
         }
+
         if (isset($map['orderOrigin'])) {
             $model->orderOrigin = $map['orderOrigin'];
         }
+
         if (isset($map['orderParams'])) {
-            $model->orderParams = $map['orderParams'];
+            if (!empty($map['orderParams'])) {
+                $model->orderParams = [];
+                foreach ($map['orderParams'] as $key1 => $value1) {
+                    $model->orderParams[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['payerId'])) {
             $model->payerId = $map['payerId'];
         }
+
         if (isset($map['planGroupId'])) {
             $model->planGroupId = $map['planGroupId'];
         }
+
         if (isset($map['planId'])) {
             $model->planId = $map['planId'];
         }
+
         if (isset($map['planInstanceId'])) {
             $model->planInstanceId = $map['planInstanceId'];
         }
+
         if (isset($map['promotionCode'])) {
             $model->promotionCode = $map['promotionCode'];
         }
+
         if (isset($map['promotionInputParam'])) {
             $model->promotionInputParam = $map['promotionInputParam'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['skipChannel'])) {
             $model->skipChannel = $map['skipChannel'];
         }
+
         if (isset($map['token'])) {
             $model->token = $map['token'];
         }
+
         if (isset($map['transientAccess'])) {
             $model->transientAccess = $map['transientAccess'];
         }
+
         if (isset($map['umidToken'])) {
             $model->umidToken = $map['umidToken'];
         }
+
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
         }

@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListIdentityToBenefitPkgMappingRequest extends Model
 {
     /**
-     * @description The unique identifier of the entity.
-     *
-     * If you call this operation to manage the benefits of a user, set this parameter to the ID of the user.
-     *
-     * This parameter is required.
-     *
-     * @example user123
-     *
      * @var string
      */
     public $identityId;
 
     /**
-     * @description The type of the entity. If you call this operation to manage the benefits of a user, set this parameter to user.
-     *
-     * This parameter is required.
-     *
-     * @example user
-     *
      * @var string
      */
     public $identityType;
 
     /**
-     * @description Specifies whether to return the benefit packages that expire. Default value: false.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $includeExpired;
@@ -46,17 +28,22 @@ class ListIdentityToBenefitPkgMappingRequest extends Model
         'includeExpired' => 'include_expired',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->identityId) {
             $res['identity_id'] = $this->identityId;
         }
+
         if (null !== $this->identityType) {
             $res['identity_type'] = $this->identityType;
         }
+
         if (null !== $this->includeExpired) {
             $res['include_expired'] = $this->includeExpired;
         }
@@ -64,20 +51,22 @@ class ListIdentityToBenefitPkgMappingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIdentityToBenefitPkgMappingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['identity_id'])) {
             $model->identityId = $map['identity_id'];
         }
+
         if (isset($map['identity_type'])) {
             $model->identityType = $map['identity_type'];
         }
+
         if (isset($map['include_expired'])) {
             $model->includeExpired = $map['include_expired'];
         }

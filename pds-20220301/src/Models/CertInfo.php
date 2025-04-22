@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CertInfo extends Model
 {
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $certBody;
 
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $certName;
 
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $certPrivatekey;
@@ -34,17 +28,22 @@ class CertInfo extends Model
         'certPrivatekey' => 'cert_privatekey',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certBody) {
             $res['cert_body'] = $this->certBody;
         }
+
         if (null !== $this->certName) {
             $res['cert_name'] = $this->certName;
         }
+
         if (null !== $this->certPrivatekey) {
             $res['cert_privatekey'] = $this->certPrivatekey;
         }
@@ -52,20 +51,22 @@ class CertInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CertInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cert_body'])) {
             $model->certBody = $map['cert_body'];
         }
+
         if (isset($map['cert_name'])) {
             $model->certName = $map['cert_name'];
         }
+
         if (isset($map['cert_privatekey'])) {
             $model->certPrivatekey = $map['cert_privatekey'];
         }

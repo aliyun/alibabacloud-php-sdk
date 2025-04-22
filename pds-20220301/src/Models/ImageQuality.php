@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ImageQuality extends Model
 {
     /**
-     * @example 0.736
-     *
      * @var float
      */
     public $overallScore;
@@ -18,9 +16,12 @@ class ImageQuality extends Model
         'overallScore' => 'overall_score',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->overallScore) {
@@ -30,11 +31,11 @@ class ImageQuality extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImageQuality
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

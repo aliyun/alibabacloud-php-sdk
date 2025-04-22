@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FileAddPermissionRequest extends Model
 {
     /**
-     * @description The drive ID.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $driveId;
 
     /**
-     * @description The ID of the folder. If you want to authorize a user or group to access a team drive, set this parameter to root. If you want to authorize a user or group to access an individual drive, you cannot set this parameter to root.
-     *
-     * This parameter is required.
-     *
-     * @example 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
-     *
      * @var string
      */
     public $fileId;
 
     /**
-     * @description The members that are authorized to access files.
-     *
-     * This parameter is required.
-     *
      * @var FilePermissionMember[]
      */
     public $memberList;
@@ -44,23 +28,31 @@ class FileAddPermissionRequest extends Model
         'memberList' => 'member_list',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->memberList)) {
+            Model::validateArray($this->memberList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
+
         if (null !== $this->fileId) {
             $res['file_id'] = $this->fileId;
         }
+
         if (null !== $this->memberList) {
-            $res['member_list'] = [];
-            if (null !== $this->memberList && \is_array($this->memberList)) {
-                $n = 0;
-                foreach ($this->memberList as $item) {
-                    $res['member_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->memberList)) {
+                $res['member_list'] = [];
+                $n1 = 0;
+                foreach ($this->memberList as $item1) {
+                    $res['member_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -68,26 +60,28 @@ class FileAddPermissionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FileAddPermissionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
+
         if (isset($map['file_id'])) {
             $model->fileId = $map['file_id'];
         }
+
         if (isset($map['member_list'])) {
             if (!empty($map['member_list'])) {
                 $model->memberList = [];
-                $n = 0;
-                foreach ($map['member_list'] as $item) {
-                    $model->memberList[$n++] = null !== $item ? FilePermissionMember::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['member_list'] as $item1) {
+                    $model->memberList[$n1++] = FilePermissionMember::fromMap($item1);
                 }
             }
         }

@@ -4,65 +4,43 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateCustomizedStoryRequest\storyCover;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateCustomizedStoryRequest\storyFiles;
-use AlibabaCloud\Tea\Model;
 
 class CreateCustomizedStoryRequest extends Model
 {
     /**
-     * @deprecated
-     *
      * @var string[]
      */
     public $customLabels;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $driveId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var storyCover
      */
     public $storyCover;
 
     /**
-     * @description This parameter is required.
-     *
      * @var storyFiles[]
      */
     public $storyFiles;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example test_name
-     *
      * @var string
      */
     public $storyName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example user_created
-     *
      * @var string
      */
     public $storySubType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example user_created
-     *
      * @var string
      */
     public $storyType;
@@ -76,35 +54,58 @@ class CreateCustomizedStoryRequest extends Model
         'storyType' => 'story_type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->customLabels)) {
+            Model::validateArray($this->customLabels);
+        }
+        if (null !== $this->storyCover) {
+            $this->storyCover->validate();
+        }
+        if (\is_array($this->storyFiles)) {
+            Model::validateArray($this->storyFiles);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customLabels) {
-            $res['custom_labels'] = $this->customLabels;
-        }
-        if (null !== $this->driveId) {
-            $res['drive_id'] = $this->driveId;
-        }
-        if (null !== $this->storyCover) {
-            $res['story_cover'] = null !== $this->storyCover ? $this->storyCover->toMap() : null;
-        }
-        if (null !== $this->storyFiles) {
-            $res['story_files'] = [];
-            if (null !== $this->storyFiles && \is_array($this->storyFiles)) {
-                $n = 0;
-                foreach ($this->storyFiles as $item) {
-                    $res['story_files'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->customLabels)) {
+                $res['custom_labels'] = [];
+                foreach ($this->customLabels as $key1 => $value1) {
+                    $res['custom_labels'][$key1] = $value1;
                 }
             }
         }
+
+        if (null !== $this->driveId) {
+            $res['drive_id'] = $this->driveId;
+        }
+
+        if (null !== $this->storyCover) {
+            $res['story_cover'] = null !== $this->storyCover ? $this->storyCover->toArray($noStream) : $this->storyCover;
+        }
+
+        if (null !== $this->storyFiles) {
+            if (\is_array($this->storyFiles)) {
+                $res['story_files'] = [];
+                $n1 = 0;
+                foreach ($this->storyFiles as $item1) {
+                    $res['story_files'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->storyName) {
             $res['story_name'] = $this->storyName;
         }
+
         if (null !== $this->storySubType) {
             $res['story_sub_type'] = $this->storySubType;
         }
+
         if (null !== $this->storyType) {
             $res['story_type'] = $this->storyType;
         }
@@ -112,38 +113,49 @@ class CreateCustomizedStoryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCustomizedStoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['custom_labels'])) {
-            $model->customLabels = $map['custom_labels'];
-        }
-        if (isset($map['drive_id'])) {
-            $model->driveId = $map['drive_id'];
-        }
-        if (isset($map['story_cover'])) {
-            $model->storyCover = storyCover::fromMap($map['story_cover']);
-        }
-        if (isset($map['story_files'])) {
-            if (!empty($map['story_files'])) {
-                $model->storyFiles = [];
-                $n = 0;
-                foreach ($map['story_files'] as $item) {
-                    $model->storyFiles[$n++] = null !== $item ? storyFiles::fromMap($item) : $item;
+            if (!empty($map['custom_labels'])) {
+                $model->customLabels = [];
+                foreach ($map['custom_labels'] as $key1 => $value1) {
+                    $model->customLabels[$key1] = $value1;
                 }
             }
         }
+
+        if (isset($map['drive_id'])) {
+            $model->driveId = $map['drive_id'];
+        }
+
+        if (isset($map['story_cover'])) {
+            $model->storyCover = storyCover::fromMap($map['story_cover']);
+        }
+
+        if (isset($map['story_files'])) {
+            if (!empty($map['story_files'])) {
+                $model->storyFiles = [];
+                $n1 = 0;
+                foreach ($map['story_files'] as $item1) {
+                    $model->storyFiles[$n1++] = storyFiles::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['story_name'])) {
             $model->storyName = $map['story_name'];
         }
+
         if (isset($map['story_sub_type'])) {
             $model->storySubType = $map['story_sub_type'];
         }
+
         if (isset($map['story_type'])) {
             $model->storyType = $map['story_type'];
         }

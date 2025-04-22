@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models\VideoPreviewPlayInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class quickVideoList extends Model
 {
@@ -28,17 +28,22 @@ class quickVideoList extends Model
         'url' => 'url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->templateId) {
             $res['template_id'] = $this->templateId;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -46,20 +51,22 @@ class quickVideoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return quickVideoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['template_id'])) {
             $model->templateId = $map['template_id'];
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

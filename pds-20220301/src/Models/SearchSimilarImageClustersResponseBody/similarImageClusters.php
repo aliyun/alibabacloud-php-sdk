@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models\SearchSimilarImageClustersResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Pds\V20220301\Models\File;
-use AlibabaCloud\Tea\Model;
 
 class similarImageClusters extends Model
 {
@@ -17,17 +17,23 @@ class similarImageClusters extends Model
         'files' => 'files',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->files)) {
+            Model::validateArray($this->files);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->files) {
-            $res['files'] = [];
-            if (null !== $this->files && \is_array($this->files)) {
-                $n = 0;
-                foreach ($this->files as $item) {
-                    $res['files'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->files)) {
+                $res['files'] = [];
+                $n1 = 0;
+                foreach ($this->files as $item1) {
+                    $res['files'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class similarImageClusters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return similarImageClusters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['files'])) {
             if (!empty($map['files'])) {
                 $model->files = [];
-                $n = 0;
-                foreach ($map['files'] as $item) {
-                    $model->files[$n++] = null !== $item ? File::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['files'] as $item1) {
+                    $model->files[$n1++] = File::fromMap($item1);
                 }
             }
         }

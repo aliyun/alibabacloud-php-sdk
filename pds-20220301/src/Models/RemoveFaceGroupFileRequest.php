@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveFaceGroupFileRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 123
-     *
      * @var string
      */
     public $driveId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example Cluster-abc
-     *
      * @var string
      */
     public $faceGroupId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example abcd
-     *
      * @var string
      */
     public $fileId;
@@ -40,17 +28,22 @@ class RemoveFaceGroupFileRequest extends Model
         'fileId' => 'file_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
+
         if (null !== $this->faceGroupId) {
             $res['face_group_id'] = $this->faceGroupId;
         }
+
         if (null !== $this->fileId) {
             $res['file_id'] = $this->fileId;
         }
@@ -58,20 +51,22 @@ class RemoveFaceGroupFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveFaceGroupFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
+
         if (isset($map['face_group_id'])) {
             $model->faceGroupId = $map['face_group_id'];
         }
+
         if (isset($map['file_id'])) {
             $model->fileId = $map['file_id'];
         }

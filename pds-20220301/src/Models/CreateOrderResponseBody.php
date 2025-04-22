@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateOrderResponseBody extends Model
 {
@@ -22,14 +22,18 @@ class CreateOrderResponseBody extends Model
         'orderId' => 'order_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['instance_id'] = $this->instanceId;
         }
+
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
         }
@@ -37,17 +41,18 @@ class CreateOrderResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateOrderResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['instance_id'])) {
             $model->instanceId = $map['instance_id'];
         }
+
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];
         }

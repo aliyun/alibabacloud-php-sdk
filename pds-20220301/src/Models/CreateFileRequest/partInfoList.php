@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models\CreateFileRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateFileRequest\partInfoList\parallelSha1Ctx;
-use AlibabaCloud\Tea\Model;
 
 class partInfoList extends Model
 {
     /**
-     * @description The MD5 hash value of the file part. This parameter is required when the MD5 hash value of the file part needs to be verified during part upload.
-     *
-     * @example ASKJDJSKDJJSJDJS
-     *
      * @var string
      */
     public $contentMd5;
 
     /**
-     * @description The SHA-1 hash value of the file content before the file part. This parameter takes effect only if the parallel upload feature is enabled.
-     *
      * @var parallelSha1Ctx
      */
     public $parallelSha1Ctx;
 
     /**
-     * @description The serial number of a file part. The number starts from 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $partNumber;
@@ -39,17 +29,25 @@ class partInfoList extends Model
         'partNumber' => 'part_number',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->parallelSha1Ctx) {
+            $this->parallelSha1Ctx->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contentMd5) {
             $res['content_md5'] = $this->contentMd5;
         }
+
         if (null !== $this->parallelSha1Ctx) {
-            $res['parallel_sha1_ctx'] = null !== $this->parallelSha1Ctx ? $this->parallelSha1Ctx->toMap() : null;
+            $res['parallel_sha1_ctx'] = null !== $this->parallelSha1Ctx ? $this->parallelSha1Ctx->toArray($noStream) : $this->parallelSha1Ctx;
         }
+
         if (null !== $this->partNumber) {
             $res['part_number'] = $this->partNumber;
         }
@@ -57,20 +55,22 @@ class partInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return partInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content_md5'])) {
             $model->contentMd5 = $map['content_md5'];
         }
+
         if (isset($map['parallel_sha1_ctx'])) {
             $model->parallelSha1Ctx = parallelSha1Ctx::fromMap($map['parallel_sha1_ctx']);
         }
+
         if (isset($map['part_number'])) {
             $model->partNumber = $map['part_number'];
         }

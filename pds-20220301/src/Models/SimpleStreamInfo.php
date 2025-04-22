@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SimpleStreamInfo extends Model
 {
@@ -52,29 +52,38 @@ class SimpleStreamInfo extends Model
         'url' => 'url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contentHash) {
             $res['content_hash'] = $this->contentHash;
         }
+
         if (null !== $this->contentHashName) {
             $res['content_hash_name'] = $this->contentHashName;
         }
+
         if (null !== $this->crc64Hash) {
             $res['crc64_hash'] = $this->crc64Hash;
         }
+
         if (null !== $this->downloadUrl) {
             $res['download_url'] = $this->downloadUrl;
         }
+
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
+
         if (null !== $this->thumbnail) {
             $res['thumbnail'] = $this->thumbnail;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -82,32 +91,38 @@ class SimpleStreamInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SimpleStreamInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content_hash'])) {
             $model->contentHash = $map['content_hash'];
         }
+
         if (isset($map['content_hash_name'])) {
             $model->contentHashName = $map['content_hash_name'];
         }
+
         if (isset($map['crc64_hash'])) {
             $model->crc64Hash = $map['crc64_hash'];
         }
+
         if (isset($map['download_url'])) {
             $model->downloadUrl = $map['download_url'];
         }
+
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }
+
         if (isset($map['thumbnail'])) {
             $model->thumbnail = $map['thumbnail'];
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

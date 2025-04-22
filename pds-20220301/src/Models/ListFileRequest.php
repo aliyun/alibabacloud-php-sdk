@@ -4,199 +4,66 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListFileRequest extends Model
 {
     /**
-     * @description The category of the file. Valid values:
-     *
-     * app: installation package. zip: compressed package. image: image. doc: document. video: video. audio: audio. others: other files.
-     *
-     * By default, files of all categories are returned.
-     *
-     * @example image
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description The drive ID.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $driveId;
 
     /**
-     * @description The fields to return.
-     *
-     * 1.  If this parameter is set to \\*, all fields of the file except the fields that must be specified are returned.
-     * 2.  If only specific fields are required, you can specify the following fields: url, exif, cropping_suggestion, characteristic_hash, video_metadata, and video_preview_metadata. If multiple fields are required, separate them with commas (,). Example: url,exif.
-     * 3.  The investigation_info field is returned only if you specify this field.
-     *
-     * By default, all fields except the fields that must be specified are returned.
-     *
-     * @example *
-     *
      * @var string
      */
     public $fields;
 
     /**
-     * @description The maximum number of results to return. Valid values: 1 to 100.
-     *
-     * The number of returned results must be less than or equal to the specified number.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $limit;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
-     * By default, this parameter is empty.
-     *
-     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
-     *
      * @var string
      */
     public $marker;
 
     /**
-     * @description The sorting field.
-     *
-     * Default value: created_at.
-     *
-     * Valid values:
-     *
-     *   updated_at
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * sorts the results based on the time when the file was last modified
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     *   size
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * sorts the results based on the size of the file
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     *   name
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * sorts the results based on the name of the file
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     *   created_at
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * sorts the results based on the time when the file was created
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     * @example updated_at
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description The sorting direction. Valid values:
-     *
-     * ASC: ascending order. DESC: descending order.
-     *
-     * Default value: ASC.
-     *
-     * @example ASC
-     *
      * @var string
      */
     public $orderDirection;
 
     /**
-     * @description The ID of the parent folder. If the parent folder is a root directory, set this parameter to root.
-     *
-     * This parameter is required.
-     *
-     * @example root
-     *
      * @var string
      */
     public $parentFileId;
 
     /**
-     * @description The share ID. If you want to manage a file by using a share link, carry the `x-share-token` header for authentication in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify one of `share_id` and `drive_id`.
-     *
-     * @example 7JQX1FswpQ8
-     *
      * @var string
      */
     public $shareId;
 
     /**
-     * @description The state of the file. Valid values:
-     *
-     * available: Only normal files are returned. uploading: Only files that are being uploaded are returned.
-     *
-     * By default, only files in the available state are returned.
-     *
-     * @example available
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The thumbnail configurations. Up to five thumbnails can be returned at a time. The value contains key-value pairs. You can customize the keys. The URL of a thumbnail is returned based on the key.
-     *
      * @var ImageProcess[]
      */
     public $thumbnailProcesses;
 
     /**
-     * @description The type of the file. Valid values:
-     *
-     * file: Only files are returned. folder: Only folders are returned.
-     *
-     * By default, files of all types are returned.
-     *
-     * @example file
-     *
      * @var string
      */
     public $type;
@@ -215,49 +82,66 @@ class ListFileRequest extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->thumbnailProcesses)) {
+            Model::validateArray($this->thumbnailProcesses);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['category'] = $this->category;
         }
+
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
+
         if (null !== $this->fields) {
             $res['fields'] = $this->fields;
         }
+
         if (null !== $this->limit) {
             $res['limit'] = $this->limit;
         }
+
         if (null !== $this->marker) {
             $res['marker'] = $this->marker;
         }
+
         if (null !== $this->orderBy) {
             $res['order_by'] = $this->orderBy;
         }
+
         if (null !== $this->orderDirection) {
             $res['order_direction'] = $this->orderDirection;
         }
+
         if (null !== $this->parentFileId) {
             $res['parent_file_id'] = $this->parentFileId;
         }
+
         if (null !== $this->shareId) {
             $res['share_id'] = $this->shareId;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->thumbnailProcesses) {
-            $res['thumbnail_processes'] = [];
-            if (null !== $this->thumbnailProcesses && \is_array($this->thumbnailProcesses)) {
-                foreach ($this->thumbnailProcesses as $key => $val) {
-                    $res['thumbnail_processes'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->thumbnailProcesses)) {
+                $res['thumbnail_processes'] = [];
+                foreach ($this->thumbnailProcesses as $key1 => $value1) {
+                    $res['thumbnail_processes'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -265,47 +149,63 @@ class ListFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['category'])) {
             $model->category = $map['category'];
         }
+
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
+
         if (isset($map['fields'])) {
             $model->fields = $map['fields'];
         }
+
         if (isset($map['limit'])) {
             $model->limit = $map['limit'];
         }
+
         if (isset($map['marker'])) {
             $model->marker = $map['marker'];
         }
+
         if (isset($map['order_by'])) {
             $model->orderBy = $map['order_by'];
         }
+
         if (isset($map['order_direction'])) {
             $model->orderDirection = $map['order_direction'];
         }
+
         if (isset($map['parent_file_id'])) {
             $model->parentFileId = $map['parent_file_id'];
         }
+
         if (isset($map['share_id'])) {
             $model->shareId = $map['share_id'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['thumbnail_processes'])) {
-            $model->thumbnailProcesses = $map['thumbnail_processes'];
+            if (!empty($map['thumbnail_processes'])) {
+                $model->thumbnailProcesses = [];
+                foreach ($map['thumbnail_processes'] as $key1 => $value1) {
+                    $model->thumbnailProcesses[$key1] = ImageProcess::fromMap($value1);
+                }
+            }
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

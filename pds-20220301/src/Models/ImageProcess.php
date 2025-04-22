@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ImageProcess extends Model
 {
@@ -28,17 +28,22 @@ class ImageProcess extends Model
         'videoThumbnailProcess' => 'video_thumbnail_process',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageThumbnailProcess) {
             $res['image_thumbnail_process'] = $this->imageThumbnailProcess;
         }
+
         if (null !== $this->officeThumbnailProcess) {
             $res['office_thumbnail_process'] = $this->officeThumbnailProcess;
         }
+
         if (null !== $this->videoThumbnailProcess) {
             $res['video_thumbnail_process'] = $this->videoThumbnailProcess;
         }
@@ -46,20 +51,22 @@ class ImageProcess extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImageProcess
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['image_thumbnail_process'])) {
             $model->imageThumbnailProcess = $map['image_thumbnail_process'];
         }
+
         if (isset($map['office_thumbnail_process'])) {
             $model->officeThumbnailProcess = $map['office_thumbnail_process'];
         }
+
         if (isset($map['video_thumbnail_process'])) {
             $model->videoThumbnailProcess = $map['video_thumbnail_process'];
         }

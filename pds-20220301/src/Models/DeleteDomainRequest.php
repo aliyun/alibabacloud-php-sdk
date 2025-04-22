@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDomainRequest extends Model
 {
     /**
-     * @description The domain ID.
-     *
-     * @example bj1
-     *
      * @var string
      */
     public $domainId;
@@ -20,9 +16,12 @@ class DeleteDomainRequest extends Model
         'domainId' => 'domain_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainId) {
@@ -32,11 +31,11 @@ class DeleteDomainRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDomainRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

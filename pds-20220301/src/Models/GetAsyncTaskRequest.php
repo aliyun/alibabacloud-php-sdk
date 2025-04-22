@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAsyncTaskRequest extends Model
 {
     /**
-     * @description The ID of the asynchronous task.
-     *
-     * This parameter is required.
-     *
-     * @example 000e89fb-cf8f-11e9-8ab4-b6e980803a3b
-     *
      * @var string
      */
     public $asyncTaskId;
@@ -22,9 +16,12 @@ class GetAsyncTaskRequest extends Model
         'asyncTaskId' => 'async_task_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->asyncTaskId) {
@@ -34,11 +31,11 @@ class GetAsyncTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAsyncTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

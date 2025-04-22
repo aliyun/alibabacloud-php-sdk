@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateFacegroupResponseBody extends Model
 {
     /**
-     * @description The drive ID.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $driveId;
 
     /**
-     * @description The group ID.
-     *
-     * @example group-abc
-     *
      * @var string
      */
     public $groupId;
@@ -30,14 +22,18 @@ class UpdateFacegroupResponseBody extends Model
         'groupId' => 'group_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
+
         if (null !== $this->groupId) {
             $res['group_id'] = $this->groupId;
         }
@@ -45,17 +41,18 @@ class UpdateFacegroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateFacegroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
+
         if (isset($map['group_id'])) {
             $model->groupId = $map['group_id'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AuditLog extends Model
 {
@@ -100,53 +100,73 @@ class AuditLog extends Model
         'objectName' => 'object_name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->detail) {
+            $this->detail->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actedAt) {
             $res['acted_at'] = $this->actedAt;
         }
+
         if (null !== $this->actionCategory) {
             $res['action_category'] = $this->actionCategory;
         }
+
         if (null !== $this->actionType) {
             $res['action_type'] = $this->actionType;
         }
+
         if (null !== $this->actorId) {
             $res['actor_id'] = $this->actorId;
         }
+
         if (null !== $this->actorName) {
             $res['actor_name'] = $this->actorName;
         }
+
         if (null !== $this->actorType) {
             $res['actor_type'] = $this->actorType;
         }
+
         if (null !== $this->clientDevice) {
             $res['client_device'] = $this->clientDevice;
         }
+
         if (null !== $this->clientIp) {
             $res['client_ip'] = $this->clientIp;
         }
+
         if (null !== $this->clientType) {
             $res['client_type'] = $this->clientType;
         }
+
         if (null !== $this->clientVersion) {
             $res['client_version'] = $this->clientVersion;
         }
+
         if (null !== $this->detail) {
-            $res['detail'] = null !== $this->detail ? $this->detail->toMap() : null;
+            $res['detail'] = null !== $this->detail ? $this->detail->toArray($noStream) : $this->detail;
         }
+
         if (null !== $this->filePathType) {
             $res['file_path_type'] = $this->filePathType;
         }
+
         if (null !== $this->logId) {
             $res['log_id'] = $this->logId;
         }
+
         if (null !== $this->objectId) {
             $res['object_id'] = $this->objectId;
         }
+
         if (null !== $this->objectName) {
             $res['object_name'] = $this->objectName;
         }
@@ -154,56 +174,70 @@ class AuditLog extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AuditLog
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['acted_at'])) {
             $model->actedAt = $map['acted_at'];
         }
+
         if (isset($map['action_category'])) {
             $model->actionCategory = $map['action_category'];
         }
+
         if (isset($map['action_type'])) {
             $model->actionType = $map['action_type'];
         }
+
         if (isset($map['actor_id'])) {
             $model->actorId = $map['actor_id'];
         }
+
         if (isset($map['actor_name'])) {
             $model->actorName = $map['actor_name'];
         }
+
         if (isset($map['actor_type'])) {
             $model->actorType = $map['actor_type'];
         }
+
         if (isset($map['client_device'])) {
             $model->clientDevice = $map['client_device'];
         }
+
         if (isset($map['client_ip'])) {
             $model->clientIp = $map['client_ip'];
         }
+
         if (isset($map['client_type'])) {
             $model->clientType = $map['client_type'];
         }
+
         if (isset($map['client_version'])) {
             $model->clientVersion = $map['client_version'];
         }
+
         if (isset($map['detail'])) {
             $model->detail = AuditLogDetail::fromMap($map['detail']);
         }
+
         if (isset($map['file_path_type'])) {
             $model->filePathType = $map['file_path_type'];
         }
+
         if (isset($map['log_id'])) {
             $model->logId = $map['log_id'];
         }
+
         if (isset($map['object_id'])) {
             $model->objectId = $map['object_id'];
         }
+
         if (isset($map['object_name'])) {
             $model->objectName = $map['object_name'];
         }

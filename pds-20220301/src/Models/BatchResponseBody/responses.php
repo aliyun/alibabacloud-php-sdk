@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models\BatchResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class responses extends Model
 {
     /**
-     * @description The response parameters of a child request. For more information, see the topic of the corresponding child request.
-     *
      * @var mixed[]
      */
     public $body;
 
     /**
-     * @description The ID of the child request. The ID is used to associate a child request with a response.
-     *
-     * @example 93433894994ad2e1
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The returned HTTP status code of a child request. For more information, see the topic of the corresponding child request.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $status;
@@ -38,17 +28,30 @@ class responses extends Model
         'status' => 'status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->body)) {
+            Model::validateArray($this->body);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = $this->body;
+            if (\is_array($this->body)) {
+                $res['body'] = [];
+                foreach ($this->body as $key1 => $value1) {
+                    $res['body'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -56,20 +59,27 @@ class responses extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return responses
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
-            $model->body = $map['body'];
+            if (!empty($map['body'])) {
+                $model->body = [];
+                foreach ($map['body'] as $key1 => $value1) {
+                    $model->body[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

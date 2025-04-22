@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AggregationsGroup extends Model
 {
@@ -22,14 +22,18 @@ class AggregationsGroup extends Model
         'value' => 'value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -37,17 +41,18 @@ class AggregationsGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AggregationsGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

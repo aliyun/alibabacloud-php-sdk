@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models\File;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dirSizeInfo extends Model
 {
@@ -22,14 +22,18 @@ class dirSizeInfo extends Model
         'fileCount' => 'file_count',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dirCount) {
             $res['dir_count'] = $this->dirCount;
         }
+
         if (null !== $this->fileCount) {
             $res['file_count'] = $this->fileCount;
         }
@@ -37,17 +41,18 @@ class dirSizeInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dirSizeInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dir_count'])) {
             $model->dirCount = $map['dir_count'];
         }
+
         if (isset($map['file_count'])) {
             $model->fileCount = $map['file_count'];
         }

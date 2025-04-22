@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models\SearchStoriesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class storyEndTimeRange extends Model
 {
     /**
-     * @example 2022-12-31T00:00:00+08:00
-     *
      * @var string
      */
     public $end;
 
     /**
-     * @example 2016-12-31T00:00:00+08:00
-     *
      * @var string
      */
     public $start;
@@ -26,14 +22,18 @@ class storyEndTimeRange extends Model
         'start' => 'start',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->end) {
             $res['end'] = $this->end;
         }
+
         if (null !== $this->start) {
             $res['start'] = $this->start;
         }
@@ -41,17 +41,18 @@ class storyEndTimeRange extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return storyEndTimeRange
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['end'])) {
             $model->end = $map['end'];
         }
+
         if (isset($map['start'])) {
             $model->start = $map['start'];
         }

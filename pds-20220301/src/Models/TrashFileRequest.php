@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TrashFileRequest extends Model
 {
     /**
-     * @description The drive ID.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $driveId;
 
     /**
-     * @description The ID of the file or folder.
-     *
-     * This parameter is required.
-     *
-     * @example 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
-     *
      * @var string
      */
     public $fileId;
@@ -34,14 +22,18 @@ class TrashFileRequest extends Model
         'fileId' => 'file_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
+
         if (null !== $this->fileId) {
             $res['file_id'] = $this->fileId;
         }
@@ -49,17 +41,18 @@ class TrashFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TrashFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
+
         if (isset($map['file_id'])) {
             $model->fileId = $map['file_id'];
         }

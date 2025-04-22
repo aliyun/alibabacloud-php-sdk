@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Pds\V20220301\Models\File\dirSizeInfo;
-use AlibabaCloud\Tea\Model;
 
 class File extends Model
 {
@@ -227,240 +227,374 @@ class File extends Model
         'videoMediaMetadata' => 'video_media_metadata',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->actionList)) {
+            Model::validateArray($this->actionList);
+        }
+        if (null !== $this->dirSizeInfo) {
+            $this->dirSizeInfo->validate();
+        }
+        if (null !== $this->imageMediaMetadata) {
+            $this->imageMediaMetadata->validate();
+        }
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        if (\is_array($this->thumbnailUrls)) {
+            Model::validateArray($this->thumbnailUrls);
+        }
+        if (\is_array($this->userTags)) {
+            Model::validateArray($this->userTags);
+        }
+        if (null !== $this->videoMediaMetadata) {
+            $this->videoMediaMetadata->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionList) {
-            $res['action_list'] = $this->actionList;
+            if (\is_array($this->actionList)) {
+                $res['action_list'] = [];
+                $n1 = 0;
+                foreach ($this->actionList as $item1) {
+                    $res['action_list'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->autoDeleteLeftSec) {
             $res['auto_delete_left_sec'] = $this->autoDeleteLeftSec;
         }
+
         if (null !== $this->category) {
             $res['category'] = $this->category;
         }
+
         if (null !== $this->contentHash) {
             $res['content_hash'] = $this->contentHash;
         }
+
         if (null !== $this->contentHashName) {
             $res['content_hash_name'] = $this->contentHashName;
         }
+
         if (null !== $this->contentType) {
             $res['content_type'] = $this->contentType;
         }
+
         if (null !== $this->crc64Hash) {
             $res['crc64_hash'] = $this->crc64Hash;
         }
+
         if (null !== $this->createdAt) {
             $res['created_at'] = $this->createdAt;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->dirSizeInfo) {
-            $res['dir_size_info'] = null !== $this->dirSizeInfo ? $this->dirSizeInfo->toMap() : null;
+            $res['dir_size_info'] = null !== $this->dirSizeInfo ? $this->dirSizeInfo->toArray($noStream) : $this->dirSizeInfo;
         }
+
         if (null !== $this->domainId) {
             $res['domain_id'] = $this->domainId;
         }
+
         if (null !== $this->downloadUrl) {
             $res['download_url'] = $this->downloadUrl;
         }
+
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
+
         if (null !== $this->fileExtension) {
             $res['file_extension'] = $this->fileExtension;
         }
+
         if (null !== $this->fileId) {
             $res['file_id'] = $this->fileId;
         }
+
         if (null !== $this->hidden) {
             $res['hidden'] = $this->hidden;
         }
+
         if (null !== $this->idPath) {
             $res['id_path'] = $this->idPath;
         }
+
         if (null !== $this->imageMediaMetadata) {
-            $res['image_media_metadata'] = null !== $this->imageMediaMetadata ? $this->imageMediaMetadata->toMap() : null;
+            $res['image_media_metadata'] = null !== $this->imageMediaMetadata ? $this->imageMediaMetadata->toArray($noStream) : $this->imageMediaMetadata;
         }
+
         if (null !== $this->labels) {
-            $res['labels'] = $this->labels;
+            if (\is_array($this->labels)) {
+                $res['labels'] = [];
+                $n1 = 0;
+                foreach ($this->labels as $item1) {
+                    $res['labels'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->localCreatedAt) {
             $res['local_created_at'] = $this->localCreatedAt;
         }
+
         if (null !== $this->localModifiedAt) {
             $res['local_modified_at'] = $this->localModifiedAt;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->namePath) {
             $res['name_path'] = $this->namePath;
         }
+
         if (null !== $this->parentFileId) {
             $res['parent_file_id'] = $this->parentFileId;
         }
+
         if (null !== $this->revisionId) {
             $res['revision_id'] = $this->revisionId;
         }
+
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
+
         if (null !== $this->starred) {
             $res['starred'] = $this->starred;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->thumbnail) {
             $res['thumbnail'] = $this->thumbnail;
         }
+
         if (null !== $this->thumbnailUrls) {
-            $res['thumbnail_urls'] = $this->thumbnailUrls;
+            if (\is_array($this->thumbnailUrls)) {
+                $res['thumbnail_urls'] = [];
+                foreach ($this->thumbnailUrls as $key1 => $value1) {
+                    $res['thumbnail_urls'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->trashedAt) {
             $res['trashed_at'] = $this->trashedAt;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->updatedAt) {
             $res['updated_at'] = $this->updatedAt;
         }
+
         if (null !== $this->uploadId) {
             $res['upload_id'] = $this->uploadId;
         }
+
         if (null !== $this->userTags) {
-            $res['user_tags'] = $this->userTags;
+            if (\is_array($this->userTags)) {
+                $res['user_tags'] = [];
+                foreach ($this->userTags as $key1 => $value1) {
+                    $res['user_tags'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->videoMediaMetadata) {
-            $res['video_media_metadata'] = null !== $this->videoMediaMetadata ? $this->videoMediaMetadata->toMap() : null;
+            $res['video_media_metadata'] = null !== $this->videoMediaMetadata ? $this->videoMediaMetadata->toArray($noStream) : $this->videoMediaMetadata;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return File
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['action_list'])) {
             if (!empty($map['action_list'])) {
-                $model->actionList = $map['action_list'];
+                $model->actionList = [];
+                $n1 = 0;
+                foreach ($map['action_list'] as $item1) {
+                    $model->actionList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['auto_delete_left_sec'])) {
             $model->autoDeleteLeftSec = $map['auto_delete_left_sec'];
         }
+
         if (isset($map['category'])) {
             $model->category = $map['category'];
         }
+
         if (isset($map['content_hash'])) {
             $model->contentHash = $map['content_hash'];
         }
+
         if (isset($map['content_hash_name'])) {
             $model->contentHashName = $map['content_hash_name'];
         }
+
         if (isset($map['content_type'])) {
             $model->contentType = $map['content_type'];
         }
+
         if (isset($map['crc64_hash'])) {
             $model->crc64Hash = $map['crc64_hash'];
         }
+
         if (isset($map['created_at'])) {
             $model->createdAt = $map['created_at'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['dir_size_info'])) {
             $model->dirSizeInfo = dirSizeInfo::fromMap($map['dir_size_info']);
         }
+
         if (isset($map['domain_id'])) {
             $model->domainId = $map['domain_id'];
         }
+
         if (isset($map['download_url'])) {
             $model->downloadUrl = $map['download_url'];
         }
+
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
+
         if (isset($map['file_extension'])) {
             $model->fileExtension = $map['file_extension'];
         }
+
         if (isset($map['file_id'])) {
             $model->fileId = $map['file_id'];
         }
+
         if (isset($map['hidden'])) {
             $model->hidden = $map['hidden'];
         }
+
         if (isset($map['id_path'])) {
             $model->idPath = $map['id_path'];
         }
+
         if (isset($map['image_media_metadata'])) {
             $model->imageMediaMetadata = ImageMediaMetadata::fromMap($map['image_media_metadata']);
         }
+
         if (isset($map['labels'])) {
             if (!empty($map['labels'])) {
-                $model->labels = $map['labels'];
+                $model->labels = [];
+                $n1 = 0;
+                foreach ($map['labels'] as $item1) {
+                    $model->labels[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['local_created_at'])) {
             $model->localCreatedAt = $map['local_created_at'];
         }
+
         if (isset($map['local_modified_at'])) {
             $model->localModifiedAt = $map['local_modified_at'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['name_path'])) {
             $model->namePath = $map['name_path'];
         }
+
         if (isset($map['parent_file_id'])) {
             $model->parentFileId = $map['parent_file_id'];
         }
+
         if (isset($map['revision_id'])) {
             $model->revisionId = $map['revision_id'];
         }
+
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }
+
         if (isset($map['starred'])) {
             $model->starred = $map['starred'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['thumbnail'])) {
             $model->thumbnail = $map['thumbnail'];
         }
+
         if (isset($map['thumbnail_urls'])) {
-            $model->thumbnailUrls = $map['thumbnail_urls'];
+            if (!empty($map['thumbnail_urls'])) {
+                $model->thumbnailUrls = [];
+                foreach ($map['thumbnail_urls'] as $key1 => $value1) {
+                    $model->thumbnailUrls[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['trashed_at'])) {
             $model->trashedAt = $map['trashed_at'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['updated_at'])) {
             $model->updatedAt = $map['updated_at'];
         }
+
         if (isset($map['upload_id'])) {
             $model->uploadId = $map['upload_id'];
         }
+
         if (isset($map['user_tags'])) {
-            $model->userTags = $map['user_tags'];
+            if (!empty($map['user_tags'])) {
+                $model->userTags = [];
+                foreach ($map['user_tags'] as $key1 => $value1) {
+                    $model->userTags[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['video_media_metadata'])) {
             $model->videoMediaMetadata = VideoMediaMetadata::fromMap($map['video_media_metadata']);
         }

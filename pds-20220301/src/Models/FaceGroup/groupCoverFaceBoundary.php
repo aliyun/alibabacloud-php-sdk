@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models\FaceGroup;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class groupCoverFaceBoundary extends Model
 {
     /**
-     * @example 300
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $left;
 
     /**
-     * @example 30
-     *
      * @var int
      */
     public $top;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $width;
@@ -42,20 +34,26 @@ class groupCoverFaceBoundary extends Model
         'width' => 'Width',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
+
         if (null !== $this->left) {
             $res['Left'] = $this->left;
         }
+
         if (null !== $this->top) {
             $res['Top'] = $this->top;
         }
+
         if (null !== $this->width) {
             $res['Width'] = $this->width;
         }
@@ -63,23 +61,26 @@ class groupCoverFaceBoundary extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groupCoverFaceBoundary
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
+
         if (isset($map['Left'])) {
             $model->left = $map['Left'];
         }
+
         if (isset($map['Top'])) {
             $model->top = $map['Top'];
         }
+
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
         }

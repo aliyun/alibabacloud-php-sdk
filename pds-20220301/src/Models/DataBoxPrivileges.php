@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DataBoxPrivileges extends Model
 {
@@ -28,17 +28,22 @@ class DataBoxPrivileges extends Model
         'quota' => 'quota',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->featureAttrId) {
             $res['feature_attr_id'] = $this->featureAttrId;
         }
+
         if (null !== $this->featureId) {
             $res['feature_id'] = $this->featureId;
         }
+
         if (null !== $this->quota) {
             $res['quota'] = $this->quota;
         }
@@ -46,20 +51,22 @@ class DataBoxPrivileges extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DataBoxPrivileges
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['feature_attr_id'])) {
             $model->featureAttrId = $map['feature_attr_id'];
         }
+
         if (isset($map['feature_id'])) {
             $model->featureId = $map['feature_id'];
         }
+
         if (isset($map['quota'])) {
             $model->quota = $map['quota'];
         }

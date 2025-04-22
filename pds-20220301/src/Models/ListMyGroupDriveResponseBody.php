@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListMyGroupDriveResponseBody extends Model
 {
     /**
-     * @description The information about the team drives.
-     *
      * @var Drive[]
      */
     public $items;
 
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
-     *
-     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
-     *
      * @var string
      */
     public $nextMarker;
@@ -34,50 +28,63 @@ class ListMyGroupDriveResponseBody extends Model
         'rootGroupDrive' => 'root_group_drive',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->items)) {
+            Model::validateArray($this->items);
+        }
+        if (null !== $this->rootGroupDrive) {
+            $this->rootGroupDrive->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->items) {
-            $res['items'] = [];
-            if (null !== $this->items && \is_array($this->items)) {
-                $n = 0;
-                foreach ($this->items as $item) {
-                    $res['items'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->items)) {
+                $res['items'] = [];
+                $n1 = 0;
+                foreach ($this->items as $item1) {
+                    $res['items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextMarker) {
             $res['next_marker'] = $this->nextMarker;
         }
+
         if (null !== $this->rootGroupDrive) {
-            $res['root_group_drive'] = null !== $this->rootGroupDrive ? $this->rootGroupDrive->toMap() : null;
+            $res['root_group_drive'] = null !== $this->rootGroupDrive ? $this->rootGroupDrive->toArray($noStream) : $this->rootGroupDrive;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMyGroupDriveResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];
-                $n = 0;
-                foreach ($map['items'] as $item) {
-                    $model->items[$n++] = null !== $item ? Drive::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['items'] as $item1) {
+                    $model->items[$n1++] = Drive::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['next_marker'])) {
             $model->nextMarker = $map['next_marker'];
         }
+
         if (isset($map['root_group_drive'])) {
             $model->rootGroupDrive = Drive::fromMap($map['root_group_drive']);
         }

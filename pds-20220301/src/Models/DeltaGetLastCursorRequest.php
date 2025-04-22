@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeltaGetLastCursorRequest extends Model
 {
     /**
-     * @description The drive ID.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $driveId;
 
     /**
-     * @description The ID of the root file of the synced folder.
-     *
-     * @example 622fb09598ae66777c7040109a16f49381f6abe1
-     *
      * @var string
      */
     public $syncRootId;
@@ -32,14 +22,18 @@ class DeltaGetLastCursorRequest extends Model
         'syncRootId' => 'sync_root_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
+
         if (null !== $this->syncRootId) {
             $res['sync_root_id'] = $this->syncRootId;
         }
@@ -47,17 +41,18 @@ class DeltaGetLastCursorRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeltaGetLastCursorRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
+
         if (isset($map['sync_root_id'])) {
             $model->syncRootId = $map['sync_root_id'];
         }

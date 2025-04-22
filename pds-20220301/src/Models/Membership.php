@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Membership extends Model
 {
@@ -70,38 +70,50 @@ class Membership extends Model
         'userId' => 'user_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createdAt) {
             $res['created_at'] = $this->createdAt;
         }
+
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->domainId) {
             $res['domain_id'] = $this->domainId;
         }
+
         if (null !== $this->groupId) {
             $res['group_id'] = $this->groupId;
         }
+
         if (null !== $this->memberRole) {
             $res['member_role'] = $this->memberRole;
         }
+
         if (null !== $this->memberType) {
             $res['member_type'] = $this->memberType;
         }
+
         if (null !== $this->subGroupId) {
             $res['sub_group_id'] = $this->subGroupId;
         }
+
         if (null !== $this->updatedAt) {
             $res['updated_at'] = $this->updatedAt;
         }
+
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
         }
@@ -109,41 +121,50 @@ class Membership extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Membership
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['created_at'])) {
             $model->createdAt = $map['created_at'];
         }
+
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['domain_id'])) {
             $model->domainId = $map['domain_id'];
         }
+
         if (isset($map['group_id'])) {
             $model->groupId = $map['group_id'];
         }
+
         if (isset($map['member_role'])) {
             $model->memberRole = $map['member_role'];
         }
+
         if (isset($map['member_type'])) {
             $model->memberType = $map['member_type'];
         }
+
         if (isset($map['sub_group_id'])) {
             $model->subGroupId = $map['sub_group_id'];
         }
+
         if (isset($map['updated_at'])) {
             $model->updatedAt = $map['updated_at'];
         }
+
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
         }

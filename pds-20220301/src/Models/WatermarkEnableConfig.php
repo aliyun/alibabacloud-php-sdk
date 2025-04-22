@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class WatermarkEnableConfig extends Model
 {
@@ -34,20 +34,26 @@ class WatermarkEnableConfig extends Model
         'enableDocPreview' => 'enable_doc_preview',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->displayAccessUserName) {
             $res['display_access_user_name'] = $this->displayAccessUserName;
         }
+
         if (null !== $this->displayCustomText) {
             $res['display_custom_text'] = $this->displayCustomText;
         }
+
         if (null !== $this->displayShareLinkCreatorName) {
             $res['display_shareLink_creator_name'] = $this->displayShareLinkCreatorName;
         }
+
         if (null !== $this->enableDocPreview) {
             $res['enable_doc_preview'] = $this->enableDocPreview;
         }
@@ -55,23 +61,26 @@ class WatermarkEnableConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return WatermarkEnableConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['display_access_user_name'])) {
             $model->displayAccessUserName = $map['display_access_user_name'];
         }
+
         if (isset($map['display_custom_text'])) {
             $model->displayCustomText = $map['display_custom_text'];
         }
+
         if (isset($map['display_shareLink_creator_name'])) {
             $model->displayShareLinkCreatorName = $map['display_shareLink_creator_name'];
         }
+
         if (isset($map['enable_doc_preview'])) {
             $model->enableDocPreview = $map['enable_doc_preview'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CustomSideLinkConfig extends Model
 {
@@ -28,17 +28,22 @@ class CustomSideLinkConfig extends Model
         'text' => 'text',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->icon) {
             $res['icon'] = $this->icon;
         }
+
         if (null !== $this->link) {
             $res['link'] = $this->link;
         }
+
         if (null !== $this->text) {
             $res['text'] = $this->text;
         }
@@ -46,20 +51,22 @@ class CustomSideLinkConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CustomSideLinkConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['icon'])) {
             $model->icon = $map['icon'];
         }
+
         if (isset($map['link'])) {
             $model->link = $map['link'];
         }
+
         if (isset($map['text'])) {
             $model->text = $map['text'];
         }

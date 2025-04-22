@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DataCName extends Model
 {
@@ -46,26 +46,34 @@ class DataCName extends Model
         'storeId' => 'store_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certExpireTime) {
             $res['cert_expire_time'] = $this->certExpireTime;
         }
+
         if (null !== $this->certName) {
             $res['cert_name'] = $this->certName;
         }
+
         if (null !== $this->cname) {
             $res['cname'] = $this->cname;
         }
+
         if (null !== $this->cnameType) {
             $res['cname_type'] = $this->cnameType;
         }
+
         if (null !== $this->location) {
             $res['location'] = $this->location;
         }
+
         if (null !== $this->storeId) {
             $res['store_id'] = $this->storeId;
         }
@@ -73,29 +81,34 @@ class DataCName extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DataCName
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cert_expire_time'])) {
             $model->certExpireTime = $map['cert_expire_time'];
         }
+
         if (isset($map['cert_name'])) {
             $model->certName = $map['cert_name'];
         }
+
         if (isset($map['cname'])) {
             $model->cname = $map['cname'];
         }
+
         if (isset($map['cname_type'])) {
             $model->cnameType = $map['cname_type'];
         }
+
         if (isset($map['location'])) {
             $model->location = $map['location'];
         }
+
         if (isset($map['store_id'])) {
             $model->storeId = $map['store_id'];
         }

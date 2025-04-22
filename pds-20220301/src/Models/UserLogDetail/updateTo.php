@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models\UserLogDetail;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class updateTo extends Model
 {
@@ -40,23 +40,30 @@ class updateTo extends Model
         'roleId' => 'role_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->email) {
             $res['email'] = $this->email;
         }
+
         if (null !== $this->expiredAt) {
             $res['expired_at'] = $this->expiredAt;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
         }
+
         if (null !== $this->roleId) {
             $res['role_id'] = $this->roleId;
         }
@@ -64,26 +71,30 @@ class updateTo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return updateTo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['email'])) {
             $model->email = $map['email'];
         }
+
         if (isset($map['expired_at'])) {
             $model->expiredAt = $map['expired_at'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];
         }
+
         if (isset($map['role_id'])) {
             $model->roleId = $map['role_id'];
         }

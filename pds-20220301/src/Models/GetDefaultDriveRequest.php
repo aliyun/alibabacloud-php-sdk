@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDefaultDriveRequest extends Model
 {
     /**
-     * @description The user ID. If you use an AccessKey pair for authentication, you must specify this parameter. If you use an access token for authentication, this parameter is optional. By default, the user ID associated with the access token is used.
-     *
-     * @example c9b7a5aa04d14ae3867fdc886fa01da4
-     *
      * @var string
      */
     public $userId;
@@ -20,9 +16,12 @@ class GetDefaultDriveRequest extends Model
         'userId' => 'user_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userId) {
@@ -32,11 +31,11 @@ class GetDefaultDriveRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDefaultDriveRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

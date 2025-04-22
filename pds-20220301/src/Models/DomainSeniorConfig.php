@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DomainSeniorConfig extends Model
 {
@@ -82,104 +82,135 @@ class DomainSeniorConfig extends Model
         'wxTxtList' => 'wx_txt_list',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->customSideLinkList)) {
+            Model::validateArray($this->customSideLinkList);
+        }
+        if (null !== $this->wxTxtList) {
+            $this->wxTxtList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientDownloadEnable) {
             $res['client_download_enable'] = $this->clientDownloadEnable;
         }
+
         if (null !== $this->cspFrameAncestors) {
             $res['csp_frame_ancestors'] = $this->cspFrameAncestors;
         }
+
         if (null !== $this->customLoginAppid) {
             $res['custom_login_appid'] = $this->customLoginAppid;
         }
+
         if (null !== $this->customLoginUrl) {
             $res['custom_login_url'] = $this->customLoginUrl;
         }
+
         if (null !== $this->customLogoutUrl) {
             $res['custom_logout_url'] = $this->customLogoutUrl;
         }
+
         if (null !== $this->customSideLinkList) {
-            $res['custom_side_link_list'] = [];
-            if (null !== $this->customSideLinkList && \is_array($this->customSideLinkList)) {
-                $n = 0;
-                foreach ($this->customSideLinkList as $item) {
-                    $res['custom_side_link_list'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->customSideLinkList)) {
+                $res['custom_side_link_list'] = [];
+                $n1 = 0;
+                foreach ($this->customSideLinkList as $item1) {
+                    $res['custom_side_link_list'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->homePageBgImageUrl) {
             $res['home_page_bg_image_url'] = $this->homePageBgImageUrl;
         }
+
         if (null !== $this->homePageFooter) {
             $res['home_page_footer'] = $this->homePageFooter;
         }
+
         if (null !== $this->homePageFooter2) {
             $res['home_page_footer2'] = $this->homePageFooter2;
         }
+
         if (null !== $this->homePageSlogan) {
             $res['home_page_slogan'] = $this->homePageSlogan;
         }
+
         if (null !== $this->refererEnable) {
             $res['referer_enable'] = $this->refererEnable;
         }
+
         if (null !== $this->wxTxtList) {
-            $res['wx_txt_list'] = null !== $this->wxTxtList ? $this->wxTxtList->toMap() : null;
+            $res['wx_txt_list'] = null !== $this->wxTxtList ? $this->wxTxtList->toArray($noStream) : $this->wxTxtList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DomainSeniorConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['client_download_enable'])) {
             $model->clientDownloadEnable = $map['client_download_enable'];
         }
+
         if (isset($map['csp_frame_ancestors'])) {
             $model->cspFrameAncestors = $map['csp_frame_ancestors'];
         }
+
         if (isset($map['custom_login_appid'])) {
             $model->customLoginAppid = $map['custom_login_appid'];
         }
+
         if (isset($map['custom_login_url'])) {
             $model->customLoginUrl = $map['custom_login_url'];
         }
+
         if (isset($map['custom_logout_url'])) {
             $model->customLogoutUrl = $map['custom_logout_url'];
         }
+
         if (isset($map['custom_side_link_list'])) {
             if (!empty($map['custom_side_link_list'])) {
                 $model->customSideLinkList = [];
-                $n = 0;
-                foreach ($map['custom_side_link_list'] as $item) {
-                    $model->customSideLinkList[$n++] = null !== $item ? CustomSideLinkConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['custom_side_link_list'] as $item1) {
+                    $model->customSideLinkList[$n1++] = CustomSideLinkConfig::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['home_page_bg_image_url'])) {
             $model->homePageBgImageUrl = $map['home_page_bg_image_url'];
         }
+
         if (isset($map['home_page_footer'])) {
             $model->homePageFooter = $map['home_page_footer'];
         }
+
         if (isset($map['home_page_footer2'])) {
             $model->homePageFooter2 = $map['home_page_footer2'];
         }
+
         if (isset($map['home_page_slogan'])) {
             $model->homePageSlogan = $map['home_page_slogan'];
         }
+
         if (isset($map['referer_enable'])) {
             $model->refererEnable = $map['referer_enable'];
         }
+
         if (isset($map['wx_txt_list'])) {
             $model->wxTxtList = WxTrustedDomainConfig::fromMap($map['wx_txt_list']);
         }

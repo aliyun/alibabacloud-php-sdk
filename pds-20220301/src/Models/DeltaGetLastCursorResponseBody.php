@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeltaGetLastCursorResponseBody extends Model
 {
     /**
-     * @description The latest cursor of incremental information in the specified drive or synced folder.
-     *
-     * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
-     *
      * @var string
      */
     public $cursor;
@@ -20,9 +16,12 @@ class DeltaGetLastCursorResponseBody extends Model
         'cursor' => 'cursor',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cursor) {
@@ -32,11 +31,11 @@ class DeltaGetLastCursorResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeltaGetLastCursorResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RecycleBinConfig extends Model
 {
@@ -28,17 +28,22 @@ class RecycleBinConfig extends Model
         'deleteTrashNormalFileDisabled' => 'delete_trash_normal_file_disabled',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoDeleteEnabled) {
             $res['auto_delete_enabled'] = $this->autoDeleteEnabled;
         }
+
         if (null !== $this->autoDeleteKeepSecond) {
             $res['auto_delete_keep_second'] = $this->autoDeleteKeepSecond;
         }
+
         if (null !== $this->deleteTrashNormalFileDisabled) {
             $res['delete_trash_normal_file_disabled'] = $this->deleteTrashNormalFileDisabled;
         }
@@ -46,20 +51,22 @@ class RecycleBinConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecycleBinConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['auto_delete_enabled'])) {
             $model->autoDeleteEnabled = $map['auto_delete_enabled'];
         }
+
         if (isset($map['auto_delete_keep_second'])) {
             $model->autoDeleteKeepSecond = $map['auto_delete_keep_second'];
         }
+
         if (isset($map['delete_trash_normal_file_disabled'])) {
             $model->deleteTrashNormalFileDisabled = $map['delete_trash_normal_file_disabled'];
         }

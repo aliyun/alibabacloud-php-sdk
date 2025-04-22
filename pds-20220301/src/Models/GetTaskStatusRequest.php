@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTaskStatusRequest extends Model
 {
     /**
-     * @description The drive ID.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $driveId;
 
     /**
-     * @description The ID of the task.
-     *
-     * This parameter is required.
-     *
-     * @example i:SimilarImageClustering-b67d53e7-2fe8-460f-9b95-1e93636923eb
-     *
      * @var string
      */
     public $taskId;
@@ -34,14 +22,18 @@ class GetTaskStatusRequest extends Model
         'taskId' => 'task_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
+
         if (null !== $this->taskId) {
             $res['task_id'] = $this->taskId;
         }
@@ -49,17 +41,18 @@ class GetTaskStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTaskStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
+
         if (isset($map['task_id'])) {
             $model->taskId = $map['task_id'];
         }

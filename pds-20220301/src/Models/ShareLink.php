@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ShareLink extends Model
 {
@@ -172,89 +172,127 @@ class ShareLink extends Model
         'videoPreviewCount' => 'video_preview_count',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fileIdList)) {
+            Model::validateArray($this->fileIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessCount) {
             $res['access_count'] = $this->accessCount;
         }
+
         if (null !== $this->createdAt) {
             $res['created_at'] = $this->createdAt;
         }
+
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->disableDownload) {
             $res['disable_download'] = $this->disableDownload;
         }
+
         if (null !== $this->disablePreview) {
             $res['disable_preview'] = $this->disablePreview;
         }
+
         if (null !== $this->disableSave) {
             $res['disable_save'] = $this->disableSave;
         }
+
         if (null !== $this->downloadCount) {
             $res['download_count'] = $this->downloadCount;
         }
+
         if (null !== $this->downloadLimit) {
             $res['download_limit'] = $this->downloadLimit;
         }
+
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
+
         if (null !== $this->expiration) {
             $res['expiration'] = $this->expiration;
         }
+
         if (null !== $this->expired) {
             $res['expired'] = $this->expired;
         }
+
         if (null !== $this->fileIdList) {
-            $res['file_id_list'] = $this->fileIdList;
+            if (\is_array($this->fileIdList)) {
+                $res['file_id_list'] = [];
+                $n1 = 0;
+                foreach ($this->fileIdList as $item1) {
+                    $res['file_id_list'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->officeEditable) {
             $res['office_editable'] = $this->officeEditable;
         }
+
         if (null !== $this->previewCount) {
             $res['preview_count'] = $this->previewCount;
         }
+
         if (null !== $this->previewLimit) {
             $res['preview_limit'] = $this->previewLimit;
         }
+
         if (null !== $this->reportCount) {
             $res['report_count'] = $this->reportCount;
         }
+
         if (null !== $this->saveCount) {
             $res['save_count'] = $this->saveCount;
         }
+
         if (null !== $this->saveDownloadLimit) {
             $res['save_download_limit'] = $this->saveDownloadLimit;
         }
+
         if (null !== $this->saveLimit) {
             $res['save_limit'] = $this->saveLimit;
         }
+
         if (null !== $this->shareAllFiles) {
             $res['share_all_files'] = $this->shareAllFiles;
         }
+
         if (null !== $this->shareId) {
             $res['share_id'] = $this->shareId;
         }
+
         if (null !== $this->shareName) {
             $res['share_name'] = $this->shareName;
         }
+
         if (null !== $this->sharePwd) {
             $res['share_pwd'] = $this->sharePwd;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->updatedAt) {
             $res['updated_at'] = $this->updatedAt;
         }
+
         if (null !== $this->videoPreviewCount) {
             $res['video_preview_count'] = $this->videoPreviewCount;
         }
@@ -262,94 +300,124 @@ class ShareLink extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ShareLink
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['access_count'])) {
             $model->accessCount = $map['access_count'];
         }
+
         if (isset($map['created_at'])) {
             $model->createdAt = $map['created_at'];
         }
+
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['disable_download'])) {
             $model->disableDownload = $map['disable_download'];
         }
+
         if (isset($map['disable_preview'])) {
             $model->disablePreview = $map['disable_preview'];
         }
+
         if (isset($map['disable_save'])) {
             $model->disableSave = $map['disable_save'];
         }
+
         if (isset($map['download_count'])) {
             $model->downloadCount = $map['download_count'];
         }
+
         if (isset($map['download_limit'])) {
             $model->downloadLimit = $map['download_limit'];
         }
+
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
+
         if (isset($map['expiration'])) {
             $model->expiration = $map['expiration'];
         }
+
         if (isset($map['expired'])) {
             $model->expired = $map['expired'];
         }
+
         if (isset($map['file_id_list'])) {
             if (!empty($map['file_id_list'])) {
-                $model->fileIdList = $map['file_id_list'];
+                $model->fileIdList = [];
+                $n1 = 0;
+                foreach ($map['file_id_list'] as $item1) {
+                    $model->fileIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['office_editable'])) {
             $model->officeEditable = $map['office_editable'];
         }
+
         if (isset($map['preview_count'])) {
             $model->previewCount = $map['preview_count'];
         }
+
         if (isset($map['preview_limit'])) {
             $model->previewLimit = $map['preview_limit'];
         }
+
         if (isset($map['report_count'])) {
             $model->reportCount = $map['report_count'];
         }
+
         if (isset($map['save_count'])) {
             $model->saveCount = $map['save_count'];
         }
+
         if (isset($map['save_download_limit'])) {
             $model->saveDownloadLimit = $map['save_download_limit'];
         }
+
         if (isset($map['save_limit'])) {
             $model->saveLimit = $map['save_limit'];
         }
+
         if (isset($map['share_all_files'])) {
             $model->shareAllFiles = $map['share_all_files'];
         }
+
         if (isset($map['share_id'])) {
             $model->shareId = $map['share_id'];
         }
+
         if (isset($map['share_name'])) {
             $model->shareName = $map['share_name'];
         }
+
         if (isset($map['share_pwd'])) {
             $model->sharePwd = $map['share_pwd'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['updated_at'])) {
             $model->updatedAt = $map['updated_at'];
         }
+
         if (isset($map['video_preview_count'])) {
             $model->videoPreviewCount = $map['video_preview_count'];
         }

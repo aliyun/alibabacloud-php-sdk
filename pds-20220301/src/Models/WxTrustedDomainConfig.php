@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class WxTrustedDomainConfig extends Model
 {
@@ -28,17 +28,22 @@ class WxTrustedDomainConfig extends Model
         'show' => 'show',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->show) {
             $res['show'] = $this->show;
         }
@@ -46,20 +51,22 @@ class WxTrustedDomainConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return WxTrustedDomainConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['show'])) {
             $model->show = $map['show'];
         }

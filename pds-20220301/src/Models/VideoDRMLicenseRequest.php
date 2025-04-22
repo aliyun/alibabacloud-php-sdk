@@ -4,31 +4,16 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VideoDRMLicenseRequest extends Model
 {
     /**
-     * @description The type of DRM encryption.
-     *
-     * Valid values:
-     *
-     *   fairplay
-     *   widevine
-     *
-     * This parameter is required.
-     *
-     * @example widevine
-     *
      * @var string
      */
     public $drmType;
 
     /**
-     * @description The request that is initiated to obtain the license.
-     *
-     * @example CAES6B8SQgpACioSENGxDhqCLIVwwCBOyPayyWoSENGxDhqCLIVwwCBOyPayyWpI88aJmwYQARoQdRV32
-     *
      * @var string
      */
     public $licenseRequest;
@@ -37,14 +22,18 @@ class VideoDRMLicenseRequest extends Model
         'licenseRequest' => 'licenseRequest',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->drmType) {
             $res['drmType'] = $this->drmType;
         }
+
         if (null !== $this->licenseRequest) {
             $res['licenseRequest'] = $this->licenseRequest;
         }
@@ -52,17 +41,18 @@ class VideoDRMLicenseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VideoDRMLicenseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['drmType'])) {
             $model->drmType = $map['drmType'];
         }
+
         if (isset($map['licenseRequest'])) {
             $model->licenseRequest = $map['licenseRequest'];
         }

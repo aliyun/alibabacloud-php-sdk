@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOfficePreviewUrlOption extends Model
 {
@@ -22,14 +22,18 @@ class GetOfficePreviewUrlOption extends Model
         'print' => 'print',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->copy) {
             $res['copy'] = $this->copy;
         }
+
         if (null !== $this->print) {
             $res['print'] = $this->print;
         }
@@ -37,17 +41,18 @@ class GetOfficePreviewUrlOption extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOfficePreviewUrlOption
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['copy'])) {
             $model->copy = $map['copy'];
         }
+
         if (isset($map['print'])) {
             $model->print = $map['print'];
         }

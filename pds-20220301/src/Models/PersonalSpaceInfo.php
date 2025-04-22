@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PersonalSpaceInfo extends Model
 {
@@ -22,14 +22,18 @@ class PersonalSpaceInfo extends Model
         'usedSize' => 'used_size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->totalSize) {
             $res['total_size'] = $this->totalSize;
         }
+
         if (null !== $this->usedSize) {
             $res['used_size'] = $this->usedSize;
         }
@@ -37,17 +41,18 @@ class PersonalSpaceInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PersonalSpaceInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['total_size'])) {
             $model->totalSize = $map['total_size'];
         }
+
         if (isset($map['used_size'])) {
             $model->usedSize = $map['used_size'];
         }

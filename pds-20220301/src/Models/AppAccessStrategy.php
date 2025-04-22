@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AppAccessStrategy extends Model
 {
@@ -22,35 +22,53 @@ class AppAccessStrategy extends Model
         'exceptAppIdList' => 'except_app_id_list',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->exceptAppIdList)) {
+            Model::validateArray($this->exceptAppIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->effect) {
             $res['effect'] = $this->effect;
         }
+
         if (null !== $this->exceptAppIdList) {
-            $res['except_app_id_list'] = $this->exceptAppIdList;
+            if (\is_array($this->exceptAppIdList)) {
+                $res['except_app_id_list'] = [];
+                $n1 = 0;
+                foreach ($this->exceptAppIdList as $item1) {
+                    $res['except_app_id_list'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AppAccessStrategy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['effect'])) {
             $model->effect = $map['effect'];
         }
+
         if (isset($map['except_app_id_list'])) {
             if (!empty($map['except_app_id_list'])) {
-                $model->exceptAppIdList = $map['except_app_id_list'];
+                $model->exceptAppIdList = [];
+                $n1 = 0;
+                foreach ($map['except_app_id_list'] as $item1) {
+                    $model->exceptAppIdList[$n1++] = $item1;
+                }
             }
         }
 

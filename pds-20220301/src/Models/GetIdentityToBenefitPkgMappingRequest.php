@@ -4,41 +4,21 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetIdentityToBenefitPkgMappingRequest extends Model
 {
     /**
-     * @description The unique identifier of the benefit package.
-     *
-     * This parameter is required.
-     *
-     * @example 40cb7794c9294
-     *
      * @var string
      */
     public $benefitPkgId;
 
     /**
-     * @description The unique identifier of the entity.
-     *
-     * If you want to manage the benefits of a user, set this parameter to a user ID.
-     *
-     * This parameter is required.
-     *
-     * @example user123
-     *
      * @var string
      */
     public $identityId;
 
     /**
-     * @description The type of the entity. If you want to manage the benefits of a user, set this parameter to user.
-     *
-     * This parameter is required.
-     *
-     * @example user
-     *
      * @var string
      */
     public $identityType;
@@ -48,17 +28,22 @@ class GetIdentityToBenefitPkgMappingRequest extends Model
         'identityType' => 'identity_type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->benefitPkgId) {
             $res['benefit_pkg_id'] = $this->benefitPkgId;
         }
+
         if (null !== $this->identityId) {
             $res['identity_id'] = $this->identityId;
         }
+
         if (null !== $this->identityType) {
             $res['identity_type'] = $this->identityType;
         }
@@ -66,20 +51,22 @@ class GetIdentityToBenefitPkgMappingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetIdentityToBenefitPkgMappingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['benefit_pkg_id'])) {
             $model->benefitPkgId = $map['benefit_pkg_id'];
         }
+
         if (isset($map['identity_id'])) {
             $model->identityId = $map['identity_id'];
         }
+
         if (isset($map['identity_type'])) {
             $model->identityType = $map['identity_type'];
         }

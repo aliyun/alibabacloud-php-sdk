@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddStoryFilesResponseBody extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $driveId;
@@ -26,8 +24,6 @@ class AddStoryFilesResponseBody extends Model
     public $requestId;
 
     /**
-     * @example 9132e0d8-fe92-4e56-86c3-f5f112308003
-     *
      * @var string
      */
     public $storyId;
@@ -38,26 +34,35 @@ class AddStoryFilesResponseBody extends Model
         'storyId' => 'story_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->files)) {
+            Model::validateArray($this->files);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
+
         if (null !== $this->files) {
-            $res['files'] = [];
-            if (null !== $this->files && \is_array($this->files)) {
-                $n = 0;
-                foreach ($this->files as $item) {
-                    $res['files'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->files)) {
+                $res['files'] = [];
+                $n1 = 0;
+                foreach ($this->files as $item1) {
+                    $res['files'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['request_id'] = $this->requestId;
         }
+
         if (null !== $this->storyId) {
             $res['story_id'] = $this->storyId;
         }
@@ -65,29 +70,32 @@ class AddStoryFilesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddStoryFilesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
+
         if (isset($map['files'])) {
             if (!empty($map['files'])) {
                 $model->files = [];
-                $n = 0;
-                foreach ($map['files'] as $item) {
-                    $model->files[$n++] = null !== $item ? AddStoryFile::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['files'] as $item1) {
+                    $model->files[$n1++] = AddStoryFile::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['request_id'])) {
             $model->requestId = $map['request_id'];
         }
+
         if (isset($map['story_id'])) {
             $model->storyId = $map['story_id'];
         }

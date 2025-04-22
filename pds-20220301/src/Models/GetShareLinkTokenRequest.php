@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetShareLinkTokenRequest extends Model
 {
     /**
-     * @description The validity period of the token. Valid values: (0,7200]. Default value: 7200. Unit: seconds.
-     *
-     * @example 7200
-     *
      * @var int
      */
     public $expireSec;
 
     /**
-     * @description The share ID.
-     *
-     * This parameter is required.
-     *
-     * @example 7JQX1FswpQ8
-     *
      * @var string
      */
     public $shareId;
 
     /**
-     * @description The access code.
-     *
-     * @example abcF123x
-     *
      * @var string
      */
     public $sharePwd;
@@ -42,17 +28,22 @@ class GetShareLinkTokenRequest extends Model
         'sharePwd' => 'share_pwd',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expireSec) {
             $res['expire_sec'] = $this->expireSec;
         }
+
         if (null !== $this->shareId) {
             $res['share_id'] = $this->shareId;
         }
+
         if (null !== $this->sharePwd) {
             $res['share_pwd'] = $this->sharePwd;
         }
@@ -60,20 +51,22 @@ class GetShareLinkTokenRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetShareLinkTokenRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['expire_sec'])) {
             $model->expireSec = $map['expire_sec'];
         }
+
         if (isset($map['share_id'])) {
             $model->shareId = $map['share_id'];
         }
+
         if (isset($map['share_pwd'])) {
             $model->sharePwd = $map['share_pwd'];
         }

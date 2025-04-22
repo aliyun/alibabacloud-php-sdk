@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSimilarImageClusterTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 123
-     *
      * @var string
      */
     public $driveId;
@@ -20,9 +16,12 @@ class CreateSimilarImageClusterTaskRequest extends Model
         'driveId' => 'drive_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->driveId) {
@@ -32,11 +31,11 @@ class CreateSimilarImageClusterTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSimilarImageClusterTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

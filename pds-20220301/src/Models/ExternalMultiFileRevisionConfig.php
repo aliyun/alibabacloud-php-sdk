@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExternalMultiFileRevisionConfig extends Model
 {
@@ -28,17 +28,22 @@ class ExternalMultiFileRevisionConfig extends Model
         'revisionRecyclePeriod' => 'revision_recycle_period',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->revisionCount) {
             $res['revision_count'] = $this->revisionCount;
         }
+
         if (null !== $this->revisionMergeEnabled) {
             $res['revision_merge_enabled'] = $this->revisionMergeEnabled;
         }
+
         if (null !== $this->revisionRecyclePeriod) {
             $res['revision_recycle_period'] = $this->revisionRecyclePeriod;
         }
@@ -46,20 +51,22 @@ class ExternalMultiFileRevisionConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExternalMultiFileRevisionConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['revision_count'])) {
             $model->revisionCount = $map['revision_count'];
         }
+
         if (isset($map['revision_merge_enabled'])) {
             $model->revisionMergeEnabled = $map['revision_merge_enabled'];
         }
+
         if (isset($map['revision_recycle_period'])) {
             $model->revisionRecyclePeriod = $map['revision_recycle_period'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDomainQuotaResponseBody extends Model
 {
@@ -34,20 +34,26 @@ class GetDomainQuotaResponseBody extends Model
         'userCountUsed' => 'user_count_used',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sizeQuota) {
             $res['size_quota'] = $this->sizeQuota;
         }
+
         if (null !== $this->sizeUsed) {
             $res['size_used'] = $this->sizeUsed;
         }
+
         if (null !== $this->userCountQuota) {
             $res['user_count_quota'] = $this->userCountQuota;
         }
+
         if (null !== $this->userCountUsed) {
             $res['user_count_used'] = $this->userCountUsed;
         }
@@ -55,23 +61,26 @@ class GetDomainQuotaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDomainQuotaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['size_quota'])) {
             $model->sizeQuota = $map['size_quota'];
         }
+
         if (isset($map['size_used'])) {
             $model->sizeUsed = $map['size_used'];
         }
+
         if (isset($map['user_count_quota'])) {
             $model->userCountQuota = $map['user_count_quota'];
         }
+
         if (isset($map['user_count_used'])) {
             $model->userCountUsed = $map['user_count_used'];
         }

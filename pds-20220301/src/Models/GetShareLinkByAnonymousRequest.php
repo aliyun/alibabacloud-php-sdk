@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetShareLinkByAnonymousRequest extends Model
 {
     /**
-     * @description The share ID.
-     *
-     * This parameter is required.
-     *
-     * @example 7JQX1FswpQ8
-     *
      * @var string
      */
     public $shareId;
@@ -22,9 +16,12 @@ class GetShareLinkByAnonymousRequest extends Model
         'shareId' => 'share_id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->shareId) {
@@ -34,11 +31,11 @@ class GetShareLinkByAnonymousRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetShareLinkByAnonymousRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

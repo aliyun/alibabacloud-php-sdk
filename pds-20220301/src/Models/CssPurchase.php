@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CssPurchase extends Model
 {
@@ -64,41 +64,63 @@ class CssPurchase extends Model
         'startDate' => 'startDate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceComponents)) {
+            Model::validateArray($this->instanceComponents);
+        }
+        if (\is_array($this->purchaseParams)) {
+            Model::validateArray($this->purchaseParams);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chargeType) {
             $res['chargeType'] = $this->chargeType;
         }
+
         if (null !== $this->commodityCode) {
             $res['commodityCode'] = $this->commodityCode;
         }
+
         if (null !== $this->endDate) {
             $res['endDate'] = $this->endDate;
         }
+
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->instanceComponents) {
-            $res['instanceComponents'] = [];
-            if (null !== $this->instanceComponents && \is_array($this->instanceComponents)) {
-                $n = 0;
-                foreach ($this->instanceComponents as $item) {
-                    $res['instanceComponents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceComponents)) {
+                $res['instanceComponents'] = [];
+                $n1 = 0;
+                foreach ($this->instanceComponents as $item1) {
+                    $res['instanceComponents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
+
         if (null !== $this->orderType) {
             $res['orderType'] = $this->orderType;
         }
+
         if (null !== $this->purchaseParams) {
-            $res['purchaseParams'] = $this->purchaseParams;
+            if (\is_array($this->purchaseParams)) {
+                $res['purchaseParams'] = [];
+                foreach ($this->purchaseParams as $key1 => $value1) {
+                    $res['purchaseParams'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->startDate) {
             $res['startDate'] = $this->startDate;
         }
@@ -106,44 +128,57 @@ class CssPurchase extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CssPurchase
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['chargeType'])) {
             $model->chargeType = $map['chargeType'];
         }
+
         if (isset($map['commodityCode'])) {
             $model->commodityCode = $map['commodityCode'];
         }
+
         if (isset($map['endDate'])) {
             $model->endDate = $map['endDate'];
         }
+
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];
         }
+
         if (isset($map['instanceComponents'])) {
             if (!empty($map['instanceComponents'])) {
                 $model->instanceComponents = [];
-                $n = 0;
-                foreach ($map['instanceComponents'] as $item) {
-                    $model->instanceComponents[$n++] = null !== $item ? CssInstanceComponent::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['instanceComponents'] as $item1) {
+                    $model->instanceComponents[$n1++] = CssInstanceComponent::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
+
         if (isset($map['orderType'])) {
             $model->orderType = $map['orderType'];
         }
+
         if (isset($map['purchaseParams'])) {
-            $model->purchaseParams = $map['purchaseParams'];
+            if (!empty($map['purchaseParams'])) {
+                $model->purchaseParams = [];
+                foreach ($map['purchaseParams'] as $key1 => $value1) {
+                    $model->purchaseParams[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['startDate'])) {
             $model->startDate = $map['startDate'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BenefitPkgDeliveryInfo extends Model
 {
@@ -34,20 +34,26 @@ class BenefitPkgDeliveryInfo extends Model
         'isPermanent' => 'is_permanent',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->amount) {
             $res['amount'] = $this->amount;
         }
+
         if (null !== $this->createdAt) {
             $res['created_at'] = $this->createdAt;
         }
+
         if (null !== $this->expireTime) {
             $res['expire_time'] = $this->expireTime;
         }
+
         if (null !== $this->isPermanent) {
             $res['is_permanent'] = $this->isPermanent;
         }
@@ -55,23 +61,26 @@ class BenefitPkgDeliveryInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BenefitPkgDeliveryInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['amount'])) {
             $model->amount = $map['amount'];
         }
+
         if (isset($map['created_at'])) {
             $model->createdAt = $map['created_at'];
         }
+
         if (isset($map['expire_time'])) {
             $model->expireTime = $map['expire_time'];
         }
+
         if (isset($map['is_permanent'])) {
             $model->isPermanent = $map['is_permanent'];
         }
