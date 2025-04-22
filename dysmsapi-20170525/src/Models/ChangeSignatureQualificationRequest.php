@@ -6,22 +6,12 @@ namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateSmsSignShrinkRequest extends Model
+class ChangeSignatureQualificationRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $applySceneContent;
-
     /**
      * @var int
      */
     public $authorizationLetterId;
-
-    /**
-     * @var string
-     */
-    public $moreDataShrink;
 
     /**
      * @var int
@@ -36,11 +26,6 @@ class UpdateSmsSignShrinkRequest extends Model
     /**
      * @var string
      */
-    public $remark;
-
-    /**
-     * @var string
-     */
     public $resourceOwnerAccount;
 
     /**
@@ -51,35 +36,14 @@ class UpdateSmsSignShrinkRequest extends Model
     /**
      * @var string
      */
-    public $signName;
-
-    /**
-     * @var int
-     */
-    public $signSource;
-
-    /**
-     * @var int
-     */
-    public $signType;
-
-    /**
-     * @var bool
-     */
-    public $thirdParty;
+    public $signatureName;
     protected $_name = [
-        'applySceneContent' => 'ApplySceneContent',
         'authorizationLetterId' => 'AuthorizationLetterId',
-        'moreDataShrink' => 'MoreData',
         'ownerId' => 'OwnerId',
         'qualificationId' => 'QualificationId',
-        'remark' => 'Remark',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'signName' => 'SignName',
-        'signSource' => 'SignSource',
-        'signType' => 'SignType',
-        'thirdParty' => 'ThirdParty',
+        'signatureName' => 'SignatureName',
     ];
 
     public function validate()
@@ -90,16 +54,8 @@ class UpdateSmsSignShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->applySceneContent) {
-            $res['ApplySceneContent'] = $this->applySceneContent;
-        }
-
         if (null !== $this->authorizationLetterId) {
             $res['AuthorizationLetterId'] = $this->authorizationLetterId;
-        }
-
-        if (null !== $this->moreDataShrink) {
-            $res['MoreData'] = $this->moreDataShrink;
         }
 
         if (null !== $this->ownerId) {
@@ -110,10 +66,6 @@ class UpdateSmsSignShrinkRequest extends Model
             $res['QualificationId'] = $this->qualificationId;
         }
 
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -122,20 +74,8 @@ class UpdateSmsSignShrinkRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
-        if (null !== $this->signName) {
-            $res['SignName'] = $this->signName;
-        }
-
-        if (null !== $this->signSource) {
-            $res['SignSource'] = $this->signSource;
-        }
-
-        if (null !== $this->signType) {
-            $res['SignType'] = $this->signType;
-        }
-
-        if (null !== $this->thirdParty) {
-            $res['ThirdParty'] = $this->thirdParty;
+        if (null !== $this->signatureName) {
+            $res['SignatureName'] = $this->signatureName;
         }
 
         return $res;
@@ -149,16 +89,8 @@ class UpdateSmsSignShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ApplySceneContent'])) {
-            $model->applySceneContent = $map['ApplySceneContent'];
-        }
-
         if (isset($map['AuthorizationLetterId'])) {
             $model->authorizationLetterId = $map['AuthorizationLetterId'];
-        }
-
-        if (isset($map['MoreData'])) {
-            $model->moreDataShrink = $map['MoreData'];
         }
 
         if (isset($map['OwnerId'])) {
@@ -169,10 +101,6 @@ class UpdateSmsSignShrinkRequest extends Model
             $model->qualificationId = $map['QualificationId'];
         }
 
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
@@ -181,20 +109,8 @@ class UpdateSmsSignShrinkRequest extends Model
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
-        if (isset($map['SignName'])) {
-            $model->signName = $map['SignName'];
-        }
-
-        if (isset($map['SignSource'])) {
-            $model->signSource = $map['SignSource'];
-        }
-
-        if (isset($map['SignType'])) {
-            $model->signType = $map['SignType'];
-        }
-
-        if (isset($map['ThirdParty'])) {
-            $model->thirdParty = $map['ThirdParty'];
+        if (isset($map['SignatureName'])) {
+            $model->signatureName = $map['SignatureName'];
         }
 
         return $model;

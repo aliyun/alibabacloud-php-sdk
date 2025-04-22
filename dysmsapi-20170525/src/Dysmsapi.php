@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ChangeSignatureQualificationRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ChangeSignatureQualificationResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CheckMobilesCardSupportRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CheckMobilesCardSupportResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ConversionDataIntlRequest;
@@ -22,6 +24,9 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmartShortUrlRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmartShortUrlResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsAuthorizationLetterRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsAuthorizationLetterResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsAuthorizationLetterShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmsSignShrinkRequest;
@@ -45,6 +50,8 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetMediaResourceIdResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetOSSInfoForCardTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetOSSInfoForUploadFileRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetOSSInfoForUploadFileResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetQualificationOssInfoRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetQualificationOssInfoResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetSmsTemplateRequest;
@@ -72,6 +79,9 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendStatisticsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendStatisticsResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryShortUrlRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryShortUrlResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsAuthorizationLetterRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsAuthorizationLetterResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsAuthorizationLetterShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsSignListRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsSignListResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsSignRequest;
@@ -534,6 +544,83 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * 更换签名的资质和授权书.
+     *
+     * @param request - ChangeSignatureQualificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeSignatureQualificationResponse
+     *
+     * @param ChangeSignatureQualificationRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ChangeSignatureQualificationResponse
+     */
+    public function changeSignatureQualificationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationLetterId) {
+            @$query['AuthorizationLetterId'] = $request->authorizationLetterId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->qualificationId) {
+            @$query['QualificationId'] = $request->qualificationId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->signatureName) {
+            @$query['SignatureName'] = $request->signatureName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeSignatureQualification',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChangeSignatureQualificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更换签名的资质和授权书.
+     *
+     * @param request - ChangeSignatureQualificationRequest
+     *
+     * @returns ChangeSignatureQualificationResponse
+     *
+     * @param ChangeSignatureQualificationRequest $request
+     *
+     * @return ChangeSignatureQualificationResponse
+     */
+    public function changeSignatureQualification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeSignatureQualificationWithOptions($request, $runtime);
+    }
+
+    /**
      * Checks whether a mobile phone number can receive card messages.
      *
      * @remarks
@@ -839,6 +926,105 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSmartShortUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建委托授权书.
+     *
+     * @param tmpReq - CreateSmsAuthorizationLetterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSmsAuthorizationLetterResponse
+     *
+     * @param CreateSmsAuthorizationLetterRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateSmsAuthorizationLetterResponse
+     */
+    public function createSmsAuthorizationLetterWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateSmsAuthorizationLetterShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->signList) {
+            $request->signListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->signList, 'SignList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->authorization) {
+            @$query['Authorization'] = $request->authorization;
+        }
+
+        if (null !== $request->authorizationLetterExpDate) {
+            @$query['AuthorizationLetterExpDate'] = $request->authorizationLetterExpDate;
+        }
+
+        if (null !== $request->authorizationLetterName) {
+            @$query['AuthorizationLetterName'] = $request->authorizationLetterName;
+        }
+
+        if (null !== $request->authorizationLetterPic) {
+            @$query['AuthorizationLetterPic'] = $request->authorizationLetterPic;
+        }
+
+        if (null !== $request->organizationCode) {
+            @$query['OrganizationCode'] = $request->organizationCode;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->proxyAuthorization) {
+            @$query['ProxyAuthorization'] = $request->proxyAuthorization;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->signListShrink) {
+            @$query['SignList'] = $request->signListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSmsAuthorizationLetter',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSmsAuthorizationLetterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建委托授权书.
+     *
+     * @param request - CreateSmsAuthorizationLetterRequest
+     *
+     * @returns CreateSmsAuthorizationLetterResponse
+     *
+     * @param CreateSmsAuthorizationLetterRequest $request
+     *
+     * @return CreateSmsAuthorizationLetterResponse
+     */
+    public function createSmsAuthorizationLetter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSmsAuthorizationLetterWithOptions($request, $runtime);
     }
 
     /**
@@ -1799,6 +1985,75 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getOSSInfoForUploadFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * 上传文件获取oss配置.
+     *
+     * @param request - GetQualificationOssInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQualificationOssInfoResponse
+     *
+     * @param GetQualificationOssInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetQualificationOssInfoResponse
+     */
+    public function getQualificationOssInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetQualificationOssInfo',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetQualificationOssInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 上传文件获取oss配置.
+     *
+     * @param request - GetQualificationOssInfoRequest
+     *
+     * @returns GetQualificationOssInfoResponse
+     *
+     * @param GetQualificationOssInfoRequest $request
+     *
+     * @return GetQualificationOssInfoResponse
+     */
+    public function getQualificationOssInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQualificationOssInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -2914,6 +3169,97 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryShortUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询委托授权书.
+     *
+     * @param tmpReq - QuerySmsAuthorizationLetterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySmsAuthorizationLetterResponse
+     *
+     * @param QuerySmsAuthorizationLetterRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QuerySmsAuthorizationLetterResponse
+     */
+    public function querySmsAuthorizationLetterWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QuerySmsAuthorizationLetterShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->authorizationLetterIdList) {
+            $request->authorizationLetterIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->authorizationLetterIdList, 'AuthorizationLetterIdList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->authorizationLetterIdListShrink) {
+            @$query['AuthorizationLetterIdList'] = $request->authorizationLetterIdListShrink;
+        }
+
+        if (null !== $request->organizationCode) {
+            @$query['OrganizationCode'] = $request->organizationCode;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->signName) {
+            @$query['SignName'] = $request->signName;
+        }
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QuerySmsAuthorizationLetter',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QuerySmsAuthorizationLetterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询委托授权书.
+     *
+     * @param request - QuerySmsAuthorizationLetterRequest
+     *
+     * @returns QuerySmsAuthorizationLetterResponse
+     *
+     * @param QuerySmsAuthorizationLetterRequest $request
+     *
+     * @return QuerySmsAuthorizationLetterResponse
+     */
+    public function querySmsAuthorizationLetter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySmsAuthorizationLetterWithOptions($request, $runtime);
     }
 
     /**

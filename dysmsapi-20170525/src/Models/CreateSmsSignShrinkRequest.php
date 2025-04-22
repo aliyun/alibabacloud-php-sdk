@@ -14,7 +14,7 @@ class CreateSmsSignShrinkRequest extends Model
     public $applySceneContent;
 
     /**
-     * @var string
+     * @var int
      */
     public $authorizationLetterId;
 

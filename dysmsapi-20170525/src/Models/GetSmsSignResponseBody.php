@@ -25,7 +25,7 @@ class GetSmsSignResponseBody extends Model
     public $authorizationLetterAuditPass;
 
     /**
-     * @var string
+     * @var int
      */
     public $authorizationLetterId;
 

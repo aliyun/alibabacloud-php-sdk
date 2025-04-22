@@ -15,7 +15,7 @@ class smsSignList extends Model
     public $auditStatus;
 
     /**
-     * @var string
+     * @var int
      */
     public $authorizationLetterId;
 
