@@ -30,6 +30,11 @@ class ecsSpecs extends Model
     public $GPU;
 
     /**
+     * @var float
+     */
+    public $GPUMemorySize;
+
+    /**
      * @var string
      */
     public $GPUType;
@@ -65,6 +70,11 @@ class ecsSpecs extends Model
     public $price;
 
     /**
+     * @var string
+     */
+    public $spotStockStatus;
+
+    /**
      * @var int
      */
     public $systemDiskCapacity;
@@ -73,6 +83,7 @@ class ecsSpecs extends Model
         'CPU' => 'CPU',
         'currency' => 'Currency',
         'GPU' => 'GPU',
+        'GPUMemorySize' => 'GPUMemorySize',
         'GPUType' => 'GPUType',
         'instanceBandwidthRx' => 'InstanceBandwidthRx',
         'instanceType' => 'InstanceType',
@@ -80,6 +91,7 @@ class ecsSpecs extends Model
         'labels' => 'Labels',
         'memory' => 'Memory',
         'price' => 'Price',
+        'spotStockStatus' => 'SpotStockStatus',
         'systemDiskCapacity' => 'SystemDiskCapacity',
     ];
 
@@ -108,6 +120,10 @@ class ecsSpecs extends Model
 
         if (null !== $this->GPU) {
             $res['GPU'] = $this->GPU;
+        }
+
+        if (null !== $this->GPUMemorySize) {
+            $res['GPUMemorySize'] = $this->GPUMemorySize;
         }
 
         if (null !== $this->GPUType) {
@@ -144,6 +160,10 @@ class ecsSpecs extends Model
             $res['Price'] = $this->price;
         }
 
+        if (null !== $this->spotStockStatus) {
+            $res['SpotStockStatus'] = $this->spotStockStatus;
+        }
+
         if (null !== $this->systemDiskCapacity) {
             $res['SystemDiskCapacity'] = $this->systemDiskCapacity;
         }
@@ -173,6 +193,10 @@ class ecsSpecs extends Model
 
         if (isset($map['GPU'])) {
             $model->GPU = $map['GPU'];
+        }
+
+        if (isset($map['GPUMemorySize'])) {
+            $model->GPUMemorySize = $map['GPUMemorySize'];
         }
 
         if (isset($map['GPUType'])) {
@@ -207,6 +231,10 @@ class ecsSpecs extends Model
 
         if (isset($map['Price'])) {
             $model->price = $map['Price'];
+        }
+
+        if (isset($map['SpotStockStatus'])) {
+            $model->spotStockStatus = $map['SpotStockStatus'];
         }
 
         if (isset($map['SystemDiskCapacity'])) {
