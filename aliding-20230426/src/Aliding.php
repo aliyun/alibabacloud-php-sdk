@@ -1026,6 +1026,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeEventRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeEventResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeEventShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeEventShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SwitchMainOrgHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SwitchMainOrgRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SwitchMainOrgResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SwitchMainOrgShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SwitchMainOrgShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SyncDingTypeHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SyncDingTypeRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SyncDingTypeResponse;
@@ -22200,6 +22205,88 @@ class Aliding extends OpenApiClient
         $headers = new SubscribeEventHeaders([]);
 
         return $this->subscribeEventWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param tmpReq - SwitchMainOrgRequest
+     * @param tmpHeader - SwitchMainOrgHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SwitchMainOrgResponse
+     *
+     * @param SwitchMainOrgRequest $tmpReq
+     * @param SwitchMainOrgHeaders $tmpHeader
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SwitchMainOrgResponse
+     */
+    public function switchMainOrgWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SwitchMainOrgShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new SwitchMainOrgShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->targetOrgId) {
+            @$body['TargetOrgId'] = $request->targetOrgId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SwitchMainOrg',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/aliding/v1/user/switchMainOrg',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SwitchMainOrgResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - SwitchMainOrgRequest
+     *
+     * @returns SwitchMainOrgResponse
+     *
+     * @param SwitchMainOrgRequest $request
+     *
+     * @return SwitchMainOrgResponse
+     */
+    public function switchMainOrg($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new SwitchMainOrgHeaders([]);
+
+        return $this->switchMainOrgWithOptions($request, $headers, $runtime);
     }
 
     /**
