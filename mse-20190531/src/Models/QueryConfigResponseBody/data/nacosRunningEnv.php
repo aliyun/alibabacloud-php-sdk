@@ -12,8 +12,14 @@ class nacosRunningEnv extends Model
      * @var bool
      */
     public $emptyProtect;
+
+    /**
+     * @var string
+     */
+    public $grayAuth;
     protected $_name = [
         'emptyProtect' => 'emptyProtect',
+        'grayAuth' => 'grayAuth',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class nacosRunningEnv extends Model
         $res = [];
         if (null !== $this->emptyProtect) {
             $res['emptyProtect'] = $this->emptyProtect;
+        }
+
+        if (null !== $this->grayAuth) {
+            $res['grayAuth'] = $this->grayAuth;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class nacosRunningEnv extends Model
         $model = new self();
         if (isset($map['emptyProtect'])) {
             $model->emptyProtect = $map['emptyProtect'];
+        }
+
+        if (isset($map['grayAuth'])) {
+            $model->grayAuth = $map['grayAuth'];
         }
 
         return $model;
