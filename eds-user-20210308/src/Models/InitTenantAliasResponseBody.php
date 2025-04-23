@@ -1,0 +1,80 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
+
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\InitTenantAliasResponseBody\aliasInfo;
+
+class InitTenantAliasResponseBody extends Model
+{
+    /**
+     * @var aliasInfo
+     */
+    public $aliasInfo;
+
+    /**
+     * @var string
+     */
+    public $data;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+    protected $_name = [
+        'aliasInfo' => 'AliasInfo',
+        'data' => 'Data',
+        'requestId' => 'RequestId',
+    ];
+
+    public function validate()
+    {
+        if (null !== $this->aliasInfo) {
+            $this->aliasInfo->validate();
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->aliasInfo) {
+            $res['AliasInfo'] = null !== $this->aliasInfo ? $this->aliasInfo->toArray($noStream) : $this->aliasInfo;
+        }
+
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['AliasInfo'])) {
+            $model->aliasInfo = aliasInfo::fromMap($map['AliasInfo']);
+        }
+
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
+        return $model;
+    }
+}

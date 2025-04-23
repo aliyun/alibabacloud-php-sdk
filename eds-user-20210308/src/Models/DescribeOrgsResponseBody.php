@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgsResponseBody\orgs;
-use AlibabaCloud\Tea\Model;
 
 class DescribeOrgsResponseBody extends Model
 {
     /**
-     * @description The token that determines the start point of the query. The return value is the value of the NextToken response parameter that was returned last time the DescribeOrgs operation was called.
-     *
-     * @example AAAAAV3MpHK****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The organizations.
-     *
      * @var orgs[]
      */
     public $orgs;
 
     /**
-     * @description The request ID.
-     *
-     * @example 0B4BB****
-     *
      * @var string
      */
     public $requestId;
@@ -39,23 +29,31 @@ class DescribeOrgsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->orgs)) {
+            Model::validateArray($this->orgs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->orgs) {
-            $res['Orgs'] = [];
-            if (null !== $this->orgs && \is_array($this->orgs)) {
-                $n = 0;
-                foreach ($this->orgs as $item) {
-                    $res['Orgs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->orgs)) {
+                $res['Orgs'] = [];
+                $n1 = 0;
+                foreach ($this->orgs as $item1) {
+                    $res['Orgs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,26 +61,28 @@ class DescribeOrgsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeOrgsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Orgs'])) {
             if (!empty($map['Orgs'])) {
                 $model->orgs = [];
-                $n = 0;
-                foreach ($map['Orgs'] as $item) {
-                    $model->orgs[$n++] = null !== $item ? orgs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Orgs'] as $item1) {
+                    $model->orgs[$n1++] = orgs::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

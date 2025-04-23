@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\BatchSetDesktopManagerRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\BatchSetDesktopManagerResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ChangeUserPasswordRequest;
@@ -14,6 +13,8 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\CheckUsedPropertyRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CheckUsedPropertyResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CheckUsedPropertyValueRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CheckUsedPropertyValueResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreateOrgRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreateOrgResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreatePropertyRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreatePropertyResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreateUsersRequest;
@@ -22,6 +23,8 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\DeleteUserPropertyValueRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DeleteUserPropertyValueResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeMfaDevicesRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeMfaDevicesResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgByLayerRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgByLayerResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgsRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgsResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersRequest;
@@ -32,6 +35,7 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersShrinkRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\GetManagerInfoByAuthCodeRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\GetManagerInfoByAuthCodeResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\InitTenantAliasResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ListPropertyResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ListPropertyValueRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ListPropertyValueResponse;
@@ -39,11 +43,17 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\LockMfaDeviceRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\LockMfaDeviceResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\LockUsersRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\LockUsersResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyOrgRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyOrgResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyUserRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyUserResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\MoveOrgRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\MoveOrgResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\QuerySyncStatusByAliUidResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveMfaDeviceRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveMfaDeviceResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveOrgRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveOrgResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemovePropertyRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemovePropertyResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveUsersRequest;
@@ -59,11 +69,10 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\UnlockUsersRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\UnlockUsersResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\UpdatePropertyRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\UpdatePropertyResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Edsuser extends OpenApiClient
 {
@@ -89,36 +98,44 @@ class Edsuser extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 批量设置桌面管理员
-     *  *
-     * @param BatchSetDesktopManagerRequest $request BatchSetDesktopManagerRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 批量设置桌面管理员.
      *
-     * @return BatchSetDesktopManagerResponse BatchSetDesktopManagerResponse
+     * @param request - BatchSetDesktopManagerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchSetDesktopManagerResponse
+     *
+     * @param BatchSetDesktopManagerRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return BatchSetDesktopManagerResponse
      */
     public function batchSetDesktopManagerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->isDesktopManager)) {
-            $body['IsDesktopManager'] = $request->isDesktopManager;
+        if (null !== $request->isDesktopManager) {
+            @$body['IsDesktopManager'] = $request->isDesktopManager;
         }
-        if (!Utils::isUnset($request->users)) {
-            $body['Users'] = $request->users;
+
+        if (null !== $request->users) {
+            @$body['Users'] = $request->users;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'BatchSetDesktopManager',
@@ -131,19 +148,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return BatchSetDesktopManagerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchSetDesktopManagerResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchSetDesktopManagerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量设置桌面管理员
-     *  *
-     * @param BatchSetDesktopManagerRequest $request BatchSetDesktopManagerRequest
+     * 批量设置桌面管理员.
      *
-     * @return BatchSetDesktopManagerResponse BatchSetDesktopManagerResponse
+     * @param request - BatchSetDesktopManagerRequest
+     *
+     * @returns BatchSetDesktopManagerResponse
+     *
+     * @param BatchSetDesktopManagerRequest $request
+     *
+     * @return BatchSetDesktopManagerResponse
      */
     public function batchSetDesktopManager($request)
     {
@@ -153,25 +171,32 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary 管理员修改用户密码
-     *  *
-     * @param ChangeUserPasswordRequest $request ChangeUserPasswordRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 管理员修改用户密码
      *
-     * @return ChangeUserPasswordResponse ChangeUserPasswordResponse
+     * @param request - ChangeUserPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeUserPasswordResponse
+     *
+     * @param ChangeUserPasswordRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ChangeUserPasswordResponse
      */
     public function changeUserPasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endUserId)) {
-            $body['EndUserId'] = $request->endUserId;
+        if (null !== $request->endUserId) {
+            @$body['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->newPassword)) {
-            $body['NewPassword'] = $request->newPassword;
+
+        if (null !== $request->newPassword) {
+            @$body['NewPassword'] = $request->newPassword;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ChangeUserPassword',
@@ -184,19 +209,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ChangeUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeUserPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 管理员修改用户密码
-     *  *
-     * @param ChangeUserPasswordRequest $request ChangeUserPasswordRequest
+     * 管理员修改用户密码
      *
-     * @return ChangeUserPasswordResponse ChangeUserPasswordResponse
+     * @param request - ChangeUserPasswordRequest
+     *
+     * @returns ChangeUserPasswordResponse
+     *
+     * @param ChangeUserPasswordRequest $request
+     *
+     * @return ChangeUserPasswordResponse
      */
     public function changeUserPassword($request)
     {
@@ -206,22 +232,28 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether a property is associated with one or more convenience users.
-     *  *
-     * @param CheckUsedPropertyRequest $request CheckUsedPropertyRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries whether a property is associated with one or more convenience users.
      *
-     * @return CheckUsedPropertyResponse CheckUsedPropertyResponse
+     * @param request - CheckUsedPropertyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckUsedPropertyResponse
+     *
+     * @param CheckUsedPropertyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CheckUsedPropertyResponse
      */
     public function checkUsedPropertyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->propertyId)) {
-            $query['PropertyId'] = $request->propertyId;
+        if (null !== $request->propertyId) {
+            @$query['PropertyId'] = $request->propertyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckUsedProperty',
@@ -234,19 +266,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CheckUsedPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckUsedPropertyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckUsedPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether a property is associated with one or more convenience users.
-     *  *
-     * @param CheckUsedPropertyRequest $request CheckUsedPropertyRequest
+     * Queries whether a property is associated with one or more convenience users.
      *
-     * @return CheckUsedPropertyResponse CheckUsedPropertyResponse
+     * @param request - CheckUsedPropertyRequest
+     *
+     * @returns CheckUsedPropertyResponse
+     *
+     * @param CheckUsedPropertyRequest $request
+     *
+     * @return CheckUsedPropertyResponse
      */
     public function checkUsedProperty($request)
     {
@@ -256,27 +289,35 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether a property value is associated with a user.
-     *  *
-     * @description Before you call the operation, you can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the existing user properties and their IDs (PropertyId) and values (PropertyValueId).
-     *  *
-     * @param CheckUsedPropertyValueRequest $request CheckUsedPropertyValueRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the number of convenience accounts that are associated with the specified custom property value.
      *
-     * @return CheckUsedPropertyValueResponse CheckUsedPropertyValueResponse
+     * @remarks
+     * Before you call the operation, you can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the existing user properties and their IDs (PropertyId) and values (PropertyValueId).
+     *
+     * @param request - CheckUsedPropertyValueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckUsedPropertyValueResponse
+     *
+     * @param CheckUsedPropertyValueRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CheckUsedPropertyValueResponse
      */
     public function checkUsedPropertyValueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->propertyId)) {
-            $query['PropertyId'] = $request->propertyId;
+        if (null !== $request->propertyId) {
+            @$query['PropertyId'] = $request->propertyId;
         }
-        if (!Utils::isUnset($request->propertyValueId)) {
-            $query['PropertyValueId'] = $request->propertyValueId;
+
+        if (null !== $request->propertyValueId) {
+            @$query['PropertyValueId'] = $request->propertyValueId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckUsedPropertyValue',
@@ -289,21 +330,23 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CheckUsedPropertyValueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckUsedPropertyValueResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckUsedPropertyValueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether a property value is associated with a user.
-     *  *
-     * @description Before you call the operation, you can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the existing user properties and their IDs (PropertyId) and values (PropertyValueId).
-     *  *
-     * @param CheckUsedPropertyValueRequest $request CheckUsedPropertyValueRequest
+     * Queries the number of convenience accounts that are associated with the specified custom property value.
      *
-     * @return CheckUsedPropertyValueResponse CheckUsedPropertyValueResponse
+     * @remarks
+     * Before you call the operation, you can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the existing user properties and their IDs (PropertyId) and values (PropertyValueId).
+     *
+     * @param request - CheckUsedPropertyValueRequest
+     *
+     * @returns CheckUsedPropertyValueResponse
+     *
+     * @param CheckUsedPropertyValueRequest $request
+     *
+     * @return CheckUsedPropertyValueResponse
      */
     public function checkUsedPropertyValue($request)
     {
@@ -313,25 +356,93 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Creates a user property.
-     *  *
-     * @param CreatePropertyRequest $request CreatePropertyRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 创建组织.
      *
-     * @return CreatePropertyResponse CreatePropertyResponse
+     * @param request - CreateOrgRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOrgResponse
+     *
+     * @param CreateOrgRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateOrgResponse
+     */
+    public function createOrgWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->orgName) {
+            @$query['OrgName'] = $request->orgName;
+        }
+
+        if (null !== $request->parentOrgId) {
+            @$query['ParentOrgId'] = $request->parentOrgId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOrg',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOrgResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建组织.
+     *
+     * @param request - CreateOrgRequest
+     *
+     * @returns CreateOrgResponse
+     *
+     * @param CreateOrgRequest $request
+     *
+     * @return CreateOrgResponse
+     */
+    public function createOrg($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOrgWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a user property.
+     *
+     * @param request - CreatePropertyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePropertyResponse
+     *
+     * @param CreatePropertyRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreatePropertyResponse
      */
     public function createPropertyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->propertyKey)) {
-            $body['PropertyKey'] = $request->propertyKey;
+        if (null !== $request->propertyKey) {
+            @$body['PropertyKey'] = $request->propertyKey;
         }
-        if (!Utils::isUnset($request->propertyValues)) {
-            $body['PropertyValues'] = $request->propertyValues;
+
+        if (null !== $request->propertyValues) {
+            @$body['PropertyValues'] = $request->propertyValues;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateProperty',
@@ -344,19 +455,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreatePropertyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePropertyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePropertyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a user property.
-     *  *
-     * @param CreatePropertyRequest $request CreatePropertyRequest
+     * Creates a user property.
      *
-     * @return CreatePropertyResponse CreatePropertyResponse
+     * @param request - CreatePropertyRequest
+     *
+     * @returns CreatePropertyResponse
+     *
+     * @param CreatePropertyRequest $request
+     *
+     * @return CreatePropertyResponse
      */
     public function createProperty($request)
     {
@@ -366,38 +478,49 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Creates a convenience user.
-     *  *
-     * @description Convenience users are dedicated Elastic Desktop Service (EDS) user accounts and are suitable for scenarios in which you do not need to connect to enterprise Active Directory (AD) systems. The information about a convenience user includes the username, email address, and mobile number. You must specify the username or email address.
-     *  *
-     * @param CreateUsersRequest $request CreateUsersRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Creates a convenience user.
      *
-     * @return CreateUsersResponse CreateUsersResponse
+     * @remarks
+     * Convenience users are dedicated Elastic Desktop Service (EDS) user accounts and are suitable for scenarios in which you do not need to connect to enterprise Active Directory (AD) systems. The information about a convenience user includes the username, email address, and mobile number. You must specify the username or email address.
+     *
+     * @param request - CreateUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUsersResponse
+     *
+     * @param CreateUsersRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateUsersResponse
      */
     public function createUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoLockTime)) {
-            $query['AutoLockTime'] = $request->autoLockTime;
+        if (null !== $request->autoLockTime) {
+            @$query['AutoLockTime'] = $request->autoLockTime;
         }
-        if (!Utils::isUnset($request->isLocalAdmin)) {
-            $query['IsLocalAdmin'] = $request->isLocalAdmin;
+
+        if (null !== $request->isLocalAdmin) {
+            @$query['IsLocalAdmin'] = $request->isLocalAdmin;
         }
-        if (!Utils::isUnset($request->passwordExpireDays)) {
-            $query['PasswordExpireDays'] = $request->passwordExpireDays;
+
+        if (null !== $request->passwordExpireDays) {
+            @$query['PasswordExpireDays'] = $request->passwordExpireDays;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->password)) {
-            $body['Password'] = $request->password;
+        if (null !== $request->password) {
+            @$body['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->users)) {
-            $body['Users'] = $request->users;
+
+        if (null !== $request->users) {
+            @$body['Users'] = $request->users;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateUsers',
@@ -410,21 +533,23 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a convenience user.
-     *  *
-     * @description Convenience users are dedicated Elastic Desktop Service (EDS) user accounts and are suitable for scenarios in which you do not need to connect to enterprise Active Directory (AD) systems. The information about a convenience user includes the username, email address, and mobile number. You must specify the username or email address.
-     *  *
-     * @param CreateUsersRequest $request CreateUsersRequest
+     * Creates a convenience user.
      *
-     * @return CreateUsersResponse CreateUsersResponse
+     * @remarks
+     * Convenience users are dedicated Elastic Desktop Service (EDS) user accounts and are suitable for scenarios in which you do not need to connect to enterprise Active Directory (AD) systems. The information about a convenience user includes the username, email address, and mobile number. You must specify the username or email address.
+     *
+     * @param request - CreateUsersRequest
+     *
+     * @returns CreateUsersResponse
+     *
+     * @param CreateUsersRequest $request
+     *
+     * @return CreateUsersResponse
      */
     public function createUsers($request)
     {
@@ -434,30 +559,39 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Dissociates a user property from a user.
-     *  *
-     * @description Before you call this operation, you can call the FilterUsers operation to query the users that are associated with user properties.
-     *  *
-     * @param DeleteUserPropertyValueRequest $request DeleteUserPropertyValueRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Dissociates a user property from a user.
      *
-     * @return DeleteUserPropertyValueResponse DeleteUserPropertyValueResponse
+     * @remarks
+     * Before you call this operation, you can call the FilterUsers operation to query the users that are associated with user properties.
+     *
+     * @param request - DeleteUserPropertyValueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUserPropertyValueResponse
+     *
+     * @param DeleteUserPropertyValueRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteUserPropertyValueResponse
      */
     public function deleteUserPropertyValueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->propertyId)) {
-            $body['PropertyId'] = $request->propertyId;
+        if (null !== $request->propertyId) {
+            @$body['PropertyId'] = $request->propertyId;
         }
-        if (!Utils::isUnset($request->propertyValueId)) {
-            $body['PropertyValueId'] = $request->propertyValueId;
+
+        if (null !== $request->propertyValueId) {
+            @$body['PropertyValueId'] = $request->propertyValueId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteUserPropertyValue',
@@ -470,21 +604,23 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteUserPropertyValueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteUserPropertyValueResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteUserPropertyValueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Dissociates a user property from a user.
-     *  *
-     * @description Before you call this operation, you can call the FilterUsers operation to query the users that are associated with user properties.
-     *  *
-     * @param DeleteUserPropertyValueRequest $request DeleteUserPropertyValueRequest
+     * Dissociates a user property from a user.
      *
-     * @return DeleteUserPropertyValueResponse DeleteUserPropertyValueResponse
+     * @remarks
+     * Before you call this operation, you can call the FilterUsers operation to query the users that are associated with user properties.
+     *
+     * @param request - DeleteUserPropertyValueRequest
+     *
+     * @returns DeleteUserPropertyValueResponse
+     *
+     * @param DeleteUserPropertyValueRequest $request
+     *
+     * @return DeleteUserPropertyValueResponse
      */
     public function deleteUserPropertyValue($request)
     {
@@ -494,34 +630,44 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience users.
-     *  *
-     * @param DescribeMfaDevicesRequest $request DescribeMfaDevicesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience users.
      *
-     * @return DescribeMfaDevicesResponse DescribeMfaDevicesResponse
+     * @param request - DescribeMfaDevicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMfaDevicesResponse
+     *
+     * @param DescribeMfaDevicesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeMfaDevicesResponse
      */
     public function describeMfaDevicesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->adDomain)) {
-            $query['AdDomain'] = $request->adDomain;
+        if (null !== $request->adDomain) {
+            @$query['AdDomain'] = $request->adDomain;
         }
-        if (!Utils::isUnset($request->endUserIds)) {
-            $query['EndUserIds'] = $request->endUserIds;
+
+        if (null !== $request->endUserIds) {
+            @$query['EndUserIds'] = $request->endUserIds;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->serialNumbers)) {
-            $query['SerialNumbers'] = $request->serialNumbers;
+
+        if (null !== $request->serialNumbers) {
+            @$query['SerialNumbers'] = $request->serialNumbers;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeMfaDevices',
@@ -534,19 +680,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeMfaDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeMfaDevicesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeMfaDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience users.
-     *  *
-     * @param DescribeMfaDevicesRequest $request DescribeMfaDevicesRequest
+     * Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience users.
      *
-     * @return DescribeMfaDevicesResponse DescribeMfaDevicesResponse
+     * @param request - DescribeMfaDevicesRequest
+     *
+     * @returns DescribeMfaDevicesResponse
+     *
+     * @param DescribeMfaDevicesRequest $request
+     *
+     * @return DescribeMfaDevicesResponse
      */
     public function describeMfaDevices($request)
     {
@@ -556,33 +703,104 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Queries organizations.
-     *  *
-     * @description An organization is in a tree structure. The root organization ID is in the following format: org-aliyun-wy-org-id.
-     *  *
-     * @param DescribeOrgsRequest $request DescribeOrgsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 查找下级组织.
      *
-     * @return DescribeOrgsResponse DescribeOrgsResponse
+     * @param request - DescribeOrgByLayerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOrgByLayerResponse
+     *
+     * @param DescribeOrgByLayerRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeOrgByLayerResponse
+     */
+    public function describeOrgByLayerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->orgName) {
+            @$body['OrgName'] = $request->orgName;
+        }
+
+        if (null !== $request->parentOrgId) {
+            @$body['ParentOrgId'] = $request->parentOrgId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOrgByLayer',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOrgByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查找下级组织.
+     *
+     * @param request - DescribeOrgByLayerRequest
+     *
+     * @returns DescribeOrgByLayerResponse
+     *
+     * @param DescribeOrgByLayerRequest $request
+     *
+     * @return DescribeOrgByLayerResponse
+     */
+    public function describeOrgByLayer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOrgByLayerWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries organizations.
+     *
+     * @remarks
+     * An organization is in a tree structure. The root organization ID is in the following format: org-aliyun-wy-org-id.
+     *
+     * @param request - DescribeOrgsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeOrgsResponse
+     *
+     * @param DescribeOrgsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeOrgsResponse
      */
     public function describeOrgsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->orgName)) {
-            $query['OrgName'] = $request->orgName;
+
+        if (null !== $request->orgName) {
+            @$query['OrgName'] = $request->orgName;
         }
-        if (!Utils::isUnset($request->parentOrgId)) {
-            $query['ParentOrgId'] = $request->parentOrgId;
+
+        if (null !== $request->parentOrgId) {
+            @$query['ParentOrgId'] = $request->parentOrgId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeOrgs',
@@ -595,21 +813,23 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeOrgsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOrgsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOrgsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries organizations.
-     *  *
-     * @description An organization is in a tree structure. The root organization ID is in the following format: org-aliyun-wy-org-id.
-     *  *
-     * @param DescribeOrgsRequest $request DescribeOrgsRequest
+     * Queries organizations.
      *
-     * @return DescribeOrgsResponse DescribeOrgsResponse
+     * @remarks
+     * An organization is in a tree structure. The root organization ID is in the following format: org-aliyun-wy-org-id.
+     *
+     * @param request - DescribeOrgsRequest
+     *
+     * @returns DescribeOrgsResponse
+     *
+     * @param DescribeOrgsRequest $request
+     *
+     * @return DescribeOrgsResponse
      */
     public function describeOrgs($request)
     {
@@ -619,71 +839,92 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about convenience users. The information of a convenience user includes a username, an email address, and a description.
-     *  *
-     * @param DescribeUsersRequest $tmpReq  DescribeUsersRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the information about convenience users. The information of a convenience user includes a username, an email address, and a description.
      *
-     * @return DescribeUsersResponse DescribeUsersResponse
+     * @param tmpReq - DescribeUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUsersResponse
+     *
+     * @param DescribeUsersRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeUsersResponse
      */
     public function describeUsersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DescribeUsersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->filterWithAssignedResource)) {
-            $request->filterWithAssignedResourceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterWithAssignedResource, 'FilterWithAssignedResource', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filterWithAssignedResource) {
+            $request->filterWithAssignedResourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterWithAssignedResource, 'FilterWithAssignedResource', 'json');
         }
-        if (!Utils::isUnset($tmpReq->filterWithAssignedResources)) {
-            $request->filterWithAssignedResourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterWithAssignedResources, 'FilterWithAssignedResources', 'json');
+
+        if (null !== $tmpReq->filterWithAssignedResources) {
+            $request->filterWithAssignedResourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filterWithAssignedResources, 'FilterWithAssignedResources', 'json');
         }
-        if (!Utils::isUnset($tmpReq->showExtras)) {
-            $request->showExtrasShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->showExtras, 'ShowExtras', 'json');
+
+        if (null !== $tmpReq->showExtras) {
+            $request->showExtrasShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->showExtras, 'ShowExtras', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->filter)) {
-            $query['Filter'] = $request->filter;
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
         }
-        if (!Utils::isUnset($request->filterWithAssignedResourceShrink)) {
-            $query['FilterWithAssignedResource'] = $request->filterWithAssignedResourceShrink;
+
+        if (null !== $request->filterWithAssignedResourceShrink) {
+            @$query['FilterWithAssignedResource'] = $request->filterWithAssignedResourceShrink;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->bizType)) {
-            $body['BizType'] = $request->bizType;
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->endUserIds)) {
-            $body['EndUserIds'] = $request->endUserIds;
+
+        if (null !== $request->endUserIds) {
+            @$body['EndUserIds'] = $request->endUserIds;
         }
-        if (!Utils::isUnset($request->excludeEndUserIds)) {
-            $body['ExcludeEndUserIds'] = $request->excludeEndUserIds;
+
+        if (null !== $request->excludeEndUserIds) {
+            @$body['ExcludeEndUserIds'] = $request->excludeEndUserIds;
         }
-        if (!Utils::isUnset($request->filterWithAssignedResourcesShrink)) {
-            $body['FilterWithAssignedResources'] = $request->filterWithAssignedResourcesShrink;
+
+        if (null !== $request->filterWithAssignedResourcesShrink) {
+            @$body['FilterWithAssignedResources'] = $request->filterWithAssignedResourcesShrink;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $body['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$body['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->isQueryAllSubOrgs)) {
-            $body['IsQueryAllSubOrgs'] = $request->isQueryAllSubOrgs;
+
+        if (null !== $request->isQueryAllSubOrgs) {
+            @$body['IsQueryAllSubOrgs'] = $request->isQueryAllSubOrgs;
         }
-        if (!Utils::isUnset($request->orgId)) {
-            $body['OrgId'] = $request->orgId;
+
+        if (null !== $request->orgId) {
+            @$body['OrgId'] = $request->orgId;
         }
-        if (!Utils::isUnset($request->showExtrasShrink)) {
-            $body['ShowExtras'] = $request->showExtrasShrink;
+
+        if (null !== $request->showExtrasShrink) {
+            @$body['ShowExtras'] = $request->showExtrasShrink;
         }
-        if (!Utils::isUnset($request->solutionId)) {
-            $body['SolutionId'] = $request->solutionId;
+
+        if (null !== $request->solutionId) {
+            @$body['SolutionId'] = $request->solutionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeUsers',
@@ -696,19 +937,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about convenience users. The information of a convenience user includes a username, an email address, and a description.
-     *  *
-     * @param DescribeUsersRequest $request DescribeUsersRequest
+     * Queries the information about convenience users. The information of a convenience user includes a username, an email address, and a description.
      *
-     * @return DescribeUsersResponse DescribeUsersResponse
+     * @param request - DescribeUsersRequest
+     *
+     * @returns DescribeUsersResponse
+     *
+     * @param DescribeUsersRequest $request
+     *
+     * @return DescribeUsersResponse
      */
     public function describeUsers($request)
     {
@@ -718,69 +960,90 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Filters convenience users by property.
-     *  *
-     * @param FilterUsersRequest $tmpReq  FilterUsersRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Filters convenience accounts by property.
      *
-     * @return FilterUsersResponse FilterUsersResponse
+     * @param tmpReq - FilterUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FilterUsersResponse
+     *
+     * @param FilterUsersRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return FilterUsersResponse
      */
     public function filterUsersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FilterUsersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->orderParam)) {
-            $request->orderParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->orderParam, 'OrderParam', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->orderParam) {
+            $request->orderParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->orderParam, 'OrderParam', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->excludeEndUserIds)) {
-            $query['ExcludeEndUserIds'] = $request->excludeEndUserIds;
+        if (null !== $request->excludeEndUserIds) {
+            @$query['ExcludeEndUserIds'] = $request->excludeEndUserIds;
         }
-        if (!Utils::isUnset($request->filter)) {
-            $query['Filter'] = $request->filter;
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
         }
-        if (!Utils::isUnset($request->includeDesktopCount)) {
-            $query['IncludeDesktopCount'] = $request->includeDesktopCount;
+
+        if (null !== $request->includeDesktopCount) {
+            @$query['IncludeDesktopCount'] = $request->includeDesktopCount;
         }
-        if (!Utils::isUnset($request->includeDesktopGroupCount)) {
-            $query['IncludeDesktopGroupCount'] = $request->includeDesktopGroupCount;
+
+        if (null !== $request->includeDesktopGroupCount) {
+            @$query['IncludeDesktopGroupCount'] = $request->includeDesktopGroupCount;
         }
-        if (!Utils::isUnset($request->includeOrgInfo)) {
-            $query['IncludeOrgInfo'] = $request->includeOrgInfo;
+
+        if (null !== $request->includeOrgInfo) {
+            @$query['IncludeOrgInfo'] = $request->includeOrgInfo;
         }
-        if (!Utils::isUnset($request->includeSupportIdps)) {
-            $query['IncludeSupportIdps'] = $request->includeSupportIdps;
+
+        if (null !== $request->includeSupportIdps) {
+            @$query['IncludeSupportIdps'] = $request->includeSupportIdps;
         }
-        if (!Utils::isUnset($request->isQueryAllSubOrgs)) {
-            $query['IsQueryAllSubOrgs'] = $request->isQueryAllSubOrgs;
+
+        if (null !== $request->isQueryAllSubOrgs) {
+            @$query['IsQueryAllSubOrgs'] = $request->isQueryAllSubOrgs;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->orderParamShrink)) {
-            $query['OrderParam'] = $request->orderParamShrink;
+
+        if (null !== $request->orderParamShrink) {
+            @$query['OrderParam'] = $request->orderParamShrink;
         }
-        if (!Utils::isUnset($request->orgId)) {
-            $query['OrgId'] = $request->orgId;
+
+        if (null !== $request->orgId) {
+            @$query['OrgId'] = $request->orgId;
         }
-        if (!Utils::isUnset($request->ownerType)) {
-            $query['OwnerType'] = $request->ownerType;
+
+        if (null !== $request->ownerType) {
+            @$query['OwnerType'] = $request->ownerType;
         }
-        if (!Utils::isUnset($request->propertyFilterParam)) {
-            $query['PropertyFilterParam'] = $request->propertyFilterParam;
+
+        if (null !== $request->propertyFilterParam) {
+            @$query['PropertyFilterParam'] = $request->propertyFilterParam;
         }
-        if (!Utils::isUnset($request->propertyKeyValueFilterParam)) {
-            $query['PropertyKeyValueFilterParam'] = $request->propertyKeyValueFilterParam;
+
+        if (null !== $request->propertyKeyValueFilterParam) {
+            @$query['PropertyKeyValueFilterParam'] = $request->propertyKeyValueFilterParam;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'FilterUsers',
@@ -793,19 +1056,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return FilterUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FilterUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return FilterUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Filters convenience users by property.
-     *  *
-     * @param FilterUsersRequest $request FilterUsersRequest
+     * Filters convenience accounts by property.
      *
-     * @return FilterUsersResponse FilterUsersResponse
+     * @param request - FilterUsersRequest
+     *
+     * @returns FilterUsersResponse
+     *
+     * @param FilterUsersRequest $request
+     *
+     * @return FilterUsersResponse
      */
     public function filterUsers($request)
     {
@@ -815,22 +1079,28 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the information about the current logon administrator based on the authorization code.
-     *  *
-     * @param GetManagerInfoByAuthCodeRequest $request GetManagerInfoByAuthCodeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Obtains the information about the current logon administrator based on the authorization code.
      *
-     * @return GetManagerInfoByAuthCodeResponse GetManagerInfoByAuthCodeResponse
+     * @param request - GetManagerInfoByAuthCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetManagerInfoByAuthCodeResponse
+     *
+     * @param GetManagerInfoByAuthCodeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetManagerInfoByAuthCodeResponse
      */
     public function getManagerInfoByAuthCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authCode)) {
-            $query['AuthCode'] = $request->authCode;
+        if (null !== $request->authCode) {
+            @$query['AuthCode'] = $request->authCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetManagerInfoByAuthCode',
@@ -843,19 +1113,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetManagerInfoByAuthCodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetManagerInfoByAuthCodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetManagerInfoByAuthCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the information about the current logon administrator based on the authorization code.
-     *  *
-     * @param GetManagerInfoByAuthCodeRequest $request GetManagerInfoByAuthCodeRequest
+     * Obtains the information about the current logon administrator based on the authorization code.
      *
-     * @return GetManagerInfoByAuthCodeResponse GetManagerInfoByAuthCodeResponse
+     * @param request - GetManagerInfoByAuthCodeRequest
+     *
+     * @returns GetManagerInfoByAuthCodeResponse
+     *
+     * @param GetManagerInfoByAuthCodeRequest $request
+     *
+     * @return GetManagerInfoByAuthCodeResponse
      */
     public function getManagerInfoByAuthCode($request)
     {
@@ -865,11 +1136,60 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Queries all user properties within an Alibaba Cloud account.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 初始化TenantAlias.
      *
-     * @return ListPropertyResponse ListPropertyResponse
+     * @param request - InitTenantAliasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitTenantAliasResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return InitTenantAliasResponse
+     */
+    public function initTenantAliasWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'InitTenantAlias',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InitTenantAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 初始化TenantAlias.
+     *
+     * @returns InitTenantAliasResponse
+     *
+     * @return InitTenantAliasResponse
+     */
+    public function initTenantAlias()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initTenantAliasWithOptions($runtime);
+    }
+
+    /**
+     * Queries all user properties within an Alibaba Cloud account.
+     *
+     * @param request - ListPropertyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPropertyResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListPropertyResponse
      */
     public function listPropertyWithOptions($runtime)
     {
@@ -885,17 +1205,16 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPropertyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all user properties within an Alibaba Cloud account.
-     *  *
-     * @return ListPropertyResponse ListPropertyResponse
+     * Queries all user properties within an Alibaba Cloud account.
+     *
+     * @returns ListPropertyResponse
+     *
+     * @return ListPropertyResponse
      */
     public function listProperty()
     {
@@ -905,22 +1224,28 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Queries property values of a user property.
-     *  *
-     * @param ListPropertyValueRequest $request ListPropertyValueRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries property values of a user property.
      *
-     * @return ListPropertyValueResponse ListPropertyValueResponse
+     * @param request - ListPropertyValueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPropertyValueResponse
+     *
+     * @param ListPropertyValueRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListPropertyValueResponse
      */
     public function listPropertyValueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->propertyId)) {
-            $query['PropertyId'] = $request->propertyId;
+        if (null !== $request->propertyId) {
+            @$query['PropertyId'] = $request->propertyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPropertyValue',
@@ -933,19 +1258,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListPropertyValueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPropertyValueResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPropertyValueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries property values of a user property.
-     *  *
-     * @param ListPropertyValueRequest $request ListPropertyValueRequest
+     * Queries property values of a user property.
      *
-     * @return ListPropertyValueResponse ListPropertyValueResponse
+     * @param request - ListPropertyValueRequest
+     *
+     * @returns ListPropertyValueResponse
+     *
+     * @param ListPropertyValueRequest $request
+     *
+     * @return ListPropertyValueResponse
      */
     public function listPropertyValue($request)
     {
@@ -955,27 +1281,35 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Locks a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
-     *  *
-     * @description After a virtual MFA device is locked, the status of the virtual MFA device changes to LOCKED. The convenience user to which the MFA device is bound cannot log on to the cloud desktop that resides in the workspace with the MFA feature enabled because the identity of the convenience user cannot be verified based on the virtual MFA device. You can call the [UnlockMfaDevice](https://help.aliyun.com/document_detail/286534.html) operation to unlock the virtual MFA device.
-     *  *
-     * @param LockMfaDeviceRequest $request LockMfaDeviceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Locks a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
      *
-     * @return LockMfaDeviceResponse LockMfaDeviceResponse
+     * @remarks
+     * After a virtual MFA device is locked, the status of the virtual MFA device changes to LOCKED. The convenience user to which the MFA device is bound cannot log on to the cloud desktop that resides in the workspace with the MFA feature enabled because the identity of the convenience user cannot be verified based on the virtual MFA device. You can call the [UnlockMfaDevice](https://help.aliyun.com/document_detail/286534.html) operation to unlock the virtual MFA device.
+     *
+     * @param request - LockMfaDeviceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LockMfaDeviceResponse
+     *
+     * @param LockMfaDeviceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return LockMfaDeviceResponse
      */
     public function lockMfaDeviceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->adDomain)) {
-            $query['AdDomain'] = $request->adDomain;
+        if (null !== $request->adDomain) {
+            @$query['AdDomain'] = $request->adDomain;
         }
-        if (!Utils::isUnset($request->serialNumber)) {
-            $query['SerialNumber'] = $request->serialNumber;
+
+        if (null !== $request->serialNumber) {
+            @$query['SerialNumber'] = $request->serialNumber;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'LockMfaDevice',
@@ -988,21 +1322,23 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return LockMfaDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return LockMfaDeviceResponse::fromMap($this->execute($params, $req, $runtime));
+        return LockMfaDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Locks a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
-     *  *
-     * @description After a virtual MFA device is locked, the status of the virtual MFA device changes to LOCKED. The convenience user to which the MFA device is bound cannot log on to the cloud desktop that resides in the workspace with the MFA feature enabled because the identity of the convenience user cannot be verified based on the virtual MFA device. You can call the [UnlockMfaDevice](https://help.aliyun.com/document_detail/286534.html) operation to unlock the virtual MFA device.
-     *  *
-     * @param LockMfaDeviceRequest $request LockMfaDeviceRequest
+     * Locks a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
      *
-     * @return LockMfaDeviceResponse LockMfaDeviceResponse
+     * @remarks
+     * After a virtual MFA device is locked, the status of the virtual MFA device changes to LOCKED. The convenience user to which the MFA device is bound cannot log on to the cloud desktop that resides in the workspace with the MFA feature enabled because the identity of the convenience user cannot be verified based on the virtual MFA device. You can call the [UnlockMfaDevice](https://help.aliyun.com/document_detail/286534.html) operation to unlock the virtual MFA device.
+     *
+     * @param request - LockMfaDeviceRequest
+     *
+     * @returns LockMfaDeviceResponse
+     *
+     * @param LockMfaDeviceRequest $request
+     *
+     * @return LockMfaDeviceResponse
      */
     public function lockMfaDevice($request)
     {
@@ -1012,27 +1348,34 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Locks one or more convenience users.
-     *  *
-     * @param LockUsersRequest $request LockUsersRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Locks one or more convenience users.
      *
-     * @return LockUsersResponse LockUsersResponse
+     * @param request - LockUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LockUsersResponse
+     *
+     * @param LockUsersRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return LockUsersResponse
      */
     public function lockUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->logoutSession)) {
-            $query['LogoutSession'] = $request->logoutSession;
+        if (null !== $request->logoutSession) {
+            @$query['LogoutSession'] = $request->logoutSession;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->users)) {
-            $body['Users'] = $request->users;
+        if (null !== $request->users) {
+            @$body['Users'] = $request->users;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'LockUsers',
@@ -1045,19 +1388,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return LockUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return LockUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return LockUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Locks one or more convenience users.
-     *  *
-     * @param LockUsersRequest $request LockUsersRequest
+     * Locks one or more convenience users.
      *
-     * @return LockUsersResponse LockUsersResponse
+     * @param request - LockUsersRequest
+     *
+     * @returns LockUsersResponse
+     *
+     * @param LockUsersRequest $request
+     *
+     * @return LockUsersResponse
      */
     public function lockUsers($request)
     {
@@ -1067,28 +1411,97 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Modifies user information.
-     *  *
-     * @param ModifyUserRequest $request ModifyUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 修改组织.
      *
-     * @return ModifyUserResponse ModifyUserResponse
+     * @param request - ModifyOrgRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyOrgResponse
+     *
+     * @param ModifyOrgRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ModifyOrgResponse
+     */
+    public function modifyOrgWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->orgId) {
+            @$query['OrgId'] = $request->orgId;
+        }
+
+        if (null !== $request->orgName) {
+            @$query['OrgName'] = $request->orgName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyOrg',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyOrgResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改组织.
+     *
+     * @param request - ModifyOrgRequest
+     *
+     * @returns ModifyOrgResponse
+     *
+     * @param ModifyOrgRequest $request
+     *
+     * @return ModifyOrgResponse
+     */
+    public function modifyOrg($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyOrgWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies user information.
+     *
+     * @param request - ModifyUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyUserResponse
+     *
+     * @param ModifyUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ModifyUserResponse
      */
     public function modifyUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $query['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $query['Phone'] = $request->phone;
+
+        if (null !== $request->phone) {
+            @$query['Phone'] = $request->phone;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyUser',
@@ -1101,19 +1514,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies user information.
-     *  *
-     * @param ModifyUserRequest $request ModifyUserRequest
+     * Modifies user information.
      *
-     * @return ModifyUserResponse ModifyUserResponse
+     * @param request - ModifyUserRequest
+     *
+     * @returns ModifyUserResponse
+     *
+     * @param ModifyUserRequest $request
+     *
+     * @return ModifyUserResponse
      */
     public function modifyUser($request)
     {
@@ -1123,11 +1537,77 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary 查询edu同步信息
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 移动组织.
      *
-     * @return QuerySyncStatusByAliUidResponse QuerySyncStatusByAliUidResponse
+     * @param request - MoveOrgRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MoveOrgResponse
+     *
+     * @param MoveOrgRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return MoveOrgResponse
+     */
+    public function moveOrgWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->newParentOrgId) {
+            @$body['NewParentOrgId'] = $request->newParentOrgId;
+        }
+
+        if (null !== $request->orgId) {
+            @$body['OrgId'] = $request->orgId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MoveOrg',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MoveOrgResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 移动组织.
+     *
+     * @param request - MoveOrgRequest
+     *
+     * @returns MoveOrgResponse
+     *
+     * @param MoveOrgRequest $request
+     *
+     * @return MoveOrgResponse
+     */
+    public function moveOrg($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveOrgWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询edu同步信息.
+     *
+     * @param request - QuerySyncStatusByAliUidRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySyncStatusByAliUidResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return QuerySyncStatusByAliUidResponse
      */
     public function querySyncStatusByAliUidWithOptions($runtime)
     {
@@ -1143,17 +1623,16 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QuerySyncStatusByAliUidResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QuerySyncStatusByAliUidResponse::fromMap($this->execute($params, $req, $runtime));
+        return QuerySyncStatusByAliUidResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询edu同步信息
-     *  *
-     * @return QuerySyncStatusByAliUidResponse QuerySyncStatusByAliUidResponse
+     * 查询edu同步信息.
+     *
+     * @returns QuerySyncStatusByAliUidResponse
+     *
+     * @return QuerySyncStatusByAliUidResponse
      */
     public function querySyncStatusByAliUid()
     {
@@ -1163,27 +1642,35 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
-     *  *
-     * @description If you remove a virtual MFA device that is bound to a convenience user, the convenience user can no longer use the virtual MFA device to log on to cloud desktops. Before the convenience user can log on to cloud desktops again, a new virtual MFA device must be bound to the convenience user.
-     *  *
-     * @param RemoveMfaDeviceRequest $request RemoveMfaDeviceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
      *
-     * @return RemoveMfaDeviceResponse RemoveMfaDeviceResponse
+     * @remarks
+     * If you remove a virtual MFA device that is bound to a convenience user, the convenience user can no longer use the virtual MFA device to log on to cloud desktops. Before the convenience user can log on to cloud desktops again, a new virtual MFA device must be bound to the convenience user.
+     *
+     * @param request - RemoveMfaDeviceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveMfaDeviceResponse
+     *
+     * @param RemoveMfaDeviceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RemoveMfaDeviceResponse
      */
     public function removeMfaDeviceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->adDomain)) {
-            $query['AdDomain'] = $request->adDomain;
+        if (null !== $request->adDomain) {
+            @$query['AdDomain'] = $request->adDomain;
         }
-        if (!Utils::isUnset($request->serialNumber)) {
-            $query['SerialNumber'] = $request->serialNumber;
+
+        if (null !== $request->serialNumber) {
+            @$query['SerialNumber'] = $request->serialNumber;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RemoveMfaDevice',
@@ -1196,21 +1683,23 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveMfaDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveMfaDeviceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveMfaDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
-     *  *
-     * @description If you remove a virtual MFA device that is bound to a convenience user, the convenience user can no longer use the virtual MFA device to log on to cloud desktops. Before the convenience user can log on to cloud desktops again, a new virtual MFA device must be bound to the convenience user.
-     *  *
-     * @param RemoveMfaDeviceRequest $request RemoveMfaDeviceRequest
+     * Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
      *
-     * @return RemoveMfaDeviceResponse RemoveMfaDeviceResponse
+     * @remarks
+     * If you remove a virtual MFA device that is bound to a convenience user, the convenience user can no longer use the virtual MFA device to log on to cloud desktops. Before the convenience user can log on to cloud desktops again, a new virtual MFA device must be bound to the convenience user.
+     *
+     * @param request - RemoveMfaDeviceRequest
+     *
+     * @returns RemoveMfaDeviceResponse
+     *
+     * @param RemoveMfaDeviceRequest $request
+     *
+     * @return RemoveMfaDeviceResponse
      */
     public function removeMfaDevice($request)
     {
@@ -1220,22 +1709,85 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a user property.
-     *  *
-     * @param RemovePropertyRequest $request RemovePropertyRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 移除组织.
      *
-     * @return RemovePropertyResponse RemovePropertyResponse
+     * @param request - RemoveOrgRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveOrgResponse
+     *
+     * @param RemoveOrgRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return RemoveOrgResponse
+     */
+    public function removeOrgWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->orgId) {
+            @$body['OrgId'] = $request->orgId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveOrg',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveOrgResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 移除组织.
+     *
+     * @param request - RemoveOrgRequest
+     *
+     * @returns RemoveOrgResponse
+     *
+     * @param RemoveOrgRequest $request
+     *
+     * @return RemoveOrgResponse
+     */
+    public function removeOrg($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeOrgWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a user property.
+     *
+     * @param request - RemovePropertyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemovePropertyResponse
+     *
+     * @param RemovePropertyRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RemovePropertyResponse
      */
     public function removePropertyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->propertyId)) {
-            $body['PropertyId'] = $request->propertyId;
+        if (null !== $request->propertyId) {
+            @$body['PropertyId'] = $request->propertyId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RemoveProperty',
@@ -1248,19 +1800,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemovePropertyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemovePropertyResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemovePropertyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a user property.
-     *  *
-     * @param RemovePropertyRequest $request RemovePropertyRequest
+     * Deletes a user property.
      *
-     * @return RemovePropertyResponse RemovePropertyResponse
+     * @param request - RemovePropertyRequest
+     *
+     * @returns RemovePropertyResponse
+     *
+     * @param RemovePropertyRequest $request
+     *
+     * @return RemovePropertyResponse
      */
     public function removeProperty($request)
     {
@@ -1270,22 +1823,28 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Removes one or more convenience users.
-     *  *
-     * @param RemoveUsersRequest $request RemoveUsersRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Removes one or more convenience users.
      *
-     * @return RemoveUsersResponse RemoveUsersResponse
+     * @param request - RemoveUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveUsersResponse
+     *
+     * @param RemoveUsersRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RemoveUsersResponse
      */
     public function removeUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->users)) {
-            $body['Users'] = $request->users;
+        if (null !== $request->users) {
+            @$body['Users'] = $request->users;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RemoveUsers',
@@ -1298,19 +1857,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes one or more convenience users.
-     *  *
-     * @param RemoveUsersRequest $request RemoveUsersRequest
+     * Removes one or more convenience users.
      *
-     * @return RemoveUsersResponse RemoveUsersResponse
+     * @param request - RemoveUsersRequest
+     *
+     * @returns RemoveUsersResponse
+     *
+     * @param RemoveUsersRequest $request
+     *
+     * @return RemoveUsersResponse
      */
     public function removeUsers($request)
     {
@@ -1320,25 +1880,32 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Resets the password for a convenience user. If you call this operation, a token that is used to reset the password is generated, and the system sends a password reset email that includes the token to the email address of the convenience user.
-     *  *
-     * @param ResetUserPasswordRequest $request ResetUserPasswordRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Resets the password for a convenience user. If you call this operation, a token that is used to reset the password is generated, and the system sends a password reset email that includes the token to the email address of the convenience user.
      *
-     * @return ResetUserPasswordResponse ResetUserPasswordResponse
+     * @param request - ResetUserPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetUserPasswordResponse
+     *
+     * @param ResetUserPasswordRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ResetUserPasswordResponse
      */
     public function resetUserPasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->notifyType)) {
-            $body['NotifyType'] = $request->notifyType;
+        if (null !== $request->notifyType) {
+            @$body['NotifyType'] = $request->notifyType;
         }
-        if (!Utils::isUnset($request->users)) {
-            $body['Users'] = $request->users;
+
+        if (null !== $request->users) {
+            @$body['Users'] = $request->users;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ResetUserPassword',
@@ -1351,19 +1918,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ResetUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResetUserPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResetUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Resets the password for a convenience user. If you call this operation, a token that is used to reset the password is generated, and the system sends a password reset email that includes the token to the email address of the convenience user.
-     *  *
-     * @param ResetUserPasswordRequest $request ResetUserPasswordRequest
+     * Resets the password for a convenience user. If you call this operation, a token that is used to reset the password is generated, and the system sends a password reset email that includes the token to the email address of the convenience user.
      *
-     * @return ResetUserPasswordResponse ResetUserPasswordResponse
+     * @param request - ResetUserPasswordRequest
+     *
+     * @returns ResetUserPasswordResponse
+     *
+     * @param ResetUserPasswordRequest $request
+     *
+     * @return ResetUserPasswordResponse
      */
     public function resetUserPassword($request)
     {
@@ -1373,31 +1941,40 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Associates a user property with a convenience user.
-     *  *
-     * @param SetUserPropertyValueRequest $request SetUserPropertyValueRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Associates a user property with a convenience user.
      *
-     * @return SetUserPropertyValueResponse SetUserPropertyValueResponse
+     * @param request - SetUserPropertyValueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetUserPropertyValueResponse
+     *
+     * @param SetUserPropertyValueRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SetUserPropertyValueResponse
      */
     public function setUserPropertyValueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->propertyId)) {
-            $body['PropertyId'] = $request->propertyId;
+        if (null !== $request->propertyId) {
+            @$body['PropertyId'] = $request->propertyId;
         }
-        if (!Utils::isUnset($request->propertyValueId)) {
-            $body['PropertyValueId'] = $request->propertyValueId;
+
+        if (null !== $request->propertyValueId) {
+            @$body['PropertyValueId'] = $request->propertyValueId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $body['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$body['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SetUserPropertyValue',
@@ -1410,19 +1987,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetUserPropertyValueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetUserPropertyValueResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetUserPropertyValueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates a user property with a convenience user.
-     *  *
-     * @param SetUserPropertyValueRequest $request SetUserPropertyValueRequest
+     * Associates a user property with a convenience user.
      *
-     * @return SetUserPropertyValueResponse SetUserPropertyValueResponse
+     * @param request - SetUserPropertyValueRequest
+     *
+     * @returns SetUserPropertyValueResponse
+     *
+     * @param SetUserPropertyValueRequest $request
+     *
+     * @return SetUserPropertyValueResponse
      */
     public function setUserPropertyValue($request)
     {
@@ -1432,11 +2010,16 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary 从钉钉手动同步老师学生信息
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 从钉钉手动同步老师学生信息.
      *
-     * @return SyncAllEduInfoResponse SyncAllEduInfoResponse
+     * @param request - SyncAllEduInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SyncAllEduInfoResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return SyncAllEduInfoResponse
      */
     public function syncAllEduInfoWithOptions($runtime)
     {
@@ -1452,17 +2035,16 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SyncAllEduInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SyncAllEduInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return SyncAllEduInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 从钉钉手动同步老师学生信息
-     *  *
-     * @return SyncAllEduInfoResponse SyncAllEduInfoResponse
+     * 从钉钉手动同步老师学生信息.
+     *
+     * @returns SyncAllEduInfoResponse
+     *
+     * @return SyncAllEduInfoResponse
      */
     public function syncAllEduInfo()
     {
@@ -1472,25 +2054,32 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Unlocks a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
-     *  *
-     * @param UnlockMfaDeviceRequest $request UnlockMfaDeviceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Unlocks a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
      *
-     * @return UnlockMfaDeviceResponse UnlockMfaDeviceResponse
+     * @param request - UnlockMfaDeviceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnlockMfaDeviceResponse
+     *
+     * @param UnlockMfaDeviceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UnlockMfaDeviceResponse
      */
     public function unlockMfaDeviceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->adDomain)) {
-            $query['AdDomain'] = $request->adDomain;
+        if (null !== $request->adDomain) {
+            @$query['AdDomain'] = $request->adDomain;
         }
-        if (!Utils::isUnset($request->serialNumber)) {
-            $query['SerialNumber'] = $request->serialNumber;
+
+        if (null !== $request->serialNumber) {
+            @$query['SerialNumber'] = $request->serialNumber;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UnlockMfaDevice',
@@ -1503,19 +2092,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UnlockMfaDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnlockMfaDeviceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnlockMfaDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Unlocks a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
-     *  *
-     * @param UnlockMfaDeviceRequest $request UnlockMfaDeviceRequest
+     * Unlocks a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
      *
-     * @return UnlockMfaDeviceResponse UnlockMfaDeviceResponse
+     * @param request - UnlockMfaDeviceRequest
+     *
+     * @returns UnlockMfaDeviceResponse
+     *
+     * @param UnlockMfaDeviceRequest $request
+     *
+     * @return UnlockMfaDeviceResponse
      */
     public function unlockMfaDevice($request)
     {
@@ -1525,27 +2115,34 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Unlocks one or more convenience users.
-     *  *
-     * @param UnlockUsersRequest $request UnlockUsersRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Unlocks one or more convenience users.
      *
-     * @return UnlockUsersResponse UnlockUsersResponse
+     * @param request - UnlockUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnlockUsersResponse
+     *
+     * @param UnlockUsersRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UnlockUsersResponse
      */
     public function unlockUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoLockTime)) {
-            $query['AutoLockTime'] = $request->autoLockTime;
+        if (null !== $request->autoLockTime) {
+            @$query['AutoLockTime'] = $request->autoLockTime;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->users)) {
-            $body['Users'] = $request->users;
+        if (null !== $request->users) {
+            @$body['Users'] = $request->users;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UnlockUsers',
@@ -1558,19 +2155,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UnlockUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnlockUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnlockUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Unlocks one or more convenience users.
-     *  *
-     * @param UnlockUsersRequest $request UnlockUsersRequest
+     * Unlocks one or more convenience users.
      *
-     * @return UnlockUsersResponse UnlockUsersResponse
+     * @param request - UnlockUsersRequest
+     *
+     * @returns UnlockUsersResponse
+     *
+     * @param UnlockUsersRequest $request
+     *
+     * @return UnlockUsersResponse
      */
     public function unlockUsers($request)
     {
@@ -1580,28 +2178,36 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a user property.
-     *  *
-     * @param UpdatePropertyRequest $request UpdatePropertyRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Modifies a user property.
      *
-     * @return UpdatePropertyResponse UpdatePropertyResponse
+     * @param request - UpdatePropertyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePropertyResponse
+     *
+     * @param UpdatePropertyRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdatePropertyResponse
      */
     public function updatePropertyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->propertyId)) {
-            $body['PropertyId'] = $request->propertyId;
+        if (null !== $request->propertyId) {
+            @$body['PropertyId'] = $request->propertyId;
         }
-        if (!Utils::isUnset($request->propertyKey)) {
-            $body['PropertyKey'] = $request->propertyKey;
+
+        if (null !== $request->propertyKey) {
+            @$body['PropertyKey'] = $request->propertyKey;
         }
-        if (!Utils::isUnset($request->propertyValues)) {
-            $body['PropertyValues'] = $request->propertyValues;
+
+        if (null !== $request->propertyValues) {
+            @$body['PropertyValues'] = $request->propertyValues;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateProperty',
@@ -1614,19 +2220,20 @@ class Edsuser extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdatePropertyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdatePropertyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdatePropertyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a user property.
-     *  *
-     * @param UpdatePropertyRequest $request UpdatePropertyRequest
+     * Modifies a user property.
      *
-     * @return UpdatePropertyResponse UpdatePropertyResponse
+     * @param request - UpdatePropertyRequest
+     *
+     * @returns UpdatePropertyResponse
+     *
+     * @param UpdatePropertyRequest $request
+     *
+     * @return UpdatePropertyResponse
      */
     public function updateProperty($request)
     {

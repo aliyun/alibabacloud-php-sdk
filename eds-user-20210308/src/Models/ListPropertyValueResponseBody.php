@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ListPropertyValueResponseBody\propertyValueInfos;
-use AlibabaCloud\Tea\Model;
 
 class ListPropertyValueResponseBody extends Model
 {
     /**
-     * @description Details about property values.
-     *
      * @var propertyValueInfos[]
      */
     public $propertyValueInfos;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example C52013A5-3422-5D1F-B22C-A57110972AD9
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,27 @@ class ListPropertyValueResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->propertyValueInfos)) {
+            Model::validateArray($this->propertyValueInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->propertyValueInfos) {
-            $res['PropertyValueInfos'] = [];
-            if (null !== $this->propertyValueInfos && \is_array($this->propertyValueInfos)) {
-                $n = 0;
-                foreach ($this->propertyValueInfos as $item) {
-                    $res['PropertyValueInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->propertyValueInfos)) {
+                $res['PropertyValueInfos'] = [];
+                $n1 = 0;
+                foreach ($this->propertyValueInfos as $item1) {
+                    $res['PropertyValueInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +51,24 @@ class ListPropertyValueResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPropertyValueResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PropertyValueInfos'])) {
             if (!empty($map['PropertyValueInfos'])) {
                 $model->propertyValueInfos = [];
-                $n = 0;
-                foreach ($map['PropertyValueInfos'] as $item) {
-                    $model->propertyValueInfos[$n++] = null !== $item ? propertyValueInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PropertyValueInfos'] as $item1) {
+                    $model->propertyValueInfos[$n1++] = propertyValueInfos::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

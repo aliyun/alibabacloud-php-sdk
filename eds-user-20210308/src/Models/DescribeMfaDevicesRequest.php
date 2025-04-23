@@ -4,52 +4,31 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeMfaDevicesRequest extends Model
 {
     /**
-     * @description The domain of the Active Directory (AD) workspace.
-     *
-     * @example cn.misumi.pri
-     *
      * @var string
      */
     public $adDomain;
 
     /**
-     * @description The usernames of the convenience users.
-     *
-     * @example test
-     *
      * @var string[]
      */
     public $endUserIds;
 
     /**
-     * @description The maximum number of entries to return. Valid values: 1 to 500.\\
-     * Default value: 100.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. Set the value to the token that is obtained from the previous query.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The serial numbers of the virtual MFA devices.
-     *
-     * @example c2d9ae94-a64b-4a0d-8024-9519ca50****
-     *
      * @var string[]
      */
     public $serialNumbers;
@@ -61,55 +40,92 @@ class DescribeMfaDevicesRequest extends Model
         'serialNumbers' => 'SerialNumbers',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->endUserIds)) {
+            Model::validateArray($this->endUserIds);
+        }
+        if (\is_array($this->serialNumbers)) {
+            Model::validateArray($this->serialNumbers);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->adDomain) {
             $res['AdDomain'] = $this->adDomain;
         }
+
         if (null !== $this->endUserIds) {
-            $res['EndUserIds'] = $this->endUserIds;
+            if (\is_array($this->endUserIds)) {
+                $res['EndUserIds'] = [];
+                $n1 = 0;
+                foreach ($this->endUserIds as $item1) {
+                    $res['EndUserIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->serialNumbers) {
-            $res['SerialNumbers'] = $this->serialNumbers;
+            if (\is_array($this->serialNumbers)) {
+                $res['SerialNumbers'] = [];
+                $n1 = 0;
+                foreach ($this->serialNumbers as $item1) {
+                    $res['SerialNumbers'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMfaDevicesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdDomain'])) {
             $model->adDomain = $map['AdDomain'];
         }
+
         if (isset($map['EndUserIds'])) {
             if (!empty($map['EndUserIds'])) {
-                $model->endUserIds = $map['EndUserIds'];
+                $model->endUserIds = [];
+                $n1 = 0;
+                foreach ($map['EndUserIds'] as $item1) {
+                    $model->endUserIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['SerialNumbers'])) {
             if (!empty($map['SerialNumbers'])) {
-                $model->serialNumbers = $map['SerialNumbers'];
+                $model->serialNumbers = [];
+                $n1 = 0;
+                foreach ($map['SerialNumbers'] as $item1) {
+                    $model->serialNumbers[$n1++] = $item1;
+                }
             }
         }
 

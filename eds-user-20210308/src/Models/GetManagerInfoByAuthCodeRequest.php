@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetManagerInfoByAuthCodeRequest extends Model
 {
     /**
-     * @description The authorization code.
-     *
-     * This parameter is required.
-     *
-     * @example e49cd070452f0044813a467d4743****
-     *
      * @var string
      */
     public $authCode;
@@ -22,9 +16,12 @@ class GetManagerInfoByAuthCodeRequest extends Model
         'authCode' => 'AuthCode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authCode) {
@@ -34,11 +31,11 @@ class GetManagerInfoByAuthCodeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetManagerInfoByAuthCodeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

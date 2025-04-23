@@ -4,59 +4,37 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users\userSetPropertiesModels\propertyValues;
-use AlibabaCloud\Tea\Model;
 
 class userSetPropertiesModels extends Model
 {
     /**
-     * @description The property ID.
-     *
-     * @example 12
-     *
      * @var int
      */
     public $propertyId;
 
     /**
-     * @description The property name.
-     *
-     * @example department
-     *
      * @var string
      */
     public $propertyKey;
 
     /**
-     * @description The property type.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $propertyType;
 
     /**
-     * @description The property values.
-     *
      * @var propertyValues[]
      */
     public $propertyValues;
 
     /**
-     * @description The ID of the convenience user that is bound to the property.
-     *
-     * @example 12345
-     *
      * @var int
      */
     public $userId;
 
     /**
-     * @description The username of the convenience user that is bound to the property.
-     *
-     * @example testName
-     *
      * @var string
      */
     public $userName;
@@ -69,32 +47,43 @@ class userSetPropertiesModels extends Model
         'userName' => 'UserName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->propertyValues)) {
+            Model::validateArray($this->propertyValues);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->propertyId) {
             $res['PropertyId'] = $this->propertyId;
         }
+
         if (null !== $this->propertyKey) {
             $res['PropertyKey'] = $this->propertyKey;
         }
+
         if (null !== $this->propertyType) {
             $res['PropertyType'] = $this->propertyType;
         }
+
         if (null !== $this->propertyValues) {
-            $res['PropertyValues'] = [];
-            if (null !== $this->propertyValues && \is_array($this->propertyValues)) {
-                $n = 0;
-                foreach ($this->propertyValues as $item) {
-                    $res['PropertyValues'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->propertyValues)) {
+                $res['PropertyValues'] = [];
+                $n1 = 0;
+                foreach ($this->propertyValues as $item1) {
+                    $res['PropertyValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -102,35 +91,40 @@ class userSetPropertiesModels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userSetPropertiesModels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PropertyId'])) {
             $model->propertyId = $map['PropertyId'];
         }
+
         if (isset($map['PropertyKey'])) {
             $model->propertyKey = $map['PropertyKey'];
         }
+
         if (isset($map['PropertyType'])) {
             $model->propertyType = $map['PropertyType'];
         }
+
         if (isset($map['PropertyValues'])) {
             if (!empty($map['PropertyValues'])) {
                 $model->propertyValues = [];
-                $n = 0;
-                foreach ($map['PropertyValues'] as $item) {
-                    $model->propertyValues[$n++] = null !== $item ? propertyValues::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PropertyValues'] as $item1) {
+                    $model->propertyValues[$n1++] = propertyValues::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }

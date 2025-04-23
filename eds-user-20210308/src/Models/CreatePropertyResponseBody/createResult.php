@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\CreatePropertyResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreatePropertyResponseBody\createResult\savePropertyValueModel;
-use AlibabaCloud\Tea\Model;
 
 class createResult extends Model
 {
     /**
-     * @description The ID of the property.
-     *
-     * @example 390
-     *
      * @var int
      */
     public $propertyId;
 
     /**
-     * @description The name of the property.
-     *
-     * @example department
-     *
      * @var string
      */
     public $propertyKey;
 
     /**
-     * @description The result of creating the property value.
-     *
      * @var savePropertyValueModel
      */
     public $savePropertyValueModel;
@@ -39,38 +29,48 @@ class createResult extends Model
         'savePropertyValueModel' => 'SavePropertyValueModel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->savePropertyValueModel) {
+            $this->savePropertyValueModel->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->propertyId) {
             $res['PropertyId'] = $this->propertyId;
         }
+
         if (null !== $this->propertyKey) {
             $res['PropertyKey'] = $this->propertyKey;
         }
+
         if (null !== $this->savePropertyValueModel) {
-            $res['SavePropertyValueModel'] = null !== $this->savePropertyValueModel ? $this->savePropertyValueModel->toMap() : null;
+            $res['SavePropertyValueModel'] = null !== $this->savePropertyValueModel ? $this->savePropertyValueModel->toArray($noStream) : $this->savePropertyValueModel;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return createResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PropertyId'])) {
             $model->propertyId = $map['PropertyId'];
         }
+
         if (isset($map['PropertyKey'])) {
             $model->propertyKey = $map['PropertyKey'];
         }
+
         if (isset($map['SavePropertyValueModel'])) {
             $model->savePropertyValueModel = savePropertyValueModel::fromMap($map['SavePropertyValueModel']);
         }

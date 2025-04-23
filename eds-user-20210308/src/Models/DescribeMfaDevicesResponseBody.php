@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeMfaDevicesResponseBody\mfaDevices;
-use AlibabaCloud\Tea\Model;
 
 class DescribeMfaDevicesResponseBody extends Model
 {
     /**
-     * @description The information about the virtual MFA devices.
-     *
      * @var mfaDevices[]
      */
     public $mfaDevices;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results.
-     *
-     * @example AAAAAV3MpHK1AP0pfERHZN5pu6na6YlN9asMM31MsMcdQNpp
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example 33DBB8EC-6E68-4726-91C4-E09C59D9A7D8
-     *
      * @var string
      */
     public $requestId;
@@ -39,23 +29,31 @@ class DescribeMfaDevicesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->mfaDevices)) {
+            Model::validateArray($this->mfaDevices);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mfaDevices) {
-            $res['MfaDevices'] = [];
-            if (null !== $this->mfaDevices && \is_array($this->mfaDevices)) {
-                $n = 0;
-                foreach ($this->mfaDevices as $item) {
-                    $res['MfaDevices'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mfaDevices)) {
+                $res['MfaDevices'] = [];
+                $n1 = 0;
+                foreach ($this->mfaDevices as $item1) {
+                    $res['MfaDevices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,26 +61,28 @@ class DescribeMfaDevicesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMfaDevicesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MfaDevices'])) {
             if (!empty($map['MfaDevices'])) {
                 $model->mfaDevices = [];
-                $n = 0;
-                foreach ($map['MfaDevices'] as $item) {
-                    $model->mfaDevices[$n++] = null !== $item ? mfaDevices::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MfaDevices'] as $item1) {
+                    $model->mfaDevices[$n1++] = mfaDevices::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
