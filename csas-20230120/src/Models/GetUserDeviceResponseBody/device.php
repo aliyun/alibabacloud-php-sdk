@@ -149,6 +149,11 @@ class device extends Model
      * @var string
      */
     public $username;
+
+    /**
+     * @var string
+     */
+    public $workshop;
     protected $_name = [
         'appStatus' => 'AppStatus',
         'appVersion' => 'AppVersion',
@@ -178,6 +183,7 @@ class device extends Model
         'srcIP' => 'SrcIP',
         'updateTime' => 'UpdateTime',
         'username' => 'Username',
+        'workshop' => 'Workshop',
     ];
 
     public function validate()
@@ -318,6 +324,10 @@ class device extends Model
             $res['Username'] = $this->username;
         }
 
+        if (null !== $this->workshop) {
+            $res['Workshop'] = $this->workshop;
+        }
+
         return $res;
     }
 
@@ -451,6 +461,10 @@ class device extends Model
 
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
+        }
+
+        if (isset($map['Workshop'])) {
+            $model->workshop = $map['Workshop'];
         }
 
         return $model;
