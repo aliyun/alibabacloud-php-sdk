@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20181015\Models\GetConsumerProgressResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alikafka\V20181015\Models\GetConsumerProgressResponseBody\consumerProgress\topicList;
-use AlibabaCloud\Tea\Model;
 
 class consumerProgress extends Model
 {
     /**
-     * @example 1566874931671
-     *
      * @var int
      */
     public $lastTimestamp;
@@ -22,53 +20,73 @@ class consumerProgress extends Model
     public $topicList;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $totalDiff;
+
+    /**
+     * @var string
+     */
+    public $state;
     protected $_name = [
         'lastTimestamp' => 'LastTimestamp',
-        'topicList'     => 'TopicList',
-        'totalDiff'     => 'TotalDiff',
+        'topicList' => 'TopicList',
+        'totalDiff' => 'TotalDiff',
+        'state' => 'state',
     ];
 
     public function validate()
     {
+        if (null !== $this->topicList) {
+            $this->topicList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lastTimestamp) {
             $res['LastTimestamp'] = $this->lastTimestamp;
         }
+
         if (null !== $this->topicList) {
-            $res['TopicList'] = null !== $this->topicList ? $this->topicList->toMap() : null;
+            $res['TopicList'] = null !== $this->topicList ? $this->topicList->toArray($noStream) : $this->topicList;
         }
+
         if (null !== $this->totalDiff) {
             $res['TotalDiff'] = $this->totalDiff;
+        }
+
+        if (null !== $this->state) {
+            $res['state'] = $this->state;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return consumerProgress
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LastTimestamp'])) {
             $model->lastTimestamp = $map['LastTimestamp'];
         }
+
         if (isset($map['TopicList'])) {
             $model->topicList = topicList::fromMap($map['TopicList']);
         }
+
         if (isset($map['TotalDiff'])) {
             $model->totalDiff = $map['TotalDiff'];
+        }
+
+        if (isset($map['state'])) {
+            $model->state = $map['state'];
         }
 
         return $model;

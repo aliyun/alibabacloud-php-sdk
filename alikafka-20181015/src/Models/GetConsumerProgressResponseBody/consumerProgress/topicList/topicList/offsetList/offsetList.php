@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20181015\Models\GetConsumerProgressResponseBody\consumerProgress\topicList\topicList\offsetList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class offsetList extends Model
 {
     /**
-     * @example 9
-     *
      * @var int
      */
     public $brokerOffset;
 
     /**
-     * @example 9
-     *
      * @var int
      */
     public $consumerOffset;
 
     /**
-     * @example 1566874931649
-     *
      * @var int
      */
     public $lastTimestamp;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $partition;
     protected $_name = [
-        'brokerOffset'   => 'BrokerOffset',
+        'brokerOffset' => 'BrokerOffset',
         'consumerOffset' => 'ConsumerOffset',
-        'lastTimestamp'  => 'LastTimestamp',
-        'partition'      => 'Partition',
+        'lastTimestamp' => 'LastTimestamp',
+        'partition' => 'Partition',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->brokerOffset) {
             $res['BrokerOffset'] = $this->brokerOffset;
         }
+
         if (null !== $this->consumerOffset) {
             $res['ConsumerOffset'] = $this->consumerOffset;
         }
+
         if (null !== $this->lastTimestamp) {
             $res['LastTimestamp'] = $this->lastTimestamp;
         }
+
         if (null !== $this->partition) {
             $res['Partition'] = $this->partition;
         }
@@ -65,23 +61,26 @@ class offsetList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return offsetList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BrokerOffset'])) {
             $model->brokerOffset = $map['BrokerOffset'];
         }
+
         if (isset($map['ConsumerOffset'])) {
             $model->consumerOffset = $map['ConsumerOffset'];
         }
+
         if (isset($map['LastTimestamp'])) {
             $model->lastTimestamp = $map['LastTimestamp'];
         }
+
         if (isset($map['Partition'])) {
             $model->partition = $map['Partition'];
         }

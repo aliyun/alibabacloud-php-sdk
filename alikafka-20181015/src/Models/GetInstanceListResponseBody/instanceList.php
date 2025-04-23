@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20181015\Models\GetInstanceListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alikafka\V20181015\Models\GetInstanceListResponseBody\instanceList\instanceVO;
-use AlibabaCloud\Tea\Model;
 
 class instanceList extends Model
 {
@@ -19,17 +19,21 @@ class instanceList extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceVO)) {
+            Model::validateArray($this->instanceVO);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceVO) {
-            $res['InstanceVO'] = [];
-            if (null !== $this->instanceVO && \is_array($this->instanceVO)) {
-                $n = 0;
-                foreach ($this->instanceVO as $item) {
-                    $res['InstanceVO'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceVO)) {
+                $res['InstanceVO'] = [];
+                $n1 = 0;
+                foreach ($this->instanceVO as $item1) {
+                    $res['InstanceVO'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class instanceList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceVO'])) {
             if (!empty($map['InstanceVO'])) {
                 $model->instanceVO = [];
-                $n                 = 0;
-                foreach ($map['InstanceVO'] as $item) {
-                    $model->instanceVO[$n++] = null !== $item ? instanceVO::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceVO'] as $item1) {
+                    $model->instanceVO[$n1++] = instanceVO::fromMap($item1);
                 }
             }
         }

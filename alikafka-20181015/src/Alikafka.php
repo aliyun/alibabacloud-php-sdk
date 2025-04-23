@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20181015;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Alikafka\V20181015\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\Alikafka\V20181015\Models\CreateConsumerGroupResponse;
 use AlibabaCloud\SDK\Alikafka\V20181015\Models\CreateTopicRequest;
@@ -24,11 +23,10 @@ use AlibabaCloud\SDK\Alikafka\V20181015\Models\GetTopicListRequest;
 use AlibabaCloud\SDK\Alikafka\V20181015\Models\GetTopicListResponse;
 use AlibabaCloud\SDK\Alikafka\V20181015\Models\GetTopicStatusRequest;
 use AlibabaCloud\SDK\Alikafka\V20181015\Models\GetTopicStatusResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Alikafka extends OpenApiClient
 {
@@ -53,17 +51,25 @@ class Alikafka extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * 创建 Group.
+     *
+     * @param request - CreateConsumerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateConsumerGroupResponse
+     *
      * @param CreateConsumerGroupRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -71,36 +77,45 @@ class Alikafka extends OpenApiClient
      */
     public function createConsumerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->consumerId)) {
-            $query['ConsumerId'] = $request->consumerId;
+        if (null !== $request->consumerId) {
+            @$query['ConsumerId'] = $request->consumerId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateConsumerGroup',
-            'version'     => '2018-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateConsumerGroup',
+            'version' => '2018-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 创建 Group.
+     *
+     * @param request - CreateConsumerGroupRequest
+     *
+     * @returns CreateConsumerGroupResponse
+     *
      * @param CreateConsumerGroupRequest $request
      *
      * @return CreateConsumerGroupResponse
@@ -113,6 +128,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
+     * @param request - CreateTopicRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTopicResponse
+     *
      * @param CreateTopicRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -120,39 +140,47 @@ class Alikafka extends OpenApiClient
      */
     public function createTopicWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$query['Topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTopic',
-            'version'     => '2018-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTopic',
+            'version' => '2018-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateTopicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - CreateTopicRequest
+     *
+     * @returns CreateTopicResponse
+     *
      * @param CreateTopicRequest $request
      *
      * @return CreateTopicResponse
@@ -165,6 +193,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
+     * @param request - DeleteConsumerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConsumerGroupResponse
+     *
      * @param DeleteConsumerGroupRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -172,36 +205,43 @@ class Alikafka extends OpenApiClient
      */
     public function deleteConsumerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->consumerId)) {
-            $query['ConsumerId'] = $request->consumerId;
+        if (null !== $request->consumerId) {
+            @$query['ConsumerId'] = $request->consumerId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteConsumerGroup',
-            'version'     => '2018-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteConsumerGroup',
+            'version' => '2018-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - DeleteConsumerGroupRequest
+     *
+     * @returns DeleteConsumerGroupResponse
+     *
      * @param DeleteConsumerGroupRequest $request
      *
      * @return DeleteConsumerGroupResponse
@@ -214,6 +254,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
+     * @param request - DeleteTopicRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTopicResponse
+     *
      * @param DeleteTopicRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -221,36 +266,43 @@ class Alikafka extends OpenApiClient
      */
     public function deleteTopicWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$query['Topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTopic',
-            'version'     => '2018-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTopic',
+            'version' => '2018-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteTopicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - DeleteTopicRequest
+     *
+     * @returns DeleteTopicResponse
+     *
      * @param DeleteTopicRequest $request
      *
      * @return DeleteTopicResponse
@@ -263,6 +315,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
+     * @param request - GetConsumerListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConsumerListResponse
+     *
      * @param GetConsumerListRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -270,33 +327,39 @@ class Alikafka extends OpenApiClient
      */
     public function getConsumerListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetConsumerList',
-            'version'     => '2018-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConsumerList',
+            'version' => '2018-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetConsumerListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetConsumerListRequest
+     *
+     * @returns GetConsumerListResponse
+     *
      * @param GetConsumerListRequest $request
      *
      * @return GetConsumerListResponse
@@ -309,6 +372,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
+     * @param request - GetConsumerProgressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConsumerProgressResponse
+     *
      * @param GetConsumerProgressRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -316,36 +384,43 @@ class Alikafka extends OpenApiClient
      */
     public function getConsumerProgressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->consumerId)) {
-            $query['ConsumerId'] = $request->consumerId;
+        if (null !== $request->consumerId) {
+            @$query['ConsumerId'] = $request->consumerId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetConsumerProgress',
-            'version'     => '2018-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConsumerProgress',
+            'version' => '2018-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetConsumerProgressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetConsumerProgressRequest
+     *
+     * @returns GetConsumerProgressResponse
+     *
      * @param GetConsumerProgressRequest $request
      *
      * @return GetConsumerProgressResponse
@@ -358,6 +433,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
+     * @param request - GetInstanceListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceListResponse
+     *
      * @param GetInstanceListRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -365,30 +445,35 @@ class Alikafka extends OpenApiClient
      */
     public function getInstanceListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceList',
-            'version'     => '2018-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceList',
+            'version' => '2018-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetInstanceListRequest
+     *
+     * @returns GetInstanceListResponse
+     *
      * @param GetInstanceListRequest $request
      *
      * @return GetInstanceListResponse
@@ -401,6 +486,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
+     * @param request - GetTopicListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTopicListResponse
+     *
      * @param GetTopicListRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -408,39 +498,47 @@ class Alikafka extends OpenApiClient
      */
     public function getTopicListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTopicList',
-            'version'     => '2018-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTopicList',
+            'version' => '2018-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTopicListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetTopicListRequest
+     *
+     * @returns GetTopicListResponse
+     *
      * @param GetTopicListRequest $request
      *
      * @return GetTopicListResponse
@@ -453,6 +551,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
+     * @param request - GetTopicStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTopicStatusResponse
+     *
      * @param GetTopicStatusRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -460,36 +563,43 @@ class Alikafka extends OpenApiClient
      */
     public function getTopicStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$query['Topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTopicStatus',
-            'version'     => '2018-10-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTopicStatus',
+            'version' => '2018-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTopicStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetTopicStatusRequest
+     *
+     * @returns GetTopicStatusResponse
+     *
      * @param GetTopicStatusRequest $request
      *
      * @return GetTopicStatusResponse

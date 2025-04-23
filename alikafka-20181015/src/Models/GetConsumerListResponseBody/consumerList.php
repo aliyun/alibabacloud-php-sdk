@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20181015\Models\GetConsumerListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alikafka\V20181015\Models\GetConsumerListResponseBody\consumerList\consumerVO;
-use AlibabaCloud\Tea\Model;
 
 class consumerList extends Model
 {
@@ -19,17 +19,21 @@ class consumerList extends Model
 
     public function validate()
     {
+        if (\is_array($this->consumerVO)) {
+            Model::validateArray($this->consumerVO);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->consumerVO) {
-            $res['ConsumerVO'] = [];
-            if (null !== $this->consumerVO && \is_array($this->consumerVO)) {
-                $n = 0;
-                foreach ($this->consumerVO as $item) {
-                    $res['ConsumerVO'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->consumerVO)) {
+                $res['ConsumerVO'] = [];
+                $n1 = 0;
+                foreach ($this->consumerVO as $item1) {
+                    $res['ConsumerVO'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class consumerList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return consumerList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConsumerVO'])) {
             if (!empty($map['ConsumerVO'])) {
                 $model->consumerVO = [];
-                $n                 = 0;
-                foreach ($map['ConsumerVO'] as $item) {
-                    $model->consumerVO[$n++] = null !== $item ? consumerVO::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConsumerVO'] as $item1) {
+                    $model->consumerVO[$n1++] = consumerVO::fromMap($item1);
                 }
             }
         }

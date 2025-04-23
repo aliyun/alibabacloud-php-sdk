@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20181015\Models\GetInstanceListResponseBody\instanceList\instanceVO;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alikafka\V20181015\Models\GetInstanceListResponseBody\instanceList\instanceVO\upgradeServiceDetailInfo\upgradeServiceDetailInfoVO;
-use AlibabaCloud\Tea\Model;
 
 class upgradeServiceDetailInfo extends Model
 {
@@ -19,17 +19,21 @@ class upgradeServiceDetailInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->upgradeServiceDetailInfoVO)) {
+            Model::validateArray($this->upgradeServiceDetailInfoVO);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->upgradeServiceDetailInfoVO) {
-            $res['UpgradeServiceDetailInfoVO'] = [];
-            if (null !== $this->upgradeServiceDetailInfoVO && \is_array($this->upgradeServiceDetailInfoVO)) {
-                $n = 0;
-                foreach ($this->upgradeServiceDetailInfoVO as $item) {
-                    $res['UpgradeServiceDetailInfoVO'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->upgradeServiceDetailInfoVO)) {
+                $res['UpgradeServiceDetailInfoVO'] = [];
+                $n1 = 0;
+                foreach ($this->upgradeServiceDetailInfoVO as $item1) {
+                    $res['UpgradeServiceDetailInfoVO'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class upgradeServiceDetailInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return upgradeServiceDetailInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UpgradeServiceDetailInfoVO'])) {
             if (!empty($map['UpgradeServiceDetailInfoVO'])) {
                 $model->upgradeServiceDetailInfoVO = [];
-                $n                                 = 0;
-                foreach ($map['UpgradeServiceDetailInfoVO'] as $item) {
-                    $model->upgradeServiceDetailInfoVO[$n++] = null !== $item ? upgradeServiceDetailInfoVO::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UpgradeServiceDetailInfoVO'] as $item1) {
+                    $model->upgradeServiceDetailInfoVO[$n1++] = upgradeServiceDetailInfoVO::fromMap($item1);
                 }
             }
         }

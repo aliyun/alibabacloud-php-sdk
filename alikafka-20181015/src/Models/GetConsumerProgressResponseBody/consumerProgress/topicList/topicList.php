@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20181015\Models\GetConsumerProgressResponseBody\consumerProgress\topicList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alikafka\V20181015\Models\GetConsumerProgressResponseBody\consumerProgress\topicList\topicList\offsetList;
-use AlibabaCloud\Tea\Model;
 
 class topicList extends Model
 {
     /**
-     * @example 1566874931649
-     *
      * @var int
      */
     public $lastTimestamp;
@@ -22,41 +20,44 @@ class topicList extends Model
     public $offsetList;
 
     /**
-     * @example kafka-test
-     *
      * @var string
      */
     public $topic;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $totalDiff;
     protected $_name = [
         'lastTimestamp' => 'LastTimestamp',
-        'offsetList'    => 'OffsetList',
-        'topic'         => 'Topic',
-        'totalDiff'     => 'TotalDiff',
+        'offsetList' => 'OffsetList',
+        'topic' => 'Topic',
+        'totalDiff' => 'TotalDiff',
     ];
 
     public function validate()
     {
+        if (null !== $this->offsetList) {
+            $this->offsetList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lastTimestamp) {
             $res['LastTimestamp'] = $this->lastTimestamp;
         }
+
         if (null !== $this->offsetList) {
-            $res['OffsetList'] = null !== $this->offsetList ? $this->offsetList->toMap() : null;
+            $res['OffsetList'] = null !== $this->offsetList ? $this->offsetList->toArray($noStream) : $this->offsetList;
         }
+
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
         }
+
         if (null !== $this->totalDiff) {
             $res['TotalDiff'] = $this->totalDiff;
         }
@@ -64,23 +65,26 @@ class topicList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return topicList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LastTimestamp'])) {
             $model->lastTimestamp = $map['LastTimestamp'];
         }
+
         if (isset($map['OffsetList'])) {
             $model->offsetList = offsetList::fromMap($map['OffsetList']);
         }
+
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
         }
+
         if (isset($map['TotalDiff'])) {
             $model->totalDiff = $map['TotalDiff'];
         }
