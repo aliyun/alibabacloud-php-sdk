@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetJobDetailResponseBody\AIJobDetail;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetJobDetailResponseBody\snapshotJobDetail;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetJobDetailResponseBody\transcodeJobDetail;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetJobDetailResponseBody\workflowTaskDetail;
 
 class GetJobDetailResponseBody extends Model
 {
@@ -35,12 +36,18 @@ class GetJobDetailResponseBody extends Model
      * @var transcodeJobDetail
      */
     public $transcodeJobDetail;
+
+    /**
+     * @var workflowTaskDetail
+     */
+    public $workflowTaskDetail;
     protected $_name = [
         'AIJobDetail' => 'AIJobDetail',
         'jobType' => 'JobType',
         'requestId' => 'RequestId',
         'snapshotJobDetail' => 'SnapshotJobDetail',
         'transcodeJobDetail' => 'TranscodeJobDetail',
+        'workflowTaskDetail' => 'WorkflowTaskDetail',
     ];
 
     public function validate()
@@ -53,6 +60,9 @@ class GetJobDetailResponseBody extends Model
         }
         if (null !== $this->transcodeJobDetail) {
             $this->transcodeJobDetail->validate();
+        }
+        if (null !== $this->workflowTaskDetail) {
+            $this->workflowTaskDetail->validate();
         }
         parent::validate();
     }
@@ -78,6 +88,10 @@ class GetJobDetailResponseBody extends Model
 
         if (null !== $this->transcodeJobDetail) {
             $res['TranscodeJobDetail'] = null !== $this->transcodeJobDetail ? $this->transcodeJobDetail->toArray($noStream) : $this->transcodeJobDetail;
+        }
+
+        if (null !== $this->workflowTaskDetail) {
+            $res['WorkflowTaskDetail'] = null !== $this->workflowTaskDetail ? $this->workflowTaskDetail->toArray($noStream) : $this->workflowTaskDetail;
         }
 
         return $res;
@@ -109,6 +123,10 @@ class GetJobDetailResponseBody extends Model
 
         if (isset($map['TranscodeJobDetail'])) {
             $model->transcodeJobDetail = transcodeJobDetail::fromMap($map['TranscodeJobDetail']);
+        }
+
+        if (isset($map['WorkflowTaskDetail'])) {
+            $model->workflowTaskDetail = workflowTaskDetail::fromMap($map['WorkflowTaskDetail']);
         }
 
         return $model;
