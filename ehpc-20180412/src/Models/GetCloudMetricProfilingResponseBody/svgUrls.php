@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\GetCloudMetricProfilingResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetCloudMetricProfilingResponseBody\svgUrls\svgInfo;
-use AlibabaCloud\Tea\Model;
 
 class svgUrls extends Model
 {
@@ -19,17 +19,21 @@ class svgUrls extends Model
 
     public function validate()
     {
+        if (\is_array($this->svgInfo)) {
+            Model::validateArray($this->svgInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->svgInfo) {
-            $res['SvgInfo'] = [];
-            if (null !== $this->svgInfo && \is_array($this->svgInfo)) {
-                $n = 0;
-                foreach ($this->svgInfo as $item) {
-                    $res['SvgInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->svgInfo)) {
+                $res['SvgInfo'] = [];
+                $n1 = 0;
+                foreach ($this->svgInfo as $item1) {
+                    $res['SvgInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class svgUrls extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return svgUrls
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SvgInfo'])) {
             if (!empty($map['SvgInfo'])) {
                 $model->svgInfo = [];
-                $n              = 0;
-                foreach ($map['SvgInfo'] as $item) {
-                    $model->svgInfo[$n++] = null !== $item ? svgInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SvgInfo'] as $item1) {
+                    $model->svgInfo[$n1++] = svgInfo::fromMap($item1);
                 }
             }
         }

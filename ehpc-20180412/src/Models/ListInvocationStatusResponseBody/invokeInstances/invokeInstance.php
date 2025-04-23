@@ -4,47 +4,36 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListInvocationStatusResponseBody\invokeInstances;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class invokeInstance extends Model
 {
     /**
-     * @description The ID of the node.
-     *
-     * @example i-uf6abz34m2714bp4****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The status of the node. Valid values:
-     *
-     *   Finished
-     *   Running
-     *   Failed
-     *   Stopped
-     *
-     * @example Finished
-     *
      * @var string
      */
     public $instanceInvokeStatus;
     protected $_name = [
-        'instanceId'           => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceInvokeStatus' => 'InstanceInvokeStatus',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceInvokeStatus) {
             $res['InstanceInvokeStatus'] = $this->instanceInvokeStatus;
         }
@@ -52,17 +41,18 @@ class invokeInstance extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return invokeInstance
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceInvokeStatus'])) {
             $model->instanceInvokeStatus = $map['InstanceInvokeStatus'];
         }

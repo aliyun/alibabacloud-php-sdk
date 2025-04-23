@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListJobTemplatesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListJobTemplatesResponseBody\templates\jobTemplates;
-use AlibabaCloud\Tea\Model;
 
 class templates extends Model
 {
@@ -19,17 +19,21 @@ class templates extends Model
 
     public function validate()
     {
+        if (\is_array($this->jobTemplates)) {
+            Model::validateArray($this->jobTemplates);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobTemplates) {
-            $res['JobTemplates'] = [];
-            if (null !== $this->jobTemplates && \is_array($this->jobTemplates)) {
-                $n = 0;
-                foreach ($this->jobTemplates as $item) {
-                    $res['JobTemplates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->jobTemplates)) {
+                $res['JobTemplates'] = [];
+                $n1 = 0;
+                foreach ($this->jobTemplates as $item1) {
+                    $res['JobTemplates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class templates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return templates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobTemplates'])) {
             if (!empty($map['JobTemplates'])) {
                 $model->jobTemplates = [];
-                $n                   = 0;
-                foreach ($map['JobTemplates'] as $item) {
-                    $model->jobTemplates[$n++] = null !== $item ? jobTemplates::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['JobTemplates'] as $item1) {
+                    $model->jobTemplates[$n1++] = jobTemplates::fromMap($item1);
                 }
             }
         }

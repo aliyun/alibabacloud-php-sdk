@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\GetCloudMetricLogsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetCloudMetricLogsResponseBody\metricLogs\metricLog;
-use AlibabaCloud\Tea\Model;
 
 class metricLogs extends Model
 {
@@ -19,17 +19,21 @@ class metricLogs extends Model
 
     public function validate()
     {
+        if (\is_array($this->metricLog)) {
+            Model::validateArray($this->metricLog);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metricLog) {
-            $res['MetricLog'] = [];
-            if (null !== $this->metricLog && \is_array($this->metricLog)) {
-                $n = 0;
-                foreach ($this->metricLog as $item) {
-                    $res['MetricLog'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->metricLog)) {
+                $res['MetricLog'] = [];
+                $n1 = 0;
+                foreach ($this->metricLog as $item1) {
+                    $res['MetricLog'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class metricLogs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metricLogs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MetricLog'])) {
             if (!empty($map['MetricLog'])) {
                 $model->metricLog = [];
-                $n                = 0;
-                foreach ($map['MetricLog'] as $item) {
-                    $model->metricLog[$n++] = null !== $item ? metricLog::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MetricLog'] as $item1) {
+                    $model->metricLog[$n1++] = metricLog::fromMap($item1);
                 }
             }
         }

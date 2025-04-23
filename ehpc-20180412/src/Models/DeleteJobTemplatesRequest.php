@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteJobTemplatesRequest extends Model
 {
     /**
-     * @description The list of job templates. A maximum of 20 job templates can be deleted.
-     *
-     * Format: `[{"Id": "0.sched****"},{"Id": "1.sched****"}]`. Separate multiple job templates with commas (,).
-     *
-     * You can call the [ListJobTemplates](~~87248~~) operation to obtain the job template ID.
-     * @example [{"Id":"ehpc-job-tmpl-6RVcMK****"},{"Id": "ehpc-job-tmpl-6RxO5y****"}]
-     *
      * @var string
      */
     public $templates;
@@ -25,9 +18,10 @@ class DeleteJobTemplatesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->templates) {
@@ -37,11 +31,11 @@ class DeleteJobTemplatesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteJobTemplatesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

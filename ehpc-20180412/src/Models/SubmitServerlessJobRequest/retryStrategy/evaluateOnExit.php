@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitServerlessJobRequest\retryStrategy;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class evaluateOnExit extends Model
 {
     /**
-     * @example Retry
-     *
      * @var string
      */
     public $action;
 
     /**
-     * @example 10
-     *
      * @var string
      */
     public $onExitCode;
     protected $_name = [
-        'action'     => 'Action',
+        'action' => 'Action',
         'onExitCode' => 'OnExitCode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+
         if (null !== $this->onExitCode) {
             $res['OnExitCode'] = $this->onExitCode;
         }
@@ -43,17 +41,18 @@ class evaluateOnExit extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return evaluateOnExit
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+
         if (isset($map['OnExitCode'])) {
             $model->onExitCode = $map['OnExitCode'];
         }

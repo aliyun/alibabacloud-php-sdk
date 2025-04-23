@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\CreateClusterRequest\additionalVolumes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class roles extends Model
 {
     /**
-     * @description The type of the nodes to which the NAS file system is attached.
-     *
-     * Valid values of N in Roles.N.Name: 0 to 8.
-     * @example ["Compute"]
-     *
      * @var string
      */
     public $name;
@@ -23,9 +18,10 @@ class roles extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
@@ -35,11 +31,11 @@ class roles extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return roles
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

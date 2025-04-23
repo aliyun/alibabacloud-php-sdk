@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListQueuesRequest extends Model
 {
     /**
-     * @description Specifies whether to enable asynchronous query.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $async;
 
     /**
-     * @description The ID of the cluster.
-     *
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
     protected $_name = [
-        'async'     => 'Async',
+        'async' => 'Async',
         'clusterId' => 'ClusterId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->async) {
             $res['Async'] = $this->async;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -47,17 +41,18 @@ class ListQueuesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListQueuesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Async'])) {
             $model->async = $map['Async'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

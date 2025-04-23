@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListClustersMetaResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListClustersMetaResponseBody\clusters\clusterInfoSimple;
-use AlibabaCloud\Tea\Model;
 
 class clusters extends Model
 {
@@ -19,17 +19,21 @@ class clusters extends Model
 
     public function validate()
     {
+        if (\is_array($this->clusterInfoSimple)) {
+            Model::validateArray($this->clusterInfoSimple);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterInfoSimple) {
-            $res['ClusterInfoSimple'] = [];
-            if (null !== $this->clusterInfoSimple && \is_array($this->clusterInfoSimple)) {
-                $n = 0;
-                foreach ($this->clusterInfoSimple as $item) {
-                    $res['ClusterInfoSimple'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->clusterInfoSimple)) {
+                $res['ClusterInfoSimple'] = [];
+                $n1 = 0;
+                foreach ($this->clusterInfoSimple as $item1) {
+                    $res['ClusterInfoSimple'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class clusters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clusters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterInfoSimple'])) {
             if (!empty($map['ClusterInfoSimple'])) {
                 $model->clusterInfoSimple = [];
-                $n                        = 0;
-                foreach ($map['ClusterInfoSimple'] as $item) {
-                    $model->clusterInfoSimple[$n++] = null !== $item ? clusterInfoSimple::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ClusterInfoSimple'] as $item1) {
+                    $model->clusterInfoSimple[$n1++] = clusterInfoSimple::fromMap($item1);
                 }
             }
         }

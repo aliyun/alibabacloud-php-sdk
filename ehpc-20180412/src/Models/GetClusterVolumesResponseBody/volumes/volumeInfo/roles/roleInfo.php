@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\GetClusterVolumesResponseBody\volumes\volumeInfo\roles;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class roleInfo extends Model
 {
     /**
-     * @description The type of the node on which the file system is mounted. Valid values:
-     *
-     *   Compute: compute node
-     *   Manager: management node
-     *   Login: logon node
-     *
-     * @example Compute
-     *
      * @var string
      */
     public $name;
@@ -26,9 +18,10 @@ class roleInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
@@ -38,11 +31,11 @@ class roleInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return roleInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

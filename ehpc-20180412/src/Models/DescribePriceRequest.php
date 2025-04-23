@@ -4,82 +4,66 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribePriceRequest\commodities;
-use AlibabaCloud\Tea\Model;
 
 class DescribePriceRequest extends Model
 {
     /**
-     * @description The billing method of the ECS instances. Valid values:
-     *
-     *   PostPaid: pay-as-you-go
-     *   PrePaid: subscription
-     *
-     * Default value: PostPaid.
-     * @example PostPaid
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @description The information about the service.
-     *
      * @var commodities[]
      */
     public $commodities;
 
     /**
-     * @description The type of the order. The order can be set only as a purchase order. Valid value: INSTANCE-BUY.
-     *
-     * @example INSTANCE-BUY
-     *
      * @var string
      */
     public $orderType;
 
     /**
-     * @description The billing cycle of the Elastic Compute Service (ECS) instances. This parameter takes effect only when the ChargeType parameter is set to PrePaid. Valid values:
-     *
-     *   Month: pay-by-month
-     *   Year: pay-by-year
-     *   Hour: pay-by-hour
-     *
-     * Default value: Hour.
-     * @example Hour
-     *
      * @var string
      */
     public $priceUnit;
     protected $_name = [
-        'chargeType'  => 'ChargeType',
+        'chargeType' => 'ChargeType',
         'commodities' => 'Commodities',
-        'orderType'   => 'OrderType',
-        'priceUnit'   => 'PriceUnit',
+        'orderType' => 'OrderType',
+        'priceUnit' => 'PriceUnit',
     ];
 
     public function validate()
     {
+        if (\is_array($this->commodities)) {
+            Model::validateArray($this->commodities);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+
         if (null !== $this->commodities) {
-            $res['Commodities'] = [];
-            if (null !== $this->commodities && \is_array($this->commodities)) {
-                $n = 0;
-                foreach ($this->commodities as $item) {
-                    $res['Commodities'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->commodities)) {
+                $res['Commodities'] = [];
+                $n1 = 0;
+                foreach ($this->commodities as $item1) {
+                    $res['Commodities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
+
         if (null !== $this->priceUnit) {
             $res['PriceUnit'] = $this->priceUnit;
         }
@@ -87,29 +71,32 @@ class DescribePriceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePriceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+
         if (isset($map['Commodities'])) {
             if (!empty($map['Commodities'])) {
                 $model->commodities = [];
-                $n                  = 0;
-                foreach ($map['Commodities'] as $item) {
-                    $model->commodities[$n++] = null !== $item ? commodities::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Commodities'] as $item1) {
+                    $model->commodities[$n1++] = commodities::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }
+
         if (isset($map['PriceUnit'])) {
             $model->priceUnit = $map['PriceUnit'];
         }

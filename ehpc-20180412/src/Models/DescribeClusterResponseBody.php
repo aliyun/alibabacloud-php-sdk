@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeClusterResponseBody extends Model
 {
     /**
-     * @description The cluster information.
-     *
      * @var clusterInfo
      */
     public $clusterInfo;
 
     /**
-     * @description The request ID.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'clusterInfo' => 'ClusterInfo',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->clusterInfo) {
+            $this->clusterInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterInfo) {
-            $res['ClusterInfo'] = null !== $this->clusterInfo ? $this->clusterInfo->toMap() : null;
+            $res['ClusterInfo'] = null !== $this->clusterInfo ? $this->clusterInfo->toArray($noStream) : $this->clusterInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DescribeClusterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClusterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterInfo'])) {
             $model->clusterInfo = clusterInfo::fromMap($map['ClusterInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

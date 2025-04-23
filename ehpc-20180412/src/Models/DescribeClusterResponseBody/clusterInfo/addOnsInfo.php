@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\addOnsInfo\addOnsInfo;
 
 class addOnsInfo extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\addOnsInfo\addOnsInfo[]
+     * @var addOnsInfo[]
      */
     public $addOnsInfo;
     protected $_name = [
@@ -18,17 +19,21 @@ class addOnsInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->addOnsInfo)) {
+            Model::validateArray($this->addOnsInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addOnsInfo) {
-            $res['AddOnsInfo'] = [];
-            if (null !== $this->addOnsInfo && \is_array($this->addOnsInfo)) {
-                $n = 0;
-                foreach ($this->addOnsInfo as $item) {
-                    $res['AddOnsInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->addOnsInfo)) {
+                $res['AddOnsInfo'] = [];
+                $n1 = 0;
+                foreach ($this->addOnsInfo as $item1) {
+                    $res['AddOnsInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +41,20 @@ class addOnsInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return addOnsInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddOnsInfo'])) {
             if (!empty($map['AddOnsInfo'])) {
                 $model->addOnsInfo = [];
-                $n                 = 0;
-                foreach ($map['AddOnsInfo'] as $item) {
-                    $model->addOnsInfo[$n++] = null !== $item ? \AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\addOnsInfo\addOnsInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AddOnsInfo'] as $item1) {
+                    $model->addOnsInfo[$n1++] = self::fromMap($item1);
                 }
             }
         }

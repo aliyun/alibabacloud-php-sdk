@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteQueueResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 464E9919-D04F-4D1D-B375-15989492****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteQueueResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteQueueResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteQueueResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

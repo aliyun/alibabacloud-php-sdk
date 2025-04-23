@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\nodes\nodesInfo;
-use AlibabaCloud\Tea\Model;
 
 class nodes extends Model
 {
@@ -19,17 +19,21 @@ class nodes extends Model
 
     public function validate()
     {
+        if (\is_array($this->nodesInfo)) {
+            Model::validateArray($this->nodesInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodesInfo) {
-            $res['NodesInfo'] = [];
-            if (null !== $this->nodesInfo && \is_array($this->nodesInfo)) {
-                $n = 0;
-                foreach ($this->nodesInfo as $item) {
-                    $res['NodesInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodesInfo)) {
+                $res['NodesInfo'] = [];
+                $n1 = 0;
+                foreach ($this->nodesInfo as $item1) {
+                    $res['NodesInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class nodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodesInfo'])) {
             if (!empty($map['NodesInfo'])) {
                 $model->nodesInfo = [];
-                $n                = 0;
-                foreach ($map['NodesInfo'] as $item) {
-                    $model->nodesInfo[$n++] = null !== $item ? nodesInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NodesInfo'] as $item1) {
+                    $model->nodesInfo[$n1++] = nodesInfo::fromMap($item1);
                 }
             }
         }

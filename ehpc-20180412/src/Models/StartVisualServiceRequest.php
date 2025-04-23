@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartVisualServiceRequest extends Model
 {
     /**
-     * @description A public IP address of logon nodes in the cluster.
-     *
-     * @example 190.100.**.**
-     *
      * @var string
      */
     public $cidrIp;
 
     /**
-     * @description The ID of the cluster.
-     *
-     * @example ehpc-hz-jeJki6****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The fixed port. Set the value to 12016
-     *
-     * @example 12016
-     *
      * @var int
      */
     public $port;
     protected $_name = [
-        'cidrIp'    => 'CidrIp',
+        'cidrIp' => 'CidrIp',
         'clusterId' => 'ClusterId',
-        'port'      => 'Port',
+        'port' => 'Port',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cidrIp) {
             $res['CidrIp'] = $this->cidrIp;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
@@ -60,20 +51,22 @@ class StartVisualServiceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartVisualServiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CidrIp'])) {
             $model->cidrIp = $map['CidrIp'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }

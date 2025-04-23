@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAutoScaleConfigRequest extends Model
 {
     /**
-     * @description The interval between two consecutive rounds of scale-out. Unit: minutes. Valid values: 2 to 10.
-     *
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
@@ -22,9 +18,10 @@ class GetAutoScaleConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
@@ -34,11 +31,11 @@ class GetAutoScaleConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAutoScaleConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

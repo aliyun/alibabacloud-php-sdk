@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\onPremiseInfo\onPremiseInfo;
 
 class onPremiseInfo extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\onPremiseInfo\onPremiseInfo[]
+     * @var onPremiseInfo[]
      */
     public $onPremiseInfo;
     protected $_name = [
@@ -18,17 +19,21 @@ class onPremiseInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->onPremiseInfo)) {
+            Model::validateArray($this->onPremiseInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->onPremiseInfo) {
-            $res['OnPremiseInfo'] = [];
-            if (null !== $this->onPremiseInfo && \is_array($this->onPremiseInfo)) {
-                $n = 0;
-                foreach ($this->onPremiseInfo as $item) {
-                    $res['OnPremiseInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->onPremiseInfo)) {
+                $res['OnPremiseInfo'] = [];
+                $n1 = 0;
+                foreach ($this->onPremiseInfo as $item1) {
+                    $res['OnPremiseInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +41,20 @@ class onPremiseInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return onPremiseInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OnPremiseInfo'])) {
             if (!empty($map['OnPremiseInfo'])) {
                 $model->onPremiseInfo = [];
-                $n                    = 0;
-                foreach ($map['OnPremiseInfo'] as $item) {
-                    $model->onPremiseInfo[$n++] = null !== $item ? \AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\onPremiseInfo\onPremiseInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OnPremiseInfo'] as $item1) {
+                    $model->onPremiseInfo[$n1++] = self::fromMap($item1);
                 }
             }
         }

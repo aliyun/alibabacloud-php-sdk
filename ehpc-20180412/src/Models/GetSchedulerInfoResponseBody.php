@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetSchedulerInfoResponseBody\schedInfo;
-use AlibabaCloud\Tea\Model;
 
 class GetSchedulerInfoResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example BBC2F93D-003A-49C4-850C-B826EECF****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The settings of the scheduler.
-     *
      * @var schedInfo[]
      */
     public $schedInfo;
@@ -31,20 +25,25 @@ class GetSchedulerInfoResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->schedInfo)) {
+            Model::validateArray($this->schedInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->schedInfo) {
-            $res['SchedInfo'] = [];
-            if (null !== $this->schedInfo && \is_array($this->schedInfo)) {
-                $n = 0;
-                foreach ($this->schedInfo as $item) {
-                    $res['SchedInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->schedInfo)) {
+                $res['SchedInfo'] = [];
+                $n1 = 0;
+                foreach ($this->schedInfo as $item1) {
+                    $res['SchedInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +51,24 @@ class GetSchedulerInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSchedulerInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SchedInfo'])) {
             if (!empty($map['SchedInfo'])) {
                 $model->schedInfo = [];
-                $n                = 0;
-                foreach ($map['SchedInfo'] as $item) {
-                    $model->schedInfo[$n++] = null !== $item ? schedInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SchedInfo'] as $item1) {
+                    $model->schedInfo[$n1++] = schedInfo::fromMap($item1);
                 }
             }
         }

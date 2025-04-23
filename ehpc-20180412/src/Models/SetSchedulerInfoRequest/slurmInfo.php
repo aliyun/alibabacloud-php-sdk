@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\SetSchedulerInfoRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class slurmInfo extends Model
 {
     /**
-     * @description The backfill scheduling period. Unit: seconds.
-     *
-     * Default value: 60.
-     * @example 60
-     *
      * @var int
      */
     public $backfillInterval;
 
     /**
-     * @description SlurmInfo specifies the number of Slurm schedulers that can be configured in the cluster. Valid values of N: 0 to 100.
-     *
-     * Default value: 60.
-     * @example 60
-     *
      * @var int
      */
     public $schedInterval;
     protected $_name = [
         'backfillInterval' => 'BackfillInterval',
-        'schedInterval'    => 'SchedInterval',
+        'schedInterval' => 'SchedInterval',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backfillInterval) {
             $res['BackfillInterval'] = $this->backfillInterval;
         }
+
         if (null !== $this->schedInterval) {
             $res['SchedInterval'] = $this->schedInterval;
         }
@@ -49,17 +41,18 @@ class slurmInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return slurmInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackfillInterval'])) {
             $model->backfillInterval = $map['BackfillInterval'];
         }
+
         if (isset($map['SchedInterval'])) {
             $model->schedInterval = $map['SchedInterval'];
         }

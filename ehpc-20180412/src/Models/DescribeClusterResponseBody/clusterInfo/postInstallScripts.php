@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\postInstallScripts\postInstallScriptInfo;
-use AlibabaCloud\Tea\Model;
 
 class postInstallScripts extends Model
 {
@@ -19,17 +19,21 @@ class postInstallScripts extends Model
 
     public function validate()
     {
+        if (\is_array($this->postInstallScriptInfo)) {
+            Model::validateArray($this->postInstallScriptInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->postInstallScriptInfo) {
-            $res['PostInstallScriptInfo'] = [];
-            if (null !== $this->postInstallScriptInfo && \is_array($this->postInstallScriptInfo)) {
-                $n = 0;
-                foreach ($this->postInstallScriptInfo as $item) {
-                    $res['PostInstallScriptInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->postInstallScriptInfo)) {
+                $res['PostInstallScriptInfo'] = [];
+                $n1 = 0;
+                foreach ($this->postInstallScriptInfo as $item1) {
+                    $res['PostInstallScriptInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class postInstallScripts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return postInstallScripts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PostInstallScriptInfo'])) {
             if (!empty($map['PostInstallScriptInfo'])) {
                 $model->postInstallScriptInfo = [];
-                $n                            = 0;
-                foreach ($map['PostInstallScriptInfo'] as $item) {
-                    $model->postInstallScriptInfo[$n++] = null !== $item ? postInstallScriptInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PostInstallScriptInfo'] as $item1) {
+                    $model->postInstallScriptInfo[$n1++] = postInstallScriptInfo::fromMap($item1);
                 }
             }
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\CreateHybridClusterRequest\ecsOrder;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class manager extends Model
 {
     /**
-     * @description The instance type of the management node. Only Proxy Mode is supported.
-     *
-     * @example ecs.n1.tiny
-     *
      * @var string
      */
     public $instanceType;
@@ -22,9 +18,10 @@ class manager extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceType) {
@@ -34,11 +31,11 @@ class manager extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return manager
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

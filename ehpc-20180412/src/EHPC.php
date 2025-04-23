@@ -4,10 +4,7 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\AddContainerAppRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\AddContainerAppResponse;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\AddExistedNodesRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\AddExistedNodesResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\AddLocalNodesRequest;
@@ -24,12 +21,6 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\ApplyNodesRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ApplyNodesResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateClusterResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateGWSClusterRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateGWSClusterResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateGWSImageRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateGWSImageResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateGWSInstanceRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateGWSInstanceResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateHybridClusterRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateHybridClusterResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateJobFileRequest;
@@ -38,20 +29,10 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateJobTemplateRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\CreateJobTemplateResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteClusterResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteContainerAppsRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteContainerAppsResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteGWSClusterRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteGWSClusterResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteGWSInstanceRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteGWSInstanceResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteImageRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteImageResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteJobsRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteJobsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteJobTemplatesRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteJobTemplatesResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteLocalImageRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteLocalImageResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteNodesRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteNodesResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteQueueRequest;
@@ -64,28 +45,12 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeAutoScaleConfigRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeAutoScaleConfigResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeContainerAppRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeContainerAppResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeEstackImageRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeEstackImageResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSClusterPolicyRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSClusterPolicyResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSClustersRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSClustersResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSImagesRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSImagesResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSInstancesRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeGWSInstancesResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeImageGatewayConfigRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeImageGatewayConfigResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeImagePriceRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeImagePriceResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeImageRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeImageResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeJobRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeJobResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeNFSClientStatusRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeNFSClientStatusResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribePriceRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribePriceResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeServerlessJobsRequest;
@@ -102,10 +67,6 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\GetCloudMetricProfilingRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetCloudMetricProfilingResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetClusterVolumesRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetClusterVolumesResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\GetCommonImageRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\GetCommonImageResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\GetGWSConnectTicketRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\GetGWSConnectTicketResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetHybridClusterConfigRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetHybridClusterConfigResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetIfEcsTypeSupportHtConfigRequest;
@@ -116,14 +77,10 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\GetPostScriptsRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetPostScriptsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetSchedulerInfoRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetSchedulerInfoResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\GetUserImageRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\GetUserImageResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetVisualServiceStatusRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetVisualServiceStatusResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\InitializeEHPCRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\InitializeEHPCResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\InspectImageRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\InspectImageResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\InstallSoftwareRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\InstallSoftwareResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\InvokeShellCommandRequest;
@@ -142,10 +99,6 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\ListCommandsRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListCommandsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListCommunityImagesRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListCommunityImagesResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\ListContainerAppsRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\ListContainerAppsResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\ListContainerImagesRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\ListContainerImagesResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListCpfsFileSystemsRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListCpfsFileSystemsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListCurrentClientVersionResponse;
@@ -198,18 +151,12 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\ListVolumesRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListVolumesResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ModifyClusterAttributesRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ModifyClusterAttributesResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\ModifyContainerAppAttributesRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\ModifyContainerAppAttributesResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\ModifyImageGatewayConfigRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\ModifyImageGatewayConfigResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ModifyUserGroupsRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ModifyUserGroupsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ModifyUserPasswordsRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ModifyUserPasswordsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ModifyVisualServicePasswdRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ModifyVisualServicePasswdResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\MountNFSRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\MountNFSResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\PullImageRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\PullImageResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\QueryServicePackAndPriceResponse;
@@ -223,12 +170,6 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\RunCloudMetricProfilingRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\RunCloudMetricProfilingResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SetAutoScaleConfigRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SetAutoScaleConfigResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\SetGWSClusterPolicyRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\SetGWSClusterPolicyResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\SetGWSInstanceNameRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\SetGWSInstanceNameResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\SetGWSInstanceUserRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\SetGWSInstanceUserResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SetPostScriptsRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SetPostScriptsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SetQueueRequest;
@@ -237,16 +178,12 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\SetSchedulerInfoRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SetSchedulerInfoResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\StartClusterRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\StartClusterResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\StartGWSInstanceRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\StartGWSInstanceResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\StartNodesRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\StartNodesResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\StartVisualServiceRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\StartVisualServiceResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\StopClusterRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\StopClusterResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\StopGWSInstanceRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\StopGWSInstanceResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\StopJobsRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\StopJobsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\StopNodesRequest;
@@ -260,10 +197,6 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitJobResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitServerlessJobRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitServerlessJobResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitServerlessJobShrinkRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\SummaryImagesInfoRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\SummaryImagesInfoResponse;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\SummaryImagesRequest;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\SummaryImagesResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SyncUsersRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SyncUsersResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\TagResourcesRequest;
@@ -278,11 +211,10 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\UpdateQueueConfigRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\UpdateQueueConfigResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\UpgradeClientRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\UpgradeClientResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class EHPC extends OpenApiClient
 {
@@ -307,100 +239,72 @@ class EHPC extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * If you select an image for a new containerized application, the image is pulled from Docker Hub by default. However, the version of the image may not be up to date. You can call the [PullImage](~~159052~~) operation to pull the latest image.
-     *   *
-     * @param AddContainerAppRequest $request AddContainerAppRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Adds one or more existing ECS instances as compute nodes to a specified cluster.
      *
-     * @return AddContainerAppResponse AddContainerAppResponse
-     */
-    public function addContainerAppWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AddContainerApp',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddContainerAppResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * If you select an image for a new containerized application, the image is pulled from Docker Hub by default. However, the version of the image may not be up to date. You can call the [PullImage](~~159052~~) operation to pull the latest image.
-     *   *
-     * @param AddContainerAppRequest $request AddContainerAppRequest
+     * @remarks
+     *   The compute nodes to be added are in the Stopped state.
+     * *   After the compute nodes are added to the cluster, the operating systems of the nodes are replaced with the operating system specified by the ImageId parameter.
+     * *   The hosts of the compute nodes must be different from those of the existing compute nodes in the cluster. Otherwise, the add operation fails.
      *
-     * @return AddContainerAppResponse AddContainerAppResponse
-     */
-    public function addContainerApp($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addContainerAppWithOptions($request, $runtime);
-    }
-
-    /**
-     * *   The compute nodes to be added are in the Stopped state.
-     *   * *   After the compute nodes are added to the cluster, the operating systems of the nodes are replaced with the operating system specified by the ImageId parameter.
-     *   * *   The hosts of the compute nodes must be different from those of the existing compute nodes in the cluster. Otherwise, the add operation fails.
-     *   *
-     * @param AddExistedNodesRequest $request AddExistedNodesRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - AddExistedNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return AddExistedNodesResponse AddExistedNodesResponse
+     * @returns AddExistedNodesResponse
+     *
+     * @param AddExistedNodesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddExistedNodesResponse
      */
     public function addExistedNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddExistedNodes',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddExistedNodes',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddExistedNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * *   The compute nodes to be added are in the Stopped state.
-     *   * *   After the compute nodes are added to the cluster, the operating systems of the nodes are replaced with the operating system specified by the ImageId parameter.
-     *   * *   The hosts of the compute nodes must be different from those of the existing compute nodes in the cluster. Otherwise, the add operation fails.
-     *   *
-     * @param AddExistedNodesRequest $request AddExistedNodesRequest
+     * Adds one or more existing ECS instances as compute nodes to a specified cluster.
      *
-     * @return AddExistedNodesResponse AddExistedNodesResponse
+     * @remarks
+     *   The compute nodes to be added are in the Stopped state.
+     * *   After the compute nodes are added to the cluster, the operating systems of the nodes are replaced with the operating system specified by the ImageId parameter.
+     * *   The hosts of the compute nodes must be different from those of the existing compute nodes in the cluster. Otherwise, the add operation fails.
+     *
+     * @param request - AddExistedNodesRequest
+     *
+     * @returns AddExistedNodesResponse
+     *
+     * @param AddExistedNodesRequest $request
+     *
+     * @return AddExistedNodesResponse
      */
     public function addExistedNodes($request)
     {
@@ -410,6 +314,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param request - AddLocalNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddLocalNodesResponse
+     *
      * @param AddLocalNodesRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -417,27 +326,31 @@ class EHPC extends OpenApiClient
      */
     public function addLocalNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddLocalNodes',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddLocalNodes',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddLocalNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - AddLocalNodesRequest
+     *
+     * @returns AddLocalNodesResponse
+     *
      * @param AddLocalNodesRequest $request
      *
      * @return AddLocalNodesResponse
@@ -450,6 +363,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Adds one or more compute nodes to an E-HPC cluster.
+     *
+     * @param request - AddNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddNodesResponse
+     *
      * @param AddNodesRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -457,27 +377,33 @@ class EHPC extends OpenApiClient
      */
     public function addNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddNodes',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddNodes',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Adds one or more compute nodes to an E-HPC cluster.
+     *
+     * @param request - AddNodesRequest
+     *
+     * @returns AddNodesResponse
+     *
      * @param AddNodesRequest $request
      *
      * @return AddNodesResponse
@@ -490,6 +416,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Creates a queue for a cluster.
+     *
+     * @param request - AddQueueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddQueueResponse
+     *
      * @param AddQueueRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -497,27 +430,33 @@ class EHPC extends OpenApiClient
      */
     public function addQueueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddQueue',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddQueue',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates a queue for a cluster.
+     *
+     * @param request - AddQueueRequest
+     *
+     * @returns AddQueueResponse
+     *
      * @param AddQueueRequest $request
      *
      * @return AddQueueResponse
@@ -530,6 +469,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Adds a cluster to a security group.
+     *
+     * @param request - AddSecurityGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddSecurityGroupResponse
+     *
      * @param AddSecurityGroupRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -537,27 +483,33 @@ class EHPC extends OpenApiClient
      */
     public function addSecurityGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddSecurityGroup',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddSecurityGroup',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Adds a cluster to a security group.
+     *
+     * @param request - AddSecurityGroupRequest
+     *
+     * @returns AddSecurityGroupResponse
+     *
      * @param AddSecurityGroupRequest $request
      *
      * @return AddSecurityGroupResponse
@@ -570,6 +522,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Adds users to a cluster.
+     *
+     * @param request - AddUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddUsersResponse
+     *
      * @param AddUsersRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -577,27 +536,33 @@ class EHPC extends OpenApiClient
      */
     public function addUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddUsers',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddUsers',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Adds users to a cluster.
+     *
+     * @param request - AddUsersRequest
+     *
+     * @returns AddUsersResponse
+     *
      * @param AddUsersRequest $request
      *
      * @return AddUsersResponse
@@ -610,43 +575,58 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * ## [](#)Description
-     *   * You can call the ApplyNodes operation to specify the number of compute nodes, the number of vCPUs, and the memory size when you add nodes to a cluster.
-     *   *
-     * @param ApplyNodesRequest $request ApplyNodesRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Adds pay-as-you-go or preemptible compute nodes to a cluster.
      *
-     * @return ApplyNodesResponse ApplyNodesResponse
+     * @remarks
+     * ## [](#)Description
+     * You can call the ApplyNodes operation to specify the number of compute nodes, the number of vCPUs, and the memory size when you add nodes to a cluster.
+     *
+     * @param request - ApplyNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyNodesResponse
+     *
+     * @param ApplyNodesRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ApplyNodesResponse
      */
     public function applyNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ApplyNodes',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ApplyNodes',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ApplyNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * ## [](#)Description
-     *   * You can call the ApplyNodes operation to specify the number of compute nodes, the number of vCPUs, and the memory size when you add nodes to a cluster.
-     *   *
-     * @param ApplyNodesRequest $request ApplyNodesRequest
+     * Adds pay-as-you-go or preemptible compute nodes to a cluster.
      *
-     * @return ApplyNodesResponse ApplyNodesResponse
+     * @remarks
+     * ## [](#)Description
+     * You can call the ApplyNodes operation to specify the number of compute nodes, the number of vCPUs, and the memory size when you add nodes to a cluster.
+     *
+     * @param request - ApplyNodesRequest
+     *
+     * @returns ApplyNodesResponse
+     *
+     * @param ApplyNodesRequest $request
+     *
+     * @return ApplyNodesResponse
      */
     public function applyNodes($request)
     {
@@ -656,41 +636,56 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * After you create an Elastic High Performance Computing (E-HPC) cluster, you are charged for the cluster resources that you use. We recommend that you learn about the billing methods of E-HPC in advance. For more information, see [Billing overview](~~57844~~).
-     *   *
-     * @param CreateClusterRequest $request CreateClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates a pay-as-you-go or subscription E-HPC cluster.
      *
-     * @return CreateClusterResponse CreateClusterResponse
+     * @remarks
+     * After you create an Elastic High Performance Computing (E-HPC) cluster, you are charged for the cluster resources that you use. We recommend that you learn about the billing methods of E-HPC in advance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/57844.html).
+     *
+     * @param request - CreateClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateClusterResponse
+     *
+     * @param CreateClusterRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateClusterResponse
      */
     public function createClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCluster',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCluster',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * After you create an Elastic High Performance Computing (E-HPC) cluster, you are charged for the cluster resources that you use. We recommend that you learn about the billing methods of E-HPC in advance. For more information, see [Billing overview](~~57844~~).
-     *   *
-     * @param CreateClusterRequest $request CreateClusterRequest
+     * Creates a pay-as-you-go or subscription E-HPC cluster.
      *
-     * @return CreateClusterResponse CreateClusterResponse
+     * @remarks
+     * After you create an Elastic High Performance Computing (E-HPC) cluster, you are charged for the cluster resources that you use. We recommend that you learn about the billing methods of E-HPC in advance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/57844.html).
+     *
+     * @param request - CreateClusterRequest
+     *
+     * @returns CreateClusterResponse
+     *
+     * @param CreateClusterRequest $request
+     *
+     * @return CreateClusterResponse
      */
     public function createCluster($request)
     {
@@ -700,126 +695,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param CreateGWSClusterRequest $request
-     * @param RuntimeOptions          $runtime
+     * Creates a hybrid cloud cluster.
      *
-     * @return CreateGWSClusterResponse
-     */
-    public function createGWSClusterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateGWSCluster',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateGWSClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateGWSClusterRequest $request
+     * @param request - CreateHybridClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateGWSClusterResponse
-     */
-    public function createGWSCluster($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createGWSClusterWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateGWSImageRequest $request
-     * @param RuntimeOptions        $runtime
+     * @returns CreateHybridClusterResponse
      *
-     * @return CreateGWSImageResponse
-     */
-    public function createGWSImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateGWSImage',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateGWSImageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateGWSImageRequest $request
-     *
-     * @return CreateGWSImageResponse
-     */
-    public function createGWSImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createGWSImageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateGWSInstanceRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateGWSInstanceResponse
-     */
-    public function createGWSInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateGWSInstance',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateGWSInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateGWSInstanceRequest $request
-     *
-     * @return CreateGWSInstanceResponse
-     */
-    public function createGWSInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createGWSInstanceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateHybridClusterRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -827,27 +709,33 @@ class EHPC extends OpenApiClient
      */
     public function createHybridClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateHybridCluster',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateHybridCluster',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateHybridClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates a hybrid cloud cluster.
+     *
+     * @param request - CreateHybridClusterRequest
+     *
+     * @returns CreateHybridClusterResponse
+     *
      * @param CreateHybridClusterRequest $request
      *
      * @return CreateHybridClusterResponse
@@ -860,6 +748,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Creates a job file.
+     *
+     * @param request - CreateJobFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateJobFileResponse
+     *
      * @param CreateJobFileRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -867,27 +762,33 @@ class EHPC extends OpenApiClient
      */
     public function createJobFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateJobFile',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateJobFile',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateJobFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates a job file.
+     *
+     * @param request - CreateJobFileRequest
+     *
+     * @returns CreateJobFileResponse
+     *
      * @param CreateJobFileRequest $request
      *
      * @return CreateJobFileResponse
@@ -900,6 +801,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Creates a job template.
+     *
+     * @param request - CreateJobTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateJobTemplateResponse
+     *
      * @param CreateJobTemplateRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -907,27 +815,33 @@ class EHPC extends OpenApiClient
      */
     public function createJobTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateJobTemplate',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateJobTemplate',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateJobTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates a job template.
+     *
+     * @param request - CreateJobTemplateRequest
+     *
+     * @returns CreateJobTemplateResponse
+     *
      * @param CreateJobTemplateRequest $request
      *
      * @return CreateJobTemplateResponse
@@ -940,41 +854,56 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * After a cluster is released, the pay-as-you-go nodes and the subscription nodes that are expired are automatically released. The subscription nodes that are expired are retained. If you need to release subscription nodes that are not expired, change the billing method to pay-as-you-go. Before you release a cluster, make sure that you no longer use the cluster.
-     *   *
-     * @param DeleteClusterRequest $request DeleteClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Releases a cluster.
      *
-     * @return DeleteClusterResponse DeleteClusterResponse
+     * @remarks
+     * After a cluster is released, the pay-as-you-go nodes and the subscription nodes that are expired are automatically released. The subscription nodes that are expired are retained. If you need to release subscription nodes that are not expired, change the billing method to pay-as-you-go. Before you release a cluster, make sure that you no longer use the cluster.
+     *
+     * @param request - DeleteClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteClusterResponse
+     *
+     * @param DeleteClusterRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteClusterResponse
      */
     public function deleteClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCluster',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCluster',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * After a cluster is released, the pay-as-you-go nodes and the subscription nodes that are expired are automatically released. The subscription nodes that are expired are retained. If you need to release subscription nodes that are not expired, change the billing method to pay-as-you-go. Before you release a cluster, make sure that you no longer use the cluster.
-     *   *
-     * @param DeleteClusterRequest $request DeleteClusterRequest
+     * Releases a cluster.
      *
-     * @return DeleteClusterResponse DeleteClusterResponse
+     * @remarks
+     * After a cluster is released, the pay-as-you-go nodes and the subscription nodes that are expired are automatically released. The subscription nodes that are expired are retained. If you need to release subscription nodes that are not expired, change the billing method to pay-as-you-go. Before you release a cluster, make sure that you no longer use the cluster.
+     *
+     * @param request - DeleteClusterRequest
+     *
+     * @returns DeleteClusterResponse
+     *
+     * @param DeleteClusterRequest $request
+     *
+     * @return DeleteClusterResponse
      */
     public function deleteCluster($request)
     {
@@ -984,170 +913,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * Before you delete container applications, you can call the [ListContainerApps](~~87333~~) operation to query the container applications.
-     *   *
-     * @param DeleteContainerAppsRequest $request DeleteContainerAppsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Deletes job templates.
      *
-     * @return DeleteContainerAppsResponse DeleteContainerAppsResponse
-     */
-    public function deleteContainerAppsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteContainerApps',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteContainerAppsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Before you delete container applications, you can call the [ListContainerApps](~~87333~~) operation to query the container applications.
-     *   *
-     * @param DeleteContainerAppsRequest $request DeleteContainerAppsRequest
+     * @param request - DeleteJobTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteContainerAppsResponse DeleteContainerAppsResponse
-     */
-    public function deleteContainerApps($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteContainerAppsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteGWSClusterRequest $request
-     * @param RuntimeOptions          $runtime
+     * @returns DeleteJobTemplatesResponse
      *
-     * @return DeleteGWSClusterResponse
-     */
-    public function deleteGWSClusterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteGWSCluster',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteGWSClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteGWSClusterRequest $request
-     *
-     * @return DeleteGWSClusterResponse
-     */
-    public function deleteGWSCluster($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteGWSClusterWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteGWSInstanceRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteGWSInstanceResponse
-     */
-    public function deleteGWSInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteGWSInstance',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteGWSInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteGWSInstanceRequest $request
-     *
-     * @return DeleteGWSInstanceResponse
-     */
-    public function deleteGWSInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteGWSInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteImageRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return DeleteImageResponse
-     */
-    public function deleteImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteImage',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteImageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteImageRequest $request
-     *
-     * @return DeleteImageResponse
-     */
-    public function deleteImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteImageWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteJobTemplatesRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1155,27 +927,33 @@ class EHPC extends OpenApiClient
      */
     public function deleteJobTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteJobTemplates',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteJobTemplates',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteJobTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes job templates.
+     *
+     * @param request - DeleteJobTemplatesRequest
+     *
+     * @returns DeleteJobTemplatesResponse
+     *
      * @param DeleteJobTemplatesRequest $request
      *
      * @return DeleteJobTemplatesResponse
@@ -1188,6 +966,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Deletes jobs from a cluster.
+     *
+     * @param request - DeleteJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteJobsResponse
+     *
      * @param DeleteJobsRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1195,27 +980,33 @@ class EHPC extends OpenApiClient
      */
     public function deleteJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteJobs',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteJobs',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes jobs from a cluster.
+     *
+     * @param request - DeleteJobsRequest
+     *
+     * @returns DeleteJobsResponse
+     *
      * @param DeleteJobsRequest $request
      *
      * @return DeleteJobsResponse
@@ -1228,81 +1019,52 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param DeleteLocalImageRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteLocalImageResponse
-     */
-    public function deleteLocalImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteLocalImage',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteLocalImageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteLocalImageRequest $request
-     *
-     * @return DeleteLocalImageResponse
-     */
-    public function deleteLocalImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteLocalImageWithOptions($request, $runtime);
-    }
-
-    /**
+     * @remarks
      * Before you delete a compute node, we recommend that you export all job data from the node to prevent data loss.
-     *   *
-     * @param DeleteNodesRequest $request DeleteNodesRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNodesResponse DeleteNodesResponse
+     * @param request - DeleteNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNodesResponse
+     *
+     * @param DeleteNodesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteNodesResponse
      */
     public function deleteNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNodes',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNodes',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * Before you delete a compute node, we recommend that you export all job data from the node to prevent data loss.
-     *   *
-     * @param DeleteNodesRequest $request DeleteNodesRequest
      *
-     * @return DeleteNodesResponse DeleteNodesResponse
+     * @param request - DeleteNodesRequest
+     *
+     * @returns DeleteNodesResponse
+     *
+     * @param DeleteNodesRequest $request
+     *
+     * @return DeleteNodesResponse
      */
     public function deleteNodes($request)
     {
@@ -1312,6 +1074,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param request - DeleteQueueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteQueueResponse
+     *
      * @param DeleteQueueRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1319,27 +1086,31 @@ class EHPC extends OpenApiClient
      */
     public function deleteQueueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteQueue',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteQueue',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - DeleteQueueRequest
+     *
+     * @returns DeleteQueueResponse
+     *
      * @param DeleteQueueRequest $request
      *
      * @return DeleteQueueResponse
@@ -1352,6 +1123,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Removes a cluster from a specified security group.
+     *
+     * @param request - DeleteSecurityGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSecurityGroupResponse
+     *
      * @param DeleteSecurityGroupRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1359,27 +1137,33 @@ class EHPC extends OpenApiClient
      */
     public function deleteSecurityGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSecurityGroup',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSecurityGroup',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Removes a cluster from a specified security group.
+     *
+     * @param request - DeleteSecurityGroupRequest
+     *
+     * @returns DeleteSecurityGroupResponse
+     *
      * @param DeleteSecurityGroupRequest $request
      *
      * @return DeleteSecurityGroupResponse
@@ -1392,41 +1176,56 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data retained for the deleted user is not reused.
-     *   *
-     * @param DeleteUsersRequest $request DeleteUsersRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Deletes users from a cluster.
      *
-     * @return DeleteUsersResponse DeleteUsersResponse
+     * @remarks
+     * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data retained for the deleted user is not reused.
+     *
+     * @param request - DeleteUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUsersResponse
+     *
+     * @param DeleteUsersRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteUsersResponse
      */
     public function deleteUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUsers',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUsers',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data retained for the deleted user is not reused.
-     *   *
-     * @param DeleteUsersRequest $request DeleteUsersRequest
+     * Deletes users from a cluster.
      *
-     * @return DeleteUsersResponse DeleteUsersResponse
+     * @remarks
+     * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data retained for the deleted user is not reused.
+     *
+     * @param request - DeleteUsersRequest
+     *
+     * @returns DeleteUsersResponse
+     *
+     * @param DeleteUsersRequest $request
+     *
+     * @return DeleteUsersResponse
      */
     public function deleteUsers($request)
     {
@@ -1436,6 +1235,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the auto scaling settings of a cluster.
+     *
+     * @param request - DescribeAutoScaleConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAutoScaleConfigResponse
+     *
      * @param DescribeAutoScaleConfigRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1443,27 +1249,33 @@ class EHPC extends OpenApiClient
      */
     public function describeAutoScaleConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAutoScaleConfig',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAutoScaleConfig',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAutoScaleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the auto scaling settings of a cluster.
+     *
+     * @param request - DescribeAutoScaleConfigRequest
+     *
+     * @returns DescribeAutoScaleConfigResponse
+     *
      * @param DescribeAutoScaleConfigRequest $request
      *
      * @return DescribeAutoScaleConfigResponse
@@ -1476,6 +1288,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the details of a cluster.
+     *
+     * @param request - DescribeClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeClusterResponse
+     *
      * @param DescribeClusterRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1483,27 +1302,33 @@ class EHPC extends OpenApiClient
      */
     public function describeClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCluster',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCluster',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the details of a cluster.
+     *
+     * @param request - DescribeClusterRequest
+     *
+     * @returns DescribeClusterResponse
+     *
      * @param DescribeClusterRequest $request
      *
      * @return DescribeClusterResponse
@@ -1516,46 +1341,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param DescribeContainerAppRequest $request
-     * @param RuntimeOptions              $runtime
+     * Queries the base images of Elastic High Performance Computing (E-HPC).
      *
-     * @return DescribeContainerAppResponse
-     */
-    public function describeContainerAppWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeContainerApp',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeContainerAppResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeContainerAppRequest $request
+     * @param request - DescribeEstackImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeContainerAppResponse
-     */
-    public function describeContainerApp($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeContainerAppWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns DescribeEstackImageResponse
+     *
      * @param DescribeEstackImageRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1563,27 +1355,33 @@ class EHPC extends OpenApiClient
      */
     public function describeEstackImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEstackImage',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEstackImage',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEstackImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the base images of Elastic High Performance Computing (E-HPC).
+     *
+     * @param request - DescribeEstackImageRequest
+     *
+     * @returns DescribeEstackImageResponse
+     *
      * @param DescribeEstackImageRequest $request
      *
      * @return DescribeEstackImageResponse
@@ -1596,255 +1394,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param DescribeGWSClusterPolicyRequest $request
-     * @param RuntimeOptions                  $runtime
+     * Queries the price of an Alibaba Cloud Marketplace image.
      *
-     * @return DescribeGWSClusterPolicyResponse
-     */
-    public function describeGWSClusterPolicyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->asyncMode)) {
-            $query['AsyncMode'] = $request->asyncMode;
-        }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeGWSClusterPolicy',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeGWSClusterPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeGWSClusterPolicyRequest $request
+     * @param request - DescribeImagePriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeGWSClusterPolicyResponse
-     */
-    public function describeGWSClusterPolicy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeGWSClusterPolicyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeGWSClustersRequest $request
-     * @param RuntimeOptions             $runtime
+     * @returns DescribeImagePriceResponse
      *
-     * @return DescribeGWSClustersResponse
-     */
-    public function describeGWSClustersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeGWSClusters',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeGWSClustersResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeGWSClustersRequest $request
-     *
-     * @return DescribeGWSClustersResponse
-     */
-    public function describeGWSClusters($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeGWSClustersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeGWSImagesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeGWSImagesResponse
-     */
-    public function describeGWSImagesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeGWSImages',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeGWSImagesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeGWSImagesRequest $request
-     *
-     * @return DescribeGWSImagesResponse
-     */
-    public function describeGWSImages($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeGWSImagesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeGWSInstancesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeGWSInstancesResponse
-     */
-    public function describeGWSInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeGWSInstances',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeGWSInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeGWSInstancesRequest $request
-     *
-     * @return DescribeGWSInstancesResponse
-     */
-    public function describeGWSInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeGWSInstancesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeImageRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DescribeImageResponse
-     */
-    public function describeImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeImage',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeImageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeImageRequest $request
-     *
-     * @return DescribeImageResponse
-     */
-    public function describeImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeImageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeImageGatewayConfigRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeImageGatewayConfigResponse
-     */
-    public function describeImageGatewayConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeImageGatewayConfig',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeImageGatewayConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeImageGatewayConfigRequest $request
-     *
-     * @return DescribeImageGatewayConfigResponse
-     */
-    public function describeImageGatewayConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeImageGatewayConfigWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeImagePriceRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1852,27 +1408,33 @@ class EHPC extends OpenApiClient
      */
     public function describeImagePriceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeImagePrice',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeImagePrice',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeImagePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the price of an Alibaba Cloud Marketplace image.
+     *
+     * @param request - DescribeImagePriceRequest
+     *
+     * @returns DescribeImagePriceResponse
+     *
      * @param DescribeImagePriceRequest $request
      *
      * @return DescribeImagePriceResponse
@@ -1885,6 +1447,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the information about a job in an E-HPC cluster.
+     *
+     * @param request - DescribeJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeJobResponse
+     *
      * @param DescribeJobRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1892,27 +1461,33 @@ class EHPC extends OpenApiClient
      */
     public function describeJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeJob',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeJob',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the information about a job in an E-HPC cluster.
+     *
+     * @param request - DescribeJobRequest
+     *
+     * @returns DescribeJobResponse
+     *
      * @param DescribeJobRequest $request
      *
      * @return DescribeJobResponse
@@ -1925,46 +1500,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param DescribeNFSClientStatusRequest $request
-     * @param RuntimeOptions                 $runtime
+     * Queries the pricing information of a cluster.
      *
-     * @return DescribeNFSClientStatusResponse
-     */
-    public function describeNFSClientStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeNFSClientStatus',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeNFSClientStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeNFSClientStatusRequest $request
+     * @param request - DescribePriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeNFSClientStatusResponse
-     */
-    public function describeNFSClientStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeNFSClientStatusWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns DescribePriceResponse
+     *
      * @param DescribePriceRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1972,27 +1514,33 @@ class EHPC extends OpenApiClient
      */
     public function describePriceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePrice',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePrice',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the pricing information of a cluster.
+     *
+     * @param request - DescribePriceRequest
+     *
+     * @returns DescribePriceResponse
+     *
      * @param DescribePriceRequest $request
      *
      * @return DescribePriceResponse
@@ -2005,6 +1553,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the details of a serverless job by job ID or subtask ID (array job). You can specify only a single job ID or a single subtask ID at a time.
+     *
+     * @param request - DescribeServerlessJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeServerlessJobsResponse
+     *
      * @param DescribeServerlessJobsRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -2012,33 +1567,41 @@ class EHPC extends OpenApiClient
      */
     public function describeServerlessJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->jobIds)) {
-            $query['JobIds'] = $request->jobIds;
+
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeServerlessJobs',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeServerlessJobs',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeServerlessJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the details of a serverless job by job ID or subtask ID (array job). You can specify only a single job ID or a single subtask ID at a time.
+     *
+     * @param request - DescribeServerlessJobsRequest
+     *
+     * @returns DescribeServerlessJobsResponse
+     *
      * @param DescribeServerlessJobsRequest $request
      *
      * @return DescribeServerlessJobsResponse
@@ -2051,6 +1614,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param request - EditJobTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EditJobTemplateResponse
+     *
      * @param EditJobTemplateRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2058,27 +1626,31 @@ class EHPC extends OpenApiClient
      */
     public function editJobTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EditJobTemplate',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EditJobTemplate',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EditJobTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - EditJobTemplateRequest
+     *
+     * @returns EditJobTemplateResponse
+     *
      * @param EditJobTemplateRequest $request
      *
      * @return EditJobTemplateResponse
@@ -2091,6 +1663,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param request - GetAccountingReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAccountingReportResponse
+     *
      * @param GetAccountingReportRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -2098,27 +1675,31 @@ class EHPC extends OpenApiClient
      */
     public function getAccountingReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAccountingReport',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAccountingReport',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAccountingReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetAccountingReportRequest
+     *
+     * @returns GetAccountingReportResponse
+     *
      * @param GetAccountingReportRequest $request
      *
      * @return GetAccountingReportResponse
@@ -2131,6 +1712,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Obtains the auto scaling settings of a cluster.
+     *
+     * @param request - GetAutoScaleConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAutoScaleConfigResponse
+     *
      * @param GetAutoScaleConfigRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2138,27 +1726,33 @@ class EHPC extends OpenApiClient
      */
     public function getAutoScaleConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAutoScaleConfig',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAutoScaleConfig',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAutoScaleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Obtains the auto scaling settings of a cluster.
+     *
+     * @param request - GetAutoScaleConfigRequest
+     *
+     * @returns GetAutoScaleConfigResponse
+     *
      * @param GetAutoScaleConfigRequest $request
      *
      * @return GetAutoScaleConfigResponse
@@ -2171,6 +1765,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Reads performance metrics (CloudMetrics) logs of E-HPC.
+     *
+     * @param request - GetCloudMetricLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCloudMetricLogsResponse
+     *
      * @param GetCloudMetricLogsRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2178,27 +1779,33 @@ class EHPC extends OpenApiClient
      */
     public function getCloudMetricLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCloudMetricLogs',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCloudMetricLogs',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetCloudMetricLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Reads performance metrics (CloudMetrics) logs of E-HPC.
+     *
+     * @param request - GetCloudMetricLogsRequest
+     *
+     * @returns GetCloudMetricLogsResponse
+     *
      * @param GetCloudMetricLogsRequest $request
      *
      * @return GetCloudMetricLogsResponse
@@ -2211,6 +1818,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param request - GetCloudMetricProfilingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCloudMetricProfilingResponse
+     *
      * @param GetCloudMetricProfilingRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -2218,27 +1830,31 @@ class EHPC extends OpenApiClient
      */
     public function getCloudMetricProfilingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCloudMetricProfiling',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCloudMetricProfiling',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetCloudMetricProfilingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetCloudMetricProfilingRequest
+     *
+     * @returns GetCloudMetricProfilingResponse
+     *
      * @param GetCloudMetricProfilingRequest $request
      *
      * @return GetCloudMetricProfilingResponse
@@ -2251,6 +1867,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the information of the NAS file system mounted to a specified cluster.
+     *
+     * @param request - GetClusterVolumesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetClusterVolumesResponse
+     *
      * @param GetClusterVolumesRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2258,27 +1881,33 @@ class EHPC extends OpenApiClient
      */
     public function getClusterVolumesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetClusterVolumes',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetClusterVolumes',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetClusterVolumesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the information of the NAS file system mounted to a specified cluster.
+     *
+     * @param request - GetClusterVolumesRequest
+     *
+     * @returns GetClusterVolumesResponse
+     *
      * @param GetClusterVolumesRequest $request
      *
      * @return GetClusterVolumesResponse
@@ -2291,86 +1920,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param GetCommonImageRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param request - GetHybridClusterConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetCommonImageResponse
-     */
-    public function getCommonImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetCommonImage',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetCommonImageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetCommonImageRequest $request
+     * @returns GetHybridClusterConfigResponse
      *
-     * @return GetCommonImageResponse
-     */
-    public function getCommonImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getCommonImageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetGWSConnectTicketRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetGWSConnectTicketResponse
-     */
-    public function getGWSConnectTicketWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetGWSConnectTicket',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetGWSConnectTicketResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetGWSConnectTicketRequest $request
-     *
-     * @return GetGWSConnectTicketResponse
-     */
-    public function getGWSConnectTicket($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getGWSConnectTicketWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetHybridClusterConfigRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -2378,27 +1932,31 @@ class EHPC extends OpenApiClient
      */
     public function getHybridClusterConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHybridClusterConfig',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHybridClusterConfig',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetHybridClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetHybridClusterConfigRequest
+     *
+     * @returns GetHybridClusterConfigResponse
+     *
      * @param GetHybridClusterConfigRequest $request
      *
      * @return GetHybridClusterConfigResponse
@@ -2411,6 +1969,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries whether hyper-threading can be enabled or disabled for an instance type.
+     *
+     * @param request - GetIfEcsTypeSupportHtConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIfEcsTypeSupportHtConfigResponse
+     *
      * @param GetIfEcsTypeSupportHtConfigRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -2418,27 +1983,33 @@ class EHPC extends OpenApiClient
      */
     public function getIfEcsTypeSupportHtConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetIfEcsTypeSupportHtConfig',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetIfEcsTypeSupportHtConfig',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetIfEcsTypeSupportHtConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries whether hyper-threading can be enabled or disabled for an instance type.
+     *
+     * @param request - GetIfEcsTypeSupportHtConfigRequest
+     *
+     * @returns GetIfEcsTypeSupportHtConfigResponse
+     *
      * @param GetIfEcsTypeSupportHtConfigRequest $request
      *
      * @return GetIfEcsTypeSupportHtConfigResponse
@@ -2451,6 +2022,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * 实时查询任务的输出日志.
+     *
+     * @param request - GetJobLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobLogResponse
+     *
      * @param GetJobLogRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -2458,27 +2036,33 @@ class EHPC extends OpenApiClient
      */
     public function getJobLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetJobLog',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetJobLog',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetJobLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 实时查询任务的输出日志.
+     *
+     * @param request - GetJobLogRequest
+     *
+     * @returns GetJobLogResponse
+     *
      * @param GetJobLogRequest $request
      *
      * @return GetJobLogResponse
@@ -2491,6 +2075,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the post-processing scripts of a cluster.
+     *
+     * @param request - GetPostScriptsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPostScriptsResponse
+     *
      * @param GetPostScriptsRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2498,27 +2089,33 @@ class EHPC extends OpenApiClient
      */
     public function getPostScriptsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPostScripts',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPostScripts',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetPostScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the post-processing scripts of a cluster.
+     *
+     * @param request - GetPostScriptsRequest
+     *
+     * @returns GetPostScriptsResponse
+     *
      * @param GetPostScriptsRequest $request
      *
      * @return GetPostScriptsResponse
@@ -2531,6 +2128,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the scheduler settings of a cluster.
+     *
+     * @param request - GetSchedulerInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSchedulerInfoResponse
+     *
      * @param GetSchedulerInfoRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2538,27 +2142,33 @@ class EHPC extends OpenApiClient
      */
     public function getSchedulerInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSchedulerInfo',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSchedulerInfo',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetSchedulerInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the scheduler settings of a cluster.
+     *
+     * @param request - GetSchedulerInfoRequest
+     *
+     * @returns GetSchedulerInfoResponse
+     *
      * @param GetSchedulerInfoRequest $request
      *
      * @return GetSchedulerInfoResponse
@@ -2571,46 +2181,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param GetUserImageRequest $request
-     * @param RuntimeOptions      $runtime
+     * Queries the status of the VNC service in a cluster.
      *
-     * @return GetUserImageResponse
-     */
-    public function getUserImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetUserImage',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetUserImageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetUserImageRequest $request
+     * @param request - GetVisualServiceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetUserImageResponse
-     */
-    public function getUserImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getUserImageWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns GetVisualServiceStatusResponse
+     *
      * @param GetVisualServiceStatusRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -2618,27 +2195,33 @@ class EHPC extends OpenApiClient
      */
     public function getVisualServiceStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVisualServiceStatus',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVisualServiceStatus',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetVisualServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the status of the VNC service in a cluster.
+     *
+     * @param request - GetVisualServiceStatusRequest
+     *
+     * @returns GetVisualServiceStatusResponse
+     *
      * @param GetVisualServiceStatusRequest $request
      *
      * @return GetVisualServiceStatusResponse
@@ -2651,6 +2234,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Creates a service-linked role for Elastic High Performance Computing (E-HPC). A service-linked role is required for you to use E-HPC.
+     *
+     * @param request - InitializeEHPCRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitializeEHPCResponse
+     *
      * @param InitializeEHPCRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2658,27 +2248,33 @@ class EHPC extends OpenApiClient
      */
     public function initializeEHPCWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InitializeEHPC',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InitializeEHPC',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InitializeEHPCResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates a service-linked role for Elastic High Performance Computing (E-HPC). A service-linked role is required for you to use E-HPC.
+     *
+     * @param request - InitializeEHPCRequest
+     *
+     * @returns InitializeEHPCResponse
+     *
      * @param InitializeEHPCRequest $request
      *
      * @return InitializeEHPCResponse
@@ -2691,46 +2287,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param InspectImageRequest $request
-     * @param RuntimeOptions      $runtime
+     * Installs software in a cluster.
      *
-     * @return InspectImageResponse
-     */
-    public function inspectImageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'InspectImage',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return InspectImageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param InspectImageRequest $request
+     * @param request - InstallSoftwareRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return InspectImageResponse
-     */
-    public function inspectImage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->inspectImageWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns InstallSoftwareResponse
+     *
      * @param InstallSoftwareRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2738,27 +2301,33 @@ class EHPC extends OpenApiClient
      */
     public function installSoftwareWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InstallSoftware',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InstallSoftware',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InstallSoftwareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Installs software in a cluster.
+     *
+     * @param request - InstallSoftwareRequest
+     *
+     * @returns InstallSoftwareResponse
+     *
      * @param InstallSoftwareRequest $request
      *
      * @return InstallSoftwareResponse
@@ -2771,6 +2340,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Runs interactive commands in a cluster node.
+     *
+     * @param request - InvokeShellCommandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvokeShellCommandResponse
+     *
      * @param InvokeShellCommandRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2778,27 +2354,33 @@ class EHPC extends OpenApiClient
      */
     public function invokeShellCommandWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InvokeShellCommand',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InvokeShellCommand',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InvokeShellCommandResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Runs interactive commands in a cluster node.
+     *
+     * @param request - InvokeShellCommandRequest
+     *
+     * @returns InvokeShellCommandResponse
+     *
      * @param InvokeShellCommandRequest $request
      *
      * @return InvokeShellCommandResponse
@@ -2811,6 +2393,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries available Elastic Compute Service (ECS) instance types.
+     *
+     * @param request - ListAvailableEcsTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAvailableEcsTypesResponse
+     *
      * @param ListAvailableEcsTypesRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -2818,27 +2407,33 @@ class EHPC extends OpenApiClient
      */
     public function listAvailableEcsTypesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAvailableEcsTypes',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAvailableEcsTypes',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAvailableEcsTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries available Elastic Compute Service (ECS) instance types.
+     *
+     * @param request - ListAvailableEcsTypesRequest
+     *
+     * @returns ListAvailableEcsTypesResponse
+     *
      * @param ListAvailableEcsTypesRequest $request
      *
      * @return ListAvailableEcsTypesResponse
@@ -2851,6 +2446,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the profiling history of a cluster.
+     *
+     * @param request - ListCloudMetricProfilingsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCloudMetricProfilingsResponse
+     *
      * @param ListCloudMetricProfilingsRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -2858,27 +2460,33 @@ class EHPC extends OpenApiClient
      */
     public function listCloudMetricProfilingsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCloudMetricProfilings',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCloudMetricProfilings',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCloudMetricProfilingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the profiling history of a cluster.
+     *
+     * @param request - ListCloudMetricProfilingsRequest
+     *
+     * @returns ListCloudMetricProfilingsResponse
+     *
      * @param ListCloudMetricProfilingsRequest $request
      *
      * @return ListCloudMetricProfilingsResponse
@@ -2891,6 +2499,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the operation logs of a cluster within the last three days.
+     *
+     * @param request - ListClusterLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClusterLogsResponse
+     *
      * @param ListClusterLogsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2898,27 +2513,33 @@ class EHPC extends OpenApiClient
      */
     public function listClusterLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListClusterLogs',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListClusterLogs',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListClusterLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the operation logs of a cluster within the last three days.
+     *
+     * @param request - ListClusterLogsRequest
+     *
+     * @returns ListClusterLogsResponse
+     *
      * @param ListClusterLogsRequest $request
      *
      * @return ListClusterLogsResponse
@@ -2931,6 +2552,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the list of clusters in all regions within an account.
+     *
+     * @param request - ListClustersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClustersResponse
+     *
      * @param ListClustersRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -2938,27 +2566,33 @@ class EHPC extends OpenApiClient
      */
     public function listClustersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListClusters',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListClusters',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the list of clusters in all regions within an account.
+     *
+     * @param request - ListClustersRequest
+     *
+     * @returns ListClustersResponse
+     *
      * @param ListClustersRequest $request
      *
      * @return ListClustersResponse
@@ -2971,6 +2605,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the list of cluster metadata.
+     *
+     * @param request - ListClustersMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClustersMetaResponse
+     *
      * @param ListClustersMetaRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2978,27 +2619,33 @@ class EHPC extends OpenApiClient
      */
     public function listClustersMetaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListClustersMeta',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListClustersMeta',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListClustersMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the list of cluster metadata.
+     *
+     * @param request - ListClustersMetaRequest
+     *
+     * @returns ListClustersMetaResponse
+     *
      * @param ListClustersMetaRequest $request
      *
      * @return ListClustersMetaResponse
@@ -3011,6 +2658,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the interactive commands in a specified cluster.
+     *
+     * @param request - ListCommandsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCommandsResponse
+     *
      * @param ListCommandsRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -3018,27 +2672,33 @@ class EHPC extends OpenApiClient
      */
     public function listCommandsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCommands',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCommands',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the interactive commands in a specified cluster.
+     *
+     * @param request - ListCommandsRequest
+     *
+     * @returns ListCommandsResponse
+     *
      * @param ListCommandsRequest $request
      *
      * @return ListCommandsResponse
@@ -3051,6 +2711,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries a list of community images.
+     *
+     * @param request - ListCommunityImagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCommunityImagesResponse
+     *
      * @param ListCommunityImagesRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -3058,27 +2725,33 @@ class EHPC extends OpenApiClient
      */
     public function listCommunityImagesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCommunityImages',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCommunityImages',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCommunityImagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries a list of community images.
+     *
+     * @param request - ListCommunityImagesRequest
+     *
+     * @returns ListCommunityImagesResponse
+     *
      * @param ListCommunityImagesRequest $request
      *
      * @return ListCommunityImagesResponse
@@ -3091,86 +2764,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param ListContainerAppsRequest $request
-     * @param RuntimeOptions           $runtime
+     * Queries the information about Cloud Paralleled File System (CPFS) and its mount targets.
      *
-     * @return ListContainerAppsResponse
-     */
-    public function listContainerAppsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListContainerApps',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListContainerAppsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListContainerAppsRequest $request
+     * @param request - ListCpfsFileSystemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListContainerAppsResponse
-     */
-    public function listContainerApps($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listContainerAppsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListContainerImagesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @returns ListCpfsFileSystemsResponse
      *
-     * @return ListContainerImagesResponse
-     */
-    public function listContainerImagesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListContainerImages',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListContainerImagesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListContainerImagesRequest $request
-     *
-     * @return ListContainerImagesResponse
-     */
-    public function listContainerImages($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listContainerImagesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListCpfsFileSystemsRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -3178,27 +2778,33 @@ class EHPC extends OpenApiClient
      */
     public function listCpfsFileSystemsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCpfsFileSystems',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCpfsFileSystems',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCpfsFileSystemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the information about Cloud Paralleled File System (CPFS) and its mount targets.
+     *
+     * @param request - ListCpfsFileSystemsRequest
+     *
+     * @returns ListCpfsFileSystemsResponse
+     *
      * @param ListCpfsFileSystemsRequest $request
      *
      * @return ListCpfsFileSystemsResponse
@@ -3211,29 +2817,40 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Query the latest version number of the cluster client (ehpcutil).
+     *
+     * @param request - ListCurrentClientVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCurrentClientVersionResponse
+     *
      * @param RuntimeOptions $runtime
      *
      * @return ListCurrentClientVersionResponse
      */
     public function listCurrentClientVersionWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListCurrentClientVersion',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCurrentClientVersion',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCurrentClientVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Query the latest version number of the cluster client (ehpcutil).
+     *
+     * @returns ListCurrentClientVersionResponse
+     *
      * @return ListCurrentClientVersionResponse
      */
     public function listCurrentClientVersion()
@@ -3244,6 +2861,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries custom images and shared images supported by Elastic High Performance Computing (E-HPC).
+     *
+     * @param request - ListCustomImagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomImagesResponse
+     *
      * @param ListCustomImagesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3251,27 +2875,33 @@ class EHPC extends OpenApiClient
      */
     public function listCustomImagesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCustomImages',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCustomImages',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListCustomImagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries custom images and shared images supported by Elastic High Performance Computing (E-HPC).
+     *
+     * @param request - ListCustomImagesRequest
+     *
+     * @returns ListCustomImagesResponse
+     *
      * @param ListCustomImagesRequest $request
      *
      * @return ListCustomImagesResponse
@@ -3284,6 +2914,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries file systems and mount targets.
+     *
+     * @param request - ListFileSystemWithMountTargetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFileSystemWithMountTargetsResponse
+     *
      * @param ListFileSystemWithMountTargetsRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -3291,27 +2928,33 @@ class EHPC extends OpenApiClient
      */
     public function listFileSystemWithMountTargetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListFileSystemWithMountTargets',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListFileSystemWithMountTargets',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListFileSystemWithMountTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries file systems and mount targets.
+     *
+     * @param request - ListFileSystemWithMountTargetsRequest
+     *
+     * @returns ListFileSystemWithMountTargetsResponse
+     *
      * @param ListFileSystemWithMountTargetsRequest $request
      *
      * @return ListFileSystemWithMountTargetsResponse
@@ -3324,6 +2967,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the list of images that can be installed in a cluster.
+     *
+     * @param request - ListImagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListImagesResponse
+     *
      * @param ListImagesRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -3331,27 +2981,33 @@ class EHPC extends OpenApiClient
      */
     public function listImagesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListImages',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListImages',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the list of images that can be installed in a cluster.
+     *
+     * @param request - ListImagesRequest
+     *
+     * @returns ListImagesResponse
+     *
      * @param ListImagesRequest $request
      *
      * @return ListImagesResponse
@@ -3364,6 +3020,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the software that is installed in a cluster.
+     *
+     * @param request - ListInstalledSoftwareRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstalledSoftwareResponse
+     *
      * @param ListInstalledSoftwareRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -3371,27 +3034,33 @@ class EHPC extends OpenApiClient
      */
     public function listInstalledSoftwareWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstalledSoftware',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstalledSoftware',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListInstalledSoftwareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the software that is installed in a cluster.
+     *
+     * @param request - ListInstalledSoftwareRequest
+     *
+     * @returns ListInstalledSoftwareResponse
+     *
      * @param ListInstalledSoftwareRequest $request
      *
      * @return ListInstalledSoftwareResponse
@@ -3404,6 +3073,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the result of an interactive command in a cluster.
+     *
+     * @param request - ListInvocationResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInvocationResultsResponse
+     *
      * @param ListInvocationResultsRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -3411,27 +3087,33 @@ class EHPC extends OpenApiClient
      */
     public function listInvocationResultsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInvocationResults',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInvocationResults',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListInvocationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the result of an interactive command in a cluster.
+     *
+     * @param request - ListInvocationResultsRequest
+     *
+     * @returns ListInvocationResultsResponse
+     *
      * @param ListInvocationResultsRequest $request
      *
      * @return ListInvocationResultsResponse
@@ -3444,6 +3126,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the status of an interactive command.
+     *
+     * @param request - ListInvocationStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInvocationStatusResponse
+     *
      * @param ListInvocationStatusRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -3451,27 +3140,33 @@ class EHPC extends OpenApiClient
      */
     public function listInvocationStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInvocationStatus',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInvocationStatus',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListInvocationStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the status of an interactive command.
+     *
+     * @param request - ListInvocationStatusRequest
+     *
+     * @returns ListInvocationStatusResponse
+     *
      * @param ListInvocationStatusRequest $request
      *
      * @return ListInvocationStatusResponse
@@ -3484,6 +3179,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the list of job templates.
+     *
+     * @param request - ListJobTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListJobTemplatesResponse
+     *
      * @param ListJobTemplatesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3491,27 +3193,33 @@ class EHPC extends OpenApiClient
      */
     public function listJobTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListJobTemplates',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListJobTemplates',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListJobTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the list of job templates.
+     *
+     * @param request - ListJobTemplatesRequest
+     *
+     * @returns ListJobTemplatesResponse
+     *
      * @param ListJobTemplatesRequest $request
      *
      * @return ListJobTemplatesResponse
@@ -3524,6 +3232,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the list of jobs in a cluster.
+     *
+     * @param request - ListJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListJobsResponse
+     *
      * @param ListJobsRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -3531,27 +3246,33 @@ class EHPC extends OpenApiClient
      */
     public function listJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListJobs',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListJobs',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the list of jobs in a cluster.
+     *
+     * @param request - ListJobsRequest
+     *
+     * @returns ListJobsResponse
+     *
      * @param ListJobsRequest $request
      *
      * @return ListJobsResponse
@@ -3564,6 +3285,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the details of a specified job.
+     *
+     * @param request - ListJobsWithFiltersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListJobsWithFiltersResponse
+     *
      * @param ListJobsWithFiltersRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -3571,27 +3299,33 @@ class EHPC extends OpenApiClient
      */
     public function listJobsWithFiltersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListJobsWithFilters',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListJobsWithFilters',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListJobsWithFiltersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the details of a specified job.
+     *
+     * @param request - ListJobsWithFiltersRequest
+     *
+     * @returns ListJobsWithFiltersResponse
+     *
      * @param ListJobsWithFiltersRequest $request
      *
      * @return ListJobsWithFiltersResponse
@@ -3604,6 +3338,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the list of nodes in a cluster.
+     *
+     * @param request - ListNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNodesResponse
+     *
      * @param ListNodesRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -3611,27 +3352,33 @@ class EHPC extends OpenApiClient
      */
     public function listNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListNodes',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNodes',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the list of nodes in a cluster.
+     *
+     * @param request - ListNodesRequest
+     *
+     * @returns ListNodesResponse
+     *
      * @param ListNodesRequest $request
      *
      * @return ListNodesResponse
@@ -3644,6 +3391,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the node information of a single cluster within an Alibaba Cloud account by queue.
+     *
+     * @param request - ListNodesByQueueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNodesByQueueResponse
+     *
      * @param ListNodesByQueueRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3651,27 +3405,33 @@ class EHPC extends OpenApiClient
      */
     public function listNodesByQueueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListNodesByQueue',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNodesByQueue',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListNodesByQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the node information of a single cluster within an Alibaba Cloud account by queue.
+     *
+     * @param request - ListNodesByQueueRequest
+     *
+     * @returns ListNodesByQueueResponse
+     *
      * @param ListNodesByQueueRequest $request
      *
      * @return ListNodesByQueueResponse
@@ -3684,6 +3444,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the information of all nodes in a specified cluster on one page.
+     *
+     * @param request - ListNodesNoPagingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNodesNoPagingResponse
+     *
      * @param ListNodesNoPagingRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -3691,27 +3458,33 @@ class EHPC extends OpenApiClient
      */
     public function listNodesNoPagingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListNodesNoPaging',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNodesNoPaging',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListNodesNoPagingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the information of all nodes in a specified cluster on one page.
+     *
+     * @param request - ListNodesNoPagingRequest
+     *
+     * @returns ListNodesNoPagingResponse
+     *
      * @param ListNodesNoPagingRequest $request
      *
      * @return ListNodesNoPagingResponse
@@ -3724,6 +3497,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the Elastic Compute Service (ECS) instance types recommended by Elastic High Performance Computing (E-HPC).
+     *
+     * @param request - ListPreferredEcsTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPreferredEcsTypesResponse
+     *
      * @param ListPreferredEcsTypesRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -3731,27 +3511,33 @@ class EHPC extends OpenApiClient
      */
     public function listPreferredEcsTypesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPreferredEcsTypes',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPreferredEcsTypes',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListPreferredEcsTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the Elastic Compute Service (ECS) instance types recommended by Elastic High Performance Computing (E-HPC).
+     *
+     * @param request - ListPreferredEcsTypesRequest
+     *
+     * @returns ListPreferredEcsTypesResponse
+     *
      * @param ListPreferredEcsTypesRequest $request
      *
      * @return ListPreferredEcsTypesResponse
@@ -3764,6 +3550,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the queues of a specified cluster.
+     *
+     * @param request - ListQueuesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQueuesResponse
+     *
      * @param ListQueuesRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -3771,27 +3564,33 @@ class EHPC extends OpenApiClient
      */
     public function listQueuesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListQueues',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListQueues',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListQueuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the queues of a specified cluster.
+     *
+     * @param request - ListQueuesRequest
+     *
+     * @returns ListQueuesResponse
+     *
      * @param ListQueuesRequest $request
      *
      * @return ListQueuesResponse
@@ -3804,29 +3603,40 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries a list of regions where Elastic High Performance Computing (E-HPC) is supported.
+     *
+     * @param request - ListRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRegionsResponse
+     *
      * @param RuntimeOptions $runtime
      *
      * @return ListRegionsResponse
      */
     public function listRegionsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListRegions',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRegions',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries a list of regions where Elastic High Performance Computing (E-HPC) is supported.
+     *
+     * @returns ListRegionsResponse
+     *
      * @return ListRegionsResponse
      */
     public function listRegions()
@@ -3837,6 +3647,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the security groups that are assigned to an E-HPC cluster.
+     *
+     * @param request - ListSecurityGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSecurityGroupsResponse
+     *
      * @param ListSecurityGroupsRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -3844,27 +3661,33 @@ class EHPC extends OpenApiClient
      */
     public function listSecurityGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSecurityGroups',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSecurityGroups',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSecurityGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the security groups that are assigned to an E-HPC cluster.
+     *
+     * @param request - ListSecurityGroupsRequest
+     *
+     * @returns ListSecurityGroupsResponse
+     *
      * @param ListSecurityGroupsRequest $request
      *
      * @return ListSecurityGroupsResponse
@@ -3877,6 +3700,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the list of serverless jobs based on filter conditions.
+     *
+     * @param request - ListServerlessJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServerlessJobsResponse
+     *
      * @param ListServerlessJobsRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -3884,60 +3714,77 @@ class EHPC extends OpenApiClient
      */
     public function listServerlessJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->jobIds)) {
-            $query['JobIds'] = $request->jobIds;
+
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
         }
-        if (!Utils::isUnset($request->jobNames)) {
-            $query['JobNames'] = $request->jobNames;
+
+        if (null !== $request->jobNames) {
+            @$query['JobNames'] = $request->jobNames;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startOrder)) {
-            $query['StartOrder'] = $request->startOrder;
+
+        if (null !== $request->startOrder) {
+            @$query['StartOrder'] = $request->startOrder;
         }
-        if (!Utils::isUnset($request->state)) {
-            $query['State'] = $request->state;
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
         }
-        if (!Utils::isUnset($request->submitOrder)) {
-            $query['SubmitOrder'] = $request->submitOrder;
+
+        if (null !== $request->submitOrder) {
+            @$query['SubmitOrder'] = $request->submitOrder;
         }
-        if (!Utils::isUnset($request->submitTimeEnd)) {
-            $query['SubmitTimeEnd'] = $request->submitTimeEnd;
+
+        if (null !== $request->submitTimeEnd) {
+            @$query['SubmitTimeEnd'] = $request->submitTimeEnd;
         }
-        if (!Utils::isUnset($request->submitTimeStart)) {
-            $query['SubmitTimeStart'] = $request->submitTimeStart;
+
+        if (null !== $request->submitTimeStart) {
+            @$query['SubmitTimeStart'] = $request->submitTimeStart;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServerlessJobs',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServerlessJobs',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListServerlessJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the list of serverless jobs based on filter conditions.
+     *
+     * @param request - ListServerlessJobsRequest
+     *
+     * @returns ListServerlessJobsResponse
+     *
      * @param ListServerlessJobsRequest $request
      *
      * @return ListServerlessJobsResponse
@@ -3950,6 +3797,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the list of software that can be installed in a cluster.
+     *
+     * @param request - ListSoftwaresRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSoftwaresResponse
+     *
      * @param ListSoftwaresRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -3957,27 +3811,33 @@ class EHPC extends OpenApiClient
      */
     public function listSoftwaresWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSoftwares',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSoftwares',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSoftwaresResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the list of software that can be installed in a cluster.
+     *
+     * @param request - ListSoftwaresRequest
+     *
+     * @returns ListSoftwaresResponse
+     *
      * @param ListSoftwaresRequest $request
      *
      * @return ListSoftwaresResponse
@@ -3990,6 +3850,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the tags that are attached to a specified resource.
+     *
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
      * @param ListTagResourcesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3997,42 +3864,53 @@ class EHPC extends OpenApiClient
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the tags that are attached to a specified resource.
+     *
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
      * @param ListTagResourcesRequest $request
      *
      * @return ListTagResourcesResponse
@@ -4045,41 +3923,56 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * If you succeed in calling an asynchronous API operation, a response is generated before a resulting task is completed. Therefore, to query the result of the task, you can use the TaskId parameter returned by the API operation.
-     *   *
-     * @param ListTasksRequest $request ListTasksRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the response of an asynchronous API operation for a cluster.
      *
-     * @return ListTasksResponse ListTasksResponse
+     * @remarks
+     * For some asynchronous API operations such as AddNodes, the system immediately returns a result without waiting for the node to be created if the request succeeds. In this case, you can use the TaskId returned by the asynchronous API operation to query the result of the task.
+     *
+     * @param request - ListTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTasksResponse
+     *
+     * @param ListTasksRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListTasksResponse
      */
     public function listTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTasks',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTasks',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * If you succeed in calling an asynchronous API operation, a response is generated before a resulting task is completed. Therefore, to query the result of the task, you can use the TaskId parameter returned by the API operation.
-     *   *
-     * @param ListTasksRequest $request ListTasksRequest
+     * Queries the response of an asynchronous API operation for a cluster.
      *
-     * @return ListTasksResponse ListTasksResponse
+     * @remarks
+     * For some asynchronous API operations such as AddNodes, the system immediately returns a result without waiting for the node to be created if the request succeeds. In this case, you can use the TaskId returned by the asynchronous API operation to query the result of the task.
+     *
+     * @param request - ListTasksRequest
+     *
+     * @returns ListTasksResponse
+     *
+     * @param ListTasksRequest $request
+     *
+     * @return ListTasksResponse
      */
     public function listTasks($request)
     {
@@ -4089,6 +3982,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the latest version to which the client (ehpcutil) in a cluster can be updated and historical update records of the client.
+     *
+     * @param request - ListUpgradeClientsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUpgradeClientsResponse
+     *
      * @param ListUpgradeClientsRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -4096,27 +3996,33 @@ class EHPC extends OpenApiClient
      */
     public function listUpgradeClientsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUpgradeClients',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUpgradeClients',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUpgradeClientsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the latest version to which the client (ehpcutil) in a cluster can be updated and historical update records of the client.
+     *
+     * @param request - ListUpgradeClientsRequest
+     *
+     * @returns ListUpgradeClientsResponse
+     *
      * @param ListUpgradeClientsRequest $request
      *
      * @return ListUpgradeClientsResponse
@@ -4129,6 +4035,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries all users of a cluster.
+     *
+     * @param request - ListUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUsersResponse
+     *
      * @param ListUsersRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -4136,27 +4049,33 @@ class EHPC extends OpenApiClient
      */
     public function listUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUsers',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUsers',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries all users of a cluster.
+     *
+     * @param request - ListUsersRequest
+     *
+     * @returns ListUsersResponse
+     *
      * @param ListUsersRequest $request
      *
      * @return ListUsersResponse
@@ -4169,6 +4088,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the users in a cluster.
+     *
+     * @param request - ListUsersAsyncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUsersAsyncResponse
+     *
      * @param ListUsersAsyncRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -4176,27 +4102,33 @@ class EHPC extends OpenApiClient
      */
     public function listUsersAsyncWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUsersAsync',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUsersAsync',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUsersAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the users in a cluster.
+     *
+     * @param request - ListUsersAsyncRequest
+     *
+     * @returns ListUsersAsyncResponse
+     *
      * @param ListUsersAsyncRequest $request
      *
      * @return ListUsersAsyncResponse
@@ -4209,6 +4141,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Queries the file systems mounted on Elastic High Performance Computing (E-HPC) clusters.
+     *
+     * @param request - ListVolumesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVolumesResponse
+     *
      * @param ListVolumesRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -4216,27 +4155,33 @@ class EHPC extends OpenApiClient
      */
     public function listVolumesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVolumes',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVolumes',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListVolumesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Queries the file systems mounted on Elastic High Performance Computing (E-HPC) clusters.
+     *
+     * @param request - ListVolumesRequest
+     *
+     * @returns ListVolumesResponse
+     *
      * @param ListVolumesRequest $request
      *
      * @return ListVolumesResponse
@@ -4249,43 +4194,58 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * Before you call this operation, you can call the [DescribeCluster](~~87126~~) operation to query details of the selected cluster.
-     *   *
-     * @param ModifyClusterAttributesRequest $request ModifyClusterAttributesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Modifies the basic information of a cluster, including the name, description, and image.
      *
-     * @return ModifyClusterAttributesResponse ModifyClusterAttributesResponse
+     * @remarks
+     * ## Usage notes
+     * Before you call this operation, you can call the [DescribeCluster](https://help.aliyun.com/document_detail/87126.html) operation to query details of the selected cluster.
+     *
+     * @param request - ModifyClusterAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyClusterAttributesResponse
+     *
+     * @param ModifyClusterAttributesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyClusterAttributesResponse
      */
     public function modifyClusterAttributesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyClusterAttributes',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyClusterAttributes',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyClusterAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * ## Usage notes
-     *   * Before you call this operation, you can call the [DescribeCluster](~~87126~~) operation to query details of the selected cluster.
-     *   *
-     * @param ModifyClusterAttributesRequest $request ModifyClusterAttributesRequest
+     * Modifies the basic information of a cluster, including the name, description, and image.
      *
-     * @return ModifyClusterAttributesResponse ModifyClusterAttributesResponse
+     * @remarks
+     * ## Usage notes
+     * Before you call this operation, you can call the [DescribeCluster](https://help.aliyun.com/document_detail/87126.html) operation to query details of the selected cluster.
+     *
+     * @param request - ModifyClusterAttributesRequest
+     *
+     * @returns ModifyClusterAttributesResponse
+     *
+     * @param ModifyClusterAttributesRequest $request
+     *
+     * @return ModifyClusterAttributesResponse
      */
     public function modifyClusterAttributes($request)
     {
@@ -4295,86 +4255,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param ModifyContainerAppAttributesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * Changes the user group to which users belong.
      *
-     * @return ModifyContainerAppAttributesResponse
-     */
-    public function modifyContainerAppAttributesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyContainerAppAttributes',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyContainerAppAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ModifyContainerAppAttributesRequest $request
+     * @param request - ModifyUserGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyContainerAppAttributesResponse
-     */
-    public function modifyContainerAppAttributes($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyContainerAppAttributesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyImageGatewayConfigRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @returns ModifyUserGroupsResponse
      *
-     * @return ModifyImageGatewayConfigResponse
-     */
-    public function modifyImageGatewayConfigWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyImageGatewayConfig',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyImageGatewayConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ModifyImageGatewayConfigRequest $request
-     *
-     * @return ModifyImageGatewayConfigResponse
-     */
-    public function modifyImageGatewayConfig($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyImageGatewayConfigWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyUserGroupsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -4382,27 +4269,33 @@ class EHPC extends OpenApiClient
      */
     public function modifyUserGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyUserGroups',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyUserGroups',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyUserGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Changes the user group to which users belong.
+     *
+     * @param request - ModifyUserGroupsRequest
+     *
+     * @returns ModifyUserGroupsResponse
+     *
      * @param ModifyUserGroupsRequest $request
      *
      * @return ModifyUserGroupsResponse
@@ -4415,6 +4308,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Changes the passwords of users.
+     *
+     * @param request - ModifyUserPasswordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyUserPasswordsResponse
+     *
      * @param ModifyUserPasswordsRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -4422,27 +4322,33 @@ class EHPC extends OpenApiClient
      */
     public function modifyUserPasswordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyUserPasswords',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyUserPasswords',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyUserPasswordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Changes the passwords of users.
+     *
+     * @param request - ModifyUserPasswordsRequest
+     *
+     * @returns ModifyUserPasswordsResponse
+     *
      * @param ModifyUserPasswordsRequest $request
      *
      * @return ModifyUserPasswordsResponse
@@ -4455,6 +4361,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Sets a password that you can use to remotely connect to a visualization service in a cluster over the virtual network console (VNC).
+     *
+     * @param request - ModifyVisualServicePasswdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyVisualServicePasswdResponse
+     *
      * @param ModifyVisualServicePasswdRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -4462,27 +4375,33 @@ class EHPC extends OpenApiClient
      */
     public function modifyVisualServicePasswdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyVisualServicePasswd',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyVisualServicePasswd',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyVisualServicePasswdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Sets a password that you can use to remotely connect to a visualization service in a cluster over the virtual network console (VNC).
+     *
+     * @param request - ModifyVisualServicePasswdRequest
+     *
+     * @returns ModifyVisualServicePasswdResponse
+     *
      * @param ModifyVisualServicePasswdRequest $request
      *
      * @return ModifyVisualServicePasswdResponse
@@ -4495,46 +4414,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param MountNFSRequest $request
-     * @param RuntimeOptions  $runtime
+     * @param request - PullImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return MountNFSResponse
-     */
-    public function mountNFSWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'MountNFS',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return MountNFSResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param MountNFSRequest $request
+     * @returns PullImageResponse
      *
-     * @return MountNFSResponse
-     */
-    public function mountNFS($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->mountNFSWithOptions($request, $runtime);
-    }
-
-    /**
      * @param PullImageRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -4542,27 +4426,31 @@ class EHPC extends OpenApiClient
      */
     public function pullImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PullImage',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PullImage',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PullImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - PullImageRequest
+     *
+     * @returns PullImageResponse
+     *
      * @param PullImageRequest $request
      *
      * @return PullImageResponse
@@ -4575,29 +4463,36 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param request - QueryServicePackAndPriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryServicePackAndPriceResponse
+     *
      * @param RuntimeOptions $runtime
      *
      * @return QueryServicePackAndPriceResponse
      */
     public function queryServicePackAndPriceWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'QueryServicePackAndPrice',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryServicePackAndPrice',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryServicePackAndPriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @returns QueryServicePackAndPriceResponse
+     *
      * @return QueryServicePackAndPriceResponse
      */
     public function queryServicePackAndPrice()
@@ -4608,49 +4503,62 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * You can call the operation to reset and restore a cluster only when the cluster is in the Exception state. You can call the [ListClusters](~~87116~~) operation to query the ID and status of a cluster.
-     *   * We recommend that you export all job data before you restore a cluster. When you reset and restore a cluster, take note of the following impacts:
-     *   * *   The system disks of all nodes are changed. By default, new system disks are configured based on the settings that you specified when the cluster was created.
-     *   * *   The data on the system disks and data disks of all cluster nodes is lost. The data includes user information, job information, scheduler queue information, and configuration data of auto-scaling queues. However, the data on Apsara File Storage NAS file systems is retained.
-     *   * *   The self-managed queues in the cluster are deleted. All nodes are retained and migrated to the default queue of the cluster.
-     *   *
-     * @param RecoverClusterRequest $request RecoverClusterRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Resets and restores a cluster.
      *
-     * @return RecoverClusterResponse RecoverClusterResponse
+     * @remarks
+     * You can call the operation to reset and restore a cluster only when the cluster is in the Exception state. You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the ID and status of a cluster. We recommend that you export all job data before you restore a cluster. When you reset and restore a cluster, take note of the following impacts:
+     * *   The system disks of all nodes are changed. By default, new system disks are configured based on the settings that you specified when the cluster was created.
+     * *   The data on the system disks and data disks of all cluster nodes is lost. The data includes user information, job information, scheduler queue information, and configuration data of auto-scaling queues. However, the data on File Storage NAS file systems is retained.
+     * *   The self-managed queues in the cluster are deleted. All nodes are retained and migrated to the default queue of the cluster.
+     *
+     * @param request - RecoverClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecoverClusterResponse
+     *
+     * @param RecoverClusterRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RecoverClusterResponse
      */
     public function recoverClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RecoverCluster',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecoverCluster',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecoverClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * You can call the operation to reset and restore a cluster only when the cluster is in the Exception state. You can call the [ListClusters](~~87116~~) operation to query the ID and status of a cluster.
-     *   * We recommend that you export all job data before you restore a cluster. When you reset and restore a cluster, take note of the following impacts:
-     *   * *   The system disks of all nodes are changed. By default, new system disks are configured based on the settings that you specified when the cluster was created.
-     *   * *   The data on the system disks and data disks of all cluster nodes is lost. The data includes user information, job information, scheduler queue information, and configuration data of auto-scaling queues. However, the data on Apsara File Storage NAS file systems is retained.
-     *   * *   The self-managed queues in the cluster are deleted. All nodes are retained and migrated to the default queue of the cluster.
-     *   *
-     * @param RecoverClusterRequest $request RecoverClusterRequest
+     * Resets and restores a cluster.
      *
-     * @return RecoverClusterResponse RecoverClusterResponse
+     * @remarks
+     * You can call the operation to reset and restore a cluster only when the cluster is in the Exception state. You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the ID and status of a cluster. We recommend that you export all job data before you restore a cluster. When you reset and restore a cluster, take note of the following impacts:
+     * *   The system disks of all nodes are changed. By default, new system disks are configured based on the settings that you specified when the cluster was created.
+     * *   The data on the system disks and data disks of all cluster nodes is lost. The data includes user information, job information, scheduler queue information, and configuration data of auto-scaling queues. However, the data on File Storage NAS file systems is retained.
+     * *   The self-managed queues in the cluster are deleted. All nodes are retained and migrated to the default queue of the cluster.
+     *
+     * @param request - RecoverClusterRequest
+     *
+     * @returns RecoverClusterResponse
+     *
+     * @param RecoverClusterRequest $request
+     *
+     * @return RecoverClusterResponse
      */
     public function recoverCluster($request)
     {
@@ -4660,6 +4568,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param request - RerunJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RerunJobsResponse
+     *
      * @param RerunJobsRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -4667,27 +4580,31 @@ class EHPC extends OpenApiClient
      */
     public function rerunJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RerunJobs',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RerunJobs',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RerunJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - RerunJobsRequest
+     *
+     * @returns RerunJobsResponse
+     *
      * @param RerunJobsRequest $request
      *
      * @return RerunJobsResponse
@@ -4700,41 +4617,52 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @remarks
      * After a node is reset, the operating system and software return to their initial states. To ensure that jobs run as expected, we recommend that you do not reset running nodes unless you need to perform crash recovery.
-     *   *
-     * @param ResetNodesRequest $request ResetNodesRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetNodesResponse ResetNodesResponse
+     * @param request - ResetNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetNodesResponse
+     *
+     * @param ResetNodesRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ResetNodesResponse
      */
     public function resetNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetNodes',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetNodes',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ResetNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @remarks
      * After a node is reset, the operating system and software return to their initial states. To ensure that jobs run as expected, we recommend that you do not reset running nodes unless you need to perform crash recovery.
-     *   *
-     * @param ResetNodesRequest $request ResetNodesRequest
      *
-     * @return ResetNodesResponse ResetNodesResponse
+     * @param request - ResetNodesRequest
+     *
+     * @returns ResetNodesResponse
+     *
+     * @param ResetNodesRequest $request
+     *
+     * @return ResetNodesResponse
      */
     public function resetNodes($request)
     {
@@ -4744,6 +4672,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Starts the profiling process of a cluster.
+     *
+     * @param request - RunCloudMetricProfilingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunCloudMetricProfilingResponse
+     *
      * @param RunCloudMetricProfilingRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -4751,27 +4686,33 @@ class EHPC extends OpenApiClient
      */
     public function runCloudMetricProfilingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RunCloudMetricProfiling',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RunCloudMetricProfiling',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RunCloudMetricProfilingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Starts the profiling process of a cluster.
+     *
+     * @param request - RunCloudMetricProfilingRequest
+     *
+     * @returns RunCloudMetricProfilingResponse
+     *
      * @param RunCloudMetricProfilingRequest $request
      *
      * @return RunCloudMetricProfilingResponse
@@ -4784,43 +4725,58 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * If the settings in the Queue Configuration section are different from the settings in the Global Configurations section, the former prevails.
-     *   *
-     * @param SetAutoScaleConfigRequest $request SetAutoScaleConfigRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Configures the auto scaling settings of a cluster.
      *
-     * @return SetAutoScaleConfigResponse SetAutoScaleConfigResponse
+     * @remarks
+     * ## Usage notes
+     * If the settings in the Queue Configuration section are different from the settings in the Global Configurations section, the former prevails.
+     *
+     * @param request - SetAutoScaleConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetAutoScaleConfigResponse
+     *
+     * @param SetAutoScaleConfigRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SetAutoScaleConfigResponse
      */
     public function setAutoScaleConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetAutoScaleConfig',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetAutoScaleConfig',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetAutoScaleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * ## Usage notes
-     *   * If the settings in the Queue Configuration section are different from the settings in the Global Configurations section, the former prevails.
-     *   *
-     * @param SetAutoScaleConfigRequest $request SetAutoScaleConfigRequest
+     * Configures the auto scaling settings of a cluster.
      *
-     * @return SetAutoScaleConfigResponse SetAutoScaleConfigResponse
+     * @remarks
+     * ## Usage notes
+     * If the settings in the Queue Configuration section are different from the settings in the Global Configurations section, the former prevails.
+     *
+     * @param request - SetAutoScaleConfigRequest
+     *
+     * @returns SetAutoScaleConfigResponse
+     *
+     * @param SetAutoScaleConfigRequest $request
+     *
+     * @return SetAutoScaleConfigResponse
      */
     public function setAutoScaleConfig($request)
     {
@@ -4830,147 +4786,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param SetGWSClusterPolicyRequest $request
-     * @param RuntimeOptions             $runtime
+     * Configures the post-processing scripts of a cluster.
      *
-     * @return SetGWSClusterPolicyResponse
-     */
-    public function setGWSClusterPolicyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->asyncMode)) {
-            $query['AsyncMode'] = $request->asyncMode;
-        }
-        if (!Utils::isUnset($request->clipboard)) {
-            $query['Clipboard'] = $request->clipboard;
-        }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->localDrive)) {
-            $query['LocalDrive'] = $request->localDrive;
-        }
-        if (!Utils::isUnset($request->udpPort)) {
-            $query['UdpPort'] = $request->udpPort;
-        }
-        if (!Utils::isUnset($request->usbRedirect)) {
-            $query['UsbRedirect'] = $request->usbRedirect;
-        }
-        if (!Utils::isUnset($request->watermark)) {
-            $query['Watermark'] = $request->watermark;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetGWSClusterPolicy',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetGWSClusterPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SetGWSClusterPolicyRequest $request
+     * @param request - SetPostScriptsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SetGWSClusterPolicyResponse
-     */
-    public function setGWSClusterPolicy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setGWSClusterPolicyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetGWSInstanceNameRequest $request
-     * @param RuntimeOptions            $runtime
+     * @returns SetPostScriptsResponse
      *
-     * @return SetGWSInstanceNameResponse
-     */
-    public function setGWSInstanceNameWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetGWSInstanceName',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetGWSInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SetGWSInstanceNameRequest $request
-     *
-     * @return SetGWSInstanceNameResponse
-     */
-    public function setGWSInstanceName($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setGWSInstanceNameWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetGWSInstanceUserRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SetGWSInstanceUserResponse
-     */
-    public function setGWSInstanceUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetGWSInstanceUser',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SetGWSInstanceUserResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SetGWSInstanceUserRequest $request
-     *
-     * @return SetGWSInstanceUserResponse
-     */
-    public function setGWSInstanceUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setGWSInstanceUserWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SetPostScriptsRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -4978,27 +4800,33 @@ class EHPC extends OpenApiClient
      */
     public function setPostScriptsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetPostScripts',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetPostScripts',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetPostScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Configures the post-processing scripts of a cluster.
+     *
+     * @param request - SetPostScriptsRequest
+     *
+     * @returns SetPostScriptsResponse
+     *
      * @param SetPostScriptsRequest $request
      *
      * @return SetPostScriptsResponse
@@ -5011,6 +4839,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param request - SetQueueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetQueueResponse
+     *
      * @param SetQueueRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -5018,27 +4851,31 @@ class EHPC extends OpenApiClient
      */
     public function setQueueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetQueue',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetQueue',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - SetQueueRequest
+     *
+     * @returns SetQueueResponse
+     *
      * @param SetQueueRequest $request
      *
      * @return SetQueueResponse
@@ -5051,6 +4888,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Configures the scheduler settings of a cluster.
+     *
+     * @param request - SetSchedulerInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetSchedulerInfoResponse
+     *
      * @param SetSchedulerInfoRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -5058,27 +4902,33 @@ class EHPC extends OpenApiClient
      */
     public function setSchedulerInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetSchedulerInfo',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetSchedulerInfo',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SetSchedulerInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Configures the scheduler settings of a cluster.
+     *
+     * @param request - SetSchedulerInfoRequest
+     *
+     * @returns SetSchedulerInfoResponse
+     *
      * @param SetSchedulerInfoRequest $request
      *
      * @return SetSchedulerInfoResponse
@@ -5091,6 +4941,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param request - StartClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartClusterResponse
+     *
      * @param StartClusterRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -5098,27 +4953,31 @@ class EHPC extends OpenApiClient
      */
     public function startClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartCluster',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartCluster',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - StartClusterRequest
+     *
+     * @returns StartClusterResponse
+     *
      * @param StartClusterRequest $request
      *
      * @return StartClusterResponse
@@ -5131,46 +4990,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param StartGWSInstanceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param request - StartNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return StartGWSInstanceResponse
-     */
-    public function startGWSInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'StartGWSInstance',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return StartGWSInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param StartGWSInstanceRequest $request
+     * @returns StartNodesResponse
      *
-     * @return StartGWSInstanceResponse
-     */
-    public function startGWSInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startGWSInstanceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param StartNodesRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -5178,27 +5002,31 @@ class EHPC extends OpenApiClient
      */
     public function startNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartNodes',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartNodes',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - StartNodesRequest
+     *
+     * @returns StartNodesResponse
+     *
      * @param StartNodesRequest $request
      *
      * @return StartNodesResponse
@@ -5211,6 +5039,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Starts the Virtual Network Console (VNC) Remote visualization service in a specified cluster.
+     *
+     * @param request - StartVisualServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartVisualServiceResponse
+     *
      * @param StartVisualServiceRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -5218,27 +5053,33 @@ class EHPC extends OpenApiClient
      */
     public function startVisualServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartVisualService',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartVisualService',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartVisualServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Starts the Virtual Network Console (VNC) Remote visualization service in a specified cluster.
+     *
+     * @param request - StartVisualServiceRequest
+     *
+     * @returns StartVisualServiceResponse
+     *
      * @param StartVisualServiceRequest $request
      *
      * @return StartVisualServiceResponse
@@ -5251,41 +5092,56 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * If you stop a subscription compute node, its billing is not affected. If you stop a pay-as-you-go compute node for which you have enabled the *economical mode*, you are no longer charged for its computing resources. For more information, see [Economical mode](~~63353~~).
-     *   *
-     * @param StopClusterRequest $request StopClusterRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Stops a cluster.
      *
-     * @return StopClusterResponse StopClusterResponse
+     * @remarks
+     * If you stop a subscription compute node, its billing is not affected. If you stop a pay-as-you-go compute node for which you have enabled the *economical mode*, you are no longer charged for its computing resources. For more information, see [Economical mode](https://help.aliyun.com/document_detail/63353.html).
+     *
+     * @param request - StopClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopClusterResponse
+     *
+     * @param StopClusterRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return StopClusterResponse
      */
     public function stopClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopCluster',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopCluster',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * If you stop a subscription compute node, its billing is not affected. If you stop a pay-as-you-go compute node for which you have enabled the *economical mode*, you are no longer charged for its computing resources. For more information, see [Economical mode](~~63353~~).
-     *   *
-     * @param StopClusterRequest $request StopClusterRequest
+     * Stops a cluster.
      *
-     * @return StopClusterResponse StopClusterResponse
+     * @remarks
+     * If you stop a subscription compute node, its billing is not affected. If you stop a pay-as-you-go compute node for which you have enabled the *economical mode*, you are no longer charged for its computing resources. For more information, see [Economical mode](https://help.aliyun.com/document_detail/63353.html).
+     *
+     * @param request - StopClusterRequest
+     *
+     * @returns StopClusterResponse
+     *
+     * @param StopClusterRequest $request
+     *
+     * @return StopClusterResponse
      */
     public function stopCluster($request)
     {
@@ -5295,46 +5151,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param StopGWSInstanceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param request - StopJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return StopGWSInstanceResponse
-     */
-    public function stopGWSInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'StopGWSInstance',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return StopGWSInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param StopGWSInstanceRequest $request
+     * @returns StopJobsResponse
      *
-     * @return StopGWSInstanceResponse
-     */
-    public function stopGWSInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->stopGWSInstanceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param StopJobsRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -5342,27 +5163,31 @@ class EHPC extends OpenApiClient
      */
     public function stopJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopJobs',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopJobs',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - StopJobsRequest
+     *
+     * @returns StopJobsResponse
+     *
      * @param StopJobsRequest $request
      *
      * @return StopJobsResponse
@@ -5375,6 +5200,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param request - StopNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopNodesResponse
+     *
      * @param StopNodesRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -5382,27 +5212,31 @@ class EHPC extends OpenApiClient
      */
     public function stopNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopNodes',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopNodes',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - StopNodesRequest
+     *
+     * @returns StopNodesResponse
+     *
      * @param StopNodesRequest $request
      *
      * @return StopNodesResponse
@@ -5415,6 +5249,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Stops Serverless jobs in a cluster based on job IDs or subtask IDs (array jobs). If you specify the job ID of an array job, all subtasks in the job are stopped.
+     *
+     * @param request - StopServerlessJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopServerlessJobsResponse
+     *
      * @param StopServerlessJobsRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -5422,33 +5263,41 @@ class EHPC extends OpenApiClient
      */
     public function stopServerlessJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->jobIds)) {
-            $query['JobIds'] = $request->jobIds;
+
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopServerlessJobs',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopServerlessJobs',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopServerlessJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Stops Serverless jobs in a cluster based on job IDs or subtask IDs (array jobs). If you specify the job ID of an array job, all subtasks in the job are stopped.
+     *
+     * @param request - StopServerlessJobsRequest
+     *
+     * @returns StopServerlessJobsResponse
+     *
      * @param StopServerlessJobsRequest $request
      *
      * @return StopServerlessJobsResponse
@@ -5461,6 +5310,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Stops the remote visualization service of Virtual Network Console (VNC) in a cluster.
+     *
+     * @param request - StopVisualServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopVisualServiceResponse
+     *
      * @param StopVisualServiceRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -5468,27 +5324,33 @@ class EHPC extends OpenApiClient
      */
     public function stopVisualServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopVisualService',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopVisualService',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StopVisualServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Stops the remote visualization service of Virtual Network Console (VNC) in a cluster.
+     *
+     * @param request - StopVisualServiceRequest
+     *
+     * @returns StopVisualServiceResponse
+     *
      * @param StopVisualServiceRequest $request
      *
      * @return StopVisualServiceResponse
@@ -5501,43 +5363,56 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * Before you submit a job in a cluster, you must upload a job file to the cluster, for example, job.sh. For more information, see [CreateJobFile](~~159049~~).
-     *   *
-     * @param SubmitJobRequest $request SubmitJobRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Submits a job in a cluster.
      *
-     * @return SubmitJobResponse SubmitJobResponse
+     * @remarks
+     * The ID of the request.
+     *
+     * @param request - SubmitJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitJobResponse
+     *
+     * @param SubmitJobRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return SubmitJobResponse
      */
     public function submitJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitJob',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitJob',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SubmitJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * ## Description
-     *   * Before you submit a job in a cluster, you must upload a job file to the cluster, for example, job.sh. For more information, see [CreateJobFile](~~159049~~).
-     *   *
-     * @param SubmitJobRequest $request SubmitJobRequest
+     * Submits a job in a cluster.
      *
-     * @return SubmitJobResponse SubmitJobResponse
+     * @remarks
+     * The ID of the request.
+     *
+     * @param request - SubmitJobRequest
+     *
+     * @returns SubmitJobResponse
+     *
+     * @param SubmitJobRequest $request
+     *
+     * @return SubmitJobResponse
      */
     public function submitJob($request)
     {
@@ -5547,6 +5422,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Submits a serverless job to an Elastic High Performance Computing (E-HPC) cluster.
+     *
+     * @param tmpReq - SubmitServerlessJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitServerlessJobResponse
+     *
      * @param SubmitServerlessJobRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
@@ -5554,95 +5436,123 @@ class EHPC extends OpenApiClient
      */
     public function submitServerlessJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitServerlessJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->arrayProperties)) {
-            $request->arrayPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->arrayProperties, 'ArrayProperties', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->arrayProperties) {
+            $request->arrayPropertiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->arrayProperties, 'ArrayProperties', 'json');
         }
-        if (!Utils::isUnset($tmpReq->container)) {
-            $request->containerShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->container, 'Container', 'json');
+
+        if (null !== $tmpReq->container) {
+            $request->containerShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->container, 'Container', 'json');
         }
-        if (!Utils::isUnset($tmpReq->dependsOn)) {
-            $request->dependsOnShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dependsOn, 'DependsOn', 'json');
+
+        if (null !== $tmpReq->dependsOn) {
+            $request->dependsOnShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dependsOn, 'DependsOn', 'json');
         }
-        if (!Utils::isUnset($tmpReq->instanceType)) {
-            $request->instanceTypeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceType, 'InstanceType', 'json');
+
+        if (null !== $tmpReq->instanceType) {
+            $request->instanceTypeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceType, 'InstanceType', 'json');
         }
-        if (!Utils::isUnset($tmpReq->retryStrategy)) {
-            $request->retryStrategyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->retryStrategy, 'RetryStrategy', 'json');
+
+        if (null !== $tmpReq->retryStrategy) {
+            $request->retryStrategyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->retryStrategy, 'RetryStrategy', 'json');
         }
-        if (!Utils::isUnset($tmpReq->vSwitchId)) {
-            $request->vSwitchIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vSwitchId, 'VSwitchId', 'json');
+
+        if (null !== $tmpReq->vSwitchId) {
+            $request->vSwitchIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vSwitchId, 'VSwitchId', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->arrayPropertiesShrink)) {
-            $query['ArrayProperties'] = $request->arrayPropertiesShrink;
+        if (null !== $request->arrayPropertiesShrink) {
+            @$query['ArrayProperties'] = $request->arrayPropertiesShrink;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->containerShrink)) {
-            $query['Container'] = $request->containerShrink;
+
+        if (null !== $request->containerShrink) {
+            @$query['Container'] = $request->containerShrink;
         }
-        if (!Utils::isUnset($request->cpu)) {
-            $query['Cpu'] = $request->cpu;
+
+        if (null !== $request->cpu) {
+            @$query['Cpu'] = $request->cpu;
         }
-        if (!Utils::isUnset($request->dependsOnShrink)) {
-            $query['DependsOn'] = $request->dependsOnShrink;
+
+        if (null !== $request->dependsOnShrink) {
+            @$query['DependsOn'] = $request->dependsOnShrink;
         }
-        if (!Utils::isUnset($request->ephemeralStorage)) {
-            $query['EphemeralStorage'] = $request->ephemeralStorage;
+
+        if (null !== $request->ephemeralStorage) {
+            @$query['EphemeralStorage'] = $request->ephemeralStorage;
         }
-        if (!Utils::isUnset($request->instanceTypeShrink)) {
-            $query['InstanceType'] = $request->instanceTypeShrink;
+
+        if (null !== $request->instanceTypeShrink) {
+            @$query['InstanceType'] = $request->instanceTypeShrink;
         }
-        if (!Utils::isUnset($request->jobName)) {
-            $query['JobName'] = $request->jobName;
+
+        if (null !== $request->jobName) {
+            @$query['JobName'] = $request->jobName;
         }
-        if (!Utils::isUnset($request->jobPriority)) {
-            $query['JobPriority'] = $request->jobPriority;
+
+        if (null !== $request->jobPriority) {
+            @$query['JobPriority'] = $request->jobPriority;
         }
-        if (!Utils::isUnset($request->memory)) {
-            $query['Memory'] = $request->memory;
+
+        if (null !== $request->memory) {
+            @$query['Memory'] = $request->memory;
         }
-        if (!Utils::isUnset($request->ramRoleName)) {
-            $query['RamRoleName'] = $request->ramRoleName;
+
+        if (null !== $request->ramRoleName) {
+            @$query['RamRoleName'] = $request->ramRoleName;
         }
-        if (!Utils::isUnset($request->retryStrategyShrink)) {
-            $query['RetryStrategy'] = $request->retryStrategyShrink;
+
+        if (null !== $request->retryStrategyShrink) {
+            @$query['RetryStrategy'] = $request->retryStrategyShrink;
         }
-        if (!Utils::isUnset($request->spotPriceLimit)) {
-            $query['SpotPriceLimit'] = $request->spotPriceLimit;
+
+        if (null !== $request->spotPriceLimit) {
+            @$query['SpotPriceLimit'] = $request->spotPriceLimit;
         }
-        if (!Utils::isUnset($request->spotStrategy)) {
-            $query['SpotStrategy'] = $request->spotStrategy;
+
+        if (null !== $request->spotStrategy) {
+            @$query['SpotStrategy'] = $request->spotStrategy;
         }
-        if (!Utils::isUnset($request->timeout)) {
-            $query['Timeout'] = $request->timeout;
+
+        if (null !== $request->timeout) {
+            @$query['Timeout'] = $request->timeout;
         }
-        if (!Utils::isUnset($request->vSwitchIdShrink)) {
-            $query['VSwitchId'] = $request->vSwitchIdShrink;
+
+        if (null !== $request->vSwitchIdShrink) {
+            @$query['VSwitchId'] = $request->vSwitchIdShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitServerlessJob',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitServerlessJob',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SubmitServerlessJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Submits a serverless job to an Elastic High Performance Computing (E-HPC) cluster.
+     *
+     * @param request - SubmitServerlessJobRequest
+     *
+     * @returns SubmitServerlessJobResponse
+     *
      * @param SubmitServerlessJobRequest $request
      *
      * @return SubmitServerlessJobResponse
@@ -5655,86 +5565,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param SummaryImagesRequest $request
-     * @param RuntimeOptions       $runtime
+     * Synchronizes local cluster users to a hybrid cloud cluster in hybrid-cloud proxy mode.
      *
-     * @return SummaryImagesResponse
-     */
-    public function summaryImagesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SummaryImages',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SummaryImagesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SummaryImagesRequest $request
+     * @param request - SyncUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SummaryImagesResponse
-     */
-    public function summaryImages($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->summaryImagesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SummaryImagesInfoRequest $request
-     * @param RuntimeOptions           $runtime
+     * @returns SyncUsersResponse
      *
-     * @return SummaryImagesInfoResponse
-     */
-    public function summaryImagesInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SummaryImagesInfo',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SummaryImagesInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SummaryImagesInfoRequest $request
-     *
-     * @return SummaryImagesInfoResponse
-     */
-    public function summaryImagesInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->summaryImagesInfoWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SyncUsersRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -5742,27 +5579,33 @@ class EHPC extends OpenApiClient
      */
     public function syncUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SyncUsers',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SyncUsers',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SyncUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Synchronizes local cluster users to a hybrid cloud cluster in hybrid-cloud proxy mode.
+     *
+     * @param request - SyncUsersRequest
+     *
+     * @returns SyncUsersResponse
+     *
      * @param SyncUsersRequest $request
      *
      * @return SyncUsersResponse
@@ -5775,6 +5618,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Creates tags and attach the tags to a specified resource.
+     *
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
      * @param TagResourcesRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -5782,39 +5632,49 @@ class EHPC extends OpenApiClient
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Creates tags and attach the tags to a specified resource.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
      * @param TagResourcesRequest $request
      *
      * @return TagResourcesResponse
@@ -5827,6 +5687,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Removes tags from a specified resource.
+     *
+     * @param request - UnTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnTagResourcesResponse
+     *
      * @param UnTagResourcesRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -5834,42 +5701,53 @@ class EHPC extends OpenApiClient
      */
     public function unTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnTagResources',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnTagResources',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Removes tags from a specified resource.
+     *
+     * @param request - UnTagResourcesRequest
+     *
+     * @returns UnTagResourcesResponse
+     *
      * @param UnTagResourcesRequest $request
      *
      * @return UnTagResourcesResponse
@@ -5882,6 +5760,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Uninstalls software from a cluster.
+     *
+     * @param request - UninstallSoftwareRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UninstallSoftwareResponse
+     *
      * @param UninstallSoftwareRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -5889,27 +5774,33 @@ class EHPC extends OpenApiClient
      */
     public function uninstallSoftwareWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UninstallSoftware',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UninstallSoftware',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UninstallSoftwareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Uninstalls software from a cluster.
+     *
+     * @param request - UninstallSoftwareRequest
+     *
+     * @returns UninstallSoftwareResponse
+     *
      * @param UninstallSoftwareRequest $request
      *
      * @return UninstallSoftwareResponse
@@ -5922,6 +5813,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Mount new storage resources to a cluster.
+     *
+     * @param request - UpdateClusterVolumesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateClusterVolumesResponse
+     *
      * @param UpdateClusterVolumesRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -5929,27 +5827,33 @@ class EHPC extends OpenApiClient
      */
     public function updateClusterVolumesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateClusterVolumes',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateClusterVolumes',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateClusterVolumesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Mount new storage resources to a cluster.
+     *
+     * @param request - UpdateClusterVolumesRequest
+     *
+     * @returns UpdateClusterVolumesResponse
+     *
      * @param UpdateClusterVolumesRequest $request
      *
      * @return UpdateClusterVolumesResponse
@@ -5962,41 +5866,56 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * After you update the resource group, the nodes that you add by scaling out the cluster are automatically included in the resource group.
-     *   *
-     * @param UpdateQueueConfigRequest $request UpdateQueueConfigRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Updates the resource group information and the instance types of compute nodes for a queue of a cluster.
      *
-     * @return UpdateQueueConfigResponse UpdateQueueConfigResponse
+     * @remarks
+     * After you update the resource group, the nodes that you add by scaling out the cluster are automatically included in the resource group.
+     *
+     * @param request - UpdateQueueConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateQueueConfigResponse
+     *
+     * @param UpdateQueueConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateQueueConfigResponse
      */
     public function updateQueueConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateQueueConfig',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateQueueConfig',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateQueueConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * After you update the resource group, the nodes that you add by scaling out the cluster are automatically included in the resource group.
-     *   *
-     * @param UpdateQueueConfigRequest $request UpdateQueueConfigRequest
+     * Updates the resource group information and the instance types of compute nodes for a queue of a cluster.
      *
-     * @return UpdateQueueConfigResponse UpdateQueueConfigResponse
+     * @remarks
+     * After you update the resource group, the nodes that you add by scaling out the cluster are automatically included in the resource group.
+     *
+     * @param request - UpdateQueueConfigRequest
+     *
+     * @returns UpdateQueueConfigResponse
+     *
+     * @param UpdateQueueConfigRequest $request
+     *
+     * @return UpdateQueueConfigResponse
      */
     public function updateQueueConfig($request)
     {
@@ -6006,6 +5925,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * Updates the client (ehpcutil) in a cluster to a new version.
+     *
+     * @param request - UpgradeClientRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeClientResponse
+     *
      * @param UpgradeClientRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -6013,27 +5939,33 @@ class EHPC extends OpenApiClient
      */
     public function upgradeClientWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeClient',
-            'version'     => '2018-04-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeClient',
+            'version' => '2018-04-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpgradeClientResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Updates the client (ehpcutil) in a cluster to a new version.
+     *
+     * @param request - UpgradeClientRequest
+     *
+     * @returns UpgradeClientResponse
+     *
      * @param UpgradeClientRequest $request
      *
      * @return UpgradeClientResponse

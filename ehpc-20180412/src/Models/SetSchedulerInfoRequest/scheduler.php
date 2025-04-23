@@ -4,22 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\SetSchedulerInfoRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class scheduler extends Model
 {
     /**
-     * @description The name of the scheduler. Valid values:
-     *
-     *   pbs
-     *   pbs19
-     *   slurm
-     *   slurm19
-     *   slurm20
-     *
-     * >  If you set Scheduler.N.SchedName to pbs or pbs19, you must specify at least one of the PbsInfo.N.SchedInterval, PbsInfo.N.JobHistoryDuration, PbsInfo.N.ResourceLimit, and PbsInfo.N.AclLimit parameters. If you set Scheduler.N.SchedName to slurm, slurm19, or slurm20, you must specify at least one of the SlurmInfo.N.SchedInterval and SlurmInfo.N.BackfillInterval parameters.
-     * @example pbs
-     *
      * @var string
      */
     public $schedName;
@@ -29,9 +18,10 @@ class scheduler extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->schedName) {
@@ -41,11 +31,11 @@ class scheduler extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scheduler
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

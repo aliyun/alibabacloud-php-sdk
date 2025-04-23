@@ -4,64 +4,50 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListPreferredEcsTypesResponseBody\series;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListPreferredEcsTypesResponseBody\series\seriesInfo\roles;
-use AlibabaCloud\Tea\Model;
 
 class seriesInfo extends Model
 {
     /**
-     * @description Recommended instance types for nodes in an E-HPC cluser.
-     *
      * @var roles
      */
     public $roles;
 
     /**
-     * @description The ID of the ECS instance series. Valid values:
-     *
-     *   HighCompute: compute-optimized instance families
-     *   HighMem: memory-optimized instance families
-     *   GPU: GPU-accelerated instance families
-     *   All: all instance families
-     *
-     * @example All
-     *
      * @var string
      */
     public $seriesId;
 
     /**
-     * @description The name of the instance series. Valid values:
-     *
-     *   SeriesHighCompute
-     *   SeriesHighMem
-     *   SeriesGPU
-     *   SeriesAll
-     *
-     * @example SeriesAll
-     *
      * @var string
      */
     public $seriesName;
     protected $_name = [
-        'roles'      => 'Roles',
-        'seriesId'   => 'SeriesId',
+        'roles' => 'Roles',
+        'seriesId' => 'SeriesId',
         'seriesName' => 'SeriesName',
     ];
 
     public function validate()
     {
+        if (null !== $this->roles) {
+            $this->roles->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->roles) {
-            $res['Roles'] = null !== $this->roles ? $this->roles->toMap() : null;
+            $res['Roles'] = null !== $this->roles ? $this->roles->toArray($noStream) : $this->roles;
         }
+
         if (null !== $this->seriesId) {
             $res['SeriesId'] = $this->seriesId;
         }
+
         if (null !== $this->seriesName) {
             $res['SeriesName'] = $this->seriesName;
         }
@@ -69,20 +55,22 @@ class seriesInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return seriesInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Roles'])) {
             $model->roles = roles::fromMap($map['Roles']);
         }
+
         if (isset($map['SeriesId'])) {
             $model->seriesId = $map['SeriesId'];
         }
+
         if (isset($map['SeriesName'])) {
             $model->seriesName = $map['SeriesName'];
         }

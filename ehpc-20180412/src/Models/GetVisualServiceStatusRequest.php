@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetVisualServiceStatusRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
-     *
-     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
-     * @example ehpc-hz-jeJki6****
-     *
      * @var string
      */
     public $clusterId;
@@ -23,9 +18,10 @@ class GetVisualServiceStatusRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
@@ -35,11 +31,11 @@ class GetVisualServiceStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetVisualServiceStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

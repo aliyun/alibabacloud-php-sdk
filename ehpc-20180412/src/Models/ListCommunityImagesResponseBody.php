@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListCommunityImagesResponseBody\images;
-use AlibabaCloud\Tea\Model;
 
 class ListCommunityImagesResponseBody extends Model
 {
     /**
-     * @description The list of custom images and shared images that are supported by the E-HPC.
-     *
      * @var images
      */
     public $images;
 
     /**
-     * @description The request ID.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'images'    => 'Images',
+        'images' => 'Images',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->images) {
+            $this->images->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->images) {
-            $res['Images'] = null !== $this->images ? $this->images->toMap() : null;
+            $res['Images'] = null !== $this->images ? $this->images->toArray($noStream) : $this->images;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class ListCommunityImagesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCommunityImagesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Images'])) {
             $model->images = images::fromMap($map['Images']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

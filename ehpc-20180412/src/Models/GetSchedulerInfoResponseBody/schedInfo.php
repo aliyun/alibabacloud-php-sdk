@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\GetSchedulerInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class schedInfo extends Model
 {
     /**
-     * @description The detailed settings of the scheduler.
-     *
-     * @example {"AclInfo":[{"AclEnable": false,"UntrackUser": [],"User": [],"QueueName": "workq"}],"JobHistory": "","SchedIteration": "60","QueueResource": [{"UntrackUser": [],"User": [],"QueueName": "workq"}]}
-     *
      * @var string
      */
     public $configuration;
 
     /**
-     * @description The type of the scheduler.
-     *
-     * @example pbs
-     *
      * @var string
      */
     public $schedName;
     protected $_name = [
         'configuration' => 'Configuration',
-        'schedName'     => 'SchedName',
+        'schedName' => 'SchedName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configuration) {
             $res['Configuration'] = $this->configuration;
         }
+
         if (null !== $this->schedName) {
             $res['SchedName'] = $this->schedName;
         }
@@ -47,17 +41,18 @@ class schedInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return schedInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Configuration'])) {
             $model->configuration = $map['Configuration'];
         }
+
         if (isset($map['SchedName'])) {
             $model->schedName = $map['SchedName'];
         }

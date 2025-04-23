@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListPreferredEcsTypesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListPreferredEcsTypesResponseBody\series\seriesInfo;
-use AlibabaCloud\Tea\Model;
 
 class series extends Model
 {
@@ -19,17 +19,21 @@ class series extends Model
 
     public function validate()
     {
+        if (\is_array($this->seriesInfo)) {
+            Model::validateArray($this->seriesInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->seriesInfo) {
-            $res['SeriesInfo'] = [];
-            if (null !== $this->seriesInfo && \is_array($this->seriesInfo)) {
-                $n = 0;
-                foreach ($this->seriesInfo as $item) {
-                    $res['SeriesInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->seriesInfo)) {
+                $res['SeriesInfo'] = [];
+                $n1 = 0;
+                foreach ($this->seriesInfo as $item1) {
+                    $res['SeriesInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class series extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return series
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SeriesInfo'])) {
             if (!empty($map['SeriesInfo'])) {
                 $model->seriesInfo = [];
-                $n                 = 0;
-                foreach ($map['SeriesInfo'] as $item) {
-                    $model->seriesInfo[$n++] = null !== $item ? seriesInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SeriesInfo'] as $item1) {
+                    $model->seriesInfo[$n1++] = seriesInfo::fromMap($item1);
                 }
             }
         }

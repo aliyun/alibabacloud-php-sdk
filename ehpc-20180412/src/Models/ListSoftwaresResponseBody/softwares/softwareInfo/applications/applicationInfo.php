@@ -4,71 +4,56 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListSoftwaresResponseBody\softwares\softwareInfo\applications;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class applicationInfo extends Model
 {
     /**
-     * @description The name of the software.
-     *
-     * @example cudnnt
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description Indicates whether the software is required. Valid values:
-     *
-     *   false: optional
-     *   true: required
-     *
-     * @example true
-     *
      * @var bool
      */
     public $required;
 
     /**
-     * @description The tag of the software.
-     *
-     * @example CUDNN_9.0
-     *
      * @var string
      */
     public $tag;
 
     /**
-     * @description The version of the software.
-     *
-     * @example 9.0
-     *
      * @var string
      */
     public $version;
     protected $_name = [
-        'name'     => 'Name',
+        'name' => 'Name',
         'required' => 'Required',
-        'tag'      => 'Tag',
-        'version'  => 'Version',
+        'tag' => 'Tag',
+        'version' => 'Version',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->required) {
             $res['Required'] = $this->required;
         }
+
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -76,23 +61,26 @@ class applicationInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return applicationInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Required'])) {
             $model->required = $map['Required'];
         }
+
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

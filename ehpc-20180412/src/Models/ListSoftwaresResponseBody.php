@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListSoftwaresResponseBody\softwares;
-use AlibabaCloud\Tea\Model;
 
 class ListSoftwaresResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE7****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The list of the information about the software installed in the cluster.
-     *
      * @var softwares
      */
     public $softwares;
@@ -31,32 +25,38 @@ class ListSoftwaresResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->softwares) {
+            $this->softwares->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->softwares) {
-            $res['Softwares'] = null !== $this->softwares ? $this->softwares->toMap() : null;
+            $res['Softwares'] = null !== $this->softwares ? $this->softwares->toArray($noStream) : $this->softwares;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSoftwaresResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Softwares'])) {
             $model->softwares = softwares::fromMap($map['Softwares']);
         }

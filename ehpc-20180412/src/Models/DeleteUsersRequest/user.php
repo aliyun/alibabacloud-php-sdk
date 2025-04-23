@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DeleteUsersRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class user extends Model
 {
     /**
-     * @description The name of the user N that you want to delete. Valid values of N: 1 to 100.
-     *
-     * You can call the [ListUsers](~~188572~~) operation to query the users of the cluster.
-     * @example user1
-     *
      * @var string
      */
     public $name;
@@ -23,9 +18,10 @@ class user extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
@@ -35,11 +31,11 @@ class user extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return user
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

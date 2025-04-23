@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListInstalledSoftwareResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListInstalledSoftwareResponseBody\softwareList\softwareList;
 
 class softwareList extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\EHPC\V20180412\Models\ListInstalledSoftwareResponseBody\softwareList\softwareList[]
+     * @var softwareList[]
      */
     public $softwareList;
     protected $_name = [
@@ -18,17 +19,21 @@ class softwareList extends Model
 
     public function validate()
     {
+        if (\is_array($this->softwareList)) {
+            Model::validateArray($this->softwareList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->softwareList) {
-            $res['SoftwareList'] = [];
-            if (null !== $this->softwareList && \is_array($this->softwareList)) {
-                $n = 0;
-                foreach ($this->softwareList as $item) {
-                    $res['SoftwareList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->softwareList)) {
+                $res['SoftwareList'] = [];
+                $n1 = 0;
+                foreach ($this->softwareList as $item1) {
+                    $res['SoftwareList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +41,20 @@ class softwareList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return softwareList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SoftwareList'])) {
             if (!empty($map['SoftwareList'])) {
                 $model->softwareList = [];
-                $n                   = 0;
-                foreach ($map['SoftwareList'] as $item) {
-                    $model->softwareList[$n++] = null !== $item ? \AlibabaCloud\SDK\EHPC\V20180412\Models\ListInstalledSoftwareResponseBody\softwareList\softwareList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SoftwareList'] as $item1) {
+                    $model->softwareList[$n1++] = self::fromMap($item1);
                 }
             }
         }

@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeJobResponseBody\message;
-use AlibabaCloud\Tea\Model;
 
 class DescribeJobResponseBody extends Model
 {
     /**
-     * @description The list of returned job information.
-     *
      * @var message
      */
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example 9697AD8D-56FA-4C8E-B46C-00AC9***
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'message'   => 'Message',
+        'message' => 'Message',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->message) {
+            $this->message->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
-            $res['Message'] = null !== $this->message ? $this->message->toMap() : null;
+            $res['Message'] = null !== $this->message ? $this->message->toArray($noStream) : $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DescribeJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = message::fromMap($map['Message']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

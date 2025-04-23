@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeServerlessJobsResponseBody\jobInfos\containerGroups\containers;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ports extends Model
 {
     /**
-     * @description The port number. Valid values: 1 to 65535.
-     *
-     * @example 8080
-     *
      * @var int
      */
     public $port;
 
     /**
-     * @description The protocol.
-     *
-     * @example TCP
-     *
      * @var string
      */
     public $protocol;
     protected $_name = [
-        'port'     => 'Port',
+        'port' => 'Port',
         'protocol' => 'Protocol',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
@@ -47,17 +41,18 @@ class ports extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ports
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }

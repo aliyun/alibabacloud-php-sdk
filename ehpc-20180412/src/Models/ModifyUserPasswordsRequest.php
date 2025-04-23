@@ -4,62 +4,56 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ModifyUserPasswordsRequest\user;
-use AlibabaCloud\Tea\Model;
 
 class ModifyUserPasswordsRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the asynchronous mode for this request.
-     *
-     * Default value: false.
-     * @example false
-     *
      * @var bool
      */
     public $async;
 
     /**
-     * @description The cluster ID.
-     *
-     * You can call the [ListClusters](~~87116~~) operation to obtain the cluster ID.
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The information about the user.
-     *
      * @var user[]
      */
     public $user;
     protected $_name = [
-        'async'     => 'Async',
+        'async' => 'Async',
         'clusterId' => 'ClusterId',
-        'user'      => 'User',
+        'user' => 'User',
     ];
 
     public function validate()
     {
+        if (\is_array($this->user)) {
+            Model::validateArray($this->user);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->async) {
             $res['Async'] = $this->async;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->user) {
-            $res['User'] = [];
-            if (null !== $this->user && \is_array($this->user)) {
-                $n = 0;
-                foreach ($this->user as $item) {
-                    $res['User'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->user)) {
+                $res['User'] = [];
+                $n1 = 0;
+                foreach ($this->user as $item1) {
+                    $res['User'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -67,26 +61,28 @@ class ModifyUserPasswordsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyUserPasswordsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Async'])) {
             $model->async = $map['Async'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['User'])) {
             if (!empty($map['User'])) {
                 $model->user = [];
-                $n           = 0;
-                foreach ($map['User'] as $item) {
-                    $model->user[$n++] = null !== $item ? user::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['User'] as $item1) {
+                    $model->user[$n1++] = user::fromMap($item1);
                 }
             }
         }

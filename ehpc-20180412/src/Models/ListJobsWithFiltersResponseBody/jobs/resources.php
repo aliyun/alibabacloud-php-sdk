@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListJobsWithFiltersResponseBody\jobs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resources extends Model
 {
     /**
-     * @description The number of CPUs that were used to run the job.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $cores;
 
     /**
-     * @description The number of nodes that were used to run the job.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $nodes;
@@ -32,14 +24,16 @@ class resources extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cores) {
             $res['Cores'] = $this->cores;
         }
+
         if (null !== $this->nodes) {
             $res['Nodes'] = $this->nodes;
         }
@@ -47,17 +41,18 @@ class resources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cores'])) {
             $model->cores = $map['Cores'];
         }
+
         if (isset($map['Nodes'])) {
             $model->nodes = $map['Nodes'];
         }

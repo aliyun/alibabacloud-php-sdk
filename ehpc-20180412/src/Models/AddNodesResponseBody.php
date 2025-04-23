@@ -4,54 +4,50 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\AddNodesResponseBody\instanceIds;
-use AlibabaCloud\Tea\Model;
 
 class AddNodesResponseBody extends Model
 {
     /**
-     * @description The instance IDs.
-     *
      * @var instanceIds
      */
     public $instanceIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example B745C159-3155-4B94-95D0-4B73D4D2****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the task.
-     *
-     * @example B745C159-3155-4B94-95D0-4B73D4D2****
-     *
      * @var string
      */
     public $taskId;
     protected $_name = [
         'instanceIds' => 'InstanceIds',
-        'requestId'   => 'RequestId',
-        'taskId'      => 'TaskId',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
     {
+        if (null !== $this->instanceIds) {
+            $this->instanceIds->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = null !== $this->instanceIds ? $this->instanceIds->toMap() : null;
+            $res['InstanceIds'] = null !== $this->instanceIds ? $this->instanceIds->toArray($noStream) : $this->instanceIds;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -59,20 +55,22 @@ class AddNodesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddNodesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = instanceIds::fromMap($map['InstanceIds']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

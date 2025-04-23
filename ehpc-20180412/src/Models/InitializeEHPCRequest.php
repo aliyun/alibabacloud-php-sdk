@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InitializeEHPCRequest extends Model
 {
     /**
-     * @description The ID of the region where the service-linked role is created.
-     *
-     * You can call the [ListRegions](~~188593~~) operation to obtain the IDs of regions supported by E-HPC.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description This parameter is unavailable for public use.
-     *
-     * @example E-HPC
-     *
      * @var string
      */
     public $serviceName;
     protected $_name = [
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
         'serviceName' => 'ServiceName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
@@ -48,17 +41,18 @@ class InitializeEHPCRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InitializeEHPCRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }

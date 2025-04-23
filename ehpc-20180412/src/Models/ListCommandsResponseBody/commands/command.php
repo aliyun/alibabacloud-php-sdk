@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListCommandsResponseBody\commands;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class command extends Model
 {
     /**
-     * @description The content of the command.
-     *
-     * @example echo "hello world"
-     *
      * @var string
      */
     public $commandContent;
 
     /**
-     * @description The ID of the command.
-     *
-     * @example c-hz01v8vudql****
-     *
      * @var string
      */
     public $commandId;
 
     /**
-     * @description The timeout period. Unit: seconds.
-     *
-     * @example 60
-     *
      * @var string
      */
     public $timeout;
 
     /**
-     * @description The working directory of the command.
-     *
-     * @example /home
-     *
      * @var string
      */
     public $workingDir;
     protected $_name = [
         'commandContent' => 'CommandContent',
-        'commandId'      => 'CommandId',
-        'timeout'        => 'Timeout',
-        'workingDir'     => 'WorkingDir',
+        'commandId' => 'CommandId',
+        'timeout' => 'Timeout',
+        'workingDir' => 'WorkingDir',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commandContent) {
             $res['CommandContent'] = $this->commandContent;
         }
+
         if (null !== $this->commandId) {
             $res['CommandId'] = $this->commandId;
         }
+
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
         }
+
         if (null !== $this->workingDir) {
             $res['WorkingDir'] = $this->workingDir;
         }
@@ -73,23 +61,26 @@ class command extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return command
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommandContent'])) {
             $model->commandContent = $map['CommandContent'];
         }
+
         if (isset($map['CommandId'])) {
             $model->commandId = $map['CommandId'];
         }
+
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];
         }
+
         if (isset($map['WorkingDir'])) {
             $model->workingDir = $map['WorkingDir'];
         }

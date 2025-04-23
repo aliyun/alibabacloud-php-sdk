@@ -4,54 +4,50 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeServerlessJobsResponseBody\jobInfos\containerGroups\initContainers;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeServerlessJobsResponseBody\jobInfos\containerGroups\initContainers\securityContext\capability;
-use AlibabaCloud\Tea\Model;
 
 class securityContext extends Model
 {
     /**
-     * @description The permissions specific to the processes in the container.
-     *
      * @var capability
      */
     public $capability;
 
     /**
-     * @description Indicates whether the root file system is set to the read-only mode. The only valid value is true.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $readOnlyRootFilesystem;
 
     /**
-     * @description The UID that is used to run the entry point of the container process.
-     *
-     * @example 1557
-     *
      * @var int
      */
     public $runAsUser;
     protected $_name = [
-        'capability'             => 'Capability',
+        'capability' => 'Capability',
         'readOnlyRootFilesystem' => 'ReadOnlyRootFilesystem',
-        'runAsUser'              => 'RunAsUser',
+        'runAsUser' => 'RunAsUser',
     ];
 
     public function validate()
     {
+        if (null !== $this->capability) {
+            $this->capability->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->capability) {
-            $res['Capability'] = null !== $this->capability ? $this->capability->toMap() : null;
+            $res['Capability'] = null !== $this->capability ? $this->capability->toArray($noStream) : $this->capability;
         }
+
         if (null !== $this->readOnlyRootFilesystem) {
             $res['ReadOnlyRootFilesystem'] = $this->readOnlyRootFilesystem;
         }
+
         if (null !== $this->runAsUser) {
             $res['RunAsUser'] = $this->runAsUser;
         }
@@ -59,20 +55,22 @@ class securityContext extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return securityContext
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Capability'])) {
             $model->capability = capability::fromMap($map['Capability']);
         }
+
         if (isset($map['ReadOnlyRootFilesystem'])) {
             $model->readOnlyRootFilesystem = $map['ReadOnlyRootFilesystem'];
         }
+
         if (isset($map['RunAsUser'])) {
             $model->runAsUser = $map['RunAsUser'];
         }

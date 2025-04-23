@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSecurityGroupRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The security group ID of the instance.
-     *
-     * @example sg-bp13n61xsydodfyg****
-     *
      * @var string
      */
     public $securityGroupId;
     protected $_name = [
-        'clusterId'       => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'securityGroupId' => 'SecurityGroupId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
@@ -47,17 +41,18 @@ class DeleteSecurityGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSecurityGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }

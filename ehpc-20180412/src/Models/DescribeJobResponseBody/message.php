@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeJobResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class message extends Model
 {
     /**
-     * @description The details of the job.
-     *
-     * @example {"2.scheduler": {"egroup": "users","Stageout_status": 1,"Keep_Files": "n","server": "scheduler","queue": "workq"}}
-     *
      * @var string
      */
     public $jobInfo;
@@ -22,9 +18,10 @@ class message extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobInfo) {
@@ -34,11 +31,11 @@ class message extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return message
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

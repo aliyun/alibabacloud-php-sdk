@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListAvailableEcsTypesResponseBody\instanceTypeFamilies\instanceTypeFamilyInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListAvailableEcsTypesResponseBody\instanceTypeFamilies\instanceTypeFamilyInfo\types\typesInfo;
-use AlibabaCloud\Tea\Model;
 
 class types extends Model
 {
@@ -19,17 +19,21 @@ class types extends Model
 
     public function validate()
     {
+        if (\is_array($this->typesInfo)) {
+            Model::validateArray($this->typesInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->typesInfo) {
-            $res['TypesInfo'] = [];
-            if (null !== $this->typesInfo && \is_array($this->typesInfo)) {
-                $n = 0;
-                foreach ($this->typesInfo as $item) {
-                    $res['TypesInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->typesInfo)) {
+                $res['TypesInfo'] = [];
+                $n1 = 0;
+                foreach ($this->typesInfo as $item1) {
+                    $res['TypesInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class types extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return types
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TypesInfo'])) {
             if (!empty($map['TypesInfo'])) {
                 $model->typesInfo = [];
-                $n                = 0;
-                foreach ($map['TypesInfo'] as $item) {
-                    $model->typesInfo[$n++] = null !== $item ? typesInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TypesInfo'] as $item1) {
+                    $model->typesInfo[$n1++] = typesInfo::fromMap($item1);
                 }
             }
         }

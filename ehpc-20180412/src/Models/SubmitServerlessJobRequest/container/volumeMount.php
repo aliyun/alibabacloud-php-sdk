@@ -4,52 +4,46 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitServerlessJobRequest\container;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class volumeMount extends Model
 {
     /**
-     * @example alicloud/oss
-     *
      * @var string
      */
     public $flexVolumeDriver;
 
     /**
-     * @example {"bucket":"hpctest","url": "oss-cn-hangzhou-internal.aliyuncs.com
-     * ","path":"/data","ramRole":"AliyunECSInstanceForEHPCRole"}
      * @var string
      */
     public $flexVolumeOptions;
 
     /**
-     * @description The directory to which the volume is mounted.
-     *
-     * > The data stored in this directory is overwritten by the data on the volume. Specify this parameter with caution.
-     * @example /data
-     *
      * @var string
      */
     public $mountPath;
     protected $_name = [
-        'flexVolumeDriver'  => 'FlexVolumeDriver',
+        'flexVolumeDriver' => 'FlexVolumeDriver',
         'flexVolumeOptions' => 'FlexVolumeOptions',
-        'mountPath'         => 'MountPath',
+        'mountPath' => 'MountPath',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flexVolumeDriver) {
             $res['FlexVolumeDriver'] = $this->flexVolumeDriver;
         }
+
         if (null !== $this->flexVolumeOptions) {
             $res['FlexVolumeOptions'] = $this->flexVolumeOptions;
         }
+
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
         }
@@ -57,20 +51,22 @@ class volumeMount extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return volumeMount
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FlexVolumeDriver'])) {
             $model->flexVolumeDriver = $map['FlexVolumeDriver'];
         }
+
         if (isset($map['FlexVolumeOptions'])) {
             $model->flexVolumeOptions = $map['FlexVolumeOptions'];
         }
+
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];
         }

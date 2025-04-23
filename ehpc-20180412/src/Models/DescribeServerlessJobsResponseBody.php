@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeServerlessJobsResponseBody\jobInfos;
-use AlibabaCloud\Tea\Model;
 
 class DescribeServerlessJobsResponseBody extends Model
 {
     /**
-     * @description The list of detailed information about the serverless job.
-     *
      * @var jobInfos[]
      */
     public $jobInfos;
 
     /**
-     * @description The request ID.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'jobInfos'   => 'JobInfos',
-        'requestId'  => 'RequestId',
+        'jobInfos' => 'JobInfos',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->jobInfos)) {
+            Model::validateArray($this->jobInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobInfos) {
-            $res['JobInfos'] = [];
-            if (null !== $this->jobInfos && \is_array($this->jobInfos)) {
-                $n = 0;
-                foreach ($this->jobInfos as $item) {
-                    $res['JobInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->jobInfos)) {
+                $res['JobInfos'] = [];
+                $n1 = 0;
+                foreach ($this->jobInfos as $item1) {
+                    $res['JobInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -65,26 +61,28 @@ class DescribeServerlessJobsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeServerlessJobsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobInfos'])) {
             if (!empty($map['JobInfos'])) {
                 $model->jobInfos = [];
-                $n               = 0;
-                foreach ($map['JobInfos'] as $item) {
-                    $model->jobInfos[$n++] = null !== $item ? jobInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['JobInfos'] as $item1) {
+                    $model->jobInfos[$n1++] = jobInfos::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

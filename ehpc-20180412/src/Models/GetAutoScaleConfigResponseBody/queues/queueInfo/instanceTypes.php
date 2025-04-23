@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\GetAutoScaleConfigResponseBody\queues\queueInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetAutoScaleConfigResponseBody\queues\queueInfo\instanceTypes\instanceTypeInfo;
-use AlibabaCloud\Tea\Model;
 
 class instanceTypes extends Model
 {
@@ -19,17 +19,21 @@ class instanceTypes extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceTypeInfo)) {
+            Model::validateArray($this->instanceTypeInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceTypeInfo) {
-            $res['InstanceTypeInfo'] = [];
-            if (null !== $this->instanceTypeInfo && \is_array($this->instanceTypeInfo)) {
-                $n = 0;
-                foreach ($this->instanceTypeInfo as $item) {
-                    $res['InstanceTypeInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceTypeInfo)) {
+                $res['InstanceTypeInfo'] = [];
+                $n1 = 0;
+                foreach ($this->instanceTypeInfo as $item1) {
+                    $res['InstanceTypeInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class instanceTypes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceTypeInfo'])) {
             if (!empty($map['InstanceTypeInfo'])) {
                 $model->instanceTypeInfo = [];
-                $n                       = 0;
-                foreach ($map['InstanceTypeInfo'] as $item) {
-                    $model->instanceTypeInfo[$n++] = null !== $item ? instanceTypeInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceTypeInfo'] as $item1) {
+                    $model->instanceTypeInfo[$n1++] = instanceTypeInfo::fromMap($item1);
                 }
             }
         }

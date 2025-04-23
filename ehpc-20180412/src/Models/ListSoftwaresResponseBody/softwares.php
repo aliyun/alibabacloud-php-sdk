@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListSoftwaresResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListSoftwaresResponseBody\softwares\softwareInfo;
-use AlibabaCloud\Tea\Model;
 
 class softwares extends Model
 {
@@ -19,17 +19,21 @@ class softwares extends Model
 
     public function validate()
     {
+        if (\is_array($this->softwareInfo)) {
+            Model::validateArray($this->softwareInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->softwareInfo) {
-            $res['SoftwareInfo'] = [];
-            if (null !== $this->softwareInfo && \is_array($this->softwareInfo)) {
-                $n = 0;
-                foreach ($this->softwareInfo as $item) {
-                    $res['SoftwareInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->softwareInfo)) {
+                $res['SoftwareInfo'] = [];
+                $n1 = 0;
+                foreach ($this->softwareInfo as $item1) {
+                    $res['SoftwareInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class softwares extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return softwares
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SoftwareInfo'])) {
             if (!empty($map['SoftwareInfo'])) {
                 $model->softwareInfo = [];
-                $n                   = 0;
-                foreach ($map['SoftwareInfo'] as $item) {
-                    $model->softwareInfo[$n++] = null !== $item ? softwareInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SoftwareInfo'] as $item1) {
+                    $model->softwareInfo[$n1++] = softwareInfo::fromMap($item1);
                 }
             }
         }

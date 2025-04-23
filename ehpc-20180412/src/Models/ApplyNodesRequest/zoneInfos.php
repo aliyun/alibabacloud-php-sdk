@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ApplyNodesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class zoneInfos extends Model
 {
     /**
-     * @description The ID of the vSwitch. Valid values of N: 1 to 10.
-     *
-     * @example vsw-bp1e47optm9g58zcu****
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description The ID of the zone to which the node belongs. Valid values of N: 1 to 10.
-     *
-     * >  Each zone ID must be unique.
-     * @example cn-hangzhou-b
-     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'vSwitchId' => 'VSwitchId',
-        'zoneId'    => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -48,17 +41,18 @@ class zoneInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zoneInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

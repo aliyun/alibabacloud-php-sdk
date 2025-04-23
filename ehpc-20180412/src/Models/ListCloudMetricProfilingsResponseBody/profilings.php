@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListCloudMetricProfilingsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListCloudMetricProfilingsResponseBody\profilings\profilingInfo;
-use AlibabaCloud\Tea\Model;
 
 class profilings extends Model
 {
@@ -19,17 +19,21 @@ class profilings extends Model
 
     public function validate()
     {
+        if (\is_array($this->profilingInfo)) {
+            Model::validateArray($this->profilingInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->profilingInfo) {
-            $res['ProfilingInfo'] = [];
-            if (null !== $this->profilingInfo && \is_array($this->profilingInfo)) {
-                $n = 0;
-                foreach ($this->profilingInfo as $item) {
-                    $res['ProfilingInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->profilingInfo)) {
+                $res['ProfilingInfo'] = [];
+                $n1 = 0;
+                foreach ($this->profilingInfo as $item1) {
+                    $res['ProfilingInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class profilings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return profilings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProfilingInfo'])) {
             if (!empty($map['ProfilingInfo'])) {
                 $model->profilingInfo = [];
-                $n                    = 0;
-                foreach ($map['ProfilingInfo'] as $item) {
-                    $model->profilingInfo[$n++] = null !== $item ? profilingInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ProfilingInfo'] as $item1) {
+                    $model->profilingInfo[$n1++] = profilingInfo::fromMap($item1);
                 }
             }
         }

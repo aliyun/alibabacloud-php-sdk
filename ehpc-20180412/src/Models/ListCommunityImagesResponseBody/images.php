@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\ListCommunityImagesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListCommunityImagesResponseBody\images\imageInfo;
-use AlibabaCloud\Tea\Model;
 
 class images extends Model
 {
@@ -19,17 +19,21 @@ class images extends Model
 
     public function validate()
     {
+        if (\is_array($this->imageInfo)) {
+            Model::validateArray($this->imageInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageInfo) {
-            $res['ImageInfo'] = [];
-            if (null !== $this->imageInfo && \is_array($this->imageInfo)) {
-                $n = 0;
-                foreach ($this->imageInfo as $item) {
-                    $res['ImageInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->imageInfo)) {
+                $res['ImageInfo'] = [];
+                $n1 = 0;
+                foreach ($this->imageInfo as $item1) {
+                    $res['ImageInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class images extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return images
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageInfo'])) {
             if (!empty($map['ImageInfo'])) {
                 $model->imageInfo = [];
-                $n                = 0;
-                foreach ($map['ImageInfo'] as $item) {
-                    $model->imageInfo[$n++] = null !== $item ? imageInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ImageInfo'] as $item1) {
+                    $model->imageInfo[$n1++] = imageInfo::fromMap($item1);
                 }
             }
         }

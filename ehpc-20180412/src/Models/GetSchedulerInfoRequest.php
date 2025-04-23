@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetSchedulerInfoRequest\scheduler;
-use AlibabaCloud\Tea\Model;
 
 class GetSchedulerInfoRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The region ID of the cluster.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The detailed settings of the scheduler.
-     *
      * @var scheduler[]
      */
     public $scheduler;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'regionId'  => 'RegionId',
+        'regionId' => 'RegionId',
         'scheduler' => 'Scheduler',
     ];
 
     public function validate()
     {
+        if (\is_array($this->scheduler)) {
+            Model::validateArray($this->scheduler);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->scheduler) {
-            $res['Scheduler'] = [];
-            if (null !== $this->scheduler && \is_array($this->scheduler)) {
-                $n = 0;
-                foreach ($this->scheduler as $item) {
-                    $res['Scheduler'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->scheduler)) {
+                $res['Scheduler'] = [];
+                $n1 = 0;
+                foreach ($this->scheduler as $item1) {
+                    $res['Scheduler'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -65,26 +61,28 @@ class GetSchedulerInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSchedulerInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Scheduler'])) {
             if (!empty($map['Scheduler'])) {
                 $model->scheduler = [];
-                $n                = 0;
-                foreach ($map['Scheduler'] as $item) {
-                    $model->scheduler[$n++] = null !== $item ? scheduler::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Scheduler'] as $item1) {
+                    $model->scheduler[$n1++] = scheduler::fromMap($item1);
                 }
             }
         }

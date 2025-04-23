@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListQueuesResponseBody\queues;
-use AlibabaCloud\Tea\Model;
 
 class ListQueuesResponseBody extends Model
 {
     /**
-     * @description The details of the queue.
-     *
      * @var queues
      */
     public $queues;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example C6E5005C-00B0-4F27-98BB-95AB88016C22
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'queues'    => 'Queues',
+        'queues' => 'Queues',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->queues) {
+            $this->queues->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->queues) {
-            $res['Queues'] = null !== $this->queues ? $this->queues->toMap() : null;
+            $res['Queues'] = null !== $this->queues ? $this->queues->toArray($noStream) : $this->queues;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class ListQueuesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListQueuesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Queues'])) {
             $model->queues = queues::fromMap($map['Queues']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

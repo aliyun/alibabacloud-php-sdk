@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetIfEcsTypeSupportHtConfigRequest extends Model
 {
     /**
-     * @description The instance type of the ECS instance.
-     *
-     * @example ecs.g6.large
-     *
      * @var string
      */
     public $instanceType;
@@ -22,9 +18,10 @@ class GetIfEcsTypeSupportHtConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceType) {
@@ -34,11 +31,11 @@ class GetIfEcsTypeSupportHtConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetIfEcsTypeSupportHtConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

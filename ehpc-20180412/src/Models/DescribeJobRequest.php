@@ -4,58 +4,46 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeJobRequest extends Model
 {
     /**
-     * @description Specifies whether to use an asynchronous link to stop the job.
-     *
-     * Default value: false.
-     * @example false
-     *
      * @var bool
      */
     public $async;
 
     /**
-     * @description The ID of the E-HPC cluster.
-     *
-     * You can call the [ListClusters](~~87116~~) operation to obtain the cluster ID.
-     * @example ehpc-hz-jeJki6****
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The job ID.
-     *
-     * You can call the [ListJobs](~~87251~~) operation to obtain the job ID.
-     * @example 1.scheduler****
-     *
      * @var string
      */
     public $jobId;
     protected $_name = [
-        'async'     => 'Async',
+        'async' => 'Async',
         'clusterId' => 'ClusterId',
-        'jobId'     => 'JobId',
+        'jobId' => 'JobId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->async) {
             $res['Async'] = $this->async;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -63,20 +51,22 @@ class DescribeJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Async'])) {
             $model->async = $map['Async'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }

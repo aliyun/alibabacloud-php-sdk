@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeEstackImageResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeEstackImageResponseBody\imageList\imageListInfo;
-use AlibabaCloud\Tea\Model;
 
 class imageList extends Model
 {
@@ -19,17 +19,21 @@ class imageList extends Model
 
     public function validate()
     {
+        if (\is_array($this->imageListInfo)) {
+            Model::validateArray($this->imageListInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageListInfo) {
-            $res['ImageListInfo'] = [];
-            if (null !== $this->imageListInfo && \is_array($this->imageListInfo)) {
-                $n = 0;
-                foreach ($this->imageListInfo as $item) {
-                    $res['ImageListInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->imageListInfo)) {
+                $res['ImageListInfo'] = [];
+                $n1 = 0;
+                foreach ($this->imageListInfo as $item1) {
+                    $res['ImageListInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class imageList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return imageList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageListInfo'])) {
             if (!empty($map['ImageListInfo'])) {
                 $model->imageListInfo = [];
-                $n                    = 0;
-                foreach ($map['ImageListInfo'] as $item) {
-                    $model->imageListInfo[$n++] = null !== $item ? imageListInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ImageListInfo'] as $item1) {
+                    $model->imageListInfo[$n1++] = imageListInfo::fromMap($item1);
                 }
             }
         }

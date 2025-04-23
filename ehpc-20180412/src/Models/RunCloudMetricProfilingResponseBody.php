@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunCloudMetricProfilingResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 8442AF35-875B-4FC0-8B7AAFDC339335D5
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class RunCloudMetricProfilingResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class RunCloudMetricProfilingResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunCloudMetricProfilingResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

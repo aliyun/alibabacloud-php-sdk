@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\CreateHybridClusterRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class application extends Model
 {
     /**
-     * @description The tag of the software.
-     *
-     * @example OpenMPI_11.1
-     *
      * @var string
      */
     public $tag;
@@ -22,9 +18,10 @@ class application extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tag) {
@@ -34,11 +31,11 @@ class application extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return application
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

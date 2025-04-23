@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InstallSoftwareResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 896D338C-E4F4-41EC-A154-D605E5DE****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class InstallSoftwareResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class InstallSoftwareResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InstallSoftwareResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

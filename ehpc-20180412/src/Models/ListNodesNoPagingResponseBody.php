@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListNodesNoPagingResponseBody\nodes;
-use AlibabaCloud\Tea\Model;
 
 class ListNodesNoPagingResponseBody extends Model
 {
     /**
-     * @description The list of nodes.
-     *
      * @var nodes
      */
     public $nodes;
 
     /**
-     * @description The request ID.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE7****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'nodes'     => 'Nodes',
+        'nodes' => 'Nodes',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->nodes) {
+            $this->nodes->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodes) {
-            $res['Nodes'] = null !== $this->nodes ? $this->nodes->toMap() : null;
+            $res['Nodes'] = null !== $this->nodes ? $this->nodes->toArray($noStream) : $this->nodes;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class ListNodesNoPagingResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListNodesNoPagingResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Nodes'])) {
             $model->nodes = nodes::fromMap($map['Nodes']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

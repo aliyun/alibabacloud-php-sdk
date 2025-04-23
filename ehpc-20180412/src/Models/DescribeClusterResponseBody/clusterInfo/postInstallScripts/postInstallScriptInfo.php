@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\postInstallScripts;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class postInstallScriptInfo extends Model
 {
     /**
-     * @description The runtime parameter of the script.
-     *
-     * @example bash file.sh
-     *
      * @var string
      */
     public $args;
 
     /**
-     * @description The URL used to download the script.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $url;
     protected $_name = [
         'args' => 'Args',
-        'url'  => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->args) {
             $res['Args'] = $this->args;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -47,17 +41,18 @@ class postInstallScriptInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return postInstallScriptInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Args'])) {
             $model->args = $map['Args'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

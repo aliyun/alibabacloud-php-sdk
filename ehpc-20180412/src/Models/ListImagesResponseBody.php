@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListImagesResponseBody\osTags;
-use AlibabaCloud\Tea\Model;
 
 class ListImagesResponseBody extends Model
 {
     /**
-     * @description The list of images that are supported by E-HPC.
-     *
      * @var osTags
      */
     public $osTags;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE7****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'osTags'    => 'OsTags',
+        'osTags' => 'OsTags',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->osTags) {
+            $this->osTags->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->osTags) {
-            $res['OsTags'] = null !== $this->osTags ? $this->osTags->toMap() : null;
+            $res['OsTags'] = null !== $this->osTags ? $this->osTags->toArray($noStream) : $this->osTags;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class ListImagesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListImagesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OsTags'])) {
             $model->osTags = osTags::fromMap($map['OsTags']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,113 +4,124 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitServerlessJobRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitServerlessJobRequest\container\environmentVar;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitServerlessJobRequest\container\volumeMount;
-use AlibabaCloud\Tea\Model;
 
 class container extends Model
 {
     /**
-     * @description The arguments of the container startup command. You can specify up to 10 arguments.
-     *
      * @var string[]
      */
     public $arg;
 
     /**
-     * @description The container startup commands.
-     *
      * @var string[]
      */
     public $command;
 
     /**
-     * @description The environment variable of the container.
-     *
      * @var environmentVar[]
      */
     public $environmentVar;
 
     /**
-     * @description The number of GPUs of the container.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $gpu;
 
     /**
-     * @description The image of the container.
-     *
-     * @example registry-vpc.cn-hangzhou.aliyuncs.com/ehpc/hpl:latest
-     *
      * @var string
      */
     public $image;
 
     /**
-     * @description The data volumes mounted to the container.
-     *
      * @var volumeMount[]
      */
     public $volumeMount;
 
     /**
-     * @description The working directory of the container.
-     *
-     * @example /usr/local/
-     *
      * @var string
      */
     public $workingDir;
     protected $_name = [
-        'arg'            => 'Arg',
-        'command'        => 'Command',
+        'arg' => 'Arg',
+        'command' => 'Command',
         'environmentVar' => 'EnvironmentVar',
-        'gpu'            => 'Gpu',
-        'image'          => 'Image',
-        'volumeMount'    => 'VolumeMount',
-        'workingDir'     => 'WorkingDir',
+        'gpu' => 'Gpu',
+        'image' => 'Image',
+        'volumeMount' => 'VolumeMount',
+        'workingDir' => 'WorkingDir',
     ];
 
     public function validate()
     {
+        if (\is_array($this->arg)) {
+            Model::validateArray($this->arg);
+        }
+        if (\is_array($this->command)) {
+            Model::validateArray($this->command);
+        }
+        if (\is_array($this->environmentVar)) {
+            Model::validateArray($this->environmentVar);
+        }
+        if (\is_array($this->volumeMount)) {
+            Model::validateArray($this->volumeMount);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arg) {
-            $res['Arg'] = $this->arg;
-        }
-        if (null !== $this->command) {
-            $res['Command'] = $this->command;
-        }
-        if (null !== $this->environmentVar) {
-            $res['EnvironmentVar'] = [];
-            if (null !== $this->environmentVar && \is_array($this->environmentVar)) {
-                $n = 0;
-                foreach ($this->environmentVar as $item) {
-                    $res['EnvironmentVar'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->arg)) {
+                $res['Arg'] = [];
+                $n1 = 0;
+                foreach ($this->arg as $item1) {
+                    $res['Arg'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->command) {
+            if (\is_array($this->command)) {
+                $res['Command'] = [];
+                $n1 = 0;
+                foreach ($this->command as $item1) {
+                    $res['Command'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->environmentVar) {
+            if (\is_array($this->environmentVar)) {
+                $res['EnvironmentVar'] = [];
+                $n1 = 0;
+                foreach ($this->environmentVar as $item1) {
+                    $res['EnvironmentVar'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->gpu) {
             $res['Gpu'] = $this->gpu;
         }
+
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
+
         if (null !== $this->volumeMount) {
-            $res['VolumeMount'] = [];
-            if (null !== $this->volumeMount && \is_array($this->volumeMount)) {
-                $n = 0;
-                foreach ($this->volumeMount as $item) {
-                    $res['VolumeMount'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->volumeMount)) {
+                $res['VolumeMount'] = [];
+                $n1 = 0;
+                foreach ($this->volumeMount as $item1) {
+                    $res['VolumeMount'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->workingDir) {
             $res['WorkingDir'] = $this->workingDir;
         }
@@ -118,48 +129,62 @@ class container extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return container
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Arg'])) {
             if (!empty($map['Arg'])) {
-                $model->arg = $map['Arg'];
+                $model->arg = [];
+                $n1 = 0;
+                foreach ($map['Arg'] as $item1) {
+                    $model->arg[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Command'])) {
             if (!empty($map['Command'])) {
-                $model->command = $map['Command'];
+                $model->command = [];
+                $n1 = 0;
+                foreach ($map['Command'] as $item1) {
+                    $model->command[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['EnvironmentVar'])) {
             if (!empty($map['EnvironmentVar'])) {
                 $model->environmentVar = [];
-                $n                     = 0;
-                foreach ($map['EnvironmentVar'] as $item) {
-                    $model->environmentVar[$n++] = null !== $item ? environmentVar::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EnvironmentVar'] as $item1) {
+                    $model->environmentVar[$n1++] = environmentVar::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Gpu'])) {
             $model->gpu = $map['Gpu'];
         }
+
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
+
         if (isset($map['VolumeMount'])) {
             if (!empty($map['VolumeMount'])) {
                 $model->volumeMount = [];
-                $n                  = 0;
-                foreach ($map['VolumeMount'] as $item) {
-                    $model->volumeMount[$n++] = null !== $item ? volumeMount::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VolumeMount'] as $item1) {
+                    $model->volumeMount[$n1++] = volumeMount::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['WorkingDir'])) {
             $model->workingDir = $map['WorkingDir'];
         }
