@@ -29,11 +29,17 @@ class consumerProgress extends Model
      * @var int
      */
     public $totalDiff;
+
+    /**
+     * @var string
+     */
+    public $state;
     protected $_name = [
         'lastTimestamp' => 'LastTimestamp',
         'rebalanceInfoList' => 'RebalanceInfoList',
         'topicList' => 'TopicList',
         'totalDiff' => 'TotalDiff',
+        'state' => 'state',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class consumerProgress extends Model
             $res['TotalDiff'] = $this->totalDiff;
         }
 
+        if (null !== $this->state) {
+            $res['state'] = $this->state;
+        }
+
         return $res;
     }
 
@@ -91,6 +101,10 @@ class consumerProgress extends Model
 
         if (isset($map['TotalDiff'])) {
             $model->totalDiff = $map['TotalDiff'];
+        }
+
+        if (isset($map['state'])) {
+            $model->state = $map['state'];
         }
 
         return $model;
