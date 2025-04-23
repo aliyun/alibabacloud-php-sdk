@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListModelsRequest\tag;
 
-class ListModelsRequest extends Model
+class ListModelsShrinkRequest extends Model
 {
     /**
      * @var string
@@ -70,9 +69,9 @@ class ListModelsRequest extends Model
     public $sortBy;
 
     /**
-     * @var tag[]
+     * @var string
      */
-    public $tag;
+    public $tagShrink;
 
     /**
      * @var string
@@ -96,16 +95,13 @@ class ListModelsRequest extends Model
         'provider' => 'Provider',
         'query' => 'Query',
         'sortBy' => 'SortBy',
-        'tag' => 'Tag',
+        'tagShrink' => 'Tag',
         'task' => 'Task',
         'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->tag)) {
-            Model::validateArray($this->tag);
-        }
         parent::validate();
     }
 
@@ -160,14 +156,8 @@ class ListModelsRequest extends Model
             $res['SortBy'] = $this->sortBy;
         }
 
-        if (null !== $this->tag) {
-            if (\is_array($this->tag)) {
-                $res['Tag'] = [];
-                $n1 = 0;
-                foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                }
-            }
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
         }
 
         if (null !== $this->task) {
@@ -238,13 +228,7 @@ class ListModelsRequest extends Model
         }
 
         if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n1 = 0;
-                foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
-                }
-            }
+            $model->tagShrink = $map['Tag'];
         }
 
         if (isset($map['Task'])) {

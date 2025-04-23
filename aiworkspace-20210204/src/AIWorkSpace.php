@@ -83,6 +83,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetCodeSourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetFileMetaRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetFileMetaResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetFileMetasStatisticsRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetFileMetasStatisticsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetJobConfigRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetJobConfigResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetJobRequest;
@@ -130,6 +132,7 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListMembersRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListMembersResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListModelsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListModelsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListModelsShrinkRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListModelVersionsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListModelVersionsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListPermissionsResponse;
@@ -229,7 +232,10 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 接受并处理Dataworks发送的事件.
+     * Receives and processes system event messages sent by DataWorks.
+     *
+     * @remarks
+     * This operation can be called only by the internal system and cannot be called by external users.
      *
      * @param request - AcceptDataworksEventRequest
      * @param headers - map
@@ -275,7 +281,10 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 接受并处理Dataworks发送的事件.
+     * Receives and processes system event messages sent by DataWorks.
+     *
+     * @remarks
+     * This operation can be called only by the internal system and cannot be called by external users.
      *
      * @param request - AcceptDataworksEventRequest
      *
@@ -294,7 +303,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 增加 Image.
+     * Adds a custom image to a workspace.
      *
      * @param request - AddImageRequest
      * @param headers - map
@@ -372,7 +381,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 增加 Image.
+     * Adds a custom image to a workspace.
      *
      * @param request - AddImageRequest
      *
@@ -391,7 +400,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 增加 Image 的标签.
+     * Adds tags to an image.
      *
      * @param request - AddImageLabelsRequest
      * @param headers - map
@@ -434,7 +443,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 增加 Image 的标签.
+     * Adds tags to an image.
      *
      * @param request - AddImageLabelsRequest
      *
@@ -454,7 +463,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 增加成员角色.
+     * Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -490,7 +499,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 增加成员角色.
+     * Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
      *
      * @returns AddMemberRoleResponse
      *
@@ -509,7 +518,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更改资源组.
+     * Changes the resource group to which a resource belongs based on the ID.
      *
      * @param request - ChangeResourceGroupRequest
      * @param headers - map
@@ -559,7 +568,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更改资源组.
+     * Changes the resource group to which a resource belongs based on the ID.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -578,7 +587,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建一个代码源配置.
+     * Creates a code build in Platform for AI (PAI). You can configure Git branches and commit IDs. After the code build is created, you can reference the code build in a Deep Learning Containers (DLC) job.
      *
      * @param request - CreateCodeSourceRequest
      * @param headers - map
@@ -656,7 +665,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建一个代码源配置.
+     * Creates a code build in Platform for AI (PAI). You can configure Git branches and commit IDs. After the code build is created, you can reference the code build in a Deep Learning Containers (DLC) job.
      *
      * @param request - CreateCodeSourceRequest
      *
@@ -675,7 +684,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建数据集.
+     * Creates a dataset.
      *
      * @param request - CreateDatasetRequest
      * @param headers - map
@@ -805,7 +814,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建数据集.
+     * Creates a dataset.
      *
      * @param request - CreateDatasetRequest
      *
@@ -824,7 +833,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 批量创建数据集下的文件元数据记录.
+     * Creates the metadata records of multiple files in a dataset at a time.
      *
      * @param request - CreateDatasetFileMetasRequest
      * @param headers - map
@@ -875,7 +884,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 批量创建数据集下的文件元数据记录.
+     * Creates the metadata records of multiple files in a dataset at a time.
      *
      * @param request - CreateDatasetFileMetasRequest
      *
@@ -895,7 +904,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建数据集任务
+     * Creates a dataset job.
      *
      * @param request - CreateDatasetJobRequest
      * @param headers - map
@@ -958,7 +967,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建数据集任务
+     * Creates a dataset job.
      *
      * @param request - CreateDatasetJobRequest
      *
@@ -978,7 +987,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建数据集任务配置.
+     * Creates a job configuration for a dataset.
      *
      * @param request - CreateDatasetJobConfigRequest
      * @param headers - map
@@ -1029,7 +1038,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建数据集任务配置.
+     * Creates a job configuration for a dataset.
      *
      * @param request - CreateDatasetJobConfigRequest
      *
@@ -1049,7 +1058,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建或更新 Dataset 的标签.
+     * Creates tags for a dataset.
+     *
+     * @remarks
+     * Before you call this operation, take note of the following items:
+     * *   The tag key and value are not empty strings and cannot exceed 128 characters in length.
+     * *   The tag key cannot start with any of the following strings: "aliyun", "acs", "http://", and "https://".
      *
      * @param request - CreateDatasetLabelsRequest
      * @param headers - map
@@ -1092,7 +1106,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建或更新 Dataset 的标签.
+     * Creates tags for a dataset.
+     *
+     * @remarks
+     * Before you call this operation, take note of the following items:
+     * *   The tag key and value are not empty strings and cannot exceed 128 characters in length.
+     * *   The tag key cannot start with any of the following strings: "aliyun", "acs", "http://", and "https://".
      *
      * @param request - CreateDatasetLabelsRequest
      *
@@ -1280,7 +1299,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建实验.
+     * Creates an experiment.
      *
      * @param request - CreateExperimentRequest
      * @param headers - map
@@ -1338,7 +1357,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建实验.
+     * Creates an experiment.
      *
      * @param request - CreateExperimentRequest
      *
@@ -1357,7 +1376,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建成员.
+     * Adds a user to a workspace as a member. You can add multiple users as members.
      *
      * @param request - CreateMemberRequest
      * @param headers - map
@@ -1400,7 +1419,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建成员.
+     * Adds a user to a workspace as a member. You can add multiple users as members.
      *
      * @param request - CreateMemberRequest
      *
@@ -1476,6 +1495,10 @@ class AIWorkSpace extends OpenApiClient
 
         if (null !== $request->origin) {
             @$body['Origin'] = $request->origin;
+        }
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
         }
 
         if (null !== $request->task) {
@@ -1711,7 +1734,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建或更新模型版本的标签.
+     * Creates a tag for a model version.
      *
      * @param request - CreateModelVersionLabelsRequest
      * @param headers - map
@@ -1755,7 +1778,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建或更新模型版本的标签.
+     * Creates a tag for a model version.
      *
      * @param request - CreateModelVersionLabelsRequest
      *
@@ -1999,7 +2022,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建资源.
+     * Associates resources with a workspace.
      *
      * @param request - CreateWorkspaceResourceRequest
      * @param headers - map
@@ -2046,7 +2069,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建资源.
+     * Associates resources with a workspace.
      *
      * @param request - CreateWorkspaceResourceRequest
      *
@@ -2117,7 +2140,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除数据集.
+     * Deletes a dataset.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2151,7 +2174,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除数据集.
+     * Deletes a dataset.
      *
      * @returns DeleteDatasetResponse
      *
@@ -2168,7 +2191,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 批量删除数据集下的文件元数据记录.
+     * Deletes the metadata records of multiple files in a dataset at a time.
      *
      * @param request - DeleteDatasetFileMetasRequest
      * @param headers - map
@@ -2219,7 +2242,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 批量删除数据集下的文件元数据记录.
+     * Deletes the metadata records of multiple files in a dataset at a time.
      *
      * @param request - DeleteDatasetFileMetasRequest
      *
@@ -2239,7 +2262,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除数据集任务
+     * Deletes a dataset job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2274,7 +2297,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除数据集任务
+     * Deletes a dataset job.
      *
      * @returns DeleteDatasetJobResponse
      *
@@ -2292,7 +2315,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除数据集任务配置.
+     * Deletes a job configuration for a dataset.
      *
      * @param request - DeleteDatasetJobConfigRequest
      * @param headers - map
@@ -2336,7 +2359,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除数据集任务配置.
+     * Deletes a job configuration for a dataset.
      *
      * @param request - DeleteDatasetJobConfigRequest
      *
@@ -2357,7 +2380,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除 Dataset 的标签.
+     * Deletes a dataset tag.
      *
      * @param request - DeleteDatasetLabelsRequest
      * @param headers - map
@@ -2400,7 +2423,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除 Dataset 的标签.
+     * Deletes a dataset tag.
      *
      * @param request - DeleteDatasetLabelsRequest
      *
@@ -2473,7 +2496,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除数据集版本的标签。
+     * Deletes tags for a dataset version.
      *
      * @param request - DeleteDatasetVersionLabelsRequest
      * @param headers - map
@@ -2517,7 +2540,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除数据集版本的标签。
+     * Deletes tags for a dataset version.
      *
      * @param request - DeleteDatasetVersionLabelsRequest
      *
@@ -2538,7 +2561,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除实验.
+     * Deletes an experiment.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2572,7 +2595,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除实验.
+     * Deletes an experiment.
      *
      * @returns DeleteExperimentResponse
      *
@@ -2589,7 +2612,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除实验标签.
+     * Deletes an experiment tag.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2624,7 +2647,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除实验标签.
+     * Deletes an experiment tag.
      *
      * @returns DeleteExperimentLabelResponse
      *
@@ -2756,7 +2779,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除模型的标签.
+     * Deletes the labels of a model.
      *
      * @param request - DeleteModelLabelsRequest
      * @param headers - map
@@ -2799,7 +2822,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除模型的标签.
+     * Deletes the labels of a model.
      *
      * @param request - DeleteModelLabelsRequest
      *
@@ -2819,7 +2842,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除模型版本.
+     * Deletes a model version.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2854,7 +2877,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除模型版本.
+     * Deletes a model version.
      *
      * @returns DeleteModelVersionResponse
      *
@@ -2988,7 +3011,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除Run标签.
+     * Deletes a tag that is added to a run.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3023,7 +3046,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除Run标签.
+     * Deletes a tag that is added to a run.
      *
      * @returns DeleteRunLabelResponse
      *
@@ -3104,7 +3127,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除工作空间.
+     * Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3138,7 +3161,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除工作空间.
+     * Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
      *
      * @returns DeleteWorkspaceResponse
      *
@@ -3155,7 +3178,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除工作空间资源.
+     * Deletes a resource from a workspace. The resource is not deleted at the underlying layer.
      *
      * @param request - DeleteWorkspaceResourceRequest
      * @param headers - map
@@ -3218,7 +3241,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除工作空间资源.
+     * Deletes a resource from a workspace. The resource is not deleted at the underlying layer.
      *
      * @param request - DeleteWorkspaceResourceRequest
      *
@@ -3289,7 +3312,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取数据集.
+     * Obtains a dataset.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3323,7 +3346,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取数据集.
+     * Obtains a dataset.
      *
      * @returns GetDatasetResponse
      *
@@ -3340,7 +3363,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取数据集下的指定文件元数据记录.
+     * Queries the metadata records of specific files in a dataset.
      *
      * @param request - GetDatasetFileMetaRequest
      * @param headers - map
@@ -3388,7 +3411,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取数据集下的指定文件元数据记录.
+     * Queries the metadata records of specific files in a dataset.
      *
      * @param request - GetDatasetFileMetaRequest
      *
@@ -3409,7 +3432,82 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取数据集任务
+     * 获取数据集下元数据的统计信息。
+     *
+     * @param request - GetDatasetFileMetasStatisticsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDatasetFileMetasStatisticsResponse
+     *
+     * @param string                               $DatasetId
+     * @param GetDatasetFileMetasStatisticsRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetDatasetFileMetasStatisticsResponse
+     */
+    public function getDatasetFileMetasStatisticsWithOptions($DatasetId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aggregateBy) {
+            @$query['AggregateBy'] = $request->aggregateBy;
+        }
+
+        if (null !== $request->datasetVersion) {
+            @$query['DatasetVersion'] = $request->datasetVersion;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDatasetFileMetasStatistics',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/statistics/datasets/' . Url::percentEncode($DatasetId) . '/datasetfilemetas',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDatasetFileMetasStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据集下元数据的统计信息。
+     *
+     * @param request - GetDatasetFileMetasStatisticsRequest
+     *
+     * @returns GetDatasetFileMetasStatisticsResponse
+     *
+     * @param string                               $DatasetId
+     * @param GetDatasetFileMetasStatisticsRequest $request
+     *
+     * @return GetDatasetFileMetasStatisticsResponse
+     */
+    public function getDatasetFileMetasStatistics($DatasetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDatasetFileMetasStatisticsWithOptions($DatasetId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Obtains a dataset job.
      *
      * @param request - GetDatasetJobRequest
      * @param headers - map
@@ -3457,7 +3555,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取数据集任务
+     * Obtains a dataset job.
      *
      * @param request - GetDatasetJobRequest
      *
@@ -3478,7 +3576,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取数据集任务配置.
+     * Obtains a job configuration for a dataset.
      *
      * @param request - GetDatasetJobConfigRequest
      * @param headers - map
@@ -3522,7 +3620,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取数据集任务配置.
+     * Obtains a job configuration for a dataset.
      *
      * @param request - GetDatasetJobConfigRequest
      *
@@ -3543,7 +3641,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取指定版本的数据集信息.
+     * Obtains the information about a specified version of a dataset.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3578,7 +3676,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取指定版本的数据集信息.
+     * Obtains the information about a specified version of a dataset.
      *
      * @returns GetDatasetVersionResponse
      *
@@ -3596,7 +3694,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取默认工作空间.
+     * Queries information about the default workspace.
      *
      * @param request - GetDefaultWorkspaceRequest
      * @param headers - map
@@ -3638,7 +3736,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取默认工作空间.
+     * Queries information about the default workspace.
      *
      * @param request - GetDefaultWorkspaceRequest
      *
@@ -3720,7 +3818,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取镜像.
+     * Obtains the information about an image.
      *
      * @param request - GetImageRequest
      * @param headers - map
@@ -3763,7 +3861,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取镜像.
+     * Obtains the information about an image.
      *
      * @param request - GetImageRequest
      *
@@ -3783,7 +3881,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取成员.
+     * Obtains a member in a workspace.
      *
      * @param request - GetMemberRequest
      * @param headers - map
@@ -3830,7 +3928,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取成员.
+     * Obtains a member in a workspace.
      *
      * @param request - GetMemberRequest
      *
@@ -3850,7 +3948,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取模型.
+     * Obtains the details of a specified model.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3884,7 +3982,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取模型.
+     * Obtains the details of a specified model.
      *
      * @returns GetModelResponse
      *
@@ -3901,7 +3999,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取模型版本.
+     * Queries a model version.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3936,7 +4034,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取模型版本.
+     * Queries a model version.
      *
      * @returns GetModelVersionResponse
      *
@@ -3954,7 +4052,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取权限，若无权限则返回错误.
+     * Obtains permissions on a workspace.
      *
      * @param tmpReq - GetPermissionRequest
      * @param headers - map
@@ -4020,7 +4118,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取权限，若无权限则返回错误.
+     * Obtains permissions on a workspace.
      *
      * @param request - GetPermissionRequest
      *
@@ -4041,7 +4139,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取Run详情.
+     * Queries the run information.
      *
      * @param request - GetRunRequest
      * @param headers - map
@@ -4084,7 +4182,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取Run详情.
+     * Queries the run information.
      *
      * @param request - GetRunRequest
      *
@@ -4104,7 +4202,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取工作空间.
+     * Queries the details about a workspace.
      *
      * @param request - GetWorkspaceRequest
      * @param headers - map
@@ -4147,7 +4245,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取工作空间.
+     * Queries the details about a workspace.
      *
      * @param request - GetWorkspaceRequest
      *
@@ -4167,7 +4265,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取代码源配置列表.
+     * Lists code sources. Pagination, sorting, and filtering by condition are supported.
      *
      * @param request - ListCodeSourcesRequest
      * @param headers - map
@@ -4229,7 +4327,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取代码源配置列表.
+     * Lists code sources. Pagination, sorting, and filtering by condition are supported.
      *
      * @param request - ListCodeSourcesRequest
      *
@@ -4248,7 +4346,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 查询数据集文件列表.
+     * Queries a list of dataset files.
      *
      * @param tmpReq - ListDatasetFileMetasRequest
      * @param headers - map
@@ -4397,7 +4495,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 查询数据集文件列表.
+     * Queries a list of dataset files.
      *
      * @param request - ListDatasetFileMetasRequest
      *
@@ -4417,7 +4515,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 批量查询数据集任务配置.
+     * Queries the dataset job configurations at a time.
      *
      * @param request - ListDatasetJobConfigsRequest
      * @param headers - map
@@ -4472,7 +4570,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 批量查询数据集任务配置.
+     * Queries the dataset job configurations at a time.
      *
      * @param request - ListDatasetJobConfigsRequest
      *
@@ -4492,7 +4590,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取数据集任务
+     * Lists jobs in a dataset.
      *
      * @param request - ListDatasetJobsRequest
      * @param headers - map
@@ -4551,7 +4649,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取数据集任务
+     * Lists jobs in a dataset.
      *
      * @param request - ListDatasetJobsRequest
      *
@@ -4571,7 +4669,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取数据集版本列表.
+     * Lists dataset versions.
      *
      * @param request - ListDatasetVersionsRequest
      * @param headers - map
@@ -4646,7 +4744,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取数据集版本列表.
+     * Lists dataset versions.
      *
      * @param request - ListDatasetVersionsRequest
      *
@@ -4666,7 +4764,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取数据集列表.
+     * Lists the datasets in a workspace.
      *
      * @param request - ListDatasetsRequest
      * @param headers - map
@@ -4760,7 +4858,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取数据集列表.
+     * Lists the datasets in a workspace.
      *
      * @param request - ListDatasetsRequest
      *
@@ -4779,7 +4877,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取实验列表.
+     * Lists experiments.
      *
      * @param tmpReq - ListExperimentRequest
      * @param headers - map
@@ -4871,7 +4969,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取实验列表.
+     * Lists experiments.
      *
      * @param request - ListExperimentRequest
      *
@@ -4967,7 +5065,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 列举已注册镜像.
+     * Queries a list of images.
      *
      * @param request - ListImagesRequest
      * @param headers - map
@@ -5049,7 +5147,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 列举已注册镜像.
+     * Queries a list of images.
      *
      * @param request - ListImagesRequest
      *
@@ -5068,7 +5166,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 列举工作空间成员.
+     * Obtains the members in a workspace.
      *
      * @param request - ListMembersRequest
      * @param headers - map
@@ -5123,7 +5221,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 列举工作空间成员.
+     * Obtains the members in a workspace.
      *
      * @param request - ListMembersRequest
      *
@@ -5143,7 +5241,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取模型版本列表.
+     * Queries a list of model versions.
      *
      * @param request - ListModelVersionsRequest
      * @param headers - map
@@ -5226,7 +5324,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取模型版本列表.
+     * Queries a list of model versions.
      *
      * @param request - ListModelVersionsRequest
      *
@@ -5246,23 +5344,29 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取模型列表.
+     * Queries a list of models.
      *
-     * @param request - ListModelsRequest
+     * @param tmpReq - ListModelsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListModelsResponse
      *
-     * @param ListModelsRequest $request
+     * @param ListModelsRequest $tmpReq
      * @param string[]          $headers
      * @param RuntimeOptions    $runtime
      *
      * @return ListModelsResponse
      */
-    public function listModelsWithOptions($request, $headers, $runtime)
+    public function listModelsWithOptions($tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListModelsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
         $query = [];
         if (null !== $request->collections) {
             @$query['Collections'] = $request->collections;
@@ -5312,6 +5416,10 @@ class AIWorkSpace extends OpenApiClient
             @$query['SortBy'] = $request->sortBy;
         }
 
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
+        }
+
         if (null !== $request->task) {
             @$query['Task'] = $request->task;
         }
@@ -5340,7 +5448,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取模型列表.
+     * Queries a list of models.
      *
      * @param request - ListModelsRequest
      *
@@ -5359,7 +5467,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 列举权限.
+     * Lists the permissions that a user has in a workspace.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5393,7 +5501,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 列举权限.
+     * Lists the permissions that a user has in a workspace.
      *
      * @returns ListPermissionsResponse
      *
@@ -5479,7 +5587,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取已有配额列表.
+     * Obtains the list of quotas.
      *
      * @param request - ListQuotasRequest
      * @param headers - map
@@ -5521,7 +5629,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取已有配额列表.
+     * Obtains the list of quotas.
      *
      * @param request - ListQuotasRequest
      *
@@ -5540,7 +5648,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 列举工作空间资源.
+     * Queries the resources that are associated with a workspace.
      *
      * @param request - ListResourcesRequest
      * @param headers - map
@@ -5626,7 +5734,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 列举工作空间资源.
+     * Queries the resources that are associated with a workspace.
      *
      * @param request - ListResourcesRequest
      *
@@ -5645,7 +5753,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取Run的指标记录列表.
+     * Lists the metrics for a run.
      *
      * @param request - ListRunMetricsRequest
      * @param headers - map
@@ -5696,7 +5804,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取Run的指标记录列表.
+     * Lists the metrics for a run.
      *
      * @param request - ListRunMetricsRequest
      *
@@ -5716,7 +5824,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取Run列表.
+     * Queries a list of runs.
      *
      * @param request - ListRunsRequest
      * @param headers - map
@@ -5814,7 +5922,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取Run列表.
+     * Queries a list of runs.
      *
      * @param request - ListRunsRequest
      *
@@ -5898,7 +6006,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 列出工作空间的可变为成员的用户.
+     * Lists the users who do not belong to a workspace. These users can be added to the workspace as members.
      *
      * @param request - ListWorkspaceUsersRequest
      * @param headers - map
@@ -5941,7 +6049,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 列出工作空间的可变为成员的用户.
+     * Lists the users who do not belong to a workspace. These users can be added to the workspace as members.
      *
      * @param request - ListWorkspaceUsersRequest
      *
@@ -6072,7 +6180,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 批量记录Run的指标.
+     * Logs multiple metrics for a run at a time.
      *
      * @param request - LogRunMetricsRequest
      * @param headers - map
@@ -6115,7 +6223,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 批量记录Run的指标.
+     * Logs multiple metrics for a run at a time.
      *
      * @param request - LogRunMetricsRequest
      *
@@ -6135,7 +6243,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 发布一个代码源配置为本工作空间下所有人可见
+     * Publishes a private code source to a workspace to make the code source publicly accessible.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6169,7 +6277,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 发布一个代码源配置为本工作空间下所有人可见
+     * Publishes a private code source to a workspace to make the code source publicly accessible.
      *
      * @returns PublishCodeSourceResponse
      *
@@ -6186,7 +6294,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新数据集.
+     * Publishes a private dataset in a workspace.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6220,7 +6328,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新数据集.
+     * Publishes a private dataset in a workspace.
      *
      * @returns PublishDatasetResponse
      *
@@ -6237,7 +6345,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 发布 Image.
+     * Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6271,7 +6379,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 发布 Image.
+     * Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
      *
      * @returns PublishImageResponse
      *
@@ -6288,7 +6396,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除 Image.
+     * Removes an image.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6322,7 +6430,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除 Image.
+     * Removes an image.
      *
      * @returns RemoveImageResponse
      *
@@ -6339,7 +6447,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除 Image 的标签.
+     * Removes an image tag.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6374,7 +6482,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除 Image 的标签.
+     * Removes an image tag.
      *
      * @returns RemoveImageLabelsResponse
      *
@@ -6392,7 +6500,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除成员角色.
+     * Removes a member role.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6428,7 +6536,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 删除成员角色.
+     * Removes a member role.
      *
      * @returns RemoveMemberRoleResponse
      *
@@ -6447,7 +6555,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新实验标签.
+     * Updates a experiment tag.
      *
      * @param request - SetExperimentLabelsRequest
      * @param headers - map
@@ -6490,7 +6598,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新实验标签.
+     * Updates a experiment tag.
      *
      * @param request - SetExperimentLabelsRequest
      *
@@ -6571,7 +6679,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 停止数据集任务
+     * Stops a dataset job.
      *
      * @param request - StopDatasetJobRequest
      * @param headers - map
@@ -6619,7 +6727,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 停止数据集任务
+     * Stops a dataset job.
      *
      * @param request - StopDatasetJobRequest
      *
@@ -6640,7 +6748,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新代码配置.
+     * Updates a code build.
      *
      * @param request - UpdateCodeSourceRequest
      * @param headers - map
@@ -6711,7 +6819,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新代码配置.
+     * Updates a code build.
      *
      * @param request - UpdateCodeSourceRequest
      *
@@ -6731,7 +6839,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新数据集.
+     * Updates the name, description, and other information about a dataset.
      *
      * @param request - UpdateDatasetRequest
      * @param headers - map
@@ -6786,7 +6894,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新数据集.
+     * Updates the name, description, and other information about a dataset.
      *
      * @param request - UpdateDatasetRequest
      *
@@ -6806,7 +6914,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 批量更新数据集下的文件元数据记录.
+     * Updates the metadata records of multiple files in a dataset at a time.
      *
      * @param request - UpdateDatasetFileMetasRequest
      * @param headers - map
@@ -6861,7 +6969,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 批量更新数据集下的文件元数据记录.
+     * Updates the metadata records of multiple files in a dataset at a time.
      *
      * @param request - UpdateDatasetFileMetasRequest
      *
@@ -6881,7 +6989,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新数据集任务
+     * Updates a dataset job.
      *
      * @param request - UpdateDatasetJobRequest
      * @param headers - map
@@ -6933,7 +7041,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新数据集任务
+     * Updates a dataset job.
      *
      * @param request - UpdateDatasetJobRequest
      *
@@ -6954,7 +7062,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新数据集任务配置.
+     * Updates a job configuration for a dataset.
      *
      * @param request - UpdateDatasetJobConfigRequest
      * @param headers - map
@@ -7006,7 +7114,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新数据集任务配置.
+     * Updates a job configuration for a dataset.
      *
      * @param request - UpdateDatasetJobConfigRequest
      *
@@ -7104,7 +7212,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新默认工作空间.
+     * Specifies a workspace as the default workspace.
      *
      * @param request - UpdateDefaultWorkspaceRequest
      * @param headers - map
@@ -7146,7 +7254,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新默认工作空间.
+     * Specifies a workspace as the default workspace.
      *
      * @param request - UpdateDefaultWorkspaceRequest
      *
@@ -7165,7 +7273,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新实验.
+     * Updates an experiment.
      *
      * @param request - UpdateExperimentRequest
      * @param headers - map
@@ -7212,7 +7320,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新实验.
+     * Updates an experiment.
      *
      * @param request - UpdateExperimentRequest
      *
@@ -7232,7 +7340,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新模型.
+     * Updates the basic configuration information about a model.
      *
      * @param request - UpdateModelRequest
      * @param headers - map
@@ -7311,7 +7419,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新模型.
+     * Updates the basic configuration information about a model.
      *
      * @param request - UpdateModelRequest
      *
@@ -7331,7 +7439,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新模型版本.
+     * Updates a model version.
      *
      * @param request - UpdateModelVersionRequest
      * @param headers - map
@@ -7415,7 +7523,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新模型版本.
+     * Updates a model version.
      *
      * @param request - UpdateModelVersionRequest
      *
@@ -7507,7 +7615,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新工作空间.
+     * Updates the name and description of a workspace.
      *
      * @param request - UpdateWorkspaceRequest
      * @param headers - map
@@ -7554,7 +7662,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新工作空间.
+     * Updates the name and description of a workspace.
      *
      * @param request - UpdateWorkspaceRequest
      *
@@ -7574,7 +7682,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新工作空间资源.
+     * Updates the resources of a workspace.
      *
      * @param request - UpdateWorkspaceResourceRequest
      * @param headers - map
@@ -7641,7 +7749,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 更新工作空间资源.
+     * Updates the resources of a workspace.
      *
      * @param request - UpdateWorkspaceResourceRequest
      *

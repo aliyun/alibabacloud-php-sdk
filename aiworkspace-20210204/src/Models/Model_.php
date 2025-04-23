@@ -89,6 +89,11 @@ class Model_ extends Model
     public $provider;
 
     /**
+     * @var Label[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $task;
@@ -119,6 +124,7 @@ class Model_ extends Model
         'origin' => 'Origin',
         'ownerId' => 'OwnerId',
         'provider' => 'Provider',
+        'tags' => 'Tags',
         'task' => 'Task',
         'userId' => 'UserId',
         'workspaceId' => 'WorkspaceId',
@@ -134,6 +140,9 @@ class Model_ extends Model
         }
         if (null !== $this->latestVersion) {
             $this->latestVersion->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -214,6 +223,16 @@ class Model_ extends Model
 
         if (null !== $this->provider) {
             $res['Provider'] = $this->provider;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->task) {
@@ -312,6 +331,16 @@ class Model_ extends Model
 
         if (isset($map['Provider'])) {
             $model->provider = $map['Provider'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = Label::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['Task'])) {

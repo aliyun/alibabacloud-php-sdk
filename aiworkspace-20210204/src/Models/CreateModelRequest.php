@@ -59,6 +59,11 @@ class CreateModelRequest extends Model
     public $origin;
 
     /**
+     * @var Label[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $task;
@@ -78,6 +83,7 @@ class CreateModelRequest extends Model
         'modelType' => 'ModelType',
         'orderNumber' => 'OrderNumber',
         'origin' => 'Origin',
+        'tag' => 'Tag',
         'task' => 'Task',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -89,6 +95,9 @@ class CreateModelRequest extends Model
         }
         if (\is_array($this->labels)) {
             Model::validateArray($this->labels);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
         }
         parent::validate();
     }
@@ -145,6 +154,16 @@ class CreateModelRequest extends Model
 
         if (null !== $this->origin) {
             $res['Origin'] = $this->origin;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->task) {
@@ -215,6 +234,16 @@ class CreateModelRequest extends Model
 
         if (isset($map['Origin'])) {
             $model->origin = $map['Origin'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = Label::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['Task'])) {
