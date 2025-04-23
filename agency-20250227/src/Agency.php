@@ -218,6 +218,30 @@ class Agency extends OpenApiClient
             @$query['BillMonth'] = $request->billMonth;
         }
 
+        if (null !== $request->ossAccessKeyId) {
+            @$query['OssAccessKeyId'] = $request->ossAccessKeyId;
+        }
+
+        if (null !== $request->ossAccessKeySecret) {
+            @$query['OssAccessKeySecret'] = $request->ossAccessKeySecret;
+        }
+
+        if (null !== $request->ossBucketName) {
+            @$query['OssBucketName'] = $request->ossBucketName;
+        }
+
+        if (null !== $request->ossEndpoint) {
+            @$query['OssEndpoint'] = $request->ossEndpoint;
+        }
+
+        if (null !== $request->ossRegion) {
+            @$query['OssRegion'] = $request->ossRegion;
+        }
+
+        if (null !== $request->ossSecurityToken) {
+            @$query['OssSecurityToken'] = $request->ossSecurityToken;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);

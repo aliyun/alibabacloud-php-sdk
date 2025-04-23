@@ -11,7 +11,17 @@ class fileList extends Model
     /**
      * @var string
      */
+    public $bucketSyncStatus;
+
+    /**
+     * @var string
+     */
     public $commissionPolicyName;
+
+    /**
+     * @var string
+     */
+    public $fileName;
 
     /**
      * @var string
@@ -23,7 +33,9 @@ class fileList extends Model
      */
     public $fileUrl;
     protected $_name = [
+        'bucketSyncStatus' => 'BucketSyncStatus',
         'commissionPolicyName' => 'CommissionPolicyName',
+        'fileName' => 'FileName',
         'fileType' => 'FileType',
         'fileUrl' => 'FileUrl',
     ];
@@ -36,8 +48,16 @@ class fileList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bucketSyncStatus) {
+            $res['BucketSyncStatus'] = $this->bucketSyncStatus;
+        }
+
         if (null !== $this->commissionPolicyName) {
             $res['CommissionPolicyName'] = $this->commissionPolicyName;
+        }
+
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
         }
 
         if (null !== $this->fileType) {
@@ -59,8 +79,16 @@ class fileList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BucketSyncStatus'])) {
+            $model->bucketSyncStatus = $map['BucketSyncStatus'];
+        }
+
         if (isset($map['CommissionPolicyName'])) {
             $model->commissionPolicyName = $map['CommissionPolicyName'];
+        }
+
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
         }
 
         if (isset($map['FileType'])) {
