@@ -33,6 +33,7 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Id2MetaVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Id2MetaVerifyIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeShrinkRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile3MetaVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile3MetaVerifyIntlResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1116,19 +1117,25 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 认证初始化.
      *
-     * @param request - InitializeRequest
+     * @param tmpReq - InitializeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns InitializeResponse
      *
-     * @param InitializeRequest $request
+     * @param InitializeRequest $tmpReq
      * @param RuntimeOptions    $runtime
      *
      * @return InitializeResponse
      */
-    public function initializeWithOptions($request, $runtime)
+    public function initializeWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new InitializeShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->docPageConfig) {
+            $request->docPageConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docPageConfig, 'DocPageConfig', 'json');
+        }
+
         $query = [];
         if (null !== $request->appQualityCheck) {
             @$query['AppQualityCheck'] = $request->appQualityCheck;
@@ -1150,6 +1157,18 @@ class Cloudauthintl extends OpenApiClient
             @$query['Crop'] = $request->crop;
         }
 
+        if (null !== $request->dateOfBirth) {
+            @$query['DateOfBirth'] = $request->dateOfBirth;
+        }
+
+        if (null !== $request->dateOfExpiry) {
+            @$query['DateOfExpiry'] = $request->dateOfExpiry;
+        }
+
+        if (null !== $request->docPageConfigShrink) {
+            @$query['DocPageConfig'] = $request->docPageConfigShrink;
+        }
+
         if (null !== $request->docScanMode) {
             @$query['DocScanMode'] = $request->docScanMode;
         }
@@ -1160,6 +1179,10 @@ class Cloudauthintl extends OpenApiClient
 
         if (null !== $request->docVideo) {
             @$query['DocVideo'] = $request->docVideo;
+        }
+
+        if (null !== $request->documentNumber) {
+            @$query['DocumentNumber'] = $request->documentNumber;
         }
 
         if (null !== $request->experienceCode) {
@@ -1184,6 +1207,10 @@ class Cloudauthintl extends OpenApiClient
 
         if (null !== $request->languageConfig) {
             @$query['LanguageConfig'] = $request->languageConfig;
+        }
+
+        if (null !== $request->MRTDInput) {
+            @$query['MRTDInput'] = $request->MRTDInput;
         }
 
         if (null !== $request->merchantBizId) {
@@ -1244,6 +1271,10 @@ class Cloudauthintl extends OpenApiClient
 
         if (null !== $request->styleConfig) {
             @$query['StyleConfig'] = $request->styleConfig;
+        }
+
+        if (null !== $request->useNFC) {
+            @$query['UseNFC'] = $request->useNFC;
         }
 
         $body = [];

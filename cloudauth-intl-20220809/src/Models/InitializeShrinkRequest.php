@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class InitializeRequest extends Model
+class InitializeShrinkRequest extends Model
 {
     /**
      * @var string
@@ -44,9 +44,9 @@ class InitializeRequest extends Model
     public $dateOfExpiry;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $docPageConfig;
+    public $docPageConfigShrink;
 
     /**
      * @var string
@@ -195,7 +195,7 @@ class InitializeRequest extends Model
         'crop' => 'Crop',
         'dateOfBirth' => 'DateOfBirth',
         'dateOfExpiry' => 'DateOfExpiry',
-        'docPageConfig' => 'DocPageConfig',
+        'docPageConfigShrink' => 'DocPageConfig',
         'docScanMode' => 'DocScanMode',
         'docType' => 'DocType',
         'docVideo' => 'DocVideo',
@@ -228,9 +228,6 @@ class InitializeRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->docPageConfig)) {
-            Model::validateArray($this->docPageConfig);
-        }
         parent::validate();
     }
 
@@ -265,14 +262,8 @@ class InitializeRequest extends Model
             $res['DateOfExpiry'] = $this->dateOfExpiry;
         }
 
-        if (null !== $this->docPageConfig) {
-            if (\is_array($this->docPageConfig)) {
-                $res['DocPageConfig'] = [];
-                $n1 = 0;
-                foreach ($this->docPageConfig as $item1) {
-                    $res['DocPageConfig'][$n1++] = $item1;
-                }
-            }
+        if (null !== $this->docPageConfigShrink) {
+            $res['DocPageConfig'] = $this->docPageConfigShrink;
         }
 
         if (null !== $this->docScanMode) {
@@ -427,13 +418,7 @@ class InitializeRequest extends Model
         }
 
         if (isset($map['DocPageConfig'])) {
-            if (!empty($map['DocPageConfig'])) {
-                $model->docPageConfig = [];
-                $n1 = 0;
-                foreach ($map['DocPageConfig'] as $item1) {
-                    $model->docPageConfig[$n1++] = $item1;
-                }
-            }
+            $model->docPageConfigShrink = $map['DocPageConfig'];
         }
 
         if (isset($map['DocScanMode'])) {
