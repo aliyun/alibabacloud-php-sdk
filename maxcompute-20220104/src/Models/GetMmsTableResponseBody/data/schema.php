@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetMmsTableResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetMmsTableResponseBody\data\schema\columns;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetMmsTableResponseBody\data\schema\partitions;
-use AlibabaCloud\Tea\Model;
 
 class schema extends Model
 {
@@ -16,15 +16,11 @@ class schema extends Model
     public $columns;
 
     /**
-     * @example for mms test
-     *
      * @var string
      */
     public $comment;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $name;
@@ -40,32 +36,44 @@ class schema extends Model
         'partitions' => 'partitions',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->columns)) {
+            Model::validateArray($this->columns);
+        }
+        if (\is_array($this->partitions)) {
+            Model::validateArray($this->partitions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columns) {
-            $res['columns'] = [];
-            if (null !== $this->columns && \is_array($this->columns)) {
-                $n = 0;
-                foreach ($this->columns as $item) {
-                    $res['columns'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->columns)) {
+                $res['columns'] = [];
+                $n1 = 0;
+                foreach ($this->columns as $item1) {
+                    $res['columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->comment) {
             $res['comment'] = $this->comment;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->partitions) {
-            $res['partitions'] = [];
-            if (null !== $this->partitions && \is_array($this->partitions)) {
-                $n = 0;
-                foreach ($this->partitions as $item) {
-                    $res['partitions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->partitions)) {
+                $res['partitions'] = [];
+                $n1 = 0;
+                foreach ($this->partitions as $item1) {
+                    $res['partitions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -73,35 +81,38 @@ class schema extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return schema
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['columns'])) {
             if (!empty($map['columns'])) {
                 $model->columns = [];
-                $n = 0;
-                foreach ($map['columns'] as $item) {
-                    $model->columns[$n++] = null !== $item ? columns::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['columns'] as $item1) {
+                    $model->columns[$n1++] = columns::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['comment'])) {
             $model->comment = $map['comment'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['partitions'])) {
             if (!empty($map['partitions'])) {
                 $model->partitions = [];
-                $n = 0;
-                foreach ($map['partitions'] as $item) {
-                    $model->partitions[$n++] = null !== $item ? partitions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['partitions'] as $item1) {
+                    $model->partitions[$n1++] = partitions::fromMap($item1);
                 }
             }
         }

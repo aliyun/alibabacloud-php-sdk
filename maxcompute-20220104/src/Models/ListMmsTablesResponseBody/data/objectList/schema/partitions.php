@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsTablesResponseBody\data\objectList\schema;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class partitions extends Model
 {
@@ -14,29 +14,21 @@ class partitions extends Model
     public $comment;
 
     /**
-     * @example abc
-     *
      * @var string
      */
     public $defaultValue;
 
     /**
-     * @example p1
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $nullable;
 
     /**
-     * @example string
-     *
      * @var string
      */
     public $type;
@@ -48,23 +40,30 @@ class partitions extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comment) {
             $res['comment'] = $this->comment;
         }
+
         if (null !== $this->defaultValue) {
             $res['defaultValue'] = $this->defaultValue;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->nullable) {
             $res['nullable'] = $this->nullable;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -72,26 +71,30 @@ class partitions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return partitions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['comment'])) {
             $model->comment = $map['comment'];
         }
+
         if (isset($map['defaultValue'])) {
             $model->defaultValue = $map['defaultValue'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['nullable'])) {
             $model->nullable = $map['nullable'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

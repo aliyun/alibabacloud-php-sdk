@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListProjectsResponseBody\data\projects\properties;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class encryption extends Model
 {
     /**
-     * @description The data encryption algorithm that is supported by the key. Valid values: AES256, AESCTR, and RC4.
-     *
-     * @example SHA1
-     *
      * @var string
      */
     public $algorithm;
 
     /**
-     * @description Indicates whether the data encryption feature needs to be enabled for the project. For more information about data encryption, see
-     *
-     * [Storage encryption](https://www.alibabacloud.com/help/zh/maxcompute/security-and-compliance/storage-encryption).
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description The type of key that is used for data encryption. You can select MaxCompute Default Key or Bring Your Own Key (BYOK) as the key type. If you select MaxCompute Default Key, the default key that is created by MaxCompute is used.
-     *
-     * @example dafault
-     *
      * @var string
      */
     public $key;
@@ -42,17 +28,22 @@ class encryption extends Model
         'key' => 'key',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->algorithm) {
             $res['algorithm'] = $this->algorithm;
         }
+
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
         }
+
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
@@ -60,20 +51,22 @@ class encryption extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return encryption
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['algorithm'])) {
             $model->algorithm = $map['algorithm'];
         }
+
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
         }
+
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }

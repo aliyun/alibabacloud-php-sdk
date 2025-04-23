@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTableInfoRequest extends Model
 {
     /**
-     * @description The name of the schema to which the table or view belongs.
-     *
-     * @example default
-     *
      * @var string
      */
     public $schemaName;
 
     /**
-     * @description The type of the table or view that you want to view. Valid values:
-     *
-     *   **internal**: internal table
-     *   **external**: external table
-     *   **view**: view
-     *   **materializedView**: [materialize view](https://www.alibabacloud.com/help/maxcompute/user-guide/materialized-view-operations)
-     *
-     * @example internal
-     *
      * @var string
      */
     public $type;
@@ -35,14 +22,18 @@ class GetTableInfoRequest extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->schemaName) {
             $res['schemaName'] = $this->schemaName;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -50,17 +41,18 @@ class GetTableInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTableInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['schemaName'])) {
             $model->schemaName = $map['schemaName'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

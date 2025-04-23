@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListStorageTablesInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListStorageTablesInfoResponseBody\data\storageTableInfoList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The date on which the statistics are collected.
-     *
-     * @example 20241205
-     *
      * @var string
      */
     public $date;
 
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The table storage information.
-     *
      * @var storageTableInfoList[]
      */
     public $storageTableInfoList;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -59,29 +41,39 @@ class data extends Model
         'totalCount' => 'totalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->storageTableInfoList)) {
+            Model::validateArray($this->storageTableInfoList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->date) {
             $res['date'] = $this->date;
         }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->storageTableInfoList) {
-            $res['storageTableInfoList'] = [];
-            if (null !== $this->storageTableInfoList && \is_array($this->storageTableInfoList)) {
-                $n = 0;
-                foreach ($this->storageTableInfoList as $item) {
-                    $res['storageTableInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->storageTableInfoList)) {
+                $res['storageTableInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->storageTableInfoList as $item1) {
+                    $res['storageTableInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -89,32 +81,36 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['date'])) {
             $model->date = $map['date'];
         }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['storageTableInfoList'])) {
             if (!empty($map['storageTableInfoList'])) {
                 $model->storageTableInfoList = [];
-                $n = 0;
-                foreach ($map['storageTableInfoList'] as $item) {
-                    $model->storageTableInfoList[$n++] = null !== $item ? storageTableInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['storageTableInfoList'] as $item1) {
+                    $model->storageTableInfoList[$n1++] = storageTableInfoList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

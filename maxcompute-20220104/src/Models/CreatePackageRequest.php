@@ -4,64 +4,16 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreatePackageRequest extends Model
 {
     /**
-     * @description The request body parameters.
-     *
-     * @example {
-     * "name": "test_packege",
-     * "resourceList": {
-     * "table": [
-     * {
-     * "name": "table_name",
-     * "actions": [
-     * "Describe",
-     * "Select"
-     * ]
-     * },
-     * {
-     * "name": "table_name",
-     * "actions": [
-     * "Describe",
-     * "Select"
-     * ]
-     * }
-     * ],
-     * "resource": [
-     * {
-     * "name": "",
-     * "actions": []
-     * },
-     * {
-     * "name": "",
-     * "actions": []
-     * }
-     * ],
-     * "function": [
-     * {
-     * "name": "",
-     * "actions": []
-     * },
-     * {
-     * "name": "",
-     * "actions": []
-     * }
-     * ]
-     * }
-     * }
-     *
      * @var string
      */
     public $body;
 
     /**
-     * @description Specifies whether to install the package.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $isInstall;
@@ -70,14 +22,18 @@ class CreatePackageRequest extends Model
         'isInstall' => 'isInstall',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
+
         if (null !== $this->isInstall) {
             $res['isInstall'] = $this->isInstall;
         }
@@ -85,17 +41,18 @@ class CreatePackageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePackageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }
+
         if (isset($map['isInstall'])) {
             $model->isInstall = $map['isInstall'];
         }

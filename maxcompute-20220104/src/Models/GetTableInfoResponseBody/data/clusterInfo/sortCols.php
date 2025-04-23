@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetTableInfoResponseBody\data\clusterInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sortCols extends Model
 {
     /**
-     * @description The name of the sorting field.
-     *
-     * @example col_2
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The sorting order.
-     *
-     * @example DESC
-     *
      * @var string
      */
     public $order;
@@ -30,14 +22,18 @@ class sortCols extends Model
         'order' => 'order',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->order) {
             $res['order'] = $this->order;
         }
@@ -45,17 +41,18 @@ class sortCols extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sortCols
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['order'])) {
             $model->order = $map['order'];
         }

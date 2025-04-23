@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListProjectsResponseBody\data\projects;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class saleTag extends Model
 {
     /**
-     * @description The instance ID of the default computing quota.
-     *
-     * @example "aaaa-bbbb"
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description The billing method of the default computing quota.
-     *
-     * @example "project"
-     *
      * @var string
      */
     public $resourceType;
@@ -30,14 +22,18 @@ class saleTag extends Model
         'resourceType' => 'resourceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceId) {
             $res['resourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
@@ -45,17 +41,18 @@ class saleTag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return saleTag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['resourceId'])) {
             $model->resourceId = $map['resourceId'];
         }
+
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }

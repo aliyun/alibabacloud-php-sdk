@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryQuotaResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryQuotaResponseBody\data\billingPolicy;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryQuotaResponseBody\data\saleTag;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryQuotaResponseBody\data\scheduleInfo;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryQuotaResponseBody\data\subQuotaInfoList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -18,77 +18,51 @@ class data extends Model
     public $billingPolicy;
 
     /**
-     * @example AT-120N
-     *
      * @var string
      */
     public $cluster;
 
     /**
-     * @example 1714356241163
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @example 1248953767546358
-     *
      * @var string
      */
     public $creatorId;
 
     /**
-     * @example abc
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description quota ID
-     *
-     * @example 2523
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example quota_a
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example quota_nickname
-     *
      * @var string
      */
     public $nickName;
 
     /**
-     * @example {"minCU":10,
-     * "adhocCU":0,
-     * "maxCU":10,
-     * "schedulerType":"Fair",
-     * }
-     *
      * @var mixed[]
      */
     public $parameter;
 
     /**
-     * @example null
-     *
      * @var string
      */
     public $parentId;
 
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
@@ -104,8 +78,6 @@ class data extends Model
     public $scheduleInfo;
 
     /**
-     * @example ON
-     *
      * @var string
      */
     public $status;
@@ -116,29 +88,21 @@ class data extends Model
     public $subQuotaInfoList;
 
     /**
-     * @example abc
-     *
      * @var string
      */
     public $tag;
 
     /**
-     * @example 478403690625249
-     *
      * @var string
      */
     public $tenantId;
 
     /**
-     * @example FUXI_OFFLINE
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $version;
@@ -164,71 +128,112 @@ class data extends Model
         'version' => 'version',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->billingPolicy) {
+            $this->billingPolicy->validate();
+        }
+        if (\is_array($this->parameter)) {
+            Model::validateArray($this->parameter);
+        }
+        if (null !== $this->saleTag) {
+            $this->saleTag->validate();
+        }
+        if (null !== $this->scheduleInfo) {
+            $this->scheduleInfo->validate();
+        }
+        if (\is_array($this->subQuotaInfoList)) {
+            Model::validateArray($this->subQuotaInfoList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->billingPolicy) {
-            $res['billingPolicy'] = null !== $this->billingPolicy ? $this->billingPolicy->toMap() : null;
+            $res['billingPolicy'] = null !== $this->billingPolicy ? $this->billingPolicy->toArray($noStream) : $this->billingPolicy;
         }
+
         if (null !== $this->cluster) {
             $res['cluster'] = $this->cluster;
         }
+
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+
         if (null !== $this->creatorId) {
             $res['creatorId'] = $this->creatorId;
         }
+
         if (null !== $this->groupName) {
             $res['groupName'] = $this->groupName;
         }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->nickName) {
             $res['nickName'] = $this->nickName;
         }
+
         if (null !== $this->parameter) {
-            $res['parameter'] = $this->parameter;
-        }
-        if (null !== $this->parentId) {
-            $res['parentId'] = $this->parentId;
-        }
-        if (null !== $this->regionId) {
-            $res['regionId'] = $this->regionId;
-        }
-        if (null !== $this->saleTag) {
-            $res['saleTag'] = null !== $this->saleTag ? $this->saleTag->toMap() : null;
-        }
-        if (null !== $this->scheduleInfo) {
-            $res['scheduleInfo'] = null !== $this->scheduleInfo ? $this->scheduleInfo->toMap() : null;
-        }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
-        if (null !== $this->subQuotaInfoList) {
-            $res['subQuotaInfoList'] = [];
-            if (null !== $this->subQuotaInfoList && \is_array($this->subQuotaInfoList)) {
-                $n = 0;
-                foreach ($this->subQuotaInfoList as $item) {
-                    $res['subQuotaInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->parameter)) {
+                $res['parameter'] = [];
+                foreach ($this->parameter as $key1 => $value1) {
+                    $res['parameter'][$key1] = $value1;
                 }
             }
         }
+
+        if (null !== $this->parentId) {
+            $res['parentId'] = $this->parentId;
+        }
+
+        if (null !== $this->regionId) {
+            $res['regionId'] = $this->regionId;
+        }
+
+        if (null !== $this->saleTag) {
+            $res['saleTag'] = null !== $this->saleTag ? $this->saleTag->toArray($noStream) : $this->saleTag;
+        }
+
+        if (null !== $this->scheduleInfo) {
+            $res['scheduleInfo'] = null !== $this->scheduleInfo ? $this->scheduleInfo->toArray($noStream) : $this->scheduleInfo;
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
+        }
+
+        if (null !== $this->subQuotaInfoList) {
+            if (\is_array($this->subQuotaInfoList)) {
+                $res['subQuotaInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->subQuotaInfoList as $item1) {
+                    $res['subQuotaInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->tag) {
             $res['tag'] = $this->tag;
         }
+
         if (null !== $this->tenantId) {
             $res['tenantId'] = $this->tenantId;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -236,74 +241,97 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['billingPolicy'])) {
             $model->billingPolicy = billingPolicy::fromMap($map['billingPolicy']);
         }
+
         if (isset($map['cluster'])) {
             $model->cluster = $map['cluster'];
         }
+
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+
         if (isset($map['creatorId'])) {
             $model->creatorId = $map['creatorId'];
         }
+
         if (isset($map['groupName'])) {
             $model->groupName = $map['groupName'];
         }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['nickName'])) {
             $model->nickName = $map['nickName'];
         }
+
         if (isset($map['parameter'])) {
-            $model->parameter = $map['parameter'];
-        }
-        if (isset($map['parentId'])) {
-            $model->parentId = $map['parentId'];
-        }
-        if (isset($map['regionId'])) {
-            $model->regionId = $map['regionId'];
-        }
-        if (isset($map['saleTag'])) {
-            $model->saleTag = saleTag::fromMap($map['saleTag']);
-        }
-        if (isset($map['scheduleInfo'])) {
-            $model->scheduleInfo = scheduleInfo::fromMap($map['scheduleInfo']);
-        }
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
-        if (isset($map['subQuotaInfoList'])) {
-            if (!empty($map['subQuotaInfoList'])) {
-                $model->subQuotaInfoList = [];
-                $n = 0;
-                foreach ($map['subQuotaInfoList'] as $item) {
-                    $model->subQuotaInfoList[$n++] = null !== $item ? subQuotaInfoList::fromMap($item) : $item;
+            if (!empty($map['parameter'])) {
+                $model->parameter = [];
+                foreach ($map['parameter'] as $key1 => $value1) {
+                    $model->parameter[$key1] = $value1;
                 }
             }
         }
+
+        if (isset($map['parentId'])) {
+            $model->parentId = $map['parentId'];
+        }
+
+        if (isset($map['regionId'])) {
+            $model->regionId = $map['regionId'];
+        }
+
+        if (isset($map['saleTag'])) {
+            $model->saleTag = saleTag::fromMap($map['saleTag']);
+        }
+
+        if (isset($map['scheduleInfo'])) {
+            $model->scheduleInfo = scheduleInfo::fromMap($map['scheduleInfo']);
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
+        }
+
+        if (isset($map['subQuotaInfoList'])) {
+            if (!empty($map['subQuotaInfoList'])) {
+                $model->subQuotaInfoList = [];
+                $n1 = 0;
+                foreach ($map['subQuotaInfoList'] as $item1) {
+                    $model->subQuotaInfoList[$n1++] = subQuotaInfoList::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['tag'])) {
             $model->tag = $map['tag'];
         }
+
         if (isset($map['tenantId'])) {
             $model->tenantId = $map['tenantId'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

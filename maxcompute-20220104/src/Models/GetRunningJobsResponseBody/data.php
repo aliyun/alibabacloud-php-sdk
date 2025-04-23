@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetRunningJobsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetRunningJobsResponseBody\data\runningJobInfoList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The page number.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The list of jobs in the running state.
-     *
      * @var runningJobInfoList[]
      */
     public $runningJobInfoList;
 
     /**
-     * @description The total number of returned entries.
-     *
-     * @example 64
-     *
      * @var int
      */
     public $totalCount;
@@ -49,26 +35,35 @@ class data extends Model
         'totalCount' => 'totalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->runningJobInfoList)) {
+            Model::validateArray($this->runningJobInfoList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->runningJobInfoList) {
-            $res['runningJobInfoList'] = [];
-            if (null !== $this->runningJobInfoList && \is_array($this->runningJobInfoList)) {
-                $n = 0;
-                foreach ($this->runningJobInfoList as $item) {
-                    $res['runningJobInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->runningJobInfoList)) {
+                $res['runningJobInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->runningJobInfoList as $item1) {
+                    $res['runningJobInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -76,29 +71,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['runningJobInfoList'])) {
             if (!empty($map['runningJobInfoList'])) {
                 $model->runningJobInfoList = [];
-                $n = 0;
-                foreach ($map['runningJobInfoList'] as $item) {
-                    $model->runningJobInfoList[$n++] = null !== $item ? runningJobInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['runningJobInfoList'] as $item1) {
+                    $model->runningJobInfoList[$n1++] = runningJobInfoList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

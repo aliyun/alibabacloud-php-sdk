@@ -1,3 +1,8 @@
+2025-04-23 Version: 2.1.0
+- Support API QueryTunnelMetric.
+- Support API QueryTunnelMetricDetail.
+
+
 2025-03-25 Version: 2.0.1
 - Update API UpdateProjectBasicMeta: update param body.
 
