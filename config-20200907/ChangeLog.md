@@ -1,3 +1,14 @@
+2025-04-23 Version: 3.0.13
+- Update API ListAggregateConfigRuleEvaluationResults: add response parameters Body.EvaluationResults.EvaluationResultList.$.EvaluationId.
+- Update API ListAggregateConfigRuleEvaluationResults: add response parameters Body.EvaluationResults.EvaluationResultList.$.LastNonCompliantRecordTimestamp.
+- Update API ListAggregateResourceEvaluationResults: add response parameters Body.EvaluationResults.EvaluationResultList.$.EvaluationId.
+- Update API ListAggregateResourceEvaluationResults: add response parameters Body.EvaluationResults.EvaluationResultList.$.LastNonCompliantRecordTimestamp.
+- Update API ListConfigRuleEvaluationResults: add response parameters Body.EvaluationResults.EvaluationResultList.$.EvaluationId.
+- Update API ListConfigRuleEvaluationResults: add response parameters Body.EvaluationResults.EvaluationResultList.$.LastNonCompliantRecordTimestamp.
+- Update API ListResourceEvaluationResults: add response parameters Body.EvaluationResults.EvaluationResultList.$.EvaluationId.
+- Update API ListResourceEvaluationResults: add response parameters Body.EvaluationResults.EvaluationResultList.$.LastNonCompliantRecordTimestamp.
+
+
 2025-04-03 Version: 3.0.12
 - Update API CreateAggregateCompliancePack: add request parameters Tag.
 - Update API CreateAggregateConfigRule: add request parameters ResourceNameScope.

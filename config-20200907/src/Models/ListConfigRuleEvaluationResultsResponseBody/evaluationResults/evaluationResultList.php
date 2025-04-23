@@ -25,6 +25,11 @@ class evaluationResultList extends Model
     public $configRuleInvokedTimestamp;
 
     /**
+     * @var string
+     */
+    public $evaluationId;
+
+    /**
      * @var evaluationResultIdentifier
      */
     public $evaluationResultIdentifier;
@@ -33,6 +38,11 @@ class evaluationResultList extends Model
      * @var string
      */
     public $invokingEventMessageType;
+
+    /**
+     * @var int
+     */
+    public $lastNonCompliantRecordTimestamp;
 
     /**
      * @var bool
@@ -52,8 +62,10 @@ class evaluationResultList extends Model
         'annotation' => 'Annotation',
         'complianceType' => 'ComplianceType',
         'configRuleInvokedTimestamp' => 'ConfigRuleInvokedTimestamp',
+        'evaluationId' => 'EvaluationId',
         'evaluationResultIdentifier' => 'EvaluationResultIdentifier',
         'invokingEventMessageType' => 'InvokingEventMessageType',
+        'lastNonCompliantRecordTimestamp' => 'LastNonCompliantRecordTimestamp',
         'remediationEnabled' => 'RemediationEnabled',
         'resultRecordedTimestamp' => 'ResultRecordedTimestamp',
         'riskLevel' => 'RiskLevel',
@@ -82,12 +94,20 @@ class evaluationResultList extends Model
             $res['ConfigRuleInvokedTimestamp'] = $this->configRuleInvokedTimestamp;
         }
 
+        if (null !== $this->evaluationId) {
+            $res['EvaluationId'] = $this->evaluationId;
+        }
+
         if (null !== $this->evaluationResultIdentifier) {
             $res['EvaluationResultIdentifier'] = null !== $this->evaluationResultIdentifier ? $this->evaluationResultIdentifier->toArray($noStream) : $this->evaluationResultIdentifier;
         }
 
         if (null !== $this->invokingEventMessageType) {
             $res['InvokingEventMessageType'] = $this->invokingEventMessageType;
+        }
+
+        if (null !== $this->lastNonCompliantRecordTimestamp) {
+            $res['LastNonCompliantRecordTimestamp'] = $this->lastNonCompliantRecordTimestamp;
         }
 
         if (null !== $this->remediationEnabled) {
@@ -125,12 +145,20 @@ class evaluationResultList extends Model
             $model->configRuleInvokedTimestamp = $map['ConfigRuleInvokedTimestamp'];
         }
 
+        if (isset($map['EvaluationId'])) {
+            $model->evaluationId = $map['EvaluationId'];
+        }
+
         if (isset($map['EvaluationResultIdentifier'])) {
             $model->evaluationResultIdentifier = evaluationResultIdentifier::fromMap($map['EvaluationResultIdentifier']);
         }
 
         if (isset($map['InvokingEventMessageType'])) {
             $model->invokingEventMessageType = $map['InvokingEventMessageType'];
+        }
+
+        if (isset($map['LastNonCompliantRecordTimestamp'])) {
+            $model->lastNonCompliantRecordTimestamp = $map['LastNonCompliantRecordTimestamp'];
         }
 
         if (isset($map['RemediationEnabled'])) {

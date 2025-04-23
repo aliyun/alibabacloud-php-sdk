@@ -391,11 +391,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ActiveAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ActiveAggregateConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ActiveAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -462,11 +459,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ActiveConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ActiveConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ActiveConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -537,11 +531,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachAggregateConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachAggregateConfigRuleToCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachAggregateConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -607,11 +598,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachConfigRuleToCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -678,11 +666,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CopyCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CopyCompliancePacksResponse::fromMap($this->execute($params, $req, $runtime));
+        return CopyCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -746,11 +731,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CopyConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CopyConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return CopyConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -806,11 +788,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAdvancedSearchFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -873,11 +852,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAggregateAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAggregateAdvancedSearchFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAggregateAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1030,11 +1006,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAggregateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAggregateCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAggregateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1144,11 +1117,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAggregateConfigDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1344,11 +1314,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAggregateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAggregateConfigRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAggregateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1441,11 +1408,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAggregateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAggregateRemediationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAggregateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1549,11 +1513,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAggregatorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAggregatorResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAggregatorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1709,11 +1670,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1820,11 +1778,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateConfigDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1998,11 +1953,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateConfigRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2108,11 +2060,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -2201,11 +2150,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRemediationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2278,11 +2224,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeactiveAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeactiveAggregateConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeactiveAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2354,11 +2297,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeactiveConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeactiveConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeactiveConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2435,11 +2375,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAggregateCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAggregateCompliancePacksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAggregateCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2505,11 +2442,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAggregateConfigDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2575,11 +2509,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAggregateConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2645,11 +2576,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAggregateRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAggregateRemediationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAggregateRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2722,11 +2650,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAggregatorsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAggregatorsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAggregatorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2803,11 +2728,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCompliancePacksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2869,11 +2791,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteConfigDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2935,11 +2854,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3001,11 +2917,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteRemediationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3060,11 +2973,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRemediationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3134,11 +3044,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetachAggregateConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachAggregateConfigRuleToCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachAggregateConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3210,11 +3117,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetachConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachConfigRuleToCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3290,11 +3194,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EvaluatePreConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EvaluatePreConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return EvaluatePreConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3362,11 +3263,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateAggregateCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateAggregateCompliancePackReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateAggregateCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3438,11 +3336,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateAggregateConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateAggregateConfigRulesReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateAggregateConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3521,11 +3416,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateAggregateResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateAggregateResourceInventoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateAggregateResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3592,11 +3484,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateCompliancePackReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3664,11 +3553,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateConfigRulesReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3739,11 +3625,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateResourceInventoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3797,11 +3680,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAdvancedSearchFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3856,11 +3736,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateAccountComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateAccountComplianceByPackResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateAccountComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3919,11 +3796,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateAdvancedSearchFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3984,11 +3858,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4047,11 +3918,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateCompliancePackReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4114,11 +3982,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateComplianceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateComplianceSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateComplianceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4181,11 +4046,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateConfigDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4258,11 +4120,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateConfigRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4320,11 +4179,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateConfigRuleComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateConfigRuleComplianceByPackResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateConfigRuleComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4386,11 +4242,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateConfigRuleSummaryByRiskLevelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateConfigRuleSummaryByRiskLevelResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateConfigRuleSummaryByRiskLevelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4457,11 +4310,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateConfigRulesReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4548,11 +4398,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateDiscoveredResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateDiscoveredResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateDiscoveredResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4630,11 +4477,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateResourceComplianceByConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateResourceComplianceByConfigRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateResourceComplianceByConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4692,11 +4536,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateResourceComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateResourceComplianceByPackResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateResourceComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4759,11 +4600,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateResourceComplianceGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateResourceComplianceGroupByRegionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateResourceComplianceGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4823,11 +4661,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateResourceComplianceGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateResourceComplianceGroupByResourceTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateResourceComplianceGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4882,11 +4717,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateResourceComplianceTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateResourceComplianceTimelineResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateResourceComplianceTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4944,11 +4776,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateResourceConfigurationTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateResourceConfigurationTimelineResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateResourceConfigurationTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5026,11 +4855,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateResourceCountsGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateResourceCountsGroupByRegionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateResourceCountsGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5108,11 +4934,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateResourceCountsGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateResourceCountsGroupByResourceTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateResourceCountsGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5177,11 +5000,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregateResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregateResourceInventoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregateResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5256,11 +5076,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAggregatorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAggregatorResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAggregatorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5324,11 +5141,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5387,11 +5201,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCompliancePackReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5445,11 +5256,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetComplianceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetComplianceSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetComplianceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5504,11 +5312,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConfigDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5577,11 +5382,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConfigRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5639,11 +5441,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetConfigRuleComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConfigRuleComplianceByPackResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConfigRuleComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5696,11 +5495,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetConfigRuleSummaryByRiskLevelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConfigRuleSummaryByRiskLevelResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConfigRuleSummaryByRiskLevelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5759,11 +5555,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConfigRulesReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5817,11 +5610,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConfigurationRecorderResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5891,11 +5681,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDiscoveredResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDiscoveredResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDiscoveredResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5957,11 +5744,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDiscoveredResourceCountsGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDiscoveredResourceCountsGroupByRegionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDiscoveredResourceCountsGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6023,11 +5807,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetDiscoveredResourceCountsGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDiscoveredResourceCountsGroupByResourceTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDiscoveredResourceCountsGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6086,11 +5867,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetIntegratedServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIntegratedServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIntegratedServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6149,11 +5927,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetManagedRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetManagedRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetManagedRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6215,11 +5990,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRemediationTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRemediationTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRemediationTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6277,11 +6049,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourceComplianceByConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceComplianceByConfigRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceComplianceByConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6339,11 +6108,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourceComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceComplianceByPackResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6402,11 +6168,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourceComplianceGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceComplianceGroupByRegionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceComplianceGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6462,11 +6225,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourceComplianceGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceComplianceGroupByResourceTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceComplianceGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6522,11 +6282,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourceComplianceTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceComplianceTimelineResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceComplianceTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6585,11 +6342,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourceConfigurationTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceConfigurationTimelineResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceConfigurationTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6645,11 +6399,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetResourceInventoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6710,11 +6461,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSupportedResourceRelationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSupportedResourceRelationConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSupportedResourceRelationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6799,11 +6547,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return IgnoreAggregateEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return IgnoreAggregateEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
+        return IgnoreAggregateEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6885,11 +6630,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return IgnoreEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return IgnoreEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
+        return IgnoreEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6974,11 +6716,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAggregateCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAggregateCompliancePacksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAggregateCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7041,11 +6780,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAggregateConfigDeliveryChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAggregateConfigDeliveryChannelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAggregateConfigDeliveryChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7144,11 +6880,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAggregateConfigRuleEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAggregateConfigRuleEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAggregateConfigRuleEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7210,11 +6943,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAggregateConfigRuleEvaluationStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAggregateConfigRuleEvaluationStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAggregateConfigRuleEvaluationStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7322,11 +7052,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAggregateConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7432,11 +7159,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAggregateDiscoveredResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAggregateDiscoveredResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAggregateDiscoveredResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7518,11 +7242,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAggregateRemediationExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAggregateRemediationExecutionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAggregateRemediationExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7588,11 +7309,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAggregateRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAggregateRemediationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAggregateRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7678,11 +7396,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAggregateResourceEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAggregateResourceEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAggregateResourceEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7780,11 +7495,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAggregateResourceRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAggregateResourceRelationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAggregateResourceRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7854,11 +7566,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAggregateResourcesByAdvancedSearchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAggregateResourcesByAdvancedSearchResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAggregateResourcesByAdvancedSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7938,11 +7647,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAggregatorsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAggregatorsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAggregatorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8016,11 +7722,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCompliancePackTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCompliancePackTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCompliancePackTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8100,11 +7803,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCompliancePacksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8163,11 +7863,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListConfigDeliveryChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListConfigDeliveryChannelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListConfigDeliveryChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8222,11 +7919,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListConfigRuleEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListConfigRuleEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListConfigRuleEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8276,11 +7970,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListConfigRuleEvaluationStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListConfigRuleEvaluationStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListConfigRuleEvaluationStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8377,11 +8068,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListConfigRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8475,11 +8163,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDiscoveredResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDiscoveredResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDiscoveredResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8532,11 +8217,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIntegratedServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIntegratedServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIntegratedServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8617,11 +8299,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListManagedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListManagedRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListManagedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8701,11 +8380,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPreManagedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPreManagedRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPreManagedRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8780,11 +8456,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRemediationExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRemediationExecutionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRemediationExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8858,11 +8531,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRemediationTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRemediationTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRemediationTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8932,11 +8602,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRemediationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRemediationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9018,11 +8685,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListResourceEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourceEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourceEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9113,11 +8777,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListResourceRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourceRelationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourceRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9184,11 +8845,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListResourcesByAdvancedSearchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourcesByAdvancedSearchResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourcesByAdvancedSearchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9258,11 +8916,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSupportedProductsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSupportedProductsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSupportedProductsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9343,11 +8998,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9414,11 +9066,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PutEvaluationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PutEvaluationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return PutEvaluationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9497,11 +9146,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RevertAggregateEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevertAggregateEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevertAggregateEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9579,11 +9225,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RevertEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevertEvaluationResultsResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevertEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9661,11 +9304,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartAggregateConfigRuleEvaluationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartAggregateConfigRuleEvaluationResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartAggregateConfigRuleEvaluationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9736,11 +9376,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartAggregateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartAggregateRemediationResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartAggregateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9810,11 +9447,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartConfigRuleEvaluationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartConfigRuleEvaluationResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartConfigRuleEvaluationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9867,11 +9501,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartConfigurationRecorderResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9929,11 +9560,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartRemediationResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9986,11 +9614,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopConfigurationRecorderResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10063,11 +9688,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10139,11 +9761,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10285,11 +9904,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAggregateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAggregateCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAggregateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10403,11 +10019,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAggregateConfigDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAggregateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10592,11 +10205,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAggregateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAggregateConfigRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAggregateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10682,11 +10292,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAggregateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAggregateRemediationResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAggregateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10784,11 +10391,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAggregatorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAggregatorResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAggregatorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10929,11 +10533,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCompliancePackResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11043,11 +10644,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateConfigDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateConfigDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11216,11 +10814,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateConfigRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11282,11 +10877,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateConfigurationRecorderResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11395,11 +10987,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDeliveryChannelResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     // Deprecated
@@ -11473,11 +11062,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateIntegratedServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateIntegratedServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateIntegratedServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11560,11 +11146,8 @@ class Config extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateRemediationResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
