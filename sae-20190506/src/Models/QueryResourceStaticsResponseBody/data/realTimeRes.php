@@ -16,9 +16,15 @@ class realTimeRes extends Model
     /**
      * @var float
      */
+    public $ephemeralStorage;
+
+    /**
+     * @var float
+     */
     public $memory;
     protected $_name = [
         'cpu' => 'Cpu',
+        'ephemeralStorage' => 'EphemeralStorage',
         'memory' => 'Memory',
     ];
 
@@ -32,6 +38,10 @@ class realTimeRes extends Model
         $res = [];
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
+        }
+
+        if (null !== $this->ephemeralStorage) {
+            $res['EphemeralStorage'] = $this->ephemeralStorage;
         }
 
         if (null !== $this->memory) {
@@ -51,6 +61,10 @@ class realTimeRes extends Model
         $model = new self();
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
+        }
+
+        if (isset($map['EphemeralStorage'])) {
+            $model->ephemeralStorage = $map['EphemeralStorage'];
         }
 
         if (isset($map['Memory'])) {

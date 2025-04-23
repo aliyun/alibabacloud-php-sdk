@@ -21,6 +21,11 @@ class DescribeConfigurationPriceRequest extends Model
     /**
      * @var string
      */
+    public $newSaeVersion;
+
+    /**
+     * @var string
+     */
     public $resourceType;
 
     /**
@@ -30,6 +35,7 @@ class DescribeConfigurationPriceRequest extends Model
     protected $_name = [
         'cpu' => 'Cpu',
         'memory' => 'Memory',
+        'newSaeVersion' => 'NewSaeVersion',
         'resourceType' => 'ResourceType',
         'workload' => 'Workload',
     ];
@@ -48,6 +54,10 @@ class DescribeConfigurationPriceRequest extends Model
 
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+
+        if (null !== $this->newSaeVersion) {
+            $res['NewSaeVersion'] = $this->newSaeVersion;
         }
 
         if (null !== $this->resourceType) {
@@ -75,6 +85,10 @@ class DescribeConfigurationPriceRequest extends Model
 
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+
+        if (isset($map['NewSaeVersion'])) {
+            $model->newSaeVersion = $map['NewSaeVersion'];
         }
 
         if (isset($map['ResourceType'])) {

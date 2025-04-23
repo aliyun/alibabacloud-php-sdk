@@ -3992,6 +3992,10 @@ class Sae extends OpenApiClient
             @$query['Memory'] = $request->memory;
         }
 
+        if (null !== $request->newSaeVersion) {
+            @$query['NewSaeVersion'] = $request->newSaeVersion;
+        }
+
         if (null !== $request->resourceType) {
             @$query['ResourceType'] = $request->resourceType;
         }
