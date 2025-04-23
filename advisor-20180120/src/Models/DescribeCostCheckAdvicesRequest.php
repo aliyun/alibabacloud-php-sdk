@@ -20,6 +20,11 @@ class DescribeCostCheckAdvicesRequest extends Model
     public $checkId;
 
     /**
+     * @var int
+     */
+    public $checkPlanId;
+
+    /**
      * @var string
      */
     public $language;
@@ -38,6 +43,16 @@ class DescribeCostCheckAdvicesRequest extends Model
      * @var string[]
      */
     public $regionIds;
+
+    /**
+     * @var string[]
+     */
+    public $resourceGroupIdList;
+
+    /**
+     * @var string
+     */
+    public $resourceId;
 
     /**
      * @var string[]
@@ -71,10 +86,13 @@ class DescribeCostCheckAdvicesRequest extends Model
     protected $_name = [
         'assumeAliyunIdList' => 'AssumeAliyunIdList',
         'checkId' => 'CheckId',
+        'checkPlanId' => 'CheckPlanId',
         'language' => 'Language',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionIds' => 'RegionIds',
+        'resourceGroupIdList' => 'ResourceGroupIdList',
+        'resourceId' => 'ResourceId',
         'resourceIds' => 'ResourceIds',
         'resourceName' => 'ResourceName',
         'severity' => 'Severity',
@@ -90,6 +108,9 @@ class DescribeCostCheckAdvicesRequest extends Model
         }
         if (\is_array($this->regionIds)) {
             Model::validateArray($this->regionIds);
+        }
+        if (\is_array($this->resourceGroupIdList)) {
+            Model::validateArray($this->resourceGroupIdList);
         }
         if (\is_array($this->resourceIds)) {
             Model::validateArray($this->resourceIds);
@@ -123,6 +144,10 @@ class DescribeCostCheckAdvicesRequest extends Model
             $res['CheckId'] = $this->checkId;
         }
 
+        if (null !== $this->checkPlanId) {
+            $res['CheckPlanId'] = $this->checkPlanId;
+        }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
@@ -143,6 +168,20 @@ class DescribeCostCheckAdvicesRequest extends Model
                     $res['RegionIds'][$n1++] = $item1;
                 }
             }
+        }
+
+        if (null !== $this->resourceGroupIdList) {
+            if (\is_array($this->resourceGroupIdList)) {
+                $res['ResourceGroupIdList'] = [];
+                $n1 = 0;
+                foreach ($this->resourceGroupIdList as $item1) {
+                    $res['ResourceGroupIdList'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
 
         if (null !== $this->resourceIds) {
@@ -218,6 +257,10 @@ class DescribeCostCheckAdvicesRequest extends Model
             $model->checkId = $map['CheckId'];
         }
 
+        if (isset($map['CheckPlanId'])) {
+            $model->checkPlanId = $map['CheckPlanId'];
+        }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
@@ -238,6 +281,20 @@ class DescribeCostCheckAdvicesRequest extends Model
                     $model->regionIds[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['ResourceGroupIdList'])) {
+            if (!empty($map['ResourceGroupIdList'])) {
+                $model->resourceGroupIdList = [];
+                $n1 = 0;
+                foreach ($map['ResourceGroupIdList'] as $item1) {
+                    $model->resourceGroupIdList[$n1++] = $item1;
+                }
+            }
+        }
+
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
 
         if (isset($map['ResourceIds'])) {

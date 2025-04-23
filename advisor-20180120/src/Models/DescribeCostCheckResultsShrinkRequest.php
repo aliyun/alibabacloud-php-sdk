@@ -19,6 +19,11 @@ class DescribeCostCheckResultsShrinkRequest extends Model
     public $checkIdsShrink;
 
     /**
+     * @var int
+     */
+    public $checkPlanId;
+
+    /**
      * @var string
      */
     public $groupBy;
@@ -37,6 +42,11 @@ class DescribeCostCheckResultsShrinkRequest extends Model
      * @var string
      */
     public $resourceGroupIdListShrink;
+
+    /**
+     * @var string
+     */
+    public $resourceId;
 
     /**
      * @var string
@@ -70,10 +80,12 @@ class DescribeCostCheckResultsShrinkRequest extends Model
     protected $_name = [
         'assumeAliyunIdListShrink' => 'AssumeAliyunIdList',
         'checkIdsShrink' => 'CheckIds',
+        'checkPlanId' => 'CheckPlanId',
         'groupBy' => 'GroupBy',
         'product' => 'Product',
         'regionIdsShrink' => 'RegionIds',
         'resourceGroupIdListShrink' => 'ResourceGroupIdList',
+        'resourceId' => 'ResourceId',
         'resourceIdsShrink' => 'ResourceIds',
         'resourceName' => 'ResourceName',
         'severity' => 'Severity',
@@ -98,6 +110,10 @@ class DescribeCostCheckResultsShrinkRequest extends Model
             $res['CheckIds'] = $this->checkIdsShrink;
         }
 
+        if (null !== $this->checkPlanId) {
+            $res['CheckPlanId'] = $this->checkPlanId;
+        }
+
         if (null !== $this->groupBy) {
             $res['GroupBy'] = $this->groupBy;
         }
@@ -112,6 +128,10 @@ class DescribeCostCheckResultsShrinkRequest extends Model
 
         if (null !== $this->resourceGroupIdListShrink) {
             $res['ResourceGroupIdList'] = $this->resourceGroupIdListShrink;
+        }
+
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
 
         if (null !== $this->resourceIdsShrink) {
@@ -157,6 +177,10 @@ class DescribeCostCheckResultsShrinkRequest extends Model
             $model->checkIdsShrink = $map['CheckIds'];
         }
 
+        if (isset($map['CheckPlanId'])) {
+            $model->checkPlanId = $map['CheckPlanId'];
+        }
+
         if (isset($map['GroupBy'])) {
             $model->groupBy = $map['GroupBy'];
         }
@@ -171,6 +195,10 @@ class DescribeCostCheckResultsShrinkRequest extends Model
 
         if (isset($map['ResourceGroupIdList'])) {
             $model->resourceGroupIdListShrink = $map['ResourceGroupIdList'];
+        }
+
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
 
         if (isset($map['ResourceIds'])) {

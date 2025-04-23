@@ -19,6 +19,11 @@ class DescribeCostCheckAdvicesShrinkRequest extends Model
     public $checkId;
 
     /**
+     * @var int
+     */
+    public $checkPlanId;
+
+    /**
      * @var string
      */
     public $language;
@@ -37,6 +42,16 @@ class DescribeCostCheckAdvicesShrinkRequest extends Model
      * @var string
      */
     public $regionIdsShrink;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupIdListShrink;
+
+    /**
+     * @var string
+     */
+    public $resourceId;
 
     /**
      * @var string
@@ -70,10 +85,13 @@ class DescribeCostCheckAdvicesShrinkRequest extends Model
     protected $_name = [
         'assumeAliyunIdListShrink' => 'AssumeAliyunIdList',
         'checkId' => 'CheckId',
+        'checkPlanId' => 'CheckPlanId',
         'language' => 'Language',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionIdsShrink' => 'RegionIds',
+        'resourceGroupIdListShrink' => 'ResourceGroupIdList',
+        'resourceId' => 'ResourceId',
         'resourceIdsShrink' => 'ResourceIds',
         'resourceName' => 'ResourceName',
         'severity' => 'Severity',
@@ -98,6 +116,10 @@ class DescribeCostCheckAdvicesShrinkRequest extends Model
             $res['CheckId'] = $this->checkId;
         }
 
+        if (null !== $this->checkPlanId) {
+            $res['CheckPlanId'] = $this->checkPlanId;
+        }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
@@ -112,6 +134,14 @@ class DescribeCostCheckAdvicesShrinkRequest extends Model
 
         if (null !== $this->regionIdsShrink) {
             $res['RegionIds'] = $this->regionIdsShrink;
+        }
+
+        if (null !== $this->resourceGroupIdListShrink) {
+            $res['ResourceGroupIdList'] = $this->resourceGroupIdListShrink;
+        }
+
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
 
         if (null !== $this->resourceIdsShrink) {
@@ -157,6 +187,10 @@ class DescribeCostCheckAdvicesShrinkRequest extends Model
             $model->checkId = $map['CheckId'];
         }
 
+        if (isset($map['CheckPlanId'])) {
+            $model->checkPlanId = $map['CheckPlanId'];
+        }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
@@ -171,6 +205,14 @@ class DescribeCostCheckAdvicesShrinkRequest extends Model
 
         if (isset($map['RegionIds'])) {
             $model->regionIdsShrink = $map['RegionIds'];
+        }
+
+        if (isset($map['ResourceGroupIdList'])) {
+            $model->resourceGroupIdListShrink = $map['ResourceGroupIdList'];
+        }
+
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
 
         if (isset($map['ResourceIds'])) {

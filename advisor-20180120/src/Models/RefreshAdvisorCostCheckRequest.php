@@ -19,6 +19,11 @@ class RefreshAdvisorCostCheckRequest extends Model
     public $checkIds;
 
     /**
+     * @var int
+     */
+    public $checkPlanId;
+
+    /**
      * @var string
      */
     public $product;
@@ -35,6 +40,7 @@ class RefreshAdvisorCostCheckRequest extends Model
     protected $_name = [
         'assumeAliyunIdList' => 'AssumeAliyunIdList',
         'checkIds' => 'CheckIds',
+        'checkPlanId' => 'CheckPlanId',
         'product' => 'Product',
         'refreshResource' => 'RefreshResource',
         'resourceIds' => 'ResourceIds',
@@ -75,6 +81,10 @@ class RefreshAdvisorCostCheckRequest extends Model
                     $res['CheckIds'][$n1++] = $item1;
                 }
             }
+        }
+
+        if (null !== $this->checkPlanId) {
+            $res['CheckPlanId'] = $this->checkPlanId;
         }
 
         if (null !== $this->product) {
@@ -124,6 +134,10 @@ class RefreshAdvisorCostCheckRequest extends Model
                     $model->checkIds[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['CheckPlanId'])) {
+            $model->checkPlanId = $map['CheckPlanId'];
         }
 
         if (isset($map['Product'])) {

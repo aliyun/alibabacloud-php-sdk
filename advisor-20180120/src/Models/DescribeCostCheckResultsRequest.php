@@ -20,6 +20,11 @@ class DescribeCostCheckResultsRequest extends Model
     public $checkIds;
 
     /**
+     * @var int
+     */
+    public $checkPlanId;
+
+    /**
      * @var string
      */
     public $groupBy;
@@ -38,6 +43,11 @@ class DescribeCostCheckResultsRequest extends Model
      * @var string[]
      */
     public $resourceGroupIdList;
+
+    /**
+     * @var string
+     */
+    public $resourceId;
 
     /**
      * @var string[]
@@ -71,10 +81,12 @@ class DescribeCostCheckResultsRequest extends Model
     protected $_name = [
         'assumeAliyunIdList' => 'AssumeAliyunIdList',
         'checkIds' => 'CheckIds',
+        'checkPlanId' => 'CheckPlanId',
         'groupBy' => 'GroupBy',
         'product' => 'Product',
         'regionIds' => 'RegionIds',
         'resourceGroupIdList' => 'ResourceGroupIdList',
+        'resourceId' => 'ResourceId',
         'resourceIds' => 'ResourceIds',
         'resourceName' => 'ResourceName',
         'severity' => 'Severity',
@@ -135,6 +147,10 @@ class DescribeCostCheckResultsRequest extends Model
             }
         }
 
+        if (null !== $this->checkPlanId) {
+            $res['CheckPlanId'] = $this->checkPlanId;
+        }
+
         if (null !== $this->groupBy) {
             $res['GroupBy'] = $this->groupBy;
         }
@@ -161,6 +177,10 @@ class DescribeCostCheckResultsRequest extends Model
                     $res['ResourceGroupIdList'][$n1++] = $item1;
                 }
             }
+        }
+
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
 
         if (null !== $this->resourceIds) {
@@ -242,6 +262,10 @@ class DescribeCostCheckResultsRequest extends Model
             }
         }
 
+        if (isset($map['CheckPlanId'])) {
+            $model->checkPlanId = $map['CheckPlanId'];
+        }
+
         if (isset($map['GroupBy'])) {
             $model->groupBy = $map['GroupBy'];
         }
@@ -268,6 +292,10 @@ class DescribeCostCheckResultsRequest extends Model
                     $model->resourceGroupIdList[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
 
         if (isset($map['ResourceIds'])) {

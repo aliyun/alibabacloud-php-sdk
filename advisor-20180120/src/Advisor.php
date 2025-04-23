@@ -144,11 +144,8 @@ class Advisor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAdvicesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAdvicesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAdvicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -228,11 +225,8 @@ class Advisor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAdvicesFlatPageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAdvicesFlatPageResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAdvicesFlatPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -316,11 +310,8 @@ class Advisor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAdvicesPageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAdvicesPageResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAdvicesPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -378,11 +369,8 @@ class Advisor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAdvisorChecksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAdvisorChecksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAdvisorChecksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -482,11 +470,8 @@ class Advisor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAdvisorChecksFoPagesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAdvisorChecksFoPagesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAdvisorChecksFoPagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -560,11 +545,8 @@ class Advisor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAdvisorResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAdvisorResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAdvisorResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -609,6 +591,10 @@ class Advisor extends OpenApiClient
             $request->regionIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
         }
 
+        if (null !== $tmpReq->resourceGroupIdList) {
+            $request->resourceGroupIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceGroupIdList, 'ResourceGroupIdList', 'json');
+        }
+
         if (null !== $tmpReq->resourceIds) {
             $request->resourceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceIds, 'ResourceIds', 'json');
         }
@@ -634,6 +620,10 @@ class Advisor extends OpenApiClient
             @$query['CheckId'] = $request->checkId;
         }
 
+        if (null !== $request->checkPlanId) {
+            @$query['CheckPlanId'] = $request->checkPlanId;
+        }
+
         if (null !== $request->language) {
             @$query['Language'] = $request->language;
         }
@@ -648,6 +638,14 @@ class Advisor extends OpenApiClient
 
         if (null !== $request->regionIdsShrink) {
             @$query['RegionIds'] = $request->regionIdsShrink;
+        }
+
+        if (null !== $request->resourceGroupIdListShrink) {
+            @$query['ResourceGroupIdList'] = $request->resourceGroupIdListShrink;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
 
         if (null !== $request->resourceIdsShrink) {
@@ -688,11 +686,8 @@ class Advisor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCostCheckAdvicesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCostCheckAdvicesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCostCheckAdvicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -772,6 +767,10 @@ class Advisor extends OpenApiClient
             @$query['CheckIds'] = $request->checkIdsShrink;
         }
 
+        if (null !== $request->checkPlanId) {
+            @$query['CheckPlanId'] = $request->checkPlanId;
+        }
+
         if (null !== $request->groupBy) {
             @$query['GroupBy'] = $request->groupBy;
         }
@@ -786,6 +785,10 @@ class Advisor extends OpenApiClient
 
         if (null !== $request->resourceGroupIdListShrink) {
             @$query['ResourceGroupIdList'] = $request->resourceGroupIdListShrink;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
 
         if (null !== $request->resourceIdsShrink) {
@@ -826,11 +829,8 @@ class Advisor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCostCheckResultsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCostCheckResultsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCostCheckResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -882,6 +882,10 @@ class Advisor extends OpenApiClient
             @$query['AssumeAliyunIdList'] = $request->assumeAliyunIdListShrink;
         }
 
+        if (null !== $request->checkPlanId) {
+            @$query['CheckPlanId'] = $request->checkPlanId;
+        }
+
         if (null !== $request->token) {
             @$query['Token'] = $request->token;
         }
@@ -900,11 +904,8 @@ class Advisor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCostOptimizationOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCostOptimizationOverviewResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCostOptimizationOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -986,11 +987,8 @@ class Advisor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetHistoryAdvicesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetHistoryAdvicesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetHistoryAdvicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1052,11 +1050,8 @@ class Advisor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetInspectProgressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInspectProgressResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInspectProgressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1112,11 +1107,8 @@ class Advisor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetProductListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetProductListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetProductListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1168,11 +1160,8 @@ class Advisor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTaskStatusByIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTaskStatusByIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTaskStatusByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1264,11 +1253,8 @@ class Advisor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RefreshAdvisorCheckResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RefreshAdvisorCheckResponse::fromMap($this->execute($params, $req, $runtime));
+        return RefreshAdvisorCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1328,6 +1314,10 @@ class Advisor extends OpenApiClient
             @$query['CheckIds'] = $request->checkIdsShrink;
         }
 
+        if (null !== $request->checkPlanId) {
+            @$query['CheckPlanId'] = $request->checkPlanId;
+        }
+
         if (null !== $request->product) {
             @$query['Product'] = $request->product;
         }
@@ -1354,11 +1344,8 @@ class Advisor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RefreshAdvisorCostCheckResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RefreshAdvisorCostCheckResponse::fromMap($this->execute($params, $req, $runtime));
+        return RefreshAdvisorCostCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1380,6 +1367,8 @@ class Advisor extends OpenApiClient
     }
 
     /**
+     * RefreshAdvisorResource.
+     *
      * @param request - RefreshAdvisorResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1416,14 +1405,13 @@ class Advisor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RefreshAdvisorResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RefreshAdvisorResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RefreshAdvisorResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * RefreshAdvisorResource.
+     *
      * @param request - RefreshAdvisorResourceRequest
      *
      * @returns RefreshAdvisorResourceResponse
@@ -1508,11 +1496,8 @@ class Advisor extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReportBizAlertInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReportBizAlertInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReportBizAlertInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

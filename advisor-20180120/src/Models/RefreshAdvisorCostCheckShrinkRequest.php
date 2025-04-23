@@ -19,6 +19,11 @@ class RefreshAdvisorCostCheckShrinkRequest extends Model
     public $checkIdsShrink;
 
     /**
+     * @var int
+     */
+    public $checkPlanId;
+
+    /**
      * @var string
      */
     public $product;
@@ -35,6 +40,7 @@ class RefreshAdvisorCostCheckShrinkRequest extends Model
     protected $_name = [
         'assumeAliyunIdListShrink' => 'AssumeAliyunIdList',
         'checkIdsShrink' => 'CheckIds',
+        'checkPlanId' => 'CheckPlanId',
         'product' => 'Product',
         'refreshResource' => 'RefreshResource',
         'resourceIdsShrink' => 'ResourceIds',
@@ -54,6 +60,10 @@ class RefreshAdvisorCostCheckShrinkRequest extends Model
 
         if (null !== $this->checkIdsShrink) {
             $res['CheckIds'] = $this->checkIdsShrink;
+        }
+
+        if (null !== $this->checkPlanId) {
+            $res['CheckPlanId'] = $this->checkPlanId;
         }
 
         if (null !== $this->product) {
@@ -85,6 +95,10 @@ class RefreshAdvisorCostCheckShrinkRequest extends Model
 
         if (isset($map['CheckIds'])) {
             $model->checkIdsShrink = $map['CheckIds'];
+        }
+
+        if (isset($map['CheckPlanId'])) {
+            $model->checkPlanId = $map['CheckPlanId'];
         }
 
         if (isset($map['Product'])) {

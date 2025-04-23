@@ -39,9 +39,24 @@ class data extends Model
     public $optResourceNum;
 
     /**
+     * @var string
+     */
+    public $processedResourceCount;
+
+    /**
+     * @var string
+     */
+    public $processedSaveAmount;
+
+    /**
      * @var int
      */
     public $taskId;
+
+    /**
+     * @var string
+     */
+    public $waitProcessResourceCount;
     protected $_name = [
         'billingCycleDate' => 'BillingCycleDate',
         'currentBillingCost' => 'CurrentBillingCost',
@@ -49,7 +64,10 @@ class data extends Model
         'gmtModified' => 'GmtModified',
         'optCheckItemNum' => 'OptCheckItemNum',
         'optResourceNum' => 'OptResourceNum',
+        'processedResourceCount' => 'ProcessedResourceCount',
+        'processedSaveAmount' => 'ProcessedSaveAmount',
         'taskId' => 'TaskId',
+        'waitProcessResourceCount' => 'WaitProcessResourceCount',
     ];
 
     public function validate()
@@ -84,8 +102,20 @@ class data extends Model
             $res['OptResourceNum'] = $this->optResourceNum;
         }
 
+        if (null !== $this->processedResourceCount) {
+            $res['ProcessedResourceCount'] = $this->processedResourceCount;
+        }
+
+        if (null !== $this->processedSaveAmount) {
+            $res['ProcessedSaveAmount'] = $this->processedSaveAmount;
+        }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+
+        if (null !== $this->waitProcessResourceCount) {
+            $res['WaitProcessResourceCount'] = $this->waitProcessResourceCount;
         }
 
         return $res;
@@ -123,8 +153,20 @@ class data extends Model
             $model->optResourceNum = $map['OptResourceNum'];
         }
 
+        if (isset($map['ProcessedResourceCount'])) {
+            $model->processedResourceCount = $map['ProcessedResourceCount'];
+        }
+
+        if (isset($map['ProcessedSaveAmount'])) {
+            $model->processedSaveAmount = $map['ProcessedSaveAmount'];
+        }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+
+        if (isset($map['WaitProcessResourceCount'])) {
+            $model->waitProcessResourceCount = $map['WaitProcessResourceCount'];
         }
 
         return $model;

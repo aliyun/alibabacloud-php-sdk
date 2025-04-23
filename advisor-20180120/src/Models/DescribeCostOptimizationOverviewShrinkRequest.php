@@ -19,12 +19,18 @@ class DescribeCostOptimizationOverviewShrinkRequest extends Model
     public $assumeAliyunIdListShrink;
 
     /**
+     * @var int
+     */
+    public $checkPlanId;
+
+    /**
      * @var string
      */
     public $token;
     protected $_name = [
         'assumeAliyunId' => 'AssumeAliyunId',
         'assumeAliyunIdListShrink' => 'AssumeAliyunIdList',
+        'checkPlanId' => 'CheckPlanId',
         'token' => 'Token',
     ];
 
@@ -42,6 +48,10 @@ class DescribeCostOptimizationOverviewShrinkRequest extends Model
 
         if (null !== $this->assumeAliyunIdListShrink) {
             $res['AssumeAliyunIdList'] = $this->assumeAliyunIdListShrink;
+        }
+
+        if (null !== $this->checkPlanId) {
+            $res['CheckPlanId'] = $this->checkPlanId;
         }
 
         if (null !== $this->token) {
@@ -65,6 +75,10 @@ class DescribeCostOptimizationOverviewShrinkRequest extends Model
 
         if (isset($map['AssumeAliyunIdList'])) {
             $model->assumeAliyunIdListShrink = $map['AssumeAliyunIdList'];
+        }
+
+        if (isset($map['CheckPlanId'])) {
+            $model->checkPlanId = $map['CheckPlanId'];
         }
 
         if (isset($map['Token'])) {

@@ -19,12 +19,18 @@ class DescribeCostOptimizationOverviewRequest extends Model
     public $assumeAliyunIdList;
 
     /**
+     * @var int
+     */
+    public $checkPlanId;
+
+    /**
      * @var string
      */
     public $token;
     protected $_name = [
         'assumeAliyunId' => 'AssumeAliyunId',
         'assumeAliyunIdList' => 'AssumeAliyunIdList',
+        'checkPlanId' => 'CheckPlanId',
         'token' => 'Token',
     ];
 
@@ -51,6 +57,10 @@ class DescribeCostOptimizationOverviewRequest extends Model
                     $res['AssumeAliyunIdList'][$n1++] = $item1;
                 }
             }
+        }
+
+        if (null !== $this->checkPlanId) {
+            $res['CheckPlanId'] = $this->checkPlanId;
         }
 
         if (null !== $this->token) {
@@ -80,6 +90,10 @@ class DescribeCostOptimizationOverviewRequest extends Model
                     $model->assumeAliyunIdList[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['CheckPlanId'])) {
+            $model->checkPlanId = $map['CheckPlanId'];
         }
 
         if (isset($map['Token'])) {
