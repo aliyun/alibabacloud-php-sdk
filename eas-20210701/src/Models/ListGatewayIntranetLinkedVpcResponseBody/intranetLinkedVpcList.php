@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class intranetLinkedVpcList extends Model
 {
     /**
+     * @var string
+     */
+    public $accountId;
+
+    /**
      * @var bool
      */
     public $authoritativeDnsEnabled;
@@ -38,6 +43,7 @@ class intranetLinkedVpcList extends Model
      */
     public $vpcId;
     protected $_name = [
+        'accountId' => 'AccountId',
         'authoritativeDnsEnabled' => 'AuthoritativeDnsEnabled',
         'ip' => 'Ip',
         'securityGroupId' => 'SecurityGroupId',
@@ -54,6 +60,10 @@ class intranetLinkedVpcList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
+
         if (null !== $this->authoritativeDnsEnabled) {
             $res['AuthoritativeDnsEnabled'] = $this->authoritativeDnsEnabled;
         }
@@ -89,6 +99,10 @@ class intranetLinkedVpcList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
+
         if (isset($map['AuthoritativeDnsEnabled'])) {
             $model->authoritativeDnsEnabled = $map['AuthoritativeDnsEnabled'];
         }
