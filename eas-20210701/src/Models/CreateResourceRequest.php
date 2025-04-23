@@ -37,6 +37,11 @@ class CreateResourceRequest extends Model
     /**
      * @var string
      */
+    public $resourceName;
+
+    /**
+     * @var string
+     */
     public $resourceType;
 
     /**
@@ -59,6 +64,7 @@ class CreateResourceRequest extends Model
         'ecsInstanceCount' => 'EcsInstanceCount',
         'ecsInstanceType' => 'EcsInstanceType',
         'labels' => 'Labels',
+        'resourceName' => 'ResourceName',
         'resourceType' => 'ResourceType',
         'selfManagedResourceOptions' => 'SelfManagedResourceOptions',
         'systemDiskSize' => 'SystemDiskSize',
@@ -102,6 +108,10 @@ class CreateResourceRequest extends Model
                     $res['Labels'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->resourceName) {
+            $res['ResourceName'] = $this->resourceName;
         }
 
         if (null !== $this->resourceType) {
@@ -154,6 +164,10 @@ class CreateResourceRequest extends Model
                     $model->labels[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['ResourceName'])) {
+            $model->resourceName = $map['ResourceName'];
         }
 
         if (isset($map['ResourceType'])) {

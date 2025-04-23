@@ -939,6 +939,10 @@ class Eas extends OpenApiClient
             @$body['Labels'] = $request->labels;
         }
 
+        if (null !== $request->resourceName) {
+            @$body['ResourceName'] = $request->resourceName;
+        }
+
         if (null !== $request->resourceType) {
             @$body['ResourceType'] = $request->resourceType;
         }
