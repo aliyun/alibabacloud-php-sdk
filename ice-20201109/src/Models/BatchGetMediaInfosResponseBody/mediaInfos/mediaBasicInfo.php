@@ -11,6 +11,11 @@ class mediaBasicInfo extends Model
     /**
      * @var string
      */
+    public $biz;
+
+    /**
+     * @var string
+     */
     public $businessType;
 
     /**
@@ -98,6 +103,7 @@ class mediaBasicInfo extends Model
      */
     public $userData;
     protected $_name = [
+        'biz' => 'Biz',
         'businessType' => 'BusinessType',
         'category' => 'Category',
         'coverURL' => 'CoverURL',
@@ -126,6 +132,10 @@ class mediaBasicInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->biz) {
+            $res['Biz'] = $this->biz;
+        }
+
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
         }
@@ -209,6 +219,10 @@ class mediaBasicInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Biz'])) {
+            $model->biz = $map['Biz'];
+        }
+
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
         }
