@@ -37,6 +37,8 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteExtCodeSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteExtCodeSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteShortUrlRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteShortUrlResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsQualificationRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsQualificationResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsTemplateRequest;
@@ -79,9 +81,13 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendStatisticsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendStatisticsResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryShortUrlRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryShortUrlResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySingleSmsQualificationRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySingleSmsQualificationResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsAuthorizationLetterRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsAuthorizationLetterResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsAuthorizationLetterShrinkRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsQualificationRecordRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsQualificationRecordResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsSignListRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsSignListResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsSignRequest;
@@ -90,6 +96,8 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateListRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateListResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySmsTemplateResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\RequiredPhoneCodeRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\RequiredPhoneCodeResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendBatchCardSmsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendBatchCardSmsResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendBatchSmsRequest;
@@ -100,18 +108,26 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SmsConversionIntlRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SmsConversionIntlResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SubmitSmsQualificationRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SubmitSmsQualificationResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SubmitSmsQualificationShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateExtCodeSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateExtCodeSignResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsQualificationRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsQualificationResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsQualificationShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsSignRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsSignResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsSignShrinkRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UpdateSmsTemplateShrinkRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ValidPhoneCodeRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ValidPhoneCodeResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -1419,6 +1435,79 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteShortUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除资质对客openAPI.
+     *
+     * @param request - DeleteSmsQualificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSmsQualificationResponse
+     *
+     * @param DeleteSmsQualificationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteSmsQualificationResponse
+     */
+    public function deleteSmsQualificationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->qualificationGroupId) {
+            @$query['QualificationGroupId'] = $request->qualificationGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSmsQualification',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSmsQualificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除资质对客openAPI.
+     *
+     * @param request - DeleteSmsQualificationRequest
+     *
+     * @returns DeleteSmsQualificationResponse
+     *
+     * @param DeleteSmsQualificationRequest $request
+     *
+     * @return DeleteSmsQualificationResponse
+     */
+    public function deleteSmsQualification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSmsQualificationWithOptions($request, $runtime);
     }
 
     /**
@@ -3172,6 +3261,79 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * 查询单个资质详情.
+     *
+     * @param request - QuerySingleSmsQualificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySingleSmsQualificationResponse
+     *
+     * @param QuerySingleSmsQualificationRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QuerySingleSmsQualificationResponse
+     */
+    public function querySingleSmsQualificationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->qualificationGroupId) {
+            @$query['QualificationGroupId'] = $request->qualificationGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QuerySingleSmsQualification',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QuerySingleSmsQualificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询单个资质详情.
+     *
+     * @param request - QuerySingleSmsQualificationRequest
+     *
+     * @returns QuerySingleSmsQualificationResponse
+     *
+     * @param QuerySingleSmsQualificationRequest $request
+     *
+     * @return QuerySingleSmsQualificationResponse
+     */
+    public function querySingleSmsQualification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySingleSmsQualificationWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询委托授权书.
      *
      * @param tmpReq - QuerySmsAuthorizationLetterRequest
@@ -3260,6 +3422,103 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->querySmsAuthorizationLetterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询资质审核列表页.
+     *
+     * @param request - QuerySmsQualificationRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySmsQualificationRecordResponse
+     *
+     * @param QuerySmsQualificationRecordRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QuerySmsQualificationRecordResponse
+     */
+    public function querySmsQualificationRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->companyName) {
+            @$query['CompanyName'] = $request->companyName;
+        }
+
+        if (null !== $request->legalPersonName) {
+            @$query['LegalPersonName'] = $request->legalPersonName;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->qualificationGroupName) {
+            @$query['QualificationGroupName'] = $request->qualificationGroupName;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
+        }
+
+        if (null !== $request->useBySelf) {
+            @$query['UseBySelf'] = $request->useBySelf;
+        }
+
+        if (null !== $request->workOrderId) {
+            @$query['WorkOrderId'] = $request->workOrderId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QuerySmsQualificationRecord',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QuerySmsQualificationRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询资质审核列表页.
+     *
+     * @param request - QuerySmsQualificationRecordRequest
+     *
+     * @returns QuerySmsQualificationRecordResponse
+     *
+     * @param QuerySmsQualificationRecordRequest $request
+     *
+     * @return QuerySmsQualificationRecordResponse
+     */
+    public function querySmsQualificationRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySmsQualificationRecordWithOptions($request, $runtime);
     }
 
     /**
@@ -3590,6 +3849,75 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->querySmsTemplateListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 验证手机验证码
+     *
+     * @param request - RequiredPhoneCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RequiredPhoneCodeResponse
+     *
+     * @param RequiredPhoneCodeRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RequiredPhoneCodeResponse
+     */
+    public function requiredPhoneCodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->phoneNo) {
+            @$query['PhoneNo'] = $request->phoneNo;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RequiredPhoneCode',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RequiredPhoneCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 验证手机验证码
+     *
+     * @param request - RequiredPhoneCodeRequest
+     *
+     * @returns RequiredPhoneCodeResponse
+     *
+     * @param RequiredPhoneCodeRequest $request
+     *
+     * @return RequiredPhoneCodeResponse
+     */
+    public function requiredPhoneCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->requiredPhoneCodeWithOptions($request, $runtime);
     }
 
     /**
@@ -4110,6 +4438,177 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * 创建资质对客openAPI.
+     *
+     * @param tmpReq - SubmitSmsQualificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitSmsQualificationResponse
+     *
+     * @param SubmitSmsQualificationRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SubmitSmsQualificationResponse
+     */
+    public function submitSmsQualificationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitSmsQualificationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->businessLicensePics) {
+            $request->businessLicensePicsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->businessLicensePics, 'BusinessLicensePics', 'json');
+        }
+
+        if (null !== $tmpReq->otherFiles) {
+            $request->otherFilesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->otherFiles, 'OtherFiles', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->adminIDCardExpDate) {
+            @$query['AdminIDCardExpDate'] = $request->adminIDCardExpDate;
+        }
+
+        if (null !== $request->adminIDCardFrontFace) {
+            @$query['AdminIDCardFrontFace'] = $request->adminIDCardFrontFace;
+        }
+
+        if (null !== $request->adminIDCardNo) {
+            @$query['AdminIDCardNo'] = $request->adminIDCardNo;
+        }
+
+        if (null !== $request->adminIDCardPic) {
+            @$query['AdminIDCardPic'] = $request->adminIDCardPic;
+        }
+
+        if (null !== $request->adminIDCardType) {
+            @$query['AdminIDCardType'] = $request->adminIDCardType;
+        }
+
+        if (null !== $request->adminName) {
+            @$query['AdminName'] = $request->adminName;
+        }
+
+        if (null !== $request->adminPhoneNo) {
+            @$query['AdminPhoneNo'] = $request->adminPhoneNo;
+        }
+
+        if (null !== $request->businessLicensePicsShrink) {
+            @$query['BusinessLicensePics'] = $request->businessLicensePicsShrink;
+        }
+
+        if (null !== $request->bussinessLicenseExpDate) {
+            @$query['BussinessLicenseExpDate'] = $request->bussinessLicenseExpDate;
+        }
+
+        if (null !== $request->certifyCode) {
+            @$query['CertifyCode'] = $request->certifyCode;
+        }
+
+        if (null !== $request->companyName) {
+            @$query['CompanyName'] = $request->companyName;
+        }
+
+        if (null !== $request->companyType) {
+            @$query['CompanyType'] = $request->companyType;
+        }
+
+        if (null !== $request->legalPersonIDCardNo) {
+            @$query['LegalPersonIDCardNo'] = $request->legalPersonIDCardNo;
+        }
+
+        if (null !== $request->legalPersonIDCardType) {
+            @$query['LegalPersonIDCardType'] = $request->legalPersonIDCardType;
+        }
+
+        if (null !== $request->legalPersonIdCardBackSide) {
+            @$query['LegalPersonIdCardBackSide'] = $request->legalPersonIdCardBackSide;
+        }
+
+        if (null !== $request->legalPersonIdCardEffTime) {
+            @$query['LegalPersonIdCardEffTime'] = $request->legalPersonIdCardEffTime;
+        }
+
+        if (null !== $request->legalPersonIdCardFrontSide) {
+            @$query['LegalPersonIdCardFrontSide'] = $request->legalPersonIdCardFrontSide;
+        }
+
+        if (null !== $request->legalPersonName) {
+            @$query['LegalPersonName'] = $request->legalPersonName;
+        }
+
+        if (null !== $request->organizationCode) {
+            @$query['OrganizationCode'] = $request->organizationCode;
+        }
+
+        if (null !== $request->otherFilesShrink) {
+            @$query['OtherFiles'] = $request->otherFilesShrink;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->qualificationName) {
+            @$query['QualificationName'] = $request->qualificationName;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->useBySelf) {
+            @$query['UseBySelf'] = $request->useBySelf;
+        }
+
+        if (null !== $request->whetherShare) {
+            @$query['WhetherShare'] = $request->whetherShare;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitSmsQualification',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitSmsQualificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建资质对客openAPI.
+     *
+     * @param request - SubmitSmsQualificationRequest
+     *
+     * @returns SubmitSmsQualificationResponse
+     *
+     * @param SubmitSmsQualificationRequest $request
+     *
+     * @return SubmitSmsQualificationResponse
+     */
+    public function submitSmsQualification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitSmsQualificationWithOptions($request, $runtime);
+    }
+
+    /**
      * Attaches tags to a message template.
      *
      * @remarks
@@ -4377,6 +4876,161 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * 修改资质对客openAPI.
+     *
+     * @param tmpReq - UpdateSmsQualificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSmsQualificationResponse
+     *
+     * @param UpdateSmsQualificationRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateSmsQualificationResponse
+     */
+    public function updateSmsQualificationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateSmsQualificationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->businessLicensePics) {
+            $request->businessLicensePicsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->businessLicensePics, 'BusinessLicensePics', 'json');
+        }
+
+        if (null !== $tmpReq->otherFiles) {
+            $request->otherFilesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->otherFiles, 'OtherFiles', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->adminIDCardExpDate) {
+            @$query['AdminIDCardExpDate'] = $request->adminIDCardExpDate;
+        }
+
+        if (null !== $request->adminIDCardFrontFace) {
+            @$query['AdminIDCardFrontFace'] = $request->adminIDCardFrontFace;
+        }
+
+        if (null !== $request->adminIDCardNo) {
+            @$query['AdminIDCardNo'] = $request->adminIDCardNo;
+        }
+
+        if (null !== $request->adminIDCardPic) {
+            @$query['AdminIDCardPic'] = $request->adminIDCardPic;
+        }
+
+        if (null !== $request->adminIDCardType) {
+            @$query['AdminIDCardType'] = $request->adminIDCardType;
+        }
+
+        if (null !== $request->adminName) {
+            @$query['AdminName'] = $request->adminName;
+        }
+
+        if (null !== $request->adminPhoneNo) {
+            @$query['AdminPhoneNo'] = $request->adminPhoneNo;
+        }
+
+        if (null !== $request->businessLicensePicsShrink) {
+            @$query['BusinessLicensePics'] = $request->businessLicensePicsShrink;
+        }
+
+        if (null !== $request->bussinessLicenseExpDate) {
+            @$query['BussinessLicenseExpDate'] = $request->bussinessLicenseExpDate;
+        }
+
+        if (null !== $request->certifyCode) {
+            @$query['CertifyCode'] = $request->certifyCode;
+        }
+
+        if (null !== $request->companyName) {
+            @$query['CompanyName'] = $request->companyName;
+        }
+
+        if (null !== $request->legalPersonIDCardNo) {
+            @$query['LegalPersonIDCardNo'] = $request->legalPersonIDCardNo;
+        }
+
+        if (null !== $request->legalPersonIDCardType) {
+            @$query['LegalPersonIDCardType'] = $request->legalPersonIDCardType;
+        }
+
+        if (null !== $request->legalPersonIdCardBackSide) {
+            @$query['LegalPersonIdCardBackSide'] = $request->legalPersonIdCardBackSide;
+        }
+
+        if (null !== $request->legalPersonIdCardEffTime) {
+            @$query['LegalPersonIdCardEffTime'] = $request->legalPersonIdCardEffTime;
+        }
+
+        if (null !== $request->legalPersonIdCardFrontSide) {
+            @$query['LegalPersonIdCardFrontSide'] = $request->legalPersonIdCardFrontSide;
+        }
+
+        if (null !== $request->legalPersonName) {
+            @$query['LegalPersonName'] = $request->legalPersonName;
+        }
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
+        }
+
+        if (null !== $request->otherFilesShrink) {
+            @$query['OtherFiles'] = $request->otherFilesShrink;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->qualificationGroupId) {
+            @$query['QualificationGroupId'] = $request->qualificationGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSmsQualification',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSmsQualificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改资质对客openAPI.
+     *
+     * @param request - UpdateSmsQualificationRequest
+     *
+     * @returns UpdateSmsQualificationResponse
+     *
+     * @param UpdateSmsQualificationRequest $request
+     *
+     * @return UpdateSmsQualificationResponse
+     */
+    public function updateSmsQualification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSmsQualificationWithOptions($request, $runtime);
+    }
+
+    /**
      * Update Text SMS Signature.
      *
      * @remarks
@@ -4616,5 +5270,78 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSmsTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 发送手机验证码
+     *
+     * @param request - ValidPhoneCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ValidPhoneCodeResponse
+     *
+     * @param ValidPhoneCodeRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ValidPhoneCodeResponse
+     */
+    public function validPhoneCodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certifyCode) {
+            @$query['CertifyCode'] = $request->certifyCode;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->phoneNo) {
+            @$query['PhoneNo'] = $request->phoneNo;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ValidPhoneCode',
+            'version' => '2017-05-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ValidPhoneCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发送手机验证码
+     *
+     * @param request - ValidPhoneCodeRequest
+     *
+     * @returns ValidPhoneCodeResponse
+     *
+     * @param ValidPhoneCodeRequest $request
+     *
+     * @return ValidPhoneCodeResponse
+     */
+    public function validPhoneCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->validPhoneCodeWithOptions($request, $runtime);
     }
 }
