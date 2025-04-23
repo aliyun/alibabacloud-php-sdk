@@ -31,7 +31,7 @@ class attributeInfos extends Model
         if (null !== $this->attributeInfo) {
             if (\is_array($this->attributeInfo)) {
                 $res['AttributeInfo'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->attributeInfo as $item1) {
                     $res['AttributeInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class attributeInfos extends Model
         if (isset($map['AttributeInfo'])) {
             if (!empty($map['AttributeInfo'])) {
                 $model->attributeInfo = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['AttributeInfo'] as $item1) {
                     $model->attributeInfo[$n1++] = attributeInfo::fromMap($item1);
                 }

@@ -12,27 +12,31 @@ class DescribeDnsGtmInstancesRequest extends Model
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'keyword'         => 'Keyword',
-        'lang'            => 'Lang',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'keyword' => 'Keyword',
+        'lang' => 'Lang',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

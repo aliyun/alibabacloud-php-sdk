@@ -13,33 +13,38 @@ class DescribeCustomLineResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var ipSegmentList[]
      */
     public $ipSegmentList;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'          => 'Code',
-        'domainName'    => 'DomainName',
-        'id'            => 'Id',
+        'code' => 'Code',
+        'domainName' => 'DomainName',
+        'id' => 'Id',
         'ipSegmentList' => 'IpSegmentList',
-        'name'          => 'Name',
-        'requestId'     => 'RequestId',
+        'name' => 'Name',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -68,7 +73,7 @@ class DescribeCustomLineResponseBody extends Model
         if (null !== $this->ipSegmentList) {
             if (\is_array($this->ipSegmentList)) {
                 $res['IpSegmentList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->ipSegmentList as $item1) {
                     $res['IpSegmentList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +114,7 @@ class DescribeCustomLineResponseBody extends Model
         if (isset($map['IpSegmentList'])) {
             if (!empty($map['IpSegmentList'])) {
                 $model->ipSegmentList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['IpSegmentList'] as $item1) {
                     $model->ipSegmentList[$n1++] = ipSegmentList::fromMap($item1);
                 }

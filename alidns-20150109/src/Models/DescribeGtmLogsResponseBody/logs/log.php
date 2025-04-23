@@ -12,47 +12,55 @@ class log extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $entityId;
+
     /**
      * @var string
      */
     public $entityName;
+
     /**
      * @var string
      */
     public $entityType;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $operAction;
+
     /**
      * @var string
      */
     public $operIp;
+
     /**
      * @var string
      */
     public $operTime;
+
     /**
      * @var int
      */
     public $operTimestamp;
     protected $_name = [
-        'content'       => 'Content',
-        'entityId'      => 'EntityId',
-        'entityName'    => 'EntityName',
-        'entityType'    => 'EntityType',
-        'id'            => 'Id',
-        'operAction'    => 'OperAction',
-        'operIp'        => 'OperIp',
-        'operTime'      => 'OperTime',
+        'content' => 'Content',
+        'entityId' => 'EntityId',
+        'entityName' => 'EntityName',
+        'entityType' => 'EntityType',
+        'id' => 'Id',
+        'operAction' => 'OperAction',
+        'operIp' => 'OperIp',
+        'operTime' => 'OperTime',
         'operTimestamp' => 'OperTimestamp',
     ];
 

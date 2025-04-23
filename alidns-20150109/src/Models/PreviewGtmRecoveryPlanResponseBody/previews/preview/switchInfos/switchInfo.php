@@ -12,12 +12,13 @@ class switchInfo extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $strategyName;
     protected $_name = [
-        'content'      => 'Content',
+        'content' => 'Content',
         'strategyName' => 'StrategyName',
     ];
 

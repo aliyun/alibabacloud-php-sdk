@@ -12,23 +12,26 @@ class GetMainDomainNameResponseBody extends Model
      * @var int
      */
     public $domainLevel;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $RR;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'domainLevel' => 'DomainLevel',
-        'domainName'  => 'DomainName',
-        'RR'          => 'RR',
-        'requestId'   => 'RequestId',
+        'domainName' => 'DomainName',
+        'RR' => 'RR',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

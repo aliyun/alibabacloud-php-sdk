@@ -12,57 +12,67 @@ class addrPool extends Model
      * @var int
      */
     public $addrCount;
+
     /**
      * @var string
      */
     public $addrPoolId;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $lbaStrategy;
+
     /**
      * @var string
      */
     public $monitorConfigId;
+
     /**
      * @var string
      */
     public $monitorStatus;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $updateTimestamp;
     protected $_name = [
-        'addrCount'       => 'AddrCount',
-        'addrPoolId'      => 'AddrPoolId',
-        'createTime'      => 'CreateTime',
+        'addrCount' => 'AddrCount',
+        'addrPoolId' => 'AddrPoolId',
+        'createTime' => 'CreateTime',
         'createTimestamp' => 'CreateTimestamp',
-        'lbaStrategy'     => 'LbaStrategy',
+        'lbaStrategy' => 'LbaStrategy',
         'monitorConfigId' => 'MonitorConfigId',
-        'monitorStatus'   => 'MonitorStatus',
-        'name'            => 'Name',
-        'type'            => 'Type',
-        'updateTime'      => 'UpdateTime',
+        'monitorStatus' => 'MonitorStatus',
+        'name' => 'Name',
+        'type' => 'Type',
+        'updateTime' => 'UpdateTime',
         'updateTimestamp' => 'UpdateTimestamp',
     ];
 

@@ -12,28 +12,32 @@ class UpdateGtmRecoveryPlanRequest extends Model
      * @var string
      */
     public $faultAddrPool;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $recoveryPlanId;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
-        'faultAddrPool'  => 'FaultAddrPool',
-        'lang'           => 'Lang',
-        'name'           => 'Name',
+        'faultAddrPool' => 'FaultAddrPool',
+        'lang' => 'Lang',
+        'name' => 'Name',
         'recoveryPlanId' => 'RecoveryPlanId',
-        'remark'         => 'Remark',
+        'remark' => 'Remark',
     ];
 
     public function validate()

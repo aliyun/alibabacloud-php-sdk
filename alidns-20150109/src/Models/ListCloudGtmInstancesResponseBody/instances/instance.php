@@ -12,83 +12,98 @@ class instance extends Model
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var int
      */
     public $expireTimestamp;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var int
      */
     public $monitorTaskQuota;
+
     /**
      * @var int
      */
     public $monthlyEmailUsed;
+
     /**
      * @var int
      */
     public $monthlySmsQuota;
+
     /**
      * @var int
      */
     public $monthlySmsUsed;
+
     /**
      * @var int
      */
     public $monthlyWebhookUsed;
+
     /**
      * @var string
      */
     public $scheduleDomainName;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $updateTimestamp;
+
     /**
      * @var string
      */
     public $versionCode;
     protected $_name = [
-        'commodityCode'      => 'CommodityCode',
-        'createTime'         => 'CreateTime',
-        'createTimestamp'    => 'CreateTimestamp',
-        'expireTime'         => 'ExpireTime',
-        'expireTimestamp'    => 'ExpireTimestamp',
-        'instanceId'         => 'InstanceId',
-        'instanceName'       => 'InstanceName',
-        'monitorTaskQuota'   => 'MonitorTaskQuota',
-        'monthlyEmailUsed'   => 'MonthlyEmailUsed',
-        'monthlySmsQuota'    => 'MonthlySmsQuota',
-        'monthlySmsUsed'     => 'MonthlySmsUsed',
+        'commodityCode' => 'CommodityCode',
+        'createTime' => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
+        'expireTime' => 'ExpireTime',
+        'expireTimestamp' => 'ExpireTimestamp',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'monitorTaskQuota' => 'MonitorTaskQuota',
+        'monthlyEmailUsed' => 'MonthlyEmailUsed',
+        'monthlySmsQuota' => 'MonthlySmsQuota',
+        'monthlySmsUsed' => 'MonthlySmsUsed',
         'monthlyWebhookUsed' => 'MonthlyWebhookUsed',
         'scheduleDomainName' => 'ScheduleDomainName',
-        'updateTime'         => 'UpdateTime',
-        'updateTimestamp'    => 'UpdateTimestamp',
-        'versionCode'        => 'VersionCode',
+        'updateTime' => 'UpdateTime',
+        'updateTimestamp' => 'UpdateTimestamp',
+        'versionCode' => 'VersionCode',
     ];
 
     public function validate()

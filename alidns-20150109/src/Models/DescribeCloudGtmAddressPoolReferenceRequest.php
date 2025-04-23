@@ -12,18 +12,20 @@ class DescribeCloudGtmAddressPoolReferenceRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $addressPoolId;
+
     /**
      * @var string
      */
     public $clientToken;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'addressPoolId'  => 'AddressPoolId',
-        'clientToken'    => 'ClientToken',
+        'addressPoolId' => 'AddressPoolId',
+        'clientToken' => 'ClientToken',
     ];
 
     public function validate()

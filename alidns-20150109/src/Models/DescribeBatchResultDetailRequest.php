@@ -12,33 +12,38 @@ class DescribeBatchResultDetailRequest extends Model
      * @var string
      */
     public $batchType;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
-        'batchType'  => 'BatchType',
-        'lang'       => 'Lang',
+        'batchType' => 'BatchType',
+        'lang' => 'Lang',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'status'     => 'Status',
-        'taskId'     => 'TaskId',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

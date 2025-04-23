@@ -12,18 +12,20 @@ class UpdateIspFlushCacheInstanceConfigRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'lang'         => 'Lang',
+        'lang' => 'Lang',
     ];
 
     public function validate()

@@ -13,53 +13,62 @@ class DescribeIspFlushCacheTaskResponseBody extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var flushCacheResults[]
      */
     public $flushCacheResults;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $isp;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskStatus;
     protected $_name = [
-        'createTime'        => 'CreateTime',
-        'createTimestamp'   => 'CreateTimestamp',
-        'domainName'        => 'DomainName',
+        'createTime' => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
+        'domainName' => 'DomainName',
         'flushCacheResults' => 'FlushCacheResults',
-        'instanceId'        => 'InstanceId',
-        'instanceName'      => 'InstanceName',
-        'isp'               => 'Isp',
-        'requestId'         => 'RequestId',
-        'taskId'            => 'TaskId',
-        'taskStatus'        => 'TaskStatus',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'isp' => 'Isp',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
+        'taskStatus' => 'TaskStatus',
     ];
 
     public function validate()
@@ -88,7 +97,7 @@ class DescribeIspFlushCacheTaskResponseBody extends Model
         if (null !== $this->flushCacheResults) {
             if (\is_array($this->flushCacheResults)) {
                 $res['FlushCacheResults'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->flushCacheResults as $item1) {
                     $res['FlushCacheResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -145,7 +154,7 @@ class DescribeIspFlushCacheTaskResponseBody extends Model
         if (isset($map['FlushCacheResults'])) {
             if (!empty($map['FlushCacheResults'])) {
                 $model->flushCacheResults = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['FlushCacheResults'] as $item1) {
                     $model->flushCacheResults[$n1++] = flushCacheResults::fromMap($item1);
                 }

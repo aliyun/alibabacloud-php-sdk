@@ -12,18 +12,20 @@ class UpdateAppKeyStateRequest extends Model
      * @var string
      */
     public $appKeyId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $state;
     protected $_name = [
         'appKeyId' => 'AppKeyId',
-        'lang'     => 'Lang',
-        'state'    => 'State',
+        'lang' => 'Lang',
+        'state' => 'State',
     ];
 
     public function validate()

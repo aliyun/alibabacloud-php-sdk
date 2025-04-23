@@ -31,7 +31,7 @@ class ispCityNodes extends Model
         if (null !== $this->ispCityNode) {
             if (\is_array($this->ispCityNode)) {
                 $res['IspCityNode'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->ispCityNode as $item1) {
                     $res['IspCityNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class ispCityNodes extends Model
         if (isset($map['IspCityNode'])) {
             if (!empty($map['IspCityNode'])) {
                 $model->ispCityNode = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['IspCityNode'] as $item1) {
                     $model->ispCityNode[$n1++] = ispCityNode::fromMap($item1);
                 }

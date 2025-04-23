@@ -12,13 +12,14 @@ class DeleteDomainGroupRequest extends Model
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
         'groupId' => 'GroupId',
-        'lang'    => 'Lang',
+        'lang' => 'Lang',
     ];
 
     public function validate()

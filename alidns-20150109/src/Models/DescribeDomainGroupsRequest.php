@@ -12,23 +12,26 @@ class DescribeDomainGroupsRequest extends Model
      * @var string
      */
     public $keyWord;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'keyWord'    => 'KeyWord',
-        'lang'       => 'Lang',
+        'keyWord' => 'KeyWord',
+        'lang' => 'Lang',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

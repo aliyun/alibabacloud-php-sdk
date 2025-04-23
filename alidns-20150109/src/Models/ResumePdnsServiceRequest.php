@@ -12,12 +12,13 @@ class ResumePdnsServiceRequest extends Model
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $serviceType;
     protected $_name = [
-        'lang'        => 'Lang',
+        'lang' => 'Lang',
         'serviceType' => 'ServiceType',
     ];
 

@@ -12,23 +12,26 @@ class logs extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $operateTime;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $content;
     protected $_name = [
-        'action'      => 'Action',
+        'action' => 'Action',
         'operateTime' => 'OperateTime',
-        'type'        => 'Type',
-        'content'     => 'content',
+        'type' => 'Type',
+        'content' => 'content',
     ];
 
     public function validate()

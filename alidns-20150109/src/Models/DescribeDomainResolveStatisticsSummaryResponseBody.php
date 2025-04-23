@@ -13,30 +13,35 @@ class DescribeDomainResolveStatisticsSummaryResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var statistics[]
      */
     public $statistics;
+
     /**
      * @var int
      */
     public $totalItems;
+
     /**
      * @var int
      */
     public $totalPages;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'statistics' => 'Statistics',
         'totalItems' => 'TotalItems',
         'totalPages' => 'TotalPages',
@@ -68,7 +73,7 @@ class DescribeDomainResolveStatisticsSummaryResponseBody extends Model
         if (null !== $this->statistics) {
             if (\is_array($this->statistics)) {
                 $res['Statistics'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->statistics as $item1) {
                     $res['Statistics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +114,7 @@ class DescribeDomainResolveStatisticsSummaryResponseBody extends Model
         if (isset($map['Statistics'])) {
             if (!empty($map['Statistics'])) {
                 $model->statistics = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Statistics'] as $item1) {
                     $model->statistics[$n1++] = statistics::fromMap($item1);
                 }

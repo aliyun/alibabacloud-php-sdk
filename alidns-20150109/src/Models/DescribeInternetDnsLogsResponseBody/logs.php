@@ -31,7 +31,7 @@ class logs extends Model
         if (null !== $this->log) {
             if (\is_array($this->log)) {
                 $res['Log'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->log as $item1) {
                     $res['Log'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class logs extends Model
         if (isset($map['Log'])) {
             if (!empty($map['Log'])) {
                 $model->log = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Log'] as $item1) {
                     $model->log[$n1++] = log::fromMap($item1);
                 }

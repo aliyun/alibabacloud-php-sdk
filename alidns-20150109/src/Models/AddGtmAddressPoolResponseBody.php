@@ -12,18 +12,20 @@ class AddGtmAddressPoolResponseBody extends Model
      * @var string
      */
     public $addrPoolId;
+
     /**
      * @var string
      */
     public $monitorConfigId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'addrPoolId'      => 'AddrPoolId',
+        'addrPoolId' => 'AddrPoolId',
         'monitorConfigId' => 'MonitorConfigId',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

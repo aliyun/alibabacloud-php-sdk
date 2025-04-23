@@ -12,23 +12,26 @@ class healthTask extends Model
      * @var string
      */
     public $monitorStatus;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateName;
     protected $_name = [
         'monitorStatus' => 'MonitorStatus',
-        'port'          => 'Port',
-        'templateId'    => 'TemplateId',
-        'templateName'  => 'TemplateName',
+        'port' => 'Port',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()

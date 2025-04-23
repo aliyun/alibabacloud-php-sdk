@@ -13,83 +13,98 @@ class DescribeGtmAccessStrategyResponseBody extends Model
      * @var string
      */
     public $accessMode;
+
     /**
      * @var string
      */
     public $accessStatus;
+
     /**
      * @var string
      */
     public $defaultAddrPoolMonitorStatus;
+
     /**
      * @var string
      */
     public $defaultAddrPoolName;
+
     /**
      * @var string
      */
     public $defaultAddrPoolStatus;
+
     /**
      * @var string
      */
     public $defultAddrPoolId;
+
     /**
      * @var string
      */
     public $failoverAddrPoolId;
+
     /**
      * @var string
      */
     public $failoverAddrPoolMonitorStatus;
+
     /**
      * @var string
      */
     public $failoverAddrPoolName;
+
     /**
      * @var string
      */
     public $failoverAddrPoolStatus;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var lines
      */
     public $lines;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $strategyId;
+
     /**
      * @var string
      */
     public $strategyMode;
+
     /**
      * @var string
      */
     public $strategyName;
     protected $_name = [
-        'accessMode'                    => 'AccessMode',
-        'accessStatus'                  => 'AccessStatus',
-        'defaultAddrPoolMonitorStatus'  => 'DefaultAddrPoolMonitorStatus',
-        'defaultAddrPoolName'           => 'DefaultAddrPoolName',
-        'defaultAddrPoolStatus'         => 'DefaultAddrPoolStatus',
-        'defultAddrPoolId'              => 'DefultAddrPoolId',
-        'failoverAddrPoolId'            => 'FailoverAddrPoolId',
+        'accessMode' => 'AccessMode',
+        'accessStatus' => 'AccessStatus',
+        'defaultAddrPoolMonitorStatus' => 'DefaultAddrPoolMonitorStatus',
+        'defaultAddrPoolName' => 'DefaultAddrPoolName',
+        'defaultAddrPoolStatus' => 'DefaultAddrPoolStatus',
+        'defultAddrPoolId' => 'DefultAddrPoolId',
+        'failoverAddrPoolId' => 'FailoverAddrPoolId',
         'failoverAddrPoolMonitorStatus' => 'FailoverAddrPoolMonitorStatus',
-        'failoverAddrPoolName'          => 'FailoverAddrPoolName',
-        'failoverAddrPoolStatus'        => 'FailoverAddrPoolStatus',
-        'instanceId'                    => 'InstanceId',
-        'lines'                         => 'Lines',
-        'requestId'                     => 'RequestId',
-        'strategyId'                    => 'StrategyId',
-        'strategyMode'                  => 'StrategyMode',
-        'strategyName'                  => 'StrategyName',
+        'failoverAddrPoolName' => 'FailoverAddrPoolName',
+        'failoverAddrPoolStatus' => 'FailoverAddrPoolStatus',
+        'instanceId' => 'InstanceId',
+        'lines' => 'Lines',
+        'requestId' => 'RequestId',
+        'strategyId' => 'StrategyId',
+        'strategyMode' => 'StrategyMode',
+        'strategyName' => 'StrategyName',
     ];
 
     public function validate()

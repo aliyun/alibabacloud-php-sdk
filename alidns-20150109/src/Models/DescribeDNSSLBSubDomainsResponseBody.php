@@ -13,28 +13,32 @@ class DescribeDNSSLBSubDomainsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var slbSubDomains
      */
     public $slbSubDomains;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'requestId'     => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'slbSubDomains' => 'SlbSubDomains',
-        'totalCount'    => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

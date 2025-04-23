@@ -12,13 +12,14 @@ class ispCityNodes extends Model
      * @var string
      */
     public $cityCode;
+
     /**
      * @var string
      */
     public $ispCode;
     protected $_name = [
         'cityCode' => 'CityCode',
-        'ispCode'  => 'IspCode',
+        'ispCode' => 'IspCode',
     ];
 
     public function validate()

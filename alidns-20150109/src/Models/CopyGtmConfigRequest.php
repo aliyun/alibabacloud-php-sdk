@@ -12,21 +12,24 @@ class CopyGtmConfigRequest extends Model
      * @var string
      */
     public $copyType;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $sourceId;
+
     /**
      * @var string
      */
     public $targetId;
     protected $_name = [
         'copyType' => 'CopyType',
-        'lang'     => 'Lang',
+        'lang' => 'Lang',
         'sourceId' => 'SourceId',
         'targetId' => 'TargetId',
     ];

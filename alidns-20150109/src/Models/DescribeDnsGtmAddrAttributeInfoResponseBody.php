@@ -13,12 +13,13 @@ class DescribeDnsGtmAddrAttributeInfoResponseBody extends Model
      * @var addr
      */
     public $addr;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'addr'      => 'Addr',
+        'addr' => 'Addr',
         'requestId' => 'RequestId',
     ];
 

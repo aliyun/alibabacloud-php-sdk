@@ -12,12 +12,13 @@ class DescribeIspFlushCacheRemainQuotaResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $telecomRemainQuota;
     protected $_name = [
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
         'telecomRemainQuota' => 'TelecomRemainQuota',
     ];
 

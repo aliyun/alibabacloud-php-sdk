@@ -12,23 +12,26 @@ class UpdateCloudGtmAddressRemarkRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $addressId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'addressId'      => 'AddressId',
-        'clientToken'    => 'ClientToken',
-        'remark'         => 'Remark',
+        'addressId' => 'AddressId',
+        'clientToken' => 'ClientToken',
+        'remark' => 'Remark',
     ];
 
     public function validate()

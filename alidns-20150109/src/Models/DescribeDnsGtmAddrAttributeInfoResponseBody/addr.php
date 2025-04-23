@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class addr extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAddrAttributeInfoResponseBody\addr\addr[]
+     * @var addr\addr[]
      */
     public $addr;
     protected $_name = [
@@ -30,7 +30,7 @@ class addr extends Model
         if (null !== $this->addr) {
             if (\is_array($this->addr)) {
                 $res['Addr'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->addr as $item1) {
                     $res['Addr'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -51,9 +51,9 @@ class addr extends Model
         if (isset($map['Addr'])) {
             if (!empty($map['Addr'])) {
                 $model->addr = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Addr'] as $item1) {
-                    $model->addr[$n1++] = \AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeDnsGtmAddrAttributeInfoResponseBody\addr\addr::fromMap($item1);
+                    $model->addr[$n1++] = addr\addr::fromMap($item1);
                 }
             }
         }

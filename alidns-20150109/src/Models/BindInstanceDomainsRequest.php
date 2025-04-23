@@ -12,18 +12,20 @@ class BindInstanceDomainsRequest extends Model
      * @var string
      */
     public $domainNames;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
         'domainNames' => 'DomainNames',
-        'instanceId'  => 'InstanceId',
-        'lang'        => 'Lang',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
     ];
 
     public function validate()

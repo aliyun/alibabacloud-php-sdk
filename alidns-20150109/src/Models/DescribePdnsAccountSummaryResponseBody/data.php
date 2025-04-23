@@ -12,38 +12,44 @@ class data extends Model
      * @var int
      */
     public $domainCount;
+
     /**
      * @var int
      */
     public $httpCount;
+
     /**
      * @var int
      */
     public $httpsCount;
+
     /**
      * @var int
      */
     public $subDomainCount;
+
     /**
      * @var int
      */
     public $threatCount;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var int
      */
     public $userId;
     protected $_name = [
-        'domainCount'    => 'DomainCount',
-        'httpCount'      => 'HttpCount',
-        'httpsCount'     => 'HttpsCount',
+        'domainCount' => 'DomainCount',
+        'httpCount' => 'HttpCount',
+        'httpsCount' => 'HttpsCount',
         'subDomainCount' => 'SubDomainCount',
-        'threatCount'    => 'ThreatCount',
-        'totalCount'     => 'TotalCount',
-        'userId'         => 'UserId',
+        'threatCount' => 'ThreatCount',
+        'totalCount' => 'TotalCount',
+        'userId' => 'UserId',
     ];
 
     public function validate()

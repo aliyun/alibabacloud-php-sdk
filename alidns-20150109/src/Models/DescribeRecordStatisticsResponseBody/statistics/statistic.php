@@ -12,12 +12,13 @@ class statistic extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'count'     => 'Count',
+        'count' => 'Count',
         'timestamp' => 'Timestamp',
     ];
 

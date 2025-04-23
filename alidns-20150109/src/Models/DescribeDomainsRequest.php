@@ -12,43 +12,50 @@ class DescribeDomainsRequest extends Model
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $keyWord;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $searchMode;
+
     /**
      * @var bool
      */
     public $starmark;
     protected $_name = [
-        'groupId'         => 'GroupId',
-        'keyWord'         => 'KeyWord',
-        'lang'            => 'Lang',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'groupId' => 'GroupId',
+        'keyWord' => 'KeyWord',
+        'lang' => 'Lang',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
-        'searchMode'      => 'SearchMode',
-        'starmark'        => 'Starmark',
+        'searchMode' => 'SearchMode',
+        'starmark' => 'Starmark',
     ];
 
     public function validate()

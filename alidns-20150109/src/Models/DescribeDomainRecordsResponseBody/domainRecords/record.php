@@ -12,73 +12,86 @@ class record extends Model
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $line;
+
     /**
      * @var bool
      */
     public $locked;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $RR;
+
     /**
      * @var string
      */
     public $recordId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $TTL;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var int
      */
     public $updateTimestamp;
+
     /**
      * @var string
      */
     public $value;
+
     /**
      * @var int
      */
     public $weight;
     protected $_name = [
         'createTimestamp' => 'CreateTimestamp',
-        'domainName'      => 'DomainName',
-        'line'            => 'Line',
-        'locked'          => 'Locked',
-        'priority'        => 'Priority',
-        'RR'              => 'RR',
-        'recordId'        => 'RecordId',
-        'remark'          => 'Remark',
-        'status'          => 'Status',
-        'TTL'             => 'TTL',
-        'type'            => 'Type',
+        'domainName' => 'DomainName',
+        'line' => 'Line',
+        'locked' => 'Locked',
+        'priority' => 'Priority',
+        'RR' => 'RR',
+        'recordId' => 'RecordId',
+        'remark' => 'Remark',
+        'status' => 'Status',
+        'TTL' => 'TTL',
+        'type' => 'Type',
         'updateTimestamp' => 'UpdateTimestamp',
-        'value'           => 'Value',
-        'weight'          => 'Weight',
+        'value' => 'Value',
+        'weight' => 'Weight',
     ];
 
     public function validate()

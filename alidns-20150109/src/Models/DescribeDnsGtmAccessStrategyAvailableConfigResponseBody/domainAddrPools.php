@@ -31,7 +31,7 @@ class domainAddrPools extends Model
         if (null !== $this->domainAddrPool) {
             if (\is_array($this->domainAddrPool)) {
                 $res['DomainAddrPool'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->domainAddrPool as $item1) {
                     $res['DomainAddrPool'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class domainAddrPools extends Model
         if (isset($map['DomainAddrPool'])) {
             if (!empty($map['DomainAddrPool'])) {
                 $model->domainAddrPool = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['DomainAddrPool'] as $item1) {
                     $model->domainAddrPool[$n1++] = domainAddrPool::fromMap($item1);
                 }

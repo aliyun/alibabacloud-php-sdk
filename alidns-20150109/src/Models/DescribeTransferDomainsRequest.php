@@ -12,36 +12,42 @@ class DescribeTransferDomainsRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var int
      */
     public $fromUserId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $targetUserId;
+
     /**
      * @var string
      */
     public $transferType;
     protected $_name = [
-        'domainName'   => 'DomainName',
-        'fromUserId'   => 'FromUserId',
-        'lang'         => 'Lang',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'domainName' => 'DomainName',
+        'fromUserId' => 'FromUserId',
+        'lang' => 'Lang',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'targetUserId' => 'TargetUserId',
         'transferType' => 'TransferType',
     ];

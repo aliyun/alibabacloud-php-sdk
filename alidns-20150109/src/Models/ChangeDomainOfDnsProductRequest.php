@@ -12,27 +12,31 @@ class ChangeDomainOfDnsProductRequest extends Model
      * @var bool
      */
     public $force;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $newDomain;
+
     /**
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'force'        => 'Force',
-        'instanceId'   => 'InstanceId',
-        'lang'         => 'Lang',
-        'newDomain'    => 'NewDomain',
+        'force' => 'Force',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
+        'newDomain' => 'NewDomain',
         'userClientIp' => 'UserClientIp',
     ];
 

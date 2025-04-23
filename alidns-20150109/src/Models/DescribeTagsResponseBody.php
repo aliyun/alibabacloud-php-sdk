@@ -13,27 +13,31 @@ class DescribeTagsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'tags'       => 'Tags',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'tags' => 'Tags',
         'totalCount' => 'TotalCount',
     ];
 
@@ -63,7 +67,7 @@ class DescribeTagsResponseBody extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +104,7 @@ class DescribeTagsResponseBody extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

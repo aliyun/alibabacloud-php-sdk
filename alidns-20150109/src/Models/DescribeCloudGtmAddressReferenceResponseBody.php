@@ -13,28 +13,32 @@ class DescribeCloudGtmAddressReferenceResponseBody extends Model
      * @var string
      */
     public $address;
+
     /**
      * @var string
      */
     public $addressId;
+
     /**
      * @var addressPools
      */
     public $addressPools;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'address'      => 'Address',
-        'addressId'    => 'AddressId',
+        'address' => 'Address',
+        'addressId' => 'AddressId',
         'addressPools' => 'AddressPools',
-        'name'         => 'Name',
-        'requestId'    => 'RequestId',
+        'name' => 'Name',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

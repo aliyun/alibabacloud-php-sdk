@@ -12,27 +12,31 @@ class DescribeDnsGtmAccessStrategiesRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $strategyMode;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'lang'         => 'Lang',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'strategyMode' => 'StrategyMode',
     ];
 

@@ -12,12 +12,13 @@ class DeleteCustomLinesRequest extends Model
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $lineIds;
     protected $_name = [
-        'lang'    => 'Lang',
+        'lang' => 'Lang',
         'lineIds' => 'LineIds',
     ];
 

@@ -12,12 +12,13 @@ class DescribeIspFlushCacheTaskRequest extends Model
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'lang'   => 'Lang',
+        'lang' => 'Lang',
         'taskId' => 'TaskId',
     ];
 

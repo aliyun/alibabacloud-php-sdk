@@ -13,83 +13,98 @@ class domains extends Model
      * @var int
      */
     public $cacheTtlMax;
+
     /**
      * @var int
      */
     public $cacheTtlMin;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $domainId;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var int
      */
     public $expireTimestamp;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var sourceDnsServers[]
      */
     public $sourceDnsServers;
+
     /**
      * @var string
      */
     public $sourceEdns;
+
     /**
      * @var string
      */
     public $sourceProtocol;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $updateTimestamp;
+
     /**
      * @var string
      */
     public $versionCode;
     protected $_name = [
-        'cacheTtlMax'      => 'CacheTtlMax',
-        'cacheTtlMin'      => 'CacheTtlMin',
-        'createTime'       => 'CreateTime',
-        'createTimestamp'  => 'CreateTimestamp',
-        'domainId'         => 'DomainId',
-        'domainName'       => 'DomainName',
-        'expireTime'       => 'ExpireTime',
-        'expireTimestamp'  => 'ExpireTimestamp',
-        'instanceId'       => 'InstanceId',
-        'remark'           => 'Remark',
+        'cacheTtlMax' => 'CacheTtlMax',
+        'cacheTtlMin' => 'CacheTtlMin',
+        'createTime' => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
+        'domainId' => 'DomainId',
+        'domainName' => 'DomainName',
+        'expireTime' => 'ExpireTime',
+        'expireTimestamp' => 'ExpireTimestamp',
+        'instanceId' => 'InstanceId',
+        'remark' => 'Remark',
         'sourceDnsServers' => 'SourceDnsServers',
-        'sourceEdns'       => 'SourceEdns',
-        'sourceProtocol'   => 'SourceProtocol',
-        'updateTime'       => 'UpdateTime',
-        'updateTimestamp'  => 'UpdateTimestamp',
-        'versionCode'      => 'VersionCode',
+        'sourceEdns' => 'SourceEdns',
+        'sourceProtocol' => 'SourceProtocol',
+        'updateTime' => 'UpdateTime',
+        'updateTimestamp' => 'UpdateTimestamp',
+        'versionCode' => 'VersionCode',
     ];
 
     public function validate()
@@ -146,7 +161,7 @@ class domains extends Model
         if (null !== $this->sourceDnsServers) {
             if (\is_array($this->sourceDnsServers)) {
                 $res['SourceDnsServers'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->sourceDnsServers as $item1) {
                     $res['SourceDnsServers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -227,7 +242,7 @@ class domains extends Model
         if (isset($map['SourceDnsServers'])) {
             if (!empty($map['SourceDnsServers'])) {
                 $model->sourceDnsServers = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['SourceDnsServers'] as $item1) {
                     $model->sourceDnsServers[$n1++] = sourceDnsServers::fromMap($item1);
                 }

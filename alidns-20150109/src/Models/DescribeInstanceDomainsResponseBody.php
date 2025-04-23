@@ -13,33 +13,38 @@ class DescribeInstanceDomainsResponseBody extends Model
      * @var instanceDomains[]
      */
     public $instanceDomains;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalItems;
+
     /**
      * @var int
      */
     public $totalPages;
     protected $_name = [
         'instanceDomains' => 'InstanceDomains',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'requestId'       => 'RequestId',
-        'totalItems'      => 'TotalItems',
-        'totalPages'      => 'TotalPages',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalItems' => 'TotalItems',
+        'totalPages' => 'TotalPages',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class DescribeInstanceDomainsResponseBody extends Model
         if (null !== $this->instanceDomains) {
             if (\is_array($this->instanceDomains)) {
                 $res['InstanceDomains'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->instanceDomains as $item1) {
                     $res['InstanceDomains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class DescribeInstanceDomainsResponseBody extends Model
         if (isset($map['InstanceDomains'])) {
             if (!empty($map['InstanceDomains'])) {
                 $model->instanceDomains = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['InstanceDomains'] as $item1) {
                     $model->instanceDomains[$n1++] = instanceDomains::fromMap($item1);
                 }

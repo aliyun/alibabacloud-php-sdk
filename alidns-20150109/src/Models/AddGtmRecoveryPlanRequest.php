@@ -12,23 +12,26 @@ class AddGtmRecoveryPlanRequest extends Model
      * @var string
      */
     public $faultAddrPool;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
         'faultAddrPool' => 'FaultAddrPool',
-        'lang'          => 'Lang',
-        'name'          => 'Name',
-        'remark'        => 'Remark',
+        'lang' => 'Lang',
+        'name' => 'Name',
+        'remark' => 'Remark',
     ];
 
     public function validate()

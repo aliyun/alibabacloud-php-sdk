@@ -12,33 +12,38 @@ class DescribeDnsGtmInstanceStatusResponseBody extends Model
      * @var int
      */
     public $addrAvailableNum;
+
     /**
      * @var int
      */
     public $addrNotAvailableNum;
+
     /**
      * @var int
      */
     public $addrPoolGroupNotAvailableNum;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $strategyNotAvailableNum;
+
     /**
      * @var int
      */
     public $switchToFailoverStrategyNum;
     protected $_name = [
-        'addrAvailableNum'             => 'AddrAvailableNum',
-        'addrNotAvailableNum'          => 'AddrNotAvailableNum',
+        'addrAvailableNum' => 'AddrAvailableNum',
+        'addrNotAvailableNum' => 'AddrNotAvailableNum',
         'addrPoolGroupNotAvailableNum' => 'AddrPoolGroupNotAvailableNum',
-        'requestId'                    => 'RequestId',
-        'strategyNotAvailableNum'      => 'StrategyNotAvailableNum',
-        'switchToFailoverStrategyNum'  => 'SwitchToFailoverStrategyNum',
+        'requestId' => 'RequestId',
+        'strategyNotAvailableNum' => 'StrategyNotAvailableNum',
+        'switchToFailoverStrategyNum' => 'SwitchToFailoverStrategyNum',
     ];
 
     public function validate()

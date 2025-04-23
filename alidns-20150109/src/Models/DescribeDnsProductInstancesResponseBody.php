@@ -13,33 +13,38 @@ class DescribeDnsProductInstancesResponseBody extends Model
      * @var dnsProducts
      */
     public $dnsProducts;
+
     /**
      * @var string
      */
     public $domainType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'dnsProducts' => 'DnsProducts',
-        'domainType'  => 'DomainType',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'domainType' => 'DomainType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

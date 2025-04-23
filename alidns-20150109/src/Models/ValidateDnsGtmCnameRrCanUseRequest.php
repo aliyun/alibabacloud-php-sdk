@@ -12,33 +12,38 @@ class ValidateDnsGtmCnameRrCanUseRequest extends Model
      * @var string
      */
     public $cnameMode;
+
     /**
      * @var string
      */
     public $cnameRr;
+
     /**
      * @var string
      */
     public $cnameType;
+
     /**
      * @var string
      */
     public $cnameZone;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
-        'cnameMode'  => 'CnameMode',
-        'cnameRr'    => 'CnameRr',
-        'cnameType'  => 'CnameType',
-        'cnameZone'  => 'CnameZone',
+        'cnameMode' => 'CnameMode',
+        'cnameRr' => 'CnameRr',
+        'cnameType' => 'CnameType',
+        'cnameZone' => 'CnameZone',
         'instanceId' => 'InstanceId',
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
     ];
 
     public function validate()

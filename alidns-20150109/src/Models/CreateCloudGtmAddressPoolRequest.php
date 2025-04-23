@@ -12,38 +12,44 @@ class CreateCloudGtmAddressPoolRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $addressPoolName;
+
     /**
      * @var string
      */
     public $addressPoolType;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $enableStatus;
+
     /**
      * @var string
      */
     public $healthJudgement;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
-        'acceptLanguage'  => 'AcceptLanguage',
+        'acceptLanguage' => 'AcceptLanguage',
         'addressPoolName' => 'AddressPoolName',
         'addressPoolType' => 'AddressPoolType',
-        'clientToken'     => 'ClientToken',
-        'enableStatus'    => 'EnableStatus',
+        'clientToken' => 'ClientToken',
+        'enableStatus' => 'EnableStatus',
         'healthJudgement' => 'HealthJudgement',
-        'remark'          => 'Remark',
+        'remark' => 'Remark',
     ];
 
     public function validate()

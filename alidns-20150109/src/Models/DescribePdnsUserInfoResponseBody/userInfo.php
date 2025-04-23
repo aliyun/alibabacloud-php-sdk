@@ -12,43 +12,50 @@ class userInfo extends Model
      * @var string
      */
     public $availableAccessSecurityType;
+
     /**
      * @var string
      */
     public $availableService;
+
     /**
      * @var int
      */
     public $pdnsId;
+
     /**
      * @var string
      */
     public $secretKey;
+
     /**
      * @var string
      */
     public $serviceType;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $statisticSwitchStatus;
+
     /**
      * @var string
      */
     public $stoppedService;
     protected $_name = [
         'availableAccessSecurityType' => 'AvailableAccessSecurityType',
-        'availableService'            => 'AvailableService',
-        'pdnsId'                      => 'PdnsId',
-        'secretKey'                   => 'SecretKey',
-        'serviceType'                 => 'ServiceType',
-        'state'                       => 'State',
-        'statisticSwitchStatus'       => 'StatisticSwitchStatus',
-        'stoppedService'              => 'StoppedService',
+        'availableService' => 'AvailableService',
+        'pdnsId' => 'PdnsId',
+        'secretKey' => 'SecretKey',
+        'serviceType' => 'ServiceType',
+        'state' => 'State',
+        'statisticSwitchStatus' => 'StatisticSwitchStatus',
+        'stoppedService' => 'StoppedService',
     ];
 
     public function validate()

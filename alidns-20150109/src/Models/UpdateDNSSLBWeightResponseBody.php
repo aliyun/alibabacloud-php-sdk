@@ -12,18 +12,20 @@ class UpdateDNSSLBWeightResponseBody extends Model
      * @var string
      */
     public $recordId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $weight;
     protected $_name = [
-        'recordId'  => 'RecordId',
+        'recordId' => 'RecordId',
         'requestId' => 'RequestId',
-        'weight'    => 'Weight',
+        'weight' => 'Weight',
     ];
 
     public function validate()

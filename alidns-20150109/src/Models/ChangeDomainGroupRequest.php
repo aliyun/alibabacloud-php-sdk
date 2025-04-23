@@ -12,18 +12,20 @@ class ChangeDomainGroupRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
         'domainName' => 'DomainName',
-        'groupId'    => 'GroupId',
-        'lang'       => 'Lang',
+        'groupId' => 'GroupId',
+        'lang' => 'Lang',
     ];
 
     public function validate()

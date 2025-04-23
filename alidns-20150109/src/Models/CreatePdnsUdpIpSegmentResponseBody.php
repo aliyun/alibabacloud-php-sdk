@@ -12,12 +12,13 @@ class CreatePdnsUdpIpSegmentResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $validMessage;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'validMessage' => 'ValidMessage',
     ];
 

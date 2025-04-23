@@ -12,53 +12,62 @@ class CreateCloudGtmInstanceConfigRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $enableStatus;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $scheduleHostname;
+
     /**
      * @var string
      */
     public $scheduleRrType;
+
     /**
      * @var string
      */
     public $scheduleZoneMode;
+
     /**
      * @var string
      */
     public $scheduleZoneName;
+
     /**
      * @var int
      */
     public $ttl;
     protected $_name = [
-        'acceptLanguage'   => 'AcceptLanguage',
-        'clientToken'      => 'ClientToken',
-        'enableStatus'     => 'EnableStatus',
-        'instanceId'       => 'InstanceId',
-        'remark'           => 'Remark',
+        'acceptLanguage' => 'AcceptLanguage',
+        'clientToken' => 'ClientToken',
+        'enableStatus' => 'EnableStatus',
+        'instanceId' => 'InstanceId',
+        'remark' => 'Remark',
         'scheduleHostname' => 'ScheduleHostname',
-        'scheduleRrType'   => 'ScheduleRrType',
+        'scheduleRrType' => 'ScheduleRrType',
         'scheduleZoneMode' => 'ScheduleZoneMode',
         'scheduleZoneName' => 'ScheduleZoneName',
-        'ttl'              => 'Ttl',
+        'ttl' => 'Ttl',
     ];
 
     public function validate()

@@ -13,27 +13,31 @@ class DescribeDnsCacheDomainsResponseBody extends Model
      * @var domains[]
      */
     public $domains;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'domains'    => 'Domains',
+        'domains' => 'Domains',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -51,7 +55,7 @@ class DescribeDnsCacheDomainsResponseBody extends Model
         if (null !== $this->domains) {
             if (\is_array($this->domains)) {
                 $res['Domains'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->domains as $item1) {
                     $res['Domains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class DescribeDnsCacheDomainsResponseBody extends Model
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
                 $model->domains = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Domains'] as $item1) {
                     $model->domains[$n1++] = domains::fromMap($item1);
                 }

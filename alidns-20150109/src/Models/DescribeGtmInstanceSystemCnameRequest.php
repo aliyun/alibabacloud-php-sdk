@@ -12,13 +12,14 @@ class DescribeGtmInstanceSystemCnameRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class UpdateCloudGtmAddressPoolBasicConfigResponseBody extends Model
      * @var string
      */
     public $addressPoolId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'addressPoolId' => 'AddressPoolId',
-        'requestId'     => 'RequestId',
-        'success'       => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class UpdateDNSSLBWeightRequest extends Model
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $recordId;
+
     /**
      * @var string
      */
     public $userClientIp;
+
     /**
      * @var int
      */
     public $weight;
     protected $_name = [
-        'lang'         => 'Lang',
-        'recordId'     => 'RecordId',
+        'lang' => 'Lang',
+        'recordId' => 'RecordId',
         'userClientIp' => 'UserClientIp',
-        'weight'       => 'Weight',
+        'weight' => 'Weight',
     ];
 
     public function validate()

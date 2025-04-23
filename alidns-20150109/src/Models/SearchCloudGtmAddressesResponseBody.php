@@ -13,31 +13,36 @@ class SearchCloudGtmAddressesResponseBody extends Model
      * @var addresses
      */
     public $addresses;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalItems;
+
     /**
      * @var int
      */
     public $totalPages;
     protected $_name = [
-        'addresses'  => 'Addresses',
+        'addresses' => 'Addresses',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalItems' => 'TotalItems',
         'totalPages' => 'TotalPages',
     ];

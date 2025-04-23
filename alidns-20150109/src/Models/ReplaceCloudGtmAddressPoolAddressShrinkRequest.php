@@ -12,23 +12,26 @@ class ReplaceCloudGtmAddressPoolAddressShrinkRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $addressPoolId;
+
     /**
      * @var string
      */
     public $addressesShrink;
+
     /**
      * @var string
      */
     public $clientToken;
     protected $_name = [
-        'acceptLanguage'  => 'AcceptLanguage',
-        'addressPoolId'   => 'AddressPoolId',
+        'acceptLanguage' => 'AcceptLanguage',
+        'addressPoolId' => 'AddressPoolId',
         'addressesShrink' => 'Addresses',
-        'clientToken'     => 'ClientToken',
+        'clientToken' => 'ClientToken',
     ];
 
     public function validate()

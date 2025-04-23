@@ -12,23 +12,26 @@ class statistics extends Model
      * @var string
      */
     public $count;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $domainType;
+
     /**
      * @var string
      */
     public $subDomain;
     protected $_name = [
-        'count'      => 'Count',
+        'count' => 'Count',
         'domainName' => 'DomainName',
         'domainType' => 'DomainType',
-        'subDomain'  => 'SubDomain',
+        'subDomain' => 'SubDomain',
     ];
 
     public function validate()

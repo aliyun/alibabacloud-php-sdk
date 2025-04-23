@@ -13,88 +13,104 @@ class strategy extends Model
      * @var string
      */
     public $accessMode;
+
     /**
      * @var string
      */
     public $accessStatus;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $defaultAddrPoolId;
+
     /**
      * @var string
      */
     public $defaultAddrPoolMonitorStatus;
+
     /**
      * @var string
      */
     public $defaultAddrPoolName;
+
     /**
      * @var string
      */
     public $defaultAddrPoolStatus;
+
     /**
      * @var string
      */
     public $failoverAddrPoolId;
+
     /**
      * @var string
      */
     public $failoverAddrPoolMonitorStatus;
+
     /**
      * @var string
      */
     public $failoverAddrPoolName;
+
     /**
      * @var string
      */
     public $failoverAddrPoolStatus;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var lines
      */
     public $lines;
+
     /**
      * @var string
      */
     public $strategyId;
+
     /**
      * @var string
      */
     public $strategyMode;
+
     /**
      * @var string
      */
     public $strategyName;
     protected $_name = [
-        'accessMode'                    => 'AccessMode',
-        'accessStatus'                  => 'AccessStatus',
-        'createTime'                    => 'CreateTime',
-        'createTimestamp'               => 'CreateTimestamp',
-        'defaultAddrPoolId'             => 'DefaultAddrPoolId',
-        'defaultAddrPoolMonitorStatus'  => 'DefaultAddrPoolMonitorStatus',
-        'defaultAddrPoolName'           => 'DefaultAddrPoolName',
-        'defaultAddrPoolStatus'         => 'DefaultAddrPoolStatus',
-        'failoverAddrPoolId'            => 'FailoverAddrPoolId',
+        'accessMode' => 'AccessMode',
+        'accessStatus' => 'AccessStatus',
+        'createTime' => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
+        'defaultAddrPoolId' => 'DefaultAddrPoolId',
+        'defaultAddrPoolMonitorStatus' => 'DefaultAddrPoolMonitorStatus',
+        'defaultAddrPoolName' => 'DefaultAddrPoolName',
+        'defaultAddrPoolStatus' => 'DefaultAddrPoolStatus',
+        'failoverAddrPoolId' => 'FailoverAddrPoolId',
         'failoverAddrPoolMonitorStatus' => 'FailoverAddrPoolMonitorStatus',
-        'failoverAddrPoolName'          => 'FailoverAddrPoolName',
-        'failoverAddrPoolStatus'        => 'FailoverAddrPoolStatus',
-        'instanceId'                    => 'InstanceId',
-        'lines'                         => 'Lines',
-        'strategyId'                    => 'StrategyId',
-        'strategyMode'                  => 'StrategyMode',
-        'strategyName'                  => 'StrategyName',
+        'failoverAddrPoolName' => 'FailoverAddrPoolName',
+        'failoverAddrPoolStatus' => 'FailoverAddrPoolStatus',
+        'instanceId' => 'InstanceId',
+        'lines' => 'Lines',
+        'strategyId' => 'StrategyId',
+        'strategyMode' => 'StrategyMode',
+        'strategyName' => 'StrategyName',
     ];
 
     public function validate()

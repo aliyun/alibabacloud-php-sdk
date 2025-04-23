@@ -12,22 +12,25 @@ class UpdateDomainRecordRemarkRequest extends Model
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $recordId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'lang'         => 'Lang',
-        'recordId'     => 'RecordId',
-        'remark'       => 'Remark',
+        'lang' => 'Lang',
+        'recordId' => 'RecordId',
+        'remark' => 'Remark',
         'userClientIp' => 'UserClientIp',
     ];
 

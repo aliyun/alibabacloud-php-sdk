@@ -13,23 +13,26 @@ class dnsNodes extends Model
      * @var answers[]
      */
     public $answers;
+
     /**
      * @var string
      */
     public $nodeIp;
+
     /**
      * @var string
      */
     public $spName;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'answers' => 'Answers',
-        'nodeIp'  => 'NodeIp',
-        'spName'  => 'SpName',
-        'status'  => 'Status',
+        'nodeIp' => 'NodeIp',
+        'spName' => 'SpName',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class dnsNodes extends Model
         if (null !== $this->answers) {
             if (\is_array($this->answers)) {
                 $res['Answers'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->answers as $item1) {
                     $res['Answers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class dnsNodes extends Model
         if (isset($map['Answers'])) {
             if (!empty($map['Answers'])) {
                 $model->answers = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Answers'] as $item1) {
                     $model->answers[$n1++] = answers::fromMap($item1);
                 }

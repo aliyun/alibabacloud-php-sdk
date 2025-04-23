@@ -12,17 +12,19 @@ class DeleteSubDomainRecordsResponseBody extends Model
      * @var string
      */
     public $RR;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
-        'RR'         => 'RR',
-        'requestId'  => 'RequestId',
+        'RR' => 'RR',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 

@@ -12,13 +12,14 @@ class DescribeCloudGtmGlobalAlertRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $clientToken;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'clientToken'    => 'ClientToken',
+        'clientToken' => 'ClientToken',
     ];
 
     public function validate()

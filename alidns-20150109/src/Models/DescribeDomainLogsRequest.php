@@ -12,43 +12,50 @@ class DescribeDomainLogsRequest extends Model
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $keyWord;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $endDate;
     protected $_name = [
-        'groupId'    => 'GroupId',
-        'keyWord'    => 'KeyWord',
-        'lang'       => 'Lang',
+        'groupId' => 'GroupId',
+        'keyWord' => 'KeyWord',
+        'lang' => 'Lang',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startDate'  => 'StartDate',
-        'type'       => 'Type',
-        'endDate'    => 'endDate',
+        'pageSize' => 'PageSize',
+        'startDate' => 'StartDate',
+        'type' => 'Type',
+        'endDate' => 'endDate',
     ];
 
     public function validate()

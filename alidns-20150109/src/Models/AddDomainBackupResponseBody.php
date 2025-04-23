@@ -12,10 +12,12 @@ class AddDomainBackupResponseBody extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $periodType;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class AddDomainBackupResponseBody extends Model
     protected $_name = [
         'domainName' => 'DomainName',
         'periodType' => 'PeriodType',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

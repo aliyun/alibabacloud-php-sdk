@@ -12,27 +12,31 @@ class UpdateCloudGtmAddressPoolLbStrategyRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $addressLbStrategy;
+
     /**
      * @var string
      */
     public $addressPoolId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $sequenceLbStrategyMode;
     protected $_name = [
-        'acceptLanguage'         => 'AcceptLanguage',
-        'addressLbStrategy'      => 'AddressLbStrategy',
-        'addressPoolId'          => 'AddressPoolId',
-        'clientToken'            => 'ClientToken',
+        'acceptLanguage' => 'AcceptLanguage',
+        'addressLbStrategy' => 'AddressLbStrategy',
+        'addressPoolId' => 'AddressPoolId',
+        'clientToken' => 'ClientToken',
         'sequenceLbStrategyMode' => 'SequenceLbStrategyMode',
     ];
 

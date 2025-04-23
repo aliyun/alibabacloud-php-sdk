@@ -13,12 +13,13 @@ class DescribeRecordStatisticsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var statistics
      */
     public $statistics;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'statistics' => 'Statistics',
     ];
 

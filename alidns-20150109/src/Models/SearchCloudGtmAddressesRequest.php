@@ -12,73 +12,86 @@ class SearchCloudGtmAddressesRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $address;
+
     /**
      * @var string
      */
     public $addressId;
+
     /**
      * @var string
      */
     public $availableStatus;
+
     /**
      * @var string
      */
     public $enableStatus;
+
     /**
      * @var string
      */
     public $healthStatus;
+
     /**
      * @var string
      */
     public $monitorTemplateName;
+
     /**
      * @var string
      */
     public $nameSearchCondition;
+
     /**
      * @var string[]
      */
     public $names;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $remarkSearchCondition;
+
     /**
      * @var string[]
      */
     public $remarks;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'acceptLanguage'        => 'AcceptLanguage',
-        'address'               => 'Address',
-        'addressId'             => 'AddressId',
-        'availableStatus'       => 'AvailableStatus',
-        'enableStatus'          => 'EnableStatus',
-        'healthStatus'          => 'HealthStatus',
-        'monitorTemplateName'   => 'MonitorTemplateName',
-        'nameSearchCondition'   => 'NameSearchCondition',
-        'names'                 => 'Names',
-        'pageNumber'            => 'PageNumber',
-        'pageSize'              => 'PageSize',
+        'acceptLanguage' => 'AcceptLanguage',
+        'address' => 'Address',
+        'addressId' => 'AddressId',
+        'availableStatus' => 'AvailableStatus',
+        'enableStatus' => 'EnableStatus',
+        'healthStatus' => 'HealthStatus',
+        'monitorTemplateName' => 'MonitorTemplateName',
+        'nameSearchCondition' => 'NameSearchCondition',
+        'names' => 'Names',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'remarkSearchCondition' => 'RemarkSearchCondition',
-        'remarks'               => 'Remarks',
-        'type'                  => 'Type',
+        'remarks' => 'Remarks',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -130,7 +143,7 @@ class SearchCloudGtmAddressesRequest extends Model
         if (null !== $this->names) {
             if (\is_array($this->names)) {
                 $res['Names'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->names as $item1) {
                     $res['Names'][$n1++] = $item1;
                 }
@@ -152,7 +165,7 @@ class SearchCloudGtmAddressesRequest extends Model
         if (null !== $this->remarks) {
             if (\is_array($this->remarks)) {
                 $res['Remarks'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->remarks as $item1) {
                     $res['Remarks'][$n1++] = $item1;
                 }
@@ -209,7 +222,7 @@ class SearchCloudGtmAddressesRequest extends Model
         if (isset($map['Names'])) {
             if (!empty($map['Names'])) {
                 $model->names = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Names'] as $item1) {
                     $model->names[$n1++] = $item1;
                 }
@@ -231,7 +244,7 @@ class SearchCloudGtmAddressesRequest extends Model
         if (isset($map['Remarks'])) {
             if (!empty($map['Remarks'])) {
                 $model->remarks = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Remarks'] as $item1) {
                     $model->remarks[$n1++] = $item1;
                 }

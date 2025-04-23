@@ -12,18 +12,20 @@ class DescribeBatchResultCountRequest extends Model
      * @var string
      */
     public $batchType;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
         'batchType' => 'BatchType',
-        'lang'      => 'Lang',
-        'taskId'    => 'TaskId',
+        'lang' => 'Lang',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

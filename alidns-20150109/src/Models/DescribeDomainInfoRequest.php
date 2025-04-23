@@ -12,17 +12,19 @@ class DescribeDomainInfoRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var bool
      */
     public $needDetailAttributes;
     protected $_name = [
-        'domainName'           => 'DomainName',
-        'lang'                 => 'Lang',
+        'domainName' => 'DomainName',
+        'lang' => 'Lang',
         'needDetailAttributes' => 'NeedDetailAttributes',
     ];
 

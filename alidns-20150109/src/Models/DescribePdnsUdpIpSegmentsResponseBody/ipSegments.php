@@ -12,48 +12,56 @@ class ipSegments extends Model
      * @var string
      */
     public $createDate;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var int
      */
     public $mask;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $secretKey;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $updateDate;
     protected $_name = [
-        'createDate'      => 'CreateDate',
+        'createDate' => 'CreateDate',
         'createTimestamp' => 'CreateTimestamp',
-        'id'              => 'Id',
-        'ip'              => 'Ip',
-        'mask'            => 'Mask',
-        'name'            => 'Name',
-        'secretKey'       => 'SecretKey',
-        'state'           => 'State',
-        'updateDate'      => 'UpdateDate',
+        'id' => 'Id',
+        'ip' => 'Ip',
+        'mask' => 'Mask',
+        'name' => 'Name',
+        'secretKey' => 'SecretKey',
+        'state' => 'State',
+        'updateDate' => 'UpdateDate',
     ];
 
     public function validate()

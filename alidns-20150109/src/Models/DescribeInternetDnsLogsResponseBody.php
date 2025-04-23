@@ -13,35 +13,41 @@ class DescribeInternetDnsLogsResponseBody extends Model
      * @var bool
      */
     public $complete;
+
     /**
      * @var int
      */
     public $curPage;
+
     /**
      * @var logs
      */
     public $logs;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalPage;
+
     /**
      * @var int
      */
     public $totalSize;
     protected $_name = [
-        'complete'  => 'Complete',
-        'curPage'   => 'CurPage',
-        'logs'      => 'Logs',
-        'pageSize'  => 'PageSize',
+        'complete' => 'Complete',
+        'curPage' => 'CurPage',
+        'logs' => 'Logs',
+        'pageSize' => 'PageSize',
         'requestId' => 'RequestId',
         'totalPage' => 'TotalPage',
         'totalSize' => 'TotalSize',

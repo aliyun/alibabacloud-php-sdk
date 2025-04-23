@@ -12,32 +12,37 @@ class data extends Model
      * @var int
      */
     public $dohTotalCount;
+
     /**
      * @var string
      */
     public $threatLevel;
+
     /**
      * @var string
      */
     public $threatType;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var int
      */
     public $udpTotalCount;
     protected $_name = [
         'dohTotalCount' => 'DohTotalCount',
-        'threatLevel'   => 'ThreatLevel',
-        'threatType'    => 'ThreatType',
-        'timestamp'     => 'Timestamp',
-        'totalCount'    => 'TotalCount',
+        'threatLevel' => 'ThreatLevel',
+        'threatType' => 'ThreatType',
+        'timestamp' => 'Timestamp',
+        'totalCount' => 'TotalCount',
         'udpTotalCount' => 'UdpTotalCount',
     ];
 

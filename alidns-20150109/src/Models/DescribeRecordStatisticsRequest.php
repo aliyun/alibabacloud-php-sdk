@@ -12,22 +12,27 @@ class DescribeRecordStatisticsRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $domainType;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $rr;
+
     /**
      * @var string
      */
@@ -35,10 +40,10 @@ class DescribeRecordStatisticsRequest extends Model
     protected $_name = [
         'domainName' => 'DomainName',
         'domainType' => 'DomainType',
-        'endDate'    => 'EndDate',
-        'lang'       => 'Lang',
-        'rr'         => 'Rr',
-        'startDate'  => 'StartDate',
+        'endDate' => 'EndDate',
+        'lang' => 'Lang',
+        'rr' => 'Rr',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()

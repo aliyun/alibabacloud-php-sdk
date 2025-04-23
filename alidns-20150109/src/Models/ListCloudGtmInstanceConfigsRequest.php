@@ -12,48 +12,56 @@ class ListCloudGtmInstanceConfigsRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $enableStatus;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $scheduleDomainName;
+
     /**
      * @var string
      */
     public $scheduleZoneName;
     protected $_name = [
-        'acceptLanguage'     => 'AcceptLanguage',
-        'clientToken'        => 'ClientToken',
-        'enableStatus'       => 'EnableStatus',
-        'instanceId'         => 'InstanceId',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'remark'             => 'Remark',
+        'acceptLanguage' => 'AcceptLanguage',
+        'clientToken' => 'ClientToken',
+        'enableStatus' => 'EnableStatus',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
         'scheduleDomainName' => 'ScheduleDomainName',
-        'scheduleZoneName'   => 'ScheduleZoneName',
+        'scheduleZoneName' => 'ScheduleZoneName',
     ];
 
     public function validate()

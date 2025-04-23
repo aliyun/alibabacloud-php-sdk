@@ -12,63 +12,74 @@ class record extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $line;
+
     /**
      * @var bool
      */
     public $locked;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $RR;
+
     /**
      * @var string
      */
     public $recordId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $TTL;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $value;
+
     /**
      * @var int
      */
     public $weight;
     protected $_name = [
         'domainName' => 'DomainName',
-        'line'       => 'Line',
-        'locked'     => 'Locked',
-        'priority'   => 'Priority',
-        'RR'         => 'RR',
-        'recordId'   => 'RecordId',
-        'remark'     => 'Remark',
-        'status'     => 'Status',
-        'TTL'        => 'TTL',
-        'type'       => 'Type',
-        'value'      => 'Value',
-        'weight'     => 'Weight',
+        'line' => 'Line',
+        'locked' => 'Locked',
+        'priority' => 'Priority',
+        'RR' => 'RR',
+        'recordId' => 'RecordId',
+        'remark' => 'Remark',
+        'status' => 'Status',
+        'TTL' => 'TTL',
+        'type' => 'Type',
+        'value' => 'Value',
+        'weight' => 'Weight',
     ];
 
     public function validate()

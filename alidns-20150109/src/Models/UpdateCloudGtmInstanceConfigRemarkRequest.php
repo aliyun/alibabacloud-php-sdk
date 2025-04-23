@@ -12,28 +12,32 @@ class UpdateCloudGtmInstanceConfigRemarkRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $configId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'clientToken'    => 'ClientToken',
-        'configId'       => 'ConfigId',
-        'instanceId'     => 'InstanceId',
-        'remark'         => 'Remark',
+        'clientToken' => 'ClientToken',
+        'configId' => 'ConfigId',
+        'instanceId' => 'InstanceId',
+        'remark' => 'Remark',
     ];
 
     public function validate()

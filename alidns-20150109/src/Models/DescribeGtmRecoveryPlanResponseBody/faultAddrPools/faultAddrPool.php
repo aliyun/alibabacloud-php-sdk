@@ -13,23 +13,26 @@ class faultAddrPool extends Model
      * @var string
      */
     public $addrPoolId;
+
     /**
      * @var string
      */
     public $addrPoolName;
+
     /**
      * @var addrs
      */
     public $addrs;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'addrPoolId'   => 'AddrPoolId',
+        'addrPoolId' => 'AddrPoolId',
         'addrPoolName' => 'AddrPoolName',
-        'addrs'        => 'Addrs',
-        'instanceId'   => 'InstanceId',
+        'addrs' => 'Addrs',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

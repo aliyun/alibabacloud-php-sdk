@@ -12,43 +12,50 @@ class ispFlushCacheTasks extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $isp;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskStatus;
     protected $_name = [
-        'createTime'      => 'CreateTime',
+        'createTime' => 'CreateTime',
         'createTimestamp' => 'CreateTimestamp',
-        'domainName'      => 'DomainName',
-        'instanceId'      => 'InstanceId',
-        'instanceName'    => 'InstanceName',
-        'isp'             => 'Isp',
-        'taskId'          => 'TaskId',
-        'taskStatus'      => 'TaskStatus',
+        'domainName' => 'DomainName',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'isp' => 'Isp',
+        'taskId' => 'TaskId',
+        'taskStatus' => 'TaskStatus',
     ];
 
     public function validate()

@@ -12,18 +12,22 @@ class DescribeDomainStatisticsRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $domainType;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
@@ -31,9 +35,9 @@ class DescribeDomainStatisticsRequest extends Model
     protected $_name = [
         'domainName' => 'DomainName',
         'domainType' => 'DomainType',
-        'endDate'    => 'EndDate',
-        'lang'       => 'Lang',
-        'startDate'  => 'StartDate',
+        'endDate' => 'EndDate',
+        'lang' => 'Lang',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()

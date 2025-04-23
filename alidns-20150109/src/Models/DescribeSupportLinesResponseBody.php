@@ -13,13 +13,14 @@ class DescribeSupportLinesResponseBody extends Model
      * @var recordLines
      */
     public $recordLines;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'recordLines' => 'RecordLines',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class MoveGtmResourceGroupRequest extends Model
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $newResourceGroupId;
+
     /**
      * @var string
      */
     public $resourceId;
     protected $_name = [
-        'lang'               => 'Lang',
+        'lang' => 'Lang',
         'newResourceGroupId' => 'NewResourceGroupId',
-        'resourceId'         => 'ResourceId',
+        'resourceId' => 'ResourceId',
     ];
 
     public function validate()

@@ -12,83 +12,98 @@ class DescribeDomainRecordInfoResponseBody extends Model
      * @var string
      */
     public $domainId;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $line;
+
     /**
      * @var bool
      */
     public $locked;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $punyCode;
+
     /**
      * @var string
      */
     public $RR;
+
     /**
      * @var string
      */
     public $recordId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $TTL;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'domainId'   => 'DomainId',
+        'domainId' => 'DomainId',
         'domainName' => 'DomainName',
-        'groupId'    => 'GroupId',
-        'groupName'  => 'GroupName',
-        'line'       => 'Line',
-        'locked'     => 'Locked',
-        'priority'   => 'Priority',
-        'punyCode'   => 'PunyCode',
-        'RR'         => 'RR',
-        'recordId'   => 'RecordId',
-        'remark'     => 'Remark',
-        'requestId'  => 'RequestId',
-        'status'     => 'Status',
-        'TTL'        => 'TTL',
-        'type'       => 'Type',
-        'value'      => 'Value',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'line' => 'Line',
+        'locked' => 'Locked',
+        'priority' => 'Priority',
+        'punyCode' => 'PunyCode',
+        'RR' => 'RR',
+        'recordId' => 'RecordId',
+        'remark' => 'Remark',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'TTL' => 'TTL',
+        'type' => 'Type',
+        'value' => 'Value',
     ];
 
     public function validate()

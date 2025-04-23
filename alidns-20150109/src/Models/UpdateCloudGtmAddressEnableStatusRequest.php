@@ -12,23 +12,26 @@ class UpdateCloudGtmAddressEnableStatusRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $addressId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $enableStatus;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'addressId'      => 'AddressId',
-        'clientToken'    => 'ClientToken',
-        'enableStatus'   => 'EnableStatus',
+        'addressId' => 'AddressId',
+        'clientToken' => 'ClientToken',
+        'enableStatus' => 'EnableStatus',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class alertConfig extends Model
      * @var bool
      */
     public $dingtalkNotice;
+
     /**
      * @var bool
      */
     public $emailNotice;
+
     /**
      * @var string
      */
     public $noticeType;
+
     /**
      * @var bool
      */
     public $smsNotice;
     protected $_name = [
         'dingtalkNotice' => 'DingtalkNotice',
-        'emailNotice'    => 'EmailNotice',
-        'noticeType'     => 'NoticeType',
-        'smsNotice'      => 'SmsNotice',
+        'emailNotice' => 'EmailNotice',
+        'noticeType' => 'NoticeType',
+        'smsNotice' => 'SmsNotice',
     ];
 
     public function validate()

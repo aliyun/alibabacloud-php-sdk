@@ -13,13 +13,14 @@ class DescribeDnsGtmAddressPoolAvailableConfigResponseBody extends Model
      * @var attributeInfos
      */
     public $attributeInfos;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'attributeInfos' => 'AttributeInfos',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

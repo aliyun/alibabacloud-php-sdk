@@ -13,28 +13,32 @@ class DescribeDomainGroupsResponseBody extends Model
      * @var domainGroups
      */
     public $domainGroups;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'domainGroups' => 'DomainGroups',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

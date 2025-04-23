@@ -12,28 +12,32 @@ class appKeys extends Model
      * @var string
      */
     public $appKeyId;
+
     /**
      * @var string
      */
     public $createDate;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $state;
     protected $_name = [
-        'appKeyId'        => 'AppKeyId',
-        'createDate'      => 'CreateDate',
+        'appKeyId' => 'AppKeyId',
+        'createDate' => 'CreateDate',
         'createTimestamp' => 'CreateTimestamp',
-        'remark'          => 'Remark',
-        'state'           => 'State',
+        'remark' => 'Remark',
+        'state' => 'State',
     ];
 
     public function validate()

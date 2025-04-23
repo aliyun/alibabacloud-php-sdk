@@ -13,18 +13,20 @@ class OperateBatchDomainRequest extends Model
      * @var domainRecordInfo[]
      */
     public $domainRecordInfo;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'domainRecordInfo' => 'DomainRecordInfo',
-        'lang'             => 'Lang',
-        'type'             => 'Type',
+        'lang' => 'Lang',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class OperateBatchDomainRequest extends Model
         if (null !== $this->domainRecordInfo) {
             if (\is_array($this->domainRecordInfo)) {
                 $res['DomainRecordInfo'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->domainRecordInfo as $item1) {
                     $res['DomainRecordInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class OperateBatchDomainRequest extends Model
         if (isset($map['DomainRecordInfo'])) {
             if (!empty($map['DomainRecordInfo'])) {
                 $model->domainRecordInfo = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['DomainRecordInfo'] as $item1) {
                     $model->domainRecordInfo[$n1++] = domainRecordInfo::fromMap($item1);
                 }

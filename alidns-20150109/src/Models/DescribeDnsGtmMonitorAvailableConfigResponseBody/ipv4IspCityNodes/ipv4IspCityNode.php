@@ -13,43 +13,50 @@ class ipv4IspCityNode extends Model
      * @var string
      */
     public $cityCode;
+
     /**
      * @var string
      */
     public $cityName;
+
     /**
      * @var bool
      */
     public $defaultSelected;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $groupType;
+
     /**
      * @var ips
      */
     public $ips;
+
     /**
      * @var string
      */
     public $ispCode;
+
     /**
      * @var string
      */
     public $ispName;
     protected $_name = [
-        'cityCode'        => 'CityCode',
-        'cityName'        => 'CityName',
+        'cityCode' => 'CityCode',
+        'cityName' => 'CityName',
         'defaultSelected' => 'DefaultSelected',
-        'groupName'       => 'GroupName',
-        'groupType'       => 'GroupType',
-        'ips'             => 'Ips',
-        'ispCode'         => 'IspCode',
-        'ispName'         => 'IspName',
+        'groupName' => 'GroupName',
+        'groupType' => 'GroupType',
+        'ips' => 'Ips',
+        'ispCode' => 'IspCode',
+        'ispName' => 'IspName',
     ];
 
     public function validate()

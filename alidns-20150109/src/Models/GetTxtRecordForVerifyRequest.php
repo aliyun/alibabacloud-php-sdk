@@ -12,18 +12,20 @@ class GetTxtRecordForVerifyRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'domainName' => 'DomainName',
-        'lang'       => 'Lang',
-        'type'       => 'Type',
+        'lang' => 'Lang',
+        'type' => 'Type',
     ];
 
     public function validate()

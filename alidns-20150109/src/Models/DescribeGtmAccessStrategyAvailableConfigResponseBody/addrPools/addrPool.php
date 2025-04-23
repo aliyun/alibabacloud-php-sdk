@@ -12,12 +12,13 @@ class addrPool extends Model
      * @var string
      */
     public $addrPoolId;
+
     /**
      * @var string
      */
     public $addrPoolName;
     protected $_name = [
-        'addrPoolId'   => 'AddrPoolId',
+        'addrPoolId' => 'AddrPoolId',
         'addrPoolName' => 'AddrPoolName',
     ];
 

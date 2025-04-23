@@ -13,53 +13,62 @@ class UpdateCloudGtmMonitorTemplateRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var int
      */
     public $evaluationCount;
+
     /**
      * @var string
      */
     public $extendInfo;
+
     /**
      * @var int
      */
     public $failureRate;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var ispCityNodes[]
      */
     public $ispCityNodes;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var int
      */
     public $timeout;
     protected $_name = [
-        'acceptLanguage'  => 'AcceptLanguage',
-        'clientToken'     => 'ClientToken',
+        'acceptLanguage' => 'AcceptLanguage',
+        'clientToken' => 'ClientToken',
         'evaluationCount' => 'EvaluationCount',
-        'extendInfo'      => 'ExtendInfo',
-        'failureRate'     => 'FailureRate',
-        'interval'        => 'Interval',
-        'ispCityNodes'    => 'IspCityNodes',
-        'name'            => 'Name',
-        'templateId'      => 'TemplateId',
-        'timeout'         => 'Timeout',
+        'extendInfo' => 'ExtendInfo',
+        'failureRate' => 'FailureRate',
+        'interval' => 'Interval',
+        'ispCityNodes' => 'IspCityNodes',
+        'name' => 'Name',
+        'templateId' => 'TemplateId',
+        'timeout' => 'Timeout',
     ];
 
     public function validate()
@@ -100,7 +109,7 @@ class UpdateCloudGtmMonitorTemplateRequest extends Model
         if (null !== $this->ispCityNodes) {
             if (\is_array($this->ispCityNodes)) {
                 $res['IspCityNodes'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->ispCityNodes as $item1) {
                     $res['IspCityNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -157,7 +166,7 @@ class UpdateCloudGtmMonitorTemplateRequest extends Model
         if (isset($map['IspCityNodes'])) {
             if (!empty($map['IspCityNodes'])) {
                 $model->ispCityNodes = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['IspCityNodes'] as $item1) {
                     $model->ispCityNodes[$n1++] = ispCityNodes::fromMap($item1);
                 }

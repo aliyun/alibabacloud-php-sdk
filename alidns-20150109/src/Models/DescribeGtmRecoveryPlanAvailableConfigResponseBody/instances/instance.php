@@ -13,17 +13,19 @@ class instance extends Model
      * @var addrPools
      */
     public $addrPools;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
     protected $_name = [
-        'addrPools'    => 'AddrPools',
-        'instanceId'   => 'InstanceId',
+        'addrPools' => 'AddrPools',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
     ];
 

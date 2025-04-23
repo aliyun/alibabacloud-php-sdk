@@ -12,43 +12,50 @@ class DescribeBatchResultCountResponseBody extends Model
      * @var string
      */
     public $batchType;
+
     /**
      * @var int
      */
     public $failedCount;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $successCount;
+
     /**
      * @var int
      */
     public $taskId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'batchType'    => 'BatchType',
-        'failedCount'  => 'FailedCount',
-        'reason'       => 'Reason',
-        'requestId'    => 'RequestId',
-        'status'       => 'Status',
+        'batchType' => 'BatchType',
+        'failedCount' => 'FailedCount',
+        'reason' => 'Reason',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
         'successCount' => 'SuccessCount',
-        'taskId'       => 'TaskId',
-        'totalCount'   => 'TotalCount',
+        'taskId' => 'TaskId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

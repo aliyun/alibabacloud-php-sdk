@@ -12,17 +12,19 @@ class addr extends Model
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'id'    => 'Id',
-        'mode'  => 'Mode',
+        'id' => 'Id',
+        'mode' => 'Mode',
         'value' => 'Value',
     ];
 

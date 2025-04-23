@@ -12,6 +12,7 @@ class sourceDnsServer extends Model
      * @var string
      */
     public $host;
+
     /**
      * @var string
      */

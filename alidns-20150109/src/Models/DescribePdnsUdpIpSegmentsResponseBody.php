@@ -13,22 +13,27 @@ class DescribePdnsUdpIpSegmentsResponseBody extends Model
      * @var ipSegments[]
      */
     public $ipSegments;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var string
      */
@@ -36,8 +41,8 @@ class DescribePdnsUdpIpSegmentsResponseBody extends Model
     protected $_name = [
         'ipSegments' => 'IpSegments',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
         'totalPages' => 'TotalPages',
     ];
@@ -56,7 +61,7 @@ class DescribePdnsUdpIpSegmentsResponseBody extends Model
         if (null !== $this->ipSegments) {
             if (\is_array($this->ipSegments)) {
                 $res['IpSegments'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->ipSegments as $item1) {
                     $res['IpSegments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class DescribePdnsUdpIpSegmentsResponseBody extends Model
         if (isset($map['IpSegments'])) {
             if (!empty($map['IpSegments'])) {
                 $model->ipSegments = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['IpSegments'] as $item1) {
                     $model->ipSegments[$n1++] = ipSegments::fromMap($item1);
                 }

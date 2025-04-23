@@ -12,18 +12,20 @@ class SetGtmMonitorStatusRequest extends Model
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $monitorConfigId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'lang'            => 'Lang',
+        'lang' => 'Lang',
         'monitorConfigId' => 'MonitorConfigId',
-        'status'          => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -14,33 +14,38 @@ class DescribeDomainNsResponseBody extends Model
      * @var bool
      */
     public $allAliDns;
+
     /**
      * @var string
      */
     public $detectFailedReasonCode;
+
     /**
      * @var dnsServers
      */
     public $dnsServers;
+
     /**
      * @var expectDnsServers
      */
     public $expectDnsServers;
+
     /**
      * @var bool
      */
     public $includeAliDns;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'allAliDns'              => 'AllAliDns',
+        'allAliDns' => 'AllAliDns',
         'detectFailedReasonCode' => 'DetectFailedReasonCode',
-        'dnsServers'             => 'DnsServers',
-        'expectDnsServers'       => 'ExpectDnsServers',
-        'includeAliDns'          => 'IncludeAliDns',
-        'requestId'              => 'RequestId',
+        'dnsServers' => 'DnsServers',
+        'expectDnsServers' => 'ExpectDnsServers',
+        'includeAliDns' => 'IncludeAliDns',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

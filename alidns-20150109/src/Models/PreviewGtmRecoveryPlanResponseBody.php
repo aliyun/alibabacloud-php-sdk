@@ -13,31 +13,36 @@ class PreviewGtmRecoveryPlanResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var previews
      */
     public $previews;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalItems;
+
     /**
      * @var int
      */
     public $totalPages;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'previews'   => 'Previews',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'previews' => 'Previews',
+        'requestId' => 'RequestId',
         'totalItems' => 'TotalItems',
         'totalPages' => 'TotalPages',
     ];

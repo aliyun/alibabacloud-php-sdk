@@ -12,17 +12,19 @@ class AddCustomLineResponseBody extends Model
      * @var string
      */
     public $lineCode;
+
     /**
      * @var int
      */
     public $lineId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'lineCode'  => 'LineCode',
-        'lineId'    => 'LineId',
+        'lineCode' => 'LineCode',
+        'lineId' => 'LineId',
         'requestId' => 'RequestId',
     ];
 

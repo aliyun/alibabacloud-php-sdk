@@ -13,63 +13,74 @@ class DescribeDnsGtmMonitorConfigResponseBody extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var int
      */
     public $evaluationCount;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var ispCityNodes
      */
     public $ispCityNodes;
+
     /**
      * @var string
      */
     public $monitorConfigId;
+
     /**
      * @var string
      */
     public $monitorExtendInfo;
+
     /**
      * @var string
      */
     public $protocolType;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $timeout;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $updateTimestamp;
     protected $_name = [
-        'createTime'        => 'CreateTime',
-        'createTimestamp'   => 'CreateTimestamp',
-        'evaluationCount'   => 'EvaluationCount',
-        'interval'          => 'Interval',
-        'ispCityNodes'      => 'IspCityNodes',
-        'monitorConfigId'   => 'MonitorConfigId',
+        'createTime' => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
+        'evaluationCount' => 'EvaluationCount',
+        'interval' => 'Interval',
+        'ispCityNodes' => 'IspCityNodes',
+        'monitorConfigId' => 'MonitorConfigId',
         'monitorExtendInfo' => 'MonitorExtendInfo',
-        'protocolType'      => 'ProtocolType',
-        'requestId'         => 'RequestId',
-        'timeout'           => 'Timeout',
-        'updateTime'        => 'UpdateTime',
-        'updateTimestamp'   => 'UpdateTimestamp',
+        'protocolType' => 'ProtocolType',
+        'requestId' => 'RequestId',
+        'timeout' => 'Timeout',
+        'updateTime' => 'UpdateTime',
+        'updateTimestamp' => 'UpdateTimestamp',
     ];
 
     public function validate()

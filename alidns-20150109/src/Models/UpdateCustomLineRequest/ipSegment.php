@@ -12,12 +12,13 @@ class ipSegment extends Model
      * @var string
      */
     public $endIp;
+
     /**
      * @var string
      */
     public $startIp;
     protected $_name = [
-        'endIp'   => 'EndIp',
+        'endIp' => 'EndIp',
         'startIp' => 'StartIp',
     ];
 

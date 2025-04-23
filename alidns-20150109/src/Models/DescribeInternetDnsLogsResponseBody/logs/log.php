@@ -13,63 +13,74 @@ class log extends Model
      * @var string
      */
     public $dnsMsgId;
+
     /**
      * @var int
      */
     public $logTime;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $queryName;
+
     /**
      * @var string
      */
     public $queryType;
+
     /**
      * @var int
      */
     public $rt;
+
     /**
      * @var string
      */
     public $serverIp;
+
     /**
      * @var string
      */
     public $sourceIp;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $subnetIp;
+
     /**
      * @var value
      */
     public $value;
+
     /**
      * @var string
      */
     public $zoneName;
     protected $_name = [
-        'dnsMsgId'  => 'DnsMsgId',
-        'logTime'   => 'LogTime',
-        'protocol'  => 'Protocol',
+        'dnsMsgId' => 'DnsMsgId',
+        'logTime' => 'LogTime',
+        'protocol' => 'Protocol',
         'queryName' => 'QueryName',
         'queryType' => 'QueryType',
-        'rt'        => 'Rt',
-        'serverIp'  => 'ServerIp',
-        'sourceIp'  => 'SourceIp',
-        'status'    => 'Status',
-        'subnetIp'  => 'SubnetIp',
-        'value'     => 'Value',
-        'zoneName'  => 'ZoneName',
+        'rt' => 'Rt',
+        'serverIp' => 'ServerIp',
+        'sourceIp' => 'SourceIp',
+        'status' => 'Status',
+        'subnetIp' => 'SubnetIp',
+        'value' => 'Value',
+        'zoneName' => 'ZoneName',
     ];
 
     public function validate()

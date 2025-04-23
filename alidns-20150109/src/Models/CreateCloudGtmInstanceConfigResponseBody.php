@@ -12,18 +12,20 @@ class CreateCloudGtmInstanceConfigResponseBody extends Model
      * @var bool
      */
     public $configId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'configId'  => 'ConfigId',
+        'configId' => 'ConfigId',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

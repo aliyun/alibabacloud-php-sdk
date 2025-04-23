@@ -31,7 +31,7 @@ class previews extends Model
         if (null !== $this->preview) {
             if (\is_array($this->preview)) {
                 $res['Preview'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->preview as $item1) {
                     $res['Preview'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class previews extends Model
         if (isset($map['Preview'])) {
             if (!empty($map['Preview'])) {
                 $model->preview = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Preview'] as $item1) {
                     $model->preview[$n1++] = preview::fromMap($item1);
                 }

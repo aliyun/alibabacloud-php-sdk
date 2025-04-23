@@ -12,27 +12,31 @@ class UpdateCloudGtmAddressManualAvailableStatusRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $addressId;
+
     /**
      * @var string
      */
     public $availableMode;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $manualAvailableStatus;
     protected $_name = [
-        'acceptLanguage'        => 'AcceptLanguage',
-        'addressId'             => 'AddressId',
-        'availableMode'         => 'AvailableMode',
-        'clientToken'           => 'ClientToken',
+        'acceptLanguage' => 'AcceptLanguage',
+        'addressId' => 'AddressId',
+        'availableMode' => 'AvailableMode',
+        'clientToken' => 'ClientToken',
         'manualAvailableStatus' => 'ManualAvailableStatus',
     ];
 

@@ -13,18 +13,22 @@ class DescribeDomainLogsResponseBody extends Model
      * @var domainLogs
      */
     public $domainLogs;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
@@ -32,8 +36,8 @@ class DescribeDomainLogsResponseBody extends Model
     protected $_name = [
         'domainLogs' => 'DomainLogs',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 

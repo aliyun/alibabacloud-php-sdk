@@ -14,10 +14,12 @@ class ListCloudGtmMonitorNodesResponseBody extends Model
      * @var ipv4IspCityNodes
      */
     public $ipv4IspCityNodes;
+
     /**
      * @var ipv6IspCityNodes
      */
     public $ipv6IspCityNodes;
+
     /**
      * @var string
      */
@@ -25,7 +27,7 @@ class ListCloudGtmMonitorNodesResponseBody extends Model
     protected $_name = [
         'ipv4IspCityNodes' => 'Ipv4IspCityNodes',
         'ipv6IspCityNodes' => 'Ipv6IspCityNodes',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

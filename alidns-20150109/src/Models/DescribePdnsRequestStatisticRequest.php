@@ -12,33 +12,38 @@ class DescribePdnsRequestStatisticRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $subDomain;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'domainName' => 'DomainName',
-        'endDate'    => 'EndDate',
-        'lang'       => 'Lang',
-        'startDate'  => 'StartDate',
-        'subDomain'  => 'SubDomain',
-        'type'       => 'Type',
+        'endDate' => 'EndDate',
+        'lang' => 'Lang',
+        'startDate' => 'StartDate',
+        'subDomain' => 'SubDomain',
+        'type' => 'Type',
     ];
 
     public function validate()

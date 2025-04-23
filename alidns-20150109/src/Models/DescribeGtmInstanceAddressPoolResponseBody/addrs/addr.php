@@ -12,48 +12,56 @@ class addr extends Model
      * @var int
      */
     public $addrId;
+
     /**
      * @var string
      */
     public $alertStatus;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var int
      */
     public $lbaWeight;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $updateTimestamp;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'addrId'          => 'AddrId',
-        'alertStatus'     => 'AlertStatus',
-        'createTime'      => 'CreateTime',
+        'addrId' => 'AddrId',
+        'alertStatus' => 'AlertStatus',
+        'createTime' => 'CreateTime',
         'createTimestamp' => 'CreateTimestamp',
-        'lbaWeight'       => 'LbaWeight',
-        'mode'            => 'Mode',
-        'updateTime'      => 'UpdateTime',
+        'lbaWeight' => 'LbaWeight',
+        'mode' => 'Mode',
+        'updateTime' => 'UpdateTime',
         'updateTimestamp' => 'UpdateTimestamp',
-        'value'           => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

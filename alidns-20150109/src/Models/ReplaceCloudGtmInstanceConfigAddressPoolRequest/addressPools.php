@@ -12,14 +12,17 @@ class addressPools extends Model
      * @var string
      */
     public $addressPoolId;
+
     /**
      * @var string[]
      */
     public $requestSource;
+
     /**
      * @var int
      */
     public $serialNumber;
+
     /**
      * @var int
      */
@@ -27,8 +30,8 @@ class addressPools extends Model
     protected $_name = [
         'addressPoolId' => 'AddressPoolId',
         'requestSource' => 'RequestSource',
-        'serialNumber'  => 'SerialNumber',
-        'weightValue'   => 'WeightValue',
+        'serialNumber' => 'SerialNumber',
+        'weightValue' => 'WeightValue',
     ];
 
     public function validate()
@@ -49,7 +52,7 @@ class addressPools extends Model
         if (null !== $this->requestSource) {
             if (\is_array($this->requestSource)) {
                 $res['RequestSource'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->requestSource as $item1) {
                     $res['RequestSource'][$n1++] = $item1;
                 }
@@ -82,7 +85,7 @@ class addressPools extends Model
         if (isset($map['RequestSource'])) {
             if (!empty($map['RequestSource'])) {
                 $model->requestSource = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['RequestSource'] as $item1) {
                     $model->requestSource[$n1++] = $item1;
                 }

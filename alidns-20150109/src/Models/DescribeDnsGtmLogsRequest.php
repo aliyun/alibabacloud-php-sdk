@@ -12,37 +12,43 @@ class DescribeDnsGtmLogsRequest extends Model
      * @var int
      */
     public $endTimestamp;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startTimestamp;
     protected $_name = [
-        'endTimestamp'   => 'EndTimestamp',
-        'instanceId'     => 'InstanceId',
-        'keyword'        => 'Keyword',
-        'lang'           => 'Lang',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'endTimestamp' => 'EndTimestamp',
+        'instanceId' => 'InstanceId',
+        'keyword' => 'Keyword',
+        'lang' => 'Lang',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'startTimestamp' => 'StartTimestamp',
     ];
 

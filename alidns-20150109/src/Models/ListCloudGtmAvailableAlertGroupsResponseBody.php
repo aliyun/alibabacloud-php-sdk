@@ -13,13 +13,14 @@ class ListCloudGtmAvailableAlertGroupsResponseBody extends Model
      * @var alertGroups
      */
     public $alertGroups;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'alertGroups' => 'AlertGroups',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

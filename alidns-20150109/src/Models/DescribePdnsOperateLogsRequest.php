@@ -12,38 +12,44 @@ class DescribePdnsOperateLogsRequest extends Model
      * @var string
      */
     public $actionType;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $startDate;
     protected $_name = [
         'actionType' => 'ActionType',
-        'endDate'    => 'EndDate',
-        'keyword'    => 'Keyword',
-        'lang'       => 'Lang',
+        'endDate' => 'EndDate',
+        'keyword' => 'Keyword',
+        'lang' => 'Lang',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startDate'  => 'StartDate',
+        'pageSize' => 'PageSize',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()

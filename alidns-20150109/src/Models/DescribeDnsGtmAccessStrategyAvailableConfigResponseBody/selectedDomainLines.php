@@ -30,7 +30,7 @@ class selectedDomainLines extends Model
         if (null !== $this->selectedDomainLine) {
             if (\is_array($this->selectedDomainLine)) {
                 $res['SelectedDomainLine'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->selectedDomainLine as $item1) {
                     $res['SelectedDomainLine'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class selectedDomainLines extends Model
         if (isset($map['SelectedDomainLine'])) {
             if (!empty($map['SelectedDomainLine'])) {
                 $model->selectedDomainLine = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['SelectedDomainLine'] as $item1) {
                     $model->selectedDomainLine[$n1++] = $item1;
                 }

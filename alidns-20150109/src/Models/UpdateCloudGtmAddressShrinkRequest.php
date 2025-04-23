@@ -12,43 +12,50 @@ class UpdateCloudGtmAddressShrinkRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $address;
+
     /**
      * @var string
      */
     public $addressId;
+
     /**
      * @var string
      */
     public $attributeInfo;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $healthJudgement;
+
     /**
      * @var string
      */
     public $healthTasksShrink;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
-        'acceptLanguage'    => 'AcceptLanguage',
-        'address'           => 'Address',
-        'addressId'         => 'AddressId',
-        'attributeInfo'     => 'AttributeInfo',
-        'clientToken'       => 'ClientToken',
-        'healthJudgement'   => 'HealthJudgement',
+        'acceptLanguage' => 'AcceptLanguage',
+        'address' => 'Address',
+        'addressId' => 'AddressId',
+        'attributeInfo' => 'AttributeInfo',
+        'clientToken' => 'ClientToken',
+        'healthJudgement' => 'HealthJudgement',
         'healthTasksShrink' => 'HealthTasks',
-        'name'              => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()

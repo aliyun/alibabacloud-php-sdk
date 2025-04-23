@@ -13,6 +13,7 @@ class flushCacheResults extends Model
      * @var dnsNodes[]
      */
     public $dnsNodes;
+
     /**
      * @var string
      */
@@ -36,7 +37,7 @@ class flushCacheResults extends Model
         if (null !== $this->dnsNodes) {
             if (\is_array($this->dnsNodes)) {
                 $res['DnsNodes'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->dnsNodes as $item1) {
                     $res['DnsNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class flushCacheResults extends Model
         if (isset($map['DnsNodes'])) {
             if (!empty($map['DnsNodes'])) {
                 $model->dnsNodes = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['DnsNodes'] as $item1) {
                     $model->dnsNodes[$n1++] = dnsNodes::fromMap($item1);
                 }

@@ -31,7 +31,7 @@ class domains extends Model
         if (null !== $this->domain) {
             if (\is_array($this->domain)) {
                 $res['Domain'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->domain as $item1) {
                     $res['Domain'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class domains extends Model
         if (isset($map['Domain'])) {
             if (!empty($map['Domain'])) {
                 $model->domain = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Domain'] as $item1) {
                     $model->domain[$n1++] = domain::fromMap($item1);
                 }

@@ -12,33 +12,38 @@ class domainTransfer extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var int
      */
     public $fromUserId;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $targetUserId;
     protected $_name = [
-        'createTime'      => 'CreateTime',
+        'createTime' => 'CreateTime',
         'createTimestamp' => 'CreateTimestamp',
-        'domainName'      => 'DomainName',
-        'fromUserId'      => 'FromUserId',
-        'id'              => 'Id',
-        'targetUserId'    => 'TargetUserId',
+        'domainName' => 'DomainName',
+        'fromUserId' => 'FromUserId',
+        'id' => 'Id',
+        'targetUserId' => 'TargetUserId',
     ];
 
     public function validate()

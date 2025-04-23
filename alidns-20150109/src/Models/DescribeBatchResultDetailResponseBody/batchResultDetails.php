@@ -31,7 +31,7 @@ class batchResultDetails extends Model
         if (null !== $this->batchResultDetail) {
             if (\is_array($this->batchResultDetail)) {
                 $res['BatchResultDetail'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->batchResultDetail as $item1) {
                     $res['BatchResultDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class batchResultDetails extends Model
         if (isset($map['BatchResultDetail'])) {
             if (!empty($map['BatchResultDetail'])) {
                 $model->batchResultDetail = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['BatchResultDetail'] as $item1) {
                     $model->batchResultDetail[$n1++] = batchResultDetail::fromMap($item1);
                 }

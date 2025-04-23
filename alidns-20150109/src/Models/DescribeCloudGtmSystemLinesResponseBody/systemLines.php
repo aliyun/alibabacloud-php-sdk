@@ -31,7 +31,7 @@ class systemLines extends Model
         if (null !== $this->systemLine) {
             if (\is_array($this->systemLine)) {
                 $res['SystemLine'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->systemLine as $item1) {
                     $res['SystemLine'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class systemLines extends Model
         if (isset($map['SystemLine'])) {
             if (!empty($map['SystemLine'])) {
                 $model->systemLine = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['SystemLine'] as $item1) {
                     $model->systemLine[$n1++] = systemLine::fromMap($item1);
                 }

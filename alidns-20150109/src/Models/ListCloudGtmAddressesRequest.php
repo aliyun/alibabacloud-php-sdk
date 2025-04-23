@@ -12,58 +12,68 @@ class ListCloudGtmAddressesRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $address;
+
     /**
      * @var string
      */
     public $addressId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $enableStatus;
+
     /**
      * @var string
      */
     public $healthStatus;
+
     /**
      * @var string
      */
     public $monitorTemplateId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'acceptLanguage'    => 'AcceptLanguage',
-        'address'           => 'Address',
-        'addressId'         => 'AddressId',
-        'clientToken'       => 'ClientToken',
-        'enableStatus'      => 'EnableStatus',
-        'healthStatus'      => 'HealthStatus',
+        'acceptLanguage' => 'AcceptLanguage',
+        'address' => 'Address',
+        'addressId' => 'AddressId',
+        'clientToken' => 'ClientToken',
+        'enableStatus' => 'EnableStatus',
+        'healthStatus' => 'HealthStatus',
         'monitorTemplateId' => 'MonitorTemplateId',
-        'name'              => 'Name',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'type'              => 'Type',
+        'name' => 'Name',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -31,7 +31,7 @@ class alertConfig extends Model
         if (null !== $this->alertConfig) {
             if (\is_array($this->alertConfig)) {
                 $res['AlertConfig'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->alertConfig as $item1) {
                     $res['AlertConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class alertConfig extends Model
         if (isset($map['AlertConfig'])) {
             if (!empty($map['AlertConfig'])) {
                 $model->alertConfig = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['AlertConfig'] as $item1) {
                     $model->alertConfig[$n1++] = self::fromMap($item1);
                 }

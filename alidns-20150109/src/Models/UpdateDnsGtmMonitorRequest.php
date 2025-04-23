@@ -13,43 +13,50 @@ class UpdateDnsGtmMonitorRequest extends Model
      * @var int
      */
     public $evaluationCount;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var ispCityNode[]
      */
     public $ispCityNode;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $monitorConfigId;
+
     /**
      * @var string
      */
     public $monitorExtendInfo;
+
     /**
      * @var string
      */
     public $protocolType;
+
     /**
      * @var int
      */
     public $timeout;
     protected $_name = [
-        'evaluationCount'   => 'EvaluationCount',
-        'interval'          => 'Interval',
-        'ispCityNode'       => 'IspCityNode',
-        'lang'              => 'Lang',
-        'monitorConfigId'   => 'MonitorConfigId',
+        'evaluationCount' => 'EvaluationCount',
+        'interval' => 'Interval',
+        'ispCityNode' => 'IspCityNode',
+        'lang' => 'Lang',
+        'monitorConfigId' => 'MonitorConfigId',
         'monitorExtendInfo' => 'MonitorExtendInfo',
-        'protocolType'      => 'ProtocolType',
-        'timeout'           => 'Timeout',
+        'protocolType' => 'ProtocolType',
+        'timeout' => 'Timeout',
     ];
 
     public function validate()
@@ -74,7 +81,7 @@ class UpdateDnsGtmMonitorRequest extends Model
         if (null !== $this->ispCityNode) {
             if (\is_array($this->ispCityNode)) {
                 $res['IspCityNode'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->ispCityNode as $item1) {
                     $res['IspCityNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -123,7 +130,7 @@ class UpdateDnsGtmMonitorRequest extends Model
         if (isset($map['IspCityNode'])) {
             if (!empty($map['IspCityNode'])) {
                 $model->ispCityNode = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['IspCityNode'] as $item1) {
                     $model->ispCityNode[$n1++] = ispCityNode::fromMap($item1);
                 }

@@ -12,12 +12,13 @@ class RemovePdnsUdpIpSegmentRequest extends Model
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
-        'ip'   => 'Ip',
+        'ip' => 'Ip',
         'lang' => 'Lang',
     ];
 

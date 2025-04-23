@@ -12,28 +12,32 @@ class recordLog extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $actionTime;
+
     /**
      * @var int
      */
     public $actionTimestamp;
+
     /**
      * @var string
      */
     public $clientIp;
+
     /**
      * @var string
      */
     public $message;
     protected $_name = [
-        'action'          => 'Action',
-        'actionTime'      => 'ActionTime',
+        'action' => 'Action',
+        'actionTime' => 'ActionTime',
         'actionTimestamp' => 'ActionTimestamp',
-        'clientIp'        => 'ClientIp',
-        'message'         => 'Message',
+        'clientIp' => 'ClientIp',
+        'message' => 'Message',
     ];
 
     public function validate()

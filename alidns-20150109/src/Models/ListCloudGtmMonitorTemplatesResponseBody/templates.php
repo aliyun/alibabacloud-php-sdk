@@ -31,7 +31,7 @@ class templates extends Model
         if (null !== $this->template) {
             if (\is_array($this->template)) {
                 $res['Template'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->template as $item1) {
                     $res['Template'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class templates extends Model
         if (isset($map['Template'])) {
             if (!empty($map['Template'])) {
                 $model->template = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Template'] as $item1) {
                     $model->template[$n1++] = template::fromMap($item1);
                 }

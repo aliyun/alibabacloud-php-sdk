@@ -472,7 +472,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds a custom line.
+     * Adds a custom line to the domain name.
      *
      * @remarks
      * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
@@ -480,6 +480,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - AddCustomLineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddCustomLineResponse
      *
      * @param AddCustomLineRequest $request
@@ -511,31 +512,29 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddCustomLine',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddCustomLine',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddCustomLineResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Adds a custom line.
+     * Adds a custom line to the domain name.
      *
      * @remarks
      * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
      * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
      *
      * @param request - AddCustomLineRequest
+     *
      * @returns AddCustomLineResponse
      *
      * @param AddCustomLineRequest $request
@@ -550,8 +549,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * Adds a cache-accelerated domain name based on the specified parameters.
+     *
      * @param request - AddDnsCacheDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddDnsCacheDomainResponse
      *
      * @param AddDnsCacheDomainRequest $request
@@ -603,25 +605,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddDnsCacheDomain',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDnsCacheDomain',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddDnsCacheDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDnsCacheDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDnsCacheDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Adds a cache-accelerated domain name based on the specified parameters.
+     *
      * @param request - AddDnsCacheDomainRequest
+     *
      * @returns AddDnsCacheDomainResponse
      *
      * @param AddDnsCacheDomainRequest $request
@@ -640,6 +642,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - AddDnsGtmAccessStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddDnsGtmAccessStrategyResponse
      *
      * @param AddDnsGtmAccessStrategyRequest $request
@@ -723,27 +726,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddDnsGtmAccessStrategy',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDnsGtmAccessStrategy',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDnsGtmAccessStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates an access policy.
      *
      * @param request - AddDnsGtmAccessStrategyRequest
+     *
      * @returns AddDnsGtmAccessStrategyResponse
      *
      * @param AddDnsGtmAccessStrategyRequest $request
@@ -762,6 +763,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - AddDnsGtmAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddDnsGtmAddressPoolResponse
      *
      * @param AddDnsGtmAddressPoolRequest $request
@@ -829,27 +831,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddDnsGtmAddressPool',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDnsGtmAddressPool',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddDnsGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDnsGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDnsGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates an address pool.
      *
      * @param request - AddDnsGtmAddressPoolRequest
+     *
      * @returns AddDnsGtmAddressPoolResponse
      *
      * @param AddDnsGtmAddressPoolRequest $request
@@ -870,6 +870,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - AddDnsGtmMonitorRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddDnsGtmMonitorResponse
      *
      * @param AddDnsGtmMonitorRequest $request
@@ -917,21 +918,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddDnsGtmMonitor',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDnsGtmMonitor',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddDnsGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDnsGtmMonitorResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDnsGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -940,6 +938,7 @@ class Alidns extends OpenApiClient
      * @remarks
      *
      * @param request - AddDnsGtmMonitorRequest
+     *
      * @returns AddDnsGtmMonitorResponse
      *
      * @param AddDnsGtmMonitorRequest $request
@@ -962,6 +961,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - AddDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddDomainResponse
      *
      * @param AddDomainRequest $request
@@ -993,21 +993,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddDomain',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDomain',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1018,6 +1015,7 @@ class Alidns extends OpenApiClient
      * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
      *
      * @param request - AddDomainRequest
+     *
      * @returns AddDomainResponse
      *
      * @param AddDomainRequest $request
@@ -1036,6 +1034,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - AddDomainBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddDomainBackupResponse
      *
      * @param AddDomainBackupRequest $request
@@ -1063,27 +1062,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddDomainBackup',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDomainBackup',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddDomainBackupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDomainBackupResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDomainBackupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a backup task for a domain name.
      *
      * @param request - AddDomainBackupRequest
+     *
      * @returns AddDomainBackupResponse
      *
      * @param AddDomainBackupRequest $request
@@ -1102,6 +1099,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - AddDomainGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddDomainGroupResponse
      *
      * @param AddDomainGroupRequest $request
@@ -1125,27 +1123,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddDomainGroup',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDomainGroup',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDomainGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a domain name group based on the specified parameters.
      *
      * @param request - AddDomainGroupRequest
+     *
      * @returns AddDomainGroupResponse
      *
      * @param AddDomainGroupRequest $request
@@ -1164,6 +1160,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - AddDomainRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddDomainRecordResponse
      *
      * @param AddDomainRecordRequest $request
@@ -1215,27 +1212,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddDomainRecord',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDomainRecord',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddDomainRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDomainRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDomainRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Adds a Domain Name System (DNS) record based on the specified parameters.
      *
      * @param request - AddDomainRecordRequest
+     *
      * @returns AddDomainRecordResponse
      *
      * @param AddDomainRecordRequest $request
@@ -1252,6 +1247,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - AddGtmAccessStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddGtmAccessStrategyResponse
      *
      * @param AddGtmAccessStrategyRequest $request
@@ -1291,25 +1287,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddGtmAccessStrategy',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddGtmAccessStrategy',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddGtmAccessStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - AddGtmAccessStrategyRequest
+     *
      * @returns AddGtmAccessStrategyResponse
      *
      * @param AddGtmAccessStrategyRequest $request
@@ -1328,6 +1322,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - AddGtmAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddGtmAddressPoolResponse
      *
      * @param AddGtmAddressPoolRequest $request
@@ -1395,27 +1390,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddGtmAddressPool',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddGtmAddressPool',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates an address pool.
      *
      * @param request - AddGtmAddressPoolRequest
+     *
      * @returns AddGtmAddressPoolResponse
      *
      * @param AddGtmAddressPoolRequest $request
@@ -1434,6 +1427,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - AddGtmMonitorRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddGtmMonitorResponse
      *
      * @param AddGtmMonitorRequest $request
@@ -1481,27 +1475,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddGtmMonitor',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddGtmMonitor',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddGtmMonitorResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a health check task.
      *
      * @param request - AddGtmMonitorRequest
+     *
      * @returns AddGtmMonitorResponse
      *
      * @param AddGtmMonitorRequest $request
@@ -1520,6 +1512,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - AddGtmRecoveryPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddGtmRecoveryPlanResponse
      *
      * @param AddGtmRecoveryPlanRequest $request
@@ -1551,27 +1544,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddGtmRecoveryPlan',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddGtmRecoveryPlan',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddGtmRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a disaster recovery plan.
      *
      * @param request - AddGtmRecoveryPlanRequest
+     *
      * @returns AddGtmRecoveryPlanResponse
      *
      * @param AddGtmRecoveryPlanRequest $request
@@ -1594,6 +1585,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - BindInstanceDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BindInstanceDomainsResponse
      *
      * @param BindInstanceDomainsRequest $request
@@ -1621,21 +1613,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindInstanceDomains',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindInstanceDomains',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return BindInstanceDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BindInstanceDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return BindInstanceDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1646,6 +1635,7 @@ class Alidns extends OpenApiClient
      * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
      *
      * @param request - BindInstanceDomainsRequest
+     *
      * @returns BindInstanceDomainsResponse
      *
      * @param BindInstanceDomainsRequest $request
@@ -1667,6 +1657,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - ChangeDomainGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeDomainGroupResponse
      *
      * @param ChangeDomainGroupRequest $request
@@ -1694,21 +1685,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeDomainGroup',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeDomainGroup',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeDomainGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1718,6 +1706,7 @@ class Alidns extends OpenApiClient
      * You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
      *
      * @param request - ChangeDomainGroupRequest
+     *
      * @returns ChangeDomainGroupResponse
      *
      * @param ChangeDomainGroupRequest $request
@@ -1740,6 +1729,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - ChangeDomainOfDnsProductRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeDomainOfDnsProductResponse
      *
      * @param ChangeDomainOfDnsProductRequest $request
@@ -1775,21 +1765,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeDomainOfDnsProduct',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeDomainOfDnsProduct',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeDomainOfDnsProductResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeDomainOfDnsProductResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeDomainOfDnsProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1800,6 +1787,7 @@ class Alidns extends OpenApiClient
      * *   **This operation applies to instances of the custom edition. To change the domain name that is bound to an Alibaba Cloud DNS instance of Personal Edition, Enterprise Standard Edition, or Enterprise Ultimate Edition, call the BindInstanceDomains operation.
      *
      * @param request - ChangeDomainOfDnsProductRequest
+     *
      * @returns ChangeDomainOfDnsProductResponse
      *
      * @param ChangeDomainOfDnsProductRequest $request
@@ -1818,6 +1806,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - CopyGtmConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CopyGtmConfigResponse
      *
      * @param CopyGtmConfigRequest $request
@@ -1849,27 +1838,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CopyGtmConfig',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CopyGtmConfig',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CopyGtmConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CopyGtmConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return CopyGtmConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Copies the configurations of a Global Traffic Manager (GTM) instance.
      *
      * @param request - CopyGtmConfigRequest
+     *
      * @returns CopyGtmConfigResponse
      *
      * @param CopyGtmConfigRequest $request
@@ -1888,6 +1875,7 @@ class Alidns extends OpenApiClient
      *
      * @param tmpReq - CreateCloudGtmAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCloudGtmAddressResponse
      *
      * @param CreateCloudGtmAddressRequest $tmpReq
@@ -1957,27 +1945,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCloudGtmAddress',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCloudGtmAddress',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCloudGtmAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates an address.
      *
      * @param request - CreateCloudGtmAddressRequest
+     *
      * @returns CreateCloudGtmAddressResponse
      *
      * @param CreateCloudGtmAddressRequest $request
@@ -1996,6 +1982,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - CreateCloudGtmAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCloudGtmAddressPoolResponse
      *
      * @param CreateCloudGtmAddressPoolRequest $request
@@ -2039,27 +2026,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCloudGtmAddressPool',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCloudGtmAddressPool',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCloudGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCloudGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCloudGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates an address pool.
      *
      * @param request - CreateCloudGtmAddressPoolRequest
+     *
      * @returns CreateCloudGtmAddressPoolResponse
      *
      * @param CreateCloudGtmAddressPoolRequest $request
@@ -2076,6 +2061,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - CreateCloudGtmInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCloudGtmInstanceConfigResponse
      *
      * @param CreateCloudGtmInstanceConfigRequest $request
@@ -2131,25 +2117,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCloudGtmInstanceConfig',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCloudGtmInstanceConfig',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCloudGtmInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCloudGtmInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCloudGtmInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - CreateCloudGtmInstanceConfigRequest
+     *
      * @returns CreateCloudGtmInstanceConfigResponse
      *
      * @param CreateCloudGtmInstanceConfigRequest $request
@@ -2168,6 +2152,7 @@ class Alidns extends OpenApiClient
      *
      * @param tmpReq - CreateCloudGtmMonitorTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCloudGtmMonitorTemplateResponse
      *
      * @param CreateCloudGtmMonitorTemplateRequest $tmpReq
@@ -2233,27 +2218,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCloudGtmMonitorTemplate',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCloudGtmMonitorTemplate',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateCloudGtmMonitorTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Creates a health check template.
      *
      * @param request - CreateCloudGtmMonitorTemplateRequest
+     *
      * @returns CreateCloudGtmMonitorTemplateResponse
      *
      * @param CreateCloudGtmMonitorTemplateRequest $request
@@ -2272,6 +2255,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - CreatePdnsAppKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePdnsAppKeyResponse
      *
      * @param CreatePdnsAppKeyRequest $request
@@ -2295,27 +2279,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePdnsAppKey',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePdnsAppKey',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePdnsAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePdnsAppKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePdnsAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建公共DNS AppKey.
      *
      * @param request - CreatePdnsAppKeyRequest
+     *
      * @returns CreatePdnsAppKeyResponse
      *
      * @param CreatePdnsAppKeyRequest $request
@@ -2334,6 +2316,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - CreatePdnsUdpIpSegmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePdnsUdpIpSegmentResponse
      *
      * @param CreatePdnsUdpIpSegmentRequest $request
@@ -2365,27 +2348,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePdnsUdpIpSegment',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePdnsUdpIpSegment',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePdnsUdpIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePdnsUdpIpSegmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePdnsUdpIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 创建公共DNS Udp Ip地址段.
      *
      * @param request - CreatePdnsUdpIpSegmentRequest
+     *
      * @returns CreatePdnsUdpIpSegmentResponse
      *
      * @param CreatePdnsUdpIpSegmentRequest $request
@@ -2404,6 +2385,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DeleteCloudGtmAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCloudGtmAddressResponse
      *
      * @param DeleteCloudGtmAddressRequest $request
@@ -2431,27 +2413,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCloudGtmAddress',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCloudGtmAddress',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCloudGtmAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Deletes an address.
      *
      * @param request - DeleteCloudGtmAddressRequest
+     *
      * @returns DeleteCloudGtmAddressResponse
      *
      * @param DeleteCloudGtmAddressRequest $request
@@ -2470,6 +2450,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DeleteCloudGtmAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCloudGtmAddressPoolResponse
      *
      * @param DeleteCloudGtmAddressPoolRequest $request
@@ -2497,27 +2478,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCloudGtmAddressPool',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCloudGtmAddressPool',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCloudGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCloudGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCloudGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Deletes an address pool.
      *
      * @param request - DeleteCloudGtmAddressPoolRequest
+     *
      * @returns DeleteCloudGtmAddressPoolResponse
      *
      * @param DeleteCloudGtmAddressPoolRequest $request
@@ -2536,6 +2515,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DeleteCloudGtmInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCloudGtmInstanceConfigResponse
      *
      * @param DeleteCloudGtmInstanceConfigRequest $request
@@ -2567,27 +2547,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCloudGtmInstanceConfig',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCloudGtmInstanceConfig',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCloudGtmInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCloudGtmInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCloudGtmInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Deletes an access domain name that is configured for a Global Traffic Manager (GTM) 3.0 instance.
      *
      * @param request - DeleteCloudGtmInstanceConfigRequest
+     *
      * @returns DeleteCloudGtmInstanceConfigResponse
      *
      * @param DeleteCloudGtmInstanceConfigRequest $request
@@ -2606,6 +2584,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DeleteCloudGtmMonitorTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCloudGtmMonitorTemplateResponse
      *
      * @param DeleteCloudGtmMonitorTemplateRequest $request
@@ -2633,27 +2612,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCloudGtmMonitorTemplate',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCloudGtmMonitorTemplate',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCloudGtmMonitorTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Deletes a health check template.
      *
      * @param request - DeleteCloudGtmMonitorTemplateRequest
+     *
      * @returns DeleteCloudGtmMonitorTemplateResponse
      *
      * @param DeleteCloudGtmMonitorTemplateRequest $request
@@ -2668,10 +2645,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes multiple custom lines at a time.
+     * Deletes custom lines at a time by using the unique IDs.
      *
      * @param request - DeleteCustomLinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCustomLinesResponse
      *
      * @param DeleteCustomLinesRequest $request
@@ -2695,27 +2673,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCustomLines',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCustomLines',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCustomLinesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCustomLinesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCustomLinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Deletes multiple custom lines at a time.
+     * Deletes custom lines at a time by using the unique IDs.
      *
      * @param request - DeleteCustomLinesRequest
+     *
      * @returns DeleteCustomLinesResponse
      *
      * @param DeleteCustomLinesRequest $request
@@ -2730,8 +2706,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * Deletes a specified cache-accelerated domain name.
+     *
      * @param request - DeleteDnsCacheDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDnsCacheDomainResponse
      *
      * @param DeleteDnsCacheDomainRequest $request
@@ -2755,25 +2734,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDnsCacheDomain',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDnsCacheDomain',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDnsCacheDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDnsCacheDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDnsCacheDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes a specified cache-accelerated domain name.
+     *
      * @param request - DeleteDnsCacheDomainRequest
+     *
      * @returns DeleteDnsCacheDomainResponse
      *
      * @param DeleteDnsCacheDomainRequest $request
@@ -2790,6 +2769,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DeleteDnsGtmAccessStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDnsGtmAccessStrategyResponse
      *
      * @param DeleteDnsGtmAccessStrategyRequest $request
@@ -2813,25 +2793,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDnsGtmAccessStrategy',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDnsGtmAccessStrategy',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDnsGtmAccessStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteDnsGtmAccessStrategyRequest
+     *
      * @returns DeleteDnsGtmAccessStrategyResponse
      *
      * @param DeleteDnsGtmAccessStrategyRequest $request
@@ -2848,6 +2826,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DeleteDnsGtmAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDnsGtmAddressPoolResponse
      *
      * @param DeleteDnsGtmAddressPoolRequest $request
@@ -2871,25 +2850,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDnsGtmAddressPool',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDnsGtmAddressPool',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDnsGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDnsGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDnsGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteDnsGtmAddressPoolRequest
+     *
      * @returns DeleteDnsGtmAddressPoolResponse
      *
      * @param DeleteDnsGtmAddressPoolRequest $request
@@ -2908,6 +2885,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DeleteDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDomainResponse
      *
      * @param DeleteDomainRequest $request
@@ -2931,27 +2909,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDomain',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDomain',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Deletes a domain name based on the specified parameters.
      *
      * @param request - DeleteDomainRequest
+     *
      * @returns DeleteDomainResponse
      *
      * @param DeleteDomainRequest $request
@@ -2973,6 +2949,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DeleteDomainGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDomainGroupResponse
      *
      * @param DeleteDomainGroupRequest $request
@@ -2996,21 +2973,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDomainGroup',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDomainGroup',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDomainGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3020,6 +2994,7 @@ class Alidns extends OpenApiClient
      * >  The default group cannot be deleted.
      *
      * @param request - DeleteDomainGroupRequest
+     *
      * @returns DeleteDomainGroupResponse
      *
      * @param DeleteDomainGroupRequest $request
@@ -3038,6 +3013,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DeleteDomainRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDomainRecordResponse
      *
      * @param DeleteDomainRecordRequest $request
@@ -3065,27 +3041,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDomainRecord',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDomainRecord',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDomainRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDomainRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDomainRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Deletes an Alibaba Cloud DNS (DNS) record based on the specified parameters.
      *
      * @param request - DeleteDomainRecordRequest
+     *
      * @returns DeleteDomainRecordResponse
      *
      * @param DeleteDomainRecordRequest $request
@@ -3102,6 +3076,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DeleteGtmAccessStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteGtmAccessStrategyResponse
      *
      * @param DeleteGtmAccessStrategyRequest $request
@@ -3125,25 +3100,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteGtmAccessStrategy',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteGtmAccessStrategy',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteGtmAccessStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteGtmAccessStrategyRequest
+     *
      * @returns DeleteGtmAccessStrategyResponse
      *
      * @param DeleteGtmAccessStrategyRequest $request
@@ -3160,6 +3133,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DeleteGtmAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteGtmAddressPoolResponse
      *
      * @param DeleteGtmAddressPoolRequest $request
@@ -3183,25 +3157,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteGtmAddressPool',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteGtmAddressPool',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteGtmAddressPoolRequest
+     *
      * @returns DeleteGtmAddressPoolResponse
      *
      * @param DeleteGtmAddressPoolRequest $request
@@ -3218,6 +3190,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DeleteGtmRecoveryPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteGtmRecoveryPlanResponse
      *
      * @param DeleteGtmRecoveryPlanRequest $request
@@ -3241,25 +3214,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteGtmRecoveryPlan',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteGtmRecoveryPlan',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteGtmRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DeleteGtmRecoveryPlanRequest
+     *
      * @returns DeleteGtmRecoveryPlanResponse
      *
      * @param DeleteGtmRecoveryPlanRequest $request
@@ -3274,11 +3245,14 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * Deletes the DNS records that are corresponding to a hostname based on the specified parameters.
+     *
      * @remarks
-     * If the DNS records to be deleted contain locked DNS records, locked DNS records will not be deleted.
+     * If the DNS records to be deleted contain locked DNS records, the locked DNS records will not be deleted.
      *
      * @param request - DeleteSubDomainRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSubDomainRecordsResponse
      *
      * @param DeleteSubDomainRecordsRequest $request
@@ -3314,28 +3288,28 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSubDomainRecords',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSubDomainRecords',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSubDomainRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSubDomainRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSubDomainRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Deletes the DNS records that are corresponding to a hostname based on the specified parameters.
+     *
      * @remarks
-     * If the DNS records to be deleted contain locked DNS records, locked DNS records will not be deleted.
+     * If the DNS records to be deleted contain locked DNS records, the locked DNS records will not be deleted.
      *
      * @param request - DeleteSubDomainRecordsRequest
+     *
      * @returns DeleteSubDomainRecordsResponse
      *
      * @param DeleteSubDomainRecordsRequest $request
@@ -3350,10 +3324,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the result of a batch operation task.
+     * Queries the execution result of a batch operation task based on the task ID. If you do not specify task ID, the execution result of the last batch operation task is returned.
      *
      * @param request - DescribeBatchResultCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBatchResultCountResponse
      *
      * @param DescribeBatchResultCountRequest $request
@@ -3381,27 +3356,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBatchResultCount',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBatchResultCount',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBatchResultCountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBatchResultCountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBatchResultCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the result of a batch operation task.
+     * Queries the execution result of a batch operation task based on the task ID. If you do not specify task ID, the execution result of the last batch operation task is returned.
      *
      * @param request - DescribeBatchResultCountRequest
+     *
      * @returns DescribeBatchResultCountResponse
      *
      * @param DescribeBatchResultCountRequest $request
@@ -3423,6 +3396,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeBatchResultDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBatchResultDetailResponse
      *
      * @param DescribeBatchResultDetailRequest $request
@@ -3462,21 +3436,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBatchResultDetail',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBatchResultDetail',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBatchResultDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBatchResultDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBatchResultDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3486,6 +3457,7 @@ class Alidns extends OpenApiClient
      * Before you call this operation, make sure that the batch operation task is complete.
      *
      * @param request - DescribeBatchResultDetailRequest
+     *
      * @returns DescribeBatchResultDetailResponse
      *
      * @param DescribeBatchResultDetailRequest $request
@@ -3504,6 +3476,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeCloudGtmAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCloudGtmAddressResponse
      *
      * @param DescribeCloudGtmAddressRequest $request
@@ -3531,27 +3504,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudGtmAddress',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudGtmAddress',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the configurations of an address.
      *
      * @param request - DescribeCloudGtmAddressRequest
+     *
      * @returns DescribeCloudGtmAddressResponse
      *
      * @param DescribeCloudGtmAddressRequest $request
@@ -3570,6 +3541,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeCloudGtmAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCloudGtmAddressPoolResponse
      *
      * @param DescribeCloudGtmAddressPoolRequest $request
@@ -3597,27 +3569,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudGtmAddressPool',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudGtmAddressPool',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCloudGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the configurations of an address pool.
      *
      * @param request - DescribeCloudGtmAddressPoolRequest
+     *
      * @returns DescribeCloudGtmAddressPoolResponse
      *
      * @param DescribeCloudGtmAddressPoolRequest $request
@@ -3636,6 +3606,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeCloudGtmAddressPoolReferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCloudGtmAddressPoolReferenceResponse
      *
      * @param DescribeCloudGtmAddressPoolReferenceRequest $request
@@ -3663,27 +3634,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudGtmAddressPoolReference',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudGtmAddressPoolReference',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCloudGtmAddressPoolReferenceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmAddressPoolReferenceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmAddressPoolReferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the information about the access domain names that reference an address pool.
      *
      * @param request - DescribeCloudGtmAddressPoolReferenceRequest
+     *
      * @returns DescribeCloudGtmAddressPoolReferenceResponse
      *
      * @param DescribeCloudGtmAddressPoolReferenceRequest $request
@@ -3702,6 +3671,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeCloudGtmAddressReferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCloudGtmAddressReferenceResponse
      *
      * @param DescribeCloudGtmAddressReferenceRequest $request
@@ -3729,27 +3699,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudGtmAddressReference',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudGtmAddressReference',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCloudGtmAddressReferenceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmAddressReferenceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmAddressReferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the information about the address pools and Global Traffic Manager (GTM) 3.0 instances that reference an address.
      *
      * @param request - DescribeCloudGtmAddressReferenceRequest
+     *
      * @returns DescribeCloudGtmAddressReferenceResponse
      *
      * @param DescribeCloudGtmAddressReferenceRequest $request
@@ -3766,6 +3734,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DescribeCloudGtmGlobalAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCloudGtmGlobalAlertResponse
      *
      * @param DescribeCloudGtmGlobalAlertRequest $request
@@ -3789,25 +3758,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudGtmGlobalAlert',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudGtmGlobalAlert',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCloudGtmGlobalAlertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmGlobalAlertResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmGlobalAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeCloudGtmGlobalAlertRequest
+     *
      * @returns DescribeCloudGtmGlobalAlertResponse
      *
      * @param DescribeCloudGtmGlobalAlertRequest $request
@@ -3824,6 +3791,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DescribeCloudGtmInstanceConfigAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCloudGtmInstanceConfigAlertResponse
      *
      * @param DescribeCloudGtmInstanceConfigAlertRequest $request
@@ -3855,25 +3823,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudGtmInstanceConfigAlert',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudGtmInstanceConfigAlert',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCloudGtmInstanceConfigAlertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmInstanceConfigAlertResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmInstanceConfigAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeCloudGtmInstanceConfigAlertRequest
+     *
      * @returns DescribeCloudGtmInstanceConfigAlertResponse
      *
      * @param DescribeCloudGtmInstanceConfigAlertRequest $request
@@ -3892,6 +3858,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeCloudGtmInstanceConfigFullInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCloudGtmInstanceConfigFullInfoResponse
      *
      * @param DescribeCloudGtmInstanceConfigFullInfoRequest $request
@@ -3923,27 +3890,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudGtmInstanceConfigFullInfo',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudGtmInstanceConfigFullInfo',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCloudGtmInstanceConfigFullInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmInstanceConfigFullInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmInstanceConfigFullInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the complete configuration information about a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeCloudGtmInstanceConfigFullInfoRequest
+     *
      * @returns DescribeCloudGtmInstanceConfigFullInfoResponse
      *
      * @param DescribeCloudGtmInstanceConfigFullInfoRequest $request
@@ -3962,6 +3927,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeCloudGtmMonitorTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCloudGtmMonitorTemplateResponse
      *
      * @param DescribeCloudGtmMonitorTemplateRequest $request
@@ -3985,27 +3951,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudGtmMonitorTemplate',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudGtmMonitorTemplate',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmMonitorTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the configurations of a health check template.
      *
      * @param request - DescribeCloudGtmMonitorTemplateRequest
+     *
      * @returns DescribeCloudGtmMonitorTemplateResponse
      *
      * @param DescribeCloudGtmMonitorTemplateRequest $request
@@ -4022,6 +3986,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DescribeCloudGtmSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCloudGtmSummaryResponse
      *
      * @param DescribeCloudGtmSummaryRequest $request
@@ -4041,25 +4006,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudGtmSummary',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudGtmSummary',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCloudGtmSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeCloudGtmSummaryRequest
+     *
      * @returns DescribeCloudGtmSummaryResponse
      *
      * @param DescribeCloudGtmSummaryRequest $request
@@ -4076,6 +4039,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DescribeCloudGtmSystemLinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCloudGtmSystemLinesResponse
      *
      * @param RuntimeOptions $runtime
@@ -4084,23 +4048,20 @@ class Alidns extends OpenApiClient
      */
     public function describeCloudGtmSystemLinesWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeCloudGtmSystemLines',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudGtmSystemLines',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCloudGtmSystemLinesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCloudGtmSystemLinesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCloudGtmSystemLinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4116,10 +4077,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a custom line.
+     * Queries the details of a custom line by its unique ID.
      *
      * @param request - DescribeCustomLineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCustomLineResponse
      *
      * @param DescribeCustomLineRequest $request
@@ -4143,27 +4105,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCustomLine',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCustomLine',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCustomLineResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries a custom line.
+     * Queries the details of a custom line by its unique ID.
      *
      * @param request - DescribeCustomLineRequest
+     *
      * @returns DescribeCustomLineResponse
      *
      * @param DescribeCustomLineRequest $request
@@ -4178,10 +4138,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of custom lines.
+     * Queries custom lines by domain name.
      *
      * @param request - DescribeCustomLinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCustomLinesResponse
      *
      * @param DescribeCustomLinesRequest $request
@@ -4213,27 +4174,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCustomLines',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCustomLines',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCustomLinesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCustomLinesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCustomLinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries a list of custom lines.
+     * Queries custom lines by domain name.
      *
      * @param request - DescribeCustomLinesRequest
+     *
      * @returns DescribeCustomLinesResponse
      *
      * @param DescribeCustomLinesRequest $request
@@ -4252,6 +4211,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDNSSLBSubDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDNSSLBSubDomainsResponse
      *
      * @param DescribeDNSSLBSubDomainsRequest $request
@@ -4291,27 +4251,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDNSSLBSubDomains',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDNSSLBSubDomains',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDNSSLBSubDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDNSSLBSubDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDNSSLBSubDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the subdomains for which weighted round-robin is enabled based on the specified parameters.
      *
      * @param request - DescribeDNSSLBSubDomainsRequest
+     *
      * @returns DescribeDNSSLBSubDomainsResponse
      *
      * @param DescribeDNSSLBSubDomainsRequest $request
@@ -4328,6 +4286,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DescribeDnsCacheDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsCacheDomainsResponse
      *
      * @param DescribeDnsCacheDomainsRequest $request
@@ -4359,25 +4318,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsCacheDomains',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsCacheDomains',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsCacheDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsCacheDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsCacheDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeDnsCacheDomainsRequest
+     *
      * @returns DescribeDnsCacheDomainsResponse
      *
      * @param DescribeDnsCacheDomainsRequest $request
@@ -4396,6 +4353,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDnsGtmAccessStrategiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsGtmAccessStrategiesResponse
      *
      * @param DescribeDnsGtmAccessStrategiesRequest $request
@@ -4431,27 +4389,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsGtmAccessStrategies',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsGtmAccessStrategies',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsGtmAccessStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmAccessStrategiesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmAccessStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries access policies of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeDnsGtmAccessStrategiesRequest
+     *
      * @returns DescribeDnsGtmAccessStrategiesResponse
      *
      * @param DescribeDnsGtmAccessStrategiesRequest $request
@@ -4470,6 +4426,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDnsGtmAccessStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsGtmAccessStrategyResponse
      *
      * @param DescribeDnsGtmAccessStrategyRequest $request
@@ -4493,27 +4450,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsGtmAccessStrategy',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsGtmAccessStrategy',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmAccessStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeDnsGtmAccessStrategyRequest
+     *
      * @returns DescribeDnsGtmAccessStrategyResponse
      *
      * @param DescribeDnsGtmAccessStrategyRequest $request
@@ -4532,6 +4487,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDnsGtmAccessStrategyAvailableConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsGtmAccessStrategyAvailableConfigResponse
      *
      * @param DescribeDnsGtmAccessStrategyAvailableConfigRequest $request
@@ -4559,27 +4515,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsGtmAccessStrategyAvailableConfig',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsGtmAccessStrategyAvailableConfig',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsGtmAccessStrategyAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmAccessStrategyAvailableConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmAccessStrategyAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeDnsGtmAccessStrategyAvailableConfigRequest
+     *
      * @returns DescribeDnsGtmAccessStrategyAvailableConfigResponse
      *
      * @param DescribeDnsGtmAccessStrategyAvailableConfigRequest $request
@@ -4598,6 +4552,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDnsGtmAddrAttributeInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsGtmAddrAttributeInfoResponse
      *
      * @param DescribeDnsGtmAddrAttributeInfoRequest $request
@@ -4625,27 +4580,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsGtmAddrAttributeInfo',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsGtmAddrAttributeInfo',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsGtmAddrAttributeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmAddrAttributeInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmAddrAttributeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the source regions of addresses.
      *
      * @param request - DescribeDnsGtmAddrAttributeInfoRequest
+     *
      * @returns DescribeDnsGtmAddrAttributeInfoResponse
      *
      * @param DescribeDnsGtmAddrAttributeInfoRequest $request
@@ -4664,6 +4617,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDnsGtmAddressPoolAvailableConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsGtmAddressPoolAvailableConfigResponse
      *
      * @param DescribeDnsGtmAddressPoolAvailableConfigRequest $request
@@ -4687,27 +4641,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsGtmAddressPoolAvailableConfig',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsGtmAddressPoolAvailableConfig',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsGtmAddressPoolAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmAddressPoolAvailableConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmAddressPoolAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeDnsGtmAddressPoolAvailableConfigRequest
+     *
      * @returns DescribeDnsGtmAddressPoolAvailableConfigResponse
      *
      * @param DescribeDnsGtmAddressPoolAvailableConfigRequest $request
@@ -4724,6 +4676,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DescribeDnsGtmAvailableAlertGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsGtmAvailableAlertGroupResponse
      *
      * @param DescribeDnsGtmAvailableAlertGroupRequest $request
@@ -4743,25 +4696,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsGtmAvailableAlertGroup',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsGtmAvailableAlertGroup',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsGtmAvailableAlertGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmAvailableAlertGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmAvailableAlertGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeDnsGtmAvailableAlertGroupRequest
+     *
      * @returns DescribeDnsGtmAvailableAlertGroupResponse
      *
      * @param DescribeDnsGtmAvailableAlertGroupRequest $request
@@ -4780,6 +4731,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDnsGtmInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsGtmInstanceResponse
      *
      * @param DescribeDnsGtmInstanceRequest $request
@@ -4803,27 +4755,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsGtmInstance',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsGtmInstance',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsGtmInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries detailed information about a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeDnsGtmInstanceRequest
+     *
      * @returns DescribeDnsGtmInstanceResponse
      *
      * @param DescribeDnsGtmInstanceRequest $request
@@ -4842,6 +4792,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDnsGtmInstanceAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsGtmInstanceAddressPoolResponse
      *
      * @param DescribeDnsGtmInstanceAddressPoolRequest $request
@@ -4865,27 +4816,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsGtmInstanceAddressPool',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsGtmInstanceAddressPool',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsGtmInstanceAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmInstanceAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmInstanceAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeDnsGtmInstanceAddressPoolRequest
+     *
      * @returns DescribeDnsGtmInstanceAddressPoolResponse
      *
      * @param DescribeDnsGtmInstanceAddressPoolRequest $request
@@ -4904,6 +4853,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDnsGtmInstanceAddressPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsGtmInstanceAddressPoolsResponse
      *
      * @param DescribeDnsGtmInstanceAddressPoolsRequest $request
@@ -4935,27 +4885,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsGtmInstanceAddressPools',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsGtmInstanceAddressPools',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsGtmInstanceAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmInstanceAddressPoolsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmInstanceAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the address pools of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeDnsGtmInstanceAddressPoolsRequest
+     *
      * @returns DescribeDnsGtmInstanceAddressPoolsResponse
      *
      * @param DescribeDnsGtmInstanceAddressPoolsRequest $request
@@ -4974,6 +4922,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDnsGtmInstanceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsGtmInstanceStatusResponse
      *
      * @param DescribeDnsGtmInstanceStatusRequest $request
@@ -4997,27 +4946,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsGtmInstanceStatus',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsGtmInstanceStatus',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsGtmInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmInstanceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the status of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeDnsGtmInstanceStatusRequest
+     *
      * @returns DescribeDnsGtmInstanceStatusResponse
      *
      * @param DescribeDnsGtmInstanceStatusRequest $request
@@ -5036,6 +4983,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDnsGtmInstanceSystemCnameRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsGtmInstanceSystemCnameResponse
      *
      * @param DescribeDnsGtmInstanceSystemCnameRequest $request
@@ -5059,27 +5007,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsGtmInstanceSystemCname',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsGtmInstanceSystemCname',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsGtmInstanceSystemCnameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmInstanceSystemCnameResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmInstanceSystemCnameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeDnsGtmInstanceSystemCnameRequest
+     *
      * @returns DescribeDnsGtmInstanceSystemCnameResponse
      *
      * @param DescribeDnsGtmInstanceSystemCnameRequest $request
@@ -5098,6 +5044,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDnsGtmInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsGtmInstancesResponse
      *
      * @param DescribeDnsGtmInstancesRequest $request
@@ -5133,27 +5080,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsGtmInstances',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsGtmInstances',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of instances.
      *
      * @param request - DescribeDnsGtmInstancesRequest
+     *
      * @returns DescribeDnsGtmInstancesResponse
      *
      * @param DescribeDnsGtmInstancesRequest $request
@@ -5172,6 +5117,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDnsGtmLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsGtmLogsResponse
      *
      * @param DescribeDnsGtmLogsRequest $request
@@ -5215,27 +5161,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsGtmLogs',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsGtmLogs',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsGtmLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries operation logs of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeDnsGtmLogsRequest
+     *
      * @returns DescribeDnsGtmLogsResponse
      *
      * @param DescribeDnsGtmLogsRequest $request
@@ -5254,6 +5198,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDnsGtmMonitorAvailableConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsGtmMonitorAvailableConfigResponse
      *
      * @param DescribeDnsGtmMonitorAvailableConfigRequest $request
@@ -5273,27 +5218,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsGtmMonitorAvailableConfig',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsGtmMonitorAvailableConfig',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsGtmMonitorAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmMonitorAvailableConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmMonitorAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the configuration items that can be set for a health check task.
      *
      * @param request - DescribeDnsGtmMonitorAvailableConfigRequest
+     *
      * @returns DescribeDnsGtmMonitorAvailableConfigResponse
      *
      * @param DescribeDnsGtmMonitorAvailableConfigRequest $request
@@ -5312,6 +5255,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDnsGtmMonitorConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsGtmMonitorConfigResponse
      *
      * @param DescribeDnsGtmMonitorConfigRequest $request
@@ -5335,27 +5279,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsGtmMonitorConfig',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsGtmMonitorConfig',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsGtmMonitorConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsGtmMonitorConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsGtmMonitorConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the health check configuration of an address pool.
      *
      * @param request - DescribeDnsGtmMonitorConfigRequest
+     *
      * @returns DescribeDnsGtmMonitorConfigResponse
      *
      * @param DescribeDnsGtmMonitorConfigRequest $request
@@ -5374,6 +5316,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDnsProductInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsProductInstanceResponse
      *
      * @param DescribeDnsProductInstanceRequest $request
@@ -5401,27 +5344,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsProductInstance',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsProductInstance',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsProductInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsProductInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsProductInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the details about a paid Alibaba Cloud DNS instance based on the instance ID.
      *
      * @param request - DescribeDnsProductInstanceRequest
+     *
      * @returns DescribeDnsProductInstanceResponse
      *
      * @param DescribeDnsProductInstanceRequest $request
@@ -5443,6 +5384,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDnsProductInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDnsProductInstancesResponse
      *
      * @param DescribeDnsProductInstancesRequest $request
@@ -5490,21 +5432,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDnsProductInstances',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDnsProductInstances',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDnsProductInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDnsProductInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDnsProductInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5514,6 +5453,7 @@ class Alidns extends OpenApiClient
      * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
      *
      * @param request - DescribeDnsProductInstancesRequest
+     *
      * @returns DescribeDnsProductInstancesResponse
      *
      * @param DescribeDnsProductInstancesRequest $request
@@ -5530,6 +5470,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DescribeDohAccountStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDohAccountStatisticsResponse
      *
      * @param DescribeDohAccountStatisticsRequest $request
@@ -5557,25 +5498,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDohAccountStatistics',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDohAccountStatistics',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDohAccountStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDohAccountStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDohAccountStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeDohAccountStatisticsRequest
+     *
      * @returns DescribeDohAccountStatisticsResponse
      *
      * @param DescribeDohAccountStatisticsRequest $request
@@ -5592,6 +5531,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DescribeDohDomainStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDohDomainStatisticsResponse
      *
      * @param DescribeDohDomainStatisticsRequest $request
@@ -5623,25 +5563,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDohDomainStatistics',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDohDomainStatistics',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDohDomainStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDohDomainStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDohDomainStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeDohDomainStatisticsRequest
+     *
      * @returns DescribeDohDomainStatisticsResponse
      *
      * @param DescribeDohDomainStatisticsRequest $request
@@ -5658,6 +5596,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DescribeDohDomainStatisticsSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDohDomainStatisticsSummaryResponse
      *
      * @param DescribeDohDomainStatisticsSummaryRequest $request
@@ -5697,25 +5636,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDohDomainStatisticsSummary',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDohDomainStatisticsSummary',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDohDomainStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDohDomainStatisticsSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDohDomainStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeDohDomainStatisticsSummaryRequest
+     *
      * @returns DescribeDohDomainStatisticsSummaryResponse
      *
      * @param DescribeDohDomainStatisticsSummaryRequest $request
@@ -5732,6 +5669,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DescribeDohSubDomainStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDohSubDomainStatisticsResponse
      *
      * @param DescribeDohSubDomainStatisticsRequest $request
@@ -5763,25 +5701,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDohSubDomainStatistics',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDohSubDomainStatistics',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDohSubDomainStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDohSubDomainStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDohSubDomainStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeDohSubDomainStatisticsRequest
+     *
      * @returns DescribeDohSubDomainStatisticsResponse
      *
      * @param DescribeDohSubDomainStatisticsRequest $request
@@ -5798,6 +5734,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DescribeDohSubDomainStatisticsSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDohSubDomainStatisticsSummaryResponse
      *
      * @param DescribeDohSubDomainStatisticsSummaryRequest $request
@@ -5841,25 +5778,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDohSubDomainStatisticsSummary',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDohSubDomainStatisticsSummary',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDohSubDomainStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDohSubDomainStatisticsSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDohSubDomainStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeDohSubDomainStatisticsSummaryRequest
+     *
      * @returns DescribeDohSubDomainStatisticsSummaryResponse
      *
      * @param DescribeDohSubDomainStatisticsSummaryRequest $request
@@ -5878,6 +5813,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDohUserInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDohUserInfoResponse
      *
      * @param DescribeDohUserInfoRequest $request
@@ -5905,27 +5841,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDohUserInfo',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDohUserInfo',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDohUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDohUserInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDohUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the numbers of accessed domains and subdomains by using DNS over HTTPS (DoH).
      *
      * @param request - DescribeDohUserInfoRequest
+     *
      * @returns DescribeDohUserInfoResponse
      *
      * @param DescribeDohUserInfoRequest $request
@@ -5944,6 +5878,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDomainDnssecInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainDnssecInfoResponse
      *
      * @param DescribeDomainDnssecInfoRequest $request
@@ -5967,27 +5902,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainDnssecInfo',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainDnssecInfo',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainDnssecInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainDnssecInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainDnssecInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the Domain Name System Security Extensions (DNSSEC) configurations of a domain name based on the specified parameters.
      *
      * @param request - DescribeDomainDnssecInfoRequest
+     *
      * @returns DescribeDomainDnssecInfoResponse
      *
      * @param DescribeDomainDnssecInfoRequest $request
@@ -6006,6 +5939,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDomainGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainGroupsResponse
      *
      * @param DescribeDomainGroupsRequest $request
@@ -6037,27 +5971,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainGroups',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainGroups',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries all domain name groups based on the specified parameters.
      *
      * @param request - DescribeDomainGroupsRequest
+     *
      * @returns DescribeDomainGroupsResponse
      *
      * @param DescribeDomainGroupsRequest $request
@@ -6079,6 +6011,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDomainInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainInfoResponse
      *
      * @param DescribeDomainInfoRequest $request
@@ -6106,21 +6039,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainInfo',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainInfo',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6130,6 +6060,7 @@ class Alidns extends OpenApiClient
      * In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
      *
      * @param request - DescribeDomainInfoRequest
+     *
      * @returns DescribeDomainInfoResponse
      *
      * @param DescribeDomainInfoRequest $request
@@ -6148,6 +6079,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDomainLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainLogsResponse
      *
      * @param DescribeDomainLogsRequest $request
@@ -6195,27 +6127,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainLogs',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainLogs',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the operation logs of domain names based on the specified parameters.
      *
      * @param request - DescribeDomainLogsRequest
+     *
      * @returns DescribeDomainLogsResponse
      *
      * @param DescribeDomainLogsRequest $request
@@ -6237,6 +6167,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDomainNsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainNsResponse
      *
      * @param DescribeDomainNsRequest $request
@@ -6260,21 +6191,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainNs',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainNs',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainNsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainNsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainNsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6284,6 +6212,7 @@ class Alidns extends OpenApiClient
      * >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
      *
      * @param request - DescribeDomainNsRequest
+     *
      * @returns DescribeDomainNsResponse
      *
      * @param DescribeDomainNsRequest $request
@@ -6298,7 +6227,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Domain Name System (DNS) record.
+     * Queries the information about a Domain Name System (DNS) record by the ID of the DNS record.
      *
      * @remarks
      * ## Debugging
@@ -6306,6 +6235,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDomainRecordInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainRecordInfoResponse
      *
      * @param DescribeDomainRecordInfoRequest $request
@@ -6333,31 +6263,29 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainRecordInfo',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainRecordInfo',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainRecordInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainRecordInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainRecordInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the information about a Domain Name System (DNS) record.
+     * Queries the information about a Domain Name System (DNS) record by the ID of the DNS record.
      *
      * @remarks
      * ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09)
      *
      * @param request - DescribeDomainRecordInfoRequest
+     *
      * @returns DescribeDomainRecordInfoResponse
      *
      * @param DescribeDomainRecordInfoRequest $request
@@ -6382,6 +6310,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDomainRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainRecordsResponse
      *
      * @param DescribeDomainRecordsRequest $request
@@ -6457,21 +6386,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainRecords',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainRecords',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6484,6 +6410,7 @@ class Alidns extends OpenApiClient
      * *   You can specify GroupId to query the DNS records of the specified domain names based on the group ID. You can query the DNS records of all domain names and the domain names in the default group.
      *
      * @param request - DescribeDomainRecordsRequest
+     *
      * @returns DescribeDomainRecordsResponse
      *
      * @param DescribeDomainRecordsRequest $request
@@ -6502,6 +6429,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDomainResolveStatisticsSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainResolveStatisticsSummaryResponse
      *
      * @param DescribeDomainResolveStatisticsSummaryRequest $request
@@ -6553,27 +6481,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainResolveStatisticsSummary',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainResolveStatisticsSummary',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainResolveStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainResolveStatisticsSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainResolveStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the resolution requests of all paid domain names within your account.
      *
      * @param request - DescribeDomainResolveStatisticsSummaryRequest
+     *
      * @returns DescribeDomainResolveStatisticsSummaryResponse
      *
      * @param DescribeDomainResolveStatisticsSummaryRequest $request
@@ -6595,6 +6521,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDomainStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainStatisticsResponse
      *
      * @param DescribeDomainStatisticsRequest $request
@@ -6630,21 +6557,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainStatistics',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainStatistics',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6654,6 +6578,7 @@ class Alidns extends OpenApiClient
      * Real-time data is collected per hour.
      *
      * @param request - DescribeDomainStatisticsRequest
+     *
      * @returns DescribeDomainStatisticsResponse
      *
      * @param DescribeDomainStatisticsRequest $request
@@ -6672,6 +6597,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDomainStatisticsSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainStatisticsSummaryResponse
      *
      * @param DescribeDomainStatisticsSummaryRequest $request
@@ -6719,27 +6645,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainStatisticsSummary',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainStatisticsSummary',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainStatisticsSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Calls the DescribeDomainStatisticsSummary operation to obtain the query volume of all paid domain names under your account.
      *
      * @param request - DescribeDomainStatisticsSummaryRequest
+     *
      * @returns DescribeDomainStatisticsSummaryResponse
      *
      * @param DescribeDomainStatisticsSummaryRequest $request
@@ -6764,6 +6688,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainsResponse
      *
      * @param DescribeDomainsRequest $request
@@ -6811,21 +6736,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomains',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomains',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6838,6 +6760,7 @@ class Alidns extends OpenApiClient
      * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
      *
      * @param request - DescribeDomainsRequest
+     *
      * @returns DescribeDomainsResponse
      *
      * @param DescribeDomainsRequest $request
@@ -6856,6 +6779,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeGtmAccessStrategiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGtmAccessStrategiesResponse
      *
      * @param DescribeGtmAccessStrategiesRequest $request
@@ -6887,27 +6811,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGtmAccessStrategies',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGtmAccessStrategies',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGtmAccessStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmAccessStrategiesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmAccessStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * You can call this operation to query the access policies of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeGtmAccessStrategiesRequest
+     *
      * @returns DescribeGtmAccessStrategiesResponse
      *
      * @param DescribeGtmAccessStrategiesRequest $request
@@ -6926,6 +6848,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeGtmAccessStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGtmAccessStrategyResponse
      *
      * @param DescribeGtmAccessStrategyRequest $request
@@ -6949,27 +6872,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGtmAccessStrategy',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGtmAccessStrategy',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmAccessStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * You can call this operation to query the details about an access policy of a Global Traffic Manager (GTM) instance based on the policy ID.
      *
      * @param request - DescribeGtmAccessStrategyRequest
+     *
      * @returns DescribeGtmAccessStrategyResponse
      *
      * @param DescribeGtmAccessStrategyRequest $request
@@ -6988,6 +6909,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeGtmAccessStrategyAvailableConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGtmAccessStrategyAvailableConfigResponse
      *
      * @param DescribeGtmAccessStrategyAvailableConfigRequest $request
@@ -7011,27 +6933,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGtmAccessStrategyAvailableConfig',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGtmAccessStrategyAvailableConfig',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGtmAccessStrategyAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmAccessStrategyAvailableConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmAccessStrategyAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the configuration items that can be set for an access policy.
      *
      * @param request - DescribeGtmAccessStrategyAvailableConfigRequest
+     *
      * @returns DescribeGtmAccessStrategyAvailableConfigResponse
      *
      * @param DescribeGtmAccessStrategyAvailableConfigRequest $request
@@ -7048,6 +6968,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DescribeGtmAvailableAlertGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGtmAvailableAlertGroupResponse
      *
      * @param DescribeGtmAvailableAlertGroupRequest $request
@@ -7067,25 +6988,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGtmAvailableAlertGroup',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGtmAvailableAlertGroup',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGtmAvailableAlertGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmAvailableAlertGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmAvailableAlertGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeGtmAvailableAlertGroupRequest
+     *
      * @returns DescribeGtmAvailableAlertGroupResponse
      *
      * @param DescribeGtmAvailableAlertGroupRequest $request
@@ -7104,6 +7023,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeGtmInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGtmInstanceResponse
      *
      * @param DescribeGtmInstanceRequest $request
@@ -7131,27 +7051,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGtmInstance',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGtmInstance',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGtmInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the details about a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeGtmInstanceRequest
+     *
      * @returns DescribeGtmInstanceResponse
      *
      * @param DescribeGtmInstanceRequest $request
@@ -7170,6 +7088,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeGtmInstanceAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGtmInstanceAddressPoolResponse
      *
      * @param DescribeGtmInstanceAddressPoolRequest $request
@@ -7193,27 +7112,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGtmInstanceAddressPool',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGtmInstanceAddressPool',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGtmInstanceAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmInstanceAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmInstanceAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * You can call this operation to query the details about an address pool of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeGtmInstanceAddressPoolRequest
+     *
      * @returns DescribeGtmInstanceAddressPoolResponse
      *
      * @param DescribeGtmInstanceAddressPoolRequest $request
@@ -7232,6 +7149,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeGtmInstanceAddressPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGtmInstanceAddressPoolsResponse
      *
      * @param DescribeGtmInstanceAddressPoolsRequest $request
@@ -7263,27 +7181,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGtmInstanceAddressPools',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGtmInstanceAddressPools',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGtmInstanceAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmInstanceAddressPoolsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmInstanceAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * You can call this operation to query the address pools of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeGtmInstanceAddressPoolsRequest
+     *
      * @returns DescribeGtmInstanceAddressPoolsResponse
      *
      * @param DescribeGtmInstanceAddressPoolsRequest $request
@@ -7302,6 +7218,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeGtmInstanceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGtmInstanceStatusResponse
      *
      * @param DescribeGtmInstanceStatusRequest $request
@@ -7325,27 +7242,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGtmInstanceStatus',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGtmInstanceStatus',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGtmInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmInstanceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the status of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeGtmInstanceStatusRequest
+     *
      * @returns DescribeGtmInstanceStatusResponse
      *
      * @param DescribeGtmInstanceStatusRequest $request
@@ -7362,6 +7277,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DescribeGtmInstanceSystemCnameRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGtmInstanceSystemCnameResponse
      *
      * @param DescribeGtmInstanceSystemCnameRequest $request
@@ -7385,25 +7301,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGtmInstanceSystemCname',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGtmInstanceSystemCname',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGtmInstanceSystemCnameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmInstanceSystemCnameResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmInstanceSystemCnameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeGtmInstanceSystemCnameRequest
+     *
      * @returns DescribeGtmInstanceSystemCnameResponse
      *
      * @param DescribeGtmInstanceSystemCnameRequest $request
@@ -7422,6 +7336,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeGtmInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGtmInstancesResponse
      *
      * @param DescribeGtmInstancesRequest $request
@@ -7461,27 +7376,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGtmInstances',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGtmInstances',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the Global Traffic Manager (GTM) instances under your account.
      *
      * @param request - DescribeGtmInstancesRequest
+     *
      * @returns DescribeGtmInstancesResponse
      *
      * @param DescribeGtmInstancesRequest $request
@@ -7500,6 +7413,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeGtmLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGtmLogsResponse
      *
      * @param DescribeGtmLogsRequest $request
@@ -7543,27 +7457,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGtmLogs',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGtmLogs',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGtmLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * You can call this operation to query logs of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeGtmLogsRequest
+     *
      * @returns DescribeGtmLogsResponse
      *
      * @param DescribeGtmLogsRequest $request
@@ -7582,6 +7494,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeGtmMonitorAvailableConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGtmMonitorAvailableConfigResponse
      *
      * @param DescribeGtmMonitorAvailableConfigRequest $request
@@ -7601,27 +7514,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGtmMonitorAvailableConfig',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGtmMonitorAvailableConfig',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGtmMonitorAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmMonitorAvailableConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmMonitorAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries available monitored nodes.
      *
      * @param request - DescribeGtmMonitorAvailableConfigRequest
+     *
      * @returns DescribeGtmMonitorAvailableConfigResponse
      *
      * @param DescribeGtmMonitorAvailableConfigRequest $request
@@ -7640,6 +7551,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeGtmMonitorConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGtmMonitorConfigResponse
      *
      * @param DescribeGtmMonitorConfigRequest $request
@@ -7663,27 +7575,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGtmMonitorConfig',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGtmMonitorConfig',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGtmMonitorConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmMonitorConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmMonitorConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the health check configuration of an address pool of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeGtmMonitorConfigRequest
+     *
      * @returns DescribeGtmMonitorConfigResponse
      *
      * @param DescribeGtmMonitorConfigRequest $request
@@ -7702,6 +7612,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeGtmRecoveryPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGtmRecoveryPlanResponse
      *
      * @param DescribeGtmRecoveryPlanRequest $request
@@ -7725,27 +7636,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGtmRecoveryPlan',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGtmRecoveryPlan',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the details of a disaster recovery plan.
      *
      * @param request - DescribeGtmRecoveryPlanRequest
+     *
      * @returns DescribeGtmRecoveryPlanResponse
      *
      * @param DescribeGtmRecoveryPlanRequest $request
@@ -7764,6 +7673,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeGtmRecoveryPlanAvailableConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGtmRecoveryPlanAvailableConfigResponse
      *
      * @param DescribeGtmRecoveryPlanAvailableConfigRequest $request
@@ -7783,27 +7693,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGtmRecoveryPlanAvailableConfig',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGtmRecoveryPlanAvailableConfig',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGtmRecoveryPlanAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmRecoveryPlanAvailableConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmRecoveryPlanAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the configuration items that can be set for a disaster recovery plan.
      *
      * @param request - DescribeGtmRecoveryPlanAvailableConfigRequest
+     *
      * @returns DescribeGtmRecoveryPlanAvailableConfigResponse
      *
      * @param DescribeGtmRecoveryPlanAvailableConfigRequest $request
@@ -7822,6 +7730,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeGtmRecoveryPlansRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGtmRecoveryPlansResponse
      *
      * @param DescribeGtmRecoveryPlansRequest $request
@@ -7853,27 +7762,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGtmRecoveryPlans',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGtmRecoveryPlans',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGtmRecoveryPlansResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGtmRecoveryPlansResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGtmRecoveryPlansResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeGtmRecoveryPlansRequest
+     *
      * @returns DescribeGtmRecoveryPlansResponse
      *
      * @param DescribeGtmRecoveryPlansRequest $request
@@ -7892,6 +7799,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeInstanceDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInstanceDomainsResponse
      *
      * @param DescribeInstanceDomainsRequest $request
@@ -7923,27 +7831,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceDomains',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceDomains',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the domain names that are bound to an Alibaba Cloud DNS instance.
      *
      * @param request - DescribeInstanceDomainsRequest
+     *
      * @returns DescribeInstanceDomainsResponse
      *
      * @param DescribeInstanceDomainsRequest $request
@@ -7960,6 +7866,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DescribeInternetDnsLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInternetDnsLogsResponse
      *
      * @param DescribeInternetDnsLogsRequest $request
@@ -8011,25 +7918,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInternetDnsLogs',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInternetDnsLogs',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInternetDnsLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInternetDnsLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInternetDnsLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeInternetDnsLogsRequest
+     *
      * @returns DescribeInternetDnsLogsResponse
      *
      * @param DescribeInternetDnsLogsRequest $request
@@ -8048,6 +7953,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeIspFlushCacheInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeIspFlushCacheInstancesResponse
      *
      * @param DescribeIspFlushCacheInstancesRequest $request
@@ -8095,27 +8001,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIspFlushCacheInstances',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIspFlushCacheInstances',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIspFlushCacheInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIspFlushCacheInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIspFlushCacheInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取缓存刷新套餐包列表.
      *
      * @param request - DescribeIspFlushCacheInstancesRequest
+     *
      * @returns DescribeIspFlushCacheInstancesResponse
      *
      * @param DescribeIspFlushCacheInstancesRequest $request
@@ -8134,6 +8038,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeIspFlushCacheRemainQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeIspFlushCacheRemainQuotaResponse
      *
      * @param DescribeIspFlushCacheRemainQuotaRequest $request
@@ -8153,27 +8058,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIspFlushCacheRemainQuota',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIspFlushCacheRemainQuota',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIspFlushCacheRemainQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIspFlushCacheRemainQuotaResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIspFlushCacheRemainQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取剩余可缓存刷新次数.
      *
      * @param request - DescribeIspFlushCacheRemainQuotaRequest
+     *
      * @returns DescribeIspFlushCacheRemainQuotaResponse
      *
      * @param DescribeIspFlushCacheRemainQuotaRequest $request
@@ -8192,6 +8095,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeIspFlushCacheTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeIspFlushCacheTaskResponse
      *
      * @param DescribeIspFlushCacheTaskRequest $request
@@ -8215,27 +8119,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIspFlushCacheTask',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIspFlushCacheTask',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIspFlushCacheTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIspFlushCacheTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIspFlushCacheTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取缓存刷新任务详情.
      *
      * @param request - DescribeIspFlushCacheTaskRequest
+     *
      * @returns DescribeIspFlushCacheTaskResponse
      *
      * @param DescribeIspFlushCacheTaskRequest $request
@@ -8254,6 +8156,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeIspFlushCacheTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeIspFlushCacheTasksResponse
      *
      * @param DescribeIspFlushCacheTasksRequest $request
@@ -8301,27 +8204,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIspFlushCacheTasks',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIspFlushCacheTasks',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIspFlushCacheTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIspFlushCacheTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIspFlushCacheTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取缓存刷新任务列表.
      *
      * @param request - DescribeIspFlushCacheTasksRequest
+     *
      * @returns DescribeIspFlushCacheTasksResponse
      *
      * @param DescribeIspFlushCacheTasksRequest $request
@@ -8340,6 +8241,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribePdnsAccountSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePdnsAccountSummaryResponse
      *
      * @param DescribePdnsAccountSummaryRequest $request
@@ -8367,27 +8269,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePdnsAccountSummary',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePdnsAccountSummary',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePdnsAccountSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsAccountSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsAccountSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取公共DNS用户数据概览.
      *
      * @param request - DescribePdnsAccountSummaryRequest
+     *
      * @returns DescribePdnsAccountSummaryResponse
      *
      * @param DescribePdnsAccountSummaryRequest $request
@@ -8406,6 +8306,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribePdnsAppKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePdnsAppKeyResponse
      *
      * @param DescribePdnsAppKeyRequest $request
@@ -8433,27 +8334,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePdnsAppKey',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePdnsAppKey',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePdnsAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsAppKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取公共DNS AppKey 详情.
      *
      * @param request - DescribePdnsAppKeyRequest
+     *
      * @returns DescribePdnsAppKeyResponse
      *
      * @param DescribePdnsAppKeyRequest $request
@@ -8472,6 +8371,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribePdnsAppKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePdnsAppKeysResponse
      *
      * @param DescribePdnsAppKeysRequest $request
@@ -8491,27 +8391,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePdnsAppKeys',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePdnsAppKeys',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePdnsAppKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsAppKeysResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsAppKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取公共DNS AppKey 列表.
      *
      * @param request - DescribePdnsAppKeysRequest
+     *
      * @returns DescribePdnsAppKeysResponse
      *
      * @param DescribePdnsAppKeysRequest $request
@@ -8530,6 +8428,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribePdnsOperateLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePdnsOperateLogsResponse
      *
      * @param DescribePdnsOperateLogsRequest $request
@@ -8573,27 +8472,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePdnsOperateLogs',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePdnsOperateLogs',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePdnsOperateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsOperateLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsOperateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取公共DNS 操作日志列表.
      *
      * @param request - DescribePdnsOperateLogsRequest
+     *
      * @returns DescribePdnsOperateLogsResponse
      *
      * @param DescribePdnsOperateLogsRequest $request
@@ -8612,6 +8509,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribePdnsRequestStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePdnsRequestStatisticResponse
      *
      * @param DescribePdnsRequestStatisticRequest $request
@@ -8651,27 +8549,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePdnsRequestStatistic',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePdnsRequestStatistic',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePdnsRequestStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsRequestStatisticResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsRequestStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the statistics on requests for Alibaba Cloud Public DNS.
      *
      * @param request - DescribePdnsRequestStatisticRequest
+     *
      * @returns DescribePdnsRequestStatisticResponse
      *
      * @param DescribePdnsRequestStatisticRequest $request
@@ -8690,6 +8586,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribePdnsRequestStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePdnsRequestStatisticsResponse
      *
      * @param DescribePdnsRequestStatisticsRequest $request
@@ -8737,27 +8634,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePdnsRequestStatistics',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePdnsRequestStatistics',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePdnsRequestStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsRequestStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsRequestStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of statistics on requests for Alibaba Cloud Public DNS.
      *
      * @param request - DescribePdnsRequestStatisticsRequest
+     *
      * @returns DescribePdnsRequestStatisticsResponse
      *
      * @param DescribePdnsRequestStatisticsRequest $request
@@ -8776,6 +8671,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribePdnsThreatLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePdnsThreatLogsResponse
      *
      * @param DescribePdnsThreatLogsRequest $request
@@ -8827,27 +8723,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePdnsThreatLogs',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePdnsThreatLogs',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePdnsThreatLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsThreatLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsThreatLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取公共DNS 威胁日志列表.
      *
      * @param request - DescribePdnsThreatLogsRequest
+     *
      * @returns DescribePdnsThreatLogsResponse
      *
      * @param DescribePdnsThreatLogsRequest $request
@@ -8866,6 +8760,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribePdnsThreatStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePdnsThreatStatisticResponse
      *
      * @param DescribePdnsThreatStatisticRequest $request
@@ -8897,27 +8792,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePdnsThreatStatistic',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePdnsThreatStatistic',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePdnsThreatStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsThreatStatisticResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsThreatStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取公共DNS 威胁统计
      *
      * @param request - DescribePdnsThreatStatisticRequest
+     *
      * @returns DescribePdnsThreatStatisticResponse
      *
      * @param DescribePdnsThreatStatisticRequest $request
@@ -8936,6 +8829,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribePdnsThreatStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePdnsThreatStatisticsResponse
      *
      * @param DescribePdnsThreatStatisticsRequest $request
@@ -9003,27 +8897,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePdnsThreatStatistics',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePdnsThreatStatistics',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePdnsThreatStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsThreatStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsThreatStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取公共DNS 威胁统计列表.
      *
      * @param request - DescribePdnsThreatStatisticsRequest
+     *
      * @returns DescribePdnsThreatStatisticsResponse
      *
      * @param DescribePdnsThreatStatisticsRequest $request
@@ -9042,6 +8934,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribePdnsUdpIpSegmentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePdnsUdpIpSegmentsResponse
      *
      * @param DescribePdnsUdpIpSegmentsRequest $request
@@ -9069,27 +8962,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePdnsUdpIpSegments',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePdnsUdpIpSegments',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePdnsUdpIpSegmentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsUdpIpSegmentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsUdpIpSegmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取公共DNS Udp IP段列表.
      *
      * @param request - DescribePdnsUdpIpSegmentsRequest
+     *
      * @returns DescribePdnsUdpIpSegmentsResponse
      *
      * @param DescribePdnsUdpIpSegmentsRequest $request
@@ -9108,6 +8999,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribePdnsUserInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePdnsUserInfoResponse
      *
      * @param DescribePdnsUserInfoRequest $request
@@ -9127,27 +9019,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePdnsUserInfo',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePdnsUserInfo',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePdnsUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePdnsUserInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePdnsUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取公共DNS用户信息.
      *
      * @param request - DescribePdnsUserInfoRequest
+     *
      * @returns DescribePdnsUserInfoResponse
      *
      * @param DescribePdnsUserInfoRequest $request
@@ -9166,6 +9056,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeRecordLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRecordLogsResponse
      *
      * @param DescribeRecordLogsRequest $request
@@ -9213,27 +9104,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRecordLogs',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRecordLogs',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRecordLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRecordLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRecordLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the operation logs of a domain name based on the specified parameters.
      *
      * @param request - DescribeRecordLogsRequest
+     *
      * @returns DescribeRecordLogsResponse
      *
      * @param DescribeRecordLogsRequest $request
@@ -9252,6 +9141,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeRecordResolveStatisticsSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRecordResolveStatisticsSummaryResponse
      *
      * @param DescribeRecordResolveStatisticsSummaryRequest $request
@@ -9311,27 +9201,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRecordResolveStatisticsSummary',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRecordResolveStatisticsSummary',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRecordResolveStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRecordResolveStatisticsSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRecordResolveStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the number of resolution requests for all subdomain names of a specified domain name.
      *
      * @param request - DescribeRecordResolveStatisticsSummaryRequest
+     *
      * @returns DescribeRecordResolveStatisticsSummaryResponse
      *
      * @param DescribeRecordResolveStatisticsSummaryRequest $request
@@ -9353,6 +9241,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeRecordStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRecordStatisticsResponse
      *
      * @param DescribeRecordStatisticsRequest $request
@@ -9392,21 +9281,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRecordStatistics',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRecordStatistics',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRecordStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRecordStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRecordStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9416,6 +9302,7 @@ class Alidns extends OpenApiClient
      * Real-time data is collected per hour.
      *
      * @param request - DescribeRecordStatisticsRequest
+     *
      * @returns DescribeRecordStatisticsResponse
      *
      * @param DescribeRecordStatisticsRequest $request
@@ -9434,6 +9321,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeRecordStatisticsSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRecordStatisticsSummaryResponse
      *
      * @param DescribeRecordStatisticsSummaryRequest $request
@@ -9489,27 +9377,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRecordStatisticsSummary',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRecordStatisticsSummary',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRecordStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRecordStatisticsSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRecordStatisticsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the number of Domain Name System (DNS) requests for all subdomain names of a specified domain name.
      *
      * @param request - DescribeRecordStatisticsSummaryRequest
+     *
      * @returns DescribeRecordStatisticsSummaryResponse
      *
      * @param DescribeRecordStatisticsSummaryRequest $request
@@ -9528,6 +9414,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeSubDomainRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSubDomainRecordsResponse
      *
      * @param DescribeSubDomainRecordsRequest $request
@@ -9575,27 +9462,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSubDomainRecords',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSubDomainRecords',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSubDomainRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSubDomainRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSubDomainRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
      *
      * @param request - DescribeSubDomainRecordsRequest
+     *
      * @returns DescribeSubDomainRecordsResponse
      *
      * @param DescribeSubDomainRecordsRequest $request
@@ -9612,6 +9497,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - DescribeSupportLinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSupportLinesResponse
      *
      * @param DescribeSupportLinesRequest $request
@@ -9639,25 +9525,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSupportLines',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSupportLines',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSupportLinesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSupportLinesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSupportLinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeSupportLinesRequest
+     *
      * @returns DescribeSupportLinesResponse
      *
      * @param DescribeSupportLinesRequest $request
@@ -9676,6 +9560,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTagsResponse
      *
      * @param DescribeTagsRequest $request
@@ -9707,27 +9592,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTags',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTags',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries existing tags.
      *
      * @param request - DescribeTagsRequest
+     *
      * @returns DescribeTagsResponse
      *
      * @param DescribeTagsRequest $request
@@ -9746,6 +9629,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - DescribeTransferDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTransferDomainsResponse
      *
      * @param DescribeTransferDomainsRequest $request
@@ -9789,27 +9673,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTransferDomains',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTransferDomains',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTransferDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTransferDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTransferDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the domain names that were transferred between the current account and another account based on the specified parameters.
      *
      * @param request - DescribeTransferDomainsRequest
+     *
      * @returns DescribeTransferDomainsResponse
      *
      * @param DescribeTransferDomainsRequest $request
@@ -9828,6 +9710,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - ExecuteGtmRecoveryPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExecuteGtmRecoveryPlanResponse
      *
      * @param ExecuteGtmRecoveryPlanRequest $request
@@ -9851,27 +9734,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExecuteGtmRecoveryPlan',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExecuteGtmRecoveryPlan',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExecuteGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteGtmRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Executes a disaster recovery plan.
      *
      * @param request - ExecuteGtmRecoveryPlanRequest
+     *
      * @returns ExecuteGtmRecoveryPlanResponse
      *
      * @param ExecuteGtmRecoveryPlanRequest $request
@@ -9894,6 +9775,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - GetMainDomainNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMainDomainNameResponse
      *
      * @param GetMainDomainNameRequest $request
@@ -9917,21 +9799,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMainDomainName',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMainDomainName',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMainDomainNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMainDomainNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMainDomainNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9942,6 +9821,7 @@ class Alidns extends OpenApiClient
      * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
      *
      * @param request - GetMainDomainNameRequest
+     *
      * @returns GetMainDomainNameResponse
      *
      * @param GetMainDomainNameRequest $request
@@ -9960,6 +9840,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - GetTxtRecordForVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTxtRecordForVerifyResponse
      *
      * @param GetTxtRecordForVerifyRequest $request
@@ -9987,27 +9868,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTxtRecordForVerify',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTxtRecordForVerify',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTxtRecordForVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTxtRecordForVerifyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTxtRecordForVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Generates a text (TXT) record. TXT records are used to retrieve domain names and subdomain names, enable the subdomain name verification feature, and perform batch retrievals.
      *
      * @param request - GetTxtRecordForVerifyRequest
+     *
      * @returns GetTxtRecordForVerifyResponse
      *
      * @param GetTxtRecordForVerifyRequest $request
@@ -10026,6 +9905,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - ListCloudGtmAddressPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCloudGtmAddressPoolsResponse
      *
      * @param ListCloudGtmAddressPoolsRequest $request
@@ -10073,27 +9953,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCloudGtmAddressPools',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCloudGtmAddressPools',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCloudGtmAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCloudGtmAddressPoolsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCloudGtmAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of address pools.
      *
      * @param request - ListCloudGtmAddressPoolsRequest
+     *
      * @returns ListCloudGtmAddressPoolsResponse
      *
      * @param ListCloudGtmAddressPoolsRequest $request
@@ -10112,6 +9990,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - ListCloudGtmAddressesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCloudGtmAddressesResponse
      *
      * @param ListCloudGtmAddressesRequest $request
@@ -10171,27 +10050,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCloudGtmAddresses',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCloudGtmAddresses',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCloudGtmAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCloudGtmAddressesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCloudGtmAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of addresses.
      *
      * @param request - ListCloudGtmAddressesRequest
+     *
      * @returns ListCloudGtmAddressesResponse
      *
      * @param ListCloudGtmAddressesRequest $request
@@ -10208,6 +10085,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - ListCloudGtmAlertLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCloudGtmAlertLogsResponse
      *
      * @param ListCloudGtmAlertLogsRequest $request
@@ -10255,25 +10133,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCloudGtmAlertLogs',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCloudGtmAlertLogs',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCloudGtmAlertLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCloudGtmAlertLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCloudGtmAlertLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - ListCloudGtmAlertLogsRequest
+     *
      * @returns ListCloudGtmAlertLogsResponse
      *
      * @param ListCloudGtmAlertLogsRequest $request
@@ -10290,6 +10166,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - ListCloudGtmAvailableAlertGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCloudGtmAvailableAlertGroupsResponse
      *
      * @param ListCloudGtmAvailableAlertGroupsRequest $request
@@ -10309,25 +10186,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCloudGtmAvailableAlertGroups',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCloudGtmAvailableAlertGroups',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCloudGtmAvailableAlertGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCloudGtmAvailableAlertGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCloudGtmAvailableAlertGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - ListCloudGtmAvailableAlertGroupsRequest
+     *
      * @returns ListCloudGtmAvailableAlertGroupsResponse
      *
      * @param ListCloudGtmAvailableAlertGroupsRequest $request
@@ -10346,6 +10221,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - ListCloudGtmInstanceConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCloudGtmInstanceConfigsResponse
      *
      * @param ListCloudGtmInstanceConfigsRequest $request
@@ -10397,27 +10273,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCloudGtmInstanceConfigs',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCloudGtmInstanceConfigs',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCloudGtmInstanceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCloudGtmInstanceConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCloudGtmInstanceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the configurations of a Global Traffic Manager (GTM) instance, including the information about access domain names and address pools.
      *
      * @param request - ListCloudGtmInstanceConfigsRequest
+     *
      * @returns ListCloudGtmInstanceConfigsResponse
      *
      * @param ListCloudGtmInstanceConfigsRequest $request
@@ -10436,6 +10310,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - ListCloudGtmInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCloudGtmInstancesResponse
      *
      * @param ListCloudGtmInstancesRequest $request
@@ -10475,27 +10350,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCloudGtmInstances',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCloudGtmInstances',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCloudGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCloudGtmInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCloudGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of Global Traffic Manager (GTM) 3.0 instances.
      *
      * @param request - ListCloudGtmInstancesRequest
+     *
      * @returns ListCloudGtmInstancesResponse
      *
      * @param ListCloudGtmInstancesRequest $request
@@ -10514,6 +10387,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - ListCloudGtmMonitorNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCloudGtmMonitorNodesResponse
      *
      * @param ListCloudGtmMonitorNodesRequest $request
@@ -10533,27 +10407,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCloudGtmMonitorNodes',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCloudGtmMonitorNodes',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCloudGtmMonitorNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCloudGtmMonitorNodesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCloudGtmMonitorNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of health check nodes.
      *
      * @param request - ListCloudGtmMonitorNodesRequest
+     *
      * @returns ListCloudGtmMonitorNodesResponse
      *
      * @param ListCloudGtmMonitorNodesRequest $request
@@ -10572,6 +10444,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - ListCloudGtmMonitorTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCloudGtmMonitorTemplatesResponse
      *
      * @param ListCloudGtmMonitorTemplatesRequest $request
@@ -10611,27 +10484,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCloudGtmMonitorTemplates',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCloudGtmMonitorTemplates',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCloudGtmMonitorTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCloudGtmMonitorTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCloudGtmMonitorTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of health check templates.
      *
      * @param request - ListCloudGtmMonitorTemplatesRequest
+     *
      * @returns ListCloudGtmMonitorTemplatesResponse
      *
      * @param ListCloudGtmMonitorTemplatesRequest $request
@@ -10646,7 +10517,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are added to a specified resource.
+     * Queries resources by tag.
      *
      * @remarks
      *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
@@ -10656,6 +10527,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -10691,25 +10563,22 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the tags that are added to a specified resource.
+     * Queries resources by tag.
      *
      * @remarks
      *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
@@ -10718,6 +10587,7 @@ class Alidns extends OpenApiClient
      * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -10740,6 +10610,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - ModifyHichinaDomainDNSRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyHichinaDomainDNSResponse
      *
      * @param ModifyHichinaDomainDNSRequest $request
@@ -10767,21 +10638,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHichinaDomainDNS',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHichinaDomainDNS',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyHichinaDomainDNSResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyHichinaDomainDNSResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyHichinaDomainDNSResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10792,6 +10660,7 @@ class Alidns extends OpenApiClient
      * >  **Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS servers in use are not Alibaba Cloud DNS servers.
      *
      * @param request - ModifyHichinaDomainDNSRequest
+     *
      * @returns ModifyHichinaDomainDNSResponse
      *
      * @param ModifyHichinaDomainDNSRequest $request
@@ -10810,6 +10679,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - MoveDomainResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MoveDomainResourceGroupResponse
      *
      * @param MoveDomainResourceGroupRequest $request
@@ -10837,27 +10707,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MoveDomainResourceGroup',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveDomainResourceGroup',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MoveDomainResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveDomainResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveDomainResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Moves a domain name to another resource group.
      *
      * @param request - MoveDomainResourceGroupRequest
+     *
      * @returns MoveDomainResourceGroupResponse
      *
      * @param MoveDomainResourceGroupRequest $request
@@ -10874,6 +10742,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - MoveGtmResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MoveGtmResourceGroupResponse
      *
      * @param MoveGtmResourceGroupRequest $request
@@ -10901,25 +10770,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MoveGtmResourceGroup',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveGtmResourceGroup',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MoveGtmResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveGtmResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveGtmResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - MoveGtmResourceGroupRequest
+     *
      * @returns MoveGtmResourceGroupResponse
      *
      * @param MoveGtmResourceGroupRequest $request
@@ -10934,13 +10801,14 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Submits a batch operation task to add or delete multiple domain names or multiple Domain Name System (DNS) records at a time.
+     * Adds or deletes domain names and Domain Name System (DNS) records in batches.
      *
      * @remarks
      * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
      *
      * @param request - OperateBatchDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns OperateBatchDomainResponse
      *
      * @param OperateBatchDomainRequest $request
@@ -10968,30 +10836,28 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OperateBatchDomain',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OperateBatchDomain',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return OperateBatchDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OperateBatchDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return OperateBatchDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Submits a batch operation task to add or delete multiple domain names or multiple Domain Name System (DNS) records at a time.
+     * Adds or deletes domain names and Domain Name System (DNS) records in batches.
      *
      * @remarks
      * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
      *
      * @param request - OperateBatchDomainRequest
+     *
      * @returns OperateBatchDomainResponse
      *
      * @param OperateBatchDomainRequest $request
@@ -11010,6 +10876,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - PausePdnsServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PausePdnsServiceResponse
      *
      * @param PausePdnsServiceRequest $request
@@ -11033,27 +10900,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PausePdnsService',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PausePdnsService',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PausePdnsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PausePdnsServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return PausePdnsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 暂停公共DNS服务
      *
      * @param request - PausePdnsServiceRequest
+     *
      * @returns PausePdnsServiceResponse
      *
      * @param PausePdnsServiceRequest $request
@@ -11072,6 +10937,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - PreviewGtmRecoveryPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PreviewGtmRecoveryPlanResponse
      *
      * @param PreviewGtmRecoveryPlanRequest $request
@@ -11103,27 +10969,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PreviewGtmRecoveryPlan',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PreviewGtmRecoveryPlan',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PreviewGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PreviewGtmRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return PreviewGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
      *
      * @param request - PreviewGtmRecoveryPlanRequest
+     *
      * @returns PreviewGtmRecoveryPlanResponse
      *
      * @param PreviewGtmRecoveryPlanRequest $request
@@ -11142,6 +11006,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - RemovePdnsAppKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemovePdnsAppKeyResponse
      *
      * @param RemovePdnsAppKeyRequest $request
@@ -11165,27 +11030,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemovePdnsAppKey',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemovePdnsAppKey',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemovePdnsAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemovePdnsAppKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemovePdnsAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除公共DNS AppKey.
      *
      * @param request - RemovePdnsAppKeyRequest
+     *
      * @returns RemovePdnsAppKeyResponse
      *
      * @param RemovePdnsAppKeyRequest $request
@@ -11204,6 +11067,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - RemovePdnsUdpIpSegmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemovePdnsUdpIpSegmentResponse
      *
      * @param RemovePdnsUdpIpSegmentRequest $request
@@ -11227,27 +11091,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemovePdnsUdpIpSegment',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemovePdnsUdpIpSegment',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemovePdnsUdpIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemovePdnsUdpIpSegmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemovePdnsUdpIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 删除公共DNS Udp Ip地址段.
      *
      * @param request - RemovePdnsUdpIpSegmentRequest
+     *
      * @returns RemovePdnsUdpIpSegmentResponse
      *
      * @param RemovePdnsUdpIpSegmentRequest $request
@@ -11266,6 +11128,7 @@ class Alidns extends OpenApiClient
      *
      * @param tmpReq - ReplaceCloudGtmAddressPoolAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReplaceCloudGtmAddressPoolAddressResponse
      *
      * @param ReplaceCloudGtmAddressPoolAddressRequest $tmpReq
@@ -11303,27 +11166,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReplaceCloudGtmAddressPoolAddress',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReplaceCloudGtmAddressPoolAddress',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReplaceCloudGtmAddressPoolAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReplaceCloudGtmAddressPoolAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReplaceCloudGtmAddressPoolAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Replaces the addresses referenced by an address pool.
      *
      * @param request - ReplaceCloudGtmAddressPoolAddressRequest
+     *
      * @returns ReplaceCloudGtmAddressPoolAddressResponse
      *
      * @param ReplaceCloudGtmAddressPoolAddressRequest $request
@@ -11342,6 +11203,7 @@ class Alidns extends OpenApiClient
      *
      * @param tmpReq - ReplaceCloudGtmInstanceConfigAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReplaceCloudGtmInstanceConfigAddressPoolResponse
      *
      * @param ReplaceCloudGtmInstanceConfigAddressPoolRequest $tmpReq
@@ -11383,27 +11245,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReplaceCloudGtmInstanceConfigAddressPool',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReplaceCloudGtmInstanceConfigAddressPool',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReplaceCloudGtmInstanceConfigAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReplaceCloudGtmInstanceConfigAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReplaceCloudGtmInstanceConfigAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Replaces address pools that are associated with a Global Traffic Manager (GTM) 3.0 instance with new address pools.
      *
      * @param request - ReplaceCloudGtmInstanceConfigAddressPoolRequest
+     *
      * @returns ReplaceCloudGtmInstanceConfigAddressPoolResponse
      *
      * @param ReplaceCloudGtmInstanceConfigAddressPoolRequest $request
@@ -11422,6 +11282,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - ResumePdnsServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResumePdnsServiceResponse
      *
      * @param ResumePdnsServiceRequest $request
@@ -11445,27 +11306,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResumePdnsService',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResumePdnsService',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResumePdnsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResumePdnsServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResumePdnsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 恢复公共DNS服务
      *
      * @param request - ResumePdnsServiceRequest
+     *
      * @returns ResumePdnsServiceResponse
      *
      * @param ResumePdnsServiceRequest $request
@@ -11487,6 +11346,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - RetrieveDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RetrieveDomainResponse
      *
      * @param RetrieveDomainRequest $request
@@ -11510,21 +11370,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RetrieveDomain',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RetrieveDomain',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RetrieveDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RetrieveDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return RetrieveDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11534,6 +11391,7 @@ class Alidns extends OpenApiClient
      * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/en/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
      *
      * @param request - RetrieveDomainRequest
+     *
      * @returns RetrieveDomainResponse
      *
      * @param RetrieveDomainRequest $request
@@ -11552,6 +11410,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - RollbackGtmRecoveryPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RollbackGtmRecoveryPlanResponse
      *
      * @param RollbackGtmRecoveryPlanRequest $request
@@ -11575,27 +11434,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RollbackGtmRecoveryPlan',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RollbackGtmRecoveryPlan',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RollbackGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RollbackGtmRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return RollbackGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Rolls back a disaster recovery plan.
      *
      * @param request - RollbackGtmRecoveryPlanRequest
+     *
      * @returns RollbackGtmRecoveryPlanResponse
      *
      * @param RollbackGtmRecoveryPlanRequest $request
@@ -11614,6 +11471,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - SearchCloudGtmAddressPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SearchCloudGtmAddressPoolsResponse
      *
      * @param SearchCloudGtmAddressPoolsRequest $request
@@ -11669,27 +11527,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SearchCloudGtmAddressPools',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchCloudGtmAddressPools',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SearchCloudGtmAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchCloudGtmAddressPoolsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchCloudGtmAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of address pools.
      *
      * @param request - SearchCloudGtmAddressPoolsRequest
+     *
      * @returns SearchCloudGtmAddressPoolsResponse
      *
      * @param SearchCloudGtmAddressPoolsRequest $request
@@ -11708,6 +11564,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - SearchCloudGtmAddressesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SearchCloudGtmAddressesResponse
      *
      * @param SearchCloudGtmAddressesRequest $request
@@ -11779,27 +11636,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SearchCloudGtmAddresses',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchCloudGtmAddresses',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SearchCloudGtmAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchCloudGtmAddressesResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchCloudGtmAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of addresses based on address names, descriptions, health check templates referenced by the addresses, or address IDs.
      *
      * @param request - SearchCloudGtmAddressesRequest
+     *
      * @returns SearchCloudGtmAddressesResponse
      *
      * @param SearchCloudGtmAddressesRequest $request
@@ -11818,6 +11673,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - SearchCloudGtmInstanceConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SearchCloudGtmInstanceConfigsResponse
      *
      * @param SearchCloudGtmInstanceConfigsRequest $request
@@ -11877,27 +11733,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SearchCloudGtmInstanceConfigs',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchCloudGtmInstanceConfigs',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SearchCloudGtmInstanceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchCloudGtmInstanceConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchCloudGtmInstanceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the configurations of an access domain name.
      *
      * @param request - SearchCloudGtmInstanceConfigsRequest
+     *
      * @returns SearchCloudGtmInstanceConfigsResponse
      *
      * @param SearchCloudGtmInstanceConfigsRequest $request
@@ -11916,6 +11770,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - SearchCloudGtmInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SearchCloudGtmInstancesResponse
      *
      * @param SearchCloudGtmInstancesRequest $request
@@ -11955,27 +11810,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SearchCloudGtmInstances',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchCloudGtmInstances',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SearchCloudGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchCloudGtmInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchCloudGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries a list of instances.
      *
      * @param request - SearchCloudGtmInstancesRequest
+     *
      * @returns SearchCloudGtmInstancesResponse
      *
      * @param SearchCloudGtmInstancesRequest $request
@@ -11994,6 +11847,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - SearchCloudGtmMonitorTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SearchCloudGtmMonitorTemplatesResponse
      *
      * @param SearchCloudGtmMonitorTemplatesRequest $request
@@ -12033,27 +11887,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SearchCloudGtmMonitorTemplates',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchCloudGtmMonitorTemplates',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SearchCloudGtmMonitorTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchCloudGtmMonitorTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchCloudGtmMonitorTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the list of health check templates.
      *
      * @param request - SearchCloudGtmMonitorTemplatesRequest
+     *
      * @returns SearchCloudGtmMonitorTemplatesResponse
      *
      * @param SearchCloudGtmMonitorTemplatesRequest $request
@@ -12072,6 +11924,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - SetDNSSLBStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetDNSSLBStatusResponse
      *
      * @param SetDNSSLBStatusRequest $request
@@ -12115,27 +11968,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDNSSLBStatus',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDNSSLBStatus',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetDNSSLBStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDNSSLBStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDNSSLBStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Enables or disables weighted round-robin based on the specified parameters.
      *
      * @param request - SetDNSSLBStatusRequest
+     *
      * @returns SetDNSSLBStatusResponse
      *
      * @param SetDNSSLBStatusRequest $request
@@ -12156,6 +12007,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - SetDnsGtmAccessModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetDnsGtmAccessModeResponse
      *
      * @param SetDnsGtmAccessModeRequest $request
@@ -12183,21 +12035,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDnsGtmAccessMode',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDnsGtmAccessMode',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetDnsGtmAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDnsGtmAccessModeResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDnsGtmAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12206,6 +12055,7 @@ class Alidns extends OpenApiClient
      * @remarks
      *
      * @param request - SetDnsGtmAccessModeRequest
+     *
      * @returns SetDnsGtmAccessModeResponse
      *
      * @param SetDnsGtmAccessModeRequest $request
@@ -12224,6 +12074,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - SetDnsGtmMonitorStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetDnsGtmMonitorStatusResponse
      *
      * @param SetDnsGtmMonitorStatusRequest $request
@@ -12251,27 +12102,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDnsGtmMonitorStatus',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDnsGtmMonitorStatus',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetDnsGtmMonitorStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDnsGtmMonitorStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDnsGtmMonitorStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Specifies the health check status of an address pool.
      *
      * @param request - SetDnsGtmMonitorStatusRequest
+     *
      * @returns SetDnsGtmMonitorStatusResponse
      *
      * @param SetDnsGtmMonitorStatusRequest $request
@@ -12290,6 +12139,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - SetDomainDnssecStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetDomainDnssecStatusResponse
      *
      * @param SetDomainDnssecStatusRequest $request
@@ -12317,27 +12167,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDomainDnssecStatus',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDomainDnssecStatus',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetDomainDnssecStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDomainDnssecStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDomainDnssecStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Enables or disables the Domain Name System Security Extensions (DNSSEC) for a domain name. This feature is available only for the users of the paid editions of Alibaba Cloud DNS.
      *
      * @param request - SetDomainDnssecStatusRequest
+     *
      * @returns SetDomainDnssecStatusResponse
      *
      * @param SetDomainDnssecStatusRequest $request
@@ -12356,6 +12204,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - SetDomainRecordStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetDomainRecordStatusResponse
      *
      * @param SetDomainRecordStatusRequest $request
@@ -12387,27 +12236,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDomainRecordStatus',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDomainRecordStatus',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetDomainRecordStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDomainRecordStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDomainRecordStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Specifies the status of an Alibaba Cloud DNS (DNS) record based on the specified parameters.
      *
      * @param request - SetDomainRecordStatusRequest
+     *
      * @returns SetDomainRecordStatusResponse
      *
      * @param SetDomainRecordStatusRequest $request
@@ -12426,6 +12273,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - SetGtmAccessModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetGtmAccessModeResponse
      *
      * @param SetGtmAccessModeRequest $request
@@ -12453,27 +12301,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetGtmAccessMode',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetGtmAccessMode',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetGtmAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetGtmAccessModeResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetGtmAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies a policy for switchover between address pool sets.
      *
      * @param request - SetGtmAccessModeRequest
+     *
      * @returns SetGtmAccessModeResponse
      *
      * @param SetGtmAccessModeRequest $request
@@ -12490,6 +12336,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - SetGtmMonitorStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetGtmMonitorStatusResponse
      *
      * @param SetGtmMonitorStatusRequest $request
@@ -12517,25 +12364,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetGtmMonitorStatus',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetGtmMonitorStatus',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetGtmMonitorStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetGtmMonitorStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetGtmMonitorStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - SetGtmMonitorStatusRequest
+     *
      * @returns SetGtmMonitorStatusResponse
      *
      * @param SetGtmMonitorStatusRequest $request
@@ -12554,6 +12399,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - SubmitIspFlushCacheTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SubmitIspFlushCacheTaskResponse
      *
      * @param SubmitIspFlushCacheTaskRequest $request
@@ -12585,27 +12431,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitIspFlushCacheTask',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitIspFlushCacheTask',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitIspFlushCacheTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitIspFlushCacheTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitIspFlushCacheTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 提交缓存刷新任务
      *
      * @param request - SubmitIspFlushCacheTaskRequest
+     *
      * @returns SubmitIspFlushCacheTaskResponse
      *
      * @param SubmitIspFlushCacheTaskRequest $request
@@ -12624,6 +12468,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - SwitchDnsGtmInstanceStrategyModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SwitchDnsGtmInstanceStrategyModeResponse
      *
      * @param SwitchDnsGtmInstanceStrategyModeRequest $request
@@ -12651,27 +12496,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SwitchDnsGtmInstanceStrategyMode',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchDnsGtmInstanceStrategyMode',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SwitchDnsGtmInstanceStrategyModeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SwitchDnsGtmInstanceStrategyModeResponse::fromMap($this->execute($params, $req, $runtime));
+        return SwitchDnsGtmInstanceStrategyModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Changes the access policy type for a Global Traffic Manager (GTM) instance.
      *
      * @param request - SwitchDnsGtmInstanceStrategyModeRequest
+     *
      * @returns SwitchDnsGtmInstanceStrategyModeResponse
      *
      * @param SwitchDnsGtmInstanceStrategyModeRequest $request
@@ -12690,6 +12533,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -12721,27 +12565,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Adds and modifies a tag for a resource.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -12760,6 +12602,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - TransferDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TransferDomainResponse
      *
      * @param TransferDomainRequest $request
@@ -12791,27 +12634,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TransferDomain',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TransferDomain',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TransferDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TransferDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return TransferDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Transfers multiple domain names from the current account to another account at a time.
      *
      * @param request - TransferDomainRequest
+     *
      * @returns TransferDomainResponse
      *
      * @param TransferDomainRequest $request
@@ -12834,6 +12675,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UnbindInstanceDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnbindInstanceDomainsResponse
      *
      * @param UnbindInstanceDomainsRequest $request
@@ -12861,21 +12703,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnbindInstanceDomains',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnbindInstanceDomains',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UnbindInstanceDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnbindInstanceDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnbindInstanceDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12886,6 +12725,7 @@ class Alidns extends OpenApiClient
      * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
      *
      * @param request - UnbindInstanceDomainsRequest
+     *
      * @returns UnbindInstanceDomainsResponse
      *
      * @param UnbindInstanceDomainsRequest $request
@@ -12904,6 +12744,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -12939,27 +12780,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Removes tags from resources.
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -12978,6 +12817,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateAppKeyStateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAppKeyStateResponse
      *
      * @param UpdateAppKeyStateRequest $request
@@ -13005,27 +12845,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAppKeyState',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAppKeyState',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAppKeyStateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAppKeyStateResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAppKeyStateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改 AppKey 状态
      *
      * @param request - UpdateAppKeyStateRequest
+     *
      * @returns UpdateAppKeyStateResponse
      *
      * @param UpdateAppKeyStateRequest $request
@@ -13044,6 +12882,7 @@ class Alidns extends OpenApiClient
      *
      * @param tmpReq - UpdateCloudGtmAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudGtmAddressResponse
      *
      * @param UpdateCloudGtmAddressRequest $tmpReq
@@ -13097,27 +12936,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudGtmAddress',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudGtmAddress',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the condition for determining the health status of a specified address.
      *
      * @param request - UpdateCloudGtmAddressRequest
+     *
      * @returns UpdateCloudGtmAddressResponse
      *
      * @param UpdateCloudGtmAddressRequest $request
@@ -13140,6 +12977,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateCloudGtmAddressEnableStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudGtmAddressEnableStatusResponse
      *
      * @param UpdateCloudGtmAddressEnableStatusRequest $request
@@ -13171,21 +13009,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudGtmAddressEnableStatus',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudGtmAddressEnableStatus',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudGtmAddressEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmAddressEnableStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmAddressEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13196,6 +13031,7 @@ class Alidns extends OpenApiClient
      * *   If an address is **disabled** or the health status of the address is **Abnormal**, the availability status of the address is **Unavailable**.
      *
      * @param request - UpdateCloudGtmAddressEnableStatusRequest
+     *
      * @returns UpdateCloudGtmAddressEnableStatusResponse
      *
      * @param UpdateCloudGtmAddressEnableStatusRequest $request
@@ -13214,6 +13050,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateCloudGtmAddressManualAvailableStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudGtmAddressManualAvailableStatusResponse
      *
      * @param UpdateCloudGtmAddressManualAvailableStatusRequest $request
@@ -13249,27 +13086,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudGtmAddressManualAvailableStatus',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudGtmAddressManualAvailableStatus',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudGtmAddressManualAvailableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmAddressManualAvailableStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmAddressManualAvailableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the failover mode that is used when address exceptions are identified.
      *
      * @param request - UpdateCloudGtmAddressManualAvailableStatusRequest
+     *
      * @returns UpdateCloudGtmAddressManualAvailableStatusResponse
      *
      * @param UpdateCloudGtmAddressManualAvailableStatusRequest $request
@@ -13288,6 +13123,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateCloudGtmAddressPoolBasicConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudGtmAddressPoolBasicConfigResponse
      *
      * @param UpdateCloudGtmAddressPoolBasicConfigRequest $request
@@ -13323,27 +13159,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudGtmAddressPoolBasicConfig',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudGtmAddressPoolBasicConfig',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudGtmAddressPoolBasicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmAddressPoolBasicConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmAddressPoolBasicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the basic configurations of an address pool.
      *
      * @param request - UpdateCloudGtmAddressPoolBasicConfigRequest
+     *
      * @returns UpdateCloudGtmAddressPoolBasicConfigResponse
      *
      * @param UpdateCloudGtmAddressPoolBasicConfigRequest $request
@@ -13366,6 +13200,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateCloudGtmAddressPoolEnableStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudGtmAddressPoolEnableStatusResponse
      *
      * @param UpdateCloudGtmAddressPoolEnableStatusRequest $request
@@ -13397,21 +13232,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudGtmAddressPoolEnableStatus',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudGtmAddressPoolEnableStatus',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudGtmAddressPoolEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmAddressPoolEnableStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmAddressPoolEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13422,6 +13254,7 @@ class Alidns extends OpenApiClient
      * *   If an address pool is **disabled** or the health status of the address pool is **Abnormal**, the availability status of the address pool is **unavailable**.
      *
      * @param request - UpdateCloudGtmAddressPoolEnableStatusRequest
+     *
      * @returns UpdateCloudGtmAddressPoolEnableStatusResponse
      *
      * @param UpdateCloudGtmAddressPoolEnableStatusRequest $request
@@ -13440,6 +13273,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateCloudGtmAddressPoolLbStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudGtmAddressPoolLbStrategyResponse
      *
      * @param UpdateCloudGtmAddressPoolLbStrategyRequest $request
@@ -13475,27 +13309,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudGtmAddressPoolLbStrategy',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudGtmAddressPoolLbStrategy',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudGtmAddressPoolLbStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmAddressPoolLbStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmAddressPoolLbStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the load balancing policy of an address pool.
      *
      * @param request - UpdateCloudGtmAddressPoolLbStrategyRequest
+     *
      * @returns UpdateCloudGtmAddressPoolLbStrategyResponse
      *
      * @param UpdateCloudGtmAddressPoolLbStrategyRequest $request
@@ -13514,6 +13346,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateCloudGtmAddressPoolRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudGtmAddressPoolRemarkResponse
      *
      * @param UpdateCloudGtmAddressPoolRemarkRequest $request
@@ -13545,27 +13378,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudGtmAddressPoolRemark',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudGtmAddressPoolRemark',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudGtmAddressPoolRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmAddressPoolRemarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmAddressPoolRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the remarks of an address pool.
      *
      * @param request - UpdateCloudGtmAddressPoolRemarkRequest
+     *
      * @returns UpdateCloudGtmAddressPoolRemarkResponse
      *
      * @param UpdateCloudGtmAddressPoolRemarkRequest $request
@@ -13584,6 +13415,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateCloudGtmAddressRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudGtmAddressRemarkResponse
      *
      * @param UpdateCloudGtmAddressRemarkRequest $request
@@ -13615,27 +13447,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudGtmAddressRemark',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudGtmAddressRemark',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudGtmAddressRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmAddressRemarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmAddressRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the remarks of an address.
      *
      * @param request - UpdateCloudGtmAddressRemarkRequest
+     *
      * @returns UpdateCloudGtmAddressRemarkResponse
      *
      * @param UpdateCloudGtmAddressRemarkRequest $request
@@ -13652,6 +13482,7 @@ class Alidns extends OpenApiClient
     /**
      * @param tmpReq - UpdateCloudGtmGlobalAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudGtmGlobalAlertResponse
      *
      * @param UpdateCloudGtmGlobalAlertRequest $tmpReq
@@ -13693,25 +13524,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudGtmGlobalAlert',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudGtmGlobalAlert',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudGtmGlobalAlertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmGlobalAlertResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmGlobalAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateCloudGtmGlobalAlertRequest
+     *
      * @returns UpdateCloudGtmGlobalAlertResponse
      *
      * @param UpdateCloudGtmGlobalAlertRequest $request
@@ -13728,6 +13557,7 @@ class Alidns extends OpenApiClient
     /**
      * @param tmpReq - UpdateCloudGtmInstanceConfigAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudGtmInstanceConfigAlertResponse
      *
      * @param UpdateCloudGtmInstanceConfigAlertRequest $tmpReq
@@ -13781,25 +13611,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudGtmInstanceConfigAlert',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudGtmInstanceConfigAlert',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudGtmInstanceConfigAlertResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmInstanceConfigAlertResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmInstanceConfigAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateCloudGtmInstanceConfigAlertRequest
+     *
      * @returns UpdateCloudGtmInstanceConfigAlertResponse
      *
      * @param UpdateCloudGtmInstanceConfigAlertRequest $request
@@ -13818,6 +13646,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateCloudGtmInstanceConfigBasicRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudGtmInstanceConfigBasicResponse
      *
      * @param UpdateCloudGtmInstanceConfigBasicRequest $request
@@ -13861,27 +13690,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudGtmInstanceConfigBasic',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudGtmInstanceConfigBasic',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudGtmInstanceConfigBasicResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmInstanceConfigBasicResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmInstanceConfigBasicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Updates the global time-to-live (TTL) configuration of a GTM 3.0 instance.
      *
      * @param request - UpdateCloudGtmInstanceConfigBasicRequest
+     *
      * @returns UpdateCloudGtmInstanceConfigBasicResponse
      *
      * @param UpdateCloudGtmInstanceConfigBasicRequest $request
@@ -13904,6 +13731,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateCloudGtmInstanceConfigEnableStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudGtmInstanceConfigEnableStatusResponse
      *
      * @param UpdateCloudGtmInstanceConfigEnableStatusRequest $request
@@ -13939,21 +13767,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudGtmInstanceConfigEnableStatus',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudGtmInstanceConfigEnableStatus',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudGtmInstanceConfigEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmInstanceConfigEnableStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmInstanceConfigEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13964,6 +13789,7 @@ class Alidns extends OpenApiClient
      * *   If an access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
      *
      * @param request - UpdateCloudGtmInstanceConfigEnableStatusRequest
+     *
      * @returns UpdateCloudGtmInstanceConfigEnableStatusResponse
      *
      * @param UpdateCloudGtmInstanceConfigEnableStatusRequest $request
@@ -13982,6 +13808,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateCloudGtmInstanceConfigLbStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudGtmInstanceConfigLbStrategyResponse
      *
      * @param UpdateCloudGtmInstanceConfigLbStrategyRequest $request
@@ -14021,27 +13848,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudGtmInstanceConfigLbStrategy',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudGtmInstanceConfigLbStrategy',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudGtmInstanceConfigLbStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmInstanceConfigLbStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmInstanceConfigLbStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the load balancing policy of a Global Traffic Manager (GTM) 3.0 instance.
      *
      * @param request - UpdateCloudGtmInstanceConfigLbStrategyRequest
+     *
      * @returns UpdateCloudGtmInstanceConfigLbStrategyResponse
      *
      * @param UpdateCloudGtmInstanceConfigLbStrategyRequest $request
@@ -14060,6 +13885,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateCloudGtmInstanceConfigRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudGtmInstanceConfigRemarkResponse
      *
      * @param UpdateCloudGtmInstanceConfigRemarkRequest $request
@@ -14095,27 +13921,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudGtmInstanceConfigRemark',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudGtmInstanceConfigRemark',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudGtmInstanceConfigRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmInstanceConfigRemarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmInstanceConfigRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the description of a Global Traffic Manager (GTM) 3.0 instance.
      *
      * @param request - UpdateCloudGtmInstanceConfigRemarkRequest
+     *
      * @returns UpdateCloudGtmInstanceConfigRemarkResponse
      *
      * @param UpdateCloudGtmInstanceConfigRemarkRequest $request
@@ -14132,6 +13956,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - UpdateCloudGtmInstanceNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudGtmInstanceNameResponse
      *
      * @param UpdateCloudGtmInstanceNameRequest $request
@@ -14163,25 +13988,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudGtmInstanceName',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudGtmInstanceName',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudGtmInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmInstanceNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateCloudGtmInstanceNameRequest
+     *
      * @returns UpdateCloudGtmInstanceNameResponse
      *
      * @param UpdateCloudGtmInstanceNameRequest $request
@@ -14200,6 +14023,7 @@ class Alidns extends OpenApiClient
      *
      * @param tmpReq - UpdateCloudGtmMonitorTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudGtmMonitorTemplateResponse
      *
      * @param UpdateCloudGtmMonitorTemplateRequest $tmpReq
@@ -14261,27 +14085,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudGtmMonitorTemplate',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudGtmMonitorTemplate',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmMonitorTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the information about a health check template.
      *
      * @param request - UpdateCloudGtmMonitorTemplateRequest
+     *
      * @returns UpdateCloudGtmMonitorTemplateResponse
      *
      * @param UpdateCloudGtmMonitorTemplateRequest $request
@@ -14298,6 +14120,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - UpdateCloudGtmMonitorTemplateRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCloudGtmMonitorTemplateRemarkResponse
      *
      * @param UpdateCloudGtmMonitorTemplateRemarkRequest $request
@@ -14329,25 +14152,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCloudGtmMonitorTemplateRemark',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCloudGtmMonitorTemplateRemark',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCloudGtmMonitorTemplateRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCloudGtmMonitorTemplateRemarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCloudGtmMonitorTemplateRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateCloudGtmMonitorTemplateRemarkRequest
+     *
      * @returns UpdateCloudGtmMonitorTemplateRemarkResponse
      *
      * @param UpdateCloudGtmMonitorTemplateRemarkRequest $request
@@ -14362,7 +14183,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a custom line.
+     * Modifies a custom line with its unique ID.
      *
      * @remarks
      * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
@@ -14370,6 +14191,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateCustomLineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCustomLineResponse
      *
      * @param UpdateCustomLineRequest $request
@@ -14401,31 +14223,29 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCustomLine',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCustomLine',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateCustomLineResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateCustomLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies a custom line.
+     * Modifies a custom line with its unique ID.
      *
      * @remarks
      * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
      * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
      *
      * @param request - UpdateCustomLineRequest
+     *
      * @returns UpdateCustomLineResponse
      *
      * @param UpdateCustomLineRequest $request
@@ -14444,6 +14264,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateDNSSLBWeightRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDNSSLBWeightResponse
      *
      * @param UpdateDNSSLBWeightRequest $request
@@ -14475,27 +14296,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDNSSLBWeight',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDNSSLBWeight',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDNSSLBWeightResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDNSSLBWeightResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDNSSLBWeightResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the weight of a Domain Name System (DNS) record based on the specified parameters.
      *
      * @param request - UpdateDNSSLBWeightRequest
+     *
      * @returns UpdateDNSSLBWeightResponse
      *
      * @param UpdateDNSSLBWeightRequest $request
@@ -14510,8 +14329,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * Updates the cache-accelerated domain name based on the specified parameters.
+     *
      * @param request - UpdateDnsCacheDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDnsCacheDomainResponse
      *
      * @param UpdateDnsCacheDomainRequest $request
@@ -14559,25 +14381,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDnsCacheDomain',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDnsCacheDomain',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDnsCacheDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDnsCacheDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDnsCacheDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Updates the cache-accelerated domain name based on the specified parameters.
+     *
      * @param request - UpdateDnsCacheDomainRequest
+     *
      * @returns UpdateDnsCacheDomainResponse
      *
      * @param UpdateDnsCacheDomainRequest $request
@@ -14592,8 +14414,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * Updates the remarks for the cache-accelerated domain name of the destination domain name.
+     *
      * @param request - UpdateDnsCacheDomainRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDnsCacheDomainRemarkResponse
      *
      * @param UpdateDnsCacheDomainRemarkRequest $request
@@ -14621,25 +14446,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDnsCacheDomainRemark',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDnsCacheDomainRemark',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDnsCacheDomainRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDnsCacheDomainRemarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDnsCacheDomainRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * Updates the remarks for the cache-accelerated domain name of the destination domain name.
+     *
      * @param request - UpdateDnsCacheDomainRemarkRequest
+     *
      * @returns UpdateDnsCacheDomainRemarkResponse
      *
      * @param UpdateDnsCacheDomainRemarkRequest $request
@@ -14658,6 +14483,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateDnsGtmAccessStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDnsGtmAccessStrategyResponse
      *
      * @param UpdateDnsGtmAccessStrategyRequest $request
@@ -14741,27 +14567,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDnsGtmAccessStrategy',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDnsGtmAccessStrategy',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDnsGtmAccessStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDnsGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies an access policy.
      *
      * @param request - UpdateDnsGtmAccessStrategyRequest
+     *
      * @returns UpdateDnsGtmAccessStrategyResponse
      *
      * @param UpdateDnsGtmAccessStrategyRequest $request
@@ -14780,6 +14604,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateDnsGtmAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDnsGtmAddressPoolResponse
      *
      * @param UpdateDnsGtmAddressPoolRequest $request
@@ -14815,27 +14640,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDnsGtmAddressPool',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDnsGtmAddressPool',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDnsGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDnsGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDnsGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies an address pool.
      *
      * @param request - UpdateDnsGtmAddressPoolRequest
+     *
      * @returns UpdateDnsGtmAddressPoolResponse
      *
      * @param UpdateDnsGtmAddressPoolRequest $request
@@ -14854,6 +14677,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateDnsGtmInstanceGlobalConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDnsGtmInstanceGlobalConfigResponse
      *
      * @param UpdateDnsGtmInstanceGlobalConfigRequest $request
@@ -14917,27 +14741,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDnsGtmInstanceGlobalConfig',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDnsGtmInstanceGlobalConfig',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDnsGtmInstanceGlobalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDnsGtmInstanceGlobalConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDnsGtmInstanceGlobalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the configurations of a Global Traffic Manager (GTM) instance.
      *
      * @param request - UpdateDnsGtmInstanceGlobalConfigRequest
+     *
      * @returns UpdateDnsGtmInstanceGlobalConfigResponse
      *
      * @param UpdateDnsGtmInstanceGlobalConfigRequest $request
@@ -14956,6 +14778,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateDnsGtmMonitorRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDnsGtmMonitorResponse
      *
      * @param UpdateDnsGtmMonitorRequest $request
@@ -15003,27 +14826,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDnsGtmMonitor',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDnsGtmMonitor',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDnsGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDnsGtmMonitorResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDnsGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies a health check task.
      *
      * @param request - UpdateDnsGtmMonitorRequest
+     *
      * @returns UpdateDnsGtmMonitorResponse
      *
      * @param UpdateDnsGtmMonitorRequest $request
@@ -15045,6 +14866,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateDomainGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDomainGroupResponse
      *
      * @param UpdateDomainGroupRequest $request
@@ -15072,21 +14894,18 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDomainGroup',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDomainGroup',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDomainGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDomainGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15096,6 +14915,7 @@ class Alidns extends OpenApiClient
      * Modifies the name of an existing domain name group.
      *
      * @param request - UpdateDomainGroupRequest
+     *
      * @returns UpdateDomainGroupResponse
      *
      * @param UpdateDomainGroupRequest $request
@@ -15114,6 +14934,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateDomainRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDomainRecordResponse
      *
      * @param UpdateDomainRecordRequest $request
@@ -15165,27 +14986,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDomainRecord',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDomainRecord',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDomainRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDomainRecordResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDomainRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies a Domain Name System (DNS) record based on the specified parameters.
      *
      * @param request - UpdateDomainRecordRequest
+     *
      * @returns UpdateDomainRecordResponse
      *
      * @param UpdateDomainRecordRequest $request
@@ -15204,6 +15023,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateDomainRecordRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDomainRecordRemarkResponse
      *
      * @param UpdateDomainRecordRemarkRequest $request
@@ -15235,27 +15055,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDomainRecordRemark',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDomainRecordRemark',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDomainRecordRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDomainRecordRemarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDomainRecordRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the description of a Domain Name System (DNS) record based on the specified parameters.
      *
      * @param request - UpdateDomainRecordRemarkRequest
+     *
      * @returns UpdateDomainRecordRemarkResponse
      *
      * @param UpdateDomainRecordRemarkRequest $request
@@ -15274,6 +15092,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateDomainRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDomainRemarkResponse
      *
      * @param UpdateDomainRemarkRequest $request
@@ -15301,27 +15120,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDomainRemark',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDomainRemark',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateDomainRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateDomainRemarkResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateDomainRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the description of a domain name based on the specified parameters.
      *
      * @param request - UpdateDomainRemarkRequest
+     *
      * @returns UpdateDomainRemarkResponse
      *
      * @param UpdateDomainRemarkRequest $request
@@ -15338,6 +15155,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - UpdateGtmAccessStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateGtmAccessStrategyResponse
      *
      * @param UpdateGtmAccessStrategyRequest $request
@@ -15377,25 +15195,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateGtmAccessStrategy',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateGtmAccessStrategy',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGtmAccessStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGtmAccessStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateGtmAccessStrategyRequest
+     *
      * @returns UpdateGtmAccessStrategyResponse
      *
      * @param UpdateGtmAccessStrategyRequest $request
@@ -15412,6 +15228,7 @@ class Alidns extends OpenApiClient
     /**
      * @param request - UpdateGtmAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateGtmAddressPoolResponse
      *
      * @param UpdateGtmAddressPoolRequest $request
@@ -15451,25 +15268,23 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateGtmAddressPool',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateGtmAddressPool',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGtmAddressPoolResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - UpdateGtmAddressPoolRequest
+     *
      * @returns UpdateGtmAddressPoolResponse
      *
      * @param UpdateGtmAddressPoolRequest $request
@@ -15488,6 +15303,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateGtmInstanceGlobalConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateGtmInstanceGlobalConfigResponse
      *
      * @param UpdateGtmInstanceGlobalConfigRequest $request
@@ -15539,27 +15355,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateGtmInstanceGlobalConfig',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateGtmInstanceGlobalConfig',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateGtmInstanceGlobalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGtmInstanceGlobalConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGtmInstanceGlobalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the configurations of a Global Traffic Manager (GTM) instance based on the specified parameters.
      *
      * @param request - UpdateGtmInstanceGlobalConfigRequest
+     *
      * @returns UpdateGtmInstanceGlobalConfigResponse
      *
      * @param UpdateGtmInstanceGlobalConfigRequest $request
@@ -15578,6 +15392,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateGtmMonitorRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateGtmMonitorResponse
      *
      * @param UpdateGtmMonitorRequest $request
@@ -15625,27 +15440,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateGtmMonitor',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateGtmMonitor',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGtmMonitorResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGtmMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies the health check configuration for an address pool of a Global Traffic Manager (GTM) instance.
      *
      * @param request - UpdateGtmMonitorRequest
+     *
      * @returns UpdateGtmMonitorResponse
      *
      * @param UpdateGtmMonitorRequest $request
@@ -15664,6 +15477,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateGtmRecoveryPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateGtmRecoveryPlanResponse
      *
      * @param UpdateGtmRecoveryPlanRequest $request
@@ -15699,27 +15513,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateGtmRecoveryPlan',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateGtmRecoveryPlan',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGtmRecoveryPlanResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGtmRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Modifies a disaster recovery plan.
      *
      * @param request - UpdateGtmRecoveryPlanRequest
+     *
      * @returns UpdateGtmRecoveryPlanResponse
      *
      * @param UpdateGtmRecoveryPlanRequest $request
@@ -15738,6 +15550,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - UpdateIspFlushCacheInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateIspFlushCacheInstanceConfigResponse
      *
      * @param UpdateIspFlushCacheInstanceConfigRequest $request
@@ -15765,27 +15578,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateIspFlushCacheInstanceConfig',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateIspFlushCacheInstanceConfig',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateIspFlushCacheInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateIspFlushCacheInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateIspFlushCacheInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 修改缓存刷新套餐包配置.
      *
      * @param request - UpdateIspFlushCacheInstanceConfigRequest
+     *
      * @returns UpdateIspFlushCacheInstanceConfigResponse
      *
      * @param UpdateIspFlushCacheInstanceConfigRequest $request
@@ -15804,6 +15615,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - ValidateDnsGtmCnameRrCanUseRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ValidateDnsGtmCnameRrCanUseResponse
      *
      * @param ValidateDnsGtmCnameRrCanUseRequest $request
@@ -15843,27 +15655,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ValidateDnsGtmCnameRrCanUse',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ValidateDnsGtmCnameRrCanUse',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ValidateDnsGtmCnameRrCanUseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ValidateDnsGtmCnameRrCanUseResponse::fromMap($this->execute($params, $req, $runtime));
+        return ValidateDnsGtmCnameRrCanUseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 检查实例主机名是否可添加.
      *
      * @param request - ValidateDnsGtmCnameRrCanUseRequest
+     *
      * @returns ValidateDnsGtmCnameRrCanUseResponse
      *
      * @param ValidateDnsGtmCnameRrCanUseRequest $request
@@ -15882,6 +15692,7 @@ class Alidns extends OpenApiClient
      *
      * @param request - ValidatePdnsUdpIpSegmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ValidatePdnsUdpIpSegmentResponse
      *
      * @param ValidatePdnsUdpIpSegmentRequest $request
@@ -15909,27 +15720,25 @@ class Alidns extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ValidatePdnsUdpIpSegment',
-            'version'     => '2015-01-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ValidatePdnsUdpIpSegment',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ValidatePdnsUdpIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ValidatePdnsUdpIpSegmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return ValidatePdnsUdpIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 验证公共DNS Udp Ip地址段.
      *
      * @param request - ValidatePdnsUdpIpSegmentRequest
+     *
      * @returns ValidatePdnsUdpIpSegmentResponse
      *
      * @param ValidatePdnsUdpIpSegmentRequest $request

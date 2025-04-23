@@ -14,108 +14,128 @@ class domain extends Model
      * @var bool
      */
     public $aliDomain;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var dnsServers
      */
     public $dnsServers;
+
     /**
      * @var string
      */
     public $domainId;
+
     /**
      * @var string
      */
     public $domainLoggingSwitchStatus;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $instanceEndTime;
+
     /**
      * @var bool
      */
     public $instanceExpired;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $punyCode;
+
     /**
      * @var int
      */
     public $recordCount;
+
     /**
      * @var string
      */
     public $registrantEmail;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var bool
      */
     public $starmark;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $versionCode;
+
     /**
      * @var string
      */
     public $versionName;
     protected $_name = [
-        'aliDomain'                 => 'AliDomain',
-        'createTime'                => 'CreateTime',
-        'createTimestamp'           => 'CreateTimestamp',
-        'dnsServers'                => 'DnsServers',
-        'domainId'                  => 'DomainId',
+        'aliDomain' => 'AliDomain',
+        'createTime' => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
+        'dnsServers' => 'DnsServers',
+        'domainId' => 'DomainId',
         'domainLoggingSwitchStatus' => 'DomainLoggingSwitchStatus',
-        'domainName'                => 'DomainName',
-        'groupId'                   => 'GroupId',
-        'groupName'                 => 'GroupName',
-        'instanceEndTime'           => 'InstanceEndTime',
-        'instanceExpired'           => 'InstanceExpired',
-        'instanceId'                => 'InstanceId',
-        'punyCode'                  => 'PunyCode',
-        'recordCount'               => 'RecordCount',
-        'registrantEmail'           => 'RegistrantEmail',
-        'remark'                    => 'Remark',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'starmark'                  => 'Starmark',
-        'tags'                      => 'Tags',
-        'versionCode'               => 'VersionCode',
-        'versionName'               => 'VersionName',
+        'domainName' => 'DomainName',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'instanceEndTime' => 'InstanceEndTime',
+        'instanceExpired' => 'InstanceExpired',
+        'instanceId' => 'InstanceId',
+        'punyCode' => 'PunyCode',
+        'recordCount' => 'RecordCount',
+        'registrantEmail' => 'RegistrantEmail',
+        'remark' => 'Remark',
+        'resourceGroupId' => 'ResourceGroupId',
+        'starmark' => 'Starmark',
+        'tags' => 'Tags',
+        'versionCode' => 'VersionCode',
+        'versionName' => 'VersionName',
     ];
 
     public function validate()

@@ -12,68 +12,80 @@ class DescribePdnsThreatStatisticsRequest extends Model
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $subDomain;
+
     /**
      * @var string
      */
     public $threatLevel;
+
     /**
      * @var string
      */
     public $threatSourceIp;
+
     /**
      * @var string
      */
     public $threatType;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'direction'      => 'Direction',
-        'domainName'     => 'DomainName',
-        'endDate'        => 'EndDate',
-        'lang'           => 'Lang',
-        'orderBy'        => 'OrderBy',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'startDate'      => 'StartDate',
-        'subDomain'      => 'SubDomain',
-        'threatLevel'    => 'ThreatLevel',
+        'direction' => 'Direction',
+        'domainName' => 'DomainName',
+        'endDate' => 'EndDate',
+        'lang' => 'Lang',
+        'orderBy' => 'OrderBy',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'startDate' => 'StartDate',
+        'subDomain' => 'SubDomain',
+        'threatLevel' => 'ThreatLevel',
         'threatSourceIp' => 'ThreatSourceIp',
-        'threatType'     => 'ThreatType',
-        'type'           => 'Type',
+        'threatType' => 'ThreatType',
+        'type' => 'Type',
     ];
 
     public function validate()

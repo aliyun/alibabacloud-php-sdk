@@ -16,18 +16,22 @@ class DescribeDnsGtmMonitorAvailableConfigResponseBody extends Model
      * @var domainIpv4IspCityNodes
      */
     public $domainIpv4IspCityNodes;
+
     /**
      * @var domainIpv6IspCityNodes
      */
     public $domainIpv6IspCityNodes;
+
     /**
      * @var ipv4IspCityNodes
      */
     public $ipv4IspCityNodes;
+
     /**
      * @var ipv6IspCityNodes
      */
     public $ipv6IspCityNodes;
+
     /**
      * @var string
      */
@@ -35,9 +39,9 @@ class DescribeDnsGtmMonitorAvailableConfigResponseBody extends Model
     protected $_name = [
         'domainIpv4IspCityNodes' => 'DomainIpv4IspCityNodes',
         'domainIpv6IspCityNodes' => 'DomainIpv6IspCityNodes',
-        'ipv4IspCityNodes'       => 'Ipv4IspCityNodes',
-        'ipv6IspCityNodes'       => 'Ipv6IspCityNodes',
-        'requestId'              => 'RequestId',
+        'ipv4IspCityNodes' => 'Ipv4IspCityNodes',
+        'ipv6IspCityNodes' => 'Ipv6IspCityNodes',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

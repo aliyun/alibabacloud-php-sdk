@@ -12,32 +12,37 @@ class UpdateCloudGtmInstanceConfigLbStrategyRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $addressPoolLbStrategy;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $configId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $sequenceLbStrategyMode;
     protected $_name = [
-        'acceptLanguage'         => 'AcceptLanguage',
-        'addressPoolLbStrategy'  => 'AddressPoolLbStrategy',
-        'clientToken'            => 'ClientToken',
-        'configId'               => 'ConfigId',
-        'instanceId'             => 'InstanceId',
+        'acceptLanguage' => 'AcceptLanguage',
+        'addressPoolLbStrategy' => 'AddressPoolLbStrategy',
+        'clientToken' => 'ClientToken',
+        'configId' => 'ConfigId',
+        'instanceId' => 'InstanceId',
         'sequenceLbStrategyMode' => 'SequenceLbStrategyMode',
     ];
 

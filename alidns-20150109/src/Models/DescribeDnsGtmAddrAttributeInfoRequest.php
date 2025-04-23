@@ -12,18 +12,20 @@ class DescribeDnsGtmAddrAttributeInfoRequest extends Model
      * @var string
      */
     public $addrs;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'addrs' => 'Addrs',
-        'lang'  => 'Lang',
-        'type'  => 'Type',
+        'lang' => 'Lang',
+        'type' => 'Type',
     ];
 
     public function validate()

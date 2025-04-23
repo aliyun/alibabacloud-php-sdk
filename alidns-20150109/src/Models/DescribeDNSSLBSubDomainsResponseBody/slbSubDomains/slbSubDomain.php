@@ -13,28 +13,32 @@ class slbSubDomain extends Model
      * @var lineAlgorithms
      */
     public $lineAlgorithms;
+
     /**
      * @var bool
      */
     public $open;
+
     /**
      * @var int
      */
     public $recordCount;
+
     /**
      * @var string
      */
     public $subDomain;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'lineAlgorithms' => 'LineAlgorithms',
-        'open'           => 'Open',
-        'recordCount'    => 'RecordCount',
-        'subDomain'      => 'SubDomain',
-        'type'           => 'Type',
+        'open' => 'Open',
+        'recordCount' => 'RecordCount',
+        'subDomain' => 'SubDomain',
+        'type' => 'Type',
     ];
 
     public function validate()

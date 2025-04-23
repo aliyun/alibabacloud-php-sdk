@@ -12,48 +12,56 @@ class UpdateDomainRecordRequest extends Model
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $line;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $RR;
+
     /**
      * @var string
      */
     public $recordId;
+
     /**
      * @var int
      */
     public $TTL;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $userClientIp;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'lang'         => 'Lang',
-        'line'         => 'Line',
-        'priority'     => 'Priority',
-        'RR'           => 'RR',
-        'recordId'     => 'RecordId',
-        'TTL'          => 'TTL',
-        'type'         => 'Type',
+        'lang' => 'Lang',
+        'line' => 'Line',
+        'priority' => 'Priority',
+        'RR' => 'RR',
+        'recordId' => 'RecordId',
+        'TTL' => 'TTL',
+        'type' => 'Type',
         'userClientIp' => 'UserClientIp',
-        'value'        => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

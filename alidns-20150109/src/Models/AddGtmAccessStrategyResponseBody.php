@@ -12,12 +12,13 @@ class AddGtmAccessStrategyResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $strategyId;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'strategyId' => 'StrategyId',
     ];
 

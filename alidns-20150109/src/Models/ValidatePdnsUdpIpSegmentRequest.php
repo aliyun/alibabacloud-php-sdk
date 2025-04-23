@@ -12,18 +12,20 @@ class ValidatePdnsUdpIpSegmentRequest extends Model
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $ipToken;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
-        'ip'      => 'Ip',
+        'ip' => 'Ip',
         'ipToken' => 'IpToken',
-        'lang'    => 'Lang',
+        'lang' => 'Lang',
     ];
 
     public function validate()

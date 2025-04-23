@@ -12,23 +12,26 @@ class UpdateCloudGtmGlobalAlertShrinkRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $alertConfigShrink;
+
     /**
      * @var string
      */
     public $alertGroupShrink;
+
     /**
      * @var string
      */
     public $clientToken;
     protected $_name = [
-        'acceptLanguage'    => 'AcceptLanguage',
+        'acceptLanguage' => 'AcceptLanguage',
         'alertConfigShrink' => 'AlertConfig',
-        'alertGroupShrink'  => 'AlertGroup',
-        'clientToken'       => 'ClientToken',
+        'alertGroupShrink' => 'AlertGroup',
+        'clientToken' => 'ClientToken',
     ];
 
     public function validate()

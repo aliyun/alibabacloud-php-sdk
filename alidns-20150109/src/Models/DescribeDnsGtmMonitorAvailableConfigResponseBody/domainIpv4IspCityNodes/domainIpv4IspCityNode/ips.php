@@ -30,7 +30,7 @@ class ips extends Model
         if (null !== $this->ip) {
             if (\is_array($this->ip)) {
                 $res['Ip'] = [];
-                $n1        = 0;
+                $n1 = 0;
                 foreach ($this->ip as $item1) {
                     $res['Ip'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class ips extends Model
         if (isset($map['Ip'])) {
             if (!empty($map['Ip'])) {
                 $model->ip = [];
-                $n1        = 0;
+                $n1 = 0;
                 foreach ($map['Ip'] as $item1) {
                     $model->ip[$n1++] = $item1;
                 }

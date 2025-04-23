@@ -13,183 +13,218 @@ class DescribeDnsProductInstanceResponseBody extends Model
      * @var bool
      */
     public $autoRenewal;
+
     /**
      * @var int
      */
     public $bindCount;
+
     /**
      * @var int
      */
     public $bindDomainCount;
+
     /**
      * @var int
      */
     public $bindDomainUsedCount;
+
     /**
      * @var int
      */
     public $bindUsedCount;
+
     /**
      * @var int
      */
     public $DDosDefendFlow;
+
     /**
      * @var int
      */
     public $DDosDefendQuery;
+
     /**
      * @var int
      */
     public $dnsSLBCount;
+
     /**
      * @var string
      */
     public $dnsSecurity;
+
     /**
      * @var dnsServers
      */
     public $dnsServers;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $domainType;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $endTimestamp;
+
     /**
      * @var bool
      */
     public $gslb;
+
     /**
      * @var string
      */
     public $ISPLines;
+
     /**
      * @var string
      */
     public $ISPRegionLines;
+
     /**
      * @var bool
      */
     public $inBlackHole;
+
     /**
      * @var bool
      */
     public $inClean;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $monitorFrequency;
+
     /**
      * @var int
      */
     public $monitorNodeCount;
+
     /**
      * @var int
      */
     public $monitorTaskCount;
+
     /**
      * @var int
      */
     public $overseaDDosDefendFlow;
+
     /**
      * @var string
      */
     public $overseaLine;
+
     /**
      * @var string
      */
     public $paymentType;
+
     /**
      * @var bool
      */
     public $regionLines;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $searchEngineLines;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $startTimestamp;
+
     /**
      * @var int
      */
     public $subDomainLevel;
+
     /**
      * @var int
      */
     public $TTLMinValue;
+
     /**
      * @var int
      */
     public $URLForwardCount;
+
     /**
      * @var string
      */
     public $versionCode;
+
     /**
      * @var string
      */
     public $versionName;
     protected $_name = [
-        'autoRenewal'           => 'AutoRenewal',
-        'bindCount'             => 'BindCount',
-        'bindDomainCount'       => 'BindDomainCount',
-        'bindDomainUsedCount'   => 'BindDomainUsedCount',
-        'bindUsedCount'         => 'BindUsedCount',
-        'DDosDefendFlow'        => 'DDosDefendFlow',
-        'DDosDefendQuery'       => 'DDosDefendQuery',
-        'dnsSLBCount'           => 'DnsSLBCount',
-        'dnsSecurity'           => 'DnsSecurity',
-        'dnsServers'            => 'DnsServers',
-        'domain'                => 'Domain',
-        'domainType'            => 'DomainType',
-        'endTime'               => 'EndTime',
-        'endTimestamp'          => 'EndTimestamp',
-        'gslb'                  => 'Gslb',
-        'ISPLines'              => 'ISPLines',
-        'ISPRegionLines'        => 'ISPRegionLines',
-        'inBlackHole'           => 'InBlackHole',
-        'inClean'               => 'InClean',
-        'instanceId'            => 'InstanceId',
-        'monitorFrequency'      => 'MonitorFrequency',
-        'monitorNodeCount'      => 'MonitorNodeCount',
-        'monitorTaskCount'      => 'MonitorTaskCount',
+        'autoRenewal' => 'AutoRenewal',
+        'bindCount' => 'BindCount',
+        'bindDomainCount' => 'BindDomainCount',
+        'bindDomainUsedCount' => 'BindDomainUsedCount',
+        'bindUsedCount' => 'BindUsedCount',
+        'DDosDefendFlow' => 'DDosDefendFlow',
+        'DDosDefendQuery' => 'DDosDefendQuery',
+        'dnsSLBCount' => 'DnsSLBCount',
+        'dnsSecurity' => 'DnsSecurity',
+        'dnsServers' => 'DnsServers',
+        'domain' => 'Domain',
+        'domainType' => 'DomainType',
+        'endTime' => 'EndTime',
+        'endTimestamp' => 'EndTimestamp',
+        'gslb' => 'Gslb',
+        'ISPLines' => 'ISPLines',
+        'ISPRegionLines' => 'ISPRegionLines',
+        'inBlackHole' => 'InBlackHole',
+        'inClean' => 'InClean',
+        'instanceId' => 'InstanceId',
+        'monitorFrequency' => 'MonitorFrequency',
+        'monitorNodeCount' => 'MonitorNodeCount',
+        'monitorTaskCount' => 'MonitorTaskCount',
         'overseaDDosDefendFlow' => 'OverseaDDosDefendFlow',
-        'overseaLine'           => 'OverseaLine',
-        'paymentType'           => 'PaymentType',
-        'regionLines'           => 'RegionLines',
-        'requestId'             => 'RequestId',
-        'searchEngineLines'     => 'SearchEngineLines',
-        'startTime'             => 'StartTime',
-        'startTimestamp'        => 'StartTimestamp',
-        'subDomainLevel'        => 'SubDomainLevel',
-        'TTLMinValue'           => 'TTLMinValue',
-        'URLForwardCount'       => 'URLForwardCount',
-        'versionCode'           => 'VersionCode',
-        'versionName'           => 'VersionName',
+        'overseaLine' => 'OverseaLine',
+        'paymentType' => 'PaymentType',
+        'regionLines' => 'RegionLines',
+        'requestId' => 'RequestId',
+        'searchEngineLines' => 'SearchEngineLines',
+        'startTime' => 'StartTime',
+        'startTimestamp' => 'StartTimestamp',
+        'subDomainLevel' => 'SubDomainLevel',
+        'TTLMinValue' => 'TTLMinValue',
+        'URLForwardCount' => 'URLForwardCount',
+        'versionCode' => 'VersionCode',
+        'versionName' => 'VersionName',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class DeleteGtmRecoveryPlanRequest extends Model
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $recoveryPlanId;
     protected $_name = [
-        'lang'           => 'Lang',
+        'lang' => 'Lang',
         'recoveryPlanId' => 'RecoveryPlanId',
     ];
 

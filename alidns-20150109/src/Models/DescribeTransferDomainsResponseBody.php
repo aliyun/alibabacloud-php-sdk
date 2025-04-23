@@ -13,28 +13,32 @@ class DescribeTransferDomainsResponseBody extends Model
      * @var domainTransfers
      */
     public $domainTransfers;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'domainTransfers' => 'DomainTransfers',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

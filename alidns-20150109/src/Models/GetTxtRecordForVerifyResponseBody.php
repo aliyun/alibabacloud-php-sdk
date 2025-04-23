@@ -12,28 +12,32 @@ class GetTxtRecordForVerifyResponseBody extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $parentDomainName;
+
     /**
      * @var string
      */
     public $RR;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'domainName'       => 'DomainName',
+        'domainName' => 'DomainName',
         'parentDomainName' => 'ParentDomainName',
-        'RR'               => 'RR',
-        'requestId'        => 'RequestId',
-        'value'            => 'Value',
+        'RR' => 'RR',
+        'requestId' => 'RequestId',
+        'value' => 'Value',
     ];
 
     public function validate()

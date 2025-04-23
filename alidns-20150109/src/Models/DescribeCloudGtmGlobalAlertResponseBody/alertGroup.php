@@ -30,7 +30,7 @@ class alertGroup extends Model
         if (null !== $this->alertGroup) {
             if (\is_array($this->alertGroup)) {
                 $res['AlertGroup'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->alertGroup as $item1) {
                     $res['AlertGroup'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class alertGroup extends Model
         if (isset($map['AlertGroup'])) {
             if (!empty($map['AlertGroup'])) {
                 $model->alertGroup = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['AlertGroup'] as $item1) {
                     $model->alertGroup[$n1++] = $item1;
                 }

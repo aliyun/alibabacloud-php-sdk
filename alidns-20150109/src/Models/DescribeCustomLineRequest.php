@@ -12,12 +12,13 @@ class DescribeCustomLineRequest extends Model
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $lineId;
     protected $_name = [
-        'lang'   => 'Lang',
+        'lang' => 'Lang',
         'lineId' => 'LineId',
     ];
 

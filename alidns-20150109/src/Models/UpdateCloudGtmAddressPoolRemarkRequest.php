@@ -12,23 +12,26 @@ class UpdateCloudGtmAddressPoolRemarkRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $addressPoolId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'addressPoolId'  => 'AddressPoolId',
-        'clientToken'    => 'ClientToken',
-        'remark'         => 'Remark',
+        'addressPoolId' => 'AddressPoolId',
+        'clientToken' => 'ClientToken',
+        'remark' => 'Remark',
     ];
 
     public function validate()

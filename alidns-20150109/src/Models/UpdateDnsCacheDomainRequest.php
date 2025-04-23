@@ -13,43 +13,50 @@ class UpdateDnsCacheDomainRequest extends Model
      * @var int
      */
     public $cacheTtlMax;
+
     /**
      * @var int
      */
     public $cacheTtlMin;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var sourceDnsServer[]
      */
     public $sourceDnsServer;
+
     /**
      * @var string
      */
     public $sourceEdns;
+
     /**
      * @var string
      */
     public $sourceProtocol;
     protected $_name = [
-        'cacheTtlMax'     => 'CacheTtlMax',
-        'cacheTtlMin'     => 'CacheTtlMin',
-        'domainName'      => 'DomainName',
-        'instanceId'      => 'InstanceId',
-        'lang'            => 'Lang',
+        'cacheTtlMax' => 'CacheTtlMax',
+        'cacheTtlMin' => 'CacheTtlMin',
+        'domainName' => 'DomainName',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
         'sourceDnsServer' => 'SourceDnsServer',
-        'sourceEdns'      => 'SourceEdns',
-        'sourceProtocol'  => 'SourceProtocol',
+        'sourceEdns' => 'SourceEdns',
+        'sourceProtocol' => 'SourceProtocol',
     ];
 
     public function validate()
@@ -86,7 +93,7 @@ class UpdateDnsCacheDomainRequest extends Model
         if (null !== $this->sourceDnsServer) {
             if (\is_array($this->sourceDnsServer)) {
                 $res['SourceDnsServer'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->sourceDnsServer as $item1) {
                     $res['SourceDnsServer'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -135,7 +142,7 @@ class UpdateDnsCacheDomainRequest extends Model
         if (isset($map['SourceDnsServer'])) {
             if (!empty($map['SourceDnsServer'])) {
                 $model->sourceDnsServer = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['SourceDnsServer'] as $item1) {
                     $model->sourceDnsServer[$n1++] = sourceDnsServer::fromMap($item1);
                 }

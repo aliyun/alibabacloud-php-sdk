@@ -12,10 +12,12 @@ class CreateCloudGtmAddressResponseBody extends Model
      * @var string
      */
     public $addressId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
@@ -23,7 +25,7 @@ class CreateCloudGtmAddressResponseBody extends Model
     protected $_name = [
         'addressId' => 'AddressId',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

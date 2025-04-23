@@ -12,18 +12,20 @@ class DeleteCloudGtmMonitorTemplateRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'clientToken'    => 'ClientToken',
-        'templateId'     => 'TemplateId',
+        'clientToken' => 'ClientToken',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

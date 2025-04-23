@@ -12,22 +12,25 @@ class TransferDomainRequest extends Model
      * @var string
      */
     public $domainNames;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var int
      */
     public $targetUserId;
     protected $_name = [
-        'domainNames'  => 'DomainNames',
-        'lang'         => 'Lang',
-        'remark'       => 'Remark',
+        'domainNames' => 'DomainNames',
+        'lang' => 'Lang',
+        'remark' => 'Remark',
         'targetUserId' => 'TargetUserId',
     ];
 

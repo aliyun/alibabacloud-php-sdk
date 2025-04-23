@@ -31,7 +31,7 @@ class instanceConfigs extends Model
         if (null !== $this->instanceConfig) {
             if (\is_array($this->instanceConfig)) {
                 $res['InstanceConfig'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->instanceConfig as $item1) {
                     $res['InstanceConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class instanceConfigs extends Model
         if (isset($map['InstanceConfig'])) {
             if (!empty($map['InstanceConfig'])) {
                 $model->instanceConfig = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['InstanceConfig'] as $item1) {
                     $model->instanceConfig[$n1++] = instanceConfig::fromMap($item1);
                 }

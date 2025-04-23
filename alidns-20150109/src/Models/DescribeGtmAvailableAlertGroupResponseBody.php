@@ -12,13 +12,14 @@ class DescribeGtmAvailableAlertGroupResponseBody extends Model
      * @var string
      */
     public $availableAlertGroup;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'availableAlertGroup' => 'AvailableAlertGroup',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -31,7 +31,7 @@ class addrs extends Model
         if (null !== $this->addr) {
             if (\is_array($this->addr)) {
                 $res['Addr'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->addr as $item1) {
                     $res['Addr'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class addrs extends Model
         if (isset($map['Addr'])) {
             if (!empty($map['Addr'])) {
                 $model->addr = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Addr'] as $item1) {
                     $model->addr[$n1++] = addr::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class SetDNSSLBStatusResponseBody extends Model
      * @var bool
      */
     public $open;
+
     /**
      * @var int
      */
     public $recordCount;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'open'        => 'Open',
+        'open' => 'Open',
         'recordCount' => 'RecordCount',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

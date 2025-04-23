@@ -13,88 +13,104 @@ class address extends Model
      * @var string
      */
     public $address;
+
     /**
      * @var string
      */
     public $addressId;
+
     /**
      * @var string
      */
     public $attributeInfo;
+
     /**
      * @var string
      */
     public $availableMode;
+
     /**
      * @var string
      */
     public $availableStatus;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $enableStatus;
+
     /**
      * @var string
      */
     public $healthJudgement;
+
     /**
      * @var string
      */
     public $healthStatus;
+
     /**
      * @var healthTasks
      */
     public $healthTasks;
+
     /**
      * @var string
      */
     public $manualAvailableStatus;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $updateTimestamp;
     protected $_name = [
-        'address'               => 'Address',
-        'addressId'             => 'AddressId',
-        'attributeInfo'         => 'AttributeInfo',
-        'availableMode'         => 'AvailableMode',
-        'availableStatus'       => 'AvailableStatus',
-        'createTime'            => 'CreateTime',
-        'createTimestamp'       => 'CreateTimestamp',
-        'enableStatus'          => 'EnableStatus',
-        'healthJudgement'       => 'HealthJudgement',
-        'healthStatus'          => 'HealthStatus',
-        'healthTasks'           => 'HealthTasks',
+        'address' => 'Address',
+        'addressId' => 'AddressId',
+        'attributeInfo' => 'AttributeInfo',
+        'availableMode' => 'AvailableMode',
+        'availableStatus' => 'AvailableStatus',
+        'createTime' => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
+        'enableStatus' => 'EnableStatus',
+        'healthJudgement' => 'HealthJudgement',
+        'healthStatus' => 'HealthStatus',
+        'healthTasks' => 'HealthTasks',
         'manualAvailableStatus' => 'ManualAvailableStatus',
-        'name'                  => 'Name',
-        'remark'                => 'Remark',
-        'type'                  => 'Type',
-        'updateTime'            => 'UpdateTime',
-        'updateTimestamp'       => 'UpdateTimestamp',
+        'name' => 'Name',
+        'remark' => 'Remark',
+        'type' => 'Type',
+        'updateTime' => 'UpdateTime',
+        'updateTimestamp' => 'UpdateTimestamp',
     ];
 
     public function validate()

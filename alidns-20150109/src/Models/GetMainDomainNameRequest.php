@@ -12,13 +12,14 @@ class GetMainDomainNameRequest extends Model
      * @var string
      */
     public $inputString;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
         'inputString' => 'InputString',
-        'lang'        => 'Lang',
+        'lang' => 'Lang',
     ];
 
     public function validate()

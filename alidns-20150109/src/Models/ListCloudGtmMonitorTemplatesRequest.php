@@ -12,33 +12,38 @@ class ListCloudGtmMonitorTemplatesRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $protocol;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'ipVersion'      => 'IpVersion',
-        'name'           => 'Name',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'protocol'       => 'Protocol',
+        'ipVersion' => 'IpVersion',
+        'name' => 'Name',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'protocol' => 'Protocol',
     ];
 
     public function validate()

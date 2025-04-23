@@ -12,13 +12,14 @@ class AddDomainGroupRequest extends Model
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
         'groupName' => 'GroupName',
-        'lang'      => 'Lang',
+        'lang' => 'Lang',
     ];
 
     public function validate()

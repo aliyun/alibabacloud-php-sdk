@@ -15,128 +15,152 @@ class DescribeDomainInfoResponseBody extends Model
      * @var bool
      */
     public $aliDomain;
+
     /**
      * @var availableTtls
      */
     public $availableTtls;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var dnsServers
      */
     public $dnsServers;
+
     /**
      * @var string
      */
     public $domainId;
+
     /**
      * @var string
      */
     public $domainLoggingSwitchStatus;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var bool
      */
     public $inBlackHole;
+
     /**
      * @var bool
      */
     public $inClean;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lineType;
+
     /**
      * @var int
      */
     public $minTtl;
+
     /**
      * @var string
      */
     public $punyCode;
+
     /**
      * @var string
      */
     public $recordLineTreeJson;
+
     /**
      * @var recordLines
      */
     public $recordLines;
+
     /**
      * @var bool
      */
     public $regionLines;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var bool
      */
     public $slaveDns;
+
     /**
      * @var bool
      */
     public $subDomain;
+
     /**
      * @var string
      */
     public $versionCode;
+
     /**
      * @var string
      */
     public $versionName;
     protected $_name = [
-        'aliDomain'                 => 'AliDomain',
-        'availableTtls'             => 'AvailableTtls',
-        'createTime'                => 'CreateTime',
-        'dnsServers'                => 'DnsServers',
-        'domainId'                  => 'DomainId',
+        'aliDomain' => 'AliDomain',
+        'availableTtls' => 'AvailableTtls',
+        'createTime' => 'CreateTime',
+        'dnsServers' => 'DnsServers',
+        'domainId' => 'DomainId',
         'domainLoggingSwitchStatus' => 'DomainLoggingSwitchStatus',
-        'domainName'                => 'DomainName',
-        'groupId'                   => 'GroupId',
-        'groupName'                 => 'GroupName',
-        'inBlackHole'               => 'InBlackHole',
-        'inClean'                   => 'InClean',
-        'instanceId'                => 'InstanceId',
-        'lineType'                  => 'LineType',
-        'minTtl'                    => 'MinTtl',
-        'punyCode'                  => 'PunyCode',
-        'recordLineTreeJson'        => 'RecordLineTreeJson',
-        'recordLines'               => 'RecordLines',
-        'regionLines'               => 'RegionLines',
-        'remark'                    => 'Remark',
-        'requestId'                 => 'RequestId',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'slaveDns'                  => 'SlaveDns',
-        'subDomain'                 => 'SubDomain',
-        'versionCode'               => 'VersionCode',
-        'versionName'               => 'VersionName',
+        'domainName' => 'DomainName',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'inBlackHole' => 'InBlackHole',
+        'inClean' => 'InClean',
+        'instanceId' => 'InstanceId',
+        'lineType' => 'LineType',
+        'minTtl' => 'MinTtl',
+        'punyCode' => 'PunyCode',
+        'recordLineTreeJson' => 'RecordLineTreeJson',
+        'recordLines' => 'RecordLines',
+        'regionLines' => 'RegionLines',
+        'remark' => 'Remark',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'slaveDns' => 'SlaveDns',
+        'subDomain' => 'SubDomain',
+        'versionCode' => 'VersionCode',
+        'versionName' => 'VersionName',
     ];
 
     public function validate()

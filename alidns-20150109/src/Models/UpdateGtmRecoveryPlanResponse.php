@@ -12,18 +12,20 @@ class UpdateGtmRecoveryPlanResponse extends Model
      * @var string[]
      */
     public $headers;
+
     /**
      * @var int
      */
     public $statusCode;
+
     /**
      * @var UpdateGtmRecoveryPlanResponseBody
      */
     public $body;
     protected $_name = [
-        'headers'    => 'headers',
+        'headers' => 'headers',
         'statusCode' => 'statusCode',
-        'body'       => 'body',
+        'body' => 'body',
     ];
 
     public function validate()

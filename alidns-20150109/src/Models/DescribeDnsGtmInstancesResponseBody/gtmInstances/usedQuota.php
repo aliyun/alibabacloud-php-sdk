@@ -12,23 +12,26 @@ class usedQuota extends Model
      * @var int
      */
     public $dingtalkUsedCount;
+
     /**
      * @var int
      */
     public $emailUsedCount;
+
     /**
      * @var int
      */
     public $smsUsedCount;
+
     /**
      * @var int
      */
     public $taskUsedCount;
     protected $_name = [
         'dingtalkUsedCount' => 'DingtalkUsedCount',
-        'emailUsedCount'    => 'EmailUsedCount',
-        'smsUsedCount'      => 'SmsUsedCount',
-        'taskUsedCount'     => 'TaskUsedCount',
+        'emailUsedCount' => 'EmailUsedCount',
+        'smsUsedCount' => 'SmsUsedCount',
+        'taskUsedCount' => 'TaskUsedCount',
     ];
 
     public function validate()

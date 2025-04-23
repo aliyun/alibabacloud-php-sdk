@@ -31,7 +31,7 @@ class recoveryPlans extends Model
         if (null !== $this->recoveryPlan) {
             if (\is_array($this->recoveryPlan)) {
                 $res['RecoveryPlan'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->recoveryPlan as $item1) {
                     $res['RecoveryPlan'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class recoveryPlans extends Model
         if (isset($map['RecoveryPlan'])) {
             if (!empty($map['RecoveryPlan'])) {
                 $model->recoveryPlan = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['RecoveryPlan'] as $item1) {
                     $model->recoveryPlan[$n1++] = recoveryPlan::fromMap($item1);
                 }

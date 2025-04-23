@@ -12,53 +12,62 @@ class domainRecordInfo extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $line;
+
     /**
      * @var string
      */
     public $newRr;
+
     /**
      * @var string
      */
     public $newType;
+
     /**
      * @var string
      */
     public $newValue;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $rr;
+
     /**
      * @var int
      */
     public $ttl;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'domain'   => 'Domain',
-        'line'     => 'Line',
-        'newRr'    => 'NewRr',
-        'newType'  => 'NewType',
+        'domain' => 'Domain',
+        'line' => 'Line',
+        'newRr' => 'NewRr',
+        'newType' => 'NewType',
         'newValue' => 'NewValue',
         'priority' => 'Priority',
-        'rr'       => 'Rr',
-        'ttl'      => 'Ttl',
-        'type'     => 'Type',
-        'value'    => 'Value',
+        'rr' => 'Rr',
+        'ttl' => 'Ttl',
+        'type' => 'Type',
+        'value' => 'Value',
     ];
 
     public function validate()

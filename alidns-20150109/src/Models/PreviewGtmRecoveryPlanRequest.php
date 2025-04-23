@@ -12,22 +12,25 @@ class PreviewGtmRecoveryPlanRequest extends Model
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $recoveryPlanId;
     protected $_name = [
-        'lang'           => 'Lang',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'lang' => 'Lang',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'recoveryPlanId' => 'RecoveryPlanId',
     ];
 

@@ -30,7 +30,7 @@ class originalDnsServers extends Model
         if (null !== $this->dnsServer) {
             if (\is_array($this->dnsServer)) {
                 $res['DnsServer'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->dnsServer as $item1) {
                     $res['DnsServer'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class originalDnsServers extends Model
         if (isset($map['DnsServer'])) {
             if (!empty($map['DnsServer'])) {
                 $model->dnsServer = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['DnsServer'] as $item1) {
                     $model->dnsServer[$n1++] = $item1;
                 }

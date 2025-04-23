@@ -14,68 +14,80 @@ class AddGtmAddressPoolRequest extends Model
      * @var addr[]
      */
     public $addr;
+
     /**
      * @var int
      */
     public $evaluationCount;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var ispCityNode[]
      */
     public $ispCityNode;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $minAvailableAddrNum;
+
     /**
      * @var string
      */
     public $monitorExtendInfo;
+
     /**
      * @var string
      */
     public $monitorStatus;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $protocolType;
+
     /**
      * @var int
      */
     public $timeout;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'addr'                => 'Addr',
-        'evaluationCount'     => 'EvaluationCount',
-        'instanceId'          => 'InstanceId',
-        'interval'            => 'Interval',
-        'ispCityNode'         => 'IspCityNode',
-        'lang'                => 'Lang',
+        'addr' => 'Addr',
+        'evaluationCount' => 'EvaluationCount',
+        'instanceId' => 'InstanceId',
+        'interval' => 'Interval',
+        'ispCityNode' => 'IspCityNode',
+        'lang' => 'Lang',
         'minAvailableAddrNum' => 'MinAvailableAddrNum',
-        'monitorExtendInfo'   => 'MonitorExtendInfo',
-        'monitorStatus'       => 'MonitorStatus',
-        'name'                => 'Name',
-        'protocolType'        => 'ProtocolType',
-        'timeout'             => 'Timeout',
-        'type'                => 'Type',
+        'monitorExtendInfo' => 'MonitorExtendInfo',
+        'monitorStatus' => 'MonitorStatus',
+        'name' => 'Name',
+        'protocolType' => 'ProtocolType',
+        'timeout' => 'Timeout',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -95,7 +107,7 @@ class AddGtmAddressPoolRequest extends Model
         if (null !== $this->addr) {
             if (\is_array($this->addr)) {
                 $res['Addr'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->addr as $item1) {
                     $res['Addr'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -117,7 +129,7 @@ class AddGtmAddressPoolRequest extends Model
         if (null !== $this->ispCityNode) {
             if (\is_array($this->ispCityNode)) {
                 $res['IspCityNode'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->ispCityNode as $item1) {
                     $res['IspCityNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -170,7 +182,7 @@ class AddGtmAddressPoolRequest extends Model
         if (isset($map['Addr'])) {
             if (!empty($map['Addr'])) {
                 $model->addr = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Addr'] as $item1) {
                     $model->addr[$n1++] = addr::fromMap($item1);
                 }
@@ -192,7 +204,7 @@ class AddGtmAddressPoolRequest extends Model
         if (isset($map['IspCityNode'])) {
             if (!empty($map['IspCityNode'])) {
                 $model->ispCityNode = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['IspCityNode'] as $item1) {
                     $model->ispCityNode[$n1++] = ispCityNode::fromMap($item1);
                 }

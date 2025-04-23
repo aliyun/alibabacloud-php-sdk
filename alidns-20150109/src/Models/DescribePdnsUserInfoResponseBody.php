@@ -13,13 +13,14 @@ class DescribePdnsUserInfoResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var userInfo
      */
     public $userInfo;
     protected $_name = [
         'requestId' => 'RequestId',
-        'userInfo'  => 'UserInfo',
+        'userInfo' => 'UserInfo',
     ];
 
     public function validate()

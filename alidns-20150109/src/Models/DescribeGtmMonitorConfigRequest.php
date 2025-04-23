@@ -12,12 +12,13 @@ class DescribeGtmMonitorConfigRequest extends Model
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $monitorConfigId;
     protected $_name = [
-        'lang'            => 'Lang',
+        'lang' => 'Lang',
         'monitorConfigId' => 'MonitorConfigId',
     ];
 

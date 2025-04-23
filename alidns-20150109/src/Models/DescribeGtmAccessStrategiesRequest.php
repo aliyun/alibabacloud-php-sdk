@@ -12,23 +12,26 @@ class DescribeGtmAccessStrategiesRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

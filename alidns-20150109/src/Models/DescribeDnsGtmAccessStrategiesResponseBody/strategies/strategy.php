@@ -14,48 +14,56 @@ class strategy extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $effectiveAddrPoolGroupType;
+
     /**
      * @var string
      */
     public $effectiveAddrPoolType;
+
     /**
      * @var effectiveAddrPools
      */
     public $effectiveAddrPools;
+
     /**
      * @var string
      */
     public $effectiveLbaStrategy;
+
     /**
      * @var lines
      */
     public $lines;
+
     /**
      * @var string
      */
     public $strategyId;
+
     /**
      * @var string
      */
     public $strategyName;
     protected $_name = [
-        'createTime'                 => 'CreateTime',
-        'createTimestamp'            => 'CreateTimestamp',
+        'createTime' => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
         'effectiveAddrPoolGroupType' => 'EffectiveAddrPoolGroupType',
-        'effectiveAddrPoolType'      => 'EffectiveAddrPoolType',
-        'effectiveAddrPools'         => 'EffectiveAddrPools',
-        'effectiveLbaStrategy'       => 'EffectiveLbaStrategy',
-        'lines'                      => 'Lines',
-        'strategyId'                 => 'StrategyId',
-        'strategyName'               => 'StrategyName',
+        'effectiveAddrPoolType' => 'EffectiveAddrPoolType',
+        'effectiveAddrPools' => 'EffectiveAddrPools',
+        'effectiveLbaStrategy' => 'EffectiveLbaStrategy',
+        'lines' => 'Lines',
+        'strategyId' => 'StrategyId',
+        'strategyName' => 'StrategyName',
     ];
 
     public function validate()

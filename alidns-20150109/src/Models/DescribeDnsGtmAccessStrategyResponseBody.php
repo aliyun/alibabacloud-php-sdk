@@ -15,133 +15,158 @@ class DescribeDnsGtmAccessStrategyResponseBody extends Model
      * @var string
      */
     public $accessMode;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $defaultAddrPoolGroupStatus;
+
     /**
      * @var string
      */
     public $defaultAddrPoolType;
+
     /**
      * @var defaultAddrPools
      */
     public $defaultAddrPools;
+
     /**
      * @var int
      */
     public $defaultAvailableAddrNum;
+
     /**
      * @var string
      */
     public $defaultLatencyOptimization;
+
     /**
      * @var string
      */
     public $defaultLbaStrategy;
+
     /**
      * @var int
      */
     public $defaultMaxReturnAddrNum;
+
     /**
      * @var int
      */
     public $defaultMinAvailableAddrNum;
+
     /**
      * @var string
      */
     public $effectiveAddrPoolGroupType;
+
     /**
      * @var string
      */
     public $failoverAddrPoolGroupStatus;
+
     /**
      * @var string
      */
     public $failoverAddrPoolType;
+
     /**
      * @var failoverAddrPools
      */
     public $failoverAddrPools;
+
     /**
      * @var int
      */
     public $failoverAvailableAddrNum;
+
     /**
      * @var string
      */
     public $failoverLatencyOptimization;
+
     /**
      * @var string
      */
     public $failoverLbaStrategy;
+
     /**
      * @var int
      */
     public $failoverMaxReturnAddrNum;
+
     /**
      * @var int
      */
     public $failoverMinAvailableAddrNum;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var lines
      */
     public $lines;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $strategyId;
+
     /**
      * @var string
      */
     public $strategyMode;
+
     /**
      * @var string
      */
     public $strategyName;
     protected $_name = [
-        'accessMode'                  => 'AccessMode',
-        'createTime'                  => 'CreateTime',
-        'createTimestamp'             => 'CreateTimestamp',
-        'defaultAddrPoolGroupStatus'  => 'DefaultAddrPoolGroupStatus',
-        'defaultAddrPoolType'         => 'DefaultAddrPoolType',
-        'defaultAddrPools'            => 'DefaultAddrPools',
-        'defaultAvailableAddrNum'     => 'DefaultAvailableAddrNum',
-        'defaultLatencyOptimization'  => 'DefaultLatencyOptimization',
-        'defaultLbaStrategy'          => 'DefaultLbaStrategy',
-        'defaultMaxReturnAddrNum'     => 'DefaultMaxReturnAddrNum',
-        'defaultMinAvailableAddrNum'  => 'DefaultMinAvailableAddrNum',
-        'effectiveAddrPoolGroupType'  => 'EffectiveAddrPoolGroupType',
+        'accessMode' => 'AccessMode',
+        'createTime' => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
+        'defaultAddrPoolGroupStatus' => 'DefaultAddrPoolGroupStatus',
+        'defaultAddrPoolType' => 'DefaultAddrPoolType',
+        'defaultAddrPools' => 'DefaultAddrPools',
+        'defaultAvailableAddrNum' => 'DefaultAvailableAddrNum',
+        'defaultLatencyOptimization' => 'DefaultLatencyOptimization',
+        'defaultLbaStrategy' => 'DefaultLbaStrategy',
+        'defaultMaxReturnAddrNum' => 'DefaultMaxReturnAddrNum',
+        'defaultMinAvailableAddrNum' => 'DefaultMinAvailableAddrNum',
+        'effectiveAddrPoolGroupType' => 'EffectiveAddrPoolGroupType',
         'failoverAddrPoolGroupStatus' => 'FailoverAddrPoolGroupStatus',
-        'failoverAddrPoolType'        => 'FailoverAddrPoolType',
-        'failoverAddrPools'           => 'FailoverAddrPools',
-        'failoverAvailableAddrNum'    => 'FailoverAvailableAddrNum',
+        'failoverAddrPoolType' => 'FailoverAddrPoolType',
+        'failoverAddrPools' => 'FailoverAddrPools',
+        'failoverAvailableAddrNum' => 'FailoverAvailableAddrNum',
         'failoverLatencyOptimization' => 'FailoverLatencyOptimization',
-        'failoverLbaStrategy'         => 'FailoverLbaStrategy',
-        'failoverMaxReturnAddrNum'    => 'FailoverMaxReturnAddrNum',
+        'failoverLbaStrategy' => 'FailoverLbaStrategy',
+        'failoverMaxReturnAddrNum' => 'FailoverMaxReturnAddrNum',
         'failoverMinAvailableAddrNum' => 'FailoverMinAvailableAddrNum',
-        'instanceId'                  => 'InstanceId',
-        'lines'                       => 'Lines',
-        'requestId'                   => 'RequestId',
-        'strategyId'                  => 'StrategyId',
-        'strategyMode'                => 'StrategyMode',
-        'strategyName'                => 'StrategyName',
+        'instanceId' => 'InstanceId',
+        'lines' => 'Lines',
+        'requestId' => 'RequestId',
+        'strategyId' => 'StrategyId',
+        'strategyMode' => 'StrategyMode',
+        'strategyName' => 'StrategyName',
     ];
 
     public function validate()

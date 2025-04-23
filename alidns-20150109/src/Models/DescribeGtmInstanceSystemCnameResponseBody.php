@@ -12,12 +12,13 @@ class DescribeGtmInstanceSystemCnameResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $systemCname;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'systemCname' => 'SystemCname',
     ];
 

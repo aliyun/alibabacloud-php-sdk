@@ -12,28 +12,32 @@ class systemLine extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var bool
      */
     public $isAvailable;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $parentCode;
     protected $_name = [
-        'code'        => 'Code',
+        'code' => 'Code',
         'displayName' => 'DisplayName',
         'isAvailable' => 'IsAvailable',
-        'name'        => 'Name',
-        'parentCode'  => 'ParentCode',
+        'name' => 'Name',
+        'parentCode' => 'ParentCode',
     ];
 
     public function validate()

@@ -12,17 +12,19 @@ class DescribeDnsProductInstanceRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'lang'         => 'Lang',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
         'userClientIp' => 'UserClientIp',
     ];
 

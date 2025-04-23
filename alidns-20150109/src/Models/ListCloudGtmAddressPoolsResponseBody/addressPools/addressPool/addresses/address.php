@@ -14,108 +14,128 @@ class address extends Model
      * @var string
      */
     public $address;
+
     /**
      * @var string
      */
     public $addressId;
+
     /**
      * @var string
      */
     public $attributeInfo;
+
     /**
      * @var string
      */
     public $availableMode;
+
     /**
      * @var string
      */
     public $availableStatus;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $enableStatus;
+
     /**
      * @var string
      */
     public $healthJudgement;
+
     /**
      * @var string
      */
     public $healthStatus;
+
     /**
      * @var healthTasks
      */
     public $healthTasks;
+
     /**
      * @var string
      */
     public $manualAvailableStatus;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var requestSource
      */
     public $requestSource;
+
     /**
      * @var bool
      */
     public $seqNonPreemptiveSchedule;
+
     /**
      * @var int
      */
     public $serialNumber;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $updateTimestamp;
+
     /**
      * @var int
      */
     public $weightValue;
     protected $_name = [
-        'address'                  => 'Address',
-        'addressId'                => 'AddressId',
-        'attributeInfo'            => 'AttributeInfo',
-        'availableMode'            => 'AvailableMode',
-        'availableStatus'          => 'AvailableStatus',
-        'createTime'               => 'CreateTime',
-        'createTimestamp'          => 'CreateTimestamp',
-        'enableStatus'             => 'EnableStatus',
-        'healthJudgement'          => 'HealthJudgement',
-        'healthStatus'             => 'HealthStatus',
-        'healthTasks'              => 'HealthTasks',
-        'manualAvailableStatus'    => 'ManualAvailableStatus',
-        'name'                     => 'Name',
-        'remark'                   => 'Remark',
-        'requestSource'            => 'RequestSource',
+        'address' => 'Address',
+        'addressId' => 'AddressId',
+        'attributeInfo' => 'AttributeInfo',
+        'availableMode' => 'AvailableMode',
+        'availableStatus' => 'AvailableStatus',
+        'createTime' => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
+        'enableStatus' => 'EnableStatus',
+        'healthJudgement' => 'HealthJudgement',
+        'healthStatus' => 'HealthStatus',
+        'healthTasks' => 'HealthTasks',
+        'manualAvailableStatus' => 'ManualAvailableStatus',
+        'name' => 'Name',
+        'remark' => 'Remark',
+        'requestSource' => 'RequestSource',
         'seqNonPreemptiveSchedule' => 'SeqNonPreemptiveSchedule',
-        'serialNumber'             => 'SerialNumber',
-        'type'                     => 'Type',
-        'updateTime'               => 'UpdateTime',
-        'updateTimestamp'          => 'UpdateTimestamp',
-        'weightValue'              => 'WeightValue',
+        'serialNumber' => 'SerialNumber',
+        'type' => 'Type',
+        'updateTime' => 'UpdateTime',
+        'updateTimestamp' => 'UpdateTimestamp',
+        'weightValue' => 'WeightValue',
     ];
 
     public function validate()

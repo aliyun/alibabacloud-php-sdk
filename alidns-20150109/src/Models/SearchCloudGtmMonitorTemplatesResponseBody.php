@@ -13,31 +13,36 @@ class SearchCloudGtmMonitorTemplatesResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var templates
      */
     public $templates;
+
     /**
      * @var int
      */
     public $totalItems;
+
     /**
      * @var int
      */
     public $totalPages;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'templates'  => 'Templates',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'templates' => 'Templates',
         'totalItems' => 'TotalItems',
         'totalPages' => 'TotalPages',
     ];

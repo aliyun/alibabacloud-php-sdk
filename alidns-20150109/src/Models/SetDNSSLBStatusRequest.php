@@ -12,37 +12,43 @@ class SetDNSSLBStatusRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $line;
+
     /**
      * @var bool
      */
     public $open;
+
     /**
      * @var string
      */
     public $subDomain;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'domainName'   => 'DomainName',
-        'lang'         => 'Lang',
-        'line'         => 'Line',
-        'open'         => 'Open',
-        'subDomain'    => 'SubDomain',
-        'type'         => 'Type',
+        'domainName' => 'DomainName',
+        'lang' => 'Lang',
+        'line' => 'Line',
+        'open' => 'Open',
+        'subDomain' => 'SubDomain',
+        'type' => 'Type',
         'userClientIp' => 'UserClientIp',
     ];
 

@@ -12,22 +12,25 @@ class DescribeDohUserInfoResponseBody extends Model
      * @var int
      */
     public $domainCount;
+
     /**
      * @var int
      */
     public $pdnsId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $subDomainCount;
     protected $_name = [
-        'domainCount'    => 'DomainCount',
-        'pdnsId'         => 'PdnsId',
-        'requestId'      => 'RequestId',
+        'domainCount' => 'DomainCount',
+        'pdnsId' => 'PdnsId',
+        'requestId' => 'RequestId',
         'subDomainCount' => 'SubDomainCount',
     ];
 

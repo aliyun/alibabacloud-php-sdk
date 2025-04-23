@@ -12,23 +12,26 @@ class SubmitIspFlushCacheTaskRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string[]
      */
     public $isp;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'domainName'  => 'DomainName',
-        'isp'         => 'Isp',
-        'lang'        => 'Lang',
+        'domainName' => 'DomainName',
+        'isp' => 'Isp',
+        'lang' => 'Lang',
     ];
 
     public function validate()
@@ -53,7 +56,7 @@ class SubmitIspFlushCacheTaskRequest extends Model
         if (null !== $this->isp) {
             if (\is_array($this->isp)) {
                 $res['Isp'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->isp as $item1) {
                     $res['Isp'][$n1++] = $item1;
                 }
@@ -86,7 +89,7 @@ class SubmitIspFlushCacheTaskRequest extends Model
         if (isset($map['Isp'])) {
             if (!empty($map['Isp'])) {
                 $model->isp = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Isp'] as $item1) {
                     $model->isp[$n1++] = $item1;
                 }

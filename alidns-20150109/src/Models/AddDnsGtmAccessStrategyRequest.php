@@ -14,88 +14,104 @@ class AddDnsGtmAccessStrategyRequest extends Model
      * @var defaultAddrPool[]
      */
     public $defaultAddrPool;
+
     /**
      * @var string
      */
     public $defaultAddrPoolType;
+
     /**
      * @var string
      */
     public $defaultLatencyOptimization;
+
     /**
      * @var string
      */
     public $defaultLbaStrategy;
+
     /**
      * @var int
      */
     public $defaultMaxReturnAddrNum;
+
     /**
      * @var int
      */
     public $defaultMinAvailableAddrNum;
+
     /**
      * @var failoverAddrPool[]
      */
     public $failoverAddrPool;
+
     /**
      * @var string
      */
     public $failoverAddrPoolType;
+
     /**
      * @var string
      */
     public $failoverLatencyOptimization;
+
     /**
      * @var string
      */
     public $failoverLbaStrategy;
+
     /**
      * @var int
      */
     public $failoverMaxReturnAddrNum;
+
     /**
      * @var int
      */
     public $failoverMinAvailableAddrNum;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $lines;
+
     /**
      * @var string
      */
     public $strategyMode;
+
     /**
      * @var string
      */
     public $strategyName;
     protected $_name = [
-        'defaultAddrPool'             => 'DefaultAddrPool',
-        'defaultAddrPoolType'         => 'DefaultAddrPoolType',
-        'defaultLatencyOptimization'  => 'DefaultLatencyOptimization',
-        'defaultLbaStrategy'          => 'DefaultLbaStrategy',
-        'defaultMaxReturnAddrNum'     => 'DefaultMaxReturnAddrNum',
-        'defaultMinAvailableAddrNum'  => 'DefaultMinAvailableAddrNum',
-        'failoverAddrPool'            => 'FailoverAddrPool',
-        'failoverAddrPoolType'        => 'FailoverAddrPoolType',
+        'defaultAddrPool' => 'DefaultAddrPool',
+        'defaultAddrPoolType' => 'DefaultAddrPoolType',
+        'defaultLatencyOptimization' => 'DefaultLatencyOptimization',
+        'defaultLbaStrategy' => 'DefaultLbaStrategy',
+        'defaultMaxReturnAddrNum' => 'DefaultMaxReturnAddrNum',
+        'defaultMinAvailableAddrNum' => 'DefaultMinAvailableAddrNum',
+        'failoverAddrPool' => 'FailoverAddrPool',
+        'failoverAddrPoolType' => 'FailoverAddrPoolType',
         'failoverLatencyOptimization' => 'FailoverLatencyOptimization',
-        'failoverLbaStrategy'         => 'FailoverLbaStrategy',
-        'failoverMaxReturnAddrNum'    => 'FailoverMaxReturnAddrNum',
+        'failoverLbaStrategy' => 'FailoverLbaStrategy',
+        'failoverMaxReturnAddrNum' => 'FailoverMaxReturnAddrNum',
         'failoverMinAvailableAddrNum' => 'FailoverMinAvailableAddrNum',
-        'instanceId'                  => 'InstanceId',
-        'lang'                        => 'Lang',
-        'lines'                       => 'Lines',
-        'strategyMode'                => 'StrategyMode',
-        'strategyName'                => 'StrategyName',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
+        'lines' => 'Lines',
+        'strategyMode' => 'StrategyMode',
+        'strategyName' => 'StrategyName',
     ];
 
     public function validate()
@@ -115,7 +131,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
         if (null !== $this->defaultAddrPool) {
             if (\is_array($this->defaultAddrPool)) {
                 $res['DefaultAddrPool'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->defaultAddrPool as $item1) {
                     $res['DefaultAddrPool'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -145,7 +161,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
         if (null !== $this->failoverAddrPool) {
             if (\is_array($this->failoverAddrPool)) {
                 $res['FailoverAddrPool'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->failoverAddrPool as $item1) {
                     $res['FailoverAddrPool'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -206,7 +222,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
         if (isset($map['DefaultAddrPool'])) {
             if (!empty($map['DefaultAddrPool'])) {
                 $model->defaultAddrPool = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['DefaultAddrPool'] as $item1) {
                     $model->defaultAddrPool[$n1++] = defaultAddrPool::fromMap($item1);
                 }
@@ -236,7 +252,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
         if (isset($map['FailoverAddrPool'])) {
             if (!empty($map['FailoverAddrPool'])) {
                 $model->failoverAddrPool = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['FailoverAddrPool'] as $item1) {
                     $model->failoverAddrPool[$n1++] = failoverAddrPool::fromMap($item1);
                 }

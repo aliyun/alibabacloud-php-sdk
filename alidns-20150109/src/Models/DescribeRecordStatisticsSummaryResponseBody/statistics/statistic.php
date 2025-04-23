@@ -12,12 +12,13 @@ class statistic extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $subDomain;
     protected $_name = [
-        'count'     => 'Count',
+        'count' => 'Count',
         'subDomain' => 'SubDomain',
     ];
 

@@ -12,38 +12,44 @@ class UpdateCloudGtmInstanceConfigAlertShrinkRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $alertConfigShrink;
+
     /**
      * @var string
      */
     public $alertGroupShrink;
+
     /**
      * @var string
      */
     public $alertMode;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $configId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'acceptLanguage'    => 'AcceptLanguage',
+        'acceptLanguage' => 'AcceptLanguage',
         'alertConfigShrink' => 'AlertConfig',
-        'alertGroupShrink'  => 'AlertGroup',
-        'alertMode'         => 'AlertMode',
-        'clientToken'       => 'ClientToken',
-        'configId'          => 'ConfigId',
-        'instanceId'        => 'InstanceId',
+        'alertGroupShrink' => 'AlertGroup',
+        'alertMode' => 'AlertMode',
+        'clientToken' => 'ClientToken',
+        'configId' => 'ConfigId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

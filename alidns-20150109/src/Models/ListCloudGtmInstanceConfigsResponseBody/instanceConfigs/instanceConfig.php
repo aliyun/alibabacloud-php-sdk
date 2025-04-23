@@ -13,108 +13,128 @@ class instanceConfig extends Model
      * @var string
      */
     public $addressPoolLbStrategy;
+
     /**
      * @var addressPools
      */
     public $addressPools;
+
     /**
      * @var string
      */
     public $availableStatus;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $configId;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $enableStatus;
+
     /**
      * @var string
      */
     public $healthStatus;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $scheduleDomainName;
+
     /**
      * @var string
      */
     public $scheduleHostname;
+
     /**
      * @var string
      */
     public $scheduleRrType;
+
     /**
      * @var string
      */
     public $scheduleZoneMode;
+
     /**
      * @var string
      */
     public $scheduleZoneName;
+
     /**
      * @var string
      */
     public $sequenceLbStrategyMode;
+
     /**
      * @var int
      */
     public $ttl;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $updateTimestamp;
+
     /**
      * @var string
      */
     public $versionCode;
     protected $_name = [
-        'addressPoolLbStrategy'  => 'AddressPoolLbStrategy',
-        'addressPools'           => 'AddressPools',
-        'availableStatus'        => 'AvailableStatus',
-        'commodityCode'          => 'CommodityCode',
-        'configId'               => 'ConfigId',
-        'createTime'             => 'CreateTime',
-        'createTimestamp'        => 'CreateTimestamp',
-        'enableStatus'           => 'EnableStatus',
-        'healthStatus'           => 'HealthStatus',
-        'instanceId'             => 'InstanceId',
-        'remark'                 => 'Remark',
-        'scheduleDomainName'     => 'ScheduleDomainName',
-        'scheduleHostname'       => 'ScheduleHostname',
-        'scheduleRrType'         => 'ScheduleRrType',
-        'scheduleZoneMode'       => 'ScheduleZoneMode',
-        'scheduleZoneName'       => 'ScheduleZoneName',
+        'addressPoolLbStrategy' => 'AddressPoolLbStrategy',
+        'addressPools' => 'AddressPools',
+        'availableStatus' => 'AvailableStatus',
+        'commodityCode' => 'CommodityCode',
+        'configId' => 'ConfigId',
+        'createTime' => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
+        'enableStatus' => 'EnableStatus',
+        'healthStatus' => 'HealthStatus',
+        'instanceId' => 'InstanceId',
+        'remark' => 'Remark',
+        'scheduleDomainName' => 'ScheduleDomainName',
+        'scheduleHostname' => 'ScheduleHostname',
+        'scheduleRrType' => 'ScheduleRrType',
+        'scheduleZoneMode' => 'ScheduleZoneMode',
+        'scheduleZoneName' => 'ScheduleZoneName',
         'sequenceLbStrategyMode' => 'SequenceLbStrategyMode',
-        'ttl'                    => 'Ttl',
-        'updateTime'             => 'UpdateTime',
-        'updateTimestamp'        => 'UpdateTimestamp',
-        'versionCode'            => 'VersionCode',
+        'ttl' => 'Ttl',
+        'updateTime' => 'UpdateTime',
+        'updateTimestamp' => 'UpdateTimestamp',
+        'versionCode' => 'VersionCode',
     ];
 
     public function validate()

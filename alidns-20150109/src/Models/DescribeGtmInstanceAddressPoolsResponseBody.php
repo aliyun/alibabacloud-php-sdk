@@ -13,31 +13,36 @@ class DescribeGtmInstanceAddressPoolsResponseBody extends Model
      * @var addrPools
      */
     public $addrPools;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalItems;
+
     /**
      * @var int
      */
     public $totalPages;
     protected $_name = [
-        'addrPools'  => 'AddrPools',
+        'addrPools' => 'AddrPools',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalItems' => 'TotalItems',
         'totalPages' => 'TotalPages',
     ];

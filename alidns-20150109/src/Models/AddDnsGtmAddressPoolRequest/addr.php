@@ -12,28 +12,32 @@ class addr extends Model
      * @var string
      */
     public $addr;
+
     /**
      * @var string
      */
     public $attributeInfo;
+
     /**
      * @var int
      */
     public $lbaWeight;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
-        'addr'          => 'Addr',
+        'addr' => 'Addr',
         'attributeInfo' => 'AttributeInfo',
-        'lbaWeight'     => 'LbaWeight',
-        'mode'          => 'Mode',
-        'remark'        => 'Remark',
+        'lbaWeight' => 'LbaWeight',
+        'mode' => 'Mode',
+        'remark' => 'Remark',
     ];
 
     public function validate()

@@ -12,17 +12,19 @@ class DescribeDomainRecordInfoRequest extends Model
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $recordId;
+
     /**
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'lang'         => 'Lang',
-        'recordId'     => 'RecordId',
+        'lang' => 'Lang',
+        'recordId' => 'RecordId',
         'userClientIp' => 'UserClientIp',
     ];
 

@@ -30,7 +30,7 @@ class expectDnsServers extends Model
         if (null !== $this->expectDnsServer) {
             if (\is_array($this->expectDnsServer)) {
                 $res['ExpectDnsServer'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->expectDnsServer as $item1) {
                     $res['ExpectDnsServer'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class expectDnsServers extends Model
         if (isset($map['ExpectDnsServer'])) {
             if (!empty($map['ExpectDnsServer'])) {
                 $model->expectDnsServer = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ExpectDnsServer'] as $item1) {
                     $model->expectDnsServer[$n1++] = $item1;
                 }

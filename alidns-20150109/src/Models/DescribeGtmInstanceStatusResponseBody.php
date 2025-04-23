@@ -12,37 +12,43 @@ class DescribeGtmInstanceStatusResponseBody extends Model
      * @var int
      */
     public $addrNotAvailableNum;
+
     /**
      * @var int
      */
     public $addrPoolNotAvailableNum;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
+
     /**
      * @var int
      */
     public $strategyNotAvailableNum;
+
     /**
      * @var int
      */
     public $switchToFailoverStrategyNum;
     protected $_name = [
-        'addrNotAvailableNum'         => 'AddrNotAvailableNum',
-        'addrPoolNotAvailableNum'     => 'AddrPoolNotAvailableNum',
-        'requestId'                   => 'RequestId',
-        'status'                      => 'Status',
-        'statusReason'                => 'StatusReason',
-        'strategyNotAvailableNum'     => 'StrategyNotAvailableNum',
+        'addrNotAvailableNum' => 'AddrNotAvailableNum',
+        'addrPoolNotAvailableNum' => 'AddrPoolNotAvailableNum',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'statusReason' => 'StatusReason',
+        'strategyNotAvailableNum' => 'StrategyNotAvailableNum',
         'switchToFailoverStrategyNum' => 'SwitchToFailoverStrategyNum',
     ];
 

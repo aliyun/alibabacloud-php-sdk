@@ -12,46 +12,54 @@ class DescribeInternetDnsLogsRequest extends Model
      * @var int
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var int
      */
     public $endTimestamp;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $module;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $queryCondition;
+
     /**
      * @var int
      */
     public $startTimestamp;
     protected $_name = [
-        'accountId'      => 'AccountId',
-        'domainName'     => 'DomainName',
-        'endTimestamp'   => 'EndTimestamp',
-        'lang'           => 'Lang',
-        'module'         => 'Module',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'accountId' => 'AccountId',
+        'domainName' => 'DomainName',
+        'endTimestamp' => 'EndTimestamp',
+        'lang' => 'Lang',
+        'module' => 'Module',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'queryCondition' => 'QueryCondition',
         'startTimestamp' => 'StartTimestamp',
     ];

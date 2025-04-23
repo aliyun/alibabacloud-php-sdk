@@ -31,7 +31,7 @@ class switchInfos extends Model
         if (null !== $this->switchInfo) {
             if (\is_array($this->switchInfo)) {
                 $res['SwitchInfo'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->switchInfo as $item1) {
                     $res['SwitchInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class switchInfos extends Model
         if (isset($map['SwitchInfo'])) {
             if (!empty($map['SwitchInfo'])) {
                 $model->switchInfo = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['SwitchInfo'] as $item1) {
                     $model->switchInfo[$n1++] = switchInfo::fromMap($item1);
                 }

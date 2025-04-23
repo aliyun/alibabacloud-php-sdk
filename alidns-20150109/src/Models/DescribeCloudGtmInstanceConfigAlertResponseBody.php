@@ -14,33 +14,38 @@ class DescribeCloudGtmInstanceConfigAlertResponseBody extends Model
      * @var alertConfig
      */
     public $alertConfig;
+
     /**
      * @var alertGroup
      */
     public $alertGroup;
+
     /**
      * @var string
      */
     public $alertMode;
+
     /**
      * @var string
      */
     public $configId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'alertConfig' => 'AlertConfig',
-        'alertGroup'  => 'AlertGroup',
-        'alertMode'   => 'AlertMode',
-        'configId'    => 'ConfigId',
-        'instanceId'  => 'InstanceId',
-        'requestId'   => 'RequestId',
+        'alertGroup' => 'AlertGroup',
+        'alertMode' => 'AlertMode',
+        'configId' => 'ConfigId',
+        'instanceId' => 'InstanceId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

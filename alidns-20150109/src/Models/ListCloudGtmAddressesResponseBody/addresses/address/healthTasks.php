@@ -31,7 +31,7 @@ class healthTasks extends Model
         if (null !== $this->healthTask) {
             if (\is_array($this->healthTask)) {
                 $res['HealthTask'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->healthTask as $item1) {
                     $res['HealthTask'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class healthTasks extends Model
         if (isset($map['HealthTask'])) {
             if (!empty($map['HealthTask'])) {
                 $model->healthTask = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['HealthTask'] as $item1) {
                     $model->healthTask[$n1++] = healthTask::fromMap($item1);
                 }

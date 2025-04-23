@@ -12,18 +12,20 @@ class addr extends Model
      * @var int
      */
     public $lbaWeight;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'lbaWeight' => 'LbaWeight',
-        'mode'      => 'Mode',
-        'value'     => 'Value',
+        'mode' => 'Mode',
+        'value' => 'Value',
     ];
 
     public function validate()

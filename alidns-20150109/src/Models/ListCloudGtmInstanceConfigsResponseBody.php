@@ -13,33 +13,38 @@ class ListCloudGtmInstanceConfigsResponseBody extends Model
      * @var instanceConfigs
      */
     public $instanceConfigs;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalItems;
+
     /**
      * @var int
      */
     public $totalPages;
     protected $_name = [
         'instanceConfigs' => 'InstanceConfigs',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'requestId'       => 'RequestId',
-        'totalItems'      => 'TotalItems',
-        'totalPages'      => 'TotalPages',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalItems' => 'TotalItems',
+        'totalPages' => 'TotalPages',
     ];
 
     public function validate()

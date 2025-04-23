@@ -12,13 +12,14 @@ class AddDnsGtmMonitorResponseBody extends Model
      * @var string
      */
     public $monitorConfigId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'monitorConfigId' => 'MonitorConfigId',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,48 +12,56 @@ class DescribeDomainResolveStatisticsSummaryRequest extends Model
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $searchMode;
+
     /**
      * @var string
      */
     public $startDate;
+
     /**
      * @var int
      */
     public $threshold;
     protected $_name = [
-        'direction'  => 'Direction',
-        'endDate'    => 'EndDate',
-        'keyword'    => 'Keyword',
-        'lang'       => 'Lang',
+        'direction' => 'Direction',
+        'endDate' => 'EndDate',
+        'keyword' => 'Keyword',
+        'lang' => 'Lang',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'searchMode' => 'SearchMode',
-        'startDate'  => 'StartDate',
-        'threshold'  => 'Threshold',
+        'startDate' => 'StartDate',
+        'threshold' => 'Threshold',
     ];
 
     public function validate()

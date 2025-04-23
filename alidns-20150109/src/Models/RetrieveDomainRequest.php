@@ -12,13 +12,14 @@ class RetrieveDomainRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
         'domainName' => 'DomainName',
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
     ];
 
     public function validate()

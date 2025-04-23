@@ -13,88 +13,104 @@ class data extends Model
      * @var int
      */
     public $dohTotalCount;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var int
      */
     public $httpCount;
+
     /**
      * @var int
      */
     public $httpsCount;
+
     /**
      * @var int
      */
     public $ipCount;
+
     /**
      * @var string
      */
     public $maxThreatLevel;
+
     /**
      * @var string
      */
     public $subDomain;
+
     /**
      * @var int
      */
     public $threatCount;
+
     /**
      * @var threatInfo[]
      */
     public $threatInfo;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var int
      */
     public $udpTotalCount;
+
     /**
      * @var int
      */
     public $v4Count;
+
     /**
      * @var int
      */
     public $v4HttpCount;
+
     /**
      * @var int
      */
     public $v4HttpsCount;
+
     /**
      * @var int
      */
     public $v6Count;
+
     /**
      * @var int
      */
     public $v6HttpCount;
+
     /**
      * @var int
      */
     public $v6HttpsCount;
     protected $_name = [
-        'dohTotalCount'  => 'DohTotalCount',
-        'domainName'     => 'DomainName',
-        'httpCount'      => 'HttpCount',
-        'httpsCount'     => 'HttpsCount',
-        'ipCount'        => 'IpCount',
+        'dohTotalCount' => 'DohTotalCount',
+        'domainName' => 'DomainName',
+        'httpCount' => 'HttpCount',
+        'httpsCount' => 'HttpsCount',
+        'ipCount' => 'IpCount',
         'maxThreatLevel' => 'MaxThreatLevel',
-        'subDomain'      => 'SubDomain',
-        'threatCount'    => 'ThreatCount',
-        'threatInfo'     => 'ThreatInfo',
-        'totalCount'     => 'TotalCount',
-        'udpTotalCount'  => 'UdpTotalCount',
-        'v4Count'        => 'V4Count',
-        'v4HttpCount'    => 'V4HttpCount',
-        'v4HttpsCount'   => 'V4HttpsCount',
-        'v6Count'        => 'V6Count',
-        'v6HttpCount'    => 'V6HttpCount',
-        'v6HttpsCount'   => 'V6HttpsCount',
+        'subDomain' => 'SubDomain',
+        'threatCount' => 'ThreatCount',
+        'threatInfo' => 'ThreatInfo',
+        'totalCount' => 'TotalCount',
+        'udpTotalCount' => 'UdpTotalCount',
+        'v4Count' => 'V4Count',
+        'v4HttpCount' => 'V4HttpCount',
+        'v4HttpsCount' => 'V4HttpsCount',
+        'v6Count' => 'V6Count',
+        'v6HttpCount' => 'V6HttpCount',
+        'v6HttpsCount' => 'V6HttpsCount',
     ];
 
     public function validate()
@@ -143,7 +159,7 @@ class data extends Model
         if (null !== $this->threatInfo) {
             if (\is_array($this->threatInfo)) {
                 $res['ThreatInfo'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->threatInfo as $item1) {
                     $res['ThreatInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -228,7 +244,7 @@ class data extends Model
         if (isset($map['ThreatInfo'])) {
             if (!empty($map['ThreatInfo'])) {
                 $model->threatInfo = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ThreatInfo'] as $item1) {
                     $model->threatInfo[$n1++] = threatInfo::fromMap($item1);
                 }

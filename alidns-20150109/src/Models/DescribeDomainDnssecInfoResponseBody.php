@@ -12,53 +12,62 @@ class DescribeDomainDnssecInfoResponseBody extends Model
      * @var string
      */
     public $algorithm;
+
     /**
      * @var string
      */
     public $digest;
+
     /**
      * @var string
      */
     public $digestType;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $dsRecord;
+
     /**
      * @var string
      */
     public $flags;
+
     /**
      * @var string
      */
     public $keyTag;
+
     /**
      * @var string
      */
     public $publicKey;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'algorithm'  => 'Algorithm',
-        'digest'     => 'Digest',
+        'algorithm' => 'Algorithm',
+        'digest' => 'Digest',
         'digestType' => 'DigestType',
         'domainName' => 'DomainName',
-        'dsRecord'   => 'DsRecord',
-        'flags'      => 'Flags',
-        'keyTag'     => 'KeyTag',
-        'publicKey'  => 'PublicKey',
-        'requestId'  => 'RequestId',
-        'status'     => 'Status',
+        'dsRecord' => 'DsRecord',
+        'flags' => 'Flags',
+        'keyTag' => 'KeyTag',
+        'publicKey' => 'PublicKey',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
     public function validate()

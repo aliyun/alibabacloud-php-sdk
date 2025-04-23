@@ -12,23 +12,26 @@ class DescribeDnsCacheDomainsRequest extends Model
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'keyword'    => 'Keyword',
-        'lang'       => 'Lang',
+        'keyword' => 'Keyword',
+        'lang' => 'Lang',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class ListCloudGtmAddressPoolsRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $addressPoolName;
+
     /**
      * @var string
      */
     public $addressPoolType;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $enableStatus;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
-        'acceptLanguage'  => 'AcceptLanguage',
+        'acceptLanguage' => 'AcceptLanguage',
         'addressPoolName' => 'AddressPoolName',
         'addressPoolType' => 'AddressPoolType',
-        'clientToken'     => 'ClientToken',
-        'enableStatus'    => 'EnableStatus',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'remark'          => 'Remark',
+        'clientToken' => 'ClientToken',
+        'enableStatus' => 'EnableStatus',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
     ];
 
     public function validate()

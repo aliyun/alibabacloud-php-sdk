@@ -12,14 +12,17 @@ class line extends Model
      * @var string
      */
     public $groupCode;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $lineCode;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class line extends Model
     protected $_name = [
         'groupCode' => 'GroupCode',
         'groupName' => 'GroupName',
-        'lineCode'  => 'LineCode',
-        'lineName'  => 'LineName',
+        'lineCode' => 'LineCode',
+        'lineName' => 'LineName',
     ];
 
     public function validate()

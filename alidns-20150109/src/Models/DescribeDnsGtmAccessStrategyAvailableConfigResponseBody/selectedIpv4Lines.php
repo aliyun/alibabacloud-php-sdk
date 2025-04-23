@@ -30,7 +30,7 @@ class selectedIpv4Lines extends Model
         if (null !== $this->selectedIpv4Line) {
             if (\is_array($this->selectedIpv4Line)) {
                 $res['SelectedIpv4Line'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->selectedIpv4Line as $item1) {
                     $res['SelectedIpv4Line'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class selectedIpv4Lines extends Model
         if (isset($map['SelectedIpv4Line'])) {
             if (!empty($map['SelectedIpv4Line'])) {
                 $model->selectedIpv4Line = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['SelectedIpv4Line'] as $item1) {
                     $model->selectedIpv4Line[$n1++] = $item1;
                 }

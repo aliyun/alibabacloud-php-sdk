@@ -12,17 +12,19 @@ class DescribeGtmInstanceRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var bool
      */
     public $needDetailAttributes;
     protected $_name = [
-        'instanceId'           => 'InstanceId',
-        'lang'                 => 'Lang',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
         'needDetailAttributes' => 'NeedDetailAttributes',
     ];
 

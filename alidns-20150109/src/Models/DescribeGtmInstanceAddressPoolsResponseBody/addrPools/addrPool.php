@@ -12,63 +12,74 @@ class addrPool extends Model
      * @var int
      */
     public $addrCount;
+
     /**
      * @var string
      */
     public $addrPoolId;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var int
      */
     public $minAvailableAddrNum;
+
     /**
      * @var string
      */
     public $monitorConfigId;
+
     /**
      * @var string
      */
     public $monitorStatus;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $updateTimestamp;
     protected $_name = [
-        'addrCount'           => 'AddrCount',
-        'addrPoolId'          => 'AddrPoolId',
-        'createTime'          => 'CreateTime',
-        'createTimestamp'     => 'CreateTimestamp',
+        'addrCount' => 'AddrCount',
+        'addrPoolId' => 'AddrPoolId',
+        'createTime' => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
         'minAvailableAddrNum' => 'MinAvailableAddrNum',
-        'monitorConfigId'     => 'MonitorConfigId',
-        'monitorStatus'       => 'MonitorStatus',
-        'name'                => 'Name',
-        'status'              => 'Status',
-        'type'                => 'Type',
-        'updateTime'          => 'UpdateTime',
-        'updateTimestamp'     => 'UpdateTimestamp',
+        'monitorConfigId' => 'MonitorConfigId',
+        'monitorStatus' => 'MonitorStatus',
+        'name' => 'Name',
+        'status' => 'Status',
+        'type' => 'Type',
+        'updateTime' => 'UpdateTime',
+        'updateTimestamp' => 'UpdateTimestamp',
     ];
 
     public function validate()

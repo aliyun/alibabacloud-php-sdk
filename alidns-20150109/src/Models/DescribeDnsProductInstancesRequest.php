@@ -12,43 +12,50 @@ class DescribeDnsProductInstancesRequest extends Model
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $domainType;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $userClientIp;
+
     /**
      * @var string
      */
     public $versionCode;
     protected $_name = [
-        'direction'    => 'Direction',
-        'domainType'   => 'DomainType',
-        'lang'         => 'Lang',
-        'orderBy'      => 'OrderBy',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'direction' => 'Direction',
+        'domainType' => 'DomainType',
+        'lang' => 'Lang',
+        'orderBy' => 'OrderBy',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'userClientIp' => 'UserClientIp',
-        'versionCode'  => 'VersionCode',
+        'versionCode' => 'VersionCode',
     ];
 
     public function validate()

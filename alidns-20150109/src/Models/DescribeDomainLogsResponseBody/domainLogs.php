@@ -31,7 +31,7 @@ class domainLogs extends Model
         if (null !== $this->domainLog) {
             if (\is_array($this->domainLog)) {
                 $res['DomainLog'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->domainLog as $item1) {
                     $res['DomainLog'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class domainLogs extends Model
         if (isset($map['DomainLog'])) {
             if (!empty($map['DomainLog'])) {
                 $model->domainLog = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['DomainLog'] as $item1) {
                     $model->domainLog[$n1++] = domainLog::fromMap($item1);
                 }

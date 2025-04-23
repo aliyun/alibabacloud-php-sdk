@@ -19,47 +19,55 @@ class DescribeDnsGtmAccessStrategyAvailableConfigResponseBody extends Model
      * @var domainAddrPools
      */
     public $domainAddrPools;
+
     /**
      * @var ipv4AddrPools
      */
     public $ipv4AddrPools;
+
     /**
      * @var ipv6AddrPools
      */
     public $ipv6AddrPools;
+
     /**
      * @var lines
      */
     public $lines;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var selectedDomainLines
      */
     public $selectedDomainLines;
+
     /**
      * @var selectedIpv4Lines
      */
     public $selectedIpv4Lines;
+
     /**
      * @var selectedIpv6Lines
      */
     public $selectedIpv6Lines;
+
     /**
      * @var bool
      */
     public $suggestSetDefaultLine;
     protected $_name = [
-        'domainAddrPools'       => 'DomainAddrPools',
-        'ipv4AddrPools'         => 'Ipv4AddrPools',
-        'ipv6AddrPools'         => 'Ipv6AddrPools',
-        'lines'                 => 'Lines',
-        'requestId'             => 'RequestId',
-        'selectedDomainLines'   => 'SelectedDomainLines',
-        'selectedIpv4Lines'     => 'SelectedIpv4Lines',
-        'selectedIpv6Lines'     => 'SelectedIpv6Lines',
+        'domainAddrPools' => 'DomainAddrPools',
+        'ipv4AddrPools' => 'Ipv4AddrPools',
+        'ipv6AddrPools' => 'Ipv6AddrPools',
+        'lines' => 'Lines',
+        'requestId' => 'RequestId',
+        'selectedDomainLines' => 'SelectedDomainLines',
+        'selectedIpv4Lines' => 'SelectedIpv4Lines',
+        'selectedIpv6Lines' => 'SelectedIpv6Lines',
         'suggestSetDefaultLine' => 'SuggestSetDefaultLine',
     ];
 

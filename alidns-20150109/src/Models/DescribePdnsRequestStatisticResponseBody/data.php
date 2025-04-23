@@ -12,68 +12,80 @@ class data extends Model
      * @var int
      */
     public $dohTotalCount;
+
     /**
      * @var int
      */
     public $httpCount;
+
     /**
      * @var int
      */
     public $httpsCount;
+
     /**
      * @var int
      */
     public $ipCount;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var int
      */
     public $udpTotalCount;
+
     /**
      * @var int
      */
     public $v4Count;
+
     /**
      * @var int
      */
     public $v4HttpCount;
+
     /**
      * @var int
      */
     public $v4HttpsCount;
+
     /**
      * @var int
      */
     public $v6Count;
+
     /**
      * @var int
      */
     public $v6HttpCount;
+
     /**
      * @var int
      */
     public $v6HttpsCount;
     protected $_name = [
         'dohTotalCount' => 'DohTotalCount',
-        'httpCount'     => 'HttpCount',
-        'httpsCount'    => 'HttpsCount',
-        'ipCount'       => 'IpCount',
-        'timestamp'     => 'Timestamp',
-        'totalCount'    => 'TotalCount',
+        'httpCount' => 'HttpCount',
+        'httpsCount' => 'HttpsCount',
+        'ipCount' => 'IpCount',
+        'timestamp' => 'Timestamp',
+        'totalCount' => 'TotalCount',
         'udpTotalCount' => 'UdpTotalCount',
-        'v4Count'       => 'V4Count',
-        'v4HttpCount'   => 'V4HttpCount',
-        'v4HttpsCount'  => 'V4HttpsCount',
-        'v6Count'       => 'V6Count',
-        'v6HttpCount'   => 'V6HttpCount',
-        'v6HttpsCount'  => 'V6HttpsCount',
+        'v4Count' => 'V4Count',
+        'v4HttpCount' => 'V4HttpCount',
+        'v4HttpsCount' => 'V4HttpsCount',
+        'v6Count' => 'V6Count',
+        'v6HttpCount' => 'V6HttpCount',
+        'v6HttpsCount' => 'V6HttpsCount',
     ];
 
     public function validate()

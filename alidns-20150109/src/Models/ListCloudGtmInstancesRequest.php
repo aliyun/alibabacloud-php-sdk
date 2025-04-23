@@ -12,33 +12,38 @@ class ListCloudGtmInstancesRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'clientToken'    => 'ClientToken',
-        'instanceId'     => 'InstanceId',
-        'instanceName'   => 'InstanceName',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'clientToken' => 'ClientToken',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

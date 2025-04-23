@@ -12,6 +12,7 @@ class DeleteDomainGroupResponseBody extends Model
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */

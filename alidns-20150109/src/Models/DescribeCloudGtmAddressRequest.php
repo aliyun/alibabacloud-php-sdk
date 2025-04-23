@@ -12,18 +12,20 @@ class DescribeCloudGtmAddressRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $addressId;
+
     /**
      * @var string
      */
     public $clientToken;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'addressId'      => 'AddressId',
-        'clientToken'    => 'ClientToken',
+        'addressId' => 'AddressId',
+        'clientToken' => 'ClientToken',
     ];
 
     public function validate()

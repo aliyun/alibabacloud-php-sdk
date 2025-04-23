@@ -13,27 +13,31 @@ class DescribeRecordLogsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var recordLogs
      */
     public $recordLogs;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'recordLogs' => 'RecordLogs',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 

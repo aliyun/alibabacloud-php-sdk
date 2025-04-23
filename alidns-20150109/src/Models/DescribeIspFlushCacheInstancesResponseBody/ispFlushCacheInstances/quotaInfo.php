@@ -12,12 +12,13 @@ class quotaInfo extends Model
      * @var int
      */
     public $instanceQuota;
+
     /**
      * @var int
      */
     public $instanceQuotaUsed;
     protected $_name = [
-        'instanceQuota'     => 'InstanceQuota',
+        'instanceQuota' => 'InstanceQuota',
         'instanceQuotaUsed' => 'InstanceQuotaUsed',
     ];
 

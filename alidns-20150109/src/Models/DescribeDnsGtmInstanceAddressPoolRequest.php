@@ -12,13 +12,14 @@ class DescribeDnsGtmInstanceAddressPoolRequest extends Model
      * @var string
      */
     public $addrPoolId;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
         'addrPoolId' => 'AddrPoolId',
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
     ];
 
     public function validate()

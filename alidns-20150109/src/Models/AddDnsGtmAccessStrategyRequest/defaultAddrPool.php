@@ -12,12 +12,13 @@ class defaultAddrPool extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var int
      */
     public $lbaWeight;
     protected $_name = [
-        'id'        => 'Id',
+        'id' => 'Id',
         'lbaWeight' => 'LbaWeight',
     ];
 

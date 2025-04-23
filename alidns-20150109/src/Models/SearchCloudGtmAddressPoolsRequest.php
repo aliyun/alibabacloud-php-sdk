@@ -12,53 +12,62 @@ class SearchCloudGtmAddressPoolsRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $addressPoolName;
+
     /**
      * @var string
      */
     public $addressPoolType;
+
     /**
      * @var string
      */
     public $availableStatus;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $enableStatus;
+
     /**
      * @var string
      */
     public $healthStatus;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
-        'acceptLanguage'  => 'AcceptLanguage',
+        'acceptLanguage' => 'AcceptLanguage',
         'addressPoolName' => 'AddressPoolName',
         'addressPoolType' => 'AddressPoolType',
         'availableStatus' => 'AvailableStatus',
-        'clientToken'     => 'ClientToken',
-        'enableStatus'    => 'EnableStatus',
-        'healthStatus'    => 'HealthStatus',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'remark'          => 'Remark',
+        'clientToken' => 'ClientToken',
+        'enableStatus' => 'EnableStatus',
+        'healthStatus' => 'HealthStatus',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
     ];
 
     public function validate()

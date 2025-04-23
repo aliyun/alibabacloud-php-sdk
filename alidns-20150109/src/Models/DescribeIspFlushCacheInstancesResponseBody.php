@@ -13,33 +13,38 @@ class DescribeIspFlushCacheInstancesResponseBody extends Model
      * @var ispFlushCacheInstances[]
      */
     public $ispFlushCacheInstances;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalItems;
+
     /**
      * @var int
      */
     public $totalPages;
     protected $_name = [
         'ispFlushCacheInstances' => 'IspFlushCacheInstances',
-        'pageNumber'             => 'PageNumber',
-        'pageSize'               => 'PageSize',
-        'requestId'              => 'RequestId',
-        'totalItems'             => 'TotalItems',
-        'totalPages'             => 'TotalPages',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalItems' => 'TotalItems',
+        'totalPages' => 'TotalPages',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class DescribeIspFlushCacheInstancesResponseBody extends Model
         if (null !== $this->ispFlushCacheInstances) {
             if (\is_array($this->ispFlushCacheInstances)) {
                 $res['IspFlushCacheInstances'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->ispFlushCacheInstances as $item1) {
                     $res['IspFlushCacheInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class DescribeIspFlushCacheInstancesResponseBody extends Model
         if (isset($map['IspFlushCacheInstances'])) {
             if (!empty($map['IspFlushCacheInstances'])) {
                 $model->ispFlushCacheInstances = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['IspFlushCacheInstances'] as $item1) {
                     $model->ispFlushCacheInstances[$n1++] = ispFlushCacheInstances::fromMap($item1);
                 }

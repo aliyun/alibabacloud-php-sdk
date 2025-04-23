@@ -13,38 +13,44 @@ class AddDomainResponseBody extends Model
      * @var dnsServers
      */
     public $dnsServers;
+
     /**
      * @var string
      */
     public $domainId;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $punyCode;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'dnsServers' => 'DnsServers',
-        'domainId'   => 'DomainId',
+        'domainId' => 'DomainId',
         'domainName' => 'DomainName',
-        'groupId'    => 'GroupId',
-        'groupName'  => 'GroupName',
-        'punyCode'   => 'PunyCode',
-        'requestId'  => 'RequestId',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'punyCode' => 'PunyCode',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

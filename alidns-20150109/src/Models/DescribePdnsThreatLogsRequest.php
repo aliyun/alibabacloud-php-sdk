@@ -12,48 +12,56 @@ class DescribePdnsThreatLogsRequest extends Model
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $threatLevel;
+
     /**
      * @var string
      */
     public $threatSourceIp;
+
     /**
      * @var string
      */
     public $threatType;
     protected $_name = [
-        'endDate'        => 'EndDate',
-        'keyword'        => 'Keyword',
-        'lang'           => 'Lang',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'startDate'      => 'StartDate',
-        'threatLevel'    => 'ThreatLevel',
+        'endDate' => 'EndDate',
+        'keyword' => 'Keyword',
+        'lang' => 'Lang',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'startDate' => 'StartDate',
+        'threatLevel' => 'ThreatLevel',
         'threatSourceIp' => 'ThreatSourceIp',
-        'threatType'     => 'ThreatType',
+        'threatType' => 'ThreatType',
     ];
 
     public function validate()

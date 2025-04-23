@@ -12,13 +12,14 @@ class RemovePdnsAppKeyRequest extends Model
      * @var string
      */
     public $appKeyId;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
         'appKeyId' => 'AppKeyId',
-        'lang'     => 'Lang',
+        'lang' => 'Lang',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class answers extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $record;
+
     /**
      * @var int
      */
     public $ttl;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'name'   => 'Name',
+        'name' => 'Name',
         'record' => 'Record',
-        'ttl'    => 'Ttl',
-        'type'   => 'Type',
+        'ttl' => 'Ttl',
+        'type' => 'Type',
     ];
 
     public function validate()

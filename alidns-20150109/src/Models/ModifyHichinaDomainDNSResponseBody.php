@@ -14,18 +14,20 @@ class ModifyHichinaDomainDNSResponseBody extends Model
      * @var newDnsServers
      */
     public $newDnsServers;
+
     /**
      * @var originalDnsServers
      */
     public $originalDnsServers;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'newDnsServers'      => 'NewDnsServers',
+        'newDnsServers' => 'NewDnsServers',
         'originalDnsServers' => 'OriginalDnsServers',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

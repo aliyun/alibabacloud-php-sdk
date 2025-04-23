@@ -12,23 +12,26 @@ class DescribeCloudGtmInstanceConfigAlertRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $configId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'clientToken'    => 'ClientToken',
-        'configId'       => 'ConfigId',
-        'instanceId'     => 'InstanceId',
+        'clientToken' => 'ClientToken',
+        'configId' => 'ConfigId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

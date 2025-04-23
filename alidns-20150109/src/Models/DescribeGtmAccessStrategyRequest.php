@@ -12,12 +12,13 @@ class DescribeGtmAccessStrategyRequest extends Model
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $strategyId;
     protected $_name = [
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
         'strategyId' => 'StrategyId',
     ];
 

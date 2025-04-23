@@ -13,67 +13,79 @@ class DescribeDnsGtmInstanceAddressPoolResponseBody extends Model
      * @var int
      */
     public $addrCount;
+
     /**
      * @var string
      */
     public $addrPoolId;
+
     /**
      * @var addrs
      */
     public $addrs;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $lbaStrategy;
+
     /**
      * @var string
      */
     public $monitorConfigId;
+
     /**
      * @var string
      */
     public $monitorStatus;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $updateTimestamp;
     protected $_name = [
-        'addrCount'       => 'AddrCount',
-        'addrPoolId'      => 'AddrPoolId',
-        'addrs'           => 'Addrs',
-        'createTime'      => 'CreateTime',
+        'addrCount' => 'AddrCount',
+        'addrPoolId' => 'AddrPoolId',
+        'addrs' => 'Addrs',
+        'createTime' => 'CreateTime',
         'createTimestamp' => 'CreateTimestamp',
-        'lbaStrategy'     => 'LbaStrategy',
+        'lbaStrategy' => 'LbaStrategy',
         'monitorConfigId' => 'MonitorConfigId',
-        'monitorStatus'   => 'MonitorStatus',
-        'name'            => 'Name',
-        'requestId'       => 'RequestId',
-        'type'            => 'Type',
-        'updateTime'      => 'UpdateTime',
+        'monitorStatus' => 'MonitorStatus',
+        'name' => 'Name',
+        'requestId' => 'RequestId',
+        'type' => 'Type',
+        'updateTime' => 'UpdateTime',
         'updateTimestamp' => 'UpdateTimestamp',
     ];
 

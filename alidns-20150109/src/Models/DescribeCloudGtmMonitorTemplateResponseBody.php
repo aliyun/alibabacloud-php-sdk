@@ -13,82 +13,97 @@ class DescribeCloudGtmMonitorTemplateResponseBody extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var int
      */
     public $evaluationCount;
+
     /**
      * @var string
      */
     public $extendInfo;
+
     /**
      * @var int
      */
     public $failureRate;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var ispCityNodes
      */
     public $ispCityNodes;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var int
      */
     public $timeout;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $updateTimestamp;
     protected $_name = [
-        'createTime'      => 'CreateTime',
+        'createTime' => 'CreateTime',
         'createTimestamp' => 'CreateTimestamp',
         'evaluationCount' => 'EvaluationCount',
-        'extendInfo'      => 'ExtendInfo',
-        'failureRate'     => 'FailureRate',
-        'interval'        => 'Interval',
-        'ipVersion'       => 'IpVersion',
-        'ispCityNodes'    => 'IspCityNodes',
-        'name'            => 'Name',
-        'protocol'        => 'Protocol',
-        'remark'          => 'Remark',
-        'requestId'       => 'RequestId',
-        'templateId'      => 'TemplateId',
-        'timeout'         => 'Timeout',
-        'updateTime'      => 'UpdateTime',
+        'extendInfo' => 'ExtendInfo',
+        'failureRate' => 'FailureRate',
+        'interval' => 'Interval',
+        'ipVersion' => 'IpVersion',
+        'ispCityNodes' => 'IspCityNodes',
+        'name' => 'Name',
+        'protocol' => 'Protocol',
+        'remark' => 'Remark',
+        'requestId' => 'RequestId',
+        'templateId' => 'TemplateId',
+        'timeout' => 'Timeout',
+        'updateTime' => 'UpdateTime',
         'updateTimestamp' => 'UpdateTimestamp',
     ];
 

@@ -13,33 +13,38 @@ class UpdateGtmAddressPoolRequest extends Model
      * @var addr[]
      */
     public $addr;
+
     /**
      * @var string
      */
     public $addrPoolId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $minAvailableAddrNum;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'addr'                => 'Addr',
-        'addrPoolId'          => 'AddrPoolId',
-        'lang'                => 'Lang',
+        'addr' => 'Addr',
+        'addrPoolId' => 'AddrPoolId',
+        'lang' => 'Lang',
         'minAvailableAddrNum' => 'MinAvailableAddrNum',
-        'name'                => 'Name',
-        'type'                => 'Type',
+        'name' => 'Name',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class UpdateGtmAddressPoolRequest extends Model
         if (null !== $this->addr) {
             if (\is_array($this->addr)) {
                 $res['Addr'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->addr as $item1) {
                     $res['Addr'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class UpdateGtmAddressPoolRequest extends Model
         if (isset($map['Addr'])) {
             if (!empty($map['Addr'])) {
                 $model->addr = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Addr'] as $item1) {
                     $model->addr[$n1++] = addr::fromMap($item1);
                 }

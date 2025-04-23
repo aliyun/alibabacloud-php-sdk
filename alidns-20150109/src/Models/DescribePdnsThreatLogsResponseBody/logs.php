@@ -12,28 +12,32 @@ class logs extends Model
      * @var string
      */
     public $sourceIp;
+
     /**
      * @var string
      */
     public $subDomain;
+
     /**
      * @var string
      */
     public $threatLevel;
+
     /**
      * @var string
      */
     public $threatTime;
+
     /**
      * @var string
      */
     public $threatType;
     protected $_name = [
-        'sourceIp'    => 'SourceIp',
-        'subDomain'   => 'SubDomain',
+        'sourceIp' => 'SourceIp',
+        'subDomain' => 'SubDomain',
         'threatLevel' => 'ThreatLevel',
-        'threatTime'  => 'ThreatTime',
-        'threatType'  => 'ThreatType',
+        'threatTime' => 'ThreatTime',
+        'threatType' => 'ThreatType',
     ];
 
     public function validate()

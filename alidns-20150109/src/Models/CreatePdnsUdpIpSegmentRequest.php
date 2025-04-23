@@ -12,23 +12,26 @@ class CreatePdnsUdpIpSegmentRequest extends Model
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $ipToken;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
-        'ip'      => 'Ip',
+        'ip' => 'Ip',
         'ipToken' => 'IpToken',
-        'lang'    => 'Lang',
-        'name'    => 'Name',
+        'lang' => 'Lang',
+        'name' => 'Name',
     ];
 
     public function validate()

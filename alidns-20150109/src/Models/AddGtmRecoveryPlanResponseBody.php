@@ -12,13 +12,14 @@ class AddGtmRecoveryPlanResponseBody extends Model
      * @var string
      */
     public $recoveryPlanId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'recoveryPlanId' => 'RecoveryPlanId',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

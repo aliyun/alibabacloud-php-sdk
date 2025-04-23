@@ -12,18 +12,20 @@ class instanceDomains extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $domainName;
     protected $_name = [
-        'createTime'      => 'CreateTime',
+        'createTime' => 'CreateTime',
         'createTimestamp' => 'CreateTimestamp',
-        'domainName'      => 'DomainName',
+        'domainName' => 'DomainName',
     ];
 
     public function validate()

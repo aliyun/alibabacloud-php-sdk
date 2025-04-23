@@ -13,22 +13,25 @@ class preview extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var switchInfos
      */
     public $switchInfos;
+
     /**
      * @var string
      */
     public $userDomainName;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
-        'name'           => 'Name',
-        'switchInfos'    => 'SwitchInfos',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'switchInfos' => 'SwitchInfos',
         'userDomainName' => 'UserDomainName',
     ];
 

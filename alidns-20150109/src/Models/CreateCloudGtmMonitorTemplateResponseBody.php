@@ -12,17 +12,19 @@ class CreateCloudGtmMonitorTemplateResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'templateId' => 'TemplateId',
     ];
 

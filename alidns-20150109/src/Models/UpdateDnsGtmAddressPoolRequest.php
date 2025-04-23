@@ -13,28 +13,32 @@ class UpdateDnsGtmAddressPoolRequest extends Model
      * @var addr[]
      */
     public $addr;
+
     /**
      * @var string
      */
     public $addrPoolId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $lbaStrategy;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
-        'addr'        => 'Addr',
-        'addrPoolId'  => 'AddrPoolId',
-        'lang'        => 'Lang',
+        'addr' => 'Addr',
+        'addrPoolId' => 'AddrPoolId',
+        'lang' => 'Lang',
         'lbaStrategy' => 'LbaStrategy',
-        'name'        => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class UpdateDnsGtmAddressPoolRequest extends Model
         if (null !== $this->addr) {
             if (\is_array($this->addr)) {
                 $res['Addr'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->addr as $item1) {
                     $res['Addr'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class UpdateDnsGtmAddressPoolRequest extends Model
         if (isset($map['Addr'])) {
             if (!empty($map['Addr'])) {
                 $model->addr = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Addr'] as $item1) {
                     $model->addr[$n1++] = addr::fromMap($item1);
                 }

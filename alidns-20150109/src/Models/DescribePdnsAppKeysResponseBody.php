@@ -13,12 +13,13 @@ class DescribePdnsAppKeysResponseBody extends Model
      * @var appKeys[]
      */
     public $appKeys;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'appKeys'   => 'AppKeys',
+        'appKeys' => 'AppKeys',
         'requestId' => 'RequestId',
     ];
 
@@ -36,7 +37,7 @@ class DescribePdnsAppKeysResponseBody extends Model
         if (null !== $this->appKeys) {
             if (\is_array($this->appKeys)) {
                 $res['AppKeys'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->appKeys as $item1) {
                     $res['AppKeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribePdnsAppKeysResponseBody extends Model
         if (isset($map['AppKeys'])) {
             if (!empty($map['AppKeys'])) {
                 $model->appKeys = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['AppKeys'] as $item1) {
                     $model->appKeys[$n1++] = appKeys::fromMap($item1);
                 }

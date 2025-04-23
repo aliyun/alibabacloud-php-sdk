@@ -12,38 +12,44 @@ class domainLog extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $actionTime;
+
     /**
      * @var int
      */
     public $actionTimestamp;
+
     /**
      * @var string
      */
     public $clientIp;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'action'          => 'Action',
-        'actionTime'      => 'ActionTime',
+        'action' => 'Action',
+        'actionTime' => 'ActionTime',
         'actionTimestamp' => 'ActionTimestamp',
-        'clientIp'        => 'ClientIp',
-        'domainName'      => 'DomainName',
-        'message'         => 'Message',
-        'zoneId'          => 'ZoneId',
+        'clientIp' => 'ClientIp',
+        'domainName' => 'DomainName',
+        'message' => 'Message',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

@@ -12,21 +12,24 @@ class DescribeDohSubDomainStatisticsRequest extends Model
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $subDomain;
     protected $_name = [
-        'endDate'   => 'EndDate',
-        'lang'      => 'Lang',
+        'endDate' => 'EndDate',
+        'lang' => 'Lang',
         'startDate' => 'StartDate',
         'subDomain' => 'SubDomain',
     ];

@@ -14,93 +14,110 @@ class addressPool extends Model
      * @var string
      */
     public $addressLbStrategy;
+
     /**
      * @var string
      */
     public $addressPoolId;
+
     /**
      * @var string
      */
     public $addressPoolName;
+
     /**
      * @var string
      */
     public $addressPoolType;
+
     /**
      * @var addresses
      */
     public $addresses;
+
     /**
      * @var string
      */
     public $availableStatus;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $enableStatus;
+
     /**
      * @var string
      */
     public $healthJudgement;
+
     /**
      * @var string
      */
     public $healthStatus;
+
     /**
      * @var requestSource
      */
     public $requestSource;
+
     /**
      * @var bool
      */
     public $seqNonPreemptiveSchedule;
+
     /**
      * @var string
      */
     public $sequenceLbStrategyMode;
+
     /**
      * @var int
      */
     public $serialNumber;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $updateTimestamp;
+
     /**
      * @var int
      */
     public $weightValue;
     protected $_name = [
-        'addressLbStrategy'        => 'AddressLbStrategy',
-        'addressPoolId'            => 'AddressPoolId',
-        'addressPoolName'          => 'AddressPoolName',
-        'addressPoolType'          => 'AddressPoolType',
-        'addresses'                => 'Addresses',
-        'availableStatus'          => 'AvailableStatus',
-        'createTime'               => 'CreateTime',
-        'createTimestamp'          => 'CreateTimestamp',
-        'enableStatus'             => 'EnableStatus',
-        'healthJudgement'          => 'HealthJudgement',
-        'healthStatus'             => 'HealthStatus',
-        'requestSource'            => 'RequestSource',
+        'addressLbStrategy' => 'AddressLbStrategy',
+        'addressPoolId' => 'AddressPoolId',
+        'addressPoolName' => 'AddressPoolName',
+        'addressPoolType' => 'AddressPoolType',
+        'addresses' => 'Addresses',
+        'availableStatus' => 'AvailableStatus',
+        'createTime' => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
+        'enableStatus' => 'EnableStatus',
+        'healthJudgement' => 'HealthJudgement',
+        'healthStatus' => 'HealthStatus',
+        'requestSource' => 'RequestSource',
         'seqNonPreemptiveSchedule' => 'SeqNonPreemptiveSchedule',
-        'sequenceLbStrategyMode'   => 'SequenceLbStrategyMode',
-        'serialNumber'             => 'SerialNumber',
-        'updateTime'               => 'UpdateTime',
-        'updateTimestamp'          => 'UpdateTimestamp',
-        'weightValue'              => 'WeightValue',
+        'sequenceLbStrategyMode' => 'SequenceLbStrategyMode',
+        'serialNumber' => 'SerialNumber',
+        'updateTime' => 'UpdateTime',
+        'updateTimestamp' => 'UpdateTimestamp',
+        'weightValue' => 'WeightValue',
     ];
 
     public function validate()

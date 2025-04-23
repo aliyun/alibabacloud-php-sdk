@@ -12,27 +12,31 @@ class DeleteSubDomainRecordsRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $RR;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'domainName'   => 'DomainName',
-        'lang'         => 'Lang',
-        'RR'           => 'RR',
-        'type'         => 'Type',
+        'domainName' => 'DomainName',
+        'lang' => 'Lang',
+        'RR' => 'RR',
+        'type' => 'Type',
         'userClientIp' => 'UserClientIp',
     ];
 

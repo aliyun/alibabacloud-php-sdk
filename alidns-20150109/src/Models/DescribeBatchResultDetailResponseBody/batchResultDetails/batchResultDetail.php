@@ -12,83 +12,98 @@ class batchResultDetail extends Model
      * @var string
      */
     public $batchType;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $line;
+
     /**
      * @var string
      */
     public $newRr;
+
     /**
      * @var string
      */
     public $newValue;
+
     /**
      * @var string
      */
     public $operateDateStr;
+
     /**
      * @var string
      */
     public $priority;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $recordId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $rr;
+
     /**
      * @var string
      */
     public $rrStatus;
+
     /**
      * @var bool
      */
     public $status;
+
     /**
      * @var string
      */
     public $ttl;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'batchType'      => 'BatchType',
-        'domain'         => 'Domain',
-        'line'           => 'Line',
-        'newRr'          => 'NewRr',
-        'newValue'       => 'NewValue',
+        'batchType' => 'BatchType',
+        'domain' => 'Domain',
+        'line' => 'Line',
+        'newRr' => 'NewRr',
+        'newValue' => 'NewValue',
         'operateDateStr' => 'OperateDateStr',
-        'priority'       => 'Priority',
-        'reason'         => 'Reason',
-        'recordId'       => 'RecordId',
-        'remark'         => 'Remark',
-        'rr'             => 'Rr',
-        'rrStatus'       => 'RrStatus',
-        'status'         => 'Status',
-        'ttl'            => 'Ttl',
-        'type'           => 'Type',
-        'value'          => 'Value',
+        'priority' => 'Priority',
+        'reason' => 'Reason',
+        'recordId' => 'RecordId',
+        'remark' => 'Remark',
+        'rr' => 'Rr',
+        'rrStatus' => 'RrStatus',
+        'status' => 'Status',
+        'ttl' => 'Ttl',
+        'type' => 'Type',
+        'value' => 'Value',
     ];
 
     public function validate()

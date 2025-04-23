@@ -12,52 +12,61 @@ class addr extends Model
      * @var string
      */
     public $addr;
+
     /**
      * @var string
      */
     public $alertStatus;
+
     /**
      * @var string
      */
     public $attributeInfo;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var int
      */
     public $lbaWeight;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $updateTimestamp;
     protected $_name = [
-        'addr'            => 'Addr',
-        'alertStatus'     => 'AlertStatus',
-        'attributeInfo'   => 'AttributeInfo',
-        'createTime'      => 'CreateTime',
+        'addr' => 'Addr',
+        'alertStatus' => 'AlertStatus',
+        'attributeInfo' => 'AttributeInfo',
+        'createTime' => 'CreateTime',
         'createTimestamp' => 'CreateTimestamp',
-        'lbaWeight'       => 'LbaWeight',
-        'mode'            => 'Mode',
-        'remark'          => 'Remark',
-        'updateTime'      => 'UpdateTime',
+        'lbaWeight' => 'LbaWeight',
+        'mode' => 'Mode',
+        'remark' => 'Remark',
+        'updateTime' => 'UpdateTime',
         'updateTimestamp' => 'UpdateTimestamp',
     ];
 

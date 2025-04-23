@@ -12,43 +12,50 @@ class ispCityNode extends Model
      * @var string
      */
     public $cityCode;
+
     /**
      * @var string
      */
     public $cityName;
+
     /**
      * @var string
      */
     public $countryCode;
+
     /**
      * @var string
      */
     public $countryName;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $groupType;
+
     /**
      * @var string
      */
     public $ispCode;
+
     /**
      * @var string
      */
     public $ispName;
     protected $_name = [
-        'cityCode'    => 'CityCode',
-        'cityName'    => 'CityName',
+        'cityCode' => 'CityCode',
+        'cityName' => 'CityName',
         'countryCode' => 'CountryCode',
         'countryName' => 'CountryName',
-        'groupName'   => 'GroupName',
-        'groupType'   => 'GroupType',
-        'ispCode'     => 'IspCode',
-        'ispName'     => 'IspName',
+        'groupName' => 'GroupName',
+        'groupType' => 'GroupType',
+        'ispCode' => 'IspCode',
+        'ispName' => 'IspName',
     ];
 
     public function validate()

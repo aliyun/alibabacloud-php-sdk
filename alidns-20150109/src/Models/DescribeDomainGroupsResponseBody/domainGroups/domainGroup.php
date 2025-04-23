@@ -12,18 +12,20 @@ class domainGroup extends Model
      * @var int
      */
     public $domainCount;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $groupName;
     protected $_name = [
         'domainCount' => 'DomainCount',
-        'groupId'     => 'GroupId',
-        'groupName'   => 'GroupName',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
     ];
 
     public function validate()

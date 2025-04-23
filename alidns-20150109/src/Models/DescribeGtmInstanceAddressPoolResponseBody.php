@@ -13,73 +13,86 @@ class DescribeGtmInstanceAddressPoolResponseBody extends Model
      * @var int
      */
     public $addrCount;
+
     /**
      * @var string
      */
     public $addrPoolId;
+
     /**
      * @var addrs
      */
     public $addrs;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var int
      */
     public $minAvailableAddrNum;
+
     /**
      * @var string
      */
     public $monitorConfigId;
+
     /**
      * @var string
      */
     public $monitorStatus;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $updateTimestamp;
     protected $_name = [
-        'addrCount'           => 'AddrCount',
-        'addrPoolId'          => 'AddrPoolId',
-        'addrs'               => 'Addrs',
-        'createTime'          => 'CreateTime',
-        'createTimestamp'     => 'CreateTimestamp',
+        'addrCount' => 'AddrCount',
+        'addrPoolId' => 'AddrPoolId',
+        'addrs' => 'Addrs',
+        'createTime' => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
         'minAvailableAddrNum' => 'MinAvailableAddrNum',
-        'monitorConfigId'     => 'MonitorConfigId',
-        'monitorStatus'       => 'MonitorStatus',
-        'name'                => 'Name',
-        'requestId'           => 'RequestId',
-        'status'              => 'Status',
-        'type'                => 'Type',
-        'updateTime'          => 'UpdateTime',
-        'updateTimestamp'     => 'UpdateTimestamp',
+        'monitorConfigId' => 'MonitorConfigId',
+        'monitorStatus' => 'MonitorStatus',
+        'name' => 'Name',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'type' => 'Type',
+        'updateTime' => 'UpdateTime',
+        'updateTimestamp' => 'UpdateTimestamp',
     ];
 
     public function validate()

@@ -13,38 +13,44 @@ class UpdateCloudGtmInstanceConfigAlertRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var alertConfig[]
      */
     public $alertConfig;
+
     /**
      * @var string[]
      */
     public $alertGroup;
+
     /**
      * @var string
      */
     public $alertMode;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $configId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'alertConfig'    => 'AlertConfig',
-        'alertGroup'     => 'AlertGroup',
-        'alertMode'      => 'AlertMode',
-        'clientToken'    => 'ClientToken',
-        'configId'       => 'ConfigId',
-        'instanceId'     => 'InstanceId',
+        'alertConfig' => 'AlertConfig',
+        'alertGroup' => 'AlertGroup',
+        'alertMode' => 'AlertMode',
+        'clientToken' => 'ClientToken',
+        'configId' => 'ConfigId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -68,7 +74,7 @@ class UpdateCloudGtmInstanceConfigAlertRequest extends Model
         if (null !== $this->alertConfig) {
             if (\is_array($this->alertConfig)) {
                 $res['AlertConfig'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->alertConfig as $item1) {
                     $res['AlertConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +84,7 @@ class UpdateCloudGtmInstanceConfigAlertRequest extends Model
         if (null !== $this->alertGroup) {
             if (\is_array($this->alertGroup)) {
                 $res['AlertGroup'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->alertGroup as $item1) {
                     $res['AlertGroup'][$n1++] = $item1;
                 }
@@ -119,7 +125,7 @@ class UpdateCloudGtmInstanceConfigAlertRequest extends Model
         if (isset($map['AlertConfig'])) {
             if (!empty($map['AlertConfig'])) {
                 $model->alertConfig = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['AlertConfig'] as $item1) {
                     $model->alertConfig[$n1++] = alertConfig::fromMap($item1);
                 }
@@ -129,7 +135,7 @@ class UpdateCloudGtmInstanceConfigAlertRequest extends Model
         if (isset($map['AlertGroup'])) {
             if (!empty($map['AlertGroup'])) {
                 $model->alertGroup = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['AlertGroup'] as $item1) {
                     $model->alertGroup[$n1++] = $item1;
                 }

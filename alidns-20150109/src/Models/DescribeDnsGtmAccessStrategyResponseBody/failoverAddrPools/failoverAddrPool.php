@@ -12,23 +12,26 @@ class failoverAddrPool extends Model
      * @var int
      */
     public $addrCount;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var int
      */
     public $lbaWeight;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
         'addrCount' => 'AddrCount',
-        'id'        => 'Id',
+        'id' => 'Id',
         'lbaWeight' => 'LbaWeight',
-        'name'      => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()

@@ -13,33 +13,38 @@ class DescribeGtmInstancesResponseBody extends Model
      * @var gtmInstances
      */
     public $gtmInstances;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalItems;
+
     /**
      * @var int
      */
     public $totalPages;
     protected $_name = [
         'gtmInstances' => 'GtmInstances',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'requestId'    => 'RequestId',
-        'totalItems'   => 'TotalItems',
-        'totalPages'   => 'TotalPages',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalItems' => 'TotalItems',
+        'totalPages' => 'TotalPages',
     ];
 
     public function validate()

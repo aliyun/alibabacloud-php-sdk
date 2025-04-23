@@ -12,23 +12,26 @@ class DescribeCloudGtmSummaryResponseBody extends Model
      * @var int
      */
     public $instanceTotalCount;
+
     /**
      * @var int
      */
     public $monitorTaskTotalCount;
+
     /**
      * @var int
      */
     public $monitorTaskTotalQuota;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'instanceTotalCount'    => 'InstanceTotalCount',
+        'instanceTotalCount' => 'InstanceTotalCount',
         'monitorTaskTotalCount' => 'MonitorTaskTotalCount',
         'monitorTaskTotalQuota' => 'MonitorTaskTotalQuota',
-        'requestId'             => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

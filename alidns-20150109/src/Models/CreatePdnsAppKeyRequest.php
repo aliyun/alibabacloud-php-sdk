@@ -12,12 +12,13 @@ class CreatePdnsAppKeyRequest extends Model
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
-        'lang'   => 'Lang',
+        'lang' => 'Lang',
         'remark' => 'Remark',
     ];
 

@@ -12,17 +12,19 @@ class DescribePdnsAccountSummaryRequest extends Model
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $startDate;
     protected $_name = [
-        'endDate'   => 'EndDate',
-        'lang'      => 'Lang',
+        'endDate' => 'EndDate',
+        'lang' => 'Lang',
         'startDate' => 'StartDate',
     ];
 

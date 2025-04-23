@@ -12,58 +12,68 @@ class SearchCloudGtmInstanceConfigsRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $availableStatus;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $enableStatus;
+
     /**
      * @var string
      */
     public $healthStatus;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $scheduleDomainName;
+
     /**
      * @var string
      */
     public $scheduleZoneName;
     protected $_name = [
-        'acceptLanguage'     => 'AcceptLanguage',
-        'availableStatus'    => 'AvailableStatus',
-        'clientToken'        => 'ClientToken',
-        'enableStatus'       => 'EnableStatus',
-        'healthStatus'       => 'HealthStatus',
-        'instanceId'         => 'InstanceId',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'remark'             => 'Remark',
+        'acceptLanguage' => 'AcceptLanguage',
+        'availableStatus' => 'AvailableStatus',
+        'clientToken' => 'ClientToken',
+        'enableStatus' => 'EnableStatus',
+        'healthStatus' => 'HealthStatus',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'remark' => 'Remark',
         'scheduleDomainName' => 'ScheduleDomainName',
-        'scheduleZoneName'   => 'ScheduleZoneName',
+        'scheduleZoneName' => 'ScheduleZoneName',
     ];
 
     public function validate()

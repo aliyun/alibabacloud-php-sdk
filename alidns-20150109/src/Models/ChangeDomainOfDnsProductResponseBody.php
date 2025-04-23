@@ -12,13 +12,14 @@ class ChangeDomainOfDnsProductResponseBody extends Model
      * @var string
      */
     public $originalDomain;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'originalDomain' => 'OriginalDomain',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

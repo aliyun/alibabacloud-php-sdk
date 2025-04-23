@@ -31,7 +31,7 @@ class strategies extends Model
         if (null !== $this->strategy) {
             if (\is_array($this->strategy)) {
                 $res['Strategy'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->strategy as $item1) {
                     $res['Strategy'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class strategies extends Model
         if (isset($map['Strategy'])) {
             if (!empty($map['Strategy'])) {
                 $model->strategy = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Strategy'] as $item1) {
                     $model->strategy[$n1++] = strategy::fromMap($item1);
                 }

@@ -12,43 +12,50 @@ class DescribeIspFlushCacheTasksRequest extends Model
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $isp;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'direction'  => 'Direction',
+        'direction' => 'Direction',
         'domainName' => 'DomainName',
         'instanceId' => 'InstanceId',
-        'isp'        => 'Isp',
-        'lang'       => 'Lang',
-        'orderBy'    => 'OrderBy',
+        'isp' => 'Isp',
+        'lang' => 'Lang',
+        'orderBy' => 'OrderBy',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

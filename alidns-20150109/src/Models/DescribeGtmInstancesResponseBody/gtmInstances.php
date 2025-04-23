@@ -31,7 +31,7 @@ class gtmInstances extends Model
         if (null !== $this->gtmInstance) {
             if (\is_array($this->gtmInstance)) {
                 $res['GtmInstance'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->gtmInstance as $item1) {
                     $res['GtmInstance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class gtmInstances extends Model
         if (isset($map['GtmInstance'])) {
             if (!empty($map['GtmInstance'])) {
                 $model->gtmInstance = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['GtmInstance'] as $item1) {
                     $model->gtmInstance[$n1++] = gtmInstance::fromMap($item1);
                 }

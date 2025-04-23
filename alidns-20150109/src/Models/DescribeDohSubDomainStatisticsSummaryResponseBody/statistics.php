@@ -12,47 +12,55 @@ class statistics extends Model
      * @var int
      */
     public $httpCount;
+
     /**
      * @var int
      */
     public $httpsCount;
+
     /**
      * @var int
      */
     public $ipCount;
+
     /**
      * @var string
      */
     public $subDomain;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var int
      */
     public $v4HttpCount;
+
     /**
      * @var int
      */
     public $v4HttpsCount;
+
     /**
      * @var int
      */
     public $v6HttpCount;
+
     /**
      * @var int
      */
     public $v6HttpsCount;
     protected $_name = [
-        'httpCount'    => 'HttpCount',
-        'httpsCount'   => 'HttpsCount',
-        'ipCount'      => 'IpCount',
-        'subDomain'    => 'SubDomain',
-        'totalCount'   => 'TotalCount',
-        'v4HttpCount'  => 'V4HttpCount',
+        'httpCount' => 'HttpCount',
+        'httpsCount' => 'HttpsCount',
+        'ipCount' => 'IpCount',
+        'subDomain' => 'SubDomain',
+        'totalCount' => 'TotalCount',
+        'v4HttpCount' => 'V4HttpCount',
         'v4HttpsCount' => 'V4HttpsCount',
-        'v6HttpCount'  => 'V6HttpCount',
+        'v6HttpCount' => 'V6HttpCount',
         'v6HttpsCount' => 'V6HttpsCount',
     ];
 

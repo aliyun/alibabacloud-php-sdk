@@ -12,48 +12,56 @@ class UpdateGtmInstanceGlobalConfigRequest extends Model
      * @var string
      */
     public $alertGroup;
+
     /**
      * @var string
      */
     public $cnameCustomDomainName;
+
     /**
      * @var string
      */
     public $cnameMode;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $lbaStrategy;
+
     /**
      * @var int
      */
     public $ttl;
+
     /**
      * @var string
      */
     public $userDomainName;
     protected $_name = [
-        'alertGroup'            => 'AlertGroup',
+        'alertGroup' => 'AlertGroup',
         'cnameCustomDomainName' => 'CnameCustomDomainName',
-        'cnameMode'             => 'CnameMode',
-        'instanceId'            => 'InstanceId',
-        'instanceName'          => 'InstanceName',
-        'lang'                  => 'Lang',
-        'lbaStrategy'           => 'LbaStrategy',
-        'ttl'                   => 'Ttl',
-        'userDomainName'        => 'UserDomainName',
+        'cnameMode' => 'CnameMode',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'lang' => 'Lang',
+        'lbaStrategy' => 'LbaStrategy',
+        'ttl' => 'Ttl',
+        'userDomainName' => 'UserDomainName',
     ];
 
     public function validate()

@@ -13,12 +13,13 @@ class DescribeDohAccountStatisticsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var statistics[]
      */
     public $statistics;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'statistics' => 'Statistics',
     ];
 
@@ -40,7 +41,7 @@ class DescribeDohAccountStatisticsResponseBody extends Model
         if (null !== $this->statistics) {
             if (\is_array($this->statistics)) {
                 $res['Statistics'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->statistics as $item1) {
                     $res['Statistics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeDohAccountStatisticsResponseBody extends Model
         if (isset($map['Statistics'])) {
             if (!empty($map['Statistics'])) {
                 $model->statistics = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Statistics'] as $item1) {
                     $model->statistics[$n1++] = statistics::fromMap($item1);
                 }

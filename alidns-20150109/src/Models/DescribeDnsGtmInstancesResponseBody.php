@@ -13,33 +13,38 @@ class DescribeDnsGtmInstancesResponseBody extends Model
      * @var gtmInstances[]
      */
     public $gtmInstances;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalItems;
+
     /**
      * @var int
      */
     public $totalPages;
     protected $_name = [
         'gtmInstances' => 'GtmInstances',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'requestId'    => 'RequestId',
-        'totalItems'   => 'TotalItems',
-        'totalPages'   => 'TotalPages',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalItems' => 'TotalItems',
+        'totalPages' => 'TotalPages',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class DescribeDnsGtmInstancesResponseBody extends Model
         if (null !== $this->gtmInstances) {
             if (\is_array($this->gtmInstances)) {
                 $res['GtmInstances'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->gtmInstances as $item1) {
                     $res['GtmInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class DescribeDnsGtmInstancesResponseBody extends Model
         if (isset($map['GtmInstances'])) {
             if (!empty($map['GtmInstances'])) {
                 $model->gtmInstances = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['GtmInstances'] as $item1) {
                     $model->gtmInstances[$n1++] = gtmInstances::fromMap($item1);
                 }

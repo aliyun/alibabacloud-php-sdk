@@ -12,32 +12,37 @@ class DescribeDNSSLBSubDomainsRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $rr;
+
     /**
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'domainName'   => 'DomainName',
-        'lang'         => 'Lang',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'rr'           => 'Rr',
+        'domainName' => 'DomainName',
+        'lang' => 'Lang',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'rr' => 'Rr',
         'userClientIp' => 'UserClientIp',
     ];
 

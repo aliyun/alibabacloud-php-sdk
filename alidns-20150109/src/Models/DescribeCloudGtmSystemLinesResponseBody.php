@@ -13,17 +13,19 @@ class DescribeCloudGtmSystemLinesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var systemLines
      */
     public $systemLines;
+
     /**
      * @var string
      */
     public $systemLinesTree;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'systemLines'     => 'SystemLines',
+        'requestId' => 'RequestId',
+        'systemLines' => 'SystemLines',
         'systemLinesTree' => 'SystemLinesTree',
     ];
 

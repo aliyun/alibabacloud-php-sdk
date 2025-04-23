@@ -14,18 +14,20 @@ class DescribeCloudGtmGlobalAlertResponseBody extends Model
      * @var alertConfig
      */
     public $alertConfig;
+
     /**
      * @var alertGroup
      */
     public $alertGroup;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'alertConfig' => 'AlertConfig',
-        'alertGroup'  => 'AlertGroup',
-        'requestId'   => 'RequestId',
+        'alertGroup' => 'AlertGroup',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

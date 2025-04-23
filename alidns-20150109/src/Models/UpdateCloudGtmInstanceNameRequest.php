@@ -12,23 +12,26 @@ class UpdateCloudGtmInstanceNameRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'clientToken'    => 'ClientToken',
-        'instanceId'     => 'InstanceId',
-        'instanceName'   => 'InstanceName',
+        'clientToken' => 'ClientToken',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
     ];
 
     public function validate()

@@ -12,77 +12,91 @@ class DescribeDomainRecordsRequest extends Model
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var int
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $keyWord;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $line;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $RRKeyWord;
+
     /**
      * @var string
      */
     public $searchMode;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $typeKeyWord;
+
     /**
      * @var string
      */
     public $valueKeyWord;
     protected $_name = [
-        'direction'    => 'Direction',
-        'domainName'   => 'DomainName',
-        'groupId'      => 'GroupId',
-        'keyWord'      => 'KeyWord',
-        'lang'         => 'Lang',
-        'line'         => 'Line',
-        'orderBy'      => 'OrderBy',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'RRKeyWord'    => 'RRKeyWord',
-        'searchMode'   => 'SearchMode',
-        'status'       => 'Status',
-        'type'         => 'Type',
-        'typeKeyWord'  => 'TypeKeyWord',
+        'direction' => 'Direction',
+        'domainName' => 'DomainName',
+        'groupId' => 'GroupId',
+        'keyWord' => 'KeyWord',
+        'lang' => 'Lang',
+        'line' => 'Line',
+        'orderBy' => 'OrderBy',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'RRKeyWord' => 'RRKeyWord',
+        'searchMode' => 'SearchMode',
+        'status' => 'Status',
+        'type' => 'Type',
+        'typeKeyWord' => 'TypeKeyWord',
         'valueKeyWord' => 'ValueKeyWord',
     ];
 

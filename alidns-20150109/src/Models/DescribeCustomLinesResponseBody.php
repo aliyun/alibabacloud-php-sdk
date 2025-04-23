@@ -13,33 +13,38 @@ class DescribeCustomLinesResponseBody extends Model
      * @var customLines[]
      */
     public $customLines;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalItems;
+
     /**
      * @var int
      */
     public $totalPages;
     protected $_name = [
         'customLines' => 'CustomLines',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalItems'  => 'TotalItems',
-        'totalPages'  => 'TotalPages',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalItems' => 'TotalItems',
+        'totalPages' => 'TotalPages',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class DescribeCustomLinesResponseBody extends Model
         if (null !== $this->customLines) {
             if (\is_array($this->customLines)) {
                 $res['CustomLines'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->customLines as $item1) {
                     $res['CustomLines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class DescribeCustomLinesResponseBody extends Model
         if (isset($map['CustomLines'])) {
             if (!empty($map['CustomLines'])) {
                 $model->customLines = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['CustomLines'] as $item1) {
                     $model->customLines[$n1++] = customLines::fromMap($item1);
                 }

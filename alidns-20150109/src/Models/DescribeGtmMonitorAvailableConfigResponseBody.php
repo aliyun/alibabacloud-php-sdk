@@ -13,13 +13,14 @@ class DescribeGtmMonitorAvailableConfigResponseBody extends Model
      * @var ispCityNodes
      */
     public $ispCityNodes;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'ispCityNodes' => 'IspCityNodes',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

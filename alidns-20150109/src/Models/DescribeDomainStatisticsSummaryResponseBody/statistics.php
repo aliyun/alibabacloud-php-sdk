@@ -31,7 +31,7 @@ class statistics extends Model
         if (null !== $this->statistic) {
             if (\is_array($this->statistic)) {
                 $res['Statistic'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->statistic as $item1) {
                     $res['Statistic'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class statistics extends Model
         if (isset($map['Statistic'])) {
             if (!empty($map['Statistic'])) {
                 $model->statistic = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Statistic'] as $item1) {
                     $model->statistic[$n1++] = statistic::fromMap($item1);
                 }

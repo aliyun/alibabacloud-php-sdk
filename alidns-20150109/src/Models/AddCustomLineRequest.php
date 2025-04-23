@@ -13,23 +13,26 @@ class AddCustomLineRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var ipSegment[]
      */
     public $ipSegment;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $lineName;
     protected $_name = [
         'domainName' => 'DomainName',
-        'ipSegment'  => 'IpSegment',
-        'lang'       => 'Lang',
-        'lineName'   => 'LineName',
+        'ipSegment' => 'IpSegment',
+        'lang' => 'Lang',
+        'lineName' => 'LineName',
     ];
 
     public function validate()
@@ -50,7 +53,7 @@ class AddCustomLineRequest extends Model
         if (null !== $this->ipSegment) {
             if (\is_array($this->ipSegment)) {
                 $res['IpSegment'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->ipSegment as $item1) {
                     $res['IpSegment'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -83,7 +86,7 @@ class AddCustomLineRequest extends Model
         if (isset($map['IpSegment'])) {
             if (!empty($map['IpSegment'])) {
                 $model->ipSegment = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['IpSegment'] as $item1) {
                     $model->ipSegment[$n1++] = ipSegment::fromMap($item1);
                 }

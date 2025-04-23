@@ -12,33 +12,38 @@ class AddGtmAccessStrategyRequest extends Model
      * @var string
      */
     public $accessLines;
+
     /**
      * @var string
      */
     public $defaultAddrPoolId;
+
     /**
      * @var string
      */
     public $failoverAddrPoolId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $strategyName;
     protected $_name = [
-        'accessLines'        => 'AccessLines',
-        'defaultAddrPoolId'  => 'DefaultAddrPoolId',
+        'accessLines' => 'AccessLines',
+        'defaultAddrPoolId' => 'DefaultAddrPoolId',
         'failoverAddrPoolId' => 'FailoverAddrPoolId',
-        'instanceId'         => 'InstanceId',
-        'lang'               => 'Lang',
-        'strategyName'       => 'StrategyName',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
+        'strategyName' => 'StrategyName',
     ];
 
     public function validate()

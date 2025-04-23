@@ -12,38 +12,44 @@ class UpdateCloudGtmInstanceConfigBasicRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $configId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $scheduleHostname;
+
     /**
      * @var string
      */
     public $scheduleZoneName;
+
     /**
      * @var int
      */
     public $ttl;
     protected $_name = [
-        'acceptLanguage'   => 'AcceptLanguage',
-        'clientToken'      => 'ClientToken',
-        'configId'         => 'ConfigId',
-        'instanceId'       => 'InstanceId',
+        'acceptLanguage' => 'AcceptLanguage',
+        'clientToken' => 'ClientToken',
+        'configId' => 'ConfigId',
+        'instanceId' => 'InstanceId',
         'scheduleHostname' => 'ScheduleHostname',
         'scheduleZoneName' => 'ScheduleZoneName',
-        'ttl'              => 'Ttl',
+        'ttl' => 'Ttl',
     ];
 
     public function validate()

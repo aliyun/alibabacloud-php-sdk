@@ -12,23 +12,26 @@ class recordLine extends Model
      * @var string
      */
     public $fatherCode;
+
     /**
      * @var string
      */
     public $lineCode;
+
     /**
      * @var string
      */
     public $lineDisplayName;
+
     /**
      * @var string
      */
     public $lineName;
     protected $_name = [
-        'fatherCode'      => 'FatherCode',
-        'lineCode'        => 'LineCode',
+        'fatherCode' => 'FatherCode',
+        'lineCode' => 'LineCode',
         'lineDisplayName' => 'LineDisplayName',
-        'lineName'        => 'LineName',
+        'lineName' => 'LineName',
     ];
 
     public function validate()

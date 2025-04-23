@@ -12,18 +12,20 @@ class ipv6AddrPool extends Model
      * @var int
      */
     public $addrCount;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
         'addrCount' => 'AddrCount',
-        'id'        => 'Id',
-        'name'      => 'Name',
+        'id' => 'Id',
+        'name' => 'Name',
     ];
 
     public function validate()

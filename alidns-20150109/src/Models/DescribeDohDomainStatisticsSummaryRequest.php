@@ -12,33 +12,38 @@ class DescribeDohDomainStatisticsSummaryRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $startDate;
     protected $_name = [
         'domainName' => 'DomainName',
-        'endDate'    => 'EndDate',
-        'lang'       => 'Lang',
+        'endDate' => 'EndDate',
+        'lang' => 'Lang',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startDate'  => 'StartDate',
+        'pageSize' => 'PageSize',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()

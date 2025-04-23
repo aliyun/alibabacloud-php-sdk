@@ -13,53 +13,62 @@ class config extends Model
      * @var alertConfig
      */
     public $alertConfig;
+
     /**
      * @var string
      */
     public $alertGroup;
+
     /**
      * @var string
      */
     public $cnameType;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $pubicZoneName;
+
     /**
      * @var string
      */
     public $publicCnameMode;
+
     /**
      * @var string
      */
     public $publicRr;
+
     /**
      * @var string
      */
     public $publicUserDomainName;
+
     /**
      * @var string
      */
     public $strategyMode;
+
     /**
      * @var int
      */
     public $ttl;
     protected $_name = [
-        'alertConfig'          => 'AlertConfig',
-        'alertGroup'           => 'AlertGroup',
-        'cnameType'            => 'CnameType',
-        'instanceName'         => 'InstanceName',
-        'pubicZoneName'        => 'PubicZoneName',
-        'publicCnameMode'      => 'PublicCnameMode',
-        'publicRr'             => 'PublicRr',
+        'alertConfig' => 'AlertConfig',
+        'alertGroup' => 'AlertGroup',
+        'cnameType' => 'CnameType',
+        'instanceName' => 'InstanceName',
+        'pubicZoneName' => 'PubicZoneName',
+        'publicCnameMode' => 'PublicCnameMode',
+        'publicRr' => 'PublicRr',
         'publicUserDomainName' => 'PublicUserDomainName',
-        'strategyMode'         => 'StrategyMode',
-        'ttl'                  => 'Ttl',
+        'strategyMode' => 'StrategyMode',
+        'ttl' => 'Ttl',
     ];
 
     public function validate()

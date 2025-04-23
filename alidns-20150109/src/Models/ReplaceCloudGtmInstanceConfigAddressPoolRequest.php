@@ -13,28 +13,32 @@ class ReplaceCloudGtmInstanceConfigAddressPoolRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var addressPools[]
      */
     public $addressPools;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $configId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'addressPools'   => 'AddressPools',
-        'clientToken'    => 'ClientToken',
-        'configId'       => 'ConfigId',
-        'instanceId'     => 'InstanceId',
+        'addressPools' => 'AddressPools',
+        'clientToken' => 'ClientToken',
+        'configId' => 'ConfigId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -55,7 +59,7 @@ class ReplaceCloudGtmInstanceConfigAddressPoolRequest extends Model
         if (null !== $this->addressPools) {
             if (\is_array($this->addressPools)) {
                 $res['AddressPools'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->addressPools as $item1) {
                     $res['AddressPools'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -92,7 +96,7 @@ class ReplaceCloudGtmInstanceConfigAddressPoolRequest extends Model
         if (isset($map['AddressPools'])) {
             if (!empty($map['AddressPools'])) {
                 $model->addressPools = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['AddressPools'] as $item1) {
                     $model->addressPools[$n1++] = addressPools::fromMap($item1);
                 }

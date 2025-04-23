@@ -12,88 +12,104 @@ class DescribeGtmInstanceResponseBody extends Model
      * @var int
      */
     public $accessStrategyNum;
+
     /**
      * @var int
      */
     public $addressPoolNum;
+
     /**
      * @var string
      */
     public $alertGroup;
+
     /**
      * @var string
      */
     public $cname;
+
     /**
      * @var string
      */
     public $cnameMode;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var int
      */
     public $expireTimestamp;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $lbaStrategy;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $ttl;
+
     /**
      * @var string
      */
     public $userDomainName;
+
     /**
      * @var string
      */
     public $versionCode;
     protected $_name = [
         'accessStrategyNum' => 'AccessStrategyNum',
-        'addressPoolNum'    => 'AddressPoolNum',
-        'alertGroup'        => 'AlertGroup',
-        'cname'             => 'Cname',
-        'cnameMode'         => 'CnameMode',
-        'createTime'        => 'CreateTime',
-        'createTimestamp'   => 'CreateTimestamp',
-        'expireTime'        => 'ExpireTime',
-        'expireTimestamp'   => 'ExpireTimestamp',
-        'instanceId'        => 'InstanceId',
-        'instanceName'      => 'InstanceName',
-        'lbaStrategy'       => 'LbaStrategy',
-        'requestId'         => 'RequestId',
-        'resourceGroupId'   => 'ResourceGroupId',
-        'ttl'               => 'Ttl',
-        'userDomainName'    => 'UserDomainName',
-        'versionCode'       => 'VersionCode',
+        'addressPoolNum' => 'AddressPoolNum',
+        'alertGroup' => 'AlertGroup',
+        'cname' => 'Cname',
+        'cnameMode' => 'CnameMode',
+        'createTime' => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
+        'expireTime' => 'ExpireTime',
+        'expireTimestamp' => 'ExpireTimestamp',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'lbaStrategy' => 'LbaStrategy',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'ttl' => 'Ttl',
+        'userDomainName' => 'UserDomainName',
+        'versionCode' => 'VersionCode',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class UpdateDnsCacheDomainRemarkRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
         'domainName' => 'DomainName',
-        'lang'       => 'Lang',
-        'remark'     => 'Remark',
+        'lang' => 'Lang',
+        'remark' => 'Remark',
     ];
 
     public function validate()

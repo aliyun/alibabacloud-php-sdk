@@ -12,18 +12,20 @@ class UpdateDomainGroupRequest extends Model
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $lang;
     protected $_name = [
-        'groupId'   => 'GroupId',
+        'groupId' => 'GroupId',
         'groupName' => 'GroupName',
-        'lang'      => 'Lang',
+        'lang' => 'Lang',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class DeleteDomainResponseBody extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'domainName' => 'DomainName',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

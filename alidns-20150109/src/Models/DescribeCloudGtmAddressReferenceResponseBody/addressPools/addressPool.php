@@ -13,57 +13,67 @@ class addressPool extends Model
      * @var string
      */
     public $addressLbStrategy;
+
     /**
      * @var string
      */
     public $addressPoolId;
+
     /**
      * @var string
      */
     public $addressPoolName;
+
     /**
      * @var string
      */
     public $addressPoolType;
+
     /**
      * @var string
      */
     public $availableStatus;
+
     /**
      * @var string
      */
     public $enableStatus;
+
     /**
      * @var string
      */
     public $healthJudgement;
+
     /**
      * @var string
      */
     public $healthStatus;
+
     /**
      * @var instanceConfigs
      */
     public $instanceConfigs;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $sequenceLbStrategyMode;
     protected $_name = [
-        'addressLbStrategy'      => 'AddressLbStrategy',
-        'addressPoolId'          => 'AddressPoolId',
-        'addressPoolName'        => 'AddressPoolName',
-        'addressPoolType'        => 'AddressPoolType',
-        'availableStatus'        => 'AvailableStatus',
-        'enableStatus'           => 'EnableStatus',
-        'healthJudgement'        => 'HealthJudgement',
-        'healthStatus'           => 'HealthStatus',
-        'instanceConfigs'        => 'InstanceConfigs',
-        'remark'                 => 'Remark',
+        'addressLbStrategy' => 'AddressLbStrategy',
+        'addressPoolId' => 'AddressPoolId',
+        'addressPoolName' => 'AddressPoolName',
+        'addressPoolType' => 'AddressPoolType',
+        'availableStatus' => 'AvailableStatus',
+        'enableStatus' => 'EnableStatus',
+        'healthJudgement' => 'HealthJudgement',
+        'healthStatus' => 'HealthStatus',
+        'instanceConfigs' => 'InstanceConfigs',
+        'remark' => 'Remark',
         'sequenceLbStrategyMode' => 'SequenceLbStrategyMode',
     ];
 

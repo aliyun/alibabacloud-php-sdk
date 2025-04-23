@@ -13,43 +13,50 @@ class UpdateCloudGtmAddressRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $address;
+
     /**
      * @var string
      */
     public $addressId;
+
     /**
      * @var string
      */
     public $attributeInfo;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $healthJudgement;
+
     /**
      * @var healthTasks[]
      */
     public $healthTasks;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
-        'acceptLanguage'  => 'AcceptLanguage',
-        'address'         => 'Address',
-        'addressId'       => 'AddressId',
-        'attributeInfo'   => 'AttributeInfo',
-        'clientToken'     => 'ClientToken',
+        'acceptLanguage' => 'AcceptLanguage',
+        'address' => 'Address',
+        'addressId' => 'AddressId',
+        'attributeInfo' => 'AttributeInfo',
+        'clientToken' => 'ClientToken',
         'healthJudgement' => 'HealthJudgement',
-        'healthTasks'     => 'HealthTasks',
-        'name'            => 'Name',
+        'healthTasks' => 'HealthTasks',
+        'name' => 'Name',
     ];
 
     public function validate()
@@ -90,7 +97,7 @@ class UpdateCloudGtmAddressRequest extends Model
         if (null !== $this->healthTasks) {
             if (\is_array($this->healthTasks)) {
                 $res['HealthTasks'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->healthTasks as $item1) {
                     $res['HealthTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -139,7 +146,7 @@ class UpdateCloudGtmAddressRequest extends Model
         if (isset($map['HealthTasks'])) {
             if (!empty($map['HealthTasks'])) {
                 $model->healthTasks = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['HealthTasks'] as $item1) {
                     $model->healthTasks[$n1++] = healthTasks::fromMap($item1);
                 }

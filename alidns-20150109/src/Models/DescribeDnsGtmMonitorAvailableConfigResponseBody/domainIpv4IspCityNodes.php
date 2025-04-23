@@ -31,7 +31,7 @@ class domainIpv4IspCityNodes extends Model
         if (null !== $this->domainIpv4IspCityNode) {
             if (\is_array($this->domainIpv4IspCityNode)) {
                 $res['DomainIpv4IspCityNode'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->domainIpv4IspCityNode as $item1) {
                     $res['DomainIpv4IspCityNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class domainIpv4IspCityNodes extends Model
         if (isset($map['DomainIpv4IspCityNode'])) {
             if (!empty($map['DomainIpv4IspCityNode'])) {
                 $model->domainIpv4IspCityNode = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['DomainIpv4IspCityNode'] as $item1) {
                     $model->domainIpv4IspCityNode[$n1++] = domainIpv4IspCityNode::fromMap($item1);
                 }

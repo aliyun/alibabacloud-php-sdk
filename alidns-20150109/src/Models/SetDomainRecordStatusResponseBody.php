@@ -12,18 +12,20 @@ class SetDomainRecordStatusResponseBody extends Model
      * @var string
      */
     public $recordId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'recordId'  => 'RecordId',
+        'recordId' => 'RecordId',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

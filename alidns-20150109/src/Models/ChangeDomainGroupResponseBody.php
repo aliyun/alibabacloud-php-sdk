@@ -12,16 +12,18 @@ class ChangeDomainGroupResponseBody extends Model
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'groupId'   => 'GroupId',
+        'groupId' => 'GroupId',
         'groupName' => 'GroupName',
         'requestId' => 'RequestId',
     ];

@@ -13,33 +13,38 @@ class DescribeGtmRecoveryPlansResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var recoveryPlans
      */
     public $recoveryPlans;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalItems;
+
     /**
      * @var int
      */
     public $totalPages;
     protected $_name = [
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'recoveryPlans' => 'RecoveryPlans',
-        'requestId'     => 'RequestId',
-        'totalItems'    => 'TotalItems',
-        'totalPages'    => 'TotalPages',
+        'requestId' => 'RequestId',
+        'totalItems' => 'TotalItems',
+        'totalPages' => 'TotalPages',
     ];
 
     public function validate()

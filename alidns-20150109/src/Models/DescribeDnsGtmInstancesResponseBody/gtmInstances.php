@@ -14,63 +14,74 @@ class gtmInstances extends Model
      * @var config
      */
     public $config;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var int
      */
     public $expireTimestamp;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $paymentType;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $smsQuota;
+
     /**
      * @var int
      */
     public $taskQuota;
+
     /**
      * @var usedQuota
      */
     public $usedQuota;
+
     /**
      * @var string
      */
     public $versionCode;
     protected $_name = [
-        'config'          => 'Config',
-        'createTime'      => 'CreateTime',
+        'config' => 'Config',
+        'createTime' => 'CreateTime',
         'createTimestamp' => 'CreateTimestamp',
-        'expireTime'      => 'ExpireTime',
+        'expireTime' => 'ExpireTime',
         'expireTimestamp' => 'ExpireTimestamp',
-        'instanceId'      => 'InstanceId',
-        'paymentType'     => 'PaymentType',
+        'instanceId' => 'InstanceId',
+        'paymentType' => 'PaymentType',
         'resourceGroupId' => 'ResourceGroupId',
-        'smsQuota'        => 'SmsQuota',
-        'taskQuota'       => 'TaskQuota',
-        'usedQuota'       => 'UsedQuota',
-        'versionCode'     => 'VersionCode',
+        'smsQuota' => 'SmsQuota',
+        'taskQuota' => 'TaskQuota',
+        'usedQuota' => 'UsedQuota',
+        'versionCode' => 'VersionCode',
     ];
 
     public function validate()

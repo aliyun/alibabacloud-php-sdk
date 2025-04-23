@@ -12,28 +12,32 @@ class line extends Model
      * @var string
      */
     public $fatherCode;
+
     /**
      * @var string
      */
     public $groupCode;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $lineCode;
+
     /**
      * @var string
      */
     public $lineName;
     protected $_name = [
         'fatherCode' => 'FatherCode',
-        'groupCode'  => 'GroupCode',
-        'groupName'  => 'GroupName',
-        'lineCode'   => 'LineCode',
-        'lineName'   => 'LineName',
+        'groupCode' => 'GroupCode',
+        'groupName' => 'GroupName',
+        'lineCode' => 'LineCode',
+        'lineName' => 'LineName',
     ];
 
     public function validate()

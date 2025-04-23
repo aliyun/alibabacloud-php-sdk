@@ -12,17 +12,19 @@ class DescribeSupportLinesRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'domainName'   => 'DomainName',
-        'lang'         => 'Lang',
+        'domainName' => 'DomainName',
+        'lang' => 'Lang',
         'userClientIp' => 'UserClientIp',
     ];
 

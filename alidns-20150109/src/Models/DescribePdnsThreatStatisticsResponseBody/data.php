@@ -12,58 +12,68 @@ class data extends Model
      * @var int
      */
     public $dohTotalCount;
+
     /**
      * @var int
      */
     public $domainCount;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var int
      */
     public $latestThreatTime;
+
     /**
      * @var string
      */
     public $maxThreatLevel;
+
     /**
      * @var string
      */
     public $sourceIp;
+
     /**
      * @var string
      */
     public $subDomain;
+
     /**
      * @var string
      */
     public $threatLevel;
+
     /**
      * @var string
      */
     public $threatType;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var int
      */
     public $udpTotalCount;
     protected $_name = [
-        'dohTotalCount'    => 'DohTotalCount',
-        'domainCount'      => 'DomainCount',
-        'domainName'       => 'DomainName',
+        'dohTotalCount' => 'DohTotalCount',
+        'domainCount' => 'DomainCount',
+        'domainName' => 'DomainName',
         'latestThreatTime' => 'LatestThreatTime',
-        'maxThreatLevel'   => 'MaxThreatLevel',
-        'sourceIp'         => 'SourceIp',
-        'subDomain'        => 'SubDomain',
-        'threatLevel'      => 'ThreatLevel',
-        'threatType'       => 'ThreatType',
-        'totalCount'       => 'TotalCount',
-        'udpTotalCount'    => 'UdpTotalCount',
+        'maxThreatLevel' => 'MaxThreatLevel',
+        'sourceIp' => 'SourceIp',
+        'subDomain' => 'SubDomain',
+        'threatLevel' => 'ThreatLevel',
+        'threatType' => 'ThreatType',
+        'totalCount' => 'TotalCount',
+        'udpTotalCount' => 'UdpTotalCount',
     ];
 
     public function validate()

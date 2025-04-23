@@ -12,23 +12,26 @@ class UpdateCloudGtmMonitorTemplateRemarkRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'clientToken'    => 'ClientToken',
-        'remark'         => 'Remark',
-        'templateId'     => 'TemplateId',
+        'clientToken' => 'ClientToken',
+        'remark' => 'Remark',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

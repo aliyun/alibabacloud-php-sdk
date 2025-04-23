@@ -31,7 +31,7 @@ class domainRecords extends Model
         if (null !== $this->record) {
             if (\is_array($this->record)) {
                 $res['Record'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->record as $item1) {
                     $res['Record'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class domainRecords extends Model
         if (isset($map['Record'])) {
             if (!empty($map['Record'])) {
                 $model->record = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Record'] as $item1) {
                     $model->record[$n1++] = record::fromMap($item1);
                 }

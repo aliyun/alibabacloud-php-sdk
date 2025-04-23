@@ -12,17 +12,19 @@ class AddDomainBackupRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $periodType;
     protected $_name = [
         'domainName' => 'DomainName',
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
         'periodType' => 'PeriodType',
     ];
 

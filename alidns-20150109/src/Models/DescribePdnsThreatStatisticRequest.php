@@ -12,22 +12,25 @@ class DescribePdnsThreatStatisticRequest extends Model
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $threatSourceIp;
     protected $_name = [
-        'endDate'        => 'EndDate',
-        'lang'           => 'Lang',
-        'startDate'      => 'StartDate',
+        'endDate' => 'EndDate',
+        'lang' => 'Lang',
+        'startDate' => 'StartDate',
         'threatSourceIp' => 'ThreatSourceIp',
     ];
 

@@ -13,6 +13,7 @@ class DescribeGtmRecoveryPlanAvailableConfigResponseBody extends Model
      * @var instances
      */
     public $instances;
+
     /**
      * @var string
      */

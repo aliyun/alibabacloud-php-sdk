@@ -12,18 +12,20 @@ class SetDomainDnssecStatusRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'domainName' => 'DomainName',
-        'lang'       => 'Lang',
-        'status'     => 'Status',
+        'lang' => 'Lang',
+        'status' => 'Status',
     ];
 
     public function validate()

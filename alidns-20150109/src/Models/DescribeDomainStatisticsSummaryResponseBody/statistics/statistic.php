@@ -12,22 +12,25 @@ class statistic extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $domainType;
+
     /**
      * @var string
      */
     public $resolveAnalysisStatus;
     protected $_name = [
-        'count'                 => 'Count',
-        'domainName'            => 'DomainName',
-        'domainType'            => 'DomainType',
+        'count' => 'Count',
+        'domainName' => 'DomainName',
+        'domainType' => 'DomainType',
         'resolveAnalysisStatus' => 'resolveAnalysisStatus',
     ];
 

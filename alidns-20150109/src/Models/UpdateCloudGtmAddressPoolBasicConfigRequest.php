@@ -12,27 +12,31 @@ class UpdateCloudGtmAddressPoolBasicConfigRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $addressPoolId;
+
     /**
      * @var string
      */
     public $addressPoolName;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $healthJudgement;
     protected $_name = [
-        'acceptLanguage'  => 'AcceptLanguage',
-        'addressPoolId'   => 'AddressPoolId',
+        'acceptLanguage' => 'AcceptLanguage',
+        'addressPoolId' => 'AddressPoolId',
         'addressPoolName' => 'AddressPoolName',
-        'clientToken'     => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'healthJudgement' => 'HealthJudgement',
     ];
 

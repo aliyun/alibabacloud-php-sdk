@@ -12,22 +12,25 @@ class SetDomainRecordStatusRequest extends Model
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $recordId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $userClientIp;
     protected $_name = [
-        'lang'         => 'Lang',
-        'recordId'     => 'RecordId',
-        'status'       => 'Status',
+        'lang' => 'Lang',
+        'recordId' => 'RecordId',
+        'status' => 'Status',
         'userClientIp' => 'UserClientIp',
     ];
 

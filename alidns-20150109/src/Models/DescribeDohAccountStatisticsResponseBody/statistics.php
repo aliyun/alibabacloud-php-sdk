@@ -12,32 +12,37 @@ class statistics extends Model
      * @var int
      */
     public $timestamp;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var int
      */
     public $v4HttpCount;
+
     /**
      * @var int
      */
     public $v4HttpsCount;
+
     /**
      * @var int
      */
     public $v6HttpCount;
+
     /**
      * @var int
      */
     public $v6HttpsCount;
     protected $_name = [
-        'timestamp'    => 'Timestamp',
-        'totalCount'   => 'TotalCount',
-        'v4HttpCount'  => 'V4HttpCount',
+        'timestamp' => 'Timestamp',
+        'totalCount' => 'TotalCount',
+        'v4HttpCount' => 'V4HttpCount',
         'v4HttpsCount' => 'V4HttpsCount',
-        'v6HttpCount'  => 'V6HttpCount',
+        'v6HttpCount' => 'V6HttpCount',
         'v6HttpsCount' => 'V6HttpsCount',
     ];
 

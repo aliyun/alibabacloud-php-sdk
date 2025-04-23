@@ -12,17 +12,19 @@ class SetDnsGtmAccessModeRequest extends Model
      * @var string
      */
     public $accessMode;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $strategyId;
     protected $_name = [
         'accessMode' => 'AccessMode',
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
         'strategyId' => 'StrategyId',
     ];
 

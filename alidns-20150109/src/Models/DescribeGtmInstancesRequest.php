@@ -12,33 +12,38 @@ class DescribeGtmInstancesRequest extends Model
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var bool
      */
     public $needDetailAttributes;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'keyword'              => 'Keyword',
-        'lang'                 => 'Lang',
+        'keyword' => 'Keyword',
+        'lang' => 'Lang',
         'needDetailAttributes' => 'NeedDetailAttributes',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()

@@ -30,7 +30,7 @@ class availableTtls extends Model
         if (null !== $this->availableTtl) {
             if (\is_array($this->availableTtl)) {
                 $res['AvailableTtl'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->availableTtl as $item1) {
                     $res['AvailableTtl'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class availableTtls extends Model
         if (isset($map['AvailableTtl'])) {
             if (!empty($map['AvailableTtl'])) {
                 $model->availableTtl = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['AvailableTtl'] as $item1) {
                     $model->availableTtl[$n1++] = $item1;
                 }

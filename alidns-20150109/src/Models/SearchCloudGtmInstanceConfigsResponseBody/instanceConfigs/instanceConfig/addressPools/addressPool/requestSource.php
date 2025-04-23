@@ -30,7 +30,7 @@ class requestSource extends Model
         if (null !== $this->requestSource) {
             if (\is_array($this->requestSource)) {
                 $res['RequestSource'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->requestSource as $item1) {
                     $res['RequestSource'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class requestSource extends Model
         if (isset($map['RequestSource'])) {
             if (!empty($map['RequestSource'])) {
                 $model->requestSource = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['RequestSource'] as $item1) {
                     $model->requestSource[$n1++] = $item1;
                 }

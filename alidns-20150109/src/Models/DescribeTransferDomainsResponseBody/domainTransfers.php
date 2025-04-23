@@ -31,7 +31,7 @@ class domainTransfers extends Model
         if (null !== $this->domainTransfer) {
             if (\is_array($this->domainTransfer)) {
                 $res['DomainTransfer'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->domainTransfer as $item1) {
                     $res['DomainTransfer'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class domainTransfers extends Model
         if (isset($map['DomainTransfer'])) {
             if (!empty($map['DomainTransfer'])) {
                 $model->domainTransfer = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['DomainTransfer'] as $item1) {
                     $model->domainTransfer[$n1++] = domainTransfer::fromMap($item1);
                 }

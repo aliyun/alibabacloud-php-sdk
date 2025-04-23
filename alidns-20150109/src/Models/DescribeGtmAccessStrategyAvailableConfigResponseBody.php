@@ -14,22 +14,25 @@ class DescribeGtmAccessStrategyAvailableConfigResponseBody extends Model
      * @var addrPools
      */
     public $addrPools;
+
     /**
      * @var lines
      */
     public $lines;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $suggestSetDefaultLine;
     protected $_name = [
-        'addrPools'             => 'AddrPools',
-        'lines'                 => 'Lines',
-        'requestId'             => 'RequestId',
+        'addrPools' => 'AddrPools',
+        'lines' => 'Lines',
+        'requestId' => 'RequestId',
         'suggestSetDefaultLine' => 'SuggestSetDefaultLine',
     ];
 

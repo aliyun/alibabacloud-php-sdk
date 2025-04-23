@@ -13,33 +13,38 @@ class DescribeIspFlushCacheTasksResponseBody extends Model
      * @var ispFlushCacheTasks[]
      */
     public $ispFlushCacheTasks;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalItems;
+
     /**
      * @var int
      */
     public $totalPages;
     protected $_name = [
         'ispFlushCacheTasks' => 'IspFlushCacheTasks',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'requestId'          => 'RequestId',
-        'totalItems'         => 'TotalItems',
-        'totalPages'         => 'TotalPages',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalItems' => 'TotalItems',
+        'totalPages' => 'TotalPages',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class DescribeIspFlushCacheTasksResponseBody extends Model
         if (null !== $this->ispFlushCacheTasks) {
             if (\is_array($this->ispFlushCacheTasks)) {
                 $res['IspFlushCacheTasks'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->ispFlushCacheTasks as $item1) {
                     $res['IspFlushCacheTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class DescribeIspFlushCacheTasksResponseBody extends Model
         if (isset($map['IspFlushCacheTasks'])) {
             if (!empty($map['IspFlushCacheTasks'])) {
                 $model->ispFlushCacheTasks = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['IspFlushCacheTasks'] as $item1) {
                     $model->ispFlushCacheTasks[$n1++] = ispFlushCacheTasks::fromMap($item1);
                 }

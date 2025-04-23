@@ -13,43 +13,50 @@ class ispFlushCacheInstances extends Model
      * @var string
      */
     public $expireTime;
+
     /**
      * @var int
      */
     public $expireTimestamp;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $isp;
+
     /**
      * @var quotaInfo
      */
     public $quotaInfo;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $versionCode;
     protected $_name = [
-        'expireTime'      => 'ExpireTime',
+        'expireTime' => 'ExpireTime',
         'expireTimestamp' => 'ExpireTimestamp',
-        'instanceId'      => 'InstanceId',
-        'instanceName'    => 'InstanceName',
-        'isp'             => 'Isp',
-        'quotaInfo'       => 'QuotaInfo',
-        'status'          => 'Status',
-        'versionCode'     => 'VersionCode',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'isp' => 'Isp',
+        'quotaInfo' => 'QuotaInfo',
+        'status' => 'Status',
+        'versionCode' => 'VersionCode',
     ];
 
     public function validate()

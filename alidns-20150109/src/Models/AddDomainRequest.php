@@ -12,22 +12,25 @@ class AddDomainRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'domainName'      => 'DomainName',
-        'groupId'         => 'GroupId',
-        'lang'            => 'Lang',
+        'domainName' => 'DomainName',
+        'groupId' => 'GroupId',
+        'lang' => 'Lang',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

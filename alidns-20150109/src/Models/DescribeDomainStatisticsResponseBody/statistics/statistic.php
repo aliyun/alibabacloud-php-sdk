@@ -12,18 +12,20 @@ class statistic extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'count'      => 'Count',
+        'count' => 'Count',
         'domainName' => 'DomainName',
-        'timestamp'  => 'Timestamp',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()

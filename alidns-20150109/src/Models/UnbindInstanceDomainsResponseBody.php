@@ -12,17 +12,19 @@ class UnbindInstanceDomainsResponseBody extends Model
      * @var int
      */
     public $failedCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $successCount;
     protected $_name = [
-        'failedCount'  => 'FailedCount',
-        'requestId'    => 'RequestId',
+        'failedCount' => 'FailedCount',
+        'requestId' => 'RequestId',
         'successCount' => 'SuccessCount',
     ];
 

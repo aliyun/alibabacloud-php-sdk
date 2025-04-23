@@ -31,7 +31,7 @@ class faultAddrPools extends Model
         if (null !== $this->faultAddrPool) {
             if (\is_array($this->faultAddrPool)) {
                 $res['FaultAddrPool'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->faultAddrPool as $item1) {
                     $res['FaultAddrPool'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class faultAddrPools extends Model
         if (isset($map['FaultAddrPool'])) {
             if (!empty($map['FaultAddrPool'])) {
                 $model->faultAddrPool = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['FaultAddrPool'] as $item1) {
                     $model->faultAddrPool[$n1++] = faultAddrPool::fromMap($item1);
                 }

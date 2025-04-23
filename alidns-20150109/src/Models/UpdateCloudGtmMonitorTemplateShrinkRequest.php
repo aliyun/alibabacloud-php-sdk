@@ -12,53 +12,62 @@ class UpdateCloudGtmMonitorTemplateShrinkRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var int
      */
     public $evaluationCount;
+
     /**
      * @var string
      */
     public $extendInfo;
+
     /**
      * @var int
      */
     public $failureRate;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var string
      */
     public $ispCityNodesShrink;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var int
      */
     public $timeout;
     protected $_name = [
-        'acceptLanguage'     => 'AcceptLanguage',
-        'clientToken'        => 'ClientToken',
-        'evaluationCount'    => 'EvaluationCount',
-        'extendInfo'         => 'ExtendInfo',
-        'failureRate'        => 'FailureRate',
-        'interval'           => 'Interval',
+        'acceptLanguage' => 'AcceptLanguage',
+        'clientToken' => 'ClientToken',
+        'evaluationCount' => 'EvaluationCount',
+        'extendInfo' => 'ExtendInfo',
+        'failureRate' => 'FailureRate',
+        'interval' => 'Interval',
         'ispCityNodesShrink' => 'IspCityNodes',
-        'name'               => 'Name',
-        'templateId'         => 'TemplateId',
-        'timeout'            => 'Timeout',
+        'name' => 'Name',
+        'templateId' => 'TemplateId',
+        'timeout' => 'Timeout',
     ];
 
     public function validate()

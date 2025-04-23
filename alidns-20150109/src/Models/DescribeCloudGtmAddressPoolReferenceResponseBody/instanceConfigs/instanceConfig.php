@@ -12,78 +12,92 @@ class instanceConfig extends Model
      * @var string
      */
     public $addressPoolLbStrategy;
+
     /**
      * @var string
      */
     public $availableStatus;
+
     /**
      * @var string
      */
     public $configId;
+
     /**
      * @var string
      */
     public $enableStatus;
+
     /**
      * @var string
      */
     public $healthStatus;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $scheduleDomainName;
+
     /**
      * @var string
      */
     public $scheduleHostname;
+
     /**
      * @var string
      */
     public $scheduleRrType;
+
     /**
      * @var string
      */
     public $scheduleZoneName;
+
     /**
      * @var string
      */
     public $sequenceLbStrategyMode;
+
     /**
      * @var int
      */
     public $ttl;
+
     /**
      * @var string
      */
     public $versionCode;
     protected $_name = [
-        'addressPoolLbStrategy'  => 'AddressPoolLbStrategy',
-        'availableStatus'        => 'AvailableStatus',
-        'configId'               => 'ConfigId',
-        'enableStatus'           => 'EnableStatus',
-        'healthStatus'           => 'HealthStatus',
-        'instanceId'             => 'InstanceId',
-        'instanceName'           => 'InstanceName',
-        'remark'                 => 'Remark',
-        'scheduleDomainName'     => 'ScheduleDomainName',
-        'scheduleHostname'       => 'ScheduleHostname',
-        'scheduleRrType'         => 'ScheduleRrType',
-        'scheduleZoneName'       => 'ScheduleZoneName',
+        'addressPoolLbStrategy' => 'AddressPoolLbStrategy',
+        'availableStatus' => 'AvailableStatus',
+        'configId' => 'ConfigId',
+        'enableStatus' => 'EnableStatus',
+        'healthStatus' => 'HealthStatus',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'remark' => 'Remark',
+        'scheduleDomainName' => 'ScheduleDomainName',
+        'scheduleHostname' => 'ScheduleHostname',
+        'scheduleRrType' => 'ScheduleRrType',
+        'scheduleZoneName' => 'ScheduleZoneName',
         'sequenceLbStrategyMode' => 'SequenceLbStrategyMode',
-        'ttl'                    => 'Ttl',
-        'versionCode'            => 'VersionCode',
+        'ttl' => 'Ttl',
+        'versionCode' => 'VersionCode',
     ];
 
     public function validate()

@@ -13,31 +13,36 @@ class ListCloudGtmInstancesResponseBody extends Model
      * @var instances
      */
     public $instances;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalItems;
+
     /**
      * @var int
      */
     public $totalPages;
     protected $_name = [
-        'instances'  => 'Instances',
+        'instances' => 'Instances',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalItems' => 'TotalItems',
         'totalPages' => 'TotalPages',
     ];

@@ -12,48 +12,56 @@ class AddDomainRecordRequest extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $line;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $RR;
+
     /**
      * @var int
      */
     public $TTL;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $userClientIp;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'domainName'   => 'DomainName',
-        'lang'         => 'Lang',
-        'line'         => 'Line',
-        'priority'     => 'Priority',
-        'RR'           => 'RR',
-        'TTL'          => 'TTL',
-        'type'         => 'Type',
+        'domainName' => 'DomainName',
+        'lang' => 'Lang',
+        'line' => 'Line',
+        'priority' => 'Priority',
+        'RR' => 'RR',
+        'TTL' => 'TTL',
+        'type' => 'Type',
         'userClientIp' => 'UserClientIp',
-        'value'        => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

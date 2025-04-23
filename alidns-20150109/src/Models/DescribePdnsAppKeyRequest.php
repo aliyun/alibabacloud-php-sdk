@@ -12,10 +12,12 @@ class DescribePdnsAppKeyRequest extends Model
      * @var string
      */
     public $appKeyId;
+
     /**
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class DescribePdnsAppKeyRequest extends Model
     protected $_name = [
         'appKeyId' => 'AppKeyId',
         'authCode' => 'AuthCode',
-        'lang'     => 'Lang',
+        'lang' => 'Lang',
     ];
 
     public function validate()

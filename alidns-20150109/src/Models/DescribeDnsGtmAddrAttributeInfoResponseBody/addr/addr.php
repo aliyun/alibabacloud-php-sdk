@@ -13,12 +13,13 @@ class addr extends Model
      * @var string
      */
     public $addr;
+
     /**
      * @var attributeInfo
      */
     public $attributeInfo;
     protected $_name = [
-        'addr'          => 'Addr',
+        'addr' => 'Addr',
         'attributeInfo' => 'AttributeInfo',
     ];
 

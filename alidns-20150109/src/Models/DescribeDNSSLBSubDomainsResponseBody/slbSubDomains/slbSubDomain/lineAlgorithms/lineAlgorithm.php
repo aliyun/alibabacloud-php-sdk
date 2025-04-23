@@ -12,6 +12,7 @@ class lineAlgorithm extends Model
      * @var string
      */
     public $line;
+
     /**
      * @var bool
      */

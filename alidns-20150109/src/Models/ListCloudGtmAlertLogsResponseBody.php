@@ -13,31 +13,36 @@ class ListCloudGtmAlertLogsResponseBody extends Model
      * @var logs
      */
     public $logs;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalItems;
+
     /**
      * @var int
      */
     public $totalPages;
     protected $_name = [
-        'logs'       => 'Logs',
+        'logs' => 'Logs',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalItems' => 'TotalItems',
         'totalPages' => 'TotalPages',
     ];

@@ -12,17 +12,19 @@ class healthTask extends Model
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'port'         => 'Port',
-        'templateId'   => 'TemplateId',
+        'port' => 'Port',
+        'templateId' => 'TemplateId',
         'templateName' => 'TemplateName',
     ];
 

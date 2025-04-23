@@ -12,43 +12,50 @@ class DescribeIspFlushCacheInstancesRequest extends Model
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $isp;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'direction'  => 'Direction',
-        'isp'        => 'Isp',
-        'keyword'    => 'Keyword',
-        'lang'       => 'Lang',
-        'orderBy'    => 'OrderBy',
+        'direction' => 'Direction',
+        'isp' => 'Isp',
+        'keyword' => 'Keyword',
+        'lang' => 'Lang',
+        'orderBy' => 'OrderBy',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'type'       => 'Type',
+        'pageSize' => 'PageSize',
+        'type' => 'Type',
     ];
 
     public function validate()

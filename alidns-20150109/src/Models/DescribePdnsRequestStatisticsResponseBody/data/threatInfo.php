@@ -12,13 +12,14 @@ class threatInfo extends Model
      * @var string
      */
     public $threatLevel;
+
     /**
      * @var string
      */
     public $threatType;
     protected $_name = [
         'threatLevel' => 'ThreatLevel',
-        'threatType'  => 'ThreatType',
+        'threatType' => 'ThreatType',
     ];
 
     public function validate()

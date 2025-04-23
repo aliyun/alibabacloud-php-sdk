@@ -12,68 +12,80 @@ class recoveryPlan extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var int
      */
     public $faultAddrPoolNum;
+
     /**
      * @var string
      */
     public $lastExecuteTime;
+
     /**
      * @var int
      */
     public $lastExecuteTimestamp;
+
     /**
      * @var string
      */
     public $lastRollbackTime;
+
     /**
      * @var int
      */
     public $lastRollbackTimestamp;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $recoveryPlanId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $updateTimestamp;
     protected $_name = [
-        'createTime'            => 'CreateTime',
-        'createTimestamp'       => 'CreateTimestamp',
-        'faultAddrPoolNum'      => 'FaultAddrPoolNum',
-        'lastExecuteTime'       => 'LastExecuteTime',
-        'lastExecuteTimestamp'  => 'LastExecuteTimestamp',
-        'lastRollbackTime'      => 'LastRollbackTime',
+        'createTime' => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
+        'faultAddrPoolNum' => 'FaultAddrPoolNum',
+        'lastExecuteTime' => 'LastExecuteTime',
+        'lastExecuteTimestamp' => 'LastExecuteTimestamp',
+        'lastRollbackTime' => 'LastRollbackTime',
         'lastRollbackTimestamp' => 'LastRollbackTimestamp',
-        'name'                  => 'Name',
-        'recoveryPlanId'        => 'RecoveryPlanId',
-        'remark'                => 'Remark',
-        'status'                => 'Status',
-        'updateTime'            => 'UpdateTime',
-        'updateTimestamp'       => 'UpdateTimestamp',
+        'name' => 'Name',
+        'recoveryPlanId' => 'RecoveryPlanId',
+        'remark' => 'Remark',
+        'status' => 'Status',
+        'updateTime' => 'UpdateTime',
+        'updateTimestamp' => 'UpdateTimestamp',
     ];
 
     public function validate()

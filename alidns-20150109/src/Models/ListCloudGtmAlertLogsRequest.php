@@ -12,42 +12,49 @@ class ListCloudGtmAlertLogsRequest extends Model
      * @var string
      */
     public $actionType;
+
     /**
      * @var int
      */
     public $endTimestamp;
+
     /**
      * @var string
      */
     public $entityType;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $startTimestamp;
     protected $_name = [
-        'actionType'     => 'ActionType',
-        'endTimestamp'   => 'EndTimestamp',
-        'entityType'     => 'EntityType',
-        'keyword'        => 'Keyword',
-        'lang'           => 'Lang',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'actionType' => 'ActionType',
+        'endTimestamp' => 'EndTimestamp',
+        'entityType' => 'EntityType',
+        'keyword' => 'Keyword',
+        'lang' => 'Lang',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'startTimestamp' => 'StartTimestamp',
     ];
 

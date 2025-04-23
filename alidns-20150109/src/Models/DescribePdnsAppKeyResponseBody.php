@@ -13,12 +13,13 @@ class DescribePdnsAppKeyResponseBody extends Model
      * @var appKey
      */
     public $appKey;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'appKey'    => 'AppKey',
+        'appKey' => 'AppKey',
         'requestId' => 'RequestId',
     ];
 

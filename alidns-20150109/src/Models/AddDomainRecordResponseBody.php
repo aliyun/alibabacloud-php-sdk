@@ -12,12 +12,13 @@ class AddDomainRecordResponseBody extends Model
      * @var string
      */
     public $recordId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'recordId'  => 'RecordId',
+        'recordId' => 'RecordId',
         'requestId' => 'RequestId',
     ];
 
