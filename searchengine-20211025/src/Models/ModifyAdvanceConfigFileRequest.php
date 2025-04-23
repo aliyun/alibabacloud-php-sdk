@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyAdvanceConfigFileRequest extends Model
 {
     /**
-     * @description The file content.
-     *
-     * @example "ha3"
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The variables.
-     *
      * @var VariablesValue[]
      */
     public $variables;
 
     /**
-     * @description The name of the file.
-     *
-     * This parameter is required.
-     *
-     * @example /qrs.json
-     *
      * @var string
      */
     public $fileName;
@@ -40,22 +28,30 @@ class ModifyAdvanceConfigFileRequest extends Model
         'fileName' => 'fileName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->variables)) {
+            Model::validateArray($this->variables);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->variables) {
-            $res['variables'] = [];
-            if (null !== $this->variables && \is_array($this->variables)) {
-                foreach ($this->variables as $key => $val) {
-                    $res['variables'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->variables)) {
+                $res['variables'] = [];
+                foreach ($this->variables as $key1 => $value1) {
+                    $res['variables'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
+
         if (null !== $this->fileName) {
             $res['fileName'] = $this->fileName;
         }
@@ -63,20 +59,27 @@ class ModifyAdvanceConfigFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAdvanceConfigFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['variables'])) {
-            $model->variables = $map['variables'];
+            if (!empty($map['variables'])) {
+                $model->variables = [];
+                foreach ($map['variables'] as $key1 => $value1) {
+                    $model->variables[$key1] = VariablesValue::fromMap($value1);
+                }
+            }
         }
+
         if (isset($map['fileName'])) {
             $model->fileName = $map['fileName'];
         }

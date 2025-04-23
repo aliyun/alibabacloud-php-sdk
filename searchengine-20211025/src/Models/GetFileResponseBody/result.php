@@ -4,67 +4,41 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetFileResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The file content.
-     *
-     * @example None
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The data source.
-     *
-     * @example ha-cn-2r42p5oi202_xijie_test
-     *
      * @var string
      */
     public $dataSource;
 
     /**
-     * @description Extended information
-     *
      * @var string[][]
      */
     public $extend;
 
     /**
-     * @description The full path of the file.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $fullPathName;
 
     /**
-     * @description Indicates whether the file is a directory.
-     *
-     * @example True
-     *
      * @var bool
      */
     public $isDir;
 
     /**
-     * @description The file name.
-     *
-     * @example ha-cn-2r42ostoc01_qrs
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The number of shards.
-     *
-     * @example ds=20210828
-     *
      * @var int
      */
     public $partition;
@@ -78,29 +52,52 @@ class result extends Model
         'partition' => 'partition',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->extend)) {
+            Model::validateArray($this->extend);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->dataSource) {
             $res['dataSource'] = $this->dataSource;
         }
+
         if (null !== $this->extend) {
-            $res['extend'] = $this->extend;
+            if (\is_array($this->extend)) {
+                $res['extend'] = [];
+                foreach ($this->extend as $key1 => $value1) {
+                    if (\is_array($value1)) {
+                        $res['extend'][$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $res['extend'][$key1][$n2++] = $item2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->fullPathName) {
             $res['fullPathName'] = $this->fullPathName;
         }
+
         if (null !== $this->isDir) {
             $res['isDir'] = $this->isDir;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->partition) {
             $res['partition'] = $this->partition;
         }
@@ -108,32 +105,49 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['dataSource'])) {
             $model->dataSource = $map['dataSource'];
         }
+
         if (isset($map['extend'])) {
-            $model->extend = $map['extend'];
+            if (!empty($map['extend'])) {
+                $model->extend = [];
+                foreach ($map['extend'] as $key1 => $value1) {
+                    if (!empty($value1)) {
+                        $model->extend[$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $model->extend[$key1][$n2++] = $item2;
+                        }
+                    }
+                }
+            }
         }
+
         if (isset($map['fullPathName'])) {
             $model->fullPathName = $map['fullPathName'];
         }
+
         if (isset($map['isDir'])) {
             $model->isDir = $map['isDir'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['partition'])) {
             $model->partition = $map['partition'];
         }

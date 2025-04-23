@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetFileRequest extends Model
 {
     /**
-     * @description The name of the file in full path
-     *
-     * This parameter is required.
-     *
-     * @example /schemas/automobile_vector_schema.json
-     *
      * @var string
      */
     public $fileName;
@@ -22,9 +16,12 @@ class GetFileRequest extends Model
         'fileName' => 'fileName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileName) {
@@ -34,11 +31,11 @@ class GetFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetModelResponseBody\result\content\request\parameters;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class search extends Model
 {
     /**
-     * @example document
-     *
      * @var string
      */
     public $inputType;
@@ -18,9 +16,12 @@ class search extends Model
         'inputType' => 'input_type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputType) {
@@ -30,11 +31,11 @@ class search extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return search
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

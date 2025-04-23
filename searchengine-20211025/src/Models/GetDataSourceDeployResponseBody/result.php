@@ -4,17 +4,15 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDataSourceDeployResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDataSourceDeployResponseBody\result\extend;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDataSourceDeployResponseBody\result\processor;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDataSourceDeployResponseBody\result\storage;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDataSourceDeployResponseBody\result\swift;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $autoBuildIndex;
@@ -25,22 +23,16 @@ class result extends Model
     public $extend;
 
     /**
-     * @description The parameters of the process.
-     *
      * @var processor
      */
     public $processor;
 
     /**
-     * @description The information about the data source.
-     *
      * @var storage
      */
     public $storage;
 
     /**
-     * @description The information about the incremental data source Swift.
-     *
      * @var swift
      */
     public $swift;
@@ -52,50 +44,73 @@ class result extends Model
         'swift' => 'swift',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->extend) {
+            $this->extend->validate();
+        }
+        if (null !== $this->processor) {
+            $this->processor->validate();
+        }
+        if (null !== $this->storage) {
+            $this->storage->validate();
+        }
+        if (null !== $this->swift) {
+            $this->swift->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoBuildIndex) {
             $res['autoBuildIndex'] = $this->autoBuildIndex;
         }
+
         if (null !== $this->extend) {
-            $res['extend'] = null !== $this->extend ? $this->extend->toMap() : null;
+            $res['extend'] = null !== $this->extend ? $this->extend->toArray($noStream) : $this->extend;
         }
+
         if (null !== $this->processor) {
-            $res['processor'] = null !== $this->processor ? $this->processor->toMap() : null;
+            $res['processor'] = null !== $this->processor ? $this->processor->toArray($noStream) : $this->processor;
         }
+
         if (null !== $this->storage) {
-            $res['storage'] = null !== $this->storage ? $this->storage->toMap() : null;
+            $res['storage'] = null !== $this->storage ? $this->storage->toArray($noStream) : $this->storage;
         }
+
         if (null !== $this->swift) {
-            $res['swift'] = null !== $this->swift ? $this->swift->toMap() : null;
+            $res['swift'] = null !== $this->swift ? $this->swift->toArray($noStream) : $this->swift;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['autoBuildIndex'])) {
             $model->autoBuildIndex = $map['autoBuildIndex'];
         }
+
         if (isset($map['extend'])) {
             $model->extend = extend::fromMap($map['extend']);
         }
+
         if (isset($map['processor'])) {
             $model->processor = processor::fromMap($map['processor']);
         }
+
         if (isset($map['storage'])) {
             $model->storage = storage::fromMap($map['storage']);
         }
+
         if (isset($map['swift'])) {
             $model->swift = swift::fromMap($map['swift']);
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListIndexesRequest extends Model
 {
@@ -19,10 +19,6 @@ class ListIndexesRequest extends Model
     public $database;
 
     /**
-     * @description Specifies whether the OpenSearch Vector Search Edition instance is of the new version.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $newMode;
@@ -38,20 +34,26 @@ class ListIndexesRequest extends Model
         'table' => 'table',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->catalog) {
             $res['catalog'] = $this->catalog;
         }
+
         if (null !== $this->database) {
             $res['database'] = $this->database;
         }
+
         if (null !== $this->newMode) {
             $res['newMode'] = $this->newMode;
         }
+
         if (null !== $this->table) {
             $res['table'] = $this->table;
         }
@@ -59,23 +61,26 @@ class ListIndexesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIndexesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['catalog'])) {
             $model->catalog = $map['catalog'];
         }
+
         if (isset($map['database'])) {
             $model->database = $map['database'];
         }
+
         if (isset($map['newMode'])) {
             $model->newMode = $map['newMode'];
         }
+
         if (isset($map['table'])) {
             $model->table = $map['table'];
         }

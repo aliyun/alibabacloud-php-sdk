@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CloneSqlInstanceRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $targetFolderId;
@@ -30,14 +22,18 @@ class CloneSqlInstanceRequest extends Model
         'targetFolderId' => 'targetFolderId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->targetFolderId) {
             $res['targetFolderId'] = $this->targetFolderId;
         }
@@ -45,17 +41,18 @@ class CloneSqlInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloneSqlInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['targetFolderId'])) {
             $model->targetFolderId = $map['targetFolderId'];
         }

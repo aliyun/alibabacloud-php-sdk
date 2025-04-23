@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateInstanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class components extends Model
 {
     /**
-     * @description The code of the specification, which must be consistent with the value that you specify on the buy page.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The value of the specification.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $value;
@@ -30,14 +22,18 @@ class components extends Model
         'value' => 'value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -45,17 +41,18 @@ class components extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return components
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

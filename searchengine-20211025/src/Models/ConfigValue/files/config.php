@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ConfigValue\files;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ConfigValueFilesConfigVariablesValue;
-use AlibabaCloud\Tea\Model;
 
 class config extends Model
 {
     /**
-     * @description The file content.
-     *
-     * @example $dictContent
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The variables.
-     *
      * @var ConfigValueFilesConfigVariablesValue[]
      */
     public $variables;
@@ -29,19 +23,26 @@ class config extends Model
         'variables' => 'variables',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->variables)) {
+            Model::validateArray($this->variables);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->variables) {
-            $res['variables'] = [];
-            if (null !== $this->variables && \is_array($this->variables)) {
-                foreach ($this->variables as $key => $val) {
-                    $res['variables'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->variables)) {
+                $res['variables'] = [];
+                foreach ($this->variables as $key1 => $value1) {
+                    $res['variables'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
@@ -49,19 +50,25 @@ class config extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return config
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['variables'])) {
-            $model->variables = $map['variables'];
+            if (!empty($map['variables'])) {
+                $model->variables = [];
+                foreach ($map['variables'] as $key1 => $value1) {
+                    $model->variables[$key1] = ConfigValueFilesConfigVariablesValue::fromMap($value1);
+                }
+            }
         }
 
         return $model;

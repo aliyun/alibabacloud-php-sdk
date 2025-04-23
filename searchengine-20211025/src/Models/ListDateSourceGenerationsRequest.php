@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDateSourceGenerationsRequest extends Model
 {
     /**
-     * @description The data center where the data source is deployed.
-     *
-     * This parameter is required.
-     *
-     * @example bj_vpc_domain_1
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description Specifies the index versions to be returned. Valid values:
-     *
-     * 1.  true (default): returns the index versions that are complete and not expired.
-     * 2.  false: returns all index versions.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $validStatus;
@@ -35,14 +22,18 @@ class ListDateSourceGenerationsRequest extends Model
         'validStatus' => 'validStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['domainName'] = $this->domainName;
         }
+
         if (null !== $this->validStatus) {
             $res['validStatus'] = $this->validStatus;
         }
@@ -50,17 +41,18 @@ class ListDateSourceGenerationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDateSourceGenerationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['domainName'])) {
             $model->domainName = $map['domainName'];
         }
+
         if (isset($map['validStatus'])) {
             $model->validStatus = $map['validStatus'];
         }

@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyIndexVersionRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class body extends Model
 {
     /**
-     * @description The deployment ID of the data source.
-     *
-     * @example 277
-     *
      * @var string
      */
     public $buildDeployId;
 
     /**
-     * @description The index name.
-     *
-     * @example main_index
-     *
      * @var string
      */
     public $indexName;
 
     /**
-     * @description The index version.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $version;
@@ -40,17 +28,22 @@ class body extends Model
         'version' => 'version',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buildDeployId) {
             $res['buildDeployId'] = $this->buildDeployId;
         }
+
         if (null !== $this->indexName) {
             $res['indexName'] = $this->indexName;
         }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -58,20 +51,22 @@ class body extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return body
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['buildDeployId'])) {
             $model->buildDeployId = $map['buildDeployId'];
         }
+
         if (isset($map['indexName'])) {
             $model->indexName = $map['indexName'];
         }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

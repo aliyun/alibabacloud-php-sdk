@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetInstanceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetInstanceResponseBody\result\network;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetInstanceResponseBody\result\spec;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetInstanceResponseBody\result\tags;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -17,174 +17,104 @@ class result extends Model
     public $bsVersion;
 
     /**
-     * @description The billing method.
-     *
-     * @example POSYPAY
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @description The commodity code of the instance.
-     *
-     * @example commodityCode
-     *
      * @var string
      */
     public $commodityCode;
 
     /**
-     * @description The time when the instance was created.
-     *
-     * @example 2022-06-17T02:01:26Z
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description The description of the instance.
-     *
-     * @example ha3_test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The edition of the instance. Valid values: vector and engine.
-     *
-     * @example vector
-     *
      * @var string
      */
     public $edition;
 
     /**
-     * @description The time when the instance expires.
-     *
-     * @example 1634609702
-     *
      * @var string
      */
     public $expiredTime;
 
     /**
-     * @description Indicates whether an overdue payment is involved.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $inDebt;
 
     /**
-     * @description The instance ID.
-     *
-     * @example ha-cn-7mz2qsgq301
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The lock status.
-     *
-     * @example Unlock
-     *
      * @var string
      */
     public $lockMode;
 
     /**
-     * @description The network information of the instance.
-     *
      * @var network
      */
     public $network;
 
     /**
-     * @description Specifies whether the instance is of the new version.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $newMode;
 
     /**
-     * @description Specifies whether the instance has only one node.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $noQrs;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-aekzjvw24el5lma
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The node specifications.
-     *
      * @var spec
      */
     public $spec;
 
     /**
-     * @description The status of the instance. Valid values:
-     *
-     *   INIT: being initialized
-     *   WAIT_CONFIG: to be configured
-     *   CONFIG_UPDATING: configuration taking effect
-     *   READY: normal
-     *
-     * @example INIT
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The tags of the instance.
-     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The time when the instance was updated.
-     *
-     * @example 1634609702
-     *
      * @var string
      */
     public $updateTime;
 
     /**
-     * @description The username.
-     *
-     * @example admin
-     *
      * @var string
      */
     public $userName;
 
     /**
-     * @description The version of the engine.
-     *
-     * @example ha3_3.10.0
-     *
      * @var string
      */
     public $version;
+
+    /**
+     * @var int
+     */
+    public $zoneCount;
     protected $_name = [
         'bsVersion' => 'bsVersion',
         'chargeType' => 'chargeType',
@@ -206,156 +136,215 @@ class result extends Model
         'updateTime' => 'updateTime',
         'userName' => 'userName',
         'version' => 'version',
+        'zoneCount' => 'zoneCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->network) {
+            $this->network->validate();
+        }
+        if (null !== $this->spec) {
+            $this->spec->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bsVersion) {
             $res['bsVersion'] = $this->bsVersion;
         }
+
         if (null !== $this->chargeType) {
             $res['chargeType'] = $this->chargeType;
         }
+
         if (null !== $this->commodityCode) {
             $res['commodityCode'] = $this->commodityCode;
         }
+
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->edition) {
             $res['edition'] = $this->edition;
         }
+
         if (null !== $this->expiredTime) {
             $res['expiredTime'] = $this->expiredTime;
         }
+
         if (null !== $this->inDebt) {
             $res['inDebt'] = $this->inDebt;
         }
+
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
+
         if (null !== $this->lockMode) {
             $res['lockMode'] = $this->lockMode;
         }
+
         if (null !== $this->network) {
-            $res['network'] = null !== $this->network ? $this->network->toMap() : null;
+            $res['network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
         }
+
         if (null !== $this->newMode) {
             $res['newMode'] = $this->newMode;
         }
+
         if (null !== $this->noQrs) {
             $res['noQrs'] = $this->noQrs;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->spec) {
-            $res['spec'] = null !== $this->spec ? $this->spec->toMap() : null;
+            $res['spec'] = null !== $this->spec ? $this->spec->toArray($noStream) : $this->spec;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->tags) {
-            $res['tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->updateTime) {
             $res['updateTime'] = $this->updateTime;
         }
+
         if (null !== $this->userName) {
             $res['userName'] = $this->userName;
         }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
+        }
+
+        if (null !== $this->zoneCount) {
+            $res['zoneCount'] = $this->zoneCount;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['bsVersion'])) {
             $model->bsVersion = $map['bsVersion'];
         }
+
         if (isset($map['chargeType'])) {
             $model->chargeType = $map['chargeType'];
         }
+
         if (isset($map['commodityCode'])) {
             $model->commodityCode = $map['commodityCode'];
         }
+
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['edition'])) {
             $model->edition = $map['edition'];
         }
+
         if (isset($map['expiredTime'])) {
             $model->expiredTime = $map['expiredTime'];
         }
+
         if (isset($map['inDebt'])) {
             $model->inDebt = $map['inDebt'];
         }
+
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
+
         if (isset($map['lockMode'])) {
             $model->lockMode = $map['lockMode'];
         }
+
         if (isset($map['network'])) {
             $model->network = network::fromMap($map['network']);
         }
+
         if (isset($map['newMode'])) {
             $model->newMode = $map['newMode'];
         }
+
         if (isset($map['noQrs'])) {
             $model->noQrs = $map['noQrs'];
         }
+
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
         }
+
         if (isset($map['spec'])) {
             $model->spec = spec::fromMap($map['spec']);
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
-                $n = 0;
-                foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['updateTime'])) {
             $model->updateTime = $map['updateTime'];
         }
+
         if (isset($map['userName'])) {
             $model->userName = $map['userName'];
         }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
+        }
+
+        if (isset($map['zoneCount'])) {
+            $model->zoneCount = $map['zoneCount'];
         }
 
         return $model;

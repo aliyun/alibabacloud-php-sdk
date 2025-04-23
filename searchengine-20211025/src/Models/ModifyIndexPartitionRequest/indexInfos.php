@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyIndexPartitionRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class indexInfos extends Model
 {
     /**
-     * @description The index name.
-     *
-     * @example atest2
-     *
      * @var string
      */
     public $indexName;
 
     /**
-     * @description The concurrency. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $parallelNum;
 
     /**
-     * @description The number of shards.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $partitionCount;
@@ -40,17 +28,22 @@ class indexInfos extends Model
         'partitionCount' => 'partitionCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->indexName) {
             $res['indexName'] = $this->indexName;
         }
+
         if (null !== $this->parallelNum) {
             $res['parallelNum'] = $this->parallelNum;
         }
+
         if (null !== $this->partitionCount) {
             $res['partitionCount'] = $this->partitionCount;
         }
@@ -58,20 +51,22 @@ class indexInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return indexInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['indexName'])) {
             $model->indexName = $map['indexName'];
         }
+
         if (isset($map['parallelNum'])) {
             $model->parallelNum = $map['parallelNum'];
         }
+
         if (isset($map['partitionCount'])) {
             $model->partitionCount = $map['partitionCount'];
         }

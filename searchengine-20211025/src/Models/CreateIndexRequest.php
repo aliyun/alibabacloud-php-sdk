@@ -4,109 +4,57 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateIndexRequest\dataSourceInfo;
-use AlibabaCloud\Tea\Model;
 
 class CreateIndexRequest extends Model
 {
     /**
-     * @description The maximum number of full indexes that can be concurrently built.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $buildParallelNum;
 
     /**
-     * @description The index schema.
-     *
-     * @example {\\"summarys\\":{\\"summary_fields\\":[\\"id\\"]},\\"indexs\\":[{\\"index_name\\":\\"index_id\\",\\"index_type\\":\\"PRIMARYKEY64\\",\\"index_fields\\":\\"id\\",\\"has_primary_key_attribute\\":true,\\"is_primary_key_sorted\\":false}],\\"attributes\\":[\\"id\\"],\\"fields\\":[{\\"field_name\\":\\"id\\",\\"field_type\\":\\"UINT16\\"}],\\"table_name\\":\\"index_2\\"}
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The name of the data source.
-     *
-     * @example test1
-     *
      * @var string
      */
     public $dataSource;
 
     /**
-     * @description The information about the data source. This parameter is required for an OpenSearch Vector Search Edition instance of the new version.
-     *
      * @var dataSourceInfo
      */
     public $dataSourceInfo;
 
     /**
-     * @description The data center in which the data source is deployed.
-     *
-     * @example vpc_hz_domain_1
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description The extended content of the field configuration. key specifies the vector field and the field that requires embedding.
-     *
-     * @example {
-     * "vector":
-     * [
-     * "source_image_vector"
-     * ],
-     * "embeding":
-     * [
-     * "source_image"
-     * ],
-     * "description":
-     * []
-     * }
-     *
      * @var mixed[]
      */
     public $extend;
 
     /**
-     * @description The maximum number of full indexes that can be concurrently merged.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $mergeParallelNum;
 
     /**
-     * @description The index name.
-     *
-     * @example ha-cn-zvp2qr1sk01_qrs
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The number of data shards.
-     *
-     * @example 20211202
-     *
      * @var int
      */
     public $partition;
 
     /**
-     * @description Specifies whether to perform only a dry run, without performing the actual request. The system only checks the validity of the data source. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $dryRun;
@@ -123,38 +71,61 @@ class CreateIndexRequest extends Model
         'dryRun' => 'dryRun',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->dataSourceInfo) {
+            $this->dataSourceInfo->validate();
+        }
+        if (\is_array($this->extend)) {
+            Model::validateArray($this->extend);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buildParallelNum) {
             $res['buildParallelNum'] = $this->buildParallelNum;
         }
+
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->dataSource) {
             $res['dataSource'] = $this->dataSource;
         }
+
         if (null !== $this->dataSourceInfo) {
-            $res['dataSourceInfo'] = null !== $this->dataSourceInfo ? $this->dataSourceInfo->toMap() : null;
+            $res['dataSourceInfo'] = null !== $this->dataSourceInfo ? $this->dataSourceInfo->toArray($noStream) : $this->dataSourceInfo;
         }
+
         if (null !== $this->domain) {
             $res['domain'] = $this->domain;
         }
+
         if (null !== $this->extend) {
-            $res['extend'] = $this->extend;
+            if (\is_array($this->extend)) {
+                $res['extend'] = [];
+                foreach ($this->extend as $key1 => $value1) {
+                    $res['extend'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->mergeParallelNum) {
             $res['mergeParallelNum'] = $this->mergeParallelNum;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->partition) {
             $res['partition'] = $this->partition;
         }
+
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
         }
@@ -162,41 +133,55 @@ class CreateIndexRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateIndexRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['buildParallelNum'])) {
             $model->buildParallelNum = $map['buildParallelNum'];
         }
+
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['dataSource'])) {
             $model->dataSource = $map['dataSource'];
         }
+
         if (isset($map['dataSourceInfo'])) {
             $model->dataSourceInfo = dataSourceInfo::fromMap($map['dataSourceInfo']);
         }
+
         if (isset($map['domain'])) {
             $model->domain = $map['domain'];
         }
+
         if (isset($map['extend'])) {
-            $model->extend = $map['extend'];
+            if (!empty($map['extend'])) {
+                $model->extend = [];
+                foreach ($map['extend'] as $key1 => $value1) {
+                    $model->extend[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['mergeParallelNum'])) {
             $model->mergeParallelNum = $map['mergeParallelNum'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['partition'])) {
             $model->partition = $map['partition'];
         }
+
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
         }

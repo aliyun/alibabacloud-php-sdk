@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetClusterRunTimeInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetClusterRunTimeInfoResponseBody\result\dataNodes;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetClusterRunTimeInfoResponseBody\result\queryNode;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description The cluster name.
-     *
-     * @example vpc_hz_domain_1
-     *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @description The information about the Searcher workers.
-     *
      * @var dataNodes[]
      */
     public $dataNodes;
 
     /**
-     * @description The information about the Query Result Searcher (QRS) workers.
-     *
      * @var queryNode
      */
     public $queryNode;
@@ -38,50 +30,63 @@ class result extends Model
         'queryNode' => 'queryNode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dataNodes)) {
+            Model::validateArray($this->dataNodes);
+        }
+        if (null !== $this->queryNode) {
+            $this->queryNode->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterName) {
             $res['clusterName'] = $this->clusterName;
         }
+
         if (null !== $this->dataNodes) {
-            $res['dataNodes'] = [];
-            if (null !== $this->dataNodes && \is_array($this->dataNodes)) {
-                $n = 0;
-                foreach ($this->dataNodes as $item) {
-                    $res['dataNodes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataNodes)) {
+                $res['dataNodes'] = [];
+                $n1 = 0;
+                foreach ($this->dataNodes as $item1) {
+                    $res['dataNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->queryNode) {
-            $res['queryNode'] = null !== $this->queryNode ? $this->queryNode->toMap() : null;
+            $res['queryNode'] = null !== $this->queryNode ? $this->queryNode->toArray($noStream) : $this->queryNode;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['clusterName'])) {
             $model->clusterName = $map['clusterName'];
         }
+
         if (isset($map['dataNodes'])) {
             if (!empty($map['dataNodes'])) {
                 $model->dataNodes = [];
-                $n = 0;
-                foreach ($map['dataNodes'] as $item) {
-                    $model->dataNodes[$n++] = null !== $item ? dataNodes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['dataNodes'] as $item1) {
+                    $model->dataNodes[$n1++] = dataNodes::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['queryNode'])) {
             $model->queryNode = queryNode::fromMap($map['queryNode']);
         }

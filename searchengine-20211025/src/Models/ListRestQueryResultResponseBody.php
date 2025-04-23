@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListRestQueryResultResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example F43E8AB4-419C-5F4C-90D6-615590DFAA3C
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The result.
-     *
-     * @example {}
-     *
      * @var mixed
      */
     public $result;
@@ -30,14 +22,18 @@ class ListRestQueryResultResponseBody extends Model
         'result' => 'result',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
             $res['result'] = $this->result;
         }
@@ -45,17 +41,18 @@ class ListRestQueryResultResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRestQueryResultResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['result'])) {
             $model->result = $map['result'];
         }

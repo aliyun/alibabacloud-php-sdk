@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListInstancesShrinkRequest extends Model
 {
@@ -24,55 +24,31 @@ class ListInstancesShrinkRequest extends Model
     public $database;
 
     /**
-     * @description The description of the instance. You can use this description to filter instances. Fuzzy match is supported.
-     *
-     * @example Havenask instance
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The instance type. Valid values: vector: OpenSearch Vector Search Edition instance. engine: OpenSearch Retrieval Engine Edition instance.
-     *
-     * @example vector
-     *
      * @var string
      */
     public $edition;
 
     /**
-     * @description The instance ID.
-     *
-     * @example ha-cn-83570439y0n
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The number of the page to return. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 50. Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the resource group to which the instance belongs.
-     *
-     * @example rg-aekzgpiswzbksdi
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -83,8 +59,6 @@ class ListInstancesShrinkRequest extends Model
     public $table;
 
     /**
-     * @description The tags of the instance.
-     *
      * @var string
      */
     public $tagsShrink;
@@ -102,41 +76,54 @@ class ListInstancesShrinkRequest extends Model
         'tagsShrink' => 'tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->catalog) {
             $res['catalog'] = $this->catalog;
         }
+
         if (null !== $this->dataSourceType) {
             $res['dataSourceType'] = $this->dataSourceType;
         }
+
         if (null !== $this->database) {
             $res['database'] = $this->database;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->edition) {
             $res['edition'] = $this->edition;
         }
+
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->table) {
             $res['table'] = $this->table;
         }
+
         if (null !== $this->tagsShrink) {
             $res['tags'] = $this->tagsShrink;
         }
@@ -144,44 +131,54 @@ class ListInstancesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstancesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['catalog'])) {
             $model->catalog = $map['catalog'];
         }
+
         if (isset($map['dataSourceType'])) {
             $model->dataSourceType = $map['dataSourceType'];
         }
+
         if (isset($map['database'])) {
             $model->database = $map['database'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['edition'])) {
             $model->edition = $map['edition'];
         }
+
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
         }
+
         if (isset($map['table'])) {
             $model->table = $map['table'];
         }
+
         if (isset($map['tags'])) {
             $model->tagsShrink = $map['tags'];
         }

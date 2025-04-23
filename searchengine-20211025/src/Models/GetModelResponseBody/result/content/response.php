@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetModelResponseBody\result\content;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class response extends Model
 {
     /**
-     * @example $.result.embeddings[*].embedding
-     *
      * @var string
      */
     public $embeddings;
@@ -18,9 +16,12 @@ class response extends Model
         'embeddings' => 'embeddings',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->embeddings) {
@@ -30,11 +31,11 @@ class response extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return response
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

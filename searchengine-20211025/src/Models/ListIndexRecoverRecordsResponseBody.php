@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListIndexRecoverRecordsResponseBody extends Model
 {
     /**
-     * @description The description.
-     *
-     * @example test
-     *
      * @var string
      */
     public $desc;
 
     /**
-     * @description The time when the index version was published.
-     *
-     * @example 2024-06-07 16:43:00
-     *
      * @var string
      */
     public $finishedTime;
 
     /**
-     * @description The ID of the full index version.
-     *
-     * @example 1708674867
-     *
      * @var string
      */
     public $generationId;
@@ -40,17 +28,22 @@ class ListIndexRecoverRecordsResponseBody extends Model
         'generationId' => 'generationId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desc) {
             $res['desc'] = $this->desc;
         }
+
         if (null !== $this->finishedTime) {
             $res['finishedTime'] = $this->finishedTime;
         }
+
         if (null !== $this->generationId) {
             $res['generationId'] = $this->generationId;
         }
@@ -58,20 +51,22 @@ class ListIndexRecoverRecordsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIndexRecoverRecordsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['desc'])) {
             $model->desc = $map['desc'];
         }
+
         if (isset($map['finishedTime'])) {
             $model->finishedTime = $map['finishedTime'];
         }
+
         if (isset($map['generationId'])) {
             $model->generationId = $map['generationId'];
         }

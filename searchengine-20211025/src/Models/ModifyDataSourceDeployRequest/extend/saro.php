@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyDataSourceDeployRequest\extend;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class saro extends Model
 {
     /**
-     * @description The path of the SARO data source.
-     *
-     * @example /
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description The version number of the SARO data source.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $version;
@@ -30,14 +22,18 @@ class saro extends Model
         'version' => 'version',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->path) {
             $res['path'] = $this->path;
         }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -45,17 +41,18 @@ class saro extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return saro
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['path'])) {
             $model->path = $map['path'];
         }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

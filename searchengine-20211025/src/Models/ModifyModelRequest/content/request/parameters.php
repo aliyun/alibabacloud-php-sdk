@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyModelRequest\content\request;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyModelRequest\content\request\parameters\build;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyModelRequest\content\request\parameters\search;
-use AlibabaCloud\Tea\Model;
 
 class parameters extends Model
 {
@@ -24,32 +24,43 @@ class parameters extends Model
         'search' => 'search',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->build) {
+            $this->build->validate();
+        }
+        if (null !== $this->search) {
+            $this->search->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->build) {
-            $res['build'] = null !== $this->build ? $this->build->toMap() : null;
+            $res['build'] = null !== $this->build ? $this->build->toArray($noStream) : $this->build;
         }
+
         if (null !== $this->search) {
-            $res['search'] = null !== $this->search ? $this->search->toMap() : null;
+            $res['search'] = null !== $this->search ? $this->search->toArray($noStream) : $this->search;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return parameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['build'])) {
             $model->build = build::fromMap($map['build']);
         }
+
         if (isset($map['search'])) {
             $model->search = search::fromMap($map['search']);
         }

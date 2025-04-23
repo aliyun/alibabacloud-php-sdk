@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTablesRequest extends Model
 {
     /**
-     * @description Specifies whether the OpenSearch Vector Search Edition instance is of the new version.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $newMode;
@@ -20,9 +16,12 @@ class ListTablesRequest extends Model
         'newMode' => 'newMode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->newMode) {
@@ -32,11 +31,11 @@ class ListTablesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTablesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

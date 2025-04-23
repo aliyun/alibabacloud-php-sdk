@@ -4,38 +4,21 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetNodeConfigRequest extends Model
 {
     /**
-     * @description The name of the cluster
-     *
-     * @example vpc_sh_domain_2
-     *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @description The node name.
-     *
-     * @example ha-cn-30174dhoz53_qrs
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The node type. Valid values:
-     *
-     *   qrs: Query Result Searcher (QRS) worker
-     *   search: Search worker
-     *   index: index
-     *   cluster: cluster
-     *
-     * @example index
-     *
      * @var string
      */
     public $type;
@@ -45,17 +28,22 @@ class GetNodeConfigRequest extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterName) {
             $res['clusterName'] = $this->clusterName;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -63,20 +51,22 @@ class GetNodeConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetNodeConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['clusterName'])) {
             $model->clusterName = $map['clusterName'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

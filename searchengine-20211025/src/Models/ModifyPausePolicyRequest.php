@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyPausePolicyRequest extends Model
 {
     /**
-     * @description The request body.
-     *
      * @var BodyValue[]
      */
     public $body;
@@ -18,16 +16,22 @@ class ModifyPausePolicyRequest extends Model
         'body' => 'body',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->body)) {
+            Model::validateArray($this->body);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = [];
-            if (null !== $this->body && \is_array($this->body)) {
-                foreach ($this->body as $key => $val) {
-                    $res['body'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->body)) {
+                $res['body'] = [];
+                foreach ($this->body as $key1 => $value1) {
+                    $res['body'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
@@ -35,16 +39,21 @@ class ModifyPausePolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyPausePolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
-            $model->body = $map['body'];
+            if (!empty($map['body'])) {
+                $model->body = [];
+                foreach ($map['body'] as $key1 => $value1) {
+                    $model->body[$key1] = BodyValue::fromMap($value1);
+                }
+            }
         }
 
         return $model;

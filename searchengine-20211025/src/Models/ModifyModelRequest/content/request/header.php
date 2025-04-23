@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyModelRequest\content\request;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class header extends Model
 {
     /**
-     * @example Bearer OS-v0********6vvs
-     *
      * @var string
      */
     public $authorization;
 
     /**
-     * @example application/json
-     *
      * @var string
      */
     public $contentType;
@@ -26,14 +22,18 @@ class header extends Model
         'contentType' => 'Content-Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authorization) {
             $res['Authorization'] = $this->authorization;
         }
+
         if (null !== $this->contentType) {
             $res['Content-Type'] = $this->contentType;
         }
@@ -41,17 +41,18 @@ class header extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return header
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Authorization'])) {
             $model->authorization = $map['Authorization'];
         }
+
         if (isset($map['Content-Type'])) {
             $model->contentType = $map['Content-Type'];
         }

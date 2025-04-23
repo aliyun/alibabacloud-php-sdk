@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResultClusterValue extends Model
 {
     /**
-     * @description The maximum number of full indexes that can be concurrently built.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $buildParallelNum;
 
     /**
-     * @description The maximum number of full indexes that can be concurrently merged.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $mergeParallelNum;
@@ -30,14 +22,18 @@ class ResultClusterValue extends Model
         'mergeParallelNum' => 'mergeParallelNum',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buildParallelNum) {
             $res['buildParallelNum'] = $this->buildParallelNum;
         }
+
         if (null !== $this->mergeParallelNum) {
             $res['mergeParallelNum'] = $this->mergeParallelNum;
         }
@@ -45,17 +41,18 @@ class ResultClusterValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResultClusterValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['buildParallelNum'])) {
             $model->buildParallelNum = $map['buildParallelNum'];
         }
+
         if (isset($map['mergeParallelNum'])) {
             $model->mergeParallelNum = $map['mergeParallelNum'];
         }

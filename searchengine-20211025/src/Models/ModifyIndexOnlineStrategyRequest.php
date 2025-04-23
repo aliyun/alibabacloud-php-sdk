@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyIndexOnlineStrategyRequest extends Model
 {
     /**
-     * @description The index change rate.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $changeRate;
@@ -20,9 +16,12 @@ class ModifyIndexOnlineStrategyRequest extends Model
         'changeRate' => 'changeRate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeRate) {
@@ -32,11 +31,11 @@ class ModifyIndexOnlineStrategyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyIndexOnlineStrategyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

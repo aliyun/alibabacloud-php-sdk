@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAdvanceConfigFileRequest extends Model
 {
     /**
-     * @description The name of the file
-     *
-     * This parameter is required.
-     *
-     * @example /intervene_dict/chn_ecommerce_general.dict
-     *
      * @var string
      */
     public $fileName;
@@ -22,9 +16,12 @@ class GetAdvanceConfigFileRequest extends Model
         'fileName' => 'fileName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileName) {
@@ -34,11 +31,11 @@ class GetAdvanceConfigFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAdvanceConfigFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

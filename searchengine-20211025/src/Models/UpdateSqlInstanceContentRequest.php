@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateSqlInstanceContentRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example select * from test
-     *
      * @var string
      */
     public $content;
@@ -20,9 +16,12 @@ class UpdateSqlInstanceContentRequest extends Model
         'content' => 'content',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
@@ -32,11 +31,11 @@ class UpdateSqlInstanceContentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSqlInstanceContentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

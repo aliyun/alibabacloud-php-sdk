@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListClusterNamesResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class ListClusterNamesResponseBody extends Model
 {
     /**
-     * @description id of request
-     *
-     * @example F6E3D968-529C-5C40-AFDD-133A8B8FD930
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The result set.
-     *
      * @var result
      */
     public $result;
@@ -29,32 +23,40 @@ class ListClusterNamesResponseBody extends Model
         'result' => 'result',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListClusterNamesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['result'])) {
             $model->result = result::fromMap($map['result']);
         }

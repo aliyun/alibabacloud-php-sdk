@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PushDocumentsRequest extends Model
 {
     /**
-     * @description The request body.
-     *
      * @var mixed[]
      */
     public $body;
 
     /**
-     * @description The primary key field.
-     *
-     * @example id
-     *
      * @var string
      */
     public $pkField;
@@ -28,14 +22,27 @@ class PushDocumentsRequest extends Model
         'pkField' => 'pkField',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->body)) {
+            Model::validateArray($this->body);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = $this->body;
+            if (\is_array($this->body)) {
+                $res['body'] = [];
+                $n1 = 0;
+                foreach ($this->body as $item1) {
+                    $res['body'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->pkField) {
             $res['pkField'] = $this->pkField;
         }
@@ -43,19 +50,24 @@ class PushDocumentsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PushDocumentsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
             if (!empty($map['body'])) {
-                $model->body = $map['body'];
+                $model->body = [];
+                $n1 = 0;
+                foreach ($map['body'] as $item1) {
+                    $model->body[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['pkField'])) {
             $model->pkField = $map['pkField'];
         }

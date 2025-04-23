@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ListAliasesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description alias name
-     *
-     * @example test
-     *
      * @var string
      */
     public $alias;
 
     /**
-     * @description index name
-     *
-     * @example index
-     *
      * @var string
      */
     public $index;
@@ -30,14 +22,18 @@ class result extends Model
         'index' => 'index',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alias) {
             $res['alias'] = $this->alias;
         }
+
         if (null !== $this->index) {
             $res['index'] = $this->index;
         }
@@ -45,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['alias'])) {
             $model->alias = $map['alias'];
         }
+
         if (isset($map['index'])) {
             $model->index = $map['index'];
         }

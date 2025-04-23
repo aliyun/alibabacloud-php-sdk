@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAdvanceConfigDirRequest extends Model
 {
     /**
-     * @description The name of the directory
-     *
-     * This parameter is required.
-     *
-     * @example /zones/general
-     *
      * @var string
      */
     public $dirName;
@@ -22,9 +16,12 @@ class ListAdvanceConfigDirRequest extends Model
         'dirName' => 'dirName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dirName) {
@@ -34,11 +31,11 @@ class ListAdvanceConfigDirRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAdvanceConfigDirRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

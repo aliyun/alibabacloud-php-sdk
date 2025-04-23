@@ -4,67 +4,41 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ListDateSourceGenerationsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The ID of the offline deployment.
-     *
-     * @example 122
-     *
      * @var int
      */
     public $buildDeployId;
 
     /**
-     * @description The timestamp that was generated when the index building was started.
-     *
-     * @example 1626143673
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description The path of the dumped index in the Apsara File Storage for HDFS file system.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $dataDumpRoot;
 
     /**
-     * @description The ID of the full index version.
-     *
-     * @example 1626143930
-     *
      * @var int
      */
     public $generation;
 
     /**
-     * @description The shards of the index version. The value is a key-value pair in which the key indicates the index name and the value indicates the number of shards. The number of value shards.
-     *
      * @var int[]
      */
     public $partition;
 
     /**
-     * @description The status of the index version.
-     *
-     * @example STOPPED
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The start timestamp from which incremental data is retrieved.
-     *
-     * @example 1626143673
-     *
      * @var int
      */
     public $timestamp;
@@ -78,29 +52,46 @@ class result extends Model
         'timestamp' => 'timestamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->partition)) {
+            Model::validateArray($this->partition);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buildDeployId) {
             $res['buildDeployId'] = $this->buildDeployId;
         }
+
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+
         if (null !== $this->dataDumpRoot) {
             $res['dataDumpRoot'] = $this->dataDumpRoot;
         }
+
         if (null !== $this->generation) {
             $res['generation'] = $this->generation;
         }
+
         if (null !== $this->partition) {
-            $res['partition'] = $this->partition;
+            if (\is_array($this->partition)) {
+                $res['partition'] = [];
+                foreach ($this->partition as $key1 => $value1) {
+                    $res['partition'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->timestamp) {
             $res['timestamp'] = $this->timestamp;
         }
@@ -108,32 +99,43 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['buildDeployId'])) {
             $model->buildDeployId = $map['buildDeployId'];
         }
+
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+
         if (isset($map['dataDumpRoot'])) {
             $model->dataDumpRoot = $map['dataDumpRoot'];
         }
+
         if (isset($map['generation'])) {
             $model->generation = $map['generation'];
         }
+
         if (isset($map['partition'])) {
-            $model->partition = $map['partition'];
+            if (!empty($map['partition'])) {
+                $model->partition = [];
+                foreach ($map['partition'] as $key1 => $value1) {
+                    $model->partition[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['timestamp'])) {
             $model->timestamp = $map['timestamp'];
         }

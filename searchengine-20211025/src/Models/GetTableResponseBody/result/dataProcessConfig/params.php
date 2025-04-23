@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetTableResponseBody\result\dataProcessConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetTableResponseBody\result\dataProcessConfig\params\srcFieldConfig;
-use AlibabaCloud\Tea\Model;
 
 class params extends Model
 {
     /**
-     * @description The source of the data to be vectorized.
-     *
      * @var srcFieldConfig
      */
     public $srcFieldConfig;
 
     /**
-     * @description The data type.
-     *
-     * @example image
-     *
      * @var string
      */
     public $vectorModal;
 
     /**
-     * @description The vectorization model.
-     *
-     * @example clip
-     *
      * @var string
      */
     public $vectorModel;
@@ -39,17 +29,25 @@ class params extends Model
         'vectorModel' => 'vectorModel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->srcFieldConfig) {
+            $this->srcFieldConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->srcFieldConfig) {
-            $res['srcFieldConfig'] = null !== $this->srcFieldConfig ? $this->srcFieldConfig->toMap() : null;
+            $res['srcFieldConfig'] = null !== $this->srcFieldConfig ? $this->srcFieldConfig->toArray($noStream) : $this->srcFieldConfig;
         }
+
         if (null !== $this->vectorModal) {
             $res['vectorModal'] = $this->vectorModal;
         }
+
         if (null !== $this->vectorModel) {
             $res['vectorModel'] = $this->vectorModel;
         }
@@ -57,20 +55,22 @@ class params extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return params
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['srcFieldConfig'])) {
             $model->srcFieldConfig = srcFieldConfig::fromMap($map['srcFieldConfig']);
         }
+
         if (isset($map['vectorModal'])) {
             $model->vectorModal = $map['vectorModal'];
         }
+
         if (isset($map['vectorModel'])) {
             $model->vectorModel = $map['vectorModel'];
         }

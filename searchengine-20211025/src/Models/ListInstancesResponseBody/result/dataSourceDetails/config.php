@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ListInstancesResponseBody\result\dataSourceDetails;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class config extends Model
 {
@@ -82,44 +82,58 @@ class config extends Model
         'tag' => 'tag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessKey) {
             $res['accessKey'] = $this->accessKey;
         }
+
         if (null !== $this->bucket) {
             $res['bucket'] = $this->bucket;
         }
+
         if (null !== $this->catalog) {
             $res['catalog'] = $this->catalog;
         }
+
         if (null !== $this->database) {
             $res['database'] = $this->database;
         }
+
         if (null !== $this->endpoint) {
             $res['endpoint'] = $this->endpoint;
         }
+
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
         }
+
         if (null !== $this->ossPath) {
             $res['ossPath'] = $this->ossPath;
         }
+
         if (null !== $this->partition) {
             $res['partition'] = $this->partition;
         }
+
         if (null !== $this->path) {
             $res['path'] = $this->path;
         }
+
         if (null !== $this->project) {
             $res['project'] = $this->project;
         }
+
         if (null !== $this->table) {
             $res['table'] = $this->table;
         }
+
         if (null !== $this->tag) {
             $res['tag'] = $this->tag;
         }
@@ -127,47 +141,58 @@ class config extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return config
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accessKey'])) {
             $model->accessKey = $map['accessKey'];
         }
+
         if (isset($map['bucket'])) {
             $model->bucket = $map['bucket'];
         }
+
         if (isset($map['catalog'])) {
             $model->catalog = $map['catalog'];
         }
+
         if (isset($map['database'])) {
             $model->database = $map['database'];
         }
+
         if (isset($map['endpoint'])) {
             $model->endpoint = $map['endpoint'];
         }
+
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
         }
+
         if (isset($map['ossPath'])) {
             $model->ossPath = $map['ossPath'];
         }
+
         if (isset($map['partition'])) {
             $model->partition = $map['partition'];
         }
+
         if (isset($map['path'])) {
             $model->path = $map['path'];
         }
+
         if (isset($map['project'])) {
             $model->project = $map['project'];
         }
+
         if (isset($map['table'])) {
             $model->table = $map['table'];
         }
+
         if (isset($map['tag'])) {
             $model->tag = $map['tag'];
         }

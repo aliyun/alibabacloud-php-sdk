@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDataSourceDeployResponseBody\result\extend;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class oss extends Model
 {
     /**
-     * @example oss://opensearch
-     *
      * @var string
      */
     public $path;
@@ -18,9 +16,12 @@ class oss extends Model
         'path' => 'path',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->path) {
@@ -30,11 +31,11 @@ class oss extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return oss
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

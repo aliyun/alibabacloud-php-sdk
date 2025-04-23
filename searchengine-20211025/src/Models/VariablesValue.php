@@ -4,71 +4,42 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\VariablesValue\funcValue;
-use AlibabaCloud\Tea\Model;
 
 class VariablesValue extends Model
 {
     /**
-     * @description Specifies whether the variable is not allowed to be modified.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $disableModify;
 
     /**
-     * @description Specifies whether the variable is modified.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $isModify;
 
     /**
-     * @description The variable value.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $value;
 
     /**
-     * @description The description of the variable.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The template value of the variable.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $templateValue;
 
     /**
-     * @description The variable type. Valid values:
-     *
-     *   NORMAL: common variable
-     *   FUNCTION: function variable
-     *
-     * @example NORMAL
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The function variables.
-     *
      * @var funcValue
      */
     public $funcValue;
@@ -82,62 +53,80 @@ class VariablesValue extends Model
         'funcValue' => 'funcValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->funcValue) {
+            $this->funcValue->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->disableModify) {
             $res['disableModify'] = $this->disableModify;
         }
+
         if (null !== $this->isModify) {
             $res['isModify'] = $this->isModify;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->templateValue) {
             $res['templateValue'] = $this->templateValue;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->funcValue) {
-            $res['funcValue'] = null !== $this->funcValue ? $this->funcValue->toMap() : null;
+            $res['funcValue'] = null !== $this->funcValue ? $this->funcValue->toArray($noStream) : $this->funcValue;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VariablesValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['disableModify'])) {
             $model->disableModify = $map['disableModify'];
         }
+
         if (isset($map['isModify'])) {
             $model->isModify = $map['isModify'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['templateValue'])) {
             $model->templateValue = $map['templateValue'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['funcValue'])) {
             $model->funcValue = funcValue::fromMap($map['funcValue']);
         }

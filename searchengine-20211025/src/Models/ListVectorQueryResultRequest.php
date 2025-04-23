@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListVectorQueryResultRequest extends Model
 {
     /**
-     * @description The request body.
-     *
-     * @example {}
-     *
      * @var mixed[]
      */
     public $body;
@@ -23,19 +19,11 @@ class ListVectorQueryResultRequest extends Model
     public $path;
 
     /**
-     * @description The query type. Valid values: vector, primary_key, and vector_text.
-     *
-     * @example primary_key
-     *
      * @var string
      */
     public $queryType;
 
     /**
-     * @description The vector query type. Valid values: vector, image, and text.
-     *
-     * @example image
-     *
      * @var string
      */
     public $vectorQueryType;
@@ -46,20 +34,34 @@ class ListVectorQueryResultRequest extends Model
         'vectorQueryType' => 'vectorQueryType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->body)) {
+            Model::validateArray($this->body);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = $this->body;
+            if (\is_array($this->body)) {
+                $res['body'] = [];
+                foreach ($this->body as $key1 => $value1) {
+                    $res['body'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->path) {
             $res['path'] = $this->path;
         }
+
         if (null !== $this->queryType) {
             $res['queryType'] = $this->queryType;
         }
+
         if (null !== $this->vectorQueryType) {
             $res['vectorQueryType'] = $this->vectorQueryType;
         }
@@ -67,23 +69,31 @@ class ListVectorQueryResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListVectorQueryResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
-            $model->body = $map['body'];
+            if (!empty($map['body'])) {
+                $model->body = [];
+                foreach ($map['body'] as $key1 => $value1) {
+                    $model->body[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['path'])) {
             $model->path = $map['path'];
         }
+
         if (isset($map['queryType'])) {
             $model->queryType = $map['queryType'];
         }
+
         if (isset($map['vectorQueryType'])) {
             $model->vectorQueryType = $map['vectorQueryType'];
         }

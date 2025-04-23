@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ListIndexesResponseBody\result\dataSourceInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class config extends Model
 {
     /**
-     * @description The AccessKey ID of the MaxCompute data source.
-     *
-     * @example root
-     *
      * @var string
      */
     public $accessKey;
 
     /**
-     * @description The AccessKey secret of the MaxCompute data source.
-     *
-     * @example root123
-     *
      * @var string
      */
     public $accessSecret;
 
     /**
-     * @description The OSS bucket.
-     *
-     * @example ha3test-oss
-     *
      * @var string
      */
     public $bucket;
@@ -46,10 +34,6 @@ class config extends Model
     public $database;
 
     /**
-     * @description The endpoint of the MaxCompute data source.
-     *
-     * @example http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
-     *
      * @var string
      */
     public $endpoint;
@@ -60,55 +44,31 @@ class config extends Model
     public $format;
 
     /**
-     * @description The namespace. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
-     *
-     * @example TEST_dump_demo_sj_na61hunbu2_share_holo
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The Object Storage Service (OSS) path.
-     *
-     * @example /test_opensearch/sift_oss_test.data
-     *
      * @var string
      */
     public $ossPath;
 
     /**
-     * @description The shard name.
-     *
-     * @example ds=12345
-     *
      * @var string
      */
     public $partition;
 
     /**
-     * @description The file path in the Apsara File Storage for HDFS file system.
-     *
-     * @example http://test_opensearch/sift_oss_test.data
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description The name of the MaxCompute project that is used as the data source.
-     *
-     * @example tisplus_dev
-     *
      * @var string
      */
     public $project;
 
     /**
-     * @description The name of the MaxCompute table that is used as the data source.
-     *
-     * @example dump_odps_demo
-     *
      * @var string
      */
     public $table;
@@ -134,50 +94,66 @@ class config extends Model
         'tag' => 'tag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessKey) {
             $res['accessKey'] = $this->accessKey;
         }
+
         if (null !== $this->accessSecret) {
             $res['accessSecret'] = $this->accessSecret;
         }
+
         if (null !== $this->bucket) {
             $res['bucket'] = $this->bucket;
         }
+
         if (null !== $this->catalog) {
             $res['catalog'] = $this->catalog;
         }
+
         if (null !== $this->database) {
             $res['database'] = $this->database;
         }
+
         if (null !== $this->endpoint) {
             $res['endpoint'] = $this->endpoint;
         }
+
         if (null !== $this->format) {
             $res['format'] = $this->format;
         }
+
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
         }
+
         if (null !== $this->ossPath) {
             $res['ossPath'] = $this->ossPath;
         }
+
         if (null !== $this->partition) {
             $res['partition'] = $this->partition;
         }
+
         if (null !== $this->path) {
             $res['path'] = $this->path;
         }
+
         if (null !== $this->project) {
             $res['project'] = $this->project;
         }
+
         if (null !== $this->table) {
             $res['table'] = $this->table;
         }
+
         if (null !== $this->tag) {
             $res['tag'] = $this->tag;
         }
@@ -185,53 +161,66 @@ class config extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return config
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accessKey'])) {
             $model->accessKey = $map['accessKey'];
         }
+
         if (isset($map['accessSecret'])) {
             $model->accessSecret = $map['accessSecret'];
         }
+
         if (isset($map['bucket'])) {
             $model->bucket = $map['bucket'];
         }
+
         if (isset($map['catalog'])) {
             $model->catalog = $map['catalog'];
         }
+
         if (isset($map['database'])) {
             $model->database = $map['database'];
         }
+
         if (isset($map['endpoint'])) {
             $model->endpoint = $map['endpoint'];
         }
+
         if (isset($map['format'])) {
             $model->format = $map['format'];
         }
+
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
         }
+
         if (isset($map['ossPath'])) {
             $model->ossPath = $map['ossPath'];
         }
+
         if (isset($map['partition'])) {
             $model->partition = $map['partition'];
         }
+
         if (isset($map['path'])) {
             $model->path = $map['path'];
         }
+
         if (isset($map['project'])) {
             $model->project = $map['project'];
         }
+
         if (isset($map['table'])) {
             $model->table = $map['table'];
         }
+
         if (isset($map['tag'])) {
             $model->tag = $map['tag'];
         }

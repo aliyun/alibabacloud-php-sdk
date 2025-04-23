@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateFolderRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example gist_qc
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $parent;
 
     /**
-     * @description table, instance, template, function
-     *
-     * This parameter is required.
-     *
-     * @example instance
-     *
      * @var string
      */
     public $type;
@@ -42,17 +28,22 @@ class CreateFolderRequest extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->parent) {
             $res['parent'] = $this->parent;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -60,20 +51,22 @@ class CreateFolderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateFolderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['parent'])) {
             $model->parent = $map['parent'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

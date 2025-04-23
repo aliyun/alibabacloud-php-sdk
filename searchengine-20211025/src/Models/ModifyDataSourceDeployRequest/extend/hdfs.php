@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyDataSourceDeployRequest\extend;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hdfs extends Model
 {
     /**
-     * @description The path of the Apsara File Storage for HDFS data source.
-     *
-     * @example ymsh-service/src/main/java/cn/ymsh/util/jd
-     *
      * @var string
      */
     public $path;
@@ -20,9 +16,12 @@ class hdfs extends Model
         'path' => 'path',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->path) {
@@ -32,11 +31,11 @@ class hdfs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hdfs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

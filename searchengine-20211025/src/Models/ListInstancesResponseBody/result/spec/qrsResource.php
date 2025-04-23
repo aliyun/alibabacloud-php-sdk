@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ListInstancesResponseBody\result\spec;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class qrsResource extends Model
 {
@@ -40,23 +40,30 @@ class qrsResource extends Model
         'nodeCount' => 'nodeCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['category'] = $this->category;
         }
+
         if (null !== $this->cpu) {
             $res['cpu'] = $this->cpu;
         }
+
         if (null !== $this->disk) {
             $res['disk'] = $this->disk;
         }
+
         if (null !== $this->mem) {
             $res['mem'] = $this->mem;
         }
+
         if (null !== $this->nodeCount) {
             $res['nodeCount'] = $this->nodeCount;
         }
@@ -64,26 +71,30 @@ class qrsResource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return qrsResource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['category'])) {
             $model->category = $map['category'];
         }
+
         if (isset($map['cpu'])) {
             $model->cpu = $map['cpu'];
         }
+
         if (isset($map['disk'])) {
             $model->disk = $map['disk'];
         }
+
         if (isset($map['mem'])) {
             $model->mem = $map['mem'];
         }
+
         if (isset($map['nodeCount'])) {
             $model->nodeCount = $map['nodeCount'];
         }

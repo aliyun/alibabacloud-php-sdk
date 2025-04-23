@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListRestQueryResultRequest extends Model
 {
     /**
-     * @description The name of the index table.
-     *
-     * @example main_index
-     *
      * @var string
      */
     public $indexName;
 
     /**
-     * @description The rest query statement.
-     *
-     * @example query%3Drelation_id%3A%221151274675_2%22%26%26cluster%3Dgeneral%26%26config%3Dstart%3A0%2Chit%3A10%2Cformat%3Ajson
-     *
      * @var mixed[]
      */
     public $query;
@@ -30,34 +22,52 @@ class ListRestQueryResultRequest extends Model
         'query' => 'query',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->query)) {
+            Model::validateArray($this->query);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->indexName) {
             $res['indexName'] = $this->indexName;
         }
+
         if (null !== $this->query) {
-            $res['query'] = $this->query;
+            if (\is_array($this->query)) {
+                $res['query'] = [];
+                foreach ($this->query as $key1 => $value1) {
+                    $res['query'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRestQueryResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['indexName'])) {
             $model->indexName = $map['indexName'];
         }
+
         if (isset($map['query'])) {
-            $model->query = $map['query'];
+            if (!empty($map['query'])) {
+                $model->query = [];
+                foreach ($map['query'] as $key1 => $value1) {
+                    $model->query[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

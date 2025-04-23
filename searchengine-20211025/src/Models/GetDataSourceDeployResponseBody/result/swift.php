@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDataSourceDeployResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class swift extends Model
 {
     /**
-     * @description The topic.
-     *
-     * @example topic
-     *
      * @var string
      */
     public $topic;
 
     /**
-     * @description zk
-     *
-     * @example zk
-     *
      * @var string
      */
     public $zk;
@@ -30,14 +22,18 @@ class swift extends Model
         'zk' => 'zk',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->topic) {
             $res['topic'] = $this->topic;
         }
+
         if (null !== $this->zk) {
             $res['zk'] = $this->zk;
         }
@@ -45,17 +41,18 @@ class swift extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return swift
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['topic'])) {
             $model->topic = $map['topic'];
         }
+
         if (isset($map['zk'])) {
             $model->zk = $map['zk'];
         }

@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetInstanceResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class network extends Model
 {
     /**
-     * @description The public domain name whitelist.
-     *
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $allow;
 
     /**
-     * @description The instance endpoint.
-     *
-     * @example ha-cn-35t3r****.ha.aliyuncs.com
-     *
      * @var string
      */
     public $endpoint;
 
     /**
-     * @description The public endpoint.
-     *
-     * @example ha-cn-35t3ni****.public.ha.aliyuncs.com
-     *
      * @var string
      */
     public $publicEndpoint;
 
     /**
-     * @description The vSwitch ID.
-     *
-     * @example vsw-bp11ldcf59q2n****
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description The VPC ID.
-     *
-     * @example vpc-wz9axk41d9vff****
-     *
      * @var string
      */
     public $vpcId;
@@ -60,23 +40,30 @@ class network extends Model
         'vpcId' => 'vpcId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allow) {
             $res['allow'] = $this->allow;
         }
+
         if (null !== $this->endpoint) {
             $res['endpoint'] = $this->endpoint;
         }
+
         if (null !== $this->publicEndpoint) {
             $res['publicEndpoint'] = $this->publicEndpoint;
         }
+
         if (null !== $this->vSwitchId) {
             $res['vSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->vpcId) {
             $res['vpcId'] = $this->vpcId;
         }
@@ -84,26 +71,30 @@ class network extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return network
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['allow'])) {
             $model->allow = $map['allow'];
         }
+
         if (isset($map['endpoint'])) {
             $model->endpoint = $map['endpoint'];
         }
+
         if (isset($map['publicEndpoint'])) {
             $model->publicEndpoint = $map['publicEndpoint'];
         }
+
         if (isset($map['vSwitchId'])) {
             $model->vSwitchId = $map['vSwitchId'];
         }
+
         if (isset($map['vpcId'])) {
             $model->vpcId = $map['vpcId'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ListDataSourceTasksResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
     /**
-     * @description The tag content.
-     *
-     * @example succeed in handling request
-     *
      * @var string
      */
     public $msg;
 
     /**
-     * @description The tag level.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $tagLevel;
@@ -30,14 +22,18 @@ class tags extends Model
         'tagLevel' => 'tagLevel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->msg) {
             $res['msg'] = $this->msg;
         }
+
         if (null !== $this->tagLevel) {
             $res['tagLevel'] = $this->tagLevel;
         }
@@ -45,17 +41,18 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['msg'])) {
             $model->msg = $map['msg'];
         }
+
         if (isset($map['tagLevel'])) {
             $model->tagLevel = $map['tagLevel'];
         }

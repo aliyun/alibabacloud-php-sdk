@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTasksRequest extends Model
 {
     /**
-     * @description The timestamp that indicates the end of the time range to query.
-     *
-     * @example 1690423741577
-     *
      * @var int
      */
     public $end;
 
     /**
-     * @description The timestamp that indicates the beginning of the time range to query.
-     *
-     * @example 1687238865434
-     *
      * @var int
      */
     public $start;
@@ -30,14 +22,18 @@ class ListTasksRequest extends Model
         'start' => 'start',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->end) {
             $res['end'] = $this->end;
         }
+
         if (null !== $this->start) {
             $res['start'] = $this->start;
         }
@@ -45,17 +41,18 @@ class ListTasksRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTasksRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['end'])) {
             $model->end = $map['end'];
         }
+
         if (isset($map['start'])) {
             $model->start = $map['start'];
         }

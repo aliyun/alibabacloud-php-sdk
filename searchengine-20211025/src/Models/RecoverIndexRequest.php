@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RecoverIndexRequest extends Model
 {
     /**
-     * @description The deployment ID of the data source.
-     *
-     * @example 277
-     *
      * @var int
      */
     public $buildDeployId;
 
     /**
-     * @description The name of the data source.
-     *
-     * @example ha-cn-pl32rf0js04_odps_first
-     *
      * @var string
      */
     public $dataSourceName;
 
     /**
-     * @description The ID of the full index version.
-     *
-     * @example 1653018575
-     *
      * @var string
      */
     public $generation;
 
     /**
-     * @description The index name.
-     *
-     * @example main_index
-     *
      * @var string
      */
     public $indexName;
@@ -50,20 +34,26 @@ class RecoverIndexRequest extends Model
         'indexName' => 'indexName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buildDeployId) {
             $res['buildDeployId'] = $this->buildDeployId;
         }
+
         if (null !== $this->dataSourceName) {
             $res['dataSourceName'] = $this->dataSourceName;
         }
+
         if (null !== $this->generation) {
             $res['generation'] = $this->generation;
         }
+
         if (null !== $this->indexName) {
             $res['indexName'] = $this->indexName;
         }
@@ -71,23 +61,26 @@ class RecoverIndexRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecoverIndexRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['buildDeployId'])) {
             $model->buildDeployId = $map['buildDeployId'];
         }
+
         if (isset($map['dataSourceName'])) {
             $model->dataSourceName = $map['dataSourceName'];
         }
+
         if (isset($map['generation'])) {
             $model->generation = $map['generation'];
         }
+
         if (isset($map['indexName'])) {
             $model->indexName = $map['indexName'];
         }

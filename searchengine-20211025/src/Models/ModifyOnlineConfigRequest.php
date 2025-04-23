@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyOnlineConfigRequest extends Model
 {
     /**
-     * @description The request body.
-     *
      * @var string[]
      */
     public $body;
@@ -18,28 +16,44 @@ class ModifyOnlineConfigRequest extends Model
         'body' => 'body',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->body)) {
+            Model::validateArray($this->body);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = $this->body;
+            if (\is_array($this->body)) {
+                $res['body'] = [];
+                foreach ($this->body as $key1 => $value1) {
+                    $res['body'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyOnlineConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
-            $model->body = $map['body'];
+            if (!empty($map['body'])) {
+                $model->body = [];
+                foreach ($map['body'] as $key1 => $value1) {
+                    $model->body[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

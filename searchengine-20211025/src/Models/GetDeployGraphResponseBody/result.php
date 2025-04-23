@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDeployGraphResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDeployGraphResponseBody\result\graph;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description The deployment information.
-     *
      * @var graph
      */
     public $graph;
@@ -19,23 +17,29 @@ class result extends Model
         'graph' => 'graph',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->graph) {
+            $this->graph->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->graph) {
-            $res['graph'] = null !== $this->graph ? $this->graph->toMap() : null;
+            $res['graph'] = null !== $this->graph ? $this->graph->toArray($noStream) : $this->graph;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

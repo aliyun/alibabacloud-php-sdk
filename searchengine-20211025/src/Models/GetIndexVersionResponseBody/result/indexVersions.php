@@ -4,40 +4,26 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetIndexVersionResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class indexVersions extends Model
 {
     /**
-     * @description The ID of the offline deployment.
-     *
-     * @example " "
-     *
      * @var string
      */
     public $buildDeployId;
 
     /**
-     * @description The current online version number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentVersion;
 
     /**
-     * @description The name of the index table.
-     *
-     * @example table4
-     *
      * @var string
      */
     public $indexName;
 
     /**
-     * @description The index versions.
-     *
      * @var int[]
      */
     public $versions;
@@ -48,47 +34,69 @@ class indexVersions extends Model
         'versions' => 'versions',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->versions)) {
+            Model::validateArray($this->versions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buildDeployId) {
             $res['buildDeployId'] = $this->buildDeployId;
         }
+
         if (null !== $this->currentVersion) {
             $res['currentVersion'] = $this->currentVersion;
         }
+
         if (null !== $this->indexName) {
             $res['indexName'] = $this->indexName;
         }
+
         if (null !== $this->versions) {
-            $res['versions'] = $this->versions;
+            if (\is_array($this->versions)) {
+                $res['versions'] = [];
+                $n1 = 0;
+                foreach ($this->versions as $item1) {
+                    $res['versions'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return indexVersions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['buildDeployId'])) {
             $model->buildDeployId = $map['buildDeployId'];
         }
+
         if (isset($map['currentVersion'])) {
             $model->currentVersion = $map['currentVersion'];
         }
+
         if (isset($map['indexName'])) {
             $model->indexName = $map['indexName'];
         }
+
         if (isset($map['versions'])) {
             if (!empty($map['versions'])) {
-                $model->versions = $map['versions'];
+                $model->versions = [];
+                $n1 = 0;
+                foreach ($map['versions'] as $item1) {
+                    $model->versions[$n1++] = $item1;
+                }
             }
         }
 

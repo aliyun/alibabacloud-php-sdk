@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteIndexRequest extends Model
 {
     /**
-     * @description The data source.
-     *
-     * This parameter is required.
-     *
-     * @example ha-cn-pl32rf0js04_test
-     *
      * @var string
      */
     public $dataSource;
 
     /**
-     * @description Specifies whether to delete the data source.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $deleteDataSource;
@@ -32,14 +22,18 @@ class DeleteIndexRequest extends Model
         'deleteDataSource' => 'deleteDataSource',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSource) {
             $res['dataSource'] = $this->dataSource;
         }
+
         if (null !== $this->deleteDataSource) {
             $res['deleteDataSource'] = $this->deleteDataSource;
         }
@@ -47,17 +41,18 @@ class DeleteIndexRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteIndexRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dataSource'])) {
             $model->dataSource = $map['dataSource'];
         }
+
         if (isset($map['deleteDataSource'])) {
             $model->deleteDataSource = $map['deleteDataSource'];
         }

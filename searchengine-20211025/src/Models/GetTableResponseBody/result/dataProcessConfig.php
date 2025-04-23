@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetTableResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetTableResponseBody\result\dataProcessConfig\params;
-use AlibabaCloud\Tea\Model;
 
 class dataProcessConfig extends Model
 {
     /**
-     * @description The destination field.
-     *
-     * @example source_image_vector
-     *
      * @var string
      */
     public $dstField;
 
     /**
-     * @description The method used to process the field. Valid values: copy and vectorize. A value of copy indicates that the value of the source field is copied to the destination field. A value of vectorize indicates that the value of the source field is vectorized by a vectorization model and the output vector is stored in the destination field.
-     *
-     * @example vectorize
-     *
      * @var string
      */
     public $operator;
 
     /**
-     * @description The information about the model.
-     *
      * @var params
      */
     public $params;
 
     /**
-     * @description The source field.
-     *
-     * @example source_image
-     *
      * @var string
      */
     public $srcField;
@@ -49,20 +35,29 @@ class dataProcessConfig extends Model
         'srcField' => 'srcField',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->params) {
+            $this->params->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dstField) {
             $res['dstField'] = $this->dstField;
         }
+
         if (null !== $this->operator) {
             $res['operator'] = $this->operator;
         }
+
         if (null !== $this->params) {
-            $res['params'] = null !== $this->params ? $this->params->toMap() : null;
+            $res['params'] = null !== $this->params ? $this->params->toArray($noStream) : $this->params;
         }
+
         if (null !== $this->srcField) {
             $res['srcField'] = $this->srcField;
         }
@@ -70,23 +65,26 @@ class dataProcessConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataProcessConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dstField'])) {
             $model->dstField = $map['dstField'];
         }
+
         if (isset($map['operator'])) {
             $model->operator = $map['operator'];
         }
+
         if (isset($map['params'])) {
             $model->params = params::fromMap($map['params']);
         }
+
         if (isset($map['srcField'])) {
             $model->srcField = $map['srcField'];
         }

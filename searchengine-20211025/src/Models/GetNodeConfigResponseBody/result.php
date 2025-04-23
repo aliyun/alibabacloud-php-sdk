@@ -4,60 +4,36 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetNodeConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description Indicates whether the index is effective online.
-     *
-     * @example 1
-     *
      * @var bool
      */
     public $active;
 
     /**
-     * @description The number of data replicas.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $dataDuplicateNumber;
 
     /**
-     * @description The number of data shards.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $dataFragmentNumber;
 
     /**
-     * @description The traffic percentage.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $flowRatio;
 
     /**
-     * @description The minimum service ratio.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $minServicePercent;
 
     /**
-     * @description Indicates whether the cluster is mounted.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $published;
@@ -70,26 +46,34 @@ class result extends Model
         'published' => 'published',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->active) {
             $res['active'] = $this->active;
         }
+
         if (null !== $this->dataDuplicateNumber) {
             $res['dataDuplicateNumber'] = $this->dataDuplicateNumber;
         }
+
         if (null !== $this->dataFragmentNumber) {
             $res['dataFragmentNumber'] = $this->dataFragmentNumber;
         }
+
         if (null !== $this->flowRatio) {
             $res['flowRatio'] = $this->flowRatio;
         }
+
         if (null !== $this->minServicePercent) {
             $res['minServicePercent'] = $this->minServicePercent;
         }
+
         if (null !== $this->published) {
             $res['published'] = $this->published;
         }
@@ -97,29 +81,34 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['active'])) {
             $model->active = $map['active'];
         }
+
         if (isset($map['dataDuplicateNumber'])) {
             $model->dataDuplicateNumber = $map['dataDuplicateNumber'];
         }
+
         if (isset($map['dataFragmentNumber'])) {
             $model->dataFragmentNumber = $map['dataFragmentNumber'];
         }
+
         if (isset($map['flowRatio'])) {
             $model->flowRatio = $map['flowRatio'];
         }
+
         if (isset($map['minServicePercent'])) {
             $model->minServicePercent = $map['minServicePercent'];
         }
+
         if (isset($map['published'])) {
             $model->published = $map['published'];
         }

@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteConfigFileRequest extends Model
 {
     /**
-     * @description The file name.
-     *
-     * This parameter is required.
-     *
-     * @example /schemas/automobile_vector_schema.json
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description The path of the parent directory.
-     *
-     * This parameter is required.
-     *
-     * @example /
-     *
      * @var string
      */
     public $parentFullPath;
@@ -34,14 +22,18 @@ class DeleteConfigFileRequest extends Model
         'parentFullPath' => 'parentFullPath',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileName) {
             $res['fileName'] = $this->fileName;
         }
+
         if (null !== $this->parentFullPath) {
             $res['parentFullPath'] = $this->parentFullPath;
         }
@@ -49,17 +41,18 @@ class DeleteConfigFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteConfigFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fileName'])) {
             $model->fileName = $map['fileName'];
         }
+
         if (isset($map['parentFullPath'])) {
             $model->parentFullPath = $map['parentFullPath'];
         }

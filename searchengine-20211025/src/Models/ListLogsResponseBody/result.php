@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ListLogsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The result.
-     *
      * @var mixed[]
      */
     public $result;
 
     /**
-     * @description The total number of entries returned
-     *
-     * @example 5
-     *
      * @var int
      */
     public $totalCount;
@@ -28,14 +22,27 @@ class result extends Model
         'totalCount' => 'totalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->result) {
-            $res['result'] = $this->result;
+            if (\is_array($this->result)) {
+                $res['result'] = [];
+                $n1 = 0;
+                foreach ($this->result as $item1) {
+                    $res['result'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -43,19 +50,24 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['result'])) {
             if (!empty($map['result'])) {
-                $model->result = $map['result'];
+                $model->result = [];
+                $n1 = 0;
+                foreach ($map['result'] as $item1) {
+                    $model->result[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

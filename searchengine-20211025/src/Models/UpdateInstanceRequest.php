@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\UpdateInstanceRequest\components;
-use AlibabaCloud\Tea\Model;
 
 class UpdateInstanceRequest extends Model
 {
     /**
-     * @description The information about the instance specification.
-     *
      * @var components[]
      */
     public $components;
 
     /**
-     * @description The description of the instance.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The type of the order. Valid values: UPGRADE and DOWNGRADE. UPGRADE upgrades the instance specifications. DOWNGRADE: downgrades the instance specifications.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $orderType;
@@ -39,23 +29,31 @@ class UpdateInstanceRequest extends Model
         'orderType' => 'orderType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->components)) {
+            Model::validateArray($this->components);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->components) {
-            $res['components'] = [];
-            if (null !== $this->components && \is_array($this->components)) {
-                $n = 0;
-                foreach ($this->components as $item) {
-                    $res['components'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->components)) {
+                $res['components'] = [];
+                $n1 = 0;
+                foreach ($this->components as $item1) {
+                    $res['components'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->orderType) {
             $res['orderType'] = $this->orderType;
         }
@@ -63,26 +61,28 @@ class UpdateInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['components'])) {
             if (!empty($map['components'])) {
                 $model->components = [];
-                $n = 0;
-                foreach ($map['components'] as $item) {
-                    $model->components[$n++] = null !== $item ? components::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['components'] as $item1) {
+                    $model->components[$n1++] = components::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['orderType'])) {
             $model->orderType = $map['orderType'];
         }

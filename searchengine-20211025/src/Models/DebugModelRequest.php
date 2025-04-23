@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DebugModelRequest extends Model
 {
@@ -14,8 +14,6 @@ class DebugModelRequest extends Model
     public $input;
 
     /**
-     * @example true
-     *
      * @var string
      */
     public $isOnline;
@@ -24,14 +22,18 @@ class DebugModelRequest extends Model
         'isOnline' => 'isOnline',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->input) {
             $res['input'] = $this->input;
         }
+
         if (null !== $this->isOnline) {
             $res['isOnline'] = $this->isOnline;
         }
@@ -39,17 +41,18 @@ class DebugModelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DebugModelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['input'])) {
             $model->input = $map['input'];
         }
+
         if (isset($map['isOnline'])) {
             $model->isOnline = $map['isOnline'];
         }

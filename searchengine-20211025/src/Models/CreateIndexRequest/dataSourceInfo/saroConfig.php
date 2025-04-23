@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateIndexRequest\dataSourceInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class saroConfig extends Model
 {
     /**
-     * @description The namespace of the SARO data source.
-     *
-     * @example flink-test-fjx-default
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The name of the SARO table.
-     *
-     * @example device_event_shy_summary_
-     *
      * @var string
      */
     public $tableName;
@@ -30,14 +22,18 @@ class saroConfig extends Model
         'tableName' => 'tableName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
         }
+
         if (null !== $this->tableName) {
             $res['tableName'] = $this->tableName;
         }
@@ -45,17 +41,18 @@ class saroConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return saroConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
         }
+
         if (isset($map['tableName'])) {
             $model->tableName = $map['tableName'];
         }

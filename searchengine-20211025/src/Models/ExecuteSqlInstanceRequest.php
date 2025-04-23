@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExecuteSqlInstanceRequest extends Model
 {
@@ -14,17 +14,11 @@ class ExecuteSqlInstanceRequest extends Model
     public $combineParam;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example select * from test
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @example vpc_hz_domain_1
-     *
      * @var string
      */
     public $domain;
@@ -58,64 +52,144 @@ class ExecuteSqlInstanceRequest extends Model
         'staticParam' => 'staticParam',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->combineParam)) {
+            Model::validateArray($this->combineParam);
+        }
+        if (\is_array($this->dynamicParam)) {
+            Model::validateArray($this->dynamicParam);
+        }
+        if (\is_array($this->kvpair)) {
+            Model::validateArray($this->kvpair);
+        }
+        if (\is_array($this->params)) {
+            Model::validateArray($this->params);
+        }
+        if (\is_array($this->staticParam)) {
+            Model::validateArray($this->staticParam);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->combineParam) {
-            $res['combineParam'] = $this->combineParam;
+            if (\is_array($this->combineParam)) {
+                $res['combineParam'] = [];
+                foreach ($this->combineParam as $key1 => $value1) {
+                    $res['combineParam'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->domain) {
             $res['domain'] = $this->domain;
         }
+
         if (null !== $this->dynamicParam) {
-            $res['dynamicParam'] = $this->dynamicParam;
+            if (\is_array($this->dynamicParam)) {
+                $res['dynamicParam'] = [];
+                foreach ($this->dynamicParam as $key1 => $value1) {
+                    $res['dynamicParam'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->kvpair) {
-            $res['kvpair'] = $this->kvpair;
+            if (\is_array($this->kvpair)) {
+                $res['kvpair'] = [];
+                foreach ($this->kvpair as $key1 => $value1) {
+                    $res['kvpair'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->params) {
-            $res['params'] = $this->params;
+            if (\is_array($this->params)) {
+                $res['params'] = [];
+                foreach ($this->params as $key1 => $value1) {
+                    $res['params'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->staticParam) {
-            $res['staticParam'] = $this->staticParam;
+            if (\is_array($this->staticParam)) {
+                $res['staticParam'] = [];
+                foreach ($this->staticParam as $key1 => $value1) {
+                    $res['staticParam'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExecuteSqlInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['combineParam'])) {
-            $model->combineParam = $map['combineParam'];
+            if (!empty($map['combineParam'])) {
+                $model->combineParam = [];
+                foreach ($map['combineParam'] as $key1 => $value1) {
+                    $model->combineParam[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['domain'])) {
             $model->domain = $map['domain'];
         }
+
         if (isset($map['dynamicParam'])) {
-            $model->dynamicParam = $map['dynamicParam'];
+            if (!empty($map['dynamicParam'])) {
+                $model->dynamicParam = [];
+                foreach ($map['dynamicParam'] as $key1 => $value1) {
+                    $model->dynamicParam[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['kvpair'])) {
-            $model->kvpair = $map['kvpair'];
+            if (!empty($map['kvpair'])) {
+                $model->kvpair = [];
+                foreach ($map['kvpair'] as $key1 => $value1) {
+                    $model->kvpair[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['params'])) {
-            $model->params = $map['params'];
+            if (!empty($map['params'])) {
+                $model->params = [];
+                foreach ($map['params'] as $key1 => $value1) {
+                    $model->params[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['staticParam'])) {
-            $model->staticParam = $map['staticParam'];
+            if (!empty($map['staticParam'])) {
+                $model->staticParam = [];
+                foreach ($map['staticParam'] as $key1 => $value1) {
+                    $model->staticParam[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

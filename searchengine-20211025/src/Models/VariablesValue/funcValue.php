@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\VariablesValue;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class funcValue extends Model
 {
     /**
-     * @description The class name of the function variable.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $funcClassName;
 
     /**
-     * @description The template of the function variable.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $template;
@@ -30,14 +22,18 @@ class funcValue extends Model
         'template' => 'template',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->funcClassName) {
             $res['funcClassName'] = $this->funcClassName;
         }
+
         if (null !== $this->template) {
             $res['template'] = $this->template;
         }
@@ -45,17 +41,18 @@ class funcValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return funcValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['funcClassName'])) {
             $model->funcClassName = $map['funcClassName'];
         }
+
         if (isset($map['template'])) {
             $model->template = $map['template'];
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyClusterOnlineConfigRequest extends Model
 {
     /**
-     * @description The cluster information.
-     *
      * @var string[]
      */
     public $clusters;
 
     /**
-     * @description The configuration information.
-     *
      * @var int[]
      */
     public $config;
@@ -26,36 +22,67 @@ class ModifyClusterOnlineConfigRequest extends Model
         'config' => 'config',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->clusters)) {
+            Model::validateArray($this->clusters);
+        }
+        if (\is_array($this->config)) {
+            Model::validateArray($this->config);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusters) {
-            $res['clusters'] = $this->clusters;
+            if (\is_array($this->clusters)) {
+                $res['clusters'] = [];
+                $n1 = 0;
+                foreach ($this->clusters as $item1) {
+                    $res['clusters'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->config) {
-            $res['config'] = $this->config;
+            if (\is_array($this->config)) {
+                $res['config'] = [];
+                foreach ($this->config as $key1 => $value1) {
+                    $res['config'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyClusterOnlineConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['clusters'])) {
             if (!empty($map['clusters'])) {
-                $model->clusters = $map['clusters'];
+                $model->clusters = [];
+                $n1 = 0;
+                foreach ($map['clusters'] as $item1) {
+                    $model->clusters[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['config'])) {
-            $model->config = $map['config'];
+            if (!empty($map['config'])) {
+                $model->config = [];
+                foreach ($map['config'] as $key1 => $value1) {
+                    $model->config[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteConfigDirRequest extends Model
 {
     /**
-     * @description The directory name.
-     *
-     * This parameter is required.
-     *
-     * @example /clusters
-     *
      * @var string
      */
     public $dirName;
 
     /**
-     * @description The path of the parent directory.
-     *
-     * This parameter is required.
-     *
-     * @example /
-     *
      * @var string
      */
     public $parentFullPath;
@@ -34,14 +22,18 @@ class DeleteConfigDirRequest extends Model
         'parentFullPath' => 'parentFullPath',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dirName) {
             $res['dirName'] = $this->dirName;
         }
+
         if (null !== $this->parentFullPath) {
             $res['parentFullPath'] = $this->parentFullPath;
         }
@@ -49,17 +41,18 @@ class DeleteConfigDirRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteConfigDirRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dirName'])) {
             $model->dirName = $map['dirName'];
         }
+
         if (isset($map['parentFullPath'])) {
             $model->parentFullPath = $map['parentFullPath'];
         }

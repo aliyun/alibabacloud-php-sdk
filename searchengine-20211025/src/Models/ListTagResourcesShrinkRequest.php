@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTagResourcesShrinkRequest extends Model
 {
     /**
-     * @example 600********33
-     *
      * @var string
      */
     public $nextToken;
@@ -21,10 +19,6 @@ class ListTagResourcesShrinkRequest extends Model
     public $resourceIdShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example instance
-     *
      * @var string
      */
     public $resourceType;
@@ -40,20 +34,26 @@ class ListTagResourcesShrinkRequest extends Model
         'tagShrink' => 'tag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->resourceIdShrink) {
             $res['resourceId'] = $this->resourceIdShrink;
         }
+
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tagShrink) {
             $res['tag'] = $this->tagShrink;
         }
@@ -61,23 +61,26 @@ class ListTagResourcesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTagResourcesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['resourceId'])) {
             $model->resourceIdShrink = $map['resourceId'];
         }
+
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }
+
         if (isset($map['tag'])) {
             $model->tagShrink = $map['tag'];
         }

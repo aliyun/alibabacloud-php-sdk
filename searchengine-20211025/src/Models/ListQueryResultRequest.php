@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListQueryResultRequest extends Model
 {
     /**
-     * @description The query statement
-     *
-     * @example query%3D1%26%26config%3Dstart%3A0%2Chit%3A10%2Cformat%3Ajson%26%26cluster%3Dgeneral
-     *
      * @var string
      */
     public $query;
 
     /**
-     * @description The SQL statement that is executed in the query
-     *
-     * @example query%3Dselect%20max(content_id)%20from%20generation
-     *
      * @var string
      */
     public $sql;
@@ -30,14 +22,18 @@ class ListQueryResultRequest extends Model
         'sql' => 'sql',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
+
         if (null !== $this->sql) {
             $res['sql'] = $this->sql;
         }
@@ -45,17 +41,18 @@ class ListQueryResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListQueryResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }
+
         if (isset($map['sql'])) {
             $model->sql = $map['sql'];
         }

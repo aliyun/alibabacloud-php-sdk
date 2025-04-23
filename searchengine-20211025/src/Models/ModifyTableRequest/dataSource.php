@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyTableRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyTableRequest\dataSource\config;
-use AlibabaCloud\Tea\Model;
 
 class dataSource extends Model
 {
     /**
-     * @description Specifies whether to automatically rebuild the index.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoBuildIndex;
 
     /**
-     * @description The configurations of the data source.
-     *
      * @var config
      */
     public $config;
 
     /**
-     * @description The start timestamp from which incremental data is retrieved.
-     *
-     * @example 1715160176
-     *
      * @var int
      */
     public $dataTimeSec;
@@ -39,17 +29,25 @@ class dataSource extends Model
         'dataTimeSec' => 'dataTimeSec',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->config) {
+            $this->config->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoBuildIndex) {
             $res['autoBuildIndex'] = $this->autoBuildIndex;
         }
+
         if (null !== $this->config) {
-            $res['config'] = null !== $this->config ? $this->config->toMap() : null;
+            $res['config'] = null !== $this->config ? $this->config->toArray($noStream) : $this->config;
         }
+
         if (null !== $this->dataTimeSec) {
             $res['dataTimeSec'] = $this->dataTimeSec;
         }
@@ -57,20 +55,22 @@ class dataSource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataSource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['autoBuildIndex'])) {
             $model->autoBuildIndex = $map['autoBuildIndex'];
         }
+
         if (isset($map['config'])) {
             $model->config = config::fromMap($map['config']);
         }
+
         if (isset($map['dataTimeSec'])) {
             $model->dataTimeSec = $map['dataTimeSec'];
         }

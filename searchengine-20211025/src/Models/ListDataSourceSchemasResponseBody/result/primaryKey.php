@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ListDataSourceSchemasResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class primaryKey extends Model
 {
     /**
-     * @description Indicates whether the field has the primary key attribute. Valid values: **true** and **false**.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $hasPrimaryKeyAttribute;
 
     /**
-     * @description Indicates whether the field is the primary key. Valid values: **true** and **false**.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $isPrimaryKey;
 
     /**
-     * @description Indicates whether the field can be sorted. Valid values: **true** and **false**.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $isPrimaryKeySorted;
@@ -40,17 +28,22 @@ class primaryKey extends Model
         'isPrimaryKeySorted' => 'isPrimaryKeySorted',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hasPrimaryKeyAttribute) {
             $res['hasPrimaryKeyAttribute'] = $this->hasPrimaryKeyAttribute;
         }
+
         if (null !== $this->isPrimaryKey) {
             $res['isPrimaryKey'] = $this->isPrimaryKey;
         }
+
         if (null !== $this->isPrimaryKeySorted) {
             $res['isPrimaryKeySorted'] = $this->isPrimaryKeySorted;
         }
@@ -58,20 +51,22 @@ class primaryKey extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return primaryKey
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['hasPrimaryKeyAttribute'])) {
             $model->hasPrimaryKeyAttribute = $map['hasPrimaryKeyAttribute'];
         }
+
         if (isset($map['isPrimaryKey'])) {
             $model->isPrimaryKey = $map['isPrimaryKey'];
         }
+
         if (isset($map['isPrimaryKeySorted'])) {
             $model->isPrimaryKeySorted = $map['isPrimaryKeySorted'];
         }

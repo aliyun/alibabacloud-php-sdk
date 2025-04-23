@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateClusterRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class queryNode extends Model
 {
     /**
-     * @description The number of QRS workers.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $number;
@@ -20,9 +16,12 @@ class queryNode extends Model
         'number' => 'number',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->number) {
@@ -32,11 +31,11 @@ class queryNode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return queryNode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

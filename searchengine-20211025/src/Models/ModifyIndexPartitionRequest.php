@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyIndexPartitionRequest\indexInfos;
-use AlibabaCloud\Tea\Model;
 
 class ModifyIndexPartitionRequest extends Model
 {
     /**
-     * @description The name of the data source.
-     *
-     * @example test1
-     *
      * @var string
      */
     public $dataSourceName;
 
     /**
-     * @description The data center.
-     *
-     * @example pre_domain_1
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The primary key.
-     *
-     * @example 1633293829
-     *
      * @var int
      */
     public $generation;
 
     /**
-     * @description The index information.
-     *
      * @var indexInfos[]
      */
     public $indexInfos;
@@ -49,26 +35,35 @@ class ModifyIndexPartitionRequest extends Model
         'indexInfos' => 'indexInfos',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->indexInfos)) {
+            Model::validateArray($this->indexInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSourceName) {
             $res['dataSourceName'] = $this->dataSourceName;
         }
+
         if (null !== $this->domainName) {
             $res['domainName'] = $this->domainName;
         }
+
         if (null !== $this->generation) {
             $res['generation'] = $this->generation;
         }
+
         if (null !== $this->indexInfos) {
-            $res['indexInfos'] = [];
-            if (null !== $this->indexInfos && \is_array($this->indexInfos)) {
-                $n = 0;
-                foreach ($this->indexInfos as $item) {
-                    $res['indexInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->indexInfos)) {
+                $res['indexInfos'] = [];
+                $n1 = 0;
+                foreach ($this->indexInfos as $item1) {
+                    $res['indexInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -76,29 +71,32 @@ class ModifyIndexPartitionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyIndexPartitionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dataSourceName'])) {
             $model->dataSourceName = $map['dataSourceName'];
         }
+
         if (isset($map['domainName'])) {
             $model->domainName = $map['domainName'];
         }
+
         if (isset($map['generation'])) {
             $model->generation = $map['generation'];
         }
+
         if (isset($map['indexInfos'])) {
             if (!empty($map['indexInfos'])) {
                 $model->indexInfos = [];
-                $n = 0;
-                foreach ($map['indexInfos'] as $item) {
-                    $model->indexInfos[$n++] = null !== $item ? indexInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['indexInfos'] as $item1) {
+                    $model->indexInfos[$n1++] = indexInfos::fromMap($item1);
                 }
             }
         }

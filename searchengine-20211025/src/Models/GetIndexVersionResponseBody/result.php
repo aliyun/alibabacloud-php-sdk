@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetIndexVersionResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetIndexVersionResponseBody\result\indexVersions;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description The cluster name.
-     *
-     * @example ayoss-cn-zhangjiakou-b
-     *
      * @var string
      */
     public $cluster;
 
     /**
-     * @description The index versions.
-     *
      * @var indexVersions[]
      */
     public $indexVersions;
@@ -29,20 +23,27 @@ class result extends Model
         'indexVersions' => 'indexVersions',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->indexVersions)) {
+            Model::validateArray($this->indexVersions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cluster) {
             $res['cluster'] = $this->cluster;
         }
+
         if (null !== $this->indexVersions) {
-            $res['indexVersions'] = [];
-            if (null !== $this->indexVersions && \is_array($this->indexVersions)) {
-                $n = 0;
-                foreach ($this->indexVersions as $item) {
-                    $res['indexVersions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->indexVersions)) {
+                $res['indexVersions'] = [];
+                $n1 = 0;
+                foreach ($this->indexVersions as $item1) {
+                    $res['indexVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -50,23 +51,24 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cluster'])) {
             $model->cluster = $map['cluster'];
         }
+
         if (isset($map['indexVersions'])) {
             if (!empty($map['indexVersions'])) {
                 $model->indexVersions = [];
-                $n = 0;
-                foreach ($map['indexVersions'] as $item) {
-                    $model->indexVersions[$n++] = null !== $item ? indexVersions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['indexVersions'] as $item1) {
+                    $model->indexVersions[$n1++] = indexVersions::fromMap($item1);
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\BuildIndexRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\BuildIndexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ChangeResourceGroupRequest;
@@ -164,6 +164,8 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyPausePolicyRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyPausePolicyResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyPublicUrlIpListRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyPublicUrlIpListResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifySearcherReplicaRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifySearcherReplicaResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyTableRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyTableResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\PublishAdvanceConfigRequest;
@@ -195,11 +197,10 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\UpdateSqlInstanceNameRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\UpdateSqlInstanceNameResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\UpdateSqlInstanceParamsRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\UpdateSqlInstanceParamsResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Searchengine extends OpenApiClient
 {
@@ -224,93 +225,111 @@ class Searchengine extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Triggers reindexing.
-     *  *
-     * @description ## Method
+     * Triggers reindexing.
+     *
+     * @remarks
+     * ## Method
      *     POST
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/actions/build-index
-     *  *
-     * @param string            $instanceId
-     * @param BuildIndexRequest $request    BuildIndexRequest
-     * @param string[]          $headers    map
-     * @param RuntimeOptions    $runtime    runtime options for this request RuntimeOptions
      *
-     * @return BuildIndexResponse BuildIndexResponse
+     * @param request - BuildIndexRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BuildIndexResponse
+     *
+     * @param string            $instanceId
+     * @param BuildIndexRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return BuildIndexResponse
      */
     public function buildIndexWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->buildMode)) {
-            $body['buildMode'] = $request->buildMode;
+        if (null !== $request->buildMode) {
+            @$body['buildMode'] = $request->buildMode;
         }
-        if (!Utils::isUnset($request->dataSourceName)) {
-            $body['dataSourceName'] = $request->dataSourceName;
+
+        if (null !== $request->dataSourceName) {
+            @$body['dataSourceName'] = $request->dataSourceName;
         }
-        if (!Utils::isUnset($request->dataSourceType)) {
-            $body['dataSourceType'] = $request->dataSourceType;
+
+        if (null !== $request->dataSourceType) {
+            @$body['dataSourceType'] = $request->dataSourceType;
         }
-        if (!Utils::isUnset($request->dataTimeSec)) {
-            $body['dataTimeSec'] = $request->dataTimeSec;
+
+        if (null !== $request->dataTimeSec) {
+            @$body['dataTimeSec'] = $request->dataTimeSec;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $body['domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$body['domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->generation)) {
-            $body['generation'] = $request->generation;
+
+        if (null !== $request->generation) {
+            @$body['generation'] = $request->generation;
         }
-        if (!Utils::isUnset($request->partition)) {
-            $body['partition'] = $request->partition;
+
+        if (null !== $request->partition) {
+            @$body['partition'] = $request->partition;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $body['tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$body['tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'BuildIndex',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/actions/build-index',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/actions/build-index',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return BuildIndexResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BuildIndexResponse::fromMap($this->execute($params, $req, $runtime));
+        return BuildIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Triggers reindexing.
-     *  *
-     * @description ## Method
+     * Triggers reindexing.
+     *
+     * @remarks
+     * ## Method
      *     POST
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/actions/build-index
-     *  *
-     * @param string            $instanceId
-     * @param BuildIndexRequest $request    BuildIndexRequest
      *
-     * @return BuildIndexResponse BuildIndexResponse
+     * @param request - BuildIndexRequest
+     *
+     * @returns BuildIndexResponse
+     *
+     * @param string            $instanceId
+     * @param BuildIndexRequest $request
+     *
+     * @return BuildIndexResponse
      */
     public function buildIndex($instanceId, $request)
     {
@@ -321,54 +340,63 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 更换实例资源组
-     *  *
-     * @param string                     $instanceId
-     * @param ChangeResourceGroupRequest $request    ChangeResourceGroupRequest
-     * @param string[]                   $headers    map
-     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
+     * 更换实例资源组.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param string                     $instanceId
+     * @param ChangeResourceGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $body['newResourceGroupId'] = $request->newResourceGroupId;
+        if (null !== $request->newResourceGroupId) {
+            @$body['newResourceGroupId'] = $request->newResourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['resourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['resourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ChangeResourceGroup',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/actions/change-resource-group',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/actions/change-resource-group',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更换实例资源组
-     *  *
-     * @param string                     $instanceId
-     * @param ChangeResourceGroupRequest $request    ChangeResourceGroupRequest
+     * 更换实例资源组.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param string                     $instanceId
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($instanceId, $request)
     {
@@ -379,54 +407,63 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param request - CloneSqlInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloneSqlInstanceResponse
+     *
      * @param string                  $instanceId
      * @param string                  $database
      * @param string                  $sqlInstanceId
-     * @param CloneSqlInstanceRequest $request       CloneSqlInstanceRequest
-     * @param string[]                $headers       map
-     * @param RuntimeOptions          $runtime       runtime options for this request RuntimeOptions
+     * @param CloneSqlInstanceRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return CloneSqlInstanceResponse CloneSqlInstanceResponse
+     * @return CloneSqlInstanceResponse
      */
     public function cloneSqlInstanceWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->targetFolderId)) {
-            $body['targetFolderId'] = $request->targetFolderId;
+
+        if (null !== $request->targetFolderId) {
+            @$body['targetFolderId'] = $request->targetFolderId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CloneSqlInstance',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/actions/clone',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/sql-studio/databases/' . Url::percentEncode($database) . '/sql-instances/' . Url::percentEncode($sqlInstanceId) . '/actions/clone',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CloneSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CloneSqlInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CloneSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - CloneSqlInstanceRequest
+     *
+     * @returns CloneSqlInstanceResponse
+     *
      * @param string                  $instanceId
      * @param string                  $database
      * @param string                  $sqlInstanceId
-     * @param CloneSqlInstanceRequest $request       CloneSqlInstanceRequest
+     * @param CloneSqlInstanceRequest $request
      *
-     * @return CloneSqlInstanceResponse CloneSqlInstanceResponse
+     * @return CloneSqlInstanceResponse
      */
     public function cloneSqlInstance($instanceId, $database, $sqlInstanceId, $request)
     {
@@ -437,55 +474,65 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @param string             $instanceId
-     * @param CreateAliasRequest $request    CreateAliasRequest
-     * @param string[]           $headers    map
-     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
+     * @param request - CreateAliasRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateAliasResponse CreateAliasResponse
+     * @returns CreateAliasResponse
+     *
+     * @param string             $instanceId
+     * @param CreateAliasRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateAliasResponse
      */
     public function createAliasWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newMode)) {
-            $query['newMode'] = $request->newMode;
+        if (null !== $request->newMode) {
+            @$query['newMode'] = $request->newMode;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->alias)) {
-            $body['alias'] = $request->alias;
+        if (null !== $request->alias) {
+            @$body['alias'] = $request->alias;
         }
-        if (!Utils::isUnset($request->index)) {
-            $body['index'] = $request->index;
+
+        if (null !== $request->index) {
+            @$body['index'] = $request->index;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateAlias',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/aliases',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/aliases',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAliasResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param string             $instanceId
-     * @param CreateAliasRequest $request    CreateAliasRequest
+     * @param request - CreateAliasRequest
      *
-     * @return CreateAliasResponse CreateAliasResponse
+     * @returns CreateAliasResponse
+     *
+     * @param string             $instanceId
+     * @param CreateAliasRequest $request
+     *
+     * @return CreateAliasResponse
      */
     public function createAlias($instanceId, $request)
     {
@@ -496,73 +543,87 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Creates a cluster.
-     *  *
-     * @description ### [](#method)Method
+     * Creates a cluster.
+     *
+     * @remarks
+     * ### [](#method)Method
      * `POST`
      * ### [](#uri)URI
      * `/openapi/ha3/instances/{instanceId}/clusters`
-     *  *
-     * @param string               $instanceId
-     * @param CreateClusterRequest $request    CreateClusterRequest
-     * @param string[]             $headers    map
-     * @param RuntimeOptions       $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateClusterResponse CreateClusterResponse
+     * @param request - CreateClusterRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateClusterResponse
+     *
+     * @param string               $instanceId
+     * @param CreateClusterRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateClusterResponse
      */
     public function createClusterWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->autoLoad)) {
-            $body['autoLoad'] = $request->autoLoad;
+        if (null !== $request->autoLoad) {
+            @$body['autoLoad'] = $request->autoLoad;
         }
-        if (!Utils::isUnset($request->dataNode)) {
-            $body['dataNode'] = $request->dataNode;
+
+        if (null !== $request->dataNode) {
+            @$body['dataNode'] = $request->dataNode;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->queryNode)) {
-            $body['queryNode'] = $request->queryNode;
+
+        if (null !== $request->queryNode) {
+            @$body['queryNode'] = $request->queryNode;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateCluster',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/clusters',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a cluster.
-     *  *
-     * @description ### [](#method)Method
+     * Creates a cluster.
+     *
+     * @remarks
+     * ### [](#method)Method
      * `POST`
      * ### [](#uri)URI
      * `/openapi/ha3/instances/{instanceId}/clusters`
-     *  *
-     * @param string               $instanceId
-     * @param CreateClusterRequest $request    CreateClusterRequest
      *
-     * @return CreateClusterResponse CreateClusterResponse
+     * @param request - CreateClusterRequest
+     *
+     * @returns CreateClusterResponse
+     *
+     * @param string               $instanceId
+     * @param CreateClusterRequest $request
+     *
+     * @return CreateClusterResponse
      */
     public function createCluster($instanceId, $request)
     {
@@ -573,52 +634,61 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param request - CreateConfigDirRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateConfigDirResponse
+     *
      * @param string                 $instanceId
      * @param string                 $configName
-     * @param CreateConfigDirRequest $request    CreateConfigDirRequest
-     * @param string[]               $headers    map
-     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
+     * @param CreateConfigDirRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
-     * @return CreateConfigDirResponse CreateConfigDirResponse
+     * @return CreateConfigDirResponse
      */
     public function createConfigDirWithOptions($instanceId, $configName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dirName)) {
-            $body['dirName'] = $request->dirName;
+        if (null !== $request->dirName) {
+            @$body['dirName'] = $request->dirName;
         }
-        if (!Utils::isUnset($request->parentFullPath)) {
-            $body['parentFullPath'] = $request->parentFullPath;
+
+        if (null !== $request->parentFullPath) {
+            @$body['parentFullPath'] = $request->parentFullPath;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateConfigDir',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/dir',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/advanced-configs/' . Url::percentEncode($configName) . '/dir',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateConfigDirResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateConfigDirResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateConfigDirResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - CreateConfigDirRequest
+     *
+     * @returns CreateConfigDirResponse
+     *
      * @param string                 $instanceId
      * @param string                 $configName
-     * @param CreateConfigDirRequest $request    CreateConfigDirRequest
+     * @param CreateConfigDirRequest $request
      *
-     * @return CreateConfigDirResponse CreateConfigDirResponse
+     * @return CreateConfigDirResponse
      */
     public function createConfigDir($instanceId, $configName, $request)
     {
@@ -629,55 +699,65 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param request - CreateConfigFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateConfigFileResponse
+     *
      * @param string                  $instanceId
      * @param string                  $configName
-     * @param CreateConfigFileRequest $request    CreateConfigFileRequest
-     * @param string[]                $headers    map
-     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
+     * @param CreateConfigFileRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return CreateConfigFileResponse CreateConfigFileResponse
+     * @return CreateConfigFileResponse
      */
     public function createConfigFileWithOptions($instanceId, $configName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $body['fileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$body['fileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->ossPath)) {
-            $body['ossPath'] = $request->ossPath;
+
+        if (null !== $request->ossPath) {
+            @$body['ossPath'] = $request->ossPath;
         }
-        if (!Utils::isUnset($request->parentFullPath)) {
-            $body['parentFullPath'] = $request->parentFullPath;
+
+        if (null !== $request->parentFullPath) {
+            @$body['parentFullPath'] = $request->parentFullPath;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateConfigFile',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/file',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/advanced-configs/' . Url::percentEncode($configName) . '/file',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateConfigFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateConfigFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateConfigFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - CreateConfigFileRequest
+     *
+     * @returns CreateConfigFileResponse
+     *
      * @param string                  $instanceId
      * @param string                  $configName
-     * @param CreateConfigFileRequest $request    CreateConfigFileRequest
+     * @param CreateConfigFileRequest $request
      *
-     * @return CreateConfigFileResponse CreateConfigFileResponse
+     * @return CreateConfigFileResponse
      */
     public function createConfigFile($instanceId, $configName, $request)
     {
@@ -688,71 +768,85 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Creates data sources.
-     *  *
-     * @param string                  $instanceId
-     * @param CreateDataSourceRequest $request    CreateDataSourceRequest
-     * @param string[]                $headers    map
-     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
+     * Creates data sources.
      *
-     * @return CreateDataSourceResponse CreateDataSourceResponse
+     * @param request - CreateDataSourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataSourceResponse
+     *
+     * @param string                  $instanceId
+     * @param CreateDataSourceRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDataSourceResponse
      */
     public function createDataSourceWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->autoBuildIndex)) {
-            $body['autoBuildIndex'] = $request->autoBuildIndex;
+        if (null !== $request->autoBuildIndex) {
+            @$body['autoBuildIndex'] = $request->autoBuildIndex;
         }
-        if (!Utils::isUnset($request->config)) {
-            $body['config'] = $request->config;
+
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $body['domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$body['domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->saroConfig)) {
-            $body['saroConfig'] = $request->saroConfig;
+
+        if (null !== $request->saroConfig) {
+            @$body['saroConfig'] = $request->saroConfig;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateDataSource',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/data-sources',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates data sources.
-     *  *
-     * @param string                  $instanceId
-     * @param CreateDataSourceRequest $request    CreateDataSourceRequest
+     * Creates data sources.
      *
-     * @return CreateDataSourceResponse CreateDataSourceResponse
+     * @param request - CreateDataSourceRequest
+     *
+     * @returns CreateDataSourceResponse
+     *
+     * @param string                  $instanceId
+     * @param CreateDataSourceRequest $request
+     *
+     * @return CreateDataSourceResponse
      */
     public function createDataSource($instanceId, $request)
     {
@@ -763,55 +857,65 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param request - CreateFolderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFolderResponse
+     *
      * @param string              $instanceId
      * @param string              $database
-     * @param CreateFolderRequest $request    CreateFolderRequest
-     * @param string[]            $headers    map
-     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
+     * @param CreateFolderRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
-     * @return CreateFolderResponse CreateFolderResponse
+     * @return CreateFolderResponse
      */
     public function createFolderWithOptions($instanceId, $database, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->parent)) {
-            $body['parent'] = $request->parent;
+
+        if (null !== $request->parent) {
+            @$body['parent'] = $request->parent;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateFolder',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/folders',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/sql-studio/databases/' . Url::percentEncode($database) . '/folders',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateFolderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - CreateFolderRequest
+     *
+     * @returns CreateFolderResponse
+     *
      * @param string              $instanceId
      * @param string              $database
-     * @param CreateFolderRequest $request    CreateFolderRequest
+     * @param CreateFolderRequest $request
      *
-     * @return CreateFolderResponse CreateFolderResponse
+     * @return CreateFolderResponse
      */
     public function createFolder($instanceId, $database, $request)
     {
@@ -822,9 +926,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Creates an index.
-     *  *
-     * @description ### Method
+     * Creates an index.
+     *
+     * @remarks
+     * ### Method
      * ```java
      * POST
      * ```
@@ -832,76 +937,90 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/indexes
      * ```
-     *  *
-     * @param string             $instanceId
-     * @param CreateIndexRequest $request    CreateIndexRequest
-     * @param string[]           $headers    map
-     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateIndexResponse CreateIndexResponse
+     * @param request - CreateIndexRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateIndexResponse
+     *
+     * @param string             $instanceId
+     * @param CreateIndexRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateIndexResponse
      */
     public function createIndexWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->buildParallelNum)) {
-            $body['buildParallelNum'] = $request->buildParallelNum;
+        if (null !== $request->buildParallelNum) {
+            @$body['buildParallelNum'] = $request->buildParallelNum;
         }
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->dataSource)) {
-            $body['dataSource'] = $request->dataSource;
+
+        if (null !== $request->dataSource) {
+            @$body['dataSource'] = $request->dataSource;
         }
-        if (!Utils::isUnset($request->dataSourceInfo)) {
-            $body['dataSourceInfo'] = $request->dataSourceInfo;
+
+        if (null !== $request->dataSourceInfo) {
+            @$body['dataSourceInfo'] = $request->dataSourceInfo;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $body['domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$body['domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->extend)) {
-            $body['extend'] = $request->extend;
+
+        if (null !== $request->extend) {
+            @$body['extend'] = $request->extend;
         }
-        if (!Utils::isUnset($request->mergeParallelNum)) {
-            $body['mergeParallelNum'] = $request->mergeParallelNum;
+
+        if (null !== $request->mergeParallelNum) {
+            @$body['mergeParallelNum'] = $request->mergeParallelNum;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->partition)) {
-            $body['partition'] = $request->partition;
+
+        if (null !== $request->partition) {
+            @$body['partition'] = $request->partition;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateIndex',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/indexes',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateIndexResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIndexResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an index.
-     *  *
-     * @description ### Method
+     * Creates an index.
+     *
+     * @remarks
+     * ### Method
      * ```java
      * POST
      * ```
@@ -909,11 +1028,15 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/indexes
      * ```
-     *  *
-     * @param string             $instanceId
-     * @param CreateIndexRequest $request    CreateIndexRequest
      *
-     * @return CreateIndexResponse CreateIndexResponse
+     * @param request - CreateIndexRequest
+     *
+     * @returns CreateIndexResponse
+     *
+     * @param string             $instanceId
+     * @param CreateIndexRequest $request
+     *
+     * @return CreateIndexResponse
      */
     public function createIndex($instanceId, $request)
     {
@@ -924,41 +1047,53 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Havenask instance.
-     *  *
-     * @description ### [](#)Method
+     * Creates a Havenask instance.
+     *
+     * @remarks
+     * ### [](#)Method
      * `POST`
      * ### [](#uri)URI
      * `/api/instances?dryRun=false`
-     *  *
-     * @param CreateInstanceRequest $request CreateInstanceRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @param request - CreateInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->chargeType)) {
-            $body['chargeType'] = $request->chargeType;
+        if (null !== $request->chargeType) {
+            @$body['chargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->components)) {
-            $body['components'] = $request->components;
+
+        if (null !== $request->components) {
+            @$body['components'] = $request->components;
         }
-        if (!Utils::isUnset($request->order)) {
-            $body['order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$body['order'] = $request->order;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $body['tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateInstance',
@@ -971,24 +1106,26 @@ class Searchengine extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a Havenask instance.
-     *  *
-     * @description ### [](#)Method
+     * Creates a Havenask instance.
+     *
+     * @remarks
+     * ### [](#)Method
      * `POST`
      * ### [](#uri)URI
      * `/api/instances?dryRun=false`
-     *  *
-     * @param CreateInstanceRequest $request CreateInstanceRequest
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @param request - CreateInstanceRequest
+     *
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $request
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -999,59 +1136,69 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 创建模型信息
-     *  *
-     * @param string             $instanceId
-     * @param CreateModelRequest $request    CreateModelRequest
-     * @param string[]           $headers    map
-     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
+     * 创建模型信息.
      *
-     * @return CreateModelResponse CreateModelResponse
+     * @param request - CreateModelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateModelResponse
+     *
+     * @param string             $instanceId
+     * @param CreateModelRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateModelResponse
      */
     public function createModelWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateModel',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/models',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/models',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateModelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateModelResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建模型信息
-     *  *
-     * @param string             $instanceId
-     * @param CreateModelRequest $request    CreateModelRequest
+     * 创建模型信息.
      *
-     * @return CreateModelResponse CreateModelResponse
+     * @param request - CreateModelRequest
+     *
+     * @returns CreateModelResponse
+     *
+     * @param string             $instanceId
+     * @param CreateModelRequest $request
+     *
+     * @return CreateModelResponse
      */
     public function createModel($instanceId, $request)
     {
@@ -1062,13 +1209,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Creates a public endpoint.
-     *  *
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * Creates a public endpoint.
      *
-     * @return CreatePublicUrlResponse CreatePublicUrlResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePublicUrlResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return CreatePublicUrlResponse
      */
     public function createPublicUrlWithOptions($instanceId, $headers, $runtime)
     {
@@ -1079,26 +1231,25 @@ class Searchengine extends OpenApiClient
             'action' => 'CreatePublicUrl',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/public-url',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/public-url',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreatePublicUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePublicUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePublicUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a public endpoint.
-     *  *
+     * Creates a public endpoint.
+     *
+     * @returns CreatePublicUrlResponse
+     *
      * @param string $instanceId
      *
-     * @return CreatePublicUrlResponse CreatePublicUrlResponse
+     * @return CreatePublicUrlResponse
      */
     public function createPublicUrl($instanceId)
     {
@@ -1109,52 +1260,61 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param request - CreateSqlInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSqlInstanceResponse
+     *
      * @param string                   $instanceId
      * @param string                   $database
-     * @param CreateSqlInstanceRequest $request    CreateSqlInstanceRequest
-     * @param string[]                 $headers    map
-     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
+     * @param CreateSqlInstanceRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return CreateSqlInstanceResponse CreateSqlInstanceResponse
+     * @return CreateSqlInstanceResponse
      */
     public function createSqlInstanceWithOptions($instanceId, $database, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->parent)) {
-            $body['parent'] = $request->parent;
+
+        if (null !== $request->parent) {
+            @$body['parent'] = $request->parent;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateSqlInstance',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/sql-studio/databases/' . Url::percentEncode($database) . '/sql-instances',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSqlInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - CreateSqlInstanceRequest
+     *
+     * @returns CreateSqlInstanceResponse
+     *
      * @param string                   $instanceId
      * @param string                   $database
-     * @param CreateSqlInstanceRequest $request    CreateSqlInstanceRequest
+     * @param CreateSqlInstanceRequest $request
      *
-     * @return CreateSqlInstanceResponse CreateSqlInstanceResponse
+     * @return CreateSqlInstanceResponse
      */
     public function createSqlInstance($instanceId, $database, $request)
     {
@@ -1165,80 +1325,97 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Creates an index table.
-     *  *
-     * @param string             $instanceId
-     * @param CreateTableRequest $request    CreateTableRequest
-     * @param string[]           $headers    map
-     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
+     * Creates an index table.
      *
-     * @return CreateTableResponse CreateTableResponse
+     * @param request - CreateTableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTableResponse
+     *
+     * @param string             $instanceId
+     * @param CreateTableRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateTableResponse
      */
     public function createTableWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->dataProcessConfig)) {
-            $body['dataProcessConfig'] = $request->dataProcessConfig;
+        if (null !== $request->dataProcessConfig) {
+            @$body['dataProcessConfig'] = $request->dataProcessConfig;
         }
-        if (!Utils::isUnset($request->dataProcessorCount)) {
-            $body['dataProcessorCount'] = $request->dataProcessorCount;
+
+        if (null !== $request->dataProcessorCount) {
+            @$body['dataProcessorCount'] = $request->dataProcessorCount;
         }
-        if (!Utils::isUnset($request->dataSource)) {
-            $body['dataSource'] = $request->dataSource;
+
+        if (null !== $request->dataSource) {
+            @$body['dataSource'] = $request->dataSource;
         }
-        if (!Utils::isUnset($request->fieldSchema)) {
-            $body['fieldSchema'] = $request->fieldSchema;
+
+        if (null !== $request->fieldSchema) {
+            @$body['fieldSchema'] = $request->fieldSchema;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->partitionCount)) {
-            $body['partitionCount'] = $request->partitionCount;
+
+        if (null !== $request->partitionCount) {
+            @$body['partitionCount'] = $request->partitionCount;
         }
-        if (!Utils::isUnset($request->primaryKey)) {
-            $body['primaryKey'] = $request->primaryKey;
+
+        if (null !== $request->primaryKey) {
+            @$body['primaryKey'] = $request->primaryKey;
         }
-        if (!Utils::isUnset($request->rawSchema)) {
-            $body['rawSchema'] = $request->rawSchema;
+
+        if (null !== $request->rawSchema) {
+            @$body['rawSchema'] = $request->rawSchema;
         }
-        if (!Utils::isUnset($request->vectorIndex)) {
-            $body['vectorIndex'] = $request->vectorIndex;
+
+        if (null !== $request->vectorIndex) {
+            @$body['vectorIndex'] = $request->vectorIndex;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateTable',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/tables',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an index table.
-     *  *
-     * @param string             $instanceId
-     * @param CreateTableRequest $request    CreateTableRequest
+     * Creates an index table.
      *
-     * @return CreateTableResponse CreateTableResponse
+     * @param request - CreateTableRequest
+     *
+     * @returns CreateTableResponse
+     *
+     * @param string             $instanceId
+     * @param CreateTableRequest $request
+     *
+     * @return CreateTableResponse
      */
     public function createTable($instanceId, $request)
     {
@@ -1249,58 +1426,67 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 调试模型
-     *  *
+     * 调试模型.
+     *
+     * @param request - DebugModelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DebugModelResponse
+     *
      * @param string            $instanceId
      * @param string            $modelName
-     * @param DebugModelRequest $request    DebugModelRequest
-     * @param string[]          $headers    map
-     * @param RuntimeOptions    $runtime    runtime options for this request RuntimeOptions
+     * @param DebugModelRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
-     * @return DebugModelResponse DebugModelResponse
+     * @return DebugModelResponse
      */
     public function debugModelWithOptions($instanceId, $modelName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isOnline)) {
-            $query['isOnline'] = $request->isOnline;
+        if (null !== $request->isOnline) {
+            @$query['isOnline'] = $request->isOnline;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->input)) {
-            $body['input'] = $request->input;
+        if (null !== $request->input) {
+            @$body['input'] = $request->input;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DebugModel',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/models/' . OpenApiUtilClient::getEncodeParam($modelName) . '/actions/debug',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/models/' . Url::percentEncode($modelName) . '/actions/debug',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DebugModelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DebugModelResponse::fromMap($this->execute($params, $req, $runtime));
+        return DebugModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 调试模型
-     *  *
+     * 调试模型.
+     *
+     * @param request - DebugModelRequest
+     *
+     * @returns DebugModelResponse
+     *
      * @param string            $instanceId
      * @param string            $modelName
-     * @param DebugModelRequest $request    DebugModelRequest
+     * @param DebugModelRequest $request
      *
-     * @return DebugModelResponse DebugModelResponse
+     * @return DebugModelResponse
      */
     public function debugModel($instanceId, $modelName, $request)
     {
@@ -1311,19 +1497,25 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the details about advanced configurations.
-     *  *
-     * @description ## Method
+     * Deletes the details about advanced configurations.
+     *
+     * @remarks
+     * ## Method
      *     DELETE
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAdvanceConfigResponse
+     *
      * @param string         $instanceId
      * @param string         $configName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteAdvanceConfigResponse DeleteAdvanceConfigResponse
+     * @return DeleteAdvanceConfigResponse
      */
     public function deleteAdvanceConfigWithOptions($instanceId, $configName, $headers, $runtime)
     {
@@ -1334,32 +1526,32 @@ class Searchengine extends OpenApiClient
             'action' => 'DeleteAdvanceConfig',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/advanced-configs/' . Url::percentEncode($configName) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteAdvanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAdvanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAdvanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the details about advanced configurations.
-     *  *
-     * @description ## Method
+     * Deletes the details about advanced configurations.
+     *
+     * @remarks
+     * ## Method
      *     DELETE
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
-     *  *
+     *
+     * @returns DeleteAdvanceConfigResponse
+     *
      * @param string $instanceId
      * @param string $configName
      *
-     * @return DeleteAdvanceConfigResponse DeleteAdvanceConfigResponse
+     * @return DeleteAdvanceConfigResponse
      */
     public function deleteAdvanceConfig($instanceId, $configName)
     {
@@ -1370,12 +1562,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAliasResponse
+     *
      * @param string         $instanceId
      * @param string         $alias
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteAliasResponse DeleteAliasResponse
+     * @return DeleteAliasResponse
      */
     public function deleteAliasWithOptions($instanceId, $alias, $headers, $runtime)
     {
@@ -1386,25 +1583,24 @@ class Searchengine extends OpenApiClient
             'action' => 'DeleteAlias',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/aliases/' . OpenApiUtilClient::getEncodeParam($alias) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/aliases/' . Url::percentEncode($alias) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteAliasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAliasResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @returns DeleteAliasResponse
+     *
      * @param string $instanceId
      * @param string $alias
      *
-     * @return DeleteAliasResponse DeleteAliasResponse
+     * @return DeleteAliasResponse
      */
     public function deleteAlias($instanceId, $alias)
     {
@@ -1415,52 +1611,61 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param request - DeleteConfigDirRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConfigDirResponse
+     *
      * @param string                 $instanceId
      * @param string                 $configName
-     * @param DeleteConfigDirRequest $request    DeleteConfigDirRequest
-     * @param string[]               $headers    map
-     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
+     * @param DeleteConfigDirRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
-     * @return DeleteConfigDirResponse DeleteConfigDirResponse
+     * @return DeleteConfigDirResponse
      */
     public function deleteConfigDirWithOptions($instanceId, $configName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dirName)) {
-            $query['dirName'] = $request->dirName;
+        if (null !== $request->dirName) {
+            @$query['dirName'] = $request->dirName;
         }
-        if (!Utils::isUnset($request->parentFullPath)) {
-            $query['parentFullPath'] = $request->parentFullPath;
+
+        if (null !== $request->parentFullPath) {
+            @$query['parentFullPath'] = $request->parentFullPath;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteConfigDir',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/dir',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/advanced-configs/' . Url::percentEncode($configName) . '/dir',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteConfigDirResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteConfigDirResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteConfigDirResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - DeleteConfigDirRequest
+     *
+     * @returns DeleteConfigDirResponse
+     *
      * @param string                 $instanceId
      * @param string                 $configName
-     * @param DeleteConfigDirRequest $request    DeleteConfigDirRequest
+     * @param DeleteConfigDirRequest $request
      *
-     * @return DeleteConfigDirResponse DeleteConfigDirResponse
+     * @return DeleteConfigDirResponse
      */
     public function deleteConfigDir($instanceId, $configName, $request)
     {
@@ -1471,52 +1676,61 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param request - DeleteConfigFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConfigFileResponse
+     *
      * @param string                  $instanceId
      * @param string                  $configName
-     * @param DeleteConfigFileRequest $request    DeleteConfigFileRequest
-     * @param string[]                $headers    map
-     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
+     * @param DeleteConfigFileRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return DeleteConfigFileResponse DeleteConfigFileResponse
+     * @return DeleteConfigFileResponse
      */
     public function deleteConfigFileWithOptions($instanceId, $configName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['fileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['fileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->parentFullPath)) {
-            $query['parentFullPath'] = $request->parentFullPath;
+
+        if (null !== $request->parentFullPath) {
+            @$query['parentFullPath'] = $request->parentFullPath;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteConfigFile',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/file',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/advanced-configs/' . Url::percentEncode($configName) . '/file',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteConfigFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteConfigFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteConfigFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - DeleteConfigFileRequest
+     *
+     * @returns DeleteConfigFileResponse
+     *
      * @param string                  $instanceId
      * @param string                  $configName
-     * @param DeleteConfigFileRequest $request    DeleteConfigFileRequest
+     * @param DeleteConfigFileRequest $request
      *
-     * @return DeleteConfigFileResponse DeleteConfigFileResponse
+     * @return DeleteConfigFileResponse
      */
     public function deleteConfigFile($instanceId, $configName, $request)
     {
@@ -1527,19 +1741,25 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a specified data source.
-     *  *
-     * @description ## Method
+     * Deletes a specified data source.
+     *
+     * @remarks
+     * ## Method
      * `DELETE`
      * ## URI
      * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataSourceResponse
+     *
      * @param string         $instanceId
      * @param string         $dataSourceName
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteDataSourceResponse DeleteDataSourceResponse
+     * @return DeleteDataSourceResponse
      */
     public function deleteDataSourceWithOptions($instanceId, $dataSourceName, $headers, $runtime)
     {
@@ -1550,32 +1770,32 @@ class Searchengine extends OpenApiClient
             'action' => 'DeleteDataSource',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/data-sources/' . Url::percentEncode($dataSourceName) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a specified data source.
-     *  *
-     * @description ## Method
+     * Deletes a specified data source.
+     *
+     * @remarks
+     * ## Method
      * `DELETE`
      * ## URI
      * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-     *  *
+     *
+     * @returns DeleteDataSourceResponse
+     *
      * @param string $instanceId
      * @param string $dataSourceName
      *
-     * @return DeleteDataSourceResponse DeleteDataSourceResponse
+     * @return DeleteDataSourceResponse
      */
     public function deleteDataSource($instanceId, $dataSourceName)
     {
@@ -1586,13 +1806,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFolderResponse
+     *
      * @param string         $instanceId
      * @param string         $database
      * @param string         $folderId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteFolderResponse DeleteFolderResponse
+     * @return DeleteFolderResponse
      */
     public function deleteFolderWithOptions($instanceId, $database, $folderId, $headers, $runtime)
     {
@@ -1603,26 +1828,25 @@ class Searchengine extends OpenApiClient
             'action' => 'DeleteFolder',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/folders/' . OpenApiUtilClient::getEncodeParam($folderId) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/sql-studio/databases/' . Url::percentEncode($database) . '/folders/' . Url::percentEncode($folderId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteFolderResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @returns DeleteFolderResponse
+     *
      * @param string $instanceId
      * @param string $database
      * @param string $folderId
      *
-     * @return DeleteFolderResponse DeleteFolderResponse
+     * @return DeleteFolderResponse
      */
     public function deleteFolder($instanceId, $database, $folderId)
     {
@@ -1633,66 +1857,77 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an index.
-     *  *
-     * @description ## Method
+     * Deletes an index.
+     *
+     * @remarks
+     * ## Method
      *     DELETE
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}?dataSource=xxx
-     *  *
+     *
+     * @param request - DeleteIndexRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteIndexResponse
+     *
      * @param string             $instanceId
      * @param string             $indexName
-     * @param DeleteIndexRequest $request    DeleteIndexRequest
-     * @param string[]           $headers    map
-     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
+     * @param DeleteIndexRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
-     * @return DeleteIndexResponse DeleteIndexResponse
+     * @return DeleteIndexResponse
      */
     public function deleteIndexWithOptions($instanceId, $indexName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataSource)) {
-            $query['dataSource'] = $request->dataSource;
+        if (null !== $request->dataSource) {
+            @$query['dataSource'] = $request->dataSource;
         }
-        if (!Utils::isUnset($request->deleteDataSource)) {
-            $query['deleteDataSource'] = $request->deleteDataSource;
+
+        if (null !== $request->deleteDataSource) {
+            @$query['deleteDataSource'] = $request->deleteDataSource;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteIndex',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/indexes/' . Url::percentEncode($indexName) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteIndexResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIndexResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an index.
-     *  *
-     * @description ## Method
+     * Deletes an index.
+     *
+     * @remarks
+     * ## Method
      *     DELETE
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}?dataSource=xxx
-     *  *
+     *
+     * @param request - DeleteIndexRequest
+     *
+     * @returns DeleteIndexResponse
+     *
      * @param string             $instanceId
      * @param string             $indexName
-     * @param DeleteIndexRequest $request    DeleteIndexRequest
+     * @param DeleteIndexRequest $request
      *
-     * @return DeleteIndexResponse DeleteIndexResponse
+     * @return DeleteIndexResponse
      */
     public function deleteIndex($instanceId, $indexName, $request)
     {
@@ -1703,20 +1938,26 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the version of an index.
-     *  *
-     * @description ## Method
+     * Deletes the version of an index.
+     *
+     * @remarks
+     * ## Method
      *     DELETE
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteIndexVersionResponse
+     *
      * @param string         $instanceId
      * @param string         $indexName
      * @param string         $versionName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteIndexVersionResponse DeleteIndexVersionResponse
+     * @return DeleteIndexVersionResponse
      */
     public function deleteIndexVersionWithOptions($instanceId, $indexName, $versionName, $headers, $runtime)
     {
@@ -1727,33 +1968,33 @@ class Searchengine extends OpenApiClient
             'action' => 'DeleteIndexVersion',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/versions/' . OpenApiUtilClient::getEncodeParam($versionName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/indexes/' . Url::percentEncode($indexName) . '/versions/' . Url::percentEncode($versionName) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteIndexVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIndexVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIndexVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the version of an index.
-     *  *
-     * @description ## Method
+     * Deletes the version of an index.
+     *
+     * @remarks
+     * ## Method
      *     DELETE
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}
-     *  *
+     *
+     * @returns DeleteIndexVersionResponse
+     *
      * @param string $instanceId
      * @param string $indexName
      * @param string $versionName
      *
-     * @return DeleteIndexVersionResponse DeleteIndexVersionResponse
+     * @return DeleteIndexVersionResponse
      */
     public function deleteIndexVersion($instanceId, $indexName, $versionName)
     {
@@ -1764,18 +2005,24 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a specified instance.
-     *  *
-     * @description ### Method
+     * Deletes a specified instance.
+     *
+     * @remarks
+     * ### Method
      * `DELETE`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}`
-     *  *
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInstanceResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($instanceId, $headers, $runtime)
     {
@@ -1786,31 +2033,31 @@ class Searchengine extends OpenApiClient
             'action' => 'DeleteInstance',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a specified instance.
-     *  *
-     * @description ### Method
+     * Deletes a specified instance.
+     *
+     * @remarks
+     * ### Method
      * `DELETE`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}`
-     *  *
+     *
+     * @returns DeleteInstanceResponse
+     *
      * @param string $instanceId
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @return DeleteInstanceResponse
      */
     public function deleteInstance($instanceId)
     {
@@ -1821,14 +2068,19 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 删除模型
-     *  *
+     * 删除模型.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteModelResponse
+     *
      * @param string         $instanceId
      * @param string         $modelName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteModelResponse DeleteModelResponse
+     * @return DeleteModelResponse
      */
     public function deleteModelWithOptions($instanceId, $modelName, $headers, $runtime)
     {
@@ -1839,27 +2091,26 @@ class Searchengine extends OpenApiClient
             'action' => 'DeleteModel',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/models/' . OpenApiUtilClient::getEncodeParam($modelName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/models/' . Url::percentEncode($modelName) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteModelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteModelResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除模型
-     *  *
+     * 删除模型.
+     *
+     * @returns DeleteModelResponse
+     *
      * @param string $instanceId
      * @param string $modelName
      *
-     * @return DeleteModelResponse DeleteModelResponse
+     * @return DeleteModelResponse
      */
     public function deleteModel($instanceId, $modelName)
     {
@@ -1870,13 +2121,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 删除公网域名
-     *  *
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * 删除公网域名.
      *
-     * @return DeletePublicUrlResponse DeletePublicUrlResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePublicUrlResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeletePublicUrlResponse
      */
     public function deletePublicUrlWithOptions($instanceId, $headers, $runtime)
     {
@@ -1887,26 +2143,25 @@ class Searchengine extends OpenApiClient
             'action' => 'DeletePublicUrl',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/public-url',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/public-url',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeletePublicUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePublicUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePublicUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除公网域名
-     *  *
+     * 删除公网域名.
+     *
+     * @returns DeletePublicUrlResponse
+     *
      * @param string $instanceId
      *
-     * @return DeletePublicUrlResponse DeletePublicUrlResponse
+     * @return DeletePublicUrlResponse
      */
     public function deletePublicUrl($instanceId)
     {
@@ -1917,13 +2172,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSqlInstanceResponse
+     *
      * @param string         $instanceId
      * @param string         $database
      * @param string         $sqlInstanceId
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteSqlInstanceResponse DeleteSqlInstanceResponse
+     * @return DeleteSqlInstanceResponse
      */
     public function deleteSqlInstanceWithOptions($instanceId, $database, $sqlInstanceId, $headers, $runtime)
     {
@@ -1934,26 +2194,25 @@ class Searchengine extends OpenApiClient
             'action' => 'DeleteSqlInstance',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/sql-studio/databases/' . Url::percentEncode($database) . '/sql-instances/' . Url::percentEncode($sqlInstanceId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSqlInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @returns DeleteSqlInstanceResponse
+     *
      * @param string $instanceId
      * @param string $database
      * @param string $sqlInstanceId
      *
-     * @return DeleteSqlInstanceResponse DeleteSqlInstanceResponse
+     * @return DeleteSqlInstanceResponse
      */
     public function deleteSqlInstance($instanceId, $database, $sqlInstanceId)
     {
@@ -1964,14 +2223,19 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an index table.
-     *  *
+     * Deletes an index table.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTableResponse
+     *
      * @param string         $instanceId
      * @param string         $tableName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteTableResponse DeleteTableResponse
+     * @return DeleteTableResponse
      */
     public function deleteTableWithOptions($instanceId, $tableName, $headers, $runtime)
     {
@@ -1982,27 +2246,26 @@ class Searchengine extends OpenApiClient
             'action' => 'DeleteTable',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/tables/' . Url::percentEncode($tableName) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an index table.
-     *  *
+     * Deletes an index table.
+     *
+     * @returns DeleteTableResponse
+     *
      * @param string $instanceId
      * @param string $tableName
      *
-     * @return DeleteTableResponse DeleteTableResponse
+     * @return DeleteTableResponse
      */
     public function deleteTable($instanceId, $tableName)
     {
@@ -2013,24 +2276,31 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries available regions.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries available regions.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['acceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['acceptLanguage'] = $request->acceptLanguage;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRegions',
@@ -2043,19 +2313,20 @@ class Searchengine extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries available regions.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Queries available regions.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -2066,69 +2337,83 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param request - ExecuteSqlInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteSqlInstanceResponse
+     *
      * @param string                    $instanceId
      * @param string                    $database
      * @param string                    $sqlInstanceId
-     * @param ExecuteSqlInstanceRequest $request       ExecuteSqlInstanceRequest
-     * @param string[]                  $headers       map
-     * @param RuntimeOptions            $runtime       runtime options for this request RuntimeOptions
+     * @param ExecuteSqlInstanceRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return ExecuteSqlInstanceResponse ExecuteSqlInstanceResponse
+     * @return ExecuteSqlInstanceResponse
      */
     public function executeSqlInstanceWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->combineParam)) {
-            $body['combineParam'] = $request->combineParam;
+        if (null !== $request->combineParam) {
+            @$body['combineParam'] = $request->combineParam;
         }
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $body['domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$body['domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->dynamicParam)) {
-            $body['dynamicParam'] = $request->dynamicParam;
+
+        if (null !== $request->dynamicParam) {
+            @$body['dynamicParam'] = $request->dynamicParam;
         }
-        if (!Utils::isUnset($request->kvpair)) {
-            $body['kvpair'] = $request->kvpair;
+
+        if (null !== $request->kvpair) {
+            @$body['kvpair'] = $request->kvpair;
         }
-        if (!Utils::isUnset($request->params)) {
-            $body['params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$body['params'] = $request->params;
         }
-        if (!Utils::isUnset($request->staticParam)) {
-            $body['staticParam'] = $request->staticParam;
+
+        if (null !== $request->staticParam) {
+            @$body['staticParam'] = $request->staticParam;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExecuteSqlInstance',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/actions/execution',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/sql-studio/databases/' . Url::percentEncode($database) . '/sql-instances/' . Url::percentEncode($sqlInstanceId) . '/actions/execution',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ExecuteSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteSqlInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - ExecuteSqlInstanceRequest
+     *
+     * @returns ExecuteSqlInstanceResponse
+     *
      * @param string                    $instanceId
      * @param string                    $database
      * @param string                    $sqlInstanceId
-     * @param ExecuteSqlInstanceRequest $request       ExecuteSqlInstanceRequest
+     * @param ExecuteSqlInstanceRequest $request
      *
-     * @return ExecuteSqlInstanceResponse ExecuteSqlInstanceResponse
+     * @return ExecuteSqlInstanceResponse
      */
     public function executeSqlInstance($instanceId, $database, $sqlInstanceId, $request)
     {
@@ -2139,9 +2424,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Performs a forced switchover.
-     *  *
-     * @description ### [](#)Method
+     * Performs a forced switchover.
+     *
+     * @remarks
+     * ### [](#)Method
      * ```java
      * PUT
      * ```
@@ -2149,13 +2435,18 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/force-switch/{fsmId}
      * ```
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ForceSwitchResponse
+     *
      * @param string         $instanceId
      * @param string         $fsmId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ForceSwitchResponse ForceSwitchResponse
+     * @return ForceSwitchResponse
      */
     public function forceSwitchWithOptions($instanceId, $fsmId, $headers, $runtime)
     {
@@ -2166,24 +2457,22 @@ class Searchengine extends OpenApiClient
             'action' => 'ForceSwitch',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/force-switch/' . OpenApiUtilClient::getEncodeParam($fsmId) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/force-switch/' . Url::percentEncode($fsmId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ForceSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ForceSwitchResponse::fromMap($this->execute($params, $req, $runtime));
+        return ForceSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Performs a forced switchover.
-     *  *
-     * @description ### [](#)Method
+     * Performs a forced switchover.
+     *
+     * @remarks
+     * ### [](#)Method
      * ```java
      * PUT
      * ```
@@ -2191,11 +2480,13 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/force-switch/{fsmId}
      * ```
-     *  *
+     *
+     * @returns ForceSwitchResponse
+     *
      * @param string $instanceId
      * @param string $fsmId
      *
-     * @return ForceSwitchResponse ForceSwitchResponse
+     * @return ForceSwitchResponse
      */
     public function forceSwitch($instanceId, $fsmId)
     {
@@ -2206,63 +2497,73 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an advanced configuration.
-     *  *
-     * @description ## Method
+     * Queries the information about an advanced configuration.
+     *
+     * @remarks
+     * ## Method
      *     GET
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
-     *  *
+     *
+     * @param request - GetAdvanceConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAdvanceConfigResponse
+     *
      * @param string                  $instanceId
      * @param string                  $configName
-     * @param GetAdvanceConfigRequest $request    GetAdvanceConfigRequest
-     * @param string[]                $headers    map
-     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
+     * @param GetAdvanceConfigRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return GetAdvanceConfigResponse GetAdvanceConfigResponse
+     * @return GetAdvanceConfigResponse
      */
     public function getAdvanceConfigWithOptions($instanceId, $configName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAdvanceConfig',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/advanced-configs/' . Url::percentEncode($configName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAdvanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAdvanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAdvanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about an advanced configuration.
-     *  *
-     * @description ## Method
+     * Queries the information about an advanced configuration.
+     *
+     * @remarks
+     * ## Method
      *     GET
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
-     *  *
+     *
+     * @param request - GetAdvanceConfigRequest
+     *
+     * @returns GetAdvanceConfigResponse
+     *
      * @param string                  $instanceId
      * @param string                  $configName
-     * @param GetAdvanceConfigRequest $request    GetAdvanceConfigRequest
+     * @param GetAdvanceConfigRequest $request
      *
-     * @return GetAdvanceConfigResponse GetAdvanceConfigResponse
+     * @return GetAdvanceConfigResponse
      */
     public function getAdvanceConfig($instanceId, $configName, $request)
     {
@@ -2273,63 +2574,73 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an advanced configuration file.
-     *  *
-     * @description ## Method
+     * Queries the information about an advanced configuration file.
+     *
+     * @remarks
+     * ## Method
      *     GET
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
-     *  *
+     *
+     * @param request - GetAdvanceConfigFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAdvanceConfigFileResponse
+     *
      * @param string                      $instanceId
      * @param string                      $configName
-     * @param GetAdvanceConfigFileRequest $request    GetAdvanceConfigFileRequest
-     * @param string[]                    $headers    map
-     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
+     * @param GetAdvanceConfigFileRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return GetAdvanceConfigFileResponse GetAdvanceConfigFileResponse
+     * @return GetAdvanceConfigFileResponse
      */
     public function getAdvanceConfigFileWithOptions($instanceId, $configName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['fileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['fileName'] = $request->fileName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAdvanceConfigFile',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/file',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/advanced-configs/' . Url::percentEncode($configName) . '/file',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAdvanceConfigFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAdvanceConfigFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAdvanceConfigFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about an advanced configuration file.
-     *  *
-     * @description ## Method
+     * Queries the information about an advanced configuration file.
+     *
+     * @remarks
+     * ## Method
      *     GET
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
-     *  *
+     *
+     * @param request - GetAdvanceConfigFileRequest
+     *
+     * @returns GetAdvanceConfigFileResponse
+     *
      * @param string                      $instanceId
      * @param string                      $configName
-     * @param GetAdvanceConfigFileRequest $request    GetAdvanceConfigFileRequest
+     * @param GetAdvanceConfigFileRequest $request
      *
-     * @return GetAdvanceConfigFileResponse GetAdvanceConfigFileResponse
+     * @return GetAdvanceConfigFileResponse
      */
     public function getAdvanceConfigFile($instanceId, $configName, $request)
     {
@@ -2340,19 +2651,25 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a cluster.
-     *  *
-     * @description ### Method
+     * Queries the details of a cluster.
+     *
+     * @remarks
+     * ### Method
      * `GET`
      * ### URI
      * `/openapi/ha3/instance/{instanceId}/clusters/{clusterName}`
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetClusterResponse
+     *
      * @param string         $instanceId
      * @param string         $clusterName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetClusterResponse GetClusterResponse
+     * @return GetClusterResponse
      */
     public function getClusterWithOptions($instanceId, $clusterName, $headers, $runtime)
     {
@@ -2363,32 +2680,32 @@ class Searchengine extends OpenApiClient
             'action' => 'GetCluster',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/clusters/' . Url::percentEncode($clusterName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a cluster.
-     *  *
-     * @description ### Method
+     * Queries the details of a cluster.
+     *
+     * @remarks
+     * ### Method
      * `GET`
      * ### URI
      * `/openapi/ha3/instance/{instanceId}/clusters/{clusterName}`
-     *  *
+     *
+     * @returns GetClusterResponse
+     *
      * @param string $instanceId
      * @param string $clusterName
      *
-     * @return GetClusterResponse GetClusterResponse
+     * @return GetClusterResponse
      */
     public function getCluster($instanceId, $clusterName)
     {
@@ -2399,18 +2716,24 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries the runtime information about a specified cluster.
-     *  *
-     * @description ### Method
+     * Queries the runtime information about a specified cluster.
+     *
+     * @remarks
+     * ### Method
      * GET
      * ### URI
      * /openapi/ha3/instances/{instanceId}/cluster-run-time-info
-     *  *
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetClusterRunTimeInfoResponse GetClusterRunTimeInfoResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetClusterRunTimeInfoResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetClusterRunTimeInfoResponse
      */
     public function getClusterRunTimeInfoWithOptions($instanceId, $headers, $runtime)
     {
@@ -2421,31 +2744,31 @@ class Searchengine extends OpenApiClient
             'action' => 'GetClusterRunTimeInfo',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/cluster-run-time-info',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/cluster-run-time-info',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetClusterRunTimeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetClusterRunTimeInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetClusterRunTimeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the runtime information about a specified cluster.
-     *  *
-     * @description ### Method
+     * Queries the runtime information about a specified cluster.
+     *
+     * @remarks
+     * ### Method
      * GET
      * ### URI
      * /openapi/ha3/instances/{instanceId}/cluster-run-time-info
-     *  *
+     *
+     * @returns GetClusterRunTimeInfoResponse
+     *
      * @param string $instanceId
      *
-     * @return GetClusterRunTimeInfoResponse GetClusterRunTimeInfoResponse
+     * @return GetClusterRunTimeInfoResponse
      */
     public function getClusterRunTimeInfo($instanceId)
     {
@@ -2456,19 +2779,25 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a data source.
-     *  *
-     * @description ### Method
+     * Obtains a data source.
+     *
+     * @remarks
+     * ### Method
      * `GET`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataSourceResponse
+     *
      * @param string         $instanceId
      * @param string         $dataSourceName
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetDataSourceResponse GetDataSourceResponse
+     * @return GetDataSourceResponse
      */
     public function getDataSourceWithOptions($instanceId, $dataSourceName, $headers, $runtime)
     {
@@ -2479,32 +2808,32 @@ class Searchengine extends OpenApiClient
             'action' => 'GetDataSource',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/data-sources/' . Url::percentEncode($dataSourceName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains a data source.
-     *  *
-     * @description ### Method
+     * Obtains a data source.
+     *
+     * @remarks
+     * ### Method
      * `GET`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-     *  *
+     *
+     * @returns GetDataSourceResponse
+     *
      * @param string $instanceId
      * @param string $dataSourceName
      *
-     * @return GetDataSourceResponse GetDataSourceResponse
+     * @return GetDataSourceResponse
      */
     public function getDataSource($instanceId, $dataSourceName)
     {
@@ -2515,15 +2844,20 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据源部署信息
-     *  *
+     * 获取数据源部署信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataSourceDeployResponse
+     *
      * @param string         $instanceId
      * @param string         $deployName
      * @param string         $dataSourceName
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetDataSourceDeployResponse GetDataSourceDeployResponse
+     * @return GetDataSourceDeployResponse
      */
     public function getDataSourceDeployWithOptions($instanceId, $deployName, $dataSourceName, $headers, $runtime)
     {
@@ -2534,28 +2868,27 @@ class Searchengine extends OpenApiClient
             'action' => 'GetDataSourceDeploy',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/deploys/' . OpenApiUtilClient::getEncodeParam($deployName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/data-sources/' . Url::percentEncode($dataSourceName) . '/deploys/' . Url::percentEncode($deployName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataSourceDeployResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataSourceDeployResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataSourceDeployResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据源部署信息
-     *  *
+     * 获取数据源部署信息.
+     *
+     * @returns GetDataSourceDeployResponse
+     *
      * @param string $instanceId
      * @param string $deployName
      * @param string $dataSourceName
      *
-     * @return GetDataSourceDeployResponse GetDataSourceDeployResponse
+     * @return GetDataSourceDeployResponse
      */
     public function getDataSourceDeploy($instanceId, $deployName, $dataSourceName)
     {
@@ -2566,13 +2899,18 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDatabaseSchemaResponse
+     *
      * @param string         $instanceId
      * @param string         $database
      * @param string         $tableName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetDatabaseSchemaResponse GetDatabaseSchemaResponse
+     * @return GetDatabaseSchemaResponse
      */
     public function getDatabaseSchemaWithOptions($instanceId, $database, $tableName, $headers, $runtime)
     {
@@ -2583,26 +2921,25 @@ class Searchengine extends OpenApiClient
             'action' => 'GetDatabaseSchema',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '/schema',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/sql-studio/databases/' . Url::percentEncode($database) . '/tables/' . Url::percentEncode($tableName) . '/schema',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDatabaseSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDatabaseSchemaResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDatabaseSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @returns GetDatabaseSchemaResponse
+     *
      * @param string $instanceId
      * @param string $database
      * @param string $tableName
      *
-     * @return GetDatabaseSchemaResponse GetDatabaseSchemaResponse
+     * @return GetDatabaseSchemaResponse
      */
     public function getDatabaseSchema($instanceId, $database, $tableName)
     {
@@ -2613,20 +2950,26 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Displays the overview of the deployment.
-     *  *
-     * @description ## Method
+     * Displays the overview of the deployment.
+     *
+     * @remarks
+     * ## Method
      * GET
      * ## URI
      * ```java
      * /openapi/ha3/instances/{instanceId}/deploy-graph
      * ```
-     *  *
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetDeployGraphResponse GetDeployGraphResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDeployGraphResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetDeployGraphResponse
      */
     public function getDeployGraphWithOptions($instanceId, $headers, $runtime)
     {
@@ -2637,33 +2980,33 @@ class Searchengine extends OpenApiClient
             'action' => 'GetDeployGraph',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/deploy-graph',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/deploy-graph',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDeployGraphResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDeployGraphResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDeployGraphResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Displays the overview of the deployment.
-     *  *
-     * @description ## Method
+     * Displays the overview of the deployment.
+     *
+     * @remarks
+     * ## Method
      * GET
      * ## URI
      * ```java
      * /openapi/ha3/instances/{instanceId}/deploy-graph
      * ```
-     *  *
+     *
+     * @returns GetDeployGraphResponse
+     *
      * @param string $instanceId
      *
-     * @return GetDeployGraphResponse GetDeployGraphResponse
+     * @return GetDeployGraphResponse
      */
     public function getDeployGraph($instanceId)
     {
@@ -2674,65 +3017,75 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an index table version.
-     *  *
-     * @description ## [](#)Method
+     * Queries the details of an index table version.
+     *
+     * @remarks
+     * ## [](#)Method
      *     GET
      * ## [](#uri)URI
      *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file
-     *  *
+     *
+     * @param request - GetFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFileResponse
+     *
      * @param string         $instanceId
      * @param string         $indexName
      * @param string         $versionName
-     * @param GetFileRequest $request     GetFileRequest
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param GetFileRequest $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetFileResponse GetFileResponse
+     * @return GetFileResponse
      */
     public function getFileWithOptions($instanceId, $indexName, $versionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['fileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['fileName'] = $request->fileName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetFile',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/versions/' . OpenApiUtilClient::getEncodeParam($versionName) . '/file',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/indexes/' . Url::percentEncode($indexName) . '/versions/' . Url::percentEncode($versionName) . '/file',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an index table version.
-     *  *
-     * @description ## [](#)Method
+     * Queries the details of an index table version.
+     *
+     * @remarks
+     * ## [](#)Method
      *     GET
      * ## [](#uri)URI
      *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file
-     *  *
+     *
+     * @param request - GetFileRequest
+     *
+     * @returns GetFileResponse
+     *
      * @param string         $instanceId
      * @param string         $indexName
      * @param string         $versionName
-     * @param GetFileRequest $request     GetFileRequest
+     * @param GetFileRequest $request
      *
-     * @return GetFileResponse GetFileResponse
+     * @return GetFileResponse
      */
     public function getFile($instanceId, $indexName, $versionName, $request)
     {
@@ -2743,19 +3096,25 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an index version.
-     *  *
-     * @description ## [](#)Method
+     * Queries the information about an index version.
+     *
+     * @remarks
+     * ## [](#)Method
      *     GET
      * ## [](#uri)URI
      *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIndexResponse
+     *
      * @param string         $instanceId
      * @param string         $indexName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetIndexResponse GetIndexResponse
+     * @return GetIndexResponse
      */
     public function getIndexWithOptions($instanceId, $indexName, $headers, $runtime)
     {
@@ -2766,32 +3125,32 @@ class Searchengine extends OpenApiClient
             'action' => 'GetIndex',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/indexes/' . Url::percentEncode($indexName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetIndexResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIndexResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about an index version.
-     *  *
-     * @description ## [](#)Method
+     * Queries the information about an index version.
+     *
+     * @remarks
+     * ## [](#)Method
      *     GET
      * ## [](#uri)URI
      *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}
-     *  *
+     *
+     * @returns GetIndexResponse
+     *
      * @param string $instanceId
      * @param string $indexName
      *
-     * @return GetIndexResponse GetIndexResponse
+     * @return GetIndexResponse
      */
     public function getIndex($instanceId, $indexName)
     {
@@ -2802,16 +3161,21 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries the online effective policy of an index.
-     *  *
+     * Queries the online effective policy of an index.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIndexOnlineStrategyResponse
+     *
      * @param string         $instanceId
      * @param string         $dataSourceName
      * @param string         $deployName
      * @param string         $indexName
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetIndexOnlineStrategyResponse GetIndexOnlineStrategyResponse
+     * @return GetIndexOnlineStrategyResponse
      */
     public function getIndexOnlineStrategyWithOptions($instanceId, $dataSourceName, $deployName, $indexName, $headers, $runtime)
     {
@@ -2822,29 +3186,28 @@ class Searchengine extends OpenApiClient
             'action' => 'GetIndexOnlineStrategy',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/deploys/' . OpenApiUtilClient::getEncodeParam($deployName) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/online-strategy',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/data-sources/' . Url::percentEncode($dataSourceName) . '/deploys/' . Url::percentEncode($deployName) . '/indexes/' . Url::percentEncode($indexName) . '/online-strategy',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetIndexOnlineStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIndexOnlineStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIndexOnlineStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the online effective policy of an index.
-     *  *
+     * Queries the online effective policy of an index.
+     *
+     * @returns GetIndexOnlineStrategyResponse
+     *
      * @param string $instanceId
      * @param string $dataSourceName
      * @param string $deployName
      * @param string $indexName
      *
-     * @return GetIndexOnlineStrategyResponse GetIndexOnlineStrategyResponse
+     * @return GetIndexOnlineStrategyResponse
      */
     public function getIndexOnlineStrategy($instanceId, $dataSourceName, $deployName, $indexName)
     {
@@ -2855,19 +3218,25 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about index versions that the current index version can be rolled back to.
-     *  *
-     * @description ## Method
+     * Queries the information about index versions that the current index version can be rolled back to.
+     *
+     * @remarks
+     * ## Method
      *     GET
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIndexVersionResponse
+     *
      * @param string         $instanceId
      * @param string         $clusterName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetIndexVersionResponse GetIndexVersionResponse
+     * @return GetIndexVersionResponse
      */
     public function getIndexVersionWithOptions($instanceId, $clusterName, $headers, $runtime)
     {
@@ -2878,32 +3247,32 @@ class Searchengine extends OpenApiClient
             'action' => 'GetIndexVersion',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterName) . '/index-version',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/clusters/' . Url::percentEncode($clusterName) . '/index-version',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetIndexVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIndexVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIndexVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about index versions that the current index version can be rolled back to.
-     *  *
-     * @description ## Method
+     * Queries the information about index versions that the current index version can be rolled back to.
+     *
+     * @remarks
+     * ## Method
      *     GET
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
-     *  *
+     *
+     * @returns GetIndexVersionResponse
+     *
      * @param string $instanceId
      * @param string $clusterName
      *
-     * @return GetIndexVersionResponse GetIndexVersionResponse
+     * @return GetIndexVersionResponse
      */
     public function getIndexVersion($instanceId, $clusterName)
     {
@@ -2914,9 +3283,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an instance based on the instance ID.
-     *  *
-     * @description ### [](#)Method
+     * Queries the details of an instance based on the instance ID.
+     *
+     * @remarks
+     * ### [](#)Method
      * ```java
      * GET
      * ```
@@ -2924,12 +3294,17 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}
      * ```
-     *  *
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceResponse GetInstanceResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetInstanceResponse
      */
     public function getInstanceWithOptions($instanceId, $headers, $runtime)
     {
@@ -2940,24 +3315,22 @@ class Searchengine extends OpenApiClient
             'action' => 'GetInstance',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an instance based on the instance ID.
-     *  *
-     * @description ### [](#)Method
+     * Queries the details of an instance based on the instance ID.
+     *
+     * @remarks
+     * ### [](#)Method
      * ```java
      * GET
      * ```
@@ -2965,10 +3338,12 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}
      * ```
-     *  *
+     *
+     * @returns GetInstanceResponse
+     *
      * @param string $instanceId
      *
-     * @return GetInstanceResponse GetInstanceResponse
+     * @return GetInstanceResponse
      */
     public function getInstance($instanceId)
     {
@@ -2979,19 +3354,25 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 通过实例ID和模型名称查询特定模型的详细配置信息。
-     *  *
-     * @description ## 请求说明
+     * 通过实例ID和模型名称查询特定模型的详细配置信息。
+     *
+     * @remarks
+     * ## 请求说明
      * - 该API用于获取指定实例下的特定模型的详细信息，包括模型类型、URL、状态等。
      * - 确保提供的`instanceId`和`modelName`是有效的，否则可能返回错误或找不到资源。
      * - 返回的数据结构中包含了模型的内容（如请求头、参数等）以及创建和更新时间，有助于了解模型的具体配置及其最新状态。
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetModelResponse
+     *
      * @param string         $instanceId
      * @param string         $modelName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetModelResponse GetModelResponse
+     * @return GetModelResponse
      */
     public function getModelWithOptions($instanceId, $modelName, $headers, $runtime)
     {
@@ -3002,32 +3383,32 @@ class Searchengine extends OpenApiClient
             'action' => 'GetModel',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/models/' . OpenApiUtilClient::getEncodeParam($modelName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/models/' . Url::percentEncode($modelName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetModelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetModelResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过实例ID和模型名称查询特定模型的详细配置信息。
-     *  *
-     * @description ## 请求说明
+     * 通过实例ID和模型名称查询特定模型的详细配置信息。
+     *
+     * @remarks
+     * ## 请求说明
      * - 该API用于获取指定实例下的特定模型的详细信息，包括模型类型、URL、状态等。
      * - 确保提供的`instanceId`和`modelName`是有效的，否则可能返回错误或找不到资源。
      * - 返回的数据结构中包含了模型的内容（如请求头、参数等）以及创建和更新时间，有助于了解模型的具体配置及其最新状态。
-     *  *
+     *
+     * @returns GetModelResponse
+     *
      * @param string $instanceId
      * @param string $modelName
      *
-     * @return GetModelResponse GetModelResponse
+     * @return GetModelResponse
      */
     public function getModel($instanceId, $modelName)
     {
@@ -3038,57 +3419,67 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Gets the configuration information of a node.
-     *  *
-     * @param string               $instanceId
-     * @param GetNodeConfigRequest $request    GetNodeConfigRequest
-     * @param string[]             $headers    map
-     * @param RuntimeOptions       $runtime    runtime options for this request RuntimeOptions
+     * Gets the configuration information of a node.
      *
-     * @return GetNodeConfigResponse GetNodeConfigResponse
+     * @param request - GetNodeConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNodeConfigResponse
+     *
+     * @param string               $instanceId
+     * @param GetNodeConfigRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetNodeConfigResponse
      */
     public function getNodeConfigWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterName)) {
-            $query['clusterName'] = $request->clusterName;
+        if (null !== $request->clusterName) {
+            @$query['clusterName'] = $request->clusterName;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetNodeConfig',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/node-config',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/node-config',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetNodeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNodeConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNodeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Gets the configuration information of a node.
-     *  *
-     * @param string               $instanceId
-     * @param GetNodeConfigRequest $request    GetNodeConfigRequest
+     * Gets the configuration information of a node.
      *
-     * @return GetNodeConfigResponse GetNodeConfigResponse
+     * @param request - GetNodeConfigRequest
+     *
+     * @returns GetNodeConfigResponse
+     *
+     * @param string               $instanceId
+     * @param GetNodeConfigRequest $request
+     *
+     * @return GetNodeConfigResponse
      */
     public function getNodeConfig($instanceId, $request)
     {
@@ -3099,51 +3490,59 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param request - GetSqlInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSqlInstanceResponse
+     *
      * @param string                $instanceId
      * @param string                $database
      * @param string                $sqlInstanceId
-     * @param GetSqlInstanceRequest $request       GetSqlInstanceRequest
-     * @param string[]              $headers       map
-     * @param RuntimeOptions        $runtime       runtime options for this request RuntimeOptions
+     * @param GetSqlInstanceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return GetSqlInstanceResponse GetSqlInstanceResponse
+     * @return GetSqlInstanceResponse
      */
     public function getSqlInstanceWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->version)) {
-            $query['version'] = $request->version;
+        if (null !== $request->version) {
+            @$query['version'] = $request->version;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSqlInstance',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/sql-studio/databases/' . Url::percentEncode($database) . '/sql-instances/' . Url::percentEncode($sqlInstanceId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSqlInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetSqlInstanceRequest
+     *
+     * @returns GetSqlInstanceResponse
+     *
      * @param string                $instanceId
      * @param string                $database
      * @param string                $sqlInstanceId
-     * @param GetSqlInstanceRequest $request       GetSqlInstanceRequest
+     * @param GetSqlInstanceRequest $request
      *
-     * @return GetSqlInstanceResponse GetSqlInstanceResponse
+     * @return GetSqlInstanceResponse
      */
     public function getSqlInstance($instanceId, $database, $sqlInstanceId, $request)
     {
@@ -3154,14 +3553,19 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an index table.
-     *  *
+     * Queries the information about an index table.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableResponse
+     *
      * @param string         $instanceId
      * @param string         $tableName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetTableResponse GetTableResponse
+     * @return GetTableResponse
      */
     public function getTableWithOptions($instanceId, $tableName, $headers, $runtime)
     {
@@ -3172,27 +3576,26 @@ class Searchengine extends OpenApiClient
             'action' => 'GetTable',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/tables/' . Url::percentEncode($tableName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about an index table.
-     *  *
+     * Queries the information about an index table.
+     *
+     * @returns GetTableResponse
+     *
      * @param string $instanceId
      * @param string $tableName
      *
-     * @return GetTableResponse GetTableResponse
+     * @return GetTableResponse
      */
     public function getTable($instanceId, $tableName)
     {
@@ -3203,15 +3606,20 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of an index version based on the ID of the full index version.
-     *  *
+     * Queries the status of an index version based on the ID of the full index version.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableGenerationResponse
+     *
      * @param string         $instanceId
      * @param string         $tableName
      * @param string         $generationId
-     * @param string[]       $headers      map
-     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetTableGenerationResponse GetTableGenerationResponse
+     * @return GetTableGenerationResponse
      */
     public function getTableGenerationWithOptions($instanceId, $tableName, $generationId, $headers, $runtime)
     {
@@ -3222,28 +3630,27 @@ class Searchengine extends OpenApiClient
             'action' => 'GetTableGeneration',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '/index_versions/' . OpenApiUtilClient::getEncodeParam($generationId) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/tables/' . Url::percentEncode($tableName) . '/index_versions/' . Url::percentEncode($generationId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTableGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTableGenerationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTableGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of an index version based on the ID of the full index version.
-     *  *
+     * Queries the status of an index version based on the ID of the full index version.
+     *
+     * @returns GetTableGenerationResponse
+     *
      * @param string $instanceId
      * @param string $tableName
      * @param string $generationId
      *
-     * @return GetTableGenerationResponse GetTableGenerationResponse
+     * @return GetTableGenerationResponse
      */
     public function getTableGeneration($instanceId, $tableName, $generationId)
     {
@@ -3254,63 +3661,73 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries the files in an advanced configuration directory.
-     *  *
-     * @description ## Method
+     * Queries the files in an advanced configuration directory.
+     *
+     * @remarks
+     * ## Method
      * `GET`
      * ## URI
      * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`
-     *  *
+     *
+     * @param request - ListAdvanceConfigDirRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAdvanceConfigDirResponse
+     *
      * @param string                      $instanceId
      * @param string                      $configName
-     * @param ListAdvanceConfigDirRequest $request    ListAdvanceConfigDirRequest
-     * @param string[]                    $headers    map
-     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
+     * @param ListAdvanceConfigDirRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return ListAdvanceConfigDirResponse ListAdvanceConfigDirResponse
+     * @return ListAdvanceConfigDirResponse
      */
     public function listAdvanceConfigDirWithOptions($instanceId, $configName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dirName)) {
-            $query['dirName'] = $request->dirName;
+        if (null !== $request->dirName) {
+            @$query['dirName'] = $request->dirName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAdvanceConfigDir',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/dir',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/advanced-configs/' . Url::percentEncode($configName) . '/dir',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAdvanceConfigDirResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAdvanceConfigDirResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAdvanceConfigDirResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the files in an advanced configuration directory.
-     *  *
-     * @description ## Method
+     * Queries the files in an advanced configuration directory.
+     *
+     * @remarks
+     * ## Method
      * `GET`
      * ## URI
      * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`
-     *  *
+     *
+     * @param request - ListAdvanceConfigDirRequest
+     *
+     * @returns ListAdvanceConfigDirResponse
+     *
      * @param string                      $instanceId
      * @param string                      $configName
-     * @param ListAdvanceConfigDirRequest $request    ListAdvanceConfigDirRequest
+     * @param ListAdvanceConfigDirRequest $request
      *
-     * @return ListAdvanceConfigDirResponse ListAdvanceConfigDirResponse
+     * @return ListAdvanceConfigDirResponse
      */
     public function listAdvanceConfigDir($instanceId, $configName, $request)
     {
@@ -3321,72 +3738,87 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a list of advanced configurations.
-     *  *
-     * @description ## Sample requests
-     * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
-     *  *
-     * @param string                    $instanceId
-     * @param ListAdvanceConfigsRequest $request    ListAdvanceConfigsRequest
-     * @param string[]                  $headers    map
-     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
+     * Obtains a list of advanced configurations.
      *
-     * @return ListAdvanceConfigsResponse ListAdvanceConfigsResponse
+     * @remarks
+     * ## Sample requests
+     * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
+     *
+     * @param request - ListAdvanceConfigsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAdvanceConfigsResponse
+     *
+     * @param string                    $instanceId
+     * @param ListAdvanceConfigsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListAdvanceConfigsResponse
      */
     public function listAdvanceConfigsWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataSourceName)) {
-            $query['dataSourceName'] = $request->dataSourceName;
+        if (null !== $request->dataSourceName) {
+            @$query['dataSourceName'] = $request->dataSourceName;
         }
-        if (!Utils::isUnset($request->indexName)) {
-            $query['indexName'] = $request->indexName;
+
+        if (null !== $request->indexName) {
+            @$query['indexName'] = $request->indexName;
         }
-        if (!Utils::isUnset($request->newMode)) {
-            $query['newMode'] = $request->newMode;
+
+        if (null !== $request->newMode) {
+            @$query['newMode'] = $request->newMode;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAdvanceConfigs',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/advanced-configs',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAdvanceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAdvanceConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAdvanceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains a list of advanced configurations.
-     *  *
-     * @description ## Sample requests
-     * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
-     *  *
-     * @param string                    $instanceId
-     * @param ListAdvanceConfigsRequest $request    ListAdvanceConfigsRequest
+     * Obtains a list of advanced configurations.
      *
-     * @return ListAdvanceConfigsResponse ListAdvanceConfigsResponse
+     * @remarks
+     * ## Sample requests
+     * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
+     *
+     * @param request - ListAdvanceConfigsRequest
+     *
+     * @returns ListAdvanceConfigsResponse
+     *
+     * @param string                    $instanceId
+     * @param ListAdvanceConfigsRequest $request
+     *
+     * @return ListAdvanceConfigsResponse
      */
     public function listAdvanceConfigs($instanceId, $request)
     {
@@ -3397,11 +3829,16 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListAliasesResponse ListAliasesResponse
+     * @returns ListAliasesResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListAliasesResponse
      */
     public function listAliasesWithOptions($instanceId, $headers, $runtime)
     {
@@ -3412,24 +3849,23 @@ class Searchengine extends OpenApiClient
             'action' => 'ListAliases',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/aliases',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/aliases',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAliasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @returns ListAliasesResponse
+     *
      * @param string $instanceId
      *
-     * @return ListAliasesResponse ListAliasesResponse
+     * @return ListAliasesResponse
      */
     public function listAliases($instanceId)
     {
@@ -3440,17 +3876,23 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries cluster names.
-     *  *
-     * @description ### Method
+     * Queries cluster names.
+     *
+     * @remarks
+     * ### Method
      * GET
      * ### URI
      * /openapi/ha3/instances/{instanceId}/cluster-names
-     *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClusterNamesResponse ListClusterNamesResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClusterNamesResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListClusterNamesResponse
      */
     public function listClusterNamesWithOptions($headers, $runtime)
     {
@@ -3468,22 +3910,22 @@ class Searchengine extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListClusterNamesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListClusterNamesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListClusterNamesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries cluster names.
-     *  *
-     * @description ### Method
+     * Queries cluster names.
+     *
+     * @remarks
+     * ### Method
      * GET
      * ### URI
      * /openapi/ha3/instances/{instanceId}/cluster-names
-     *  *
-     * @return ListClusterNamesResponse ListClusterNamesResponse
+     *
+     * @returns ListClusterNamesResponse
+     *
+     * @return ListClusterNamesResponse
      */
     public function listClusterNames()
     {
@@ -3494,9 +3936,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries cluster tasks.
-     *  *
-     * @description ### Method
+     * Queries cluster tasks.
+     *
+     * @remarks
+     * ### Method
      * ```java
      * GET
      * ```
@@ -3504,12 +3947,17 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/cluster-tasks
      * ```
-     *  *
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListClusterTasksResponse ListClusterTasksResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClusterTasksResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListClusterTasksResponse
      */
     public function listClusterTasksWithOptions($instanceId, $headers, $runtime)
     {
@@ -3520,24 +3968,22 @@ class Searchengine extends OpenApiClient
             'action' => 'ListClusterTasks',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/cluster-tasks',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/cluster-tasks',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListClusterTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListClusterTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListClusterTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries cluster tasks.
-     *  *
-     * @description ### Method
+     * Queries cluster tasks.
+     *
+     * @remarks
+     * ### Method
      * ```java
      * GET
      * ```
@@ -3545,10 +3991,12 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/cluster-tasks
      * ```
-     *  *
+     *
+     * @returns ListClusterTasksResponse
+     *
      * @param string $instanceId
      *
-     * @return ListClusterTasksResponse ListClusterTasksResponse
+     * @return ListClusterTasksResponse
      */
     public function listClusterTasks($instanceId)
     {
@@ -3559,9 +4007,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries clusters.
-     *  *
-     * @description ### Method
+     * Queries clusters.
+     *
+     * @remarks
+     * ### Method
      * ```java
      * GET
      * ```
@@ -3569,12 +4018,17 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/clusters
      * ```
-     *  *
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListClustersResponse ListClustersResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClustersResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListClustersResponse
      */
     public function listClustersWithOptions($instanceId, $headers, $runtime)
     {
@@ -3585,24 +4039,22 @@ class Searchengine extends OpenApiClient
             'action' => 'ListClusters',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/clusters',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListClustersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries clusters.
-     *  *
-     * @description ### Method
+     * Queries clusters.
+     *
+     * @remarks
+     * ### Method
      * ```java
      * GET
      * ```
@@ -3610,10 +4062,12 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/clusters
      * ```
-     *  *
+     *
+     * @returns ListClustersResponse
+     *
      * @param string $instanceId
      *
-     * @return ListClustersResponse ListClustersResponse
+     * @return ListClustersResponse
      */
     public function listClusters($instanceId)
     {
@@ -3624,19 +4078,25 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries the schema information about a data source.
-     *  *
-     * @description ## Method
+     * Queries the schema information about a data source.
+     *
+     * @remarks
+     * ## Method
      * `GET`
      * ## URI
      * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/schemas`
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataSourceSchemasResponse
+     *
      * @param string         $instanceId
      * @param string         $dataSourceName
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListDataSourceSchemasResponse ListDataSourceSchemasResponse
+     * @return ListDataSourceSchemasResponse
      */
     public function listDataSourceSchemasWithOptions($instanceId, $dataSourceName, $headers, $runtime)
     {
@@ -3647,32 +4107,32 @@ class Searchengine extends OpenApiClient
             'action' => 'ListDataSourceSchemas',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/schemas',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/data-sources/' . Url::percentEncode($dataSourceName) . '/schemas',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDataSourceSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataSourceSchemasResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataSourceSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the schema information about a data source.
-     *  *
-     * @description ## Method
+     * Queries the schema information about a data source.
+     *
+     * @remarks
+     * ## Method
      * `GET`
      * ## URI
      * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/schemas`
-     *  *
+     *
+     * @returns ListDataSourceSchemasResponse
+     *
      * @param string $instanceId
      * @param string $dataSourceName
      *
-     * @return ListDataSourceSchemasResponse ListDataSourceSchemasResponse
+     * @return ListDataSourceSchemasResponse
      */
     public function listDataSourceSchemas($instanceId, $dataSourceName)
     {
@@ -3683,9 +4143,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Displays data source tasks.
-     *  *
-     * @description ### [](#)Method
+     * Displays data source tasks.
+     *
+     * @remarks
+     * ### [](#)Method
      * ```java
      * GET
      * ```
@@ -3693,12 +4154,17 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/data-source-tasks
      * ```
-     *  *
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDataSourceTasksResponse ListDataSourceTasksResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataSourceTasksResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListDataSourceTasksResponse
      */
     public function listDataSourceTasksWithOptions($instanceId, $headers, $runtime)
     {
@@ -3709,24 +4175,22 @@ class Searchengine extends OpenApiClient
             'action' => 'ListDataSourceTasks',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-source-tasks',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/data-source-tasks',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDataSourceTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataSourceTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataSourceTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Displays data source tasks.
-     *  *
-     * @description ### [](#)Method
+     * Displays data source tasks.
+     *
+     * @remarks
+     * ### [](#)Method
      * ```java
      * GET
      * ```
@@ -3734,10 +4198,12 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/data-source-tasks
      * ```
-     *  *
+     *
+     * @returns ListDataSourceTasksResponse
+     *
      * @param string $instanceId
      *
-     * @return ListDataSourceTasksResponse ListDataSourceTasksResponse
+     * @return ListDataSourceTasksResponse
      */
     public function listDataSourceTasks($instanceId)
     {
@@ -3748,18 +4214,24 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the list of data sources.
-     *  *
-     * @description ## Method
+     * Obtains the list of data sources.
+     *
+     * @remarks
+     * ## Method
      * `GET`
      * ## URI
      * `/openapi/ha3/instances/{instanceId}/data-sources`
-     *  *
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListDataSourcesResponse ListDataSourcesResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataSourcesResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListDataSourcesResponse
      */
     public function listDataSourcesWithOptions($instanceId, $headers, $runtime)
     {
@@ -3770,31 +4242,31 @@ class Searchengine extends OpenApiClient
             'action' => 'ListDataSources',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/data-sources',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataSourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the list of data sources.
-     *  *
-     * @description ## Method
+     * Obtains the list of data sources.
+     *
+     * @remarks
+     * ## Method
      * `GET`
      * ## URI
      * `/openapi/ha3/instances/{instanceId}/data-sources`
-     *  *
+     *
+     * @returns ListDataSourcesResponse
+     *
      * @param string $instanceId
      *
-     * @return ListDataSourcesResponse ListDataSourcesResponse
+     * @return ListDataSourcesResponse
      */
     public function listDataSources($instanceId)
     {
@@ -3805,11 +4277,16 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListDatabasesResponse ListDatabasesResponse
+     * @returns ListDatabasesResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListDatabasesResponse
      */
     public function listDatabasesWithOptions($instanceId, $headers, $runtime)
     {
@@ -3820,24 +4297,23 @@ class Searchengine extends OpenApiClient
             'action' => 'ListDatabases',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/sql-studio/databases',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDatabasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @returns ListDatabasesResponse
+     *
      * @param string $instanceId
      *
-     * @return ListDatabasesResponse ListDatabasesResponse
+     * @return ListDatabasesResponse
      */
     public function listDatabases($instanceId)
     {
@@ -3848,66 +4324,77 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries the historical index versions of a data source.
-     *  *
-     * @description ### Method
+     * Queries the historical index versions of a data source.
+     *
+     * @remarks
+     * ### Method
      * `GET`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`
-     *  *
+     *
+     * @param request - ListDateSourceGenerationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDateSourceGenerationsResponse
+     *
      * @param string                           $instanceId
      * @param string                           $dataSourceName
-     * @param ListDateSourceGenerationsRequest $request        ListDateSourceGenerationsRequest
-     * @param string[]                         $headers        map
-     * @param RuntimeOptions                   $runtime        runtime options for this request RuntimeOptions
+     * @param ListDateSourceGenerationsRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
      *
-     * @return ListDateSourceGenerationsResponse ListDateSourceGenerationsResponse
+     * @return ListDateSourceGenerationsResponse
      */
     public function listDateSourceGenerationsWithOptions($instanceId, $dataSourceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['domainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['domainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->validStatus)) {
-            $query['validStatus'] = $request->validStatus;
+
+        if (null !== $request->validStatus) {
+            @$query['validStatus'] = $request->validStatus;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDateSourceGenerations',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/generations',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/data-sources/' . Url::percentEncode($dataSourceName) . '/generations',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDateSourceGenerationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDateSourceGenerationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDateSourceGenerationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the historical index versions of a data source.
-     *  *
-     * @description ### Method
+     * Queries the historical index versions of a data source.
+     *
+     * @remarks
+     * ### Method
      * `GET`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`
-     *  *
+     *
+     * @param request - ListDateSourceGenerationsRequest
+     *
+     * @returns ListDateSourceGenerationsResponse
+     *
      * @param string                           $instanceId
      * @param string                           $dataSourceName
-     * @param ListDateSourceGenerationsRequest $request        ListDateSourceGenerationsRequest
+     * @param ListDateSourceGenerationsRequest $request
      *
-     * @return ListDateSourceGenerationsResponse ListDateSourceGenerationsResponse
+     * @return ListDateSourceGenerationsResponse
      */
     public function listDateSourceGenerations($instanceId, $dataSourceName, $request)
     {
@@ -3918,12 +4405,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIndexRecoverRecordsResponse
+     *
      * @param string         $indexName
      * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListIndexRecoverRecordsResponse ListIndexRecoverRecordsResponse
+     * @return ListIndexRecoverRecordsResponse
      */
     public function listIndexRecoverRecordsWithOptions($indexName, $instanceId, $headers, $runtime)
     {
@@ -3934,25 +4426,24 @@ class Searchengine extends OpenApiClient
             'action' => 'ListIndexRecoverRecords',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/actions/list-recover-records',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/indexes/' . Url::percentEncode($indexName) . '/actions/list-recover-records',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListIndexRecoverRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIndexRecoverRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIndexRecoverRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @returns ListIndexRecoverRecordsResponse
+     *
      * @param string $indexName
      * @param string $instanceId
      *
-     * @return ListIndexRecoverRecordsResponse ListIndexRecoverRecordsResponse
+     * @return ListIndexRecoverRecordsResponse
      */
     public function listIndexRecoverRecords($indexName, $instanceId)
     {
@@ -3963,70 +4454,83 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the index list.
-     *  *
-     * @description ## Method
+     * Obtains the index list.
+     *
+     * @remarks
+     * ## Method
      *     GET
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/indexes
-     *  *
-     * @param string             $instanceId
-     * @param ListIndexesRequest $request    ListIndexesRequest
-     * @param string[]           $headers    map
-     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListIndexesResponse ListIndexesResponse
+     * @param request - ListIndexesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIndexesResponse
+     *
+     * @param string             $instanceId
+     * @param ListIndexesRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListIndexesResponse
      */
     public function listIndexesWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->catalog)) {
-            $query['catalog'] = $request->catalog;
+        if (null !== $request->catalog) {
+            @$query['catalog'] = $request->catalog;
         }
-        if (!Utils::isUnset($request->database)) {
-            $query['database'] = $request->database;
+
+        if (null !== $request->database) {
+            @$query['database'] = $request->database;
         }
-        if (!Utils::isUnset($request->newMode)) {
-            $query['newMode'] = $request->newMode;
+
+        if (null !== $request->newMode) {
+            @$query['newMode'] = $request->newMode;
         }
-        if (!Utils::isUnset($request->table)) {
-            $query['table'] = $request->table;
+
+        if (null !== $request->table) {
+            @$query['table'] = $request->table;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListIndexes',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/indexes',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListIndexesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIndexesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIndexesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the index list.
-     *  *
-     * @description ## Method
+     * Obtains the index list.
+     *
+     * @remarks
+     * ## Method
      *     GET
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/indexes
-     *  *
-     * @param string             $instanceId
-     * @param ListIndexesRequest $request    ListIndexesRequest
      *
-     * @return ListIndexesResponse ListIndexesResponse
+     * @param request - ListIndexesRequest
+     *
+     * @returns ListIndexesResponse
+     *
+     * @param string             $instanceId
+     * @param ListIndexesRequest $request
+     *
+     * @return ListIndexesResponse
      */
     public function listIndexes($instanceId, $request)
     {
@@ -4037,61 +4541,71 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries the specifications of an instance.
-     *  *
-     * @description ### Method
+     * Queries the specifications of an instance.
+     *
+     * @remarks
+     * ### Method
      * `GET`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}/specs?type=qrs`
-     *  *
-     * @param string                   $instanceId
-     * @param ListInstanceSpecsRequest $request    ListInstanceSpecsRequest
-     * @param string[]                 $headers    map
-     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceSpecsResponse ListInstanceSpecsResponse
+     * @param request - ListInstanceSpecsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceSpecsResponse
+     *
+     * @param string                   $instanceId
+     * @param ListInstanceSpecsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListInstanceSpecsResponse
      */
     public function listInstanceSpecsWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListInstanceSpecs',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/specs',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/specs',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListInstanceSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstanceSpecsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstanceSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the specifications of an instance.
-     *  *
-     * @description ### Method
+     * Queries the specifications of an instance.
+     *
+     * @remarks
+     * ### Method
      * `GET`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}/specs?type=qrs`
-     *  *
-     * @param string                   $instanceId
-     * @param ListInstanceSpecsRequest $request    ListInstanceSpecsRequest
      *
-     * @return ListInstanceSpecsResponse ListInstanceSpecsResponse
+     * @param request - ListInstanceSpecsRequest
+     *
+     * @returns ListInstanceSpecsResponse
+     *
+     * @param string                   $instanceId
+     * @param ListInstanceSpecsRequest $request
+     *
+     * @return ListInstanceSpecsResponse
      */
     public function listInstanceSpecs($instanceId, $request)
     {
@@ -4102,64 +4616,83 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of instances.
-     *  *
-     * @description ### [](#)Method
+     * Queries a list of instances.
+     *
+     * @remarks
+     * ### [](#)Method
      * `GET`
      * ### [](#uri)URI
      * `/openapi/ha3/instances`
-     *  *
-     * @param ListInstancesRequest $tmpReq  ListInstancesRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param tmpReq - ListInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $tmpReq
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
      */
     public function listInstancesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListInstancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->catalog)) {
-            $query['catalog'] = $request->catalog;
+        if (null !== $request->catalog) {
+            @$query['catalog'] = $request->catalog;
         }
-        if (!Utils::isUnset($request->dataSourceType)) {
-            $query['dataSourceType'] = $request->dataSourceType;
+
+        if (null !== $request->dataSourceType) {
+            @$query['dataSourceType'] = $request->dataSourceType;
         }
-        if (!Utils::isUnset($request->database)) {
-            $query['database'] = $request->database;
+
+        if (null !== $request->database) {
+            @$query['database'] = $request->database;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->edition)) {
-            $query['edition'] = $request->edition;
+
+        if (null !== $request->edition) {
+            @$query['edition'] = $request->edition;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['instanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['instanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->table)) {
-            $query['table'] = $request->table;
+
+        if (null !== $request->table) {
+            @$query['table'] = $request->table;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['tags'] = $request->tagsShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListInstances',
@@ -4172,24 +4705,26 @@ class Searchengine extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of instances.
-     *  *
-     * @description ### [](#)Method
+     * Queries a list of instances.
+     *
+     * @remarks
+     * ### [](#)Method
      * `GET`
      * ### [](#uri)URI
      * `/openapi/ha3/instances`
-     *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param request - ListInstancesRequest
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -4200,62 +4735,75 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @param string          $instanceId
-     * @param ListLogsRequest $request    ListLogsRequest
-     * @param string[]        $headers    map
-     * @param RuntimeOptions  $runtime    runtime options for this request RuntimeOptions
+     * @param request - ListLogsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListLogsResponse ListLogsResponse
+     * @returns ListLogsResponse
+     *
+     * @param string          $instanceId
+     * @param ListLogsRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListLogsResponse
      */
     public function listLogsWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['pageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['pageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->query)) {
-            $query['query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$query['query'] = $request->query;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListLogs',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/logs',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/logs',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param string          $instanceId
-     * @param ListLogsRequest $request    ListLogsRequest
+     * @param request - ListLogsRequest
      *
-     * @return ListLogsResponse ListLogsResponse
+     * @returns ListLogsResponse
+     *
+     * @param string          $instanceId
+     * @param ListLogsRequest $request
+     *
+     * @return ListLogsResponse
      */
     public function listLogs($instanceId, $request)
     {
@@ -4266,66 +4814,79 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 通过实例ID查询指定条件下的模型列表。
-     *  *
-     * @description ## 请求说明
-     * 本API用于从指定实例中获取模型列表，支持通过模型名称、类型以及分页参数进行筛选。请求时需提供实例ID作为路径参数，其他筛选条件为可选的查询参数。
-     *  *
-     * @param string            $instanceId
-     * @param ListModelsRequest $request    ListModelsRequest
-     * @param string[]          $headers    map
-     * @param RuntimeOptions    $runtime    runtime options for this request RuntimeOptions
+     * 通过实例ID查询指定条件下的模型列表。
      *
-     * @return ListModelsResponse ListModelsResponse
+     * @remarks
+     * ## 请求说明
+     * 本API用于从指定实例中获取模型列表，支持通过模型名称、类型以及分页参数进行筛选。请求时需提供实例ID作为路径参数，其他筛选条件为可选的查询参数。
+     *
+     * @param request - ListModelsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelsResponse
+     *
+     * @param string            $instanceId
+     * @param ListModelsRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListModelsResponse
      */
     public function listModelsWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListModels',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/models',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/models',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListModelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListModelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListModelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过实例ID查询指定条件下的模型列表。
-     *  *
-     * @description ## 请求说明
-     * 本API用于从指定实例中获取模型列表，支持通过模型名称、类型以及分页参数进行筛选。请求时需提供实例ID作为路径参数，其他筛选条件为可选的查询参数。
-     *  *
-     * @param string            $instanceId
-     * @param ListModelsRequest $request    ListModelsRequest
+     * 通过实例ID查询指定条件下的模型列表。
      *
-     * @return ListModelsResponse ListModelsResponse
+     * @remarks
+     * ## 请求说明
+     * 本API用于从指定实例中获取模型列表，支持通过模型名称、类型以及分页参数进行筛选。请求时需提供实例ID作为路径参数，其他筛选条件为可选的查询参数。
+     *
+     * @param request - ListModelsRequest
+     *
+     * @returns ListModelsResponse
+     *
+     * @param string            $instanceId
+     * @param ListModelsRequest $request
+     *
+     * @return ListModelsResponse
      */
     public function listModels($instanceId, $request)
     {
@@ -4336,9 +4897,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an online configuration.
-     *  *
-     * @description ### Method
+     * Queries the details of an online configuration.
+     *
+     * @remarks
+     * ### Method
      * ```java
      * GET
      * ```
@@ -4346,48 +4908,53 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs?domain={domain}
      * ```
-     *  *
+     *
+     * @param request - ListOnlineConfigsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOnlineConfigsResponse
+     *
      * @param string                   $instanceId
      * @param string                   $nodeName
-     * @param ListOnlineConfigsRequest $request    ListOnlineConfigsRequest
-     * @param string[]                 $headers    map
-     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
+     * @param ListOnlineConfigsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return ListOnlineConfigsResponse ListOnlineConfigsResponse
+     * @return ListOnlineConfigsResponse
      */
     public function listOnlineConfigsWithOptions($instanceId, $nodeName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['domain'] = $request->domain;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListOnlineConfigs',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/node/' . OpenApiUtilClient::getEncodeParam($nodeName) . '/online-configs',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/node/' . Url::percentEncode($nodeName) . '/online-configs',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListOnlineConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListOnlineConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListOnlineConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an online configuration.
-     *  *
-     * @description ### Method
+     * Queries the details of an online configuration.
+     *
+     * @remarks
+     * ### Method
      * ```java
      * GET
      * ```
@@ -4395,12 +4962,16 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs?domain={domain}
      * ```
-     *  *
+     *
+     * @param request - ListOnlineConfigsRequest
+     *
+     * @returns ListOnlineConfigsResponse
+     *
      * @param string                   $instanceId
      * @param string                   $nodeName
-     * @param ListOnlineConfigsRequest $request    ListOnlineConfigsRequest
+     * @param ListOnlineConfigsRequest $request
      *
-     * @return ListOnlineConfigsResponse ListOnlineConfigsResponse
+     * @return ListOnlineConfigsResponse
      */
     public function listOnlineConfigs($instanceId, $nodeName, $request)
     {
@@ -4411,11 +4982,16 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @param string         $instanceId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListPausePolicysResponse ListPausePolicysResponse
+     * @returns ListPausePolicysResponse
+     *
+     * @param string         $instanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListPausePolicysResponse
      */
     public function listPausePolicysWithOptions($instanceId, $headers, $runtime)
     {
@@ -4426,24 +5002,23 @@ class Searchengine extends OpenApiClient
             'action' => 'ListPausePolicys',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/pause-policies',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/pause-policies',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListPausePolicysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPausePolicysResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPausePolicysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @returns ListPausePolicysResponse
+     *
      * @param string $instanceId
      *
-     * @return ListPausePolicysResponse ListPausePolicysResponse
+     * @return ListPausePolicysResponse
      */
     public function listPausePolicys($instanceId)
     {
@@ -4454,56 +5029,65 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 召回引擎版使用POST请求获取搜索测试结果
-     *  *
-     * @param string                     $instanceId
-     * @param ListPostQueryResultRequest $request    ListPostQueryResultRequest
-     * @param string[]                   $headers    map
-     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
+     * 召回引擎版使用POST请求获取搜索测试结果.
      *
-     * @return ListPostQueryResultResponse ListPostQueryResultResponse
+     * @param request - ListPostQueryResultRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPostQueryResultResponse
+     *
+     * @param string                     $instanceId
+     * @param ListPostQueryResultRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListPostQueryResultResponse
      */
     public function listPostQueryResultWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->body)) {
-            $body['body'] = $request->body;
+        if (null !== $request->body) {
+            @$body['body'] = $request->body;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListPostQueryResult',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/query',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/query',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListPostQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPostQueryResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPostQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 召回引擎版使用POST请求获取搜索测试结果
-     *  *
-     * @param string                     $instanceId
-     * @param ListPostQueryResultRequest $request    ListPostQueryResultRequest
+     * 召回引擎版使用POST请求获取搜索测试结果.
      *
-     * @return ListPostQueryResultResponse ListPostQueryResultResponse
+     * @param request - ListPostQueryResultRequest
+     *
+     * @returns ListPostQueryResultResponse
+     *
+     * @param string                     $instanceId
+     * @param ListPostQueryResultRequest $request
+     *
+     * @return ListPostQueryResultResponse
      */
     public function listPostQueryResult($instanceId, $request)
     {
@@ -4514,64 +5098,75 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries the query result.
-     *  *
-     * @description ### [](#)Method
+     * Queries the query result.
+     *
+     * @remarks
+     * ### [](#)Method
      * `GET`
      * ### [](#uri)URI
      * `/openapi/ha3/instances/{instanceId}/query?query=xxxx`
-     *  *
-     * @param string                 $instanceId
-     * @param ListQueryResultRequest $request    ListQueryResultRequest
-     * @param string[]               $headers    map
-     * @param RuntimeOptions         $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListQueryResultResponse ListQueryResultResponse
+     * @param request - ListQueryResultRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQueryResultResponse
+     *
+     * @param string                 $instanceId
+     * @param ListQueryResultRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListQueryResultResponse
      */
     public function listQueryResultWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->query)) {
-            $query['query'] = $request->query;
+        if (null !== $request->query) {
+            @$query['query'] = $request->query;
         }
-        if (!Utils::isUnset($request->sql)) {
-            $query['sql'] = $request->sql;
+
+        if (null !== $request->sql) {
+            @$query['sql'] = $request->sql;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListQueryResult',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/query',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/query',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListQueryResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the query result.
-     *  *
-     * @description ### [](#)Method
+     * Queries the query result.
+     *
+     * @remarks
+     * ### [](#)Method
      * `GET`
      * ### [](#uri)URI
      * `/openapi/ha3/instances/{instanceId}/query?query=xxxx`
-     *  *
-     * @param string                 $instanceId
-     * @param ListQueryResultRequest $request    ListQueryResultRequest
      *
-     * @return ListQueryResultResponse ListQueryResultResponse
+     * @param request - ListQueryResultRequest
+     *
+     * @returns ListQueryResultResponse
+     *
+     * @param string                 $instanceId
+     * @param ListQueryResultRequest $request
+     *
+     * @return ListQueryResultResponse
      */
     public function listQueryResult($instanceId, $request)
     {
@@ -4582,54 +5177,63 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 召回引擎版获取rest查询搜索测试结果
-     *  *
-     * @param string                     $instanceId
-     * @param ListRestQueryResultRequest $request    ListRestQueryResultRequest
-     * @param string[]                   $headers    map
-     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
+     * 召回引擎版获取rest查询搜索测试结果.
      *
-     * @return ListRestQueryResultResponse ListRestQueryResultResponse
+     * @param request - ListRestQueryResultRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRestQueryResultResponse
+     *
+     * @param string                     $instanceId
+     * @param ListRestQueryResultRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListRestQueryResultResponse
      */
     public function listRestQueryResultWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->indexName)) {
-            $body['indexName'] = $request->indexName;
+        if (null !== $request->indexName) {
+            @$body['indexName'] = $request->indexName;
         }
-        if (!Utils::isUnset($request->query)) {
-            $body['query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$body['query'] = $request->query;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListRestQueryResult',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/rest-query',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/rest-query',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListRestQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRestQueryResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRestQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 召回引擎版获取rest查询搜索测试结果
-     *  *
-     * @param string                     $instanceId
-     * @param ListRestQueryResultRequest $request    ListRestQueryResultRequest
+     * 召回引擎版获取rest查询搜索测试结果.
      *
-     * @return ListRestQueryResultResponse ListRestQueryResultResponse
+     * @param request - ListRestQueryResultRequest
+     *
+     * @returns ListRestQueryResultResponse
+     *
+     * @param string                     $instanceId
+     * @param ListRestQueryResultRequest $request
+     *
+     * @return ListRestQueryResultResponse
      */
     public function listRestQueryResult($instanceId, $request)
     {
@@ -4640,72 +5244,87 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 通过数据源配置获取schema信息
-     *  *
-     * @param string             $instanceId
-     * @param ListSchemasRequest $request    ListSchemasRequest
-     * @param string[]           $headers    map
-     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
+     * 通过数据源配置获取schema信息.
      *
-     * @return ListSchemasResponse ListSchemasResponse
+     * @param request - ListSchemasRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSchemasResponse
+     *
+     * @param string             $instanceId
+     * @param ListSchemasRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListSchemasResponse
      */
     public function listSchemasWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessKey)) {
-            $query['accessKey'] = $request->accessKey;
+        if (null !== $request->accessKey) {
+            @$query['accessKey'] = $request->accessKey;
         }
-        if (!Utils::isUnset($request->accessSecret)) {
-            $query['accessSecret'] = $request->accessSecret;
+
+        if (null !== $request->accessSecret) {
+            @$query['accessSecret'] = $request->accessSecret;
         }
-        if (!Utils::isUnset($request->endpoint)) {
-            $query['endpoint'] = $request->endpoint;
+
+        if (null !== $request->endpoint) {
+            @$query['endpoint'] = $request->endpoint;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->partition)) {
-            $query['partition'] = $request->partition;
+
+        if (null !== $request->partition) {
+            @$query['partition'] = $request->partition;
         }
-        if (!Utils::isUnset($request->project)) {
-            $query['project'] = $request->project;
+
+        if (null !== $request->project) {
+            @$query['project'] = $request->project;
         }
-        if (!Utils::isUnset($request->table)) {
-            $query['table'] = $request->table;
+
+        if (null !== $request->table) {
+            @$query['table'] = $request->table;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListSchemas',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/schemas',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/schemas',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSchemasResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过数据源配置获取schema信息
-     *  *
-     * @param string             $instanceId
-     * @param ListSchemasRequest $request    ListSchemasRequest
+     * 通过数据源配置获取schema信息.
      *
-     * @return ListSchemasResponse ListSchemasResponse
+     * @param request - ListSchemasRequest
+     *
+     * @returns ListSchemasResponse
+     *
+     * @param string             $instanceId
+     * @param ListSchemasRequest $request
+     *
+     * @return ListSchemasResponse
      */
     public function listSchemas($instanceId, $request)
     {
@@ -4716,14 +5335,19 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of index versions.
-     *  *
+     * Queries a list of index versions.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTableGenerationsResponse
+     *
      * @param string         $instanceId
      * @param string         $tableName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListTableGenerationsResponse ListTableGenerationsResponse
+     * @return ListTableGenerationsResponse
      */
     public function listTableGenerationsWithOptions($instanceId, $tableName, $headers, $runtime)
     {
@@ -4734,27 +5358,26 @@ class Searchengine extends OpenApiClient
             'action' => 'ListTableGenerations',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '/index_versions',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/tables/' . Url::percentEncode($tableName) . '/index_versions',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTableGenerationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTableGenerationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTableGenerationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of index versions.
-     *  *
+     * Queries a list of index versions.
+     *
+     * @returns ListTableGenerationsResponse
+     *
      * @param string $instanceId
      * @param string $tableName
      *
-     * @return ListTableGenerationsResponse ListTableGenerationsResponse
+     * @return ListTableGenerationsResponse
      */
     public function listTableGenerations($instanceId, $tableName)
     {
@@ -4765,51 +5388,59 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of index tables.
-     *  *
-     * @param string            $instanceId
-     * @param ListTablesRequest $request    ListTablesRequest
-     * @param string[]          $headers    map
-     * @param RuntimeOptions    $runtime    runtime options for this request RuntimeOptions
+     * Queries a list of index tables.
      *
-     * @return ListTablesResponse ListTablesResponse
+     * @param request - ListTablesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTablesResponse
+     *
+     * @param string            $instanceId
+     * @param ListTablesRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListTablesResponse
      */
     public function listTablesWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newMode)) {
-            $query['newMode'] = $request->newMode;
+        if (null !== $request->newMode) {
+            @$query['newMode'] = $request->newMode;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTables',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/tables',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of index tables.
-     *  *
-     * @param string            $instanceId
-     * @param ListTablesRequest $request    ListTablesRequest
+     * Queries a list of index tables.
      *
-     * @return ListTablesResponse ListTablesResponse
+     * @param request - ListTablesRequest
+     *
+     * @returns ListTablesResponse
+     *
+     * @param string            $instanceId
+     * @param ListTablesRequest $request
+     *
+     * @return ListTablesResponse
      */
     public function listTables($instanceId, $request)
     {
@@ -4820,41 +5451,53 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 查标签接口
-     *  *
-     * @param ListTagResourcesRequest $tmpReq  ListTagResourcesRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查标签接口.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param tmpReq - ListTagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTagResourcesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceId)) {
-            $request->resourceIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'resourceId', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceId) {
+            $request->resourceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'resourceId', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'tag', 'json');
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceIdShrink)) {
-            $query['resourceId'] = $request->resourceIdShrink;
+
+        if (null !== $request->resourceIdShrink) {
+            @$query['resourceId'] = $request->resourceIdShrink;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['resourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['resourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$query['tag'] = $request->tagShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTagResources',
@@ -4867,19 +5510,20 @@ class Searchengine extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查标签接口
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * 查标签接口.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -4890,54 +5534,63 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 获取集群任务列表（数据源+集群）
-     *  *
-     * @param string           $instanceId
-     * @param ListTasksRequest $request    ListTasksRequest
-     * @param string[]         $headers    map
-     * @param RuntimeOptions   $runtime    runtime options for this request RuntimeOptions
+     * 获取集群任务列表（数据源+集群）.
      *
-     * @return ListTasksResponse ListTasksResponse
+     * @param request - ListTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTasksResponse
+     *
+     * @param string           $instanceId
+     * @param ListTasksRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListTasksResponse
      */
     public function listTasksWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->end)) {
-            $query['end'] = $request->end;
+        if (null !== $request->end) {
+            @$query['end'] = $request->end;
         }
-        if (!Utils::isUnset($request->start)) {
-            $query['start'] = $request->start;
+
+        if (null !== $request->start) {
+            @$query['start'] = $request->start;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTasks',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tasks',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/tasks',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取集群任务列表（数据源+集群）
-     *  *
-     * @param string           $instanceId
-     * @param ListTasksRequest $request    ListTasksRequest
+     * 获取集群任务列表（数据源+集群）.
      *
-     * @return ListTasksResponse ListTasksResponse
+     * @param request - ListTasksRequest
+     *
+     * @returns ListTasksResponse
+     *
+     * @param string           $instanceId
+     * @param ListTasksRequest $request
+     *
+     * @return ListTasksResponse
      */
     public function listTasks($instanceId, $request)
     {
@@ -4948,62 +5601,73 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 向量检索版获取向量查询搜索测试结果
-     *  *
-     * @param string                       $instanceId
-     * @param ListVectorQueryResultRequest $request    ListVectorQueryResultRequest
-     * @param string[]                     $headers    map
-     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
+     * 向量检索版获取向量查询搜索测试结果.
      *
-     * @return ListVectorQueryResultResponse ListVectorQueryResultResponse
+     * @param request - ListVectorQueryResultRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVectorQueryResultResponse
+     *
+     * @param string                       $instanceId
+     * @param ListVectorQueryResultRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListVectorQueryResultResponse
      */
     public function listVectorQueryResultWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->path)) {
-            $query['path'] = $request->path;
+        if (null !== $request->path) {
+            @$query['path'] = $request->path;
         }
-        if (!Utils::isUnset($request->queryType)) {
-            $query['queryType'] = $request->queryType;
+
+        if (null !== $request->queryType) {
+            @$query['queryType'] = $request->queryType;
         }
-        if (!Utils::isUnset($request->vectorQueryType)) {
-            $query['vectorQueryType'] = $request->vectorQueryType;
+
+        if (null !== $request->vectorQueryType) {
+            @$query['vectorQueryType'] = $request->vectorQueryType;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->body)) {
-            $body['body'] = $request->body;
+        if (null !== $request->body) {
+            @$body['body'] = $request->body;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListVectorQueryResult',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/vector-query',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/vector-query',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListVectorQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVectorQueryResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVectorQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 向量检索版获取向量查询搜索测试结果
-     *  *
-     * @param string                       $instanceId
-     * @param ListVectorQueryResultRequest $request    ListVectorQueryResultRequest
+     * 向量检索版获取向量查询搜索测试结果.
      *
-     * @return ListVectorQueryResultResponse ListVectorQueryResultResponse
+     * @param request - ListVectorQueryResultRequest
+     *
+     * @returns ListVectorQueryResultResponse
+     *
+     * @param string                       $instanceId
+     * @param ListVectorQueryResultRequest $request
+     *
+     * @return ListVectorQueryResultResponse
      */
     public function listVectorQueryResult($instanceId, $request)
     {
@@ -5014,67 +5678,81 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param request - ModifyAdvanceConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAdvanceConfigResponse
+     *
      * @param string                     $instanceId
      * @param string                     $configName
-     * @param ModifyAdvanceConfigRequest $request    ModifyAdvanceConfigRequest
-     * @param string[]                   $headers    map
-     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
+     * @param ModifyAdvanceConfigRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return ModifyAdvanceConfigResponse ModifyAdvanceConfigResponse
+     * @return ModifyAdvanceConfigResponse
      */
     public function modifyAdvanceConfigWithOptions($instanceId, $configName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->contentType)) {
-            $body['contentType'] = $request->contentType;
+
+        if (null !== $request->contentType) {
+            @$body['contentType'] = $request->contentType;
         }
-        if (!Utils::isUnset($request->desc)) {
-            $body['desc'] = $request->desc;
+
+        if (null !== $request->desc) {
+            @$body['desc'] = $request->desc;
         }
-        if (!Utils::isUnset($request->files)) {
-            $body['files'] = $request->files;
+
+        if (null !== $request->files) {
+            @$body['files'] = $request->files;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->updateTime)) {
-            $body['updateTime'] = $request->updateTime;
+
+        if (null !== $request->updateTime) {
+            @$body['updateTime'] = $request->updateTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyAdvanceConfig',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/advanced-configs/' . Url::percentEncode($configName) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyAdvanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAdvanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAdvanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - ModifyAdvanceConfigRequest
+     *
+     * @returns ModifyAdvanceConfigResponse
+     *
      * @param string                     $instanceId
      * @param string                     $configName
-     * @param ModifyAdvanceConfigRequest $request    ModifyAdvanceConfigRequest
+     * @param ModifyAdvanceConfigRequest $request
      *
-     * @return ModifyAdvanceConfigResponse ModifyAdvanceConfigResponse
+     * @return ModifyAdvanceConfigResponse
      */
     public function modifyAdvanceConfig($instanceId, $configName, $request)
     {
@@ -5085,71 +5763,83 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the advanced configurations.
-     *  *
-     * @description ## Method
+     * Modifies the advanced configurations.
+     *
+     * @remarks
+     * ## Method
      *     put
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
-     *  *
+     *
+     * @param request - ModifyAdvanceConfigFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAdvanceConfigFileResponse
+     *
      * @param string                         $instanceId
      * @param string                         $configName
-     * @param ModifyAdvanceConfigFileRequest $request    ModifyAdvanceConfigFileRequest
-     * @param string[]                       $headers    map
-     * @param RuntimeOptions                 $runtime    runtime options for this request RuntimeOptions
+     * @param ModifyAdvanceConfigFileRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return ModifyAdvanceConfigFileResponse ModifyAdvanceConfigFileResponse
+     * @return ModifyAdvanceConfigFileResponse
      */
     public function modifyAdvanceConfigFileWithOptions($instanceId, $configName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['fileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['fileName'] = $request->fileName;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->variables)) {
-            $body['variables'] = $request->variables;
+
+        if (null !== $request->variables) {
+            @$body['variables'] = $request->variables;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyAdvanceConfigFile',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/file',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/advanced-configs/' . Url::percentEncode($configName) . '/file',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyAdvanceConfigFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAdvanceConfigFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAdvanceConfigFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the advanced configurations.
-     *  *
-     * @description ## Method
+     * Modifies the advanced configurations.
+     *
+     * @remarks
+     * ## Method
      *     put
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
-     *  *
+     *
+     * @param request - ModifyAdvanceConfigFileRequest
+     *
+     * @returns ModifyAdvanceConfigFileResponse
+     *
      * @param string                         $instanceId
      * @param string                         $configName
-     * @param ModifyAdvanceConfigFileRequest $request    ModifyAdvanceConfigFileRequest
+     * @param ModifyAdvanceConfigFileRequest $request
      *
-     * @return ModifyAdvanceConfigFileResponse ModifyAdvanceConfigFileResponse
+     * @return ModifyAdvanceConfigFileResponse
      */
     public function modifyAdvanceConfigFile($instanceId, $configName, $request)
     {
@@ -5160,52 +5850,61 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param request - ModifyAliasRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAliasResponse
+     *
      * @param string             $instanceId
      * @param string             $alias
-     * @param ModifyAliasRequest $request    ModifyAliasRequest
-     * @param string[]           $headers    map
-     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
+     * @param ModifyAliasRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
-     * @return ModifyAliasResponse ModifyAliasResponse
+     * @return ModifyAliasResponse
      */
     public function modifyAliasWithOptions($instanceId, $alias, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alias)) {
-            $body['alias'] = $request->alias;
+        if (null !== $request->alias) {
+            @$body['alias'] = $request->alias;
         }
-        if (!Utils::isUnset($request->index)) {
-            $body['index'] = $request->index;
+
+        if (null !== $request->index) {
+            @$body['index'] = $request->index;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyAlias',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/aliases/' . OpenApiUtilClient::getEncodeParam($alias) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/aliases/' . Url::percentEncode($alias) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyAliasResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAliasResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - ModifyAliasRequest
+     *
+     * @returns ModifyAliasResponse
+     *
      * @param string             $instanceId
      * @param string             $alias
-     * @param ModifyAliasRequest $request    ModifyAliasRequest
+     * @param ModifyAliasRequest $request
      *
-     * @return ModifyAliasResponse ModifyAliasResponse
+     * @return ModifyAliasResponse
      */
     public function modifyAlias($instanceId, $alias, $request)
     {
@@ -5216,63 +5915,73 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of a specified cluster.
-     *  *
-     * @description ### [](#)Method
+     * Modifies the description of a specified cluster.
+     *
+     * @remarks
+     * ### [](#)Method
      * `PUT`
      * ### [](#uri)URI
      * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`
-     *  *
+     *
+     * @param request - ModifyClusterDescRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyClusterDescResponse
+     *
      * @param string                   $instanceId
      * @param string                   $clusterName
-     * @param ModifyClusterDescRequest $request     ModifyClusterDescRequest
-     * @param string[]                 $headers     map
-     * @param RuntimeOptions           $runtime     runtime options for this request RuntimeOptions
+     * @param ModifyClusterDescRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return ModifyClusterDescResponse ModifyClusterDescResponse
+     * @return ModifyClusterDescResponse
      */
     public function modifyClusterDescWithOptions($instanceId, $clusterName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->body)) {
-            $body['body'] = $request->body;
+        if (null !== $request->body) {
+            @$body['body'] = $request->body;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyClusterDesc',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterName) . '/desc',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/clusters/' . Url::percentEncode($clusterName) . '/desc',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyClusterDescResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyClusterDescResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyClusterDescResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the description of a specified cluster.
-     *  *
-     * @description ### [](#)Method
+     * Modifies the description of a specified cluster.
+     *
+     * @remarks
+     * ### [](#)Method
      * `PUT`
      * ### [](#uri)URI
      * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`
-     *  *
+     *
+     * @param request - ModifyClusterDescRequest
+     *
+     * @returns ModifyClusterDescResponse
+     *
      * @param string                   $instanceId
      * @param string                   $clusterName
-     * @param ModifyClusterDescRequest $request     ModifyClusterDescRequest
+     * @param ModifyClusterDescRequest $request
      *
-     * @return ModifyClusterDescResponse ModifyClusterDescResponse
+     * @return ModifyClusterDescResponse
      */
     public function modifyClusterDesc($instanceId, $clusterName, $request)
     {
@@ -5283,81 +5992,99 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configuration information of a cluster.
-     *  *
-     * @description ## Request syntax
-     *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
-     *  *
-     * @param string                            $instanceId
-     * @param ModifyClusterOfflineConfigRequest $request    ModifyClusterOfflineConfigRequest
-     * @param string[]                          $headers    map
-     * @param RuntimeOptions                    $runtime    runtime options for this request RuntimeOptions
+     * Modifies the configuration information of a cluster.
      *
-     * @return ModifyClusterOfflineConfigResponse ModifyClusterOfflineConfigResponse
+     * @remarks
+     * ## Request syntax
+     *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
+     *
+     * @param request - ModifyClusterOfflineConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyClusterOfflineConfigResponse
+     *
+     * @param string                            $instanceId
+     * @param ModifyClusterOfflineConfigRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyClusterOfflineConfigResponse
      */
     public function modifyClusterOfflineConfigWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->buildMode)) {
-            $body['buildMode'] = $request->buildMode;
+        if (null !== $request->buildMode) {
+            @$body['buildMode'] = $request->buildMode;
         }
-        if (!Utils::isUnset($request->config)) {
-            $body['config'] = $request->config;
+
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
         }
-        if (!Utils::isUnset($request->dataSourceName)) {
-            $body['dataSourceName'] = $request->dataSourceName;
+
+        if (null !== $request->dataSourceName) {
+            @$body['dataSourceName'] = $request->dataSourceName;
         }
-        if (!Utils::isUnset($request->dataSourceType)) {
-            $body['dataSourceType'] = $request->dataSourceType;
+
+        if (null !== $request->dataSourceType) {
+            @$body['dataSourceType'] = $request->dataSourceType;
         }
-        if (!Utils::isUnset($request->dataTimeSec)) {
-            $body['dataTimeSec'] = $request->dataTimeSec;
+
+        if (null !== $request->dataTimeSec) {
+            @$body['dataTimeSec'] = $request->dataTimeSec;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $body['domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$body['domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->generation)) {
-            $body['generation'] = $request->generation;
+
+        if (null !== $request->generation) {
+            @$body['generation'] = $request->generation;
         }
-        if (!Utils::isUnset($request->partition)) {
-            $body['partition'] = $request->partition;
+
+        if (null !== $request->partition) {
+            @$body['partition'] = $request->partition;
         }
-        if (!Utils::isUnset($request->pushMode)) {
-            $body['pushMode'] = $request->pushMode;
+
+        if (null !== $request->pushMode) {
+            @$body['pushMode'] = $request->pushMode;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyClusterOfflineConfig',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/cluster-offline-config',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/cluster-offline-config',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyClusterOfflineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyClusterOfflineConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyClusterOfflineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configuration information of a cluster.
-     *  *
-     * @description ## Request syntax
-     *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
-     *  *
-     * @param string                            $instanceId
-     * @param ModifyClusterOfflineConfigRequest $request    ModifyClusterOfflineConfigRequest
+     * Modifies the configuration information of a cluster.
      *
-     * @return ModifyClusterOfflineConfigResponse ModifyClusterOfflineConfigResponse
+     * @remarks
+     * ## Request syntax
+     *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
+     *
+     * @param request - ModifyClusterOfflineConfigRequest
+     *
+     * @returns ModifyClusterOfflineConfigResponse
+     *
+     * @param string                            $instanceId
+     * @param ModifyClusterOfflineConfigRequest $request
+     *
+     * @return ModifyClusterOfflineConfigResponse
      */
     public function modifyClusterOfflineConfig($instanceId, $request)
     {
@@ -5368,64 +6095,75 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the online configuration of a cluster.
-     *  *
-     * @description ### Method
+     * Modifies the online configuration of a cluster.
+     *
+     * @remarks
+     * ### Method
      * `PUT`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}/cluster-online-config`
-     *  *
-     * @param string                           $instanceId
-     * @param ModifyClusterOnlineConfigRequest $request    ModifyClusterOnlineConfigRequest
-     * @param string[]                         $headers    map
-     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterOnlineConfigResponse ModifyClusterOnlineConfigResponse
+     * @param request - ModifyClusterOnlineConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyClusterOnlineConfigResponse
+     *
+     * @param string                           $instanceId
+     * @param ModifyClusterOnlineConfigRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyClusterOnlineConfigResponse
      */
     public function modifyClusterOnlineConfigWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusters)) {
-            $body['clusters'] = $request->clusters;
+        if (null !== $request->clusters) {
+            @$body['clusters'] = $request->clusters;
         }
-        if (!Utils::isUnset($request->config)) {
-            $body['config'] = $request->config;
+
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyClusterOnlineConfig',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/cluster-online-config',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/cluster-online-config',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyClusterOnlineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyClusterOnlineConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyClusterOnlineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the online configuration of a cluster.
-     *  *
-     * @description ### Method
+     * Modifies the online configuration of a cluster.
+     *
+     * @remarks
+     * ### Method
      * `PUT`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}/cluster-online-config`
-     *  *
-     * @param string                           $instanceId
-     * @param ModifyClusterOnlineConfigRequest $request    ModifyClusterOnlineConfigRequest
      *
-     * @return ModifyClusterOnlineConfigResponse ModifyClusterOnlineConfigResponse
+     * @param request - ModifyClusterOnlineConfigRequest
+     *
+     * @returns ModifyClusterOnlineConfigResponse
+     *
+     * @param string                           $instanceId
+     * @param ModifyClusterOnlineConfigRequest $request
+     *
+     * @return ModifyClusterOnlineConfigResponse
      */
     public function modifyClusterOnlineConfig($instanceId, $request)
     {
@@ -5436,75 +6174,89 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 修改数据源部署信息
-     *  *
+     * 修改数据源部署信息.
+     *
+     * @param request - ModifyDataSourceDeployRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDataSourceDeployResponse
+     *
      * @param string                        $instanceId
      * @param string                        $deployName
      * @param string                        $dataSourceName
-     * @param ModifyDataSourceDeployRequest $request        ModifyDataSourceDeployRequest
-     * @param string[]                      $headers        map
-     * @param RuntimeOptions                $runtime        runtime options for this request RuntimeOptions
+     * @param ModifyDataSourceDeployRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return ModifyDataSourceDeployResponse ModifyDataSourceDeployResponse
+     * @return ModifyDataSourceDeployResponse
      */
     public function modifyDataSourceDeployWithOptions($instanceId, $deployName, $dataSourceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->generationId)) {
-            $query['generationId'] = $request->generationId;
+
+        if (null !== $request->generationId) {
+            @$query['generationId'] = $request->generationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->autoBuildIndex)) {
-            $body['autoBuildIndex'] = $request->autoBuildIndex;
+        if (null !== $request->autoBuildIndex) {
+            @$body['autoBuildIndex'] = $request->autoBuildIndex;
         }
-        if (!Utils::isUnset($request->extend)) {
-            $body['extend'] = $request->extend;
+
+        if (null !== $request->extend) {
+            @$body['extend'] = $request->extend;
         }
-        if (!Utils::isUnset($request->processor)) {
-            $body['processor'] = $request->processor;
+
+        if (null !== $request->processor) {
+            @$body['processor'] = $request->processor;
         }
-        if (!Utils::isUnset($request->storage)) {
-            $body['storage'] = $request->storage;
+
+        if (null !== $request->storage) {
+            @$body['storage'] = $request->storage;
         }
-        if (!Utils::isUnset($request->swift)) {
-            $body['swift'] = $request->swift;
+
+        if (null !== $request->swift) {
+            @$body['swift'] = $request->swift;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyDataSourceDeploy',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/deploys/' . OpenApiUtilClient::getEncodeParam($deployName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/data-sources/' . Url::percentEncode($dataSourceName) . '/deploys/' . Url::percentEncode($deployName) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyDataSourceDeployResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDataSourceDeployResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDataSourceDeployResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改数据源部署信息
-     *  *
+     * 修改数据源部署信息.
+     *
+     * @param request - ModifyDataSourceDeployRequest
+     *
+     * @returns ModifyDataSourceDeployResponse
+     *
      * @param string                        $instanceId
      * @param string                        $deployName
      * @param string                        $dataSourceName
-     * @param ModifyDataSourceDeployRequest $request        ModifyDataSourceDeployRequest
+     * @param ModifyDataSourceDeployRequest $request
      *
-     * @return ModifyDataSourceDeployResponse ModifyDataSourceDeployResponse
+     * @return ModifyDataSourceDeployResponse
      */
     public function modifyDataSourceDeploy($instanceId, $deployName, $dataSourceName, $request)
     {
@@ -5515,73 +6267,85 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a file.
-     *  *
-     * @description ## Method
+     * Modifies a file.
+     *
+     * @remarks
+     * ## Method
      *     PUT
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
-     *  *
+     *
+     * @param request - ModifyFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyFileResponse
+     *
      * @param string            $instanceId
      * @param string            $indexName
      * @param string            $versionName
-     * @param ModifyFileRequest $request     ModifyFileRequest
-     * @param string[]          $headers     map
-     * @param RuntimeOptions    $runtime     runtime options for this request RuntimeOptions
+     * @param ModifyFileRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
-     * @return ModifyFileResponse ModifyFileResponse
+     * @return ModifyFileResponse
      */
     public function modifyFileWithOptions($instanceId, $indexName, $versionName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['fileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['fileName'] = $request->fileName;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->partition)) {
-            $body['partition'] = $request->partition;
+
+        if (null !== $request->partition) {
+            @$body['partition'] = $request->partition;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyFile',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/versions/' . OpenApiUtilClient::getEncodeParam($versionName) . '/file',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/indexes/' . Url::percentEncode($indexName) . '/versions/' . Url::percentEncode($versionName) . '/file',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a file.
-     *  *
-     * @description ## Method
+     * Modifies a file.
+     *
+     * @remarks
+     * ## Method
      *     PUT
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
-     *  *
+     *
+     * @param request - ModifyFileRequest
+     *
+     * @returns ModifyFileResponse
+     *
      * @param string            $instanceId
      * @param string            $indexName
      * @param string            $versionName
-     * @param ModifyFileRequest $request     ModifyFileRequest
+     * @param ModifyFileRequest $request
      *
-     * @return ModifyFileResponse ModifyFileResponse
+     * @return ModifyFileResponse
      */
     public function modifyFile($instanceId, $indexName, $versionName, $request)
     {
@@ -5592,90 +6356,111 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param request - ModifyIndexRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyIndexResponse
+     *
      * @param string             $instanceId
      * @param string             $indexName
-     * @param ModifyIndexRequest $request    ModifyIndexRequest
-     * @param string[]           $headers    map
-     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
+     * @param ModifyIndexRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
-     * @return ModifyIndexResponse ModifyIndexResponse
+     * @return ModifyIndexResponse
      */
     public function modifyIndexWithOptions($instanceId, $indexName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->buildParallelNum)) {
-            $body['buildParallelNum'] = $request->buildParallelNum;
+        if (null !== $request->buildParallelNum) {
+            @$body['buildParallelNum'] = $request->buildParallelNum;
         }
-        if (!Utils::isUnset($request->cluster)) {
-            $body['cluster'] = $request->cluster;
+
+        if (null !== $request->cluster) {
+            @$body['cluster'] = $request->cluster;
         }
-        if (!Utils::isUnset($request->clusterConfigName)) {
-            $body['clusterConfigName'] = $request->clusterConfigName;
+
+        if (null !== $request->clusterConfigName) {
+            @$body['clusterConfigName'] = $request->clusterConfigName;
         }
-        if (!Utils::isUnset($request->config)) {
-            $body['config'] = $request->config;
+
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
         }
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->dataSource)) {
-            $body['dataSource'] = $request->dataSource;
+
+        if (null !== $request->dataSource) {
+            @$body['dataSource'] = $request->dataSource;
         }
-        if (!Utils::isUnset($request->dataSourceInfo)) {
-            $body['dataSourceInfo'] = $request->dataSourceInfo;
+
+        if (null !== $request->dataSourceInfo) {
+            @$body['dataSourceInfo'] = $request->dataSourceInfo;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $body['domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$body['domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->extend)) {
-            $body['extend'] = $request->extend;
+
+        if (null !== $request->extend) {
+            @$body['extend'] = $request->extend;
         }
-        if (!Utils::isUnset($request->mergeParallelNum)) {
-            $body['mergeParallelNum'] = $request->mergeParallelNum;
+
+        if (null !== $request->mergeParallelNum) {
+            @$body['mergeParallelNum'] = $request->mergeParallelNum;
         }
-        if (!Utils::isUnset($request->partition)) {
-            $body['partition'] = $request->partition;
+
+        if (null !== $request->partition) {
+            @$body['partition'] = $request->partition;
         }
-        if (!Utils::isUnset($request->pushMode)) {
-            $body['pushMode'] = $request->pushMode;
+
+        if (null !== $request->pushMode) {
+            @$body['pushMode'] = $request->pushMode;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyIndex',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/indexes/' . Url::percentEncode($indexName) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyIndexResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyIndexResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - ModifyIndexRequest
+     *
+     * @returns ModifyIndexResponse
+     *
      * @param string             $instanceId
      * @param string             $indexName
-     * @param ModifyIndexRequest $request    ModifyIndexRequest
+     * @param ModifyIndexRequest $request
      *
-     * @return ModifyIndexResponse ModifyIndexResponse
+     * @return ModifyIndexResponse
      */
     public function modifyIndex($instanceId, $indexName, $request)
     {
@@ -5686,57 +6471,65 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the online policy of an index.
-     *  *
+     * Modifies the online policy of an index.
+     *
+     * @param request - ModifyIndexOnlineStrategyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyIndexOnlineStrategyResponse
+     *
      * @param string                           $instanceId
      * @param string                           $dataSourceName
      * @param string                           $deployName
      * @param string                           $indexName
-     * @param ModifyIndexOnlineStrategyRequest $request        ModifyIndexOnlineStrategyRequest
-     * @param string[]                         $headers        map
-     * @param RuntimeOptions                   $runtime        runtime options for this request RuntimeOptions
+     * @param ModifyIndexOnlineStrategyRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
      *
-     * @return ModifyIndexOnlineStrategyResponse ModifyIndexOnlineStrategyResponse
+     * @return ModifyIndexOnlineStrategyResponse
      */
     public function modifyIndexOnlineStrategyWithOptions($instanceId, $dataSourceName, $deployName, $indexName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->changeRate)) {
-            $body['changeRate'] = $request->changeRate;
+        if (null !== $request->changeRate) {
+            @$body['changeRate'] = $request->changeRate;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyIndexOnlineStrategy',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/deploys/' . OpenApiUtilClient::getEncodeParam($deployName) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/online-strategy',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/data-sources/' . Url::percentEncode($dataSourceName) . '/deploys/' . Url::percentEncode($deployName) . '/indexes/' . Url::percentEncode($indexName) . '/online-strategy',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyIndexOnlineStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyIndexOnlineStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyIndexOnlineStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the online policy of an index.
-     *  *
+     * Modifies the online policy of an index.
+     *
+     * @param request - ModifyIndexOnlineStrategyRequest
+     *
+     * @returns ModifyIndexOnlineStrategyResponse
+     *
      * @param string                           $instanceId
      * @param string                           $dataSourceName
      * @param string                           $deployName
      * @param string                           $indexName
-     * @param ModifyIndexOnlineStrategyRequest $request        ModifyIndexOnlineStrategyRequest
+     * @param ModifyIndexOnlineStrategyRequest $request
      *
-     * @return ModifyIndexOnlineStrategyResponse ModifyIndexOnlineStrategyResponse
+     * @return ModifyIndexOnlineStrategyResponse
      */
     public function modifyIndexOnlineStrategy($instanceId, $dataSourceName, $deployName, $indexName, $request)
     {
@@ -5747,70 +6540,83 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about index partitions.
-     *  *
-     * @description ### Method
+     * Modifies the information about index partitions.
+     *
+     * @remarks
+     * ### Method
      * `PUT`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}/index-partition`
-     *  *
-     * @param string                      $instanceId
-     * @param ModifyIndexPartitionRequest $request    ModifyIndexPartitionRequest
-     * @param string[]                    $headers    map
-     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyIndexPartitionResponse ModifyIndexPartitionResponse
+     * @param request - ModifyIndexPartitionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyIndexPartitionResponse
+     *
+     * @param string                      $instanceId
+     * @param ModifyIndexPartitionRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyIndexPartitionResponse
      */
     public function modifyIndexPartitionWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dataSourceName)) {
-            $body['dataSourceName'] = $request->dataSourceName;
+        if (null !== $request->dataSourceName) {
+            @$body['dataSourceName'] = $request->dataSourceName;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $body['domainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$body['domainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->generation)) {
-            $body['generation'] = $request->generation;
+
+        if (null !== $request->generation) {
+            @$body['generation'] = $request->generation;
         }
-        if (!Utils::isUnset($request->indexInfos)) {
-            $body['indexInfos'] = $request->indexInfos;
+
+        if (null !== $request->indexInfos) {
+            @$body['indexInfos'] = $request->indexInfos;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyIndexPartition',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/index-partition',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/index-partition',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyIndexPartitionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyIndexPartitionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyIndexPartitionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the information about index partitions.
-     *  *
-     * @description ### Method
+     * Modifies the information about index partitions.
+     *
+     * @remarks
+     * ### Method
      * `PUT`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}/index-partition`
-     *  *
-     * @param string                      $instanceId
-     * @param ModifyIndexPartitionRequest $request    ModifyIndexPartitionRequest
      *
-     * @return ModifyIndexPartitionResponse ModifyIndexPartitionResponse
+     * @param request - ModifyIndexPartitionRequest
+     *
+     * @returns ModifyIndexPartitionResponse
+     *
+     * @param string                      $instanceId
+     * @param ModifyIndexPartitionRequest $request
+     *
+     * @return ModifyIndexPartitionResponse
      */
     public function modifyIndexPartition($instanceId, $request)
     {
@@ -5821,24 +6627,31 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the index version of a cluster (an index version rollback).
-     *  *
-     * @description ## [](#)Method
+     * Modifies the index version of a cluster (an index version rollback).
+     *
+     * @remarks
+     * ## [](#)Method
      *     PUT
      * ## [](#uri)URI
      *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
-     *  *
+     *
+     * @param request - ModifyIndexVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyIndexVersionResponse
+     *
      * @param string                    $instanceId
      * @param string                    $clusterName
-     * @param ModifyIndexVersionRequest $request     ModifyIndexVersionRequest
-     * @param string[]                  $headers     map
-     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
+     * @param ModifyIndexVersionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return ModifyIndexVersionResponse ModifyIndexVersionResponse
+     * @return ModifyIndexVersionResponse
      */
     public function modifyIndexVersionWithOptions($instanceId, $clusterName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::toArray($request->body),
@@ -5847,33 +6660,35 @@ class Searchengine extends OpenApiClient
             'action' => 'ModifyIndexVersion',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterName) . '/index-version',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/clusters/' . Url::percentEncode($clusterName) . '/index-version',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyIndexVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyIndexVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyIndexVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the index version of a cluster (an index version rollback).
-     *  *
-     * @description ## [](#)Method
+     * Modifies the index version of a cluster (an index version rollback).
+     *
+     * @remarks
+     * ## [](#)Method
      *     PUT
      * ## [](#uri)URI
      *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
-     *  *
+     *
+     * @param request - ModifyIndexVersionRequest
+     *
+     * @returns ModifyIndexVersionResponse
+     *
      * @param string                    $instanceId
      * @param string                    $clusterName
-     * @param ModifyIndexVersionRequest $request     ModifyIndexVersionRequest
+     * @param ModifyIndexVersionRequest $request
      *
-     * @return ModifyIndexVersionResponse ModifyIndexVersionResponse
+     * @return ModifyIndexVersionResponse
      */
     public function modifyIndexVersion($instanceId, $clusterName, $request)
     {
@@ -5884,61 +6699,71 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 修改模型详情，修改模型状态
-     *  *
+     * 修改模型详情，修改模型状态
+     *
+     * @param request - ModifyModelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyModelResponse
+     *
      * @param string             $instanceId
      * @param string             $modelName
-     * @param ModifyModelRequest $request    ModifyModelRequest
-     * @param string[]           $headers    map
-     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
+     * @param ModifyModelRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
-     * @return ModifyModelResponse ModifyModelResponse
+     * @return ModifyModelResponse
      */
     public function modifyModelWithOptions($instanceId, $modelName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyModel',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/models/' . OpenApiUtilClient::getEncodeParam($modelName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/models/' . Url::percentEncode($modelName) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyModelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyModelResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改模型详情，修改模型状态
-     *  *
+     * 修改模型详情，修改模型状态
+     *
+     * @param request - ModifyModelRequest
+     *
+     * @returns ModifyModelResponse
+     *
      * @param string             $instanceId
      * @param string             $modelName
-     * @param ModifyModelRequest $request    ModifyModelRequest
+     * @param ModifyModelRequest $request
      *
-     * @return ModifyModelResponse ModifyModelResponse
+     * @return ModifyModelResponse
      */
     public function modifyModel($instanceId, $modelName, $request)
     {
@@ -5949,9 +6774,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a node.
-     *  *
-     * @description ### Method
+     * Modifies the configurations of a node.
+     *
+     * @remarks
+     * ### Method
      * ```java
      * PUT
      * ```
@@ -5959,76 +6785,90 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/node-config?type=qrs&name=test
      * ```
-     *  *
-     * @param string                  $instanceId
-     * @param ModifyNodeConfigRequest $request    ModifyNodeConfigRequest
-     * @param string[]                $headers    map
-     * @param RuntimeOptions          $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyNodeConfigResponse ModifyNodeConfigResponse
+     * @param request - ModifyNodeConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyNodeConfigResponse
+     *
+     * @param string                  $instanceId
+     * @param ModifyNodeConfigRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyNodeConfigResponse
      */
     public function modifyNodeConfigWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterName)) {
-            $query['clusterName'] = $request->clusterName;
+        if (null !== $request->clusterName) {
+            @$query['clusterName'] = $request->clusterName;
         }
-        if (!Utils::isUnset($request->dataSourceName)) {
-            $query['dataSourceName'] = $request->dataSourceName;
+
+        if (null !== $request->dataSourceName) {
+            @$query['dataSourceName'] = $request->dataSourceName;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->active)) {
-            $body['active'] = $request->active;
+        if (null !== $request->active) {
+            @$body['active'] = $request->active;
         }
-        if (!Utils::isUnset($request->dataDuplicateNumber)) {
-            $body['dataDuplicateNumber'] = $request->dataDuplicateNumber;
+
+        if (null !== $request->dataDuplicateNumber) {
+            @$body['dataDuplicateNumber'] = $request->dataDuplicateNumber;
         }
-        if (!Utils::isUnset($request->dataFragmentNumber)) {
-            $body['dataFragmentNumber'] = $request->dataFragmentNumber;
+
+        if (null !== $request->dataFragmentNumber) {
+            @$body['dataFragmentNumber'] = $request->dataFragmentNumber;
         }
-        if (!Utils::isUnset($request->flowRatio)) {
-            $body['flowRatio'] = $request->flowRatio;
+
+        if (null !== $request->flowRatio) {
+            @$body['flowRatio'] = $request->flowRatio;
         }
-        if (!Utils::isUnset($request->minServicePercent)) {
-            $body['minServicePercent'] = $request->minServicePercent;
+
+        if (null !== $request->minServicePercent) {
+            @$body['minServicePercent'] = $request->minServicePercent;
         }
-        if (!Utils::isUnset($request->published)) {
-            $body['published'] = $request->published;
+
+        if (null !== $request->published) {
+            @$body['published'] = $request->published;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyNodeConfig',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/node-config',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/node-config',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyNodeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyNodeConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyNodeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a node.
-     *  *
-     * @description ### Method
+     * Modifies the configurations of a node.
+     *
+     * @remarks
+     * ### Method
      * ```java
      * PUT
      * ```
@@ -6036,11 +6876,15 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/node-config?type=qrs&name=test
      * ```
-     *  *
-     * @param string                  $instanceId
-     * @param ModifyNodeConfigRequest $request    ModifyNodeConfigRequest
      *
-     * @return ModifyNodeConfigResponse ModifyNodeConfigResponse
+     * @param request - ModifyNodeConfigRequest
+     *
+     * @returns ModifyNodeConfigResponse
+     *
+     * @param string                  $instanceId
+     * @param ModifyNodeConfigRequest $request
+     *
+     * @return ModifyNodeConfigResponse
      */
     public function modifyNodeConfig($instanceId, $request)
     {
@@ -6051,9 +6895,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Modifies online configurations.
-     *  *
-     * @description ### Method
+     * Modifies online configurations.
+     *
+     * @remarks
+     * ### Method
      * ```java
      * put
      * ```
@@ -6061,49 +6906,54 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs/{indexName}
      * ```
-     *  *
+     *
+     * @param request - ModifyOnlineConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyOnlineConfigResponse
+     *
      * @param string                    $instanceId
      * @param string                    $nodeName
      * @param string                    $indexName
-     * @param ModifyOnlineConfigRequest $request    ModifyOnlineConfigRequest
-     * @param string[]                  $headers    map
-     * @param RuntimeOptions            $runtime    runtime options for this request RuntimeOptions
+     * @param ModifyOnlineConfigRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return ModifyOnlineConfigResponse ModifyOnlineConfigResponse
+     * @return ModifyOnlineConfigResponse
      */
     public function modifyOnlineConfigWithOptions($instanceId, $nodeName, $indexName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->body)) {
-            $body['body'] = $request->body;
+        if (null !== $request->body) {
+            @$body['body'] = $request->body;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyOnlineConfig',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/node/' . OpenApiUtilClient::getEncodeParam($nodeName) . '/online-configs/' . OpenApiUtilClient::getEncodeParam($indexName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/node/' . Url::percentEncode($nodeName) . '/online-configs/' . Url::percentEncode($indexName) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyOnlineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyOnlineConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyOnlineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies online configurations.
-     *  *
-     * @description ### Method
+     * Modifies online configurations.
+     *
+     * @remarks
+     * ### Method
      * ```java
      * put
      * ```
@@ -6111,13 +6961,17 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs/{indexName}
      * ```
-     *  *
+     *
+     * @param request - ModifyOnlineConfigRequest
+     *
+     * @returns ModifyOnlineConfigResponse
+     *
      * @param string                    $instanceId
      * @param string                    $nodeName
      * @param string                    $indexName
-     * @param ModifyOnlineConfigRequest $request    ModifyOnlineConfigRequest
+     * @param ModifyOnlineConfigRequest $request
      *
-     * @return ModifyOnlineConfigResponse ModifyOnlineConfigResponse
+     * @return ModifyOnlineConfigResponse
      */
     public function modifyOnlineConfig($instanceId, $nodeName, $indexName, $request)
     {
@@ -6128,64 +6982,75 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 修改实例的密码
-     *  *
-     * @description ### Method
+     * 修改实例的密码
+     *
+     * @remarks
+     * ### Method
      * `PUT`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}/password`
-     *  *
-     * @param string                $instanceId
-     * @param ModifyPasswordRequest $request    ModifyPasswordRequest
-     * @param string[]              $headers    map
-     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyPasswordResponse ModifyPasswordResponse
+     * @param request - ModifyPasswordRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPasswordResponse
+     *
+     * @param string                $instanceId
+     * @param ModifyPasswordRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyPasswordResponse
      */
     public function modifyPasswordWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->password)) {
-            $body['password'] = $request->password;
+        if (null !== $request->password) {
+            @$body['password'] = $request->password;
         }
-        if (!Utils::isUnset($request->username)) {
-            $body['username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$body['username'] = $request->username;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyPassword',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/password',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/password',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改实例的密码
-     *  *
-     * @description ### Method
+     * 修改实例的密码
+     *
+     * @remarks
+     * ### Method
      * `PUT`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}/password`
-     *  *
-     * @param string                $instanceId
-     * @param ModifyPasswordRequest $request    ModifyPasswordRequest
      *
-     * @return ModifyPasswordResponse ModifyPasswordResponse
+     * @param request - ModifyPasswordRequest
+     *
+     * @returns ModifyPasswordResponse
+     *
+     * @param string                $instanceId
+     * @param ModifyPasswordRequest $request
+     *
+     * @return ModifyPasswordResponse
      */
     public function modifyPassword($instanceId, $request)
     {
@@ -6196,47 +7061,55 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @param string                   $instanceId
-     * @param ModifyPausePolicyRequest $request    ModifyPausePolicyRequest
-     * @param string[]                 $headers    map
-     * @param RuntimeOptions           $runtime    runtime options for this request RuntimeOptions
+     * @param request - ModifyPausePolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyPausePolicyResponse ModifyPausePolicyResponse
+     * @returns ModifyPausePolicyResponse
+     *
+     * @param string                   $instanceId
+     * @param ModifyPausePolicyRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyPausePolicyResponse
      */
     public function modifyPausePolicyWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->body)) {
-            $body['body'] = $request->body;
+        if (null !== $request->body) {
+            @$body['body'] = $request->body;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyPausePolicy',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/pause-policies',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/pause-policies',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyPausePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyPausePolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyPausePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param string                   $instanceId
-     * @param ModifyPausePolicyRequest $request    ModifyPausePolicyRequest
+     * @param request - ModifyPausePolicyRequest
      *
-     * @return ModifyPausePolicyResponse ModifyPausePolicyResponse
+     * @returns ModifyPausePolicyResponse
+     *
+     * @param string                   $instanceId
+     * @param ModifyPausePolicyRequest $request
+     *
+     * @return ModifyPausePolicyResponse
      */
     public function modifyPausePolicy($instanceId, $request)
     {
@@ -6247,51 +7120,59 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 修改公网域名访问白名单
-     *  *
-     * @param string                       $instanceId
-     * @param ModifyPublicUrlIpListRequest $request    ModifyPublicUrlIpListRequest
-     * @param string[]                     $headers    map
-     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
+     * 修改公网域名访问白名单.
      *
-     * @return ModifyPublicUrlIpListResponse ModifyPublicUrlIpListResponse
+     * @param request - ModifyPublicUrlIpListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPublicUrlIpListResponse
+     *
+     * @param string                       $instanceId
+     * @param ModifyPublicUrlIpListRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyPublicUrlIpListResponse
      */
     public function modifyPublicUrlIpListWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->body)) {
-            $body['body'] = $request->body;
+        if (null !== $request->body) {
+            @$body['body'] = $request->body;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyPublicUrlIpList',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/public-url-ip-list',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/public-url-ip-list',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyPublicUrlIpListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyPublicUrlIpListResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyPublicUrlIpListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改公网域名访问白名单
-     *  *
-     * @param string                       $instanceId
-     * @param ModifyPublicUrlIpListRequest $request    ModifyPublicUrlIpListRequest
+     * 修改公网域名访问白名单.
      *
-     * @return ModifyPublicUrlIpListResponse ModifyPublicUrlIpListResponse
+     * @param request - ModifyPublicUrlIpListRequest
+     *
+     * @returns ModifyPublicUrlIpListResponse
+     *
+     * @param string                       $instanceId
+     * @param ModifyPublicUrlIpListRequest $request
+     *
+     * @return ModifyPublicUrlIpListResponse
      */
     public function modifyPublicUrlIpList($instanceId, $request)
     {
@@ -6302,76 +7183,166 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an index table.
-     *  *
-     * @param string             $instanceId
-     * @param string             $tableName
-     * @param ModifyTableRequest $request    ModifyTableRequest
-     * @param string[]           $headers    map
-     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
+     * 通过指定实例ID来修改数据节点的副本或分片数量。
      *
-     * @return ModifyTableResponse ModifyTableResponse
+     * @remarks
+     * ## 请求说明
+     * 本API允许用户修改特定实例下的数据节点副本数或分片数。请求时，需提供实例ID，并在请求体中指定要修改的`replica`（副本数）或`partition`（分片数）。请注意，这两个参数都是可选的，但至少需要提供其中一个以执行更新操作。
+     *
+     * @param request - ModifySearcherReplicaRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySearcherReplicaResponse
+     *
+     * @param string                       $instanceId
+     * @param ModifySearcherReplicaRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifySearcherReplicaResponse
      */
-    public function modifyTableWithOptions($instanceId, $tableName, $request, $headers, $runtime)
+    public function modifySearcherReplicaWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['dryRun'] = $request->dryRun;
-        }
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dataProcessConfig)) {
-            $body['dataProcessConfig'] = $request->dataProcessConfig;
+        if (null !== $request->partition) {
+            @$body['partition'] = $request->partition;
         }
-        if (!Utils::isUnset($request->dataSource)) {
-            $body['dataSource'] = $request->dataSource;
+
+        if (null !== $request->replica) {
+            @$body['replica'] = $request->replica;
         }
-        if (!Utils::isUnset($request->fieldSchema)) {
-            $body['fieldSchema'] = $request->fieldSchema;
-        }
-        if (!Utils::isUnset($request->partitionCount)) {
-            $body['partitionCount'] = $request->partitionCount;
-        }
-        if (!Utils::isUnset($request->primaryKey)) {
-            $body['primaryKey'] = $request->primaryKey;
-        }
-        if (!Utils::isUnset($request->rawSchema)) {
-            $body['rawSchema'] = $request->rawSchema;
-        }
-        if (!Utils::isUnset($request->vectorIndex)) {
-            $body['vectorIndex'] = $request->vectorIndex;
-        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action' => 'ModifyTable',
+            'action' => 'ModifySearcherReplica',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/replica',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySearcherReplicaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies an index table.
-     *  *
+     * 通过指定实例ID来修改数据节点的副本或分片数量。
+     *
+     * @remarks
+     * ## 请求说明
+     * 本API允许用户修改特定实例下的数据节点副本数或分片数。请求时，需提供实例ID，并在请求体中指定要修改的`replica`（副本数）或`partition`（分片数）。请注意，这两个参数都是可选的，但至少需要提供其中一个以执行更新操作。
+     *
+     * @param request - ModifySearcherReplicaRequest
+     *
+     * @returns ModifySearcherReplicaResponse
+     *
+     * @param string                       $instanceId
+     * @param ModifySearcherReplicaRequest $request
+     *
+     * @return ModifySearcherReplicaResponse
+     */
+    public function modifySearcherReplica($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modifySearcherReplicaWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Modifies an index table.
+     *
+     * @param request - ModifyTableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyTableResponse
+     *
      * @param string             $instanceId
      * @param string             $tableName
-     * @param ModifyTableRequest $request    ModifyTableRequest
+     * @param ModifyTableRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
      *
-     * @return ModifyTableResponse ModifyTableResponse
+     * @return ModifyTableResponse
+     */
+    public function modifyTableWithOptions($instanceId, $tableName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
+        $body = [];
+        if (null !== $request->dataProcessConfig) {
+            @$body['dataProcessConfig'] = $request->dataProcessConfig;
+        }
+
+        if (null !== $request->dataSource) {
+            @$body['dataSource'] = $request->dataSource;
+        }
+
+        if (null !== $request->fieldSchema) {
+            @$body['fieldSchema'] = $request->fieldSchema;
+        }
+
+        if (null !== $request->partitionCount) {
+            @$body['partitionCount'] = $request->partitionCount;
+        }
+
+        if (null !== $request->primaryKey) {
+            @$body['primaryKey'] = $request->primaryKey;
+        }
+
+        if (null !== $request->rawSchema) {
+            @$body['rawSchema'] = $request->rawSchema;
+        }
+
+        if (null !== $request->vectorIndex) {
+            @$body['vectorIndex'] = $request->vectorIndex;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyTable',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/tables/' . Url::percentEncode($tableName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies an index table.
+     *
+     * @param request - ModifyTableRequest
+     *
+     * @returns ModifyTableResponse
+     *
+     * @param string             $instanceId
+     * @param string             $tableName
+     * @param ModifyTableRequest $request
+     *
+     * @return ModifyTableResponse
      */
     public function modifyTable($instanceId, $tableName, $request)
     {
@@ -6382,9 +7353,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Publishes a version of advanced configurations.
-     *  *
-     * @description ## Method
+     * Publishes a version of advanced configurations.
+     *
+     * @remarks
+     * ## Method
      * ~~~
      * POST
      * ~~~
@@ -6392,51 +7364,57 @@ class Searchengine extends OpenApiClient
      * ~~~
      * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/actions/publish
      * ~~~
-     *  *
+     *
+     * @param request - PublishAdvanceConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishAdvanceConfigResponse
+     *
      * @param string                      $instanceId
      * @param string                      $configName
-     * @param PublishAdvanceConfigRequest $request    PublishAdvanceConfigRequest
-     * @param string[]                    $headers    map
-     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
+     * @param PublishAdvanceConfigRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return PublishAdvanceConfigResponse PublishAdvanceConfigResponse
+     * @return PublishAdvanceConfigResponse
      */
     public function publishAdvanceConfigWithOptions($instanceId, $configName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->desc)) {
-            $body['desc'] = $request->desc;
+        if (null !== $request->desc) {
+            @$body['desc'] = $request->desc;
         }
-        if (!Utils::isUnset($request->files)) {
-            $body['files'] = $request->files;
+
+        if (null !== $request->files) {
+            @$body['files'] = $request->files;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'PublishAdvanceConfig',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/actions/publish',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/advanced-configs/' . Url::percentEncode($configName) . '/actions/publish',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PublishAdvanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PublishAdvanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return PublishAdvanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Publishes a version of advanced configurations.
-     *  *
-     * @description ## Method
+     * Publishes a version of advanced configurations.
+     *
+     * @remarks
+     * ## Method
      * ~~~
      * POST
      * ~~~
@@ -6444,12 +7422,16 @@ class Searchengine extends OpenApiClient
      * ~~~
      * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/actions/publish
      * ~~~
-     *  *
+     *
+     * @param request - PublishAdvanceConfigRequest
+     *
+     * @returns PublishAdvanceConfigResponse
+     *
      * @param string                      $instanceId
      * @param string                      $configName
-     * @param PublishAdvanceConfigRequest $request    PublishAdvanceConfigRequest
+     * @param PublishAdvanceConfigRequest $request
      *
-     * @return PublishAdvanceConfigResponse PublishAdvanceConfigResponse
+     * @return PublishAdvanceConfigResponse
      */
     public function publishAdvanceConfig($instanceId, $configName, $request)
     {
@@ -6460,63 +7442,73 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Publishes a specified index version.
-     *  *
-     * @description ## Method
+     * Publishes a specified index version.
+     *
+     * @remarks
+     * ## Method
      *     POST
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
-     *  *
+     *
+     * @param request - PublishIndexVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishIndexVersionResponse
+     *
      * @param string                     $instanceId
      * @param string                     $indexName
-     * @param PublishIndexVersionRequest $request    PublishIndexVersionRequest
-     * @param string[]                   $headers    map
-     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
+     * @param PublishIndexVersionRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return PublishIndexVersionResponse PublishIndexVersionResponse
+     * @return PublishIndexVersionResponse
      */
     public function publishIndexVersionWithOptions($instanceId, $indexName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->body)) {
-            $body['body'] = $request->body;
+        if (null !== $request->body) {
+            @$body['body'] = $request->body;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'PublishIndexVersion',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/actions/publish',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/indexes/' . Url::percentEncode($indexName) . '/actions/publish',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PublishIndexVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PublishIndexVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return PublishIndexVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Publishes a specified index version.
-     *  *
-     * @description ## Method
+     * Publishes a specified index version.
+     *
+     * @remarks
+     * ## Method
      *     POST
      * ## URI
      *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
-     *  *
+     *
+     * @param request - PublishIndexVersionRequest
+     *
+     * @returns PublishIndexVersionResponse
+     *
      * @param string                     $instanceId
      * @param string                     $indexName
-     * @param PublishIndexVersionRequest $request    PublishIndexVersionRequest
+     * @param PublishIndexVersionRequest $request
      *
-     * @return PublishIndexVersionResponse PublishIndexVersionResponse
+     * @return PublishIndexVersionResponse
      */
     public function publishIndexVersion($instanceId, $indexName, $request)
     {
@@ -6527,50 +7519,58 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param request - PushDocumentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushDocumentsResponse
+     *
      * @param string               $instanceId
      * @param string               $dataSourceName
-     * @param PushDocumentsRequest $request        PushDocumentsRequest
-     * @param string[]             $headers        map
-     * @param RuntimeOptions       $runtime        runtime options for this request RuntimeOptions
+     * @param PushDocumentsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return PushDocumentsResponse PushDocumentsResponse
+     * @return PushDocumentsResponse
      */
     public function pushDocumentsWithOptions($instanceId, $dataSourceName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pkField)) {
-            $query['pkField'] = $request->pkField;
+        if (null !== $request->pkField) {
+            @$query['pkField'] = $request->pkField;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
             'body' => $request->body,
         ]);
         $params = new Params([
             'action' => 'PushDocuments',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/actions/bulk',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/data-sources/' . Url::percentEncode($dataSourceName) . '/actions/bulk',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PushDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PushDocumentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return PushDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - PushDocumentsRequest
+     *
+     * @returns PushDocumentsResponse
+     *
      * @param string               $instanceId
      * @param string               $dataSourceName
-     * @param PushDocumentsRequest $request        PushDocumentsRequest
+     * @param PushDocumentsRequest $request
      *
-     * @return PushDocumentsResponse PushDocumentsResponse
+     * @return PushDocumentsResponse
      */
     public function pushDocuments($instanceId, $dataSourceName, $request)
     {
@@ -6581,70 +7581,83 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Restores data from an index.
-     *  *
-     * @description ### Method
+     * Restores data from an index.
+     *
+     * @remarks
+     * ### Method
      * `POST`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}/recover-index`
-     *  *
-     * @param string              $instanceId
-     * @param RecoverIndexRequest $request    RecoverIndexRequest
-     * @param string[]            $headers    map
-     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RecoverIndexResponse RecoverIndexResponse
+     * @param request - RecoverIndexRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecoverIndexResponse
+     *
+     * @param string              $instanceId
+     * @param RecoverIndexRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RecoverIndexResponse
      */
     public function recoverIndexWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->buildDeployId)) {
-            $body['buildDeployId'] = $request->buildDeployId;
+        if (null !== $request->buildDeployId) {
+            @$body['buildDeployId'] = $request->buildDeployId;
         }
-        if (!Utils::isUnset($request->dataSourceName)) {
-            $body['dataSourceName'] = $request->dataSourceName;
+
+        if (null !== $request->dataSourceName) {
+            @$body['dataSourceName'] = $request->dataSourceName;
         }
-        if (!Utils::isUnset($request->generation)) {
-            $body['generation'] = $request->generation;
+
+        if (null !== $request->generation) {
+            @$body['generation'] = $request->generation;
         }
-        if (!Utils::isUnset($request->indexName)) {
-            $body['indexName'] = $request->indexName;
+
+        if (null !== $request->indexName) {
+            @$body['indexName'] = $request->indexName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RecoverIndex',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/recover-index',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/recover-index',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RecoverIndexResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RecoverIndexResponse::fromMap($this->execute($params, $req, $runtime));
+        return RecoverIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Restores data from an index.
-     *  *
-     * @description ### Method
+     * Restores data from an index.
+     *
+     * @remarks
+     * ### Method
      * `POST`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}/recover-index`
-     *  *
-     * @param string              $instanceId
-     * @param RecoverIndexRequest $request    RecoverIndexRequest
      *
-     * @return RecoverIndexResponse RecoverIndexResponse
+     * @param request - RecoverIndexRequest
+     *
+     * @returns RecoverIndexResponse
+     *
+     * @param string              $instanceId
+     * @param RecoverIndexRequest $request
+     *
+     * @return RecoverIndexResponse
      */
     public function recoverIndex($instanceId, $request)
     {
@@ -6655,59 +7668,69 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Rebuilds an index.
-     *  *
+     * Rebuilds an index.
+     *
+     * @param request - ReindexRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReindexResponse
+     *
      * @param string         $instanceId
      * @param string         $tableName
-     * @param ReindexRequest $request    ReindexRequest
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param ReindexRequest $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ReindexResponse ReindexResponse
+     * @return ReindexResponse
      */
     public function reindexWithOptions($instanceId, $tableName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dataTimeSec)) {
-            $body['dataTimeSec'] = $request->dataTimeSec;
+        if (null !== $request->dataTimeSec) {
+            @$body['dataTimeSec'] = $request->dataTimeSec;
         }
-        if (!Utils::isUnset($request->ossDataPath)) {
-            $body['ossDataPath'] = $request->ossDataPath;
+
+        if (null !== $request->ossDataPath) {
+            @$body['ossDataPath'] = $request->ossDataPath;
         }
-        if (!Utils::isUnset($request->partition)) {
-            $body['partition'] = $request->partition;
+
+        if (null !== $request->partition) {
+            @$body['partition'] = $request->partition;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'Reindex',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '/reindex',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/tables/' . Url::percentEncode($tableName) . '/reindex',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ReindexResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReindexResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReindexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Rebuilds an index.
-     *  *
+     * Rebuilds an index.
+     *
+     * @param request - ReindexRequest
+     *
+     * @returns ReindexResponse
+     *
      * @param string         $instanceId
      * @param string         $tableName
-     * @param ReindexRequest $request    ReindexRequest
+     * @param ReindexRequest $request
      *
-     * @return ReindexResponse ReindexResponse
+     * @return ReindexResponse
      */
     public function reindex($instanceId, $tableName, $request)
     {
@@ -6718,9 +7741,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a cluster.
-     *  *
-     * @description ### Method
+     * Deletes a cluster.
+     *
+     * @remarks
+     * ### Method
      * ```java
      * DELETE
      * ```
@@ -6728,13 +7752,18 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/clusters/{clusterName}
      * ```
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveClusterResponse
+     *
      * @param string         $instanceId
      * @param string         $clusterName
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return RemoveClusterResponse RemoveClusterResponse
+     * @return RemoveClusterResponse
      */
     public function removeClusterWithOptions($instanceId, $clusterName, $headers, $runtime)
     {
@@ -6745,24 +7774,22 @@ class Searchengine extends OpenApiClient
             'action' => 'RemoveCluster',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterName) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/clusters/' . Url::percentEncode($clusterName) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveClusterResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a cluster.
-     *  *
-     * @description ### Method
+     * Deletes a cluster.
+     *
+     * @remarks
+     * ### Method
      * ```java
      * DELETE
      * ```
@@ -6770,11 +7797,13 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/clusters/{clusterName}
      * ```
-     *  *
+     *
+     * @returns RemoveClusterResponse
+     *
      * @param string $instanceId
      * @param string $clusterName
      *
-     * @return RemoveClusterResponse RemoveClusterResponse
+     * @return RemoveClusterResponse
      */
     public function removeCluster($instanceId, $clusterName)
     {
@@ -6785,51 +7814,59 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param request - RenameFolderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenameFolderResponse
+     *
      * @param string              $instanceId
      * @param string              $database
      * @param string              $folderId
-     * @param RenameFolderRequest $request    RenameFolderRequest
-     * @param string[]            $headers    map
-     * @param RuntimeOptions      $runtime    runtime options for this request RuntimeOptions
+     * @param RenameFolderRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
-     * @return RenameFolderResponse RenameFolderResponse
+     * @return RenameFolderResponse
      */
     public function renameFolderWithOptions($instanceId, $database, $folderId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RenameFolder',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/folders/' . OpenApiUtilClient::getEncodeParam($folderId) . '/name',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/sql-studio/databases/' . Url::percentEncode($database) . '/folders/' . Url::percentEncode($folderId) . '/name',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RenameFolderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RenameFolderResponse::fromMap($this->execute($params, $req, $runtime));
+        return RenameFolderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - RenameFolderRequest
+     *
+     * @returns RenameFolderResponse
+     *
      * @param string              $instanceId
      * @param string              $database
      * @param string              $folderId
-     * @param RenameFolderRequest $request    RenameFolderRequest
+     * @param RenameFolderRequest $request
      *
-     * @return RenameFolderResponse RenameFolderResponse
+     * @return RenameFolderResponse
      */
     public function renameFolder($instanceId, $database, $folderId, $request)
     {
@@ -6840,12 +7877,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartIndexResponse
+     *
      * @param string         $instanceId
      * @param string         $indexName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return StartIndexResponse StartIndexResponse
+     * @return StartIndexResponse
      */
     public function startIndexWithOptions($instanceId, $indexName, $headers, $runtime)
     {
@@ -6856,25 +7898,24 @@ class Searchengine extends OpenApiClient
             'action' => 'StartIndex',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/startIndex',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/indexes/' . Url::percentEncode($indexName) . '/startIndex',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return StartIndexResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartIndexResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @returns StartIndexResponse
+     *
      * @param string $instanceId
      * @param string $indexName
      *
-     * @return StartIndexResponse StartIndexResponse
+     * @return StartIndexResponse
      */
     public function startIndex($instanceId, $indexName)
     {
@@ -6885,12 +7926,17 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopIndexResponse
+     *
      * @param string         $instanceId
      * @param string         $indexName
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return StopIndexResponse StopIndexResponse
+     * @return StopIndexResponse
      */
     public function stopIndexWithOptions($instanceId, $indexName, $headers, $runtime)
     {
@@ -6901,25 +7947,24 @@ class Searchengine extends OpenApiClient
             'action' => 'StopIndex',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/stopIndex',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/indexes/' . Url::percentEncode($indexName) . '/stopIndex',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return StopIndexResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopIndexResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @returns StopIndexResponse
+     *
      * @param string $instanceId
      * @param string $indexName
      *
-     * @return StopIndexResponse StopIndexResponse
+     * @return StopIndexResponse
      */
     public function stopIndex($instanceId, $indexName)
     {
@@ -6930,9 +7975,10 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Stops an FSM task.
-     *  *
-     * @description ### [](#)Method
+     * Stops an FSM task.
+     *
+     * @remarks
+     * ### [](#)Method
      * ```java
      * PUT
      * ```
@@ -6940,13 +7986,18 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/stop-task/{fsmId}
      * ```
-     *  *
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopTaskResponse
+     *
      * @param string         $instanceId
      * @param string         $fsmId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return StopTaskResponse StopTaskResponse
+     * @return StopTaskResponse
      */
     public function stopTaskWithOptions($instanceId, $fsmId, $headers, $runtime)
     {
@@ -6957,24 +8008,22 @@ class Searchengine extends OpenApiClient
             'action' => 'StopTask',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/stop-task/' . OpenApiUtilClient::getEncodeParam($fsmId) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/stop-task/' . Url::percentEncode($fsmId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return StopTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Stops an FSM task.
-     *  *
-     * @description ### [](#)Method
+     * Stops an FSM task.
+     *
+     * @remarks
+     * ### [](#)Method
      * ```java
      * PUT
      * ```
@@ -6982,11 +8031,13 @@ class Searchengine extends OpenApiClient
      * ```java
      * /openapi/ha3/instances/{instanceId}/stop-task/{fsmId}
      * ```
-     *  *
+     *
+     * @returns StopTaskResponse
+     *
      * @param string $instanceId
      * @param string $fsmId
      *
-     * @return StopTaskResponse StopTaskResponse
+     * @return StopTaskResponse
      */
     public function stopTask($instanceId, $fsmId)
     {
@@ -6997,30 +8048,39 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 打标签接口
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 打标签接口.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $body['resourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$body['resourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['resourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['resourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $body['tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$body['tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'TagResources',
@@ -7033,19 +8093,20 @@ class Searchengine extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 打标签接口
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * 打标签接口.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -7056,41 +8117,53 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary 删标签接口
-     *  *
-     * @param UntagResourcesRequest $tmpReq  UntagResourcesRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 删标签接口.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param tmpReq - UntagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UntagResourcesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceId)) {
-            $request->resourceIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'resourceId', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceId) {
+            $request->resourceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'resourceId', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tagKey)) {
-            $request->tagKeyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagKey, 'tagKey', 'json');
+
+        if (null !== $tmpReq->tagKey) {
+            $request->tagKeyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagKey, 'tagKey', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['all'] = $request->all;
+        if (null !== $request->all) {
+            @$query['all'] = $request->all;
         }
-        if (!Utils::isUnset($request->resourceIdShrink)) {
-            $query['resourceId'] = $request->resourceIdShrink;
+
+        if (null !== $request->resourceIdShrink) {
+            @$query['resourceId'] = $request->resourceIdShrink;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['resourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['resourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKeyShrink)) {
-            $query['tagKey'] = $request->tagKeyShrink;
+
+        if (null !== $request->tagKeyShrink) {
+            @$query['tagKey'] = $request->tagKeyShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UntagResources',
@@ -7103,19 +8176,20 @@ class Searchengine extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删标签接口
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * 删标签接口.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -7126,67 +8200,79 @@ class Searchengine extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configuration of a specified instance.
-     *  *
-     * @description ### Method
+     * Modifies the configuration of a specified instance.
+     *
+     * @remarks
+     * ### Method
      * `PUT`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}`
-     *  *
-     * @param string                $instanceId
-     * @param UpdateInstanceRequest $request    UpdateInstanceRequest
-     * @param string[]              $headers    map
-     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceResponse UpdateInstanceResponse
+     * @param request - UpdateInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstanceResponse
+     *
+     * @param string                $instanceId
+     * @param UpdateInstanceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateInstanceResponse
      */
     public function updateInstanceWithOptions($instanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->components)) {
-            $body['components'] = $request->components;
+        if (null !== $request->components) {
+            @$body['components'] = $request->components;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $body['orderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$body['orderType'] = $request->orderType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateInstance',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configuration of a specified instance.
-     *  *
-     * @description ### Method
+     * Modifies the configuration of a specified instance.
+     *
+     * @remarks
+     * ### Method
      * `PUT`
      * ### URI
      * `/openapi/ha3/instances/{instanceId}`
-     *  *
-     * @param string                $instanceId
-     * @param UpdateInstanceRequest $request    UpdateInstanceRequest
      *
-     * @return UpdateInstanceResponse UpdateInstanceResponse
+     * @param request - UpdateInstanceRequest
+     *
+     * @returns UpdateInstanceResponse
+     *
+     * @param string                $instanceId
+     * @param UpdateInstanceRequest $request
+     *
+     * @return UpdateInstanceResponse
      */
     public function updateInstance($instanceId, $request)
     {
@@ -7197,51 +8283,59 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param request - UpdateSqlInstanceContentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSqlInstanceContentResponse
+     *
      * @param string                          $instanceId
      * @param string                          $database
      * @param string                          $sqlInstanceId
-     * @param UpdateSqlInstanceContentRequest $request       UpdateSqlInstanceContentRequest
-     * @param string[]                        $headers       map
-     * @param RuntimeOptions                  $runtime       runtime options for this request RuntimeOptions
+     * @param UpdateSqlInstanceContentRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
-     * @return UpdateSqlInstanceContentResponse UpdateSqlInstanceContentResponse
+     * @return UpdateSqlInstanceContentResponse
      */
     public function updateSqlInstanceContentWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateSqlInstanceContent',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/content',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/sql-studio/databases/' . Url::percentEncode($database) . '/sql-instances/' . Url::percentEncode($sqlInstanceId) . '/content',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateSqlInstanceContentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSqlInstanceContentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSqlInstanceContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - UpdateSqlInstanceContentRequest
+     *
+     * @returns UpdateSqlInstanceContentResponse
+     *
      * @param string                          $instanceId
      * @param string                          $database
      * @param string                          $sqlInstanceId
-     * @param UpdateSqlInstanceContentRequest $request       UpdateSqlInstanceContentRequest
+     * @param UpdateSqlInstanceContentRequest $request
      *
-     * @return UpdateSqlInstanceContentResponse UpdateSqlInstanceContentResponse
+     * @return UpdateSqlInstanceContentResponse
      */
     public function updateSqlInstanceContent($instanceId, $database, $sqlInstanceId, $request)
     {
@@ -7252,51 +8346,59 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param request - UpdateSqlInstanceNameRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSqlInstanceNameResponse
+     *
      * @param string                       $instanceId
      * @param string                       $database
      * @param string                       $sqlInstanceId
-     * @param UpdateSqlInstanceNameRequest $request       UpdateSqlInstanceNameRequest
-     * @param string[]                     $headers       map
-     * @param RuntimeOptions               $runtime       runtime options for this request RuntimeOptions
+     * @param UpdateSqlInstanceNameRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
-     * @return UpdateSqlInstanceNameResponse UpdateSqlInstanceNameResponse
+     * @return UpdateSqlInstanceNameResponse
      */
     public function updateSqlInstanceNameWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateSqlInstanceName',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/name',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/sql-studio/databases/' . Url::percentEncode($database) . '/sql-instances/' . Url::percentEncode($sqlInstanceId) . '/name',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateSqlInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSqlInstanceNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSqlInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - UpdateSqlInstanceNameRequest
+     *
+     * @returns UpdateSqlInstanceNameResponse
+     *
      * @param string                       $instanceId
      * @param string                       $database
      * @param string                       $sqlInstanceId
-     * @param UpdateSqlInstanceNameRequest $request       UpdateSqlInstanceNameRequest
+     * @param UpdateSqlInstanceNameRequest $request
      *
-     * @return UpdateSqlInstanceNameResponse UpdateSqlInstanceNameResponse
+     * @return UpdateSqlInstanceNameResponse
      */
     public function updateSqlInstanceName($instanceId, $database, $sqlInstanceId, $request)
     {
@@ -7307,63 +8409,75 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @param request - UpdateSqlInstanceParamsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSqlInstanceParamsResponse
+     *
      * @param string                         $instanceId
      * @param string                         $database
      * @param string                         $sqlInstanceId
-     * @param UpdateSqlInstanceParamsRequest $request       UpdateSqlInstanceParamsRequest
-     * @param string[]                       $headers       map
-     * @param RuntimeOptions                 $runtime       runtime options for this request RuntimeOptions
+     * @param UpdateSqlInstanceParamsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return UpdateSqlInstanceParamsResponse UpdateSqlInstanceParamsResponse
+     * @return UpdateSqlInstanceParamsResponse
      */
     public function updateSqlInstanceParamsWithOptions($instanceId, $database, $sqlInstanceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->combineParam)) {
-            $body['combineParam'] = $request->combineParam;
+        if (null !== $request->combineParam) {
+            @$body['combineParam'] = $request->combineParam;
         }
-        if (!Utils::isUnset($request->dynamicParam)) {
-            $body['dynamicParam'] = $request->dynamicParam;
+
+        if (null !== $request->dynamicParam) {
+            @$body['dynamicParam'] = $request->dynamicParam;
         }
-        if (!Utils::isUnset($request->kvpair)) {
-            $body['kvpair'] = $request->kvpair;
+
+        if (null !== $request->kvpair) {
+            @$body['kvpair'] = $request->kvpair;
         }
-        if (!Utils::isUnset($request->params)) {
-            $body['params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$body['params'] = $request->params;
         }
-        if (!Utils::isUnset($request->staticParam)) {
-            $body['staticParam'] = $request->staticParam;
+
+        if (null !== $request->staticParam) {
+            @$body['staticParam'] = $request->staticParam;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateSqlInstanceParams',
             'version' => '2021-10-25',
             'protocol' => 'HTTPS',
-            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/params',
+            'pathname' => '/openapi/ha3/instances/' . Url::percentEncode($instanceId) . '/sql-studio/databases/' . Url::percentEncode($database) . '/sql-instances/' . Url::percentEncode($sqlInstanceId) . '/params',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateSqlInstanceParamsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSqlInstanceParamsResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSqlInstanceParamsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param request - UpdateSqlInstanceParamsRequest
+     *
+     * @returns UpdateSqlInstanceParamsResponse
+     *
      * @param string                         $instanceId
      * @param string                         $database
      * @param string                         $sqlInstanceId
-     * @param UpdateSqlInstanceParamsRequest $request       UpdateSqlInstanceParamsRequest
+     * @param UpdateSqlInstanceParamsRequest $request
      *
-     * @return UpdateSqlInstanceParamsResponse UpdateSqlInstanceParamsResponse
+     * @return UpdateSqlInstanceParamsResponse
      */
     public function updateSqlInstanceParams($instanceId, $database, $sqlInstanceId, $request)
     {

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\UpdateSqlInstanceParamsResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class UpdateSqlInstanceParamsResponseBody extends Model
 {
     /**
-     * @description id of request
-     *
-     * @example 022F36C7-9FB4-5D67-BEBC-3D14B0984463
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description InstanceVersionVO
-     *
      * @var result
      */
     public $result;
@@ -29,32 +23,40 @@ class UpdateSqlInstanceParamsResponseBody extends Model
         'result' => 'result',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSqlInstanceParamsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['result'])) {
             $model->result = result::fromMap($map['result']);
         }

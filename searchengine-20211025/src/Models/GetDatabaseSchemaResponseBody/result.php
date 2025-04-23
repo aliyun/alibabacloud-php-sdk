@@ -4,41 +4,31 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDatabaseSchemaResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example id
-     *
      * @var string
      */
     public $fieldName;
 
     /**
-     * @example STRING
-     *
      * @var string
      */
     public $fieldType;
 
     /**
-     * @example FT_UINT64
-     *
      * @var mixed[]
      */
     public $fieldTypeDetail;
 
     /**
-     * @example test_tusou_v2
-     *
      * @var string
      */
     public $indexName;
 
     /**
-     * @example NUMBER
-     *
      * @var string
      */
     public $indexType;
@@ -50,23 +40,38 @@ class result extends Model
         'indexType' => 'indexType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fieldTypeDetail)) {
+            Model::validateArray($this->fieldTypeDetail);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fieldName) {
             $res['fieldName'] = $this->fieldName;
         }
+
         if (null !== $this->fieldType) {
             $res['fieldType'] = $this->fieldType;
         }
+
         if (null !== $this->fieldTypeDetail) {
-            $res['fieldTypeDetail'] = $this->fieldTypeDetail;
+            if (\is_array($this->fieldTypeDetail)) {
+                $res['fieldTypeDetail'] = [];
+                foreach ($this->fieldTypeDetail as $key1 => $value1) {
+                    $res['fieldTypeDetail'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->indexName) {
             $res['indexName'] = $this->indexName;
         }
+
         if (null !== $this->indexType) {
             $res['indexType'] = $this->indexType;
         }
@@ -74,26 +79,35 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fieldName'])) {
             $model->fieldName = $map['fieldName'];
         }
+
         if (isset($map['fieldType'])) {
             $model->fieldType = $map['fieldType'];
         }
+
         if (isset($map['fieldTypeDetail'])) {
-            $model->fieldTypeDetail = $map['fieldTypeDetail'];
+            if (!empty($map['fieldTypeDetail'])) {
+                $model->fieldTypeDetail = [];
+                foreach ($map['fieldTypeDetail'] as $key1 => $value1) {
+                    $model->fieldTypeDetail[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['indexName'])) {
             $model->indexName = $map['indexName'];
         }
+
         if (isset($map['indexType'])) {
             $model->indexType = $map['indexType'];
         }

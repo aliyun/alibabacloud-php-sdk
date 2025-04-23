@@ -4,17 +4,15 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ListDatabasesResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListDatabasesResponseBody\result\databases\sqlInstances;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListDatabasesResponseBody\result\databases\tables;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListDatabasesResponseBody\result\databases\templates;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ResultDatabasesFunctionsValue;
-use AlibabaCloud\Tea\Model;
 
 class databases extends Model
 {
     /**
-     * @example general
-     *
      * @var string
      */
     public $database;
@@ -46,41 +44,71 @@ class databases extends Model
         'templates' => 'templates',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->functions)) {
+            Model::validateArray($this->functions);
+        }
+        if (\is_array($this->sqlInstances)) {
+            Model::validateArray($this->sqlInstances);
+        }
+        if (\is_array($this->tables)) {
+            Model::validateArray($this->tables);
+        }
+        if (\is_array($this->templates)) {
+            Model::validateArray($this->templates);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->database) {
             $res['database'] = $this->database;
         }
+
         if (null !== $this->functions) {
-            $res['functions'] = $this->functions;
+            if (\is_array($this->functions)) {
+                $res['functions'] = [];
+                foreach ($this->functions as $key1 => $value1) {
+                    if (\is_array($value1)) {
+                        $res['functions'][$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $res['functions'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->sqlInstances) {
-            $res['sqlInstances'] = [];
-            if (null !== $this->sqlInstances && \is_array($this->sqlInstances)) {
-                $n = 0;
-                foreach ($this->sqlInstances as $item) {
-                    $res['sqlInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sqlInstances)) {
+                $res['sqlInstances'] = [];
+                $n1 = 0;
+                foreach ($this->sqlInstances as $item1) {
+                    $res['sqlInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->tables) {
-            $res['tables'] = [];
-            if (null !== $this->tables && \is_array($this->tables)) {
-                $n = 0;
-                foreach ($this->tables as $item) {
-                    $res['tables'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tables)) {
+                $res['tables'] = [];
+                $n1 = 0;
+                foreach ($this->tables as $item1) {
+                    $res['tables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->templates) {
-            $res['templates'] = [];
-            if (null !== $this->templates && \is_array($this->templates)) {
-                $n = 0;
-                foreach ($this->templates as $item) {
-                    $res['templates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->templates)) {
+                $res['templates'] = [];
+                $n1 = 0;
+                foreach ($this->templates as $item1) {
+                    $res['templates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -88,44 +116,59 @@ class databases extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return databases
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['database'])) {
             $model->database = $map['database'];
         }
+
         if (isset($map['functions'])) {
-            $model->functions = $map['functions'];
+            if (!empty($map['functions'])) {
+                $model->functions = [];
+                foreach ($map['functions'] as $key1 => $value1) {
+                    if (!empty($value1)) {
+                        $model->functions[$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $model->functions[$key1][$n2++] = ResultDatabasesFunctionsValue::fromMap($item2);
+                        }
+                    }
+                }
+            }
         }
+
         if (isset($map['sqlInstances'])) {
             if (!empty($map['sqlInstances'])) {
                 $model->sqlInstances = [];
-                $n = 0;
-                foreach ($map['sqlInstances'] as $item) {
-                    $model->sqlInstances[$n++] = null !== $item ? sqlInstances::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['sqlInstances'] as $item1) {
+                    $model->sqlInstances[$n1++] = sqlInstances::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['tables'])) {
             if (!empty($map['tables'])) {
                 $model->tables = [];
-                $n = 0;
-                foreach ($map['tables'] as $item) {
-                    $model->tables[$n++] = null !== $item ? tables::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['tables'] as $item1) {
+                    $model->tables[$n1++] = tables::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['templates'])) {
             if (!empty($map['templates'])) {
                 $model->templates = [];
-                $n = 0;
-                foreach ($map['templates'] as $item) {
-                    $model->templates[$n++] = null !== $item ? templates::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['templates'] as $item1) {
+                    $model->templates[$n1++] = templates::fromMap($item1);
                 }
             }
         }

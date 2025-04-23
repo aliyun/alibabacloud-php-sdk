@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyPasswordRequest extends Model
 {
     /**
-     * @description The password.
-     *
-     * @example ******************************
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @description The username.
-     *
-     * @example "username"
-     *
      * @var string
      */
     public $username;
@@ -30,14 +22,18 @@ class ModifyPasswordRequest extends Model
         'username' => 'username',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->password) {
             $res['password'] = $this->password;
         }
+
         if (null !== $this->username) {
             $res['username'] = $this->username;
         }
@@ -45,17 +41,18 @@ class ModifyPasswordRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyPasswordRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['password'])) {
             $model->password = $map['password'];
         }
+
         if (isset($map['username'])) {
             $model->username = $map['username'];
         }

@@ -4,52 +4,40 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDeployGraphResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDeployGraphResponseBody\result\graph\indexMetas;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDeployGraphResponseBody\result\graph\onlineMaster;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDeployGraphResponseBody\result\graph\tableMetas;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetDeployGraphResponseBody\result\graph\zoneMetas;
-use AlibabaCloud\Tea\Model;
 
 class graph extends Model
 {
     /**
-     * @description The index metadata.
-     *
      * @var indexMetas[]
      */
     public $indexMetas;
 
     /**
-     * @description The metadata of online clusters.
-     *
      * @var onlineMaster[]
      */
     public $onlineMaster;
 
     /**
-     * @description The association relationships between data sources and indexes.
-     *
      * @var string[][]
      */
     public $tableIndexRelation;
 
     /**
-     * @description The metadata of data sources.
-     *
      * @var tableMetas[]
      */
     public $tableMetas;
 
     /**
-     * @description The association relationships between zones and indexes.
-     *
      * @var string[][]
      */
     public $zoneIndexRelation;
 
     /**
-     * @description The zone metadata.
-     *
      * @var zoneMetas[]
      */
     public $zoneMetas;
@@ -62,50 +50,98 @@ class graph extends Model
         'zoneMetas' => 'zoneMetas',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->indexMetas)) {
+            Model::validateArray($this->indexMetas);
+        }
+        if (\is_array($this->onlineMaster)) {
+            Model::validateArray($this->onlineMaster);
+        }
+        if (\is_array($this->tableIndexRelation)) {
+            Model::validateArray($this->tableIndexRelation);
+        }
+        if (\is_array($this->tableMetas)) {
+            Model::validateArray($this->tableMetas);
+        }
+        if (\is_array($this->zoneIndexRelation)) {
+            Model::validateArray($this->zoneIndexRelation);
+        }
+        if (\is_array($this->zoneMetas)) {
+            Model::validateArray($this->zoneMetas);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->indexMetas) {
-            $res['indexMetas'] = [];
-            if (null !== $this->indexMetas && \is_array($this->indexMetas)) {
-                $n = 0;
-                foreach ($this->indexMetas as $item) {
-                    $res['indexMetas'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->indexMetas)) {
+                $res['indexMetas'] = [];
+                $n1 = 0;
+                foreach ($this->indexMetas as $item1) {
+                    $res['indexMetas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->onlineMaster) {
-            $res['onlineMaster'] = [];
-            if (null !== $this->onlineMaster && \is_array($this->onlineMaster)) {
-                $n = 0;
-                foreach ($this->onlineMaster as $item) {
-                    $res['onlineMaster'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->onlineMaster)) {
+                $res['onlineMaster'] = [];
+                $n1 = 0;
+                foreach ($this->onlineMaster as $item1) {
+                    $res['onlineMaster'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->tableIndexRelation) {
-            $res['tableIndexRelation'] = $this->tableIndexRelation;
-        }
-        if (null !== $this->tableMetas) {
-            $res['tableMetas'] = [];
-            if (null !== $this->tableMetas && \is_array($this->tableMetas)) {
-                $n = 0;
-                foreach ($this->tableMetas as $item) {
-                    $res['tableMetas'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tableIndexRelation)) {
+                $res['tableIndexRelation'] = [];
+                foreach ($this->tableIndexRelation as $key1 => $value1) {
+                    if (\is_array($value1)) {
+                        $res['tableIndexRelation'][$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $res['tableIndexRelation'][$key1][$n2++] = $item2;
+                        }
+                    }
                 }
             }
         }
-        if (null !== $this->zoneIndexRelation) {
-            $res['zoneIndexRelation'] = $this->zoneIndexRelation;
+
+        if (null !== $this->tableMetas) {
+            if (\is_array($this->tableMetas)) {
+                $res['tableMetas'] = [];
+                $n1 = 0;
+                foreach ($this->tableMetas as $item1) {
+                    $res['tableMetas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
+
+        if (null !== $this->zoneIndexRelation) {
+            if (\is_array($this->zoneIndexRelation)) {
+                $res['zoneIndexRelation'] = [];
+                foreach ($this->zoneIndexRelation as $key1 => $value1) {
+                    if (\is_array($value1)) {
+                        $res['zoneIndexRelation'][$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $res['zoneIndexRelation'][$key1][$n2++] = $item2;
+                        }
+                    }
+                }
+            }
+        }
+
         if (null !== $this->zoneMetas) {
-            $res['zoneMetas'] = [];
-            if (null !== $this->zoneMetas && \is_array($this->zoneMetas)) {
-                $n = 0;
-                foreach ($this->zoneMetas as $item) {
-                    $res['zoneMetas'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->zoneMetas)) {
+                $res['zoneMetas'] = [];
+                $n1 = 0;
+                foreach ($this->zoneMetas as $item1) {
+                    $res['zoneMetas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -113,53 +149,80 @@ class graph extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return graph
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['indexMetas'])) {
             if (!empty($map['indexMetas'])) {
                 $model->indexMetas = [];
-                $n = 0;
-                foreach ($map['indexMetas'] as $item) {
-                    $model->indexMetas[$n++] = null !== $item ? indexMetas::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['indexMetas'] as $item1) {
+                    $model->indexMetas[$n1++] = indexMetas::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['onlineMaster'])) {
             if (!empty($map['onlineMaster'])) {
                 $model->onlineMaster = [];
-                $n = 0;
-                foreach ($map['onlineMaster'] as $item) {
-                    $model->onlineMaster[$n++] = null !== $item ? onlineMaster::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['onlineMaster'] as $item1) {
+                    $model->onlineMaster[$n1++] = onlineMaster::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['tableIndexRelation'])) {
-            $model->tableIndexRelation = $map['tableIndexRelation'];
+            if (!empty($map['tableIndexRelation'])) {
+                $model->tableIndexRelation = [];
+                foreach ($map['tableIndexRelation'] as $key1 => $value1) {
+                    if (!empty($value1)) {
+                        $model->tableIndexRelation[$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $model->tableIndexRelation[$key1][$n2++] = $item2;
+                        }
+                    }
+                }
+            }
         }
+
         if (isset($map['tableMetas'])) {
             if (!empty($map['tableMetas'])) {
                 $model->tableMetas = [];
-                $n = 0;
-                foreach ($map['tableMetas'] as $item) {
-                    $model->tableMetas[$n++] = null !== $item ? tableMetas::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['tableMetas'] as $item1) {
+                    $model->tableMetas[$n1++] = tableMetas::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['zoneIndexRelation'])) {
-            $model->zoneIndexRelation = $map['zoneIndexRelation'];
+            if (!empty($map['zoneIndexRelation'])) {
+                $model->zoneIndexRelation = [];
+                foreach ($map['zoneIndexRelation'] as $key1 => $value1) {
+                    if (!empty($value1)) {
+                        $model->zoneIndexRelation[$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $model->zoneIndexRelation[$key1][$n2++] = $item2;
+                        }
+                    }
+                }
+            }
         }
+
         if (isset($map['zoneMetas'])) {
             if (!empty($map['zoneMetas'])) {
                 $model->zoneMetas = [];
-                $n = 0;
-                foreach ($map['zoneMetas'] as $item) {
-                    $model->zoneMetas[$n++] = null !== $item ? zoneMetas::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['zoneMetas'] as $item1) {
+                    $model->zoneMetas[$n1++] = zoneMetas::fromMap($item1);
                 }
             }
         }

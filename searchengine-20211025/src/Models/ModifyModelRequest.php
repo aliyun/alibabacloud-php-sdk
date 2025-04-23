@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyModelRequest\content;
-use AlibabaCloud\Tea\Model;
 
 class ModifyModelRequest extends Model
 {
@@ -15,15 +15,11 @@ class ModifyModelRequest extends Model
     public $content;
 
     /**
-     * @example ok
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example true
-     *
      * @var string
      */
     public $dryRun;
@@ -33,17 +29,25 @@ class ModifyModelRequest extends Model
         'dryRun' => 'dryRun',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->content) {
+            $this->content->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
-            $res['content'] = null !== $this->content ? $this->content->toMap() : null;
+            $res['content'] = null !== $this->content ? $this->content->toArray($noStream) : $this->content;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
         }
@@ -51,20 +55,22 @@ class ModifyModelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyModelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = content::fromMap($map['content']);
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
         }

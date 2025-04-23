@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UntagResourcesResponseBody extends Model
 {
     /**
-     * @example E7B7D598-B080-5C8E-AA35-D43EC0D5F886
-     *
      * @var string
      */
     public $tequestId;
@@ -18,9 +16,12 @@ class UntagResourcesResponseBody extends Model
         'tequestId' => 'tequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tequestId) {
@@ -30,11 +31,11 @@ class UntagResourcesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UntagResourcesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

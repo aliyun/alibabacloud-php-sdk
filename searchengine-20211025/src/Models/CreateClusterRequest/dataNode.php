@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateClusterRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataNode extends Model
 {
     /**
-     * @description The number of Searcher workers.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $number;
 
     /**
-     * @description The number of shards.
-     *
-     * @example 2
-     *
      * @var string
      */
     public $partition;
@@ -30,14 +22,18 @@ class dataNode extends Model
         'partition' => 'partition',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->number) {
             $res['number'] = $this->number;
         }
+
         if (null !== $this->partition) {
             $res['partition'] = $this->partition;
         }
@@ -45,17 +41,18 @@ class dataNode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataNode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['number'])) {
             $model->number = $map['number'];
         }
+
         if (isset($map['partition'])) {
             $model->partition = $map['partition'];
         }

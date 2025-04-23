@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyDataSourceDeployRequest\extend;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class odps extends Model
 {
     /**
-     * @description The partitions in the MaxCompute table.
-     *
      * @var string[]
      */
     public $partitions;
@@ -18,28 +16,44 @@ class odps extends Model
         'partitions' => 'partitions',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->partitions)) {
+            Model::validateArray($this->partitions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->partitions) {
-            $res['partitions'] = $this->partitions;
+            if (\is_array($this->partitions)) {
+                $res['partitions'] = [];
+                foreach ($this->partitions as $key1 => $value1) {
+                    $res['partitions'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return odps
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['partitions'])) {
-            $model->partitions = $map['partitions'];
+            if (!empty($map['partitions'])) {
+                $model->partitions = [];
+                foreach ($map['partitions'] as $key1 => $value1) {
+                    $model->partitions[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

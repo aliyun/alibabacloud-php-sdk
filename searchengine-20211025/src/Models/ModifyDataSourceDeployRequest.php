@@ -4,65 +4,45 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyDataSourceDeployRequest\extend;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyDataSourceDeployRequest\processor;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyDataSourceDeployRequest\storage;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyDataSourceDeployRequest\swift;
-use AlibabaCloud\Tea\Model;
 
 class ModifyDataSourceDeployRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the automatic full indexing feature.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoBuildIndex;
 
     /**
-     * @description The extended information.
-     *
      * @var extend
      */
     public $extend;
 
     /**
-     * @description The parameters of the process.
-     *
      * @var processor
      */
     public $processor;
 
     /**
-     * @description The information about the data source.
-     *
      * @var storage
      */
     public $storage;
 
     /**
-     * @description The information about the incremental data source Swift.
-     *
      * @var swift
      */
     public $swift;
 
     /**
-     * @description Specifies whether to perform only a dry run, without performing the actual request. The system only checks the validity of the data source. Valid values: true and false.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description The ID of the full index version.
-     *
-     * @example 1708674867
-     *
      * @var int
      */
     public $generationId;
@@ -76,29 +56,50 @@ class ModifyDataSourceDeployRequest extends Model
         'generationId' => 'generationId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->extend) {
+            $this->extend->validate();
+        }
+        if (null !== $this->processor) {
+            $this->processor->validate();
+        }
+        if (null !== $this->storage) {
+            $this->storage->validate();
+        }
+        if (null !== $this->swift) {
+            $this->swift->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoBuildIndex) {
             $res['autoBuildIndex'] = $this->autoBuildIndex;
         }
+
         if (null !== $this->extend) {
-            $res['extend'] = null !== $this->extend ? $this->extend->toMap() : null;
+            $res['extend'] = null !== $this->extend ? $this->extend->toArray($noStream) : $this->extend;
         }
+
         if (null !== $this->processor) {
-            $res['processor'] = null !== $this->processor ? $this->processor->toMap() : null;
+            $res['processor'] = null !== $this->processor ? $this->processor->toArray($noStream) : $this->processor;
         }
+
         if (null !== $this->storage) {
-            $res['storage'] = null !== $this->storage ? $this->storage->toMap() : null;
+            $res['storage'] = null !== $this->storage ? $this->storage->toArray($noStream) : $this->storage;
         }
+
         if (null !== $this->swift) {
-            $res['swift'] = null !== $this->swift ? $this->swift->toMap() : null;
+            $res['swift'] = null !== $this->swift ? $this->swift->toArray($noStream) : $this->swift;
         }
+
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
         }
+
         if (null !== $this->generationId) {
             $res['generationId'] = $this->generationId;
         }
@@ -106,32 +107,38 @@ class ModifyDataSourceDeployRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDataSourceDeployRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['autoBuildIndex'])) {
             $model->autoBuildIndex = $map['autoBuildIndex'];
         }
+
         if (isset($map['extend'])) {
             $model->extend = extend::fromMap($map['extend']);
         }
+
         if (isset($map['processor'])) {
             $model->processor = processor::fromMap($map['processor']);
         }
+
         if (isset($map['storage'])) {
             $model->storage = storage::fromMap($map['storage']);
         }
+
         if (isset($map['swift'])) {
             $model->swift = swift::fromMap($map['swift']);
         }
+
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
         }
+
         if (isset($map['generationId'])) {
             $model->generationId = $map['generationId'];
         }

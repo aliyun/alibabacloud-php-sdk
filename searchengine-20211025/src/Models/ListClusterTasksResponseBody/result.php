@@ -4,103 +4,63 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ListClusterTasksResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListClusterTasksResponseBody\result\tags;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListClusterTasksResponseBody\result\taskNodes;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description The additional attributes of the card.
-     *
-     * @example " "
-     *
      * @var string
      */
     public $extraAttribute;
 
     /**
-     * @description The field3 field that was passed when the FSM was created.
-     *
-     * @example " "
-     *
      * @var string
      */
     public $field3;
 
     /**
-     * @description The ID of the finite state machine (FSM).
-     *
-     * @example tisplus_opensearch@datasource_flow_fsm@1865410598556969-ha-cn-zvp2ljiwe01_api2@bj_vpc_domain_1@null@MANUAL-ha-cn-zvp2ljiwe01_api2@1649729867698@028315
-     *
      * @var string
      */
     public $fsmId;
 
     /**
-     * @description The change group type.
-     *
-     * @example " "
-     *
      * @var string
      */
     public $groupType;
 
     /**
-     * @description The card name.
-     *
-     * @example ha-cn-pl32rf0js04_qrs
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The FSM status.
-     *
-     * @example onlyPublished
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The tags of the progress bar.
-     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The task information.
-     *
      * @var taskNodes[]
      */
     public $taskNodes;
 
     /**
-     * @description The timestamp of the card.
-     *
-     * @example 1657610520
-     *
      * @var string
      */
     public $time;
 
     /**
-     * @description The card type.
-     *
-     * @example qrs
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The user who triggered the generation of the FSM process.
-     *
-     * @example " "
-     *
      * @var string
      */
     public $user;
@@ -118,53 +78,72 @@ class result extends Model
         'user' => 'user',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        if (\is_array($this->taskNodes)) {
+            Model::validateArray($this->taskNodes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extraAttribute) {
             $res['extraAttribute'] = $this->extraAttribute;
         }
+
         if (null !== $this->field3) {
             $res['field3'] = $this->field3;
         }
+
         if (null !== $this->fsmId) {
             $res['fsmId'] = $this->fsmId;
         }
+
         if (null !== $this->groupType) {
             $res['groupType'] = $this->groupType;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->tags) {
-            $res['tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->taskNodes) {
-            $res['taskNodes'] = [];
-            if (null !== $this->taskNodes && \is_array($this->taskNodes)) {
-                $n = 0;
-                foreach ($this->taskNodes as $item) {
-                    $res['taskNodes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskNodes)) {
+                $res['taskNodes'] = [];
+                $n1 = 0;
+                foreach ($this->taskNodes as $item1) {
+                    $res['taskNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->time) {
             $res['time'] = $this->time;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->user) {
             $res['user'] = $this->user;
         }
@@ -172,56 +151,66 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['extraAttribute'])) {
             $model->extraAttribute = $map['extraAttribute'];
         }
+
         if (isset($map['field3'])) {
             $model->field3 = $map['field3'];
         }
+
         if (isset($map['fsmId'])) {
             $model->fsmId = $map['fsmId'];
         }
+
         if (isset($map['groupType'])) {
             $model->groupType = $map['groupType'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
-                $n = 0;
-                foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['taskNodes'])) {
             if (!empty($map['taskNodes'])) {
                 $model->taskNodes = [];
-                $n = 0;
-                foreach ($map['taskNodes'] as $item) {
-                    $model->taskNodes[$n++] = null !== $item ? taskNodes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['taskNodes'] as $item1) {
+                    $model->taskNodes[$n1++] = taskNodes::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['time'])) {
             $model->time = $map['time'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['user'])) {
             $model->user = $map['user'];
         }

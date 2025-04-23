@@ -4,82 +4,52 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyIndexRequest\dataSourceInfo;
-use AlibabaCloud\Tea\Model;
 
 class ModifyIndexRequest extends Model
 {
     /**
-     * @description The maximum number of full indexes that can be concurrently built.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $buildParallelNum;
 
     /**
-     * @description The cluster information.
-     *
      * @var mixed[][]
      */
     public $cluster;
 
     /**
-     * @description The name of the configuration file.
-     *
-     * @example ha-cn-35t3r02iq03@ha-cn-35t3r02iq03_test_api@hz_pre_vpc_domain_1@test_api@index_config_v1
-     *
      * @var string
      */
     public $clusterConfigName;
 
     /**
-     * @description The information about the offline configuration.
-     *
      * @var ConfigValue[]
      */
     public $config;
 
     /**
-     * @description The file content.
-     *
-     * @example {\\"summarys\\":{\\"summary_fields\\":[\\"id\\"]},\\"indexs\\":[{\\"index_name\\":\\"index_id\\",\\"index_type\\":\\"PRIMARYKEY64\\",\\"index_fields\\":\\"id\\",\\"has_primary_key_attribute\\":true,\\"is_primary_key_sorted\\":false}],\\"attributes\\":[\\"id\\"],\\"fields\\":[{\\"field_name\\":\\"id\\",\\"field_type\\":\\"UINT16\\"}],\\"table_name\\":\\"index_2\\"}
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The name of the data source.
-     *
-     * @example ha-cn-35t3n1yuj0d_index_1
-     *
      * @var string
      */
     public $dataSource;
 
     /**
-     * @description The information about the data source, which is required for the new version of OpenSearch Vector Search Edition.
-     *
      * @var dataSourceInfo
      */
     public $dataSourceInfo;
 
     /**
-     * @description The description of the data source.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the data center in which the data source is deployed.
-     *
-     * @example vpc_hz_domain_1
-     *
      * @var string
      */
     public $domain;
@@ -90,42 +60,21 @@ class ModifyIndexRequest extends Model
     public $extend;
 
     /**
-     * @description The maximum number of full indexes that can be concurrently merged.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $mergeParallelNum;
 
     /**
-     * @description The number of shards.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $partition;
 
     /**
-     * @description The push mode of the configuration. By default, only the configuration is pushed.
-     *
-     * @example PUSH_ONLY
-     *
      * @var string
      */
     public $pushMode;
 
     /**
-     * @description Specifies whether to check the validity of input parameters. Default value: false.
-     *
-     * Valid values:
-     *
-     *   **true**: checks only the validity of input parameters.
-     *   **false**: checks the validity of input parameters and creates an attribution configuration.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $dryRun;
@@ -146,55 +95,93 @@ class ModifyIndexRequest extends Model
         'dryRun' => 'dryRun',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->cluster)) {
+            Model::validateArray($this->cluster);
+        }
+        if (\is_array($this->config)) {
+            Model::validateArray($this->config);
+        }
+        if (null !== $this->dataSourceInfo) {
+            $this->dataSourceInfo->validate();
+        }
+        if (\is_array($this->extend)) {
+            Model::validateArray($this->extend);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buildParallelNum) {
             $res['buildParallelNum'] = $this->buildParallelNum;
         }
+
         if (null !== $this->cluster) {
-            $res['cluster'] = $this->cluster;
-        }
-        if (null !== $this->clusterConfigName) {
-            $res['clusterConfigName'] = $this->clusterConfigName;
-        }
-        if (null !== $this->config) {
-            $res['config'] = [];
-            if (null !== $this->config && \is_array($this->config)) {
-                foreach ($this->config as $key => $val) {
-                    $res['config'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->cluster)) {
+                $res['cluster'] = [];
+                foreach ($this->cluster as $key1 => $value1) {
+                    $res['cluster'][$key1] = $value1;
                 }
             }
         }
+
+        if (null !== $this->clusterConfigName) {
+            $res['clusterConfigName'] = $this->clusterConfigName;
+        }
+
+        if (null !== $this->config) {
+            if (\is_array($this->config)) {
+                $res['config'] = [];
+                foreach ($this->config as $key1 => $value1) {
+                    $res['config'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+                }
+            }
+        }
+
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->dataSource) {
             $res['dataSource'] = $this->dataSource;
         }
+
         if (null !== $this->dataSourceInfo) {
-            $res['dataSourceInfo'] = null !== $this->dataSourceInfo ? $this->dataSourceInfo->toMap() : null;
+            $res['dataSourceInfo'] = null !== $this->dataSourceInfo ? $this->dataSourceInfo->toArray($noStream) : $this->dataSourceInfo;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->domain) {
             $res['domain'] = $this->domain;
         }
+
         if (null !== $this->extend) {
-            $res['extend'] = $this->extend;
+            if (\is_array($this->extend)) {
+                $res['extend'] = [];
+                foreach ($this->extend as $key1 => $value1) {
+                    $res['extend'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->mergeParallelNum) {
             $res['mergeParallelNum'] = $this->mergeParallelNum;
         }
+
         if (null !== $this->partition) {
             $res['partition'] = $this->partition;
         }
+
         if (null !== $this->pushMode) {
             $res['pushMode'] = $this->pushMode;
         }
+
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
         }
@@ -202,53 +189,81 @@ class ModifyIndexRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyIndexRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['buildParallelNum'])) {
             $model->buildParallelNum = $map['buildParallelNum'];
         }
+
         if (isset($map['cluster'])) {
-            $model->cluster = $map['cluster'];
+            if (!empty($map['cluster'])) {
+                $model->cluster = [];
+                foreach ($map['cluster'] as $key1 => $value1) {
+                    $model->cluster[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['clusterConfigName'])) {
             $model->clusterConfigName = $map['clusterConfigName'];
         }
+
         if (isset($map['config'])) {
-            $model->config = $map['config'];
+            if (!empty($map['config'])) {
+                $model->config = [];
+                foreach ($map['config'] as $key1 => $value1) {
+                    $model->config[$key1] = ConfigValue::fromMap($value1);
+                }
+            }
         }
+
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['dataSource'])) {
             $model->dataSource = $map['dataSource'];
         }
+
         if (isset($map['dataSourceInfo'])) {
             $model->dataSourceInfo = dataSourceInfo::fromMap($map['dataSourceInfo']);
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['domain'])) {
             $model->domain = $map['domain'];
         }
+
         if (isset($map['extend'])) {
-            $model->extend = $map['extend'];
+            if (!empty($map['extend'])) {
+                $model->extend = [];
+                foreach ($map['extend'] as $key1 => $value1) {
+                    $model->extend[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['mergeParallelNum'])) {
             $model->mergeParallelNum = $map['mergeParallelNum'];
         }
+
         if (isset($map['partition'])) {
             $model->partition = $map['partition'];
         }
+
         if (isset($map['pushMode'])) {
             $model->pushMode = $map['pushMode'];
         }
+
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
         }

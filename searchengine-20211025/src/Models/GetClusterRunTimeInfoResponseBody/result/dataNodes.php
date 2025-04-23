@@ -4,30 +4,24 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\GetClusterRunTimeInfoResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetClusterRunTimeInfoResponseBody\result\dataNodes\configStatusList;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetClusterRunTimeInfoResponseBody\result\dataNodes\dataStatusList;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetClusterRunTimeInfoResponseBody\result\dataNodes\serviceStatus;
-use AlibabaCloud\Tea\Model;
 
 class dataNodes extends Model
 {
     /**
-     * @description The configuration status.
-     *
      * @var configStatusList[]
      */
     public $configStatusList;
 
     /**
-     * @description The data of the Searcher worker.
-     *
      * @var dataStatusList[]
      */
     public $dataStatusList;
 
     /**
-     * @description The service status of the QRS worker.
-     *
      * @var serviceStatus
      */
     public $serviceStatus;
@@ -37,62 +31,78 @@ class dataNodes extends Model
         'serviceStatus' => 'serviceStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->configStatusList)) {
+            Model::validateArray($this->configStatusList);
+        }
+        if (\is_array($this->dataStatusList)) {
+            Model::validateArray($this->dataStatusList);
+        }
+        if (null !== $this->serviceStatus) {
+            $this->serviceStatus->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configStatusList) {
-            $res['configStatusList'] = [];
-            if (null !== $this->configStatusList && \is_array($this->configStatusList)) {
-                $n = 0;
-                foreach ($this->configStatusList as $item) {
-                    $res['configStatusList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configStatusList)) {
+                $res['configStatusList'] = [];
+                $n1 = 0;
+                foreach ($this->configStatusList as $item1) {
+                    $res['configStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->dataStatusList) {
-            $res['dataStatusList'] = [];
-            if (null !== $this->dataStatusList && \is_array($this->dataStatusList)) {
-                $n = 0;
-                foreach ($this->dataStatusList as $item) {
-                    $res['dataStatusList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataStatusList)) {
+                $res['dataStatusList'] = [];
+                $n1 = 0;
+                foreach ($this->dataStatusList as $item1) {
+                    $res['dataStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->serviceStatus) {
-            $res['serviceStatus'] = null !== $this->serviceStatus ? $this->serviceStatus->toMap() : null;
+            $res['serviceStatus'] = null !== $this->serviceStatus ? $this->serviceStatus->toArray($noStream) : $this->serviceStatus;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataNodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['configStatusList'])) {
             if (!empty($map['configStatusList'])) {
                 $model->configStatusList = [];
-                $n = 0;
-                foreach ($map['configStatusList'] as $item) {
-                    $model->configStatusList[$n++] = null !== $item ? configStatusList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['configStatusList'] as $item1) {
+                    $model->configStatusList[$n1++] = configStatusList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['dataStatusList'])) {
             if (!empty($map['dataStatusList'])) {
                 $model->dataStatusList = [];
-                $n = 0;
-                foreach ($map['dataStatusList'] as $item) {
-                    $model->dataStatusList[$n++] = null !== $item ? dataStatusList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['dataStatusList'] as $item1) {
+                    $model->dataStatusList[$n1++] = dataStatusList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['serviceStatus'])) {
             $model->serviceStatus = serviceStatus::fromMap($map['serviceStatus']);
         }

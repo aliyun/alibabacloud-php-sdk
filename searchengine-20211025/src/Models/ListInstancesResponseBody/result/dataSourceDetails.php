@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ListInstancesResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListInstancesResponseBody\result\dataSourceDetails\config;
-use AlibabaCloud\Tea\Model;
 
 class dataSourceDetails extends Model
 {
@@ -29,17 +29,25 @@ class dataSourceDetails extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->config) {
+            $this->config->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
-            $res['config'] = null !== $this->config ? $this->config->toMap() : null;
+            $res['config'] = null !== $this->config ? $this->config->toArray($noStream) : $this->config;
         }
+
         if (null !== $this->indexName) {
             $res['indexName'] = $this->indexName;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -47,20 +55,22 @@ class dataSourceDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataSourceDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['config'])) {
             $model->config = config::fromMap($map['config']);
         }
+
         if (isset($map['indexName'])) {
             $model->indexName = $map['indexName'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

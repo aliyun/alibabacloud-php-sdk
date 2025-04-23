@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Searchengine\V20211025\Models\ListClusterNamesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The description of the cluster.
-     *
-     * @example ha3_test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The cluster ID.
-     *
-     * @example 25030
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The cluster name.
-     *
-     * @example my_index
-     *
      * @var string
      */
     public $name;
@@ -40,17 +28,22 @@ class result extends Model
         'name' => 'name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -58,20 +51,22 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
