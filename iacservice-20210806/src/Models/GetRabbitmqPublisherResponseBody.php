@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetRabbitmqPublisherResponseBody\publisher;
-use AlibabaCloud\Tea\Model;
 
 class GetRabbitmqPublisherResponseBody extends Model
 {
@@ -25,14 +25,19 @@ class GetRabbitmqPublisherResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->publisher) {
+            $this->publisher->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->publisher) {
-            $res['publisher'] = null !== $this->publisher ? $this->publisher->toMap() : null;
+            $res['publisher'] = null !== $this->publisher ? $this->publisher->toArray($noStream) : $this->publisher;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class GetRabbitmqPublisherResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRabbitmqPublisherResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['publisher'])) {
             $model->publisher = publisher::fromMap($map['publisher']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateJobResponseBody extends Model
 {
@@ -18,20 +18,22 @@ class CreateJobResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'jobId'     => 'jobId',
+        'jobId' => 'jobId',
         'requestId' => 'requestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
             $res['jobId'] = $this->jobId;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -39,17 +41,18 @@ class CreateJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['jobId'])) {
             $model->jobId = $map['jobId'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

@@ -4,35 +4,26 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
-use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateProjectResponseBody\project;
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateProjectResponseBody extends Model
 {
-    /**
-     * @var project
-     */
-    public $project;
-
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'project'   => 'project',
         'requestId' => 'requestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['project'] = null !== $this->project ? $this->project->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -40,17 +31,14 @@ class UpdateProjectResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateProjectResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['project'])) {
-            $model->project = project::fromMap($map['project']);
-        }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

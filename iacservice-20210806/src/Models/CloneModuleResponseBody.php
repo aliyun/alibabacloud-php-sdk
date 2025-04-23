@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CloneModuleResponseBody extends Model
 {
@@ -18,20 +18,22 @@ class CloneModuleResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'moduleId'  => 'moduleId',
+        'moduleId' => 'moduleId',
         'requestId' => 'requestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->moduleId) {
             $res['moduleId'] = $this->moduleId;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -39,17 +41,18 @@ class CloneModuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloneModuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['moduleId'])) {
             $model->moduleId = $map['moduleId'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

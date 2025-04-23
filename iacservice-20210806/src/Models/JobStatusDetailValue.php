@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class JobStatusDetailValue extends Model
 {
@@ -16,54 +16,59 @@ class JobStatusDetailValue extends Model
     /**
      * @var string
      */
-    public $timeStamps;
+    public $jobResult;
 
     /**
      * @var string
      */
-    public $jobResult;
+    public $timeStamps;
     protected $_name = [
-        'comment'    => 'comment',
+        'comment' => 'comment',
+        'jobResult' => 'jobResult',
         'timeStamps' => 'timeStamps',
-        'jobResult'  => 'jobResult',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comment) {
             $res['comment'] = $this->comment;
         }
-        if (null !== $this->timeStamps) {
-            $res['timeStamps'] = $this->timeStamps;
-        }
+
         if (null !== $this->jobResult) {
             $res['jobResult'] = $this->jobResult;
+        }
+
+        if (null !== $this->timeStamps) {
+            $res['timeStamps'] = $this->timeStamps;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return JobStatusDetailValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['comment'])) {
             $model->comment = $map['comment'];
         }
-        if (isset($map['timeStamps'])) {
-            $model->timeStamps = $map['timeStamps'];
-        }
+
         if (isset($map['jobResult'])) {
             $model->jobResult = $map['jobResult'];
+        }
+
+        if (isset($map['timeStamps'])) {
+            $model->timeStamps = $map['timeStamps'];
         }
 
         return $model;

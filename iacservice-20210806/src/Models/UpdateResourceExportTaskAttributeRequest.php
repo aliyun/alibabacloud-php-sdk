@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateResourceExportTaskAttributeRequest\excludeRules;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateResourceExportTaskAttributeRequest\exportToModule;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateResourceExportTaskAttributeRequest\includeRules;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateResourceExportTaskAttributeRequest\variables;
-use AlibabaCloud\Tea\Model;
 
 class UpdateResourceExportTaskAttributeRequest extends Model
 {
@@ -16,6 +16,11 @@ class UpdateResourceExportTaskAttributeRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $configPath;
 
     /**
      * @var string
@@ -50,6 +55,11 @@ class UpdateResourceExportTaskAttributeRequest extends Model
     /**
      * @var string
      */
+    public $terraformProviderVersion;
+
+    /**
+     * @var string
+     */
     public $terraformVersion;
 
     /**
@@ -62,70 +72,102 @@ class UpdateResourceExportTaskAttributeRequest extends Model
      */
     public $variables;
     protected $_name = [
-        'clientToken'      => 'clientToken',
-        'description'      => 'description',
-        'excludeRules'     => 'excludeRules',
-        'exportToModule'   => 'exportToModule',
-        'includeRules'     => 'includeRules',
-        'name'             => 'name',
-        'ramRole'          => 'ramRole',
+        'clientToken' => 'clientToken',
+        'configPath' => 'configPath',
+        'description' => 'description',
+        'excludeRules' => 'excludeRules',
+        'exportToModule' => 'exportToModule',
+        'includeRules' => 'includeRules',
+        'name' => 'name',
+        'ramRole' => 'ramRole',
+        'terraformProviderVersion' => 'terraformProviderVersion',
         'terraformVersion' => 'terraformVersion',
-        'triggerStrategy'  => 'triggerStrategy',
-        'variables'        => 'variables',
+        'triggerStrategy' => 'triggerStrategy',
+        'variables' => 'variables',
     ];
 
     public function validate()
     {
+        if (\is_array($this->excludeRules)) {
+            Model::validateArray($this->excludeRules);
+        }
+        if (null !== $this->exportToModule) {
+            $this->exportToModule->validate();
+        }
+        if (\is_array($this->includeRules)) {
+            Model::validateArray($this->includeRules);
+        }
+        if (\is_array($this->variables)) {
+            Model::validateArray($this->variables);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
+
+        if (null !== $this->configPath) {
+            $res['configPath'] = $this->configPath;
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->excludeRules) {
-            $res['excludeRules'] = [];
-            if (null !== $this->excludeRules && \is_array($this->excludeRules)) {
-                $n = 0;
-                foreach ($this->excludeRules as $item) {
-                    $res['excludeRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->excludeRules)) {
+                $res['excludeRules'] = [];
+                $n1 = 0;
+                foreach ($this->excludeRules as $item1) {
+                    $res['excludeRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->exportToModule) {
-            $res['exportToModule'] = null !== $this->exportToModule ? $this->exportToModule->toMap() : null;
+            $res['exportToModule'] = null !== $this->exportToModule ? $this->exportToModule->toArray($noStream) : $this->exportToModule;
         }
+
         if (null !== $this->includeRules) {
-            $res['includeRules'] = [];
-            if (null !== $this->includeRules && \is_array($this->includeRules)) {
-                $n = 0;
-                foreach ($this->includeRules as $item) {
-                    $res['includeRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->includeRules)) {
+                $res['includeRules'] = [];
+                $n1 = 0;
+                foreach ($this->includeRules as $item1) {
+                    $res['includeRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->ramRole) {
             $res['ramRole'] = $this->ramRole;
         }
+
+        if (null !== $this->terraformProviderVersion) {
+            $res['terraformProviderVersion'] = $this->terraformProviderVersion;
+        }
+
         if (null !== $this->terraformVersion) {
             $res['terraformVersion'] = $this->terraformVersion;
         }
+
         if (null !== $this->triggerStrategy) {
             $res['triggerStrategy'] = $this->triggerStrategy;
         }
+
         if (null !== $this->variables) {
-            $res['variables'] = [];
-            if (null !== $this->variables && \is_array($this->variables)) {
-                $n = 0;
-                foreach ($this->variables as $item) {
-                    $res['variables'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->variables)) {
+                $res['variables'] = [];
+                $n1 = 0;
+                foreach ($this->variables as $item1) {
+                    $res['variables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -133,59 +175,76 @@ class UpdateResourceExportTaskAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateResourceExportTaskAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }
+
+        if (isset($map['configPath'])) {
+            $model->configPath = $map['configPath'];
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['excludeRules'])) {
             if (!empty($map['excludeRules'])) {
                 $model->excludeRules = [];
-                $n                   = 0;
-                foreach ($map['excludeRules'] as $item) {
-                    $model->excludeRules[$n++] = null !== $item ? excludeRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['excludeRules'] as $item1) {
+                    $model->excludeRules[$n1++] = excludeRules::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['exportToModule'])) {
             $model->exportToModule = exportToModule::fromMap($map['exportToModule']);
         }
+
         if (isset($map['includeRules'])) {
             if (!empty($map['includeRules'])) {
                 $model->includeRules = [];
-                $n                   = 0;
-                foreach ($map['includeRules'] as $item) {
-                    $model->includeRules[$n++] = null !== $item ? includeRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['includeRules'] as $item1) {
+                    $model->includeRules[$n1++] = includeRules::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['ramRole'])) {
             $model->ramRole = $map['ramRole'];
         }
+
+        if (isset($map['terraformProviderVersion'])) {
+            $model->terraformProviderVersion = $map['terraformProviderVersion'];
+        }
+
         if (isset($map['terraformVersion'])) {
             $model->terraformVersion = $map['terraformVersion'];
         }
+
         if (isset($map['triggerStrategy'])) {
             $model->triggerStrategy = $map['triggerStrategy'];
         }
+
         if (isset($map['variables'])) {
             if (!empty($map['variables'])) {
                 $model->variables = [];
-                $n                = 0;
-                foreach ($map['variables'] as $item) {
-                    $model->variables[$n++] = null !== $item ? variables::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['variables'] as $item1) {
+                    $model->variables[$n1++] = variables::fromMap($item1);
                 }
             }
         }

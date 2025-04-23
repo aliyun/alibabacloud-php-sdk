@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListJobsRequest extends Model
 {
@@ -22,48 +22,67 @@ class ListJobsRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $taskType;
     protected $_name = [
         'pageNumber' => 'pageNumber',
-        'pageSize'   => 'pageSize',
-        'status'     => 'status',
+        'pageSize' => 'pageSize',
+        'status' => 'status',
+        'taskType' => 'taskType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+
+        if (null !== $this->taskType) {
+            $res['taskType'] = $this->taskType;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListJobsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['taskType'])) {
+            $model->taskType = $map['taskType'];
         }
 
         return $model;

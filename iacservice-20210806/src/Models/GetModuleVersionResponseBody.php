@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetModuleVersionResponseBody\version;
-use AlibabaCloud\Tea\Model;
 
 class GetModuleVersionResponseBody extends Model
 {
@@ -20,37 +20,43 @@ class GetModuleVersionResponseBody extends Model
     public $version;
     protected $_name = [
         'requestId' => 'requestId',
-        'version'   => 'version',
+        'version' => 'version',
     ];
 
     public function validate()
     {
+        if (null !== $this->version) {
+            $this->version->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->version) {
-            $res['version'] = null !== $this->version ? $this->version->toMap() : null;
+            $res['version'] = null !== $this->version ? $this->version->toArray($noStream) : $this->version;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetModuleVersionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['version'])) {
             $model->version = version::fromMap($map['version']);
         }

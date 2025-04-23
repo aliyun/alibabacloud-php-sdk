@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateResourceExportTaskAttributeRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class variables extends Model
 {
@@ -18,20 +18,31 @@ class variables extends Model
      */
     public $resourceType;
     protected $_name = [
-        'properties'   => 'properties',
+        'properties' => 'properties',
         'resourceType' => 'resourceType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->properties)) {
+            Model::validateArray($this->properties);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->properties) {
-            $res['properties'] = $this->properties;
+            if (\is_array($this->properties)) {
+                $res['properties'] = [];
+                $n1 = 0;
+                foreach ($this->properties as $item1) {
+                    $res['properties'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
@@ -39,19 +50,24 @@ class variables extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return variables
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['properties'])) {
             if (!empty($map['properties'])) {
-                $model->properties = $map['properties'];
+                $model->properties = [];
+                $n1 = 0;
+                foreach ($map['properties'] as $item1) {
+                    $model->properties[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }

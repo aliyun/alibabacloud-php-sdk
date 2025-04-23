@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListParameterSetRelationRequest extends Model
 {
@@ -18,20 +18,22 @@ class ListParameterSetRelationRequest extends Model
      */
     public $resourceType;
     protected $_name = [
-        'resourceId'   => 'resourceId',
+        'resourceId' => 'resourceId',
         'resourceType' => 'resourceType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceId) {
             $res['resourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
@@ -39,17 +41,18 @@ class ListParameterSetRelationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListParameterSetRelationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['resourceId'])) {
             $model->resourceId = $map['resourceId'];
         }
+
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }

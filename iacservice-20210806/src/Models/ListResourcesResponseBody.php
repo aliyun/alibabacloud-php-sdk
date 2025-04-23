@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListResourcesResponseBody\resources;
-use AlibabaCloud\Tea\Model;
 
 class ListResourcesResponseBody extends Model
 {
@@ -34,38 +34,46 @@ class ListResourcesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'resources'  => 'Resources',
+        'resources' => 'Resources',
         'pageNumber' => 'pageNumber',
-        'pageSize'   => 'pageSize',
-        'requestId'  => 'requestId',
+        'pageSize' => 'pageSize',
+        'requestId' => 'requestId',
         'totalCount' => 'totalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->resources)) {
+            Model::validateArray($this->resources);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resources) {
-            $res['Resources'] = [];
-            if (null !== $this->resources && \is_array($this->resources)) {
-                $n = 0;
-                foreach ($this->resources as $item) {
-                    $res['Resources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resources)) {
+                $res['Resources'] = [];
+                $n1 = 0;
+                foreach ($this->resources as $item1) {
+                    $res['Resources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -73,32 +81,36 @@ class ListResourcesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListResourcesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
-                $n                = 0;
-                foreach ($map['Resources'] as $item) {
-                    $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Resources'] as $item1) {
+                    $model->resources[$n1++] = resources::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

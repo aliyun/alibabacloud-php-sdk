@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\UpdateParameterSetAttributeRequest\parameters;
-use AlibabaCloud\Tea\Model;
 
 class UpdateParameterSetAttributeRequest extends Model
 {
@@ -25,29 +25,35 @@ class UpdateParameterSetAttributeRequest extends Model
     public $parameters;
     protected $_name = [
         'description' => 'description',
-        'name'        => 'name',
-        'parameters'  => 'parameters',
+        'name' => 'name',
+        'parameters' => 'parameters',
     ];
 
     public function validate()
     {
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->parameters) {
-            $res['parameters'] = [];
-            if (null !== $this->parameters && \is_array($this->parameters)) {
-                $n = 0;
-                foreach ($this->parameters as $item) {
-                    $res['parameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->parameters)) {
+                $res['parameters'] = [];
+                $n1 = 0;
+                foreach ($this->parameters as $item1) {
+                    $res['parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -55,26 +61,28 @@ class UpdateParameterSetAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateParameterSetAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['parameters'])) {
             if (!empty($map['parameters'])) {
                 $model->parameters = [];
-                $n                 = 0;
-                foreach ($map['parameters'] as $item) {
-                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['parameters'] as $item1) {
+                    $model->parameters[$n1++] = parameters::fromMap($item1);
                 }
             }
         }

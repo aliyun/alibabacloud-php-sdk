@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetParameterSetResponseBody\parameterSet;
-use AlibabaCloud\Tea\Model;
 
 class GetParameterSetResponseBody extends Model
 {
@@ -20,19 +20,24 @@ class GetParameterSetResponseBody extends Model
     public $requestId;
     protected $_name = [
         'parameterSet' => 'parameterSet',
-        'requestId'    => 'requestId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->parameterSet) {
+            $this->parameterSet->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parameterSet) {
-            $res['parameterSet'] = null !== $this->parameterSet ? $this->parameterSet->toMap() : null;
+            $res['parameterSet'] = null !== $this->parameterSet ? $this->parameterSet->toArray($noStream) : $this->parameterSet;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class GetParameterSetResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetParameterSetResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['parameterSet'])) {
             $model->parameterSet = parameterSet::fromMap($map['parameterSet']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

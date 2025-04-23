@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListRabbitmqPublishersResponseBody\authorizations;
-use AlibabaCloud\Tea\Model;
 
 class ListRabbitmqPublishersResponseBody extends Model
 {
@@ -35,37 +35,45 @@ class ListRabbitmqPublishersResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'authorizations' => 'authorizations',
-        'pageNumber'     => 'pageNumber',
-        'pageSize'       => 'pageSize',
-        'requestId'      => 'requestId',
-        'totalCount'     => 'totalCount',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
+        'requestId' => 'requestId',
+        'totalCount' => 'totalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->authorizations)) {
+            Model::validateArray($this->authorizations);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authorizations) {
-            $res['authorizations'] = [];
-            if (null !== $this->authorizations && \is_array($this->authorizations)) {
-                $n = 0;
-                foreach ($this->authorizations as $item) {
-                    $res['authorizations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->authorizations)) {
+                $res['authorizations'] = [];
+                $n1 = 0;
+                foreach ($this->authorizations as $item1) {
+                    $res['authorizations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -73,32 +81,36 @@ class ListRabbitmqPublishersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRabbitmqPublishersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['authorizations'])) {
             if (!empty($map['authorizations'])) {
                 $model->authorizations = [];
-                $n                     = 0;
-                foreach ($map['authorizations'] as $item) {
-                    $model->authorizations[$n++] = null !== $item ? authorizations::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['authorizations'] as $item1) {
+                    $model->authorizations[$n1++] = authorizations::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

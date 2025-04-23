@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models\GetResourceExportTaskResponseBody\task;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class modules extends Model
 {
@@ -23,24 +23,27 @@ class modules extends Model
      */
     public $version;
     protected $_name = [
-        'source'     => 'source',
+        'source' => 'source',
         'sourcePath' => 'sourcePath',
-        'version'    => 'version',
+        'version' => 'version',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->source) {
             $res['source'] = $this->source;
         }
+
         if (null !== $this->sourcePath) {
             $res['sourcePath'] = $this->sourcePath;
         }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -48,20 +51,22 @@ class modules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return modules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['source'])) {
             $model->source = $map['source'];
         }
+
         if (isset($map['sourcePath'])) {
             $model->sourcePath = $map['sourcePath'];
         }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

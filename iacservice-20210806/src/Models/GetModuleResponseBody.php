@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetModuleResponseBody\module;
-use AlibabaCloud\Tea\Model;
 
 class GetModuleResponseBody extends Model
 {
@@ -19,20 +19,25 @@ class GetModuleResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'module'    => 'module',
+        'module' => 'module',
         'requestId' => 'requestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->module) {
+            $this->module->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->module) {
-            $res['module'] = null !== $this->module ? $this->module->toMap() : null;
+            $res['module'] = null !== $this->module ? $this->module->toArray($noStream) : $this->module;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class GetModuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetModuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['module'])) {
             $model->module = module::fromMap($map['module']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

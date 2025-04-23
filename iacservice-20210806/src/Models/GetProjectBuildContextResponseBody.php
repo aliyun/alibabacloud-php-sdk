@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetProjectBuildContextResponseBody\projectBuild;
-use AlibabaCloud\Tea\Model;
 
 class GetProjectBuildContextResponseBody extends Model
 {
@@ -20,19 +20,24 @@ class GetProjectBuildContextResponseBody extends Model
     public $requestId;
     protected $_name = [
         'projectBuild' => 'ProjectBuild',
-        'requestId'    => 'requestId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->projectBuild) {
+            $this->projectBuild->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectBuild) {
-            $res['ProjectBuild'] = null !== $this->projectBuild ? $this->projectBuild->toMap() : null;
+            $res['ProjectBuild'] = null !== $this->projectBuild ? $this->projectBuild->toArray($noStream) : $this->projectBuild;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class GetProjectBuildContextResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetProjectBuildContextResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProjectBuild'])) {
             $model->projectBuild = projectBuild::fromMap($map['ProjectBuild']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\ListProjectBuildsResponseBody\projectBuilds;
-use AlibabaCloud\Tea\Model;
 
 class ListProjectBuildsResponseBody extends Model
 {
@@ -13,6 +13,16 @@ class ListProjectBuildsResponseBody extends Model
      * @var projectBuilds[]
      */
     public $projectBuilds;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -25,29 +35,45 @@ class ListProjectBuildsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'projectBuilds' => 'ProjectBuilds',
-        'requestId'     => 'requestId',
-        'totalCount'    => 'totalCount',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
+        'requestId' => 'requestId',
+        'totalCount' => 'totalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->projectBuilds)) {
+            Model::validateArray($this->projectBuilds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectBuilds) {
-            $res['ProjectBuilds'] = [];
-            if (null !== $this->projectBuilds && \is_array($this->projectBuilds)) {
-                $n = 0;
-                foreach ($this->projectBuilds as $item) {
-                    $res['ProjectBuilds'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->projectBuilds)) {
+                $res['ProjectBuilds'] = [];
+                $n1 = 0;
+                foreach ($this->projectBuilds as $item1) {
+                    $res['ProjectBuilds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
+        if (null !== $this->pageNumber) {
+            $res['pageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['pageSize'] = $this->pageSize;
+        }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -55,26 +81,36 @@ class ListProjectBuildsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListProjectBuildsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProjectBuilds'])) {
             if (!empty($map['ProjectBuilds'])) {
                 $model->projectBuilds = [];
-                $n                    = 0;
-                foreach ($map['ProjectBuilds'] as $item) {
-                    $model->projectBuilds[$n++] = null !== $item ? projectBuilds::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ProjectBuilds'] as $item1) {
+                    $model->projectBuilds[$n1++] = projectBuilds::fromMap($item1);
                 }
             }
         }
+
+        if (isset($map['pageNumber'])) {
+            $model->pageNumber = $map['pageNumber'];
+        }
+
+        if (isset($map['pageSize'])) {
+            $model->pageSize = $map['pageSize'];
+        }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

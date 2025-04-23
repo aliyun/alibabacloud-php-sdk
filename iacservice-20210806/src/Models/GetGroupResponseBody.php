@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetGroupResponseBody\group;
-use AlibabaCloud\Tea\Model;
 
 class GetGroupResponseBody extends Model
 {
@@ -19,20 +19,25 @@ class GetGroupResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'group'     => 'group',
+        'group' => 'group',
         'requestId' => 'requestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->group) {
+            $this->group->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->group) {
-            $res['group'] = null !== $this->group ? $this->group->toMap() : null;
+            $res['group'] = null !== $this->group ? $this->group->toArray($noStream) : $this->group;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -40,17 +45,18 @@ class GetGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['group'])) {
             $model->group = group::fromMap($map['group']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

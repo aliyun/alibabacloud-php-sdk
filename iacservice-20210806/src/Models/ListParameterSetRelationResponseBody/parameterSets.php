@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models\ListParameterSetRelationResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class parameterSets extends Model
 {
@@ -33,61 +33,83 @@ class parameterSets extends Model
      */
     public $parameters;
     protected $_name = [
-        'createTime'     => 'createTime',
-        'description'    => 'description',
-        'name'           => 'name',
+        'createTime' => 'createTime',
+        'description' => 'description',
+        'name' => 'name',
         'parameterSetId' => 'parameterSetId',
-        'parameters'     => 'parameters',
+        'parameters' => 'parameters',
     ];
 
     public function validate()
     {
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->parameterSetId) {
             $res['parameterSetId'] = $this->parameterSetId;
         }
+
         if (null !== $this->parameters) {
-            $res['parameters'] = $this->parameters;
+            if (\is_array($this->parameters)) {
+                $res['parameters'] = [];
+                foreach ($this->parameters as $key1 => $value1) {
+                    $res['parameters'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return parameterSets
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['parameterSetId'])) {
             $model->parameterSetId = $map['parameterSetId'];
         }
+
         if (isset($map['parameters'])) {
-            $model->parameters = $map['parameters'];
+            if (!empty($map['parameters'])) {
+                $model->parameters = [];
+                foreach ($map['parameters'] as $key1 => $value1) {
+                    $model->parameters[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

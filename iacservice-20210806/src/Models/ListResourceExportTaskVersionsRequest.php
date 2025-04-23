@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListResourceExportTaskVersionsRequest extends Model
 {
@@ -34,31 +34,36 @@ class ListResourceExportTaskVersionsRequest extends Model
     public $status;
     protected $_name = [
         'exportVersion' => 'exportVersion',
-        'keyword'       => 'keyword',
-        'pageNumber'    => 'pageNumber',
-        'pageSize'      => 'pageSize',
-        'status'        => 'status',
+        'keyword' => 'keyword',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
+        'status' => 'status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exportVersion) {
             $res['exportVersion'] = $this->exportVersion;
         }
+
         if (null !== $this->keyword) {
             $res['keyword'] = $this->keyword;
         }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -66,26 +71,30 @@ class ListResourceExportTaskVersionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListResourceExportTaskVersionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['exportVersion'])) {
             $model->exportVersion = $map['exportVersion'];
         }
+
         if (isset($map['keyword'])) {
             $model->keyword = $map['keyword'];
         }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

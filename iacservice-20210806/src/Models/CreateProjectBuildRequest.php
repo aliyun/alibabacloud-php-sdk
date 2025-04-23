@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateProjectBuildRequest\taskPolicies;
-use AlibabaCloud\Tea\Model;
 
 class CreateProjectBuildRequest extends Model
 {
@@ -13,6 +13,11 @@ class CreateProjectBuildRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $groupId;
 
     /**
      * @var string
@@ -29,34 +34,55 @@ class CreateProjectBuildRequest extends Model
      */
     public $taskPolicies;
     protected $_name = [
-        'clientToken'        => 'clientToken',
+        'clientToken' => 'clientToken',
+        'groupId' => 'groupId',
         'projectBuildAction' => 'projectBuildAction',
-        'taskIds'            => 'taskIds',
-        'taskPolicies'       => 'taskPolicies',
+        'taskIds' => 'taskIds',
+        'taskPolicies' => 'taskPolicies',
     ];
 
     public function validate()
     {
+        if (\is_array($this->taskIds)) {
+            Model::validateArray($this->taskIds);
+        }
+        if (\is_array($this->taskPolicies)) {
+            Model::validateArray($this->taskPolicies);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
+
+        if (null !== $this->groupId) {
+            $res['groupId'] = $this->groupId;
+        }
+
         if (null !== $this->projectBuildAction) {
             $res['projectBuildAction'] = $this->projectBuildAction;
         }
+
         if (null !== $this->taskIds) {
-            $res['taskIds'] = $this->taskIds;
+            if (\is_array($this->taskIds)) {
+                $res['taskIds'] = [];
+                $n1 = 0;
+                foreach ($this->taskIds as $item1) {
+                    $res['taskIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->taskPolicies) {
-            $res['taskPolicies'] = [];
-            if (null !== $this->taskPolicies && \is_array($this->taskPolicies)) {
-                $n = 0;
-                foreach ($this->taskPolicies as $item) {
-                    $res['taskPolicies'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskPolicies)) {
+                $res['taskPolicies'] = [];
+                $n1 = 0;
+                foreach ($this->taskPolicies as $item1) {
+                    $res['taskPolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -64,31 +90,42 @@ class CreateProjectBuildRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateProjectBuildRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }
+
+        if (isset($map['groupId'])) {
+            $model->groupId = $map['groupId'];
+        }
+
         if (isset($map['projectBuildAction'])) {
             $model->projectBuildAction = $map['projectBuildAction'];
         }
+
         if (isset($map['taskIds'])) {
             if (!empty($map['taskIds'])) {
-                $model->taskIds = $map['taskIds'];
+                $model->taskIds = [];
+                $n1 = 0;
+                foreach ($map['taskIds'] as $item1) {
+                    $model->taskIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['taskPolicies'])) {
             if (!empty($map['taskPolicies'])) {
                 $model->taskPolicies = [];
-                $n                   = 0;
-                foreach ($map['taskPolicies'] as $item) {
-                    $model->taskPolicies[$n++] = null !== $item ? taskPolicies::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['taskPolicies'] as $item1) {
+                    $model->taskPolicies[$n1++] = taskPolicies::fromMap($item1);
                 }
             }
         }

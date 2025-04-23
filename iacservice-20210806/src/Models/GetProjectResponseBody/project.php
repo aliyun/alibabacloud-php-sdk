@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models\GetProjectResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class project extends Model
 {
@@ -21,44 +21,49 @@ class project extends Model
     /**
      * @var string
      */
-    public $id;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $projectId;
 
     /**
      * @var int
      */
     public $taskCnt;
     protected $_name = [
-        'createTime'  => 'createTime',
+        'createTime' => 'createTime',
         'description' => 'description',
-        'id'          => 'id',
-        'name'        => 'name',
-        'taskCnt'     => 'taskCnt',
+        'name' => 'name',
+        'projectId' => 'projectId',
+        'taskCnt' => 'taskCnt',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
-        }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
+        if (null !== $this->projectId) {
+            $res['projectId'] = $this->projectId;
+        }
+
         if (null !== $this->taskCnt) {
             $res['taskCnt'] = $this->taskCnt;
         }
@@ -66,26 +71,30 @@ class project extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return project
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
-        }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
+        if (isset($map['projectId'])) {
+            $model->projectId = $map['projectId'];
+        }
+
         if (isset($map['taskCnt'])) {
             $model->taskCnt = $map['taskCnt'];
         }

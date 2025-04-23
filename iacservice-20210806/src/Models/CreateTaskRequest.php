@@ -4,8 +4,9 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateTaskRequest\groupInfo;
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\CreateTaskRequest\taskBackend;
 
 class CreateTaskRequest extends Model
 {
@@ -15,14 +16,29 @@ class CreateTaskRequest extends Model
     public $autoApply;
 
     /**
+     * @var bool
+     */
+    public $autoDestroy;
+
+    /**
      * @var string
      */
     public $clientToken;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var groupInfo
      */
     public $groupInfo;
+
+    /**
+     * @var bool
+     */
+    public $initModuleState;
 
     /**
      * @var string
@@ -55,6 +71,16 @@ class CreateTaskRequest extends Model
     public $ramRole;
 
     /**
+     * @var bool
+     */
+    public $skipPropertyValidation;
+
+    /**
+     * @var taskBackend
+     */
+    public $taskBackend;
+
+    /**
      * @var string
      */
     public $terraformVersion;
@@ -63,106 +89,218 @@ class CreateTaskRequest extends Model
      * @var string
      */
     public $triggerStrategy;
+
+    /**
+     * @var string
+     */
+    public $triggerValue;
     protected $_name = [
-        'autoApply'          => 'autoApply',
-        'clientToken'        => 'clientToken',
-        'groupInfo'          => 'groupInfo',
-        'moduleId'           => 'moduleId',
-        'moduleVersion'      => 'moduleVersion',
-        'name'               => 'name',
-        'parameters'         => 'parameters',
+        'autoApply' => 'autoApply',
+        'autoDestroy' => 'autoDestroy',
+        'clientToken' => 'clientToken',
+        'description' => 'description',
+        'groupInfo' => 'groupInfo',
+        'initModuleState' => 'initModuleState',
+        'moduleId' => 'moduleId',
+        'moduleVersion' => 'moduleVersion',
+        'name' => 'name',
+        'parameters' => 'parameters',
         'protectionStrategy' => 'protectionStrategy',
-        'ramRole'            => 'ramRole',
-        'terraformVersion'   => 'terraformVersion',
-        'triggerStrategy'    => 'triggerStrategy',
+        'ramRole' => 'ramRole',
+        'skipPropertyValidation' => 'skipPropertyValidation',
+        'taskBackend' => 'taskBackend',
+        'terraformVersion' => 'terraformVersion',
+        'triggerStrategy' => 'triggerStrategy',
+        'triggerValue' => 'triggerValue',
     ];
 
     public function validate()
     {
+        if (null !== $this->groupInfo) {
+            $this->groupInfo->validate();
+        }
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        if (\is_array($this->protectionStrategy)) {
+            Model::validateArray($this->protectionStrategy);
+        }
+        if (null !== $this->taskBackend) {
+            $this->taskBackend->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoApply) {
             $res['autoApply'] = $this->autoApply;
         }
+
+        if (null !== $this->autoDestroy) {
+            $res['autoDestroy'] = $this->autoDestroy;
+        }
+
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
-        if (null !== $this->groupInfo) {
-            $res['groupInfo'] = null !== $this->groupInfo ? $this->groupInfo->toMap() : null;
+
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
         }
+
+        if (null !== $this->groupInfo) {
+            $res['groupInfo'] = null !== $this->groupInfo ? $this->groupInfo->toArray($noStream) : $this->groupInfo;
+        }
+
+        if (null !== $this->initModuleState) {
+            $res['initModuleState'] = $this->initModuleState;
+        }
+
         if (null !== $this->moduleId) {
             $res['moduleId'] = $this->moduleId;
         }
+
         if (null !== $this->moduleVersion) {
             $res['moduleVersion'] = $this->moduleVersion;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->parameters) {
-            $res['parameters'] = $this->parameters;
+            if (\is_array($this->parameters)) {
+                $res['parameters'] = [];
+                foreach ($this->parameters as $key1 => $value1) {
+                    $res['parameters'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->protectionStrategy) {
-            $res['protectionStrategy'] = $this->protectionStrategy;
+            if (\is_array($this->protectionStrategy)) {
+                $res['protectionStrategy'] = [];
+                $n1 = 0;
+                foreach ($this->protectionStrategy as $item1) {
+                    $res['protectionStrategy'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->ramRole) {
             $res['ramRole'] = $this->ramRole;
         }
+
+        if (null !== $this->skipPropertyValidation) {
+            $res['skipPropertyValidation'] = $this->skipPropertyValidation;
+        }
+
+        if (null !== $this->taskBackend) {
+            $res['taskBackend'] = null !== $this->taskBackend ? $this->taskBackend->toArray($noStream) : $this->taskBackend;
+        }
+
         if (null !== $this->terraformVersion) {
             $res['terraformVersion'] = $this->terraformVersion;
         }
+
         if (null !== $this->triggerStrategy) {
             $res['triggerStrategy'] = $this->triggerStrategy;
+        }
+
+        if (null !== $this->triggerValue) {
+            $res['triggerValue'] = $this->triggerValue;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['autoApply'])) {
             $model->autoApply = $map['autoApply'];
         }
+
+        if (isset($map['autoDestroy'])) {
+            $model->autoDestroy = $map['autoDestroy'];
+        }
+
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }
+
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
+        }
+
         if (isset($map['groupInfo'])) {
             $model->groupInfo = groupInfo::fromMap($map['groupInfo']);
         }
+
+        if (isset($map['initModuleState'])) {
+            $model->initModuleState = $map['initModuleState'];
+        }
+
         if (isset($map['moduleId'])) {
             $model->moduleId = $map['moduleId'];
         }
+
         if (isset($map['moduleVersion'])) {
             $model->moduleVersion = $map['moduleVersion'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['parameters'])) {
-            $model->parameters = $map['parameters'];
-        }
-        if (isset($map['protectionStrategy'])) {
-            if (!empty($map['protectionStrategy'])) {
-                $model->protectionStrategy = $map['protectionStrategy'];
+            if (!empty($map['parameters'])) {
+                $model->parameters = [];
+                foreach ($map['parameters'] as $key1 => $value1) {
+                    $model->parameters[$key1] = $value1;
+                }
             }
         }
+
+        if (isset($map['protectionStrategy'])) {
+            if (!empty($map['protectionStrategy'])) {
+                $model->protectionStrategy = [];
+                $n1 = 0;
+                foreach ($map['protectionStrategy'] as $item1) {
+                    $model->protectionStrategy[$n1++] = $item1;
+                }
+            }
+        }
+
         if (isset($map['ramRole'])) {
             $model->ramRole = $map['ramRole'];
         }
+
+        if (isset($map['skipPropertyValidation'])) {
+            $model->skipPropertyValidation = $map['skipPropertyValidation'];
+        }
+
+        if (isset($map['taskBackend'])) {
+            $model->taskBackend = taskBackend::fromMap($map['taskBackend']);
+        }
+
         if (isset($map['terraformVersion'])) {
             $model->terraformVersion = $map['terraformVersion'];
         }
+
         if (isset($map['triggerStrategy'])) {
             $model->triggerStrategy = $map['triggerStrategy'];
+        }
+
+        if (isset($map['triggerValue'])) {
+            $model->triggerValue = $map['triggerValue'];
         }
 
         return $model;

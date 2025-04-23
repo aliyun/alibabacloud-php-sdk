@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models\CreateTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class groupInfo extends Model
 {
@@ -18,20 +18,22 @@ class groupInfo extends Model
      */
     public $projectId;
     protected $_name = [
-        'groupId'   => 'groupId',
+        'groupId' => 'groupId',
         'projectId' => 'projectId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['groupId'] = $this->groupId;
         }
+
         if (null !== $this->projectId) {
             $res['projectId'] = $this->projectId;
         }
@@ -39,17 +41,18 @@ class groupInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groupInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
         }
+
         if (isset($map['projectId'])) {
             $model->projectId = $map['projectId'];
         }
