@@ -11,6 +11,9 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckVerifyLogRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckVerifyLogResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialVerifyIntlAdvanceRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialVerifyIntlRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CredentialVerifyIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeepfakeDetectIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeepfakeDetectIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteVerifyResultRequest;
@@ -36,6 +39,14 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeShrinkRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile3MetaVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile3MetaVerifyIntlResponse;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
+use AlibabaCloud\SDK\OSS\OSS;
+use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
+use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
+use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -304,6 +315,162 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkVerifyLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * 凭证核验.
+     *
+     * @param request - CredentialVerifyIntlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CredentialVerifyIntlResponse
+     *
+     * @param CredentialVerifyIntlRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CredentialVerifyIntlResponse
+     */
+    public function credentialVerifyIntlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->credName) {
+            @$query['CredName'] = $request->credName;
+        }
+
+        if (null !== $request->credType) {
+            @$query['CredType'] = $request->credType;
+        }
+
+        if (null !== $request->imageUrl) {
+            @$query['ImageUrl'] = $request->imageUrl;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        $body = [];
+        if (null !== $request->imageFile) {
+            @$body['ImageFile'] = $request->imageFile;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CredentialVerifyIntl',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CredentialVerifyIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 凭证核验.
+     *
+     * @param request - CredentialVerifyIntlRequest
+     *
+     * @returns CredentialVerifyIntlResponse
+     *
+     * @param CredentialVerifyIntlRequest $request
+     *
+     * @return CredentialVerifyIntlResponse
+     */
+    public function credentialVerifyIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->credentialVerifyIntlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CredentialVerifyIntlAdvanceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CredentialVerifyIntlResponse
+     */
+    public function credentialVerifyIntlAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product' => 'Cloudauth-intl',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        Utils::convert($runtime, $ossRuntime);
+        $credentialVerifyIntlReq = new CredentialVerifyIntlRequest([]);
+        Utils::convert($request, $credentialVerifyIntlReq);
+        if (null !== $request->imageFileObject) {
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->imageFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header' => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $credentialVerifyIntlReq->imageFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->credentialVerifyIntlWithOptions($credentialVerifyIntlReq, $runtime);
     }
 
     /**
