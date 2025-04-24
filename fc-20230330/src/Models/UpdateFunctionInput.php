@@ -49,6 +49,11 @@ class UpdateFunctionInput extends Model
     public $diskSize;
 
     /**
+     * @var bool
+     */
+    public $enableLongLiving;
+
+    /**
      * @var string[]
      */
     public $environmentVariables;
@@ -141,6 +146,7 @@ class UpdateFunctionInput extends Model
         'description' => 'description',
         'disableOndemand' => 'disableOndemand',
         'diskSize' => 'diskSize',
+        'enableLongLiving' => 'enableLongLiving',
         'environmentVariables' => 'environmentVariables',
         'gpuConfig' => 'gpuConfig',
         'handler' => 'handler',
@@ -237,6 +243,10 @@ class UpdateFunctionInput extends Model
 
         if (null !== $this->diskSize) {
             $res['diskSize'] = $this->diskSize;
+        }
+
+        if (null !== $this->enableLongLiving) {
+            $res['enableLongLiving'] = $this->enableLongLiving;
         }
 
         if (null !== $this->environmentVariables) {
@@ -359,6 +369,10 @@ class UpdateFunctionInput extends Model
 
         if (isset($map['diskSize'])) {
             $model->diskSize = $map['diskSize'];
+        }
+
+        if (isset($map['enableLongLiving'])) {
+            $model->enableLongLiving = $map['enableLongLiving'];
         }
 
         if (isset($map['environmentVariables'])) {

@@ -59,6 +59,11 @@ class Function_ extends Model
     public $diskSize;
 
     /**
+     * @var bool
+     */
+    public $enableLongLiving;
+
+    /**
      * @var string[]
      */
     public $environmentVariables;
@@ -213,6 +218,7 @@ class Function_ extends Model
         'description' => 'description',
         'disableOndemand' => 'disableOndemand',
         'diskSize' => 'diskSize',
+        'enableLongLiving' => 'enableLongLiving',
         'environmentVariables' => 'environmentVariables',
         'functionArn' => 'functionArn',
         'functionId' => 'functionId',
@@ -332,6 +338,10 @@ class Function_ extends Model
 
         if (null !== $this->diskSize) {
             $res['diskSize'] = $this->diskSize;
+        }
+
+        if (null !== $this->enableLongLiving) {
+            $res['enableLongLiving'] = $this->enableLongLiving;
         }
 
         if (null !== $this->environmentVariables) {
@@ -516,6 +526,10 @@ class Function_ extends Model
 
         if (isset($map['diskSize'])) {
             $model->diskSize = $map['diskSize'];
+        }
+
+        if (isset($map['enableLongLiving'])) {
+            $model->enableLongLiving = $map['enableLongLiving'];
         }
 
         if (isset($map['environmentVariables'])) {
