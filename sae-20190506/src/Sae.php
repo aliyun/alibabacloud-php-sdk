@@ -724,6 +724,10 @@ class Sae extends OpenApiClient
         $tmpReq->validate();
         $request = new CreateApplicationShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->initContainersConfig) {
+            $request->initContainersConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->initContainersConfig, 'InitContainersConfig', 'json');
+        }
+
         if (null !== $tmpReq->sidecarContainersConfig) {
             $request->sidecarContainersConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sidecarContainersConfig, 'SidecarContainersConfig', 'json');
         }
@@ -988,6 +992,10 @@ class Sae extends OpenApiClient
 
         if (null !== $request->enableSidecarResourceIsolated) {
             @$body['EnableSidecarResourceIsolated'] = $request->enableSidecarResourceIsolated;
+        }
+
+        if (null !== $request->initContainersConfigShrink) {
+            @$body['InitContainersConfig'] = $request->initContainersConfigShrink;
         }
 
         if (null !== $request->microRegistrationConfig) {
@@ -2836,6 +2844,10 @@ class Sae extends OpenApiClient
         $tmpReq->validate();
         $request = new DeployApplicationShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->initContainersConfig) {
+            $request->initContainersConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->initContainersConfig, 'InitContainersConfig', 'json');
+        }
+
         if (null !== $tmpReq->sidecarContainersConfig) {
             $request->sidecarContainersConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sidecarContainersConfig, 'SidecarContainersConfig', 'json');
         }
@@ -3088,6 +3100,10 @@ class Sae extends OpenApiClient
 
         if (null !== $request->enableSidecarResourceIsolated) {
             @$body['EnableSidecarResourceIsolated'] = $request->enableSidecarResourceIsolated;
+        }
+
+        if (null !== $request->initContainersConfigShrink) {
+            @$body['InitContainersConfig'] = $request->initContainersConfigShrink;
         }
 
         if (null !== $request->microRegistrationConfig) {

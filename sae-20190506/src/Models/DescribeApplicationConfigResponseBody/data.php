@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigRespons
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\configMapMountDesc;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\initContainersConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\mountDesc;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\ossMountDescs;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\secretMountDesc;
@@ -148,6 +149,11 @@ class data extends Model
      * @var string
      */
     public $imageUrl;
+
+    /**
+     * @var initContainersConfig[]
+     */
+    public $initContainersConfig;
 
     /**
      * @var string
@@ -451,6 +457,7 @@ class data extends Model
         'envs' => 'Envs',
         'imagePullSecrets' => 'ImagePullSecrets',
         'imageUrl' => 'ImageUrl',
+        'initContainersConfig' => 'InitContainersConfig',
         'jarStartArgs' => 'JarStartArgs',
         'jarStartOptions' => 'JarStartOptions',
         'jdk' => 'Jdk',
@@ -512,6 +519,9 @@ class data extends Model
     {
         if (\is_array($this->configMapMountDesc)) {
             Model::validateArray($this->configMapMountDesc);
+        }
+        if (\is_array($this->initContainersConfig)) {
+            Model::validateArray($this->initContainersConfig);
         }
         if (\is_array($this->mountDesc)) {
             Model::validateArray($this->mountDesc);
@@ -649,6 +659,16 @@ class data extends Model
 
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
+        }
+
+        if (null !== $this->initContainersConfig) {
+            if (\is_array($this->initContainersConfig)) {
+                $res['InitContainersConfig'] = [];
+                $n1 = 0;
+                foreach ($this->initContainersConfig as $item1) {
+                    $res['InitContainersConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->jarStartArgs) {
@@ -1029,6 +1049,16 @@ class data extends Model
 
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
+        }
+
+        if (isset($map['InitContainersConfig'])) {
+            if (!empty($map['InitContainersConfig'])) {
+                $model->initContainersConfig = [];
+                $n1 = 0;
+                foreach ($map['InitContainersConfig'] as $item1) {
+                    $model->initContainersConfig[$n1++] = initContainersConfig::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['JarStartArgs'])) {

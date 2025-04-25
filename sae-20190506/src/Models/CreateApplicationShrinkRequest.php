@@ -136,6 +136,11 @@ class CreateApplicationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $initContainersConfigShrink;
+
+    /**
+     * @var string
+     */
     public $jarStartArgs;
 
     /**
@@ -398,6 +403,7 @@ class CreateApplicationShrinkRequest extends Model
         'envs' => 'Envs',
         'imagePullSecrets' => 'ImagePullSecrets',
         'imageUrl' => 'ImageUrl',
+        'initContainersConfigShrink' => 'InitContainersConfig',
         'jarStartArgs' => 'JarStartArgs',
         'jarStartOptions' => 'JarStartOptions',
         'jdk' => 'Jdk',
@@ -554,6 +560,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
+        }
+
+        if (null !== $this->initContainersConfigShrink) {
+            $res['InitContainersConfig'] = $this->initContainersConfigShrink;
         }
 
         if (null !== $this->jarStartArgs) {
@@ -857,6 +867,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
+        }
+
+        if (isset($map['InitContainersConfig'])) {
+            $model->initContainersConfigShrink = $map['InitContainersConfig'];
         }
 
         if (isset($map['JarStartArgs'])) {

@@ -129,6 +129,11 @@ class DeployApplicationRequest extends Model
     public $imageUrl;
 
     /**
+     * @var InitContainerConfig[]
+     */
+    public $initContainersConfig;
+
+    /**
      * @var string
      */
     public $jarStartArgs;
@@ -387,6 +392,7 @@ class DeployApplicationRequest extends Model
         'envs' => 'Envs',
         'imagePullSecrets' => 'ImagePullSecrets',
         'imageUrl' => 'ImageUrl',
+        'initContainersConfig' => 'InitContainersConfig',
         'jarStartArgs' => 'JarStartArgs',
         'jarStartOptions' => 'JarStartOptions',
         'jdk' => 'Jdk',
@@ -438,6 +444,9 @@ class DeployApplicationRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->initContainersConfig)) {
+            Model::validateArray($this->initContainersConfig);
+        }
         if (\is_array($this->sidecarContainersConfig)) {
             Model::validateArray($this->sidecarContainersConfig);
         }
@@ -541,6 +550,16 @@ class DeployApplicationRequest extends Model
 
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
+        }
+
+        if (null !== $this->initContainersConfig) {
+            if (\is_array($this->initContainersConfig)) {
+                $res['InitContainersConfig'] = [];
+                $n1 = 0;
+                foreach ($this->initContainersConfig as $item1) {
+                    $res['InitContainersConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->jarStartArgs) {
@@ -842,6 +861,16 @@ class DeployApplicationRequest extends Model
 
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
+        }
+
+        if (isset($map['InitContainersConfig'])) {
+            if (!empty($map['InitContainersConfig'])) {
+                $model->initContainersConfig = [];
+                $n1 = 0;
+                foreach ($map['InitContainersConfig'] as $item1) {
+                    $model->initContainersConfig[$n1++] = InitContainerConfig::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['JarStartArgs'])) {
