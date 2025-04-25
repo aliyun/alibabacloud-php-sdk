@@ -94,6 +94,11 @@ class CreateScriptRequest extends Model
     public $scriptName;
 
     /**
+     * @var string
+     */
+    public $scriptNluProfileJsonString;
+
+    /**
      * @var string[]
      */
     public $scriptWaveform;
@@ -120,6 +125,7 @@ class CreateScriptRequest extends Model
         'scriptContent' => 'ScriptContent',
         'scriptDescription' => 'ScriptDescription',
         'scriptName' => 'ScriptName',
+        'scriptNluProfileJsonString' => 'ScriptNluProfileJsonString',
         'scriptWaveform' => 'ScriptWaveform',
         'ttsConfig' => 'TtsConfig',
     ];
@@ -210,6 +216,10 @@ class CreateScriptRequest extends Model
 
         if (null !== $this->scriptName) {
             $res['ScriptName'] = $this->scriptName;
+        }
+
+        if (null !== $this->scriptNluProfileJsonString) {
+            $res['ScriptNluProfileJsonString'] = $this->scriptNluProfileJsonString;
         }
 
         if (null !== $this->scriptWaveform) {
@@ -309,6 +319,10 @@ class CreateScriptRequest extends Model
 
         if (isset($map['ScriptName'])) {
             $model->scriptName = $map['ScriptName'];
+        }
+
+        if (isset($map['ScriptNluProfileJsonString'])) {
+            $model->scriptNluProfileJsonString = $map['ScriptNluProfileJsonString'];
         }
 
         if (isset($map['ScriptWaveform'])) {

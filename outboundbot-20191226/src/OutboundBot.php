@@ -22,6 +22,15 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBatchJobsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBatchJobsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBatchRepeatJobRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBatchRepeatJobResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBeebotIntentLgfRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBeebotIntentLgfResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBeebotIntentLgfShrinkRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBeebotIntentRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBeebotIntentResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBeebotIntentShrinkRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBeebotIntentUserSayRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBeebotIntentUserSayResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBeebotIntentUserSayShrinkRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateDialogueFlowRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateDialogueFlowResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateDownloadUrlRequest;
@@ -58,6 +67,12 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteAgentProfilesRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteAgentProfilesResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteAgentProfilesShrinkRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteAllNumberDistrictInfoResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteBeebotIntentLgfRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteBeebotIntentLgfResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteBeebotIntentRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteBeebotIntentResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteBeebotIntentUserSayRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteBeebotIntentUserSayResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteContactBlockListRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteContactBlockListResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteContactWhiteListRequest;
@@ -80,6 +95,8 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteScriptRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteScriptResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteScriptWaveformRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteScriptWaveformResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeBeebotIntentRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeBeebotIntentResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeDialogueNodeStatisticsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeDialogueNodeStatisticsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeDsReportsRequest;
@@ -179,6 +196,12 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListAnnotationMissionSessionRe
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListAnnotationMissionSessionResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListApiPluginsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListApiPluginsResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListBeebotIntentLgfRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListBeebotIntentLgfResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListBeebotIntentRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListBeebotIntentResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListBeebotIntentUserSayRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListBeebotIntentUserSayResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListChatbotInstancesRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListChatbotInstancesResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListDialogueFlowsRequest;
@@ -191,6 +214,8 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListGlobalQuestionsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListGlobalQuestionsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListIntentionsRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListIntentionsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListIntentsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListIntentsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListJobGroupsAsyncRequest;
@@ -226,6 +251,15 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyAnnotationMissionRequest
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyAnnotationMissionResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyBatchJobsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyBatchJobsResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyBeebotIntentLgfRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyBeebotIntentLgfResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyBeebotIntentLgfShrinkRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyBeebotIntentRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyBeebotIntentResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyBeebotIntentShrinkRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyBeebotIntentUserSayRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyBeebotIntentUserSayResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyBeebotIntentUserSayShrinkRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyDialogueFlowRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyDialogueFlowResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyEmptyNumberNoMoreCallsInfoRequest;
@@ -384,11 +418,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ApplyNumberDistrictInfoParsingResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ApplyNumberDistrictInfoParsingResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return ApplyNumberDistrictInfoParsingResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -470,11 +501,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssignJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssignJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssignJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -546,11 +574,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -606,11 +631,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -714,11 +736,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAgentProfileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAgentProfileResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAgentProfileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -844,11 +863,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAnnotationMissionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAnnotationMissionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAnnotationMissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -932,11 +948,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateBatchJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateBatchJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateBatchJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1042,11 +1055,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateBatchRepeatJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateBatchRepeatJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateBatchRepeatJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1065,6 +1075,219 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBatchRepeatJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * CreateBeebotIntent.
+     *
+     * @param tmpReq - CreateBeebotIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBeebotIntentResponse
+     *
+     * @param CreateBeebotIntentRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateBeebotIntentResponse
+     */
+    public function createBeebotIntentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateBeebotIntentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->intentDefinition) {
+            $request->intentDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->intentDefinition, 'IntentDefinition', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->intentDefinitionShrink) {
+            @$query['IntentDefinition'] = $request->intentDefinitionShrink;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBeebotIntent',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBeebotIntentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CreateBeebotIntent.
+     *
+     * @param request - CreateBeebotIntentRequest
+     *
+     * @returns CreateBeebotIntentResponse
+     *
+     * @param CreateBeebotIntentRequest $request
+     *
+     * @return CreateBeebotIntentResponse
+     */
+    public function createBeebotIntent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBeebotIntentWithOptions($request, $runtime);
+    }
+
+    /**
+     * CreateBeebotIntentLgf.
+     *
+     * @param tmpReq - CreateBeebotIntentLgfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBeebotIntentLgfResponse
+     *
+     * @param CreateBeebotIntentLgfRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateBeebotIntentLgfResponse
+     */
+    public function createBeebotIntentLgfWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateBeebotIntentLgfShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->lgfDefinition) {
+            $request->lgfDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->lgfDefinition, 'LgfDefinition', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->lgfDefinitionShrink) {
+            @$query['LgfDefinition'] = $request->lgfDefinitionShrink;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBeebotIntentLgf',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBeebotIntentLgfResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CreateBeebotIntentLgf.
+     *
+     * @param request - CreateBeebotIntentLgfRequest
+     *
+     * @returns CreateBeebotIntentLgfResponse
+     *
+     * @param CreateBeebotIntentLgfRequest $request
+     *
+     * @return CreateBeebotIntentLgfResponse
+     */
+    public function createBeebotIntentLgf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBeebotIntentLgfWithOptions($request, $runtime);
+    }
+
+    /**
+     * CreateBeebotIntentUserSay.
+     *
+     * @param tmpReq - CreateBeebotIntentUserSayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBeebotIntentUserSayResponse
+     *
+     * @param CreateBeebotIntentUserSayRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateBeebotIntentUserSayResponse
+     */
+    public function createBeebotIntentUserSayWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateBeebotIntentUserSayShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userSayDefinition) {
+            $request->userSayDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userSayDefinition, 'UserSayDefinition', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->userSayDefinitionShrink) {
+            @$query['UserSayDefinition'] = $request->userSayDefinitionShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBeebotIntentUserSay',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBeebotIntentUserSayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CreateBeebotIntentUserSay.
+     *
+     * @param request - CreateBeebotIntentUserSayRequest
+     *
+     * @returns CreateBeebotIntentUserSayResponse
+     *
+     * @param CreateBeebotIntentUserSayRequest $request
+     *
+     * @return CreateBeebotIntentUserSayResponse
+     */
+    public function createBeebotIntentUserSay($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBeebotIntentUserSayWithOptions($request, $runtime);
     }
 
     /**
@@ -1112,11 +1335,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDialogueFlowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDialogueFlowResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDialogueFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1164,11 +1384,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDownloadUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1240,11 +1457,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateGlobalQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateGlobalQuestionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateGlobalQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1316,11 +1530,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1378,11 +1589,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateInstanceBindNumberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateInstanceBindNumberResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateInstanceBindNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1456,11 +1664,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateIntentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIntentResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIntentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1516,11 +1721,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateJobDataParsingTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateJobDataParsingTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateJobDataParsingTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1620,11 +1822,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateJobGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateJobGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateJobGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1684,11 +1883,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateJobGroupExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateJobGroupExportTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateJobGroupExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1742,11 +1938,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateNumberDistrictInfoDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateNumberDistrictInfoDownloadUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateNumberDistrictInfoDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1806,11 +1999,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateNumberDistrictInfoParsingTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateNumberDistrictInfoParsingTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateNumberDistrictInfoParsingTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1878,11 +2068,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateOutboundCallNumberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateOutboundCallNumberResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateOutboundCallNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1904,6 +2091,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * 新建场景.
+     *
      * @param request - CreateScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1986,6 +2175,10 @@ class OutboundBot extends OpenApiClient
             @$query['ScriptName'] = $request->scriptName;
         }
 
+        if (null !== $request->scriptNluProfileJsonString) {
+            @$query['ScriptNluProfileJsonString'] = $request->scriptNluProfileJsonString;
+        }
+
         if (null !== $request->scriptWaveform) {
             @$query['ScriptWaveform'] = $request->scriptWaveform;
         }
@@ -2008,14 +2201,13 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateScriptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateScriptResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 新建场景.
+     *
      * @param request - CreateScriptRequest
      *
      * @returns CreateScriptResponse
@@ -2080,11 +2272,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateScriptWaveformResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateScriptWaveformResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateScriptWaveformResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2148,11 +2337,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2202,11 +2388,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTaskExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTaskExportTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTaskExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2270,11 +2453,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAgentProfilesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAgentProfilesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAgentProfilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2319,11 +2499,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAllNumberDistrictInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAllNumberDistrictInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAllNumberDistrictInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2338,6 +2515,209 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAllNumberDistrictInfoWithOptions($runtime);
+    }
+
+    /**
+     * DeleteBeebotIntent.
+     *
+     * @param request - DeleteBeebotIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBeebotIntentResponse
+     *
+     * @param DeleteBeebotIntentRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteBeebotIntentResponse
+     */
+    public function deleteBeebotIntentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBeebotIntent',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBeebotIntentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteBeebotIntent.
+     *
+     * @param request - DeleteBeebotIntentRequest
+     *
+     * @returns DeleteBeebotIntentResponse
+     *
+     * @param DeleteBeebotIntentRequest $request
+     *
+     * @return DeleteBeebotIntentResponse
+     */
+    public function deleteBeebotIntent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBeebotIntentWithOptions($request, $runtime);
+    }
+
+    /**
+     * DeleteBeebotIntentLgf.
+     *
+     * @param request - DeleteBeebotIntentLgfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBeebotIntentLgfResponse
+     *
+     * @param DeleteBeebotIntentLgfRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteBeebotIntentLgfResponse
+     */
+    public function deleteBeebotIntentLgfWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
+        }
+
+        if (null !== $request->lgfId) {
+            @$query['LgfId'] = $request->lgfId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBeebotIntentLgf',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBeebotIntentLgfResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteBeebotIntentLgf.
+     *
+     * @param request - DeleteBeebotIntentLgfRequest
+     *
+     * @returns DeleteBeebotIntentLgfResponse
+     *
+     * @param DeleteBeebotIntentLgfRequest $request
+     *
+     * @return DeleteBeebotIntentLgfResponse
+     */
+    public function deleteBeebotIntentLgf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBeebotIntentLgfWithOptions($request, $runtime);
+    }
+
+    /**
+     * DeleteBeebotIntentUserSay.
+     *
+     * @param request - DeleteBeebotIntentUserSayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBeebotIntentUserSayResponse
+     *
+     * @param DeleteBeebotIntentUserSayRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteBeebotIntentUserSayResponse
+     */
+    public function deleteBeebotIntentUserSayWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->userSayId) {
+            @$query['UserSayId'] = $request->userSayId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBeebotIntentUserSay',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBeebotIntentUserSayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteBeebotIntentUserSay.
+     *
+     * @param request - DeleteBeebotIntentUserSayRequest
+     *
+     * @returns DeleteBeebotIntentUserSayResponse
+     *
+     * @param DeleteBeebotIntentUserSayRequest $request
+     *
+     * @return DeleteBeebotIntentUserSayResponse
+     */
+    public function deleteBeebotIntentUserSay($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBeebotIntentUserSayWithOptions($request, $runtime);
     }
 
     /**
@@ -2381,11 +2761,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteContactBlockListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteContactBlockListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteContactBlockListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2445,11 +2822,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteContactWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteContactWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteContactWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2509,11 +2883,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDialogueFlowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDialogueFlowResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDialogueFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2573,11 +2944,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteGlobalQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteGlobalQuestionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteGlobalQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2629,11 +2997,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2693,11 +3058,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteIntentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIntentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIntentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2753,11 +3115,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteJobGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteJobGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteJobGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2813,11 +3172,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteOutboundCallNumberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteOutboundCallNumberResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteOutboundCallNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2873,11 +3229,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteScriptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteScriptResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2937,11 +3290,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteScriptRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteScriptRecordingResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteScriptRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3001,11 +3351,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteScriptWaveformResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteScriptWaveformResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteScriptWaveformResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3022,6 +3369,75 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteScriptWaveformWithOptions($request, $runtime);
+    }
+
+    /**
+     * DescribeBeebotIntent.
+     *
+     * @remarks
+     *
+     * @param request - DescribeBeebotIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBeebotIntentResponse
+     *
+     * @param DescribeBeebotIntentRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeBeebotIntentResponse
+     */
+    public function describeBeebotIntentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBeebotIntent',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBeebotIntentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DescribeBeebotIntent.
+     *
+     * @remarks
+     *
+     * @param request - DescribeBeebotIntentRequest
+     *
+     * @returns DescribeBeebotIntentResponse
+     *
+     * @param DescribeBeebotIntentRequest $request
+     *
+     * @return DescribeBeebotIntentResponse
+     */
+    public function describeBeebotIntent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBeebotIntentWithOptions($request, $runtime);
     }
 
     /**
@@ -3065,11 +3481,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDialogueNodeStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDialogueNodeStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDialogueNodeStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3127,11 +3540,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDsReportsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDsReportsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDsReportsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3193,11 +3603,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGlobalQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGlobalQuestionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGlobalQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3253,11 +3660,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGroupExecutingInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGroupExecutingInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGroupExecutingInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3311,11 +3715,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3377,11 +3778,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIntentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIntentResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIntentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3441,11 +3839,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeIntentStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeIntentStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeIntentStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3507,11 +3902,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3569,11 +3961,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeJobDataParsingTaskProgressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeJobDataParsingTaskProgressResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeJobDataParsingTaskProgressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3635,11 +4024,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeJobGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeJobGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeJobGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3697,11 +4083,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeJobGroupExportTaskProgressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeJobGroupExportTaskProgressResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeJobGroupExportTaskProgressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3746,11 +4129,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeNumberDistrictInfoStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeNumberDistrictInfoStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeNumberDistrictInfoStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3768,6 +4148,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * 获取场景信息.
+     *
      * @param request - DescribeScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3804,14 +4186,13 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeScriptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScriptResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取场景信息.
+     *
      * @param request - DescribeScriptRequest
      *
      * @returns DescribeScriptResponse
@@ -3868,11 +4249,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeScriptVoiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScriptVoiceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScriptVoiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3928,11 +4306,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTTSConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTTSConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTTSConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4032,11 +4407,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTTSDemoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTTSDemoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTTSDemoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4092,11 +4464,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTagHitsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTagHitsSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTagHitsSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4150,11 +4519,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTenantBindNumberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTenantBindNumberResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTenantBindNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4248,11 +4614,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DialogueResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DialogueResponse::fromMap($this->execute($params, $req, $runtime));
+        return DialogueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4306,11 +4669,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DismissNumberDistrictInfoParsingResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DismissNumberDistrictInfoParsingResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return DismissNumberDistrictInfoParsingResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4374,11 +4734,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DownloadRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DownloadRecordingResponse::fromMap($this->execute($params, $req, $runtime));
+        return DownloadRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4440,11 +4797,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DownloadScriptRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DownloadScriptRecordingResponse::fromMap($this->execute($params, $req, $runtime));
+        return DownloadScriptRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4504,11 +4858,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DuplicateScriptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DuplicateScriptResponse::fromMap($this->execute($params, $req, $runtime));
+        return DuplicateScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4564,11 +4915,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ExportScriptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExportScriptResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExportScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4624,11 +4972,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateUploadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateUploadUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateUploadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4684,11 +5029,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAfterAnswerDelayPlaybackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAfterAnswerDelayPlaybackResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAfterAnswerDelayPlaybackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4748,11 +5090,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAgentProfileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAgentProfileResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAgentProfileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4808,11 +5147,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAgentProfileTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAgentProfileTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAgentProfileTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4864,11 +5200,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAnnotationMissionSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAnnotationMissionSummaryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAnnotationMissionSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4928,11 +5261,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAnnotationMissionTagInfoListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAnnotationMissionTagInfoListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAnnotationMissionTagInfoListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4988,11 +5318,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetAsrServerInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAsrServerInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAsrServerInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5048,11 +5375,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetBaseStrategyPeriodResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetBaseStrategyPeriodResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetBaseStrategyPeriodResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5095,11 +5419,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetConcurrentConversationQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConcurrentConversationQuotaResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConcurrentConversationQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5159,11 +5480,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetContactBlockListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetContactBlockListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetContactBlockListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5227,11 +5545,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetContactWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetContactWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetContactWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5283,11 +5598,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetCurrentConcurrencyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetCurrentConcurrencyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetCurrentConcurrencyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5343,11 +5655,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetEffectiveDaysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetEffectiveDaysResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetEffectiveDaysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5403,11 +5712,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetEmptyNumberNoMoreCallsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetEmptyNumberNoMoreCallsInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetEmptyNumberNoMoreCallsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5475,11 +5781,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetJobDataUploadParamsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetJobDataUploadParamsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetJobDataUploadParamsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5535,11 +5838,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetMaxAttemptsPerDayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMaxAttemptsPerDayResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMaxAttemptsPerDayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5584,11 +5884,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetNumberDistrictInfoTemplateDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNumberDistrictInfoTemplateDownloadUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNumberDistrictInfoTemplateDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5636,11 +5933,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRealtimeConcurrencyReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRealtimeConcurrencyReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRealtimeConcurrencyReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5694,11 +5988,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetSummaryInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSummaryInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSummaryInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5746,11 +6037,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetTaskByUuidResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTaskByUuidResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTaskByUuidResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5793,11 +6081,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5853,11 +6138,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ImportScriptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ImportScriptResponse::fromMap($this->execute($params, $req, $runtime));
+        return ImportScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5919,11 +6201,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return InflightTaskTimeoutResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InflightTaskTimeoutResponse::fromMap($this->execute($params, $req, $runtime));
+        return InflightTaskTimeoutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5985,11 +6264,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAgentProfilesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAgentProfilesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAgentProfilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6034,11 +6310,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAllTenantBindNumberBindingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAllTenantBindNumberBindingResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAllTenantBindNumberBindingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6120,11 +6393,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAnnotationMissionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAnnotationMissionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAnnotationMissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6196,11 +6466,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAnnotationMissionSessionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAnnotationMissionSessionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAnnotationMissionSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6264,11 +6531,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListApiPluginsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApiPluginsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApiPluginsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6285,6 +6549,233 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listApiPluginsWithOptions($request, $runtime);
+    }
+
+    /**
+     * ListBeebotIntent.
+     *
+     * @param request - ListBeebotIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBeebotIntentResponse
+     *
+     * @param ListBeebotIntentRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListBeebotIntentResponse
+     */
+    public function listBeebotIntentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->intentName) {
+            @$query['IntentName'] = $request->intentName;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBeebotIntent',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBeebotIntentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListBeebotIntent.
+     *
+     * @param request - ListBeebotIntentRequest
+     *
+     * @returns ListBeebotIntentResponse
+     *
+     * @param ListBeebotIntentRequest $request
+     *
+     * @return ListBeebotIntentResponse
+     */
+    public function listBeebotIntent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBeebotIntentWithOptions($request, $runtime);
+    }
+
+    /**
+     * ListBeebotIntentLgf.
+     *
+     * @param request - ListBeebotIntentLgfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBeebotIntentLgfResponse
+     *
+     * @param ListBeebotIntentLgfRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListBeebotIntentLgfResponse
+     */
+    public function listBeebotIntentLgfWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
+        }
+
+        if (null !== $request->lgfText) {
+            @$query['LgfText'] = $request->lgfText;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBeebotIntentLgf',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBeebotIntentLgfResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListBeebotIntentLgf.
+     *
+     * @param request - ListBeebotIntentLgfRequest
+     *
+     * @returns ListBeebotIntentLgfResponse
+     *
+     * @param ListBeebotIntentLgfRequest $request
+     *
+     * @return ListBeebotIntentLgfResponse
+     */
+    public function listBeebotIntentLgf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBeebotIntentLgfWithOptions($request, $runtime);
+    }
+
+    /**
+     * ListBeebotIntentUserSay.
+     *
+     * @param request - ListBeebotIntentUserSayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBeebotIntentUserSayResponse
+     *
+     * @param ListBeebotIntentUserSayRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListBeebotIntentUserSayResponse
+     */
+    public function listBeebotIntentUserSayWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBeebotIntentUserSay',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBeebotIntentUserSayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListBeebotIntentUserSay.
+     *
+     * @param request - ListBeebotIntentUserSayRequest
+     *
+     * @returns ListBeebotIntentUserSayResponse
+     *
+     * @param ListBeebotIntentUserSayRequest $request
+     *
+     * @return ListBeebotIntentUserSayResponse
+     */
+    public function listBeebotIntentUserSay($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBeebotIntentUserSayWithOptions($request, $runtime);
     }
 
     /**
@@ -6328,11 +6819,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListChatbotInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListChatbotInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListChatbotInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6388,11 +6876,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDialogueFlowsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDialogueFlowsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDialogueFlowsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6440,11 +6925,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListDownloadTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDownloadTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDownloadTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6492,11 +6974,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListFlashSmsTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListFlashSmsTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListFlashSmsTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6560,11 +7039,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListGlobalQuestionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListGlobalQuestionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListGlobalQuestionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6632,11 +7108,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6653,6 +7126,95 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 意图列表.
+     *
+     * @param request - ListIntentionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIntentionsResponse
+     *
+     * @param ListIntentionsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListIntentionsResponse
+     */
+    public function listIntentionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->annotationMissionDataSourceType) {
+            @$query['AnnotationMissionDataSourceType'] = $request->annotationMissionDataSourceType;
+        }
+
+        if (null !== $request->botId) {
+            @$query['BotId'] = $request->botId;
+        }
+
+        if (null !== $request->environment) {
+            @$query['Environment'] = $request->environment;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->userNick) {
+            @$query['UserNick'] = $request->userNick;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListIntentions',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListIntentionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 意图列表.
+     *
+     * @param request - ListIntentionsRequest
+     *
+     * @returns ListIntentionsResponse
+     *
+     * @param ListIntentionsRequest $request
+     *
+     * @return ListIntentionsResponse
+     */
+    public function listIntentions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIntentionsWithOptions($request, $runtime);
     }
 
     /**
@@ -6704,11 +7266,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListIntentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIntentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIntentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6792,11 +7351,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListJobGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListJobGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListJobGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6844,11 +7400,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListJobGroupsAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListJobGroupsAsyncResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListJobGroupsAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6906,11 +7459,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6984,11 +7534,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListJobsByGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListJobsByGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListJobsByGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7048,11 +7595,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListOutboundCallNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListOutboundCallNumbersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListOutboundCallNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7112,11 +7656,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListResourceTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourceTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourceTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7168,11 +7709,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSchedulerInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSchedulerInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSchedulerInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7236,11 +7774,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListScriptPublishHistoriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListScriptPublishHistoriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListScriptPublishHistoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7320,11 +7855,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListScriptRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListScriptRecordingResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListScriptRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7388,11 +7920,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListScriptVoiceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListScriptVoiceConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListScriptVoiceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7462,11 +7991,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListScriptsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7536,11 +8062,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7596,11 +8119,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7706,11 +8226,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAgentProfileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAgentProfileResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAgentProfileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7774,11 +8291,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAnnotationMissionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAnnotationMissionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAnnotationMissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7866,11 +8380,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyBatchJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyBatchJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyBatchJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7887,6 +8398,231 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyBatchJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * ModifyBeebotIntent.
+     *
+     * @param tmpReq - ModifyBeebotIntentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBeebotIntentResponse
+     *
+     * @param ModifyBeebotIntentRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyBeebotIntentResponse
+     */
+    public function modifyBeebotIntentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyBeebotIntentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->intentDefinition) {
+            $request->intentDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->intentDefinition, 'IntentDefinition', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->intentDefinitionShrink) {
+            @$query['IntentDefinition'] = $request->intentDefinitionShrink;
+        }
+
+        if (null !== $request->intentId) {
+            @$query['IntentId'] = $request->intentId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyBeebotIntent',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyBeebotIntentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ModifyBeebotIntent.
+     *
+     * @param request - ModifyBeebotIntentRequest
+     *
+     * @returns ModifyBeebotIntentResponse
+     *
+     * @param ModifyBeebotIntentRequest $request
+     *
+     * @return ModifyBeebotIntentResponse
+     */
+    public function modifyBeebotIntent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBeebotIntentWithOptions($request, $runtime);
+    }
+
+    /**
+     * ModifyBeebotIntentLgf.
+     *
+     * @param tmpReq - ModifyBeebotIntentLgfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBeebotIntentLgfResponse
+     *
+     * @param ModifyBeebotIntentLgfRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyBeebotIntentLgfResponse
+     */
+    public function modifyBeebotIntentLgfWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyBeebotIntentLgfShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->lgfDefinition) {
+            $request->lgfDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->lgfDefinition, 'LgfDefinition', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->lgfDefinitionShrink) {
+            @$query['LgfDefinition'] = $request->lgfDefinitionShrink;
+        }
+
+        if (null !== $request->lgfId) {
+            @$query['LgfId'] = $request->lgfId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyBeebotIntentLgf',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyBeebotIntentLgfResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ModifyBeebotIntentLgf.
+     *
+     * @param request - ModifyBeebotIntentLgfRequest
+     *
+     * @returns ModifyBeebotIntentLgfResponse
+     *
+     * @param ModifyBeebotIntentLgfRequest $request
+     *
+     * @return ModifyBeebotIntentLgfResponse
+     */
+    public function modifyBeebotIntentLgf($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBeebotIntentLgfWithOptions($request, $runtime);
+    }
+
+    /**
+     * ModifyBeebotIntentUserSay.
+     *
+     * @param tmpReq - ModifyBeebotIntentUserSayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyBeebotIntentUserSayResponse
+     *
+     * @param ModifyBeebotIntentUserSayRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyBeebotIntentUserSayResponse
+     */
+    public function modifyBeebotIntentUserSayWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyBeebotIntentUserSayShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userSayDefinition) {
+            $request->userSayDefinitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userSayDefinition, 'UserSayDefinition', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->userSayDefinitionShrink) {
+            @$query['UserSayDefinition'] = $request->userSayDefinitionShrink;
+        }
+
+        if (null !== $request->userSayId) {
+            @$query['UserSayId'] = $request->userSayId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyBeebotIntentUserSay',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyBeebotIntentUserSayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ModifyBeebotIntentUserSay.
+     *
+     * @param request - ModifyBeebotIntentUserSayRequest
+     *
+     * @returns ModifyBeebotIntentUserSayResponse
+     *
+     * @param ModifyBeebotIntentUserSayRequest $request
+     *
+     * @return ModifyBeebotIntentUserSayResponse
+     */
+    public function modifyBeebotIntentUserSay($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBeebotIntentUserSayWithOptions($request, $runtime);
     }
 
     /**
@@ -7938,11 +8674,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDialogueFlowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDialogueFlowResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDialogueFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8002,11 +8735,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyEmptyNumberNoMoreCallsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyEmptyNumberNoMoreCallsInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyEmptyNumberNoMoreCallsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8082,11 +8812,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyGlobalQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyGlobalQuestionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyGlobalQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8154,11 +8881,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8234,11 +8958,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyIntentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyIntentResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyIntentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8346,11 +9067,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyJobGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyJobGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyJobGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8420,11 +9138,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyOutboundCallNumberResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyOutboundCallNumberResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyOutboundCallNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8566,11 +9281,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyScriptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyScriptResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8638,11 +9350,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyScriptVoiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyScriptVoiceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyScriptVoiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8722,11 +9431,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTTSConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTTSConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTTSConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8790,11 +9496,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTagGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTagGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTagGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8854,11 +9557,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PublishScriptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PublishScriptResponse::fromMap($this->execute($params, $req, $runtime));
+        return PublishScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8914,11 +9614,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PublishScriptForDebugResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PublishScriptForDebugResponse::fromMap($this->execute($params, $req, $runtime));
+        return PublishScriptForDebugResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9008,11 +9705,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9114,11 +9808,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryJobsWithResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryJobsWithResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryJobsWithResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9178,11 +9869,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryScriptWaveformsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryScriptWaveformsResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryScriptWaveformsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9246,11 +9934,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryScriptsByStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryScriptsByStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryScriptsByStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9330,11 +10015,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RecordFailureResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RecordFailureResponse::fromMap($this->execute($params, $req, $runtime));
+        return RecordFailureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9406,11 +10088,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResumeJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResumeJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResumeJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9470,11 +10149,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RollbackScriptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RollbackScriptResponse::fromMap($this->execute($params, $req, $runtime));
+        return RollbackScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9534,11 +10210,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SaveAfterAnswerDelayPlaybackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SaveAfterAnswerDelayPlaybackResponse::fromMap($this->execute($params, $req, $runtime));
+        return SaveAfterAnswerDelayPlaybackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9614,11 +10287,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SaveAnnotationMissionSessionListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SaveAnnotationMissionSessionListResponse::fromMap($this->execute($params, $req, $runtime));
+        return SaveAnnotationMissionSessionListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9682,11 +10352,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SaveAnnotationMissionTagInfoListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SaveAnnotationMissionTagInfoListResponse::fromMap($this->execute($params, $req, $runtime));
+        return SaveAnnotationMissionTagInfoListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9758,11 +10425,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SaveBaseStrategyPeriodResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SaveBaseStrategyPeriodResponse::fromMap($this->execute($params, $req, $runtime));
+        return SaveBaseStrategyPeriodResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9822,11 +10486,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SaveContactBlockListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SaveContactBlockListResponse::fromMap($this->execute($params, $req, $runtime));
+        return SaveContactBlockListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9886,11 +10547,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SaveContactWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SaveContactWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
+        return SaveContactWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9950,11 +10608,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SaveEffectiveDaysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SaveEffectiveDaysResponse::fromMap($this->execute($params, $req, $runtime));
+        return SaveEffectiveDaysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10014,11 +10669,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SaveMaxAttemptsPerDayResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SaveMaxAttemptsPerDayResponse::fromMap($this->execute($params, $req, $runtime));
+        return SaveMaxAttemptsPerDayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10066,11 +10718,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SearchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10142,11 +10791,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10202,11 +10848,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitBatchJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitBatchJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitBatchJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10270,11 +10913,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitRecordingResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10338,11 +10978,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SubmitScriptReviewResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitScriptReviewResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitScriptReviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10402,11 +11039,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SuspendCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SuspendCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return SuspendCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10466,11 +11100,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SuspendCallWithFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SuspendCallWithFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return SuspendCallWithFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10542,11 +11173,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SuspendJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SuspendJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return SuspendJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10612,11 +11240,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10680,11 +11305,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TaskPreparingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TaskPreparingResponse::fromMap($this->execute($params, $req, $runtime));
+        return TaskPreparingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10742,11 +11364,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TerminateCallResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TerminateCallResponse::fromMap($this->execute($params, $req, $runtime));
+        return TerminateCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10814,11 +11433,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10886,11 +11502,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UploadScriptRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UploadScriptRecordingResponse::fromMap($this->execute($params, $req, $runtime));
+        return UploadScriptRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10950,11 +11563,8 @@ class OutboundBot extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return WithdrawScriptReviewResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return WithdrawScriptReviewResponse::fromMap($this->execute($params, $req, $runtime));
+        return WithdrawScriptReviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

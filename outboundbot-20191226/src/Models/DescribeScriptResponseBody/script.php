@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeScriptResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeScriptResponseBody\script\nluProfile;
 
 class script extends Model
 {
@@ -81,6 +82,16 @@ class script extends Model
     /**
      * @var string
      */
+    public $nluEngine;
+
+    /**
+     * @var nluProfile
+     */
+    public $nluProfile;
+
+    /**
+     * @var string
+     */
     public $scene;
 
     /**
@@ -127,6 +138,8 @@ class script extends Model
         'longWaitEnable' => 'LongWaitEnable',
         'miniPlaybackEnable' => 'MiniPlaybackEnable',
         'newBargeInEnable' => 'NewBargeInEnable',
+        'nluEngine' => 'NluEngine',
+        'nluProfile' => 'NluProfile',
         'scene' => 'Scene',
         'scriptDescription' => 'ScriptDescription',
         'scriptId' => 'ScriptId',
@@ -138,6 +151,9 @@ class script extends Model
 
     public function validate()
     {
+        if (null !== $this->nluProfile) {
+            $this->nluProfile->validate();
+        }
         parent::validate();
     }
 
@@ -198,6 +214,14 @@ class script extends Model
 
         if (null !== $this->newBargeInEnable) {
             $res['NewBargeInEnable'] = $this->newBargeInEnable;
+        }
+
+        if (null !== $this->nluEngine) {
+            $res['NluEngine'] = $this->nluEngine;
+        }
+
+        if (null !== $this->nluProfile) {
+            $res['NluProfile'] = null !== $this->nluProfile ? $this->nluProfile->toArray($noStream) : $this->nluProfile;
         }
 
         if (null !== $this->scene) {
@@ -293,6 +317,14 @@ class script extends Model
 
         if (isset($map['NewBargeInEnable'])) {
             $model->newBargeInEnable = $map['NewBargeInEnable'];
+        }
+
+        if (isset($map['NluEngine'])) {
+            $model->nluEngine = $map['NluEngine'];
+        }
+
+        if (isset($map['NluProfile'])) {
+            $model->nluProfile = nluProfile::fromMap($map['NluProfile']);
         }
 
         if (isset($map['Scene'])) {

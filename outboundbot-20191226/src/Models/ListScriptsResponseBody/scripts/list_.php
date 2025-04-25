@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptsResponseBody\scripts;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptsResponseBody\scripts\list_\nluProfile;
 
 class list_ extends Model
 {
@@ -79,6 +80,11 @@ class list_ extends Model
     public $nluEngine;
 
     /**
+     * @var nluProfile
+     */
+    public $nluProfile;
+
+    /**
      * @var string
      */
     public $rejectReason;
@@ -132,6 +138,7 @@ class list_ extends Model
         'newBargeInEnable' => 'NewBargeInEnable',
         'nluAccessType' => 'NluAccessType',
         'nluEngine' => 'NluEngine',
+        'nluProfile' => 'NluProfile',
         'rejectReason' => 'RejectReason',
         'scene' => 'Scene',
         'scriptDescription' => 'ScriptDescription',
@@ -144,6 +151,9 @@ class list_ extends Model
 
     public function validate()
     {
+        if (null !== $this->nluProfile) {
+            $this->nluProfile->validate();
+        }
         parent::validate();
     }
 
@@ -204,6 +214,10 @@ class list_ extends Model
 
         if (null !== $this->nluEngine) {
             $res['NluEngine'] = $this->nluEngine;
+        }
+
+        if (null !== $this->nluProfile) {
+            $res['NluProfile'] = null !== $this->nluProfile ? $this->nluProfile->toArray($noStream) : $this->nluProfile;
         }
 
         if (null !== $this->rejectReason) {
@@ -303,6 +317,10 @@ class list_ extends Model
 
         if (isset($map['NluEngine'])) {
             $model->nluEngine = $map['NluEngine'];
+        }
+
+        if (isset($map['NluProfile'])) {
+            $model->nluProfile = nluProfile::fromMap($map['NluProfile']);
         }
 
         if (isset($map['RejectReason'])) {
