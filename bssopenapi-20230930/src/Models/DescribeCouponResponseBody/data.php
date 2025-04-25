@@ -15,6 +15,11 @@ class data extends Model
     public $amount;
 
     /**
+     * @var string
+     */
+    public $certainAmount;
+
+    /**
      * @var int
      */
     public $couponId;
@@ -125,6 +130,7 @@ class data extends Model
     public $yhOrderTypes;
     protected $_name = [
         'amount' => 'Amount',
+        'certainAmount' => 'CertainAmount',
         'couponId' => 'CouponId',
         'couponNo' => 'CouponNo',
         'couponType' => 'CouponType',
@@ -168,6 +174,10 @@ class data extends Model
         $res = [];
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
+        }
+
+        if (null !== $this->certainAmount) {
+            $res['CertainAmount'] = $this->certainAmount;
         }
 
         if (null !== $this->couponId) {
@@ -289,6 +299,10 @@ class data extends Model
         $model = new self();
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
+        }
+
+        if (isset($map['CertainAmount'])) {
+            $model->certainAmount = $map['CertainAmount'];
         }
 
         if (isset($map['CouponId'])) {

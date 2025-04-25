@@ -21,6 +21,9 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponItemListShrinkReq
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeUserSpnSummaryInfoRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeUserSpnSummaryInfoResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeUserSpnSummaryInfoShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetFundAccountAvailableAmountRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetFundAccountAvailableAmountResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetFundAccountCanAllocateCreditAmountRequest;
@@ -36,6 +39,15 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetFundAccountLowAvailableAmoun
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetFundAccountTransactionDetailsRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetFundAccountTransactionDetailsResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetFundAccountTransactionDetailsShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetSavingPlanDeductableCommodityRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetSavingPlanDeductableCommodityResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetSavingPlanDeductableCommodityShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetSavingPlanShareAccountsRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetSavingPlanShareAccountsResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetSavingPlanShareAccountsShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetSavingPlanUserDeductRuleRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetSavingPlanUserDeductRuleResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetSavingPlanUserDeductRuleShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListCouponDeductTagRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListCouponDeductTagResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListCouponDeductTagShrinkRequest;
@@ -206,11 +218,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddCouponDeductTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddCouponDeductTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddCouponDeductTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -266,11 +275,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelFundAccountLowAvailableAmountAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelFundAccountLowAvailableAmountAlarmResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelFundAccountLowAvailableAmountAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -350,11 +356,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateFundAccountTransferResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateFundAccountTransferResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateFundAccountTransferResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -432,11 +435,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteCouponDeductTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteCouponDeductTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteCouponDeductTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -494,11 +494,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCouponResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCouponResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCouponResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -556,11 +553,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCouponItemListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCouponItemListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCouponItemListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -579,6 +573,73 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCouponItemListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取客户使用SPN的概述信息.
+     *
+     * @param tmpReq - DescribeUserSpnSummaryInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserSpnSummaryInfoResponse
+     *
+     * @param DescribeUserSpnSummaryInfoRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeUserSpnSummaryInfoResponse
+     */
+    public function describeUserSpnSummaryInfoWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeUserSpnSummaryInfoShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeUserSpnSummaryInfo',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeUserSpnSummaryInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取客户使用SPN的概述信息.
+     *
+     * @param request - DescribeUserSpnSummaryInfoRequest
+     *
+     * @returns DescribeUserSpnSummaryInfoResponse
+     *
+     * @param DescribeUserSpnSummaryInfoRequest $request
+     *
+     * @return DescribeUserSpnSummaryInfoResponse
+     */
+    public function describeUserSpnSummaryInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserSpnSummaryInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -616,11 +677,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFundAccountAvailableAmountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFundAccountAvailableAmountResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFundAccountAvailableAmountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -676,11 +734,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFundAccountCanAllocateCreditAmountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFundAccountCanAllocateCreditAmountResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFundAccountCanAllocateCreditAmountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -740,11 +795,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFundAccountCanRecycleAmountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFundAccountCanRecycleAmountResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFundAccountCanRecycleAmountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -804,11 +856,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFundAccountCanTransferAmountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFundAccountCanTransferAmountResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFundAccountCanTransferAmountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -864,11 +913,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFundAccountCanWithdrawAmountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFundAccountCanWithdrawAmountResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFundAccountCanWithdrawAmountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -924,11 +970,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFundAccountLowAvailableAmountAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFundAccountLowAvailableAmountAlarmResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFundAccountLowAvailableAmountAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1040,11 +1083,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetFundAccountTransactionDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetFundAccountTransactionDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetFundAccountTransactionDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1063,6 +1103,231 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getFundAccountTransactionDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取节省计划及可抵扣商品信息.
+     *
+     * @param tmpReq - GetSavingPlanDeductableCommodityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSavingPlanDeductableCommodityResponse
+     *
+     * @param GetSavingPlanDeductableCommodityRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetSavingPlanDeductableCommodityResponse
+     */
+    public function getSavingPlanDeductableCommodityWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetSavingPlanDeductableCommodityShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSavingPlanDeductableCommodity',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSavingPlanDeductableCommodityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取节省计划及可抵扣商品信息.
+     *
+     * @param request - GetSavingPlanDeductableCommodityRequest
+     *
+     * @returns GetSavingPlanDeductableCommodityResponse
+     *
+     * @param GetSavingPlanDeductableCommodityRequest $request
+     *
+     * @return GetSavingPlanDeductableCommodityResponse
+     */
+    public function getSavingPlanDeductableCommodity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSavingPlanDeductableCommodityWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取节省计划实例共享账号信息.
+     *
+     * @param tmpReq - GetSavingPlanShareAccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSavingPlanShareAccountsResponse
+     *
+     * @param GetSavingPlanShareAccountsRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetSavingPlanShareAccountsResponse
+     */
+    public function getSavingPlanShareAccountsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetSavingPlanShareAccountsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->spnInstanceCode) {
+            @$query['SpnInstanceCode'] = $request->spnInstanceCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSavingPlanShareAccounts',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSavingPlanShareAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取节省计划实例共享账号信息.
+     *
+     * @param request - GetSavingPlanShareAccountsRequest
+     *
+     * @returns GetSavingPlanShareAccountsResponse
+     *
+     * @param GetSavingPlanShareAccountsRequest $request
+     *
+     * @return GetSavingPlanShareAccountsResponse
+     */
+    public function getSavingPlanShareAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSavingPlanShareAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取节省计划实例客户自定义规则.
+     *
+     * @param tmpReq - GetSavingPlanUserDeductRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSavingPlanUserDeductRuleResponse
+     *
+     * @param GetSavingPlanUserDeductRuleRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetSavingPlanUserDeductRuleResponse
+     */
+    public function getSavingPlanUserDeductRuleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetSavingPlanUserDeductRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->spnInstanceCode) {
+            @$query['SpnInstanceCode'] = $request->spnInstanceCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSavingPlanUserDeductRule',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSavingPlanUserDeductRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取节省计划实例客户自定义规则.
+     *
+     * @param request - GetSavingPlanUserDeductRuleRequest
+     *
+     * @returns GetSavingPlanUserDeductRuleResponse
+     *
+     * @param GetSavingPlanUserDeductRuleRequest $request
+     *
+     * @return GetSavingPlanUserDeductRuleResponse
+     */
+    public function getSavingPlanUserDeductRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSavingPlanUserDeductRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -1114,11 +1379,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListCouponDeductTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListCouponDeductTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListCouponDeductTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1184,11 +1446,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListFundAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListFundAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListFundAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1262,11 +1521,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListFundAccountPayRelationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListFundAccountPayRelationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListFundAccountPayRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1330,11 +1586,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetFundAccountCreditAmountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetFundAccountCreditAmountResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetFundAccountCreditAmountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1394,11 +1647,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetFundAccountLowAvailableAmountAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetFundAccountLowAvailableAmountAlarmResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetFundAccountLowAvailableAmountAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1478,11 +1728,8 @@ class BssOpenApi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetSavingPlanUserDeductRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetSavingPlanUserDeductRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetSavingPlanUserDeductRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
