@@ -171,6 +171,11 @@ class ModifyCenterPolicyRequest extends Model
     /**
      * @var string
      */
+    public $internetPrinter;
+
+    /**
+     * @var string
+     */
     public $localDrive;
 
     /**
@@ -371,6 +376,11 @@ class ModifyCenterPolicyRequest extends Model
     /**
      * @var string
      */
+    public $safeMenu;
+
+    /**
+     * @var string
+     */
     public $scope;
 
     /**
@@ -558,6 +568,7 @@ class ModifyCenterPolicyRequest extends Model
         'gpuAcceleration' => 'GpuAcceleration',
         'html5FileTransfer' => 'Html5FileTransfer',
         'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
+        'internetPrinter' => 'InternetPrinter',
         'localDrive' => 'LocalDrive',
         'maxReconnectTime' => 'MaxReconnectTime',
         'memoryDownGradeDuration' => 'MemoryDownGradeDuration',
@@ -598,6 +609,7 @@ class ModifyCenterPolicyRequest extends Model
         'resourceType' => 'ResourceType',
         'revokeAccessPolicyRule' => 'RevokeAccessPolicyRule',
         'revokeSecurityPolicyRule' => 'RevokeSecurityPolicyRule',
+        'safeMenu' => 'SafeMenu',
         'scope' => 'Scope',
         'scopeValue' => 'ScopeValue',
         'sessionMaxRateKbps' => 'SessionMaxRateKbps',
@@ -850,6 +862,10 @@ class ModifyCenterPolicyRequest extends Model
             $res['InternetCommunicationProtocol'] = $this->internetCommunicationProtocol;
         }
 
+        if (null !== $this->internetPrinter) {
+            $res['InternetPrinter'] = $this->internetPrinter;
+        }
+
         if (null !== $this->localDrive) {
             $res['LocalDrive'] = $this->localDrive;
         }
@@ -1050,6 +1066,10 @@ class ModifyCenterPolicyRequest extends Model
                     $res['RevokeSecurityPolicyRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->safeMenu) {
+            $res['SafeMenu'] = $this->safeMenu;
         }
 
         if (null !== $this->scope) {
@@ -1365,6 +1385,10 @@ class ModifyCenterPolicyRequest extends Model
             $model->internetCommunicationProtocol = $map['InternetCommunicationProtocol'];
         }
 
+        if (isset($map['InternetPrinter'])) {
+            $model->internetPrinter = $map['InternetPrinter'];
+        }
+
         if (isset($map['LocalDrive'])) {
             $model->localDrive = $map['LocalDrive'];
         }
@@ -1565,6 +1589,10 @@ class ModifyCenterPolicyRequest extends Model
                     $model->revokeSecurityPolicyRule[$n1++] = revokeSecurityPolicyRule::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['SafeMenu'])) {
+            $model->safeMenu = $map['SafeMenu'];
         }
 
         if (isset($map['Scope'])) {

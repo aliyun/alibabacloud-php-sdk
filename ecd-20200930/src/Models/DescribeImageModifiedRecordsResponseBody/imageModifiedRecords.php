@@ -29,6 +29,11 @@ class imageModifiedRecords extends Model
     public $newImageName;
 
     /**
+     * @var string
+     */
+    public $reason;
+
+    /**
      * @var int
      */
     public $status;
@@ -42,6 +47,7 @@ class imageModifiedRecords extends Model
         'imageName' => 'ImageName',
         'newImageId' => 'NewImageId',
         'newImageName' => 'NewImageName',
+        'reason' => 'Reason',
         'status' => 'Status',
         'updateTime' => 'UpdateTime',
     ];
@@ -68,6 +74,10 @@ class imageModifiedRecords extends Model
 
         if (null !== $this->newImageName) {
             $res['NewImageName'] = $this->newImageName;
+        }
+
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
         }
 
         if (null !== $this->status) {
@@ -103,6 +113,10 @@ class imageModifiedRecords extends Model
 
         if (isset($map['NewImageName'])) {
             $model->newImageName = $map['NewImageName'];
+        }
+
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
 
         if (isset($map['Status'])) {

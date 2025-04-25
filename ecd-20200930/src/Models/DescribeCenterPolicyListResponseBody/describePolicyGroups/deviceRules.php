@@ -36,6 +36,11 @@ class deviceRules extends Model
     /**
      * @var string
      */
+    public $platforms;
+
+    /**
+     * @var string
+     */
     public $redirectType;
     protected $_name = [
         'deviceName' => 'DeviceName',
@@ -43,6 +48,7 @@ class deviceRules extends Model
         'deviceType' => 'DeviceType',
         'deviceVid' => 'DeviceVid',
         'optCommand' => 'OptCommand',
+        'platforms' => 'Platforms',
         'redirectType' => 'RedirectType',
     ];
 
@@ -72,6 +78,10 @@ class deviceRules extends Model
 
         if (null !== $this->optCommand) {
             $res['OptCommand'] = $this->optCommand;
+        }
+
+        if (null !== $this->platforms) {
+            $res['Platforms'] = $this->platforms;
         }
 
         if (null !== $this->redirectType) {
@@ -107,6 +117,10 @@ class deviceRules extends Model
 
         if (isset($map['OptCommand'])) {
             $model->optCommand = $map['OptCommand'];
+        }
+
+        if (isset($map['Platforms'])) {
+            $model->platforms = $map['Platforms'];
         }
 
         if (isset($map['RedirectType'])) {

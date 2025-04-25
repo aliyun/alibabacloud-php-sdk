@@ -179,6 +179,11 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $internetPrinter;
+
+    /**
+     * @var string
+     */
     public $localDrive;
 
     /**
@@ -384,6 +389,11 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $safeMenu;
+
+    /**
+     * @var string
+     */
     public $scope;
 
     /**
@@ -563,6 +573,7 @@ class describePolicyGroups extends Model
         'html5Access' => 'Html5Access',
         'html5FileTransfer' => 'Html5FileTransfer',
         'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
+        'internetPrinter' => 'InternetPrinter',
         'localDrive' => 'LocalDrive',
         'maxReconnectTime' => 'MaxReconnectTime',
         'memoryDownGradeDuration' => 'MemoryDownGradeDuration',
@@ -604,6 +615,7 @@ class describePolicyGroups extends Model
         'resolutionWidth' => 'ResolutionWidth',
         'resourceGroupCount' => 'ResourceGroupCount',
         'resourceRegionId' => 'ResourceRegionId',
+        'safeMenu' => 'SafeMenu',
         'scope' => 'Scope',
         'scopeValue' => 'ScopeValue',
         'smoothEnhancement' => 'SmoothEnhancement',
@@ -856,6 +868,10 @@ class describePolicyGroups extends Model
             $res['InternetCommunicationProtocol'] = $this->internetCommunicationProtocol;
         }
 
+        if (null !== $this->internetPrinter) {
+            $res['InternetPrinter'] = $this->internetPrinter;
+        }
+
         if (null !== $this->localDrive) {
             $res['LocalDrive'] = $this->localDrive;
         }
@@ -1048,6 +1064,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->resourceRegionId) {
             $res['ResourceRegionId'] = $this->resourceRegionId;
+        }
+
+        if (null !== $this->safeMenu) {
+            $res['SafeMenu'] = $this->safeMenu;
         }
 
         if (null !== $this->scope) {
@@ -1363,6 +1383,10 @@ class describePolicyGroups extends Model
             $model->internetCommunicationProtocol = $map['InternetCommunicationProtocol'];
         }
 
+        if (isset($map['InternetPrinter'])) {
+            $model->internetPrinter = $map['InternetPrinter'];
+        }
+
         if (isset($map['LocalDrive'])) {
             $model->localDrive = $map['LocalDrive'];
         }
@@ -1555,6 +1579,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['ResourceRegionId'])) {
             $model->resourceRegionId = $map['ResourceRegionId'];
+        }
+
+        if (isset($map['SafeMenu'])) {
+            $model->safeMenu = $map['SafeMenu'];
         }
 
         if (isset($map['Scope'])) {

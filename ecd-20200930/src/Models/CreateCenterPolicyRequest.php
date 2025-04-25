@@ -169,6 +169,11 @@ class CreateCenterPolicyRequest extends Model
     /**
      * @var string
      */
+    public $internetPrinter;
+
+    /**
+     * @var string
+     */
     public $localDrive;
 
     /**
@@ -350,6 +355,11 @@ class CreateCenterPolicyRequest extends Model
      * @var string
      */
     public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $safeMenu;
 
     /**
      * @var string
@@ -541,6 +551,7 @@ class CreateCenterPolicyRequest extends Model
         'gpuAcceleration' => 'GpuAcceleration',
         'html5FileTransfer' => 'Html5FileTransfer',
         'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
+        'internetPrinter' => 'InternetPrinter',
         'localDrive' => 'LocalDrive',
         'maxReconnectTime' => 'MaxReconnectTime',
         'memoryDownGradeDuration' => 'MemoryDownGradeDuration',
@@ -578,6 +589,7 @@ class CreateCenterPolicyRequest extends Model
         'resolutionModel' => 'ResolutionModel',
         'resolutionWidth' => 'ResolutionWidth',
         'resourceType' => 'ResourceType',
+        'safeMenu' => 'SafeMenu',
         'scope' => 'Scope',
         'scopeValue' => 'ScopeValue',
         'sessionMaxRateKbps' => 'SessionMaxRateKbps',
@@ -824,6 +836,10 @@ class CreateCenterPolicyRequest extends Model
             $res['InternetCommunicationProtocol'] = $this->internetCommunicationProtocol;
         }
 
+        if (null !== $this->internetPrinter) {
+            $res['InternetPrinter'] = $this->internetPrinter;
+        }
+
         if (null !== $this->localDrive) {
             $res['LocalDrive'] = $this->localDrive;
         }
@@ -1000,6 +1016,10 @@ class CreateCenterPolicyRequest extends Model
 
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+
+        if (null !== $this->safeMenu) {
+            $res['SafeMenu'] = $this->safeMenu;
         }
 
         if (null !== $this->scope) {
@@ -1315,6 +1335,10 @@ class CreateCenterPolicyRequest extends Model
             $model->internetCommunicationProtocol = $map['InternetCommunicationProtocol'];
         }
 
+        if (isset($map['InternetPrinter'])) {
+            $model->internetPrinter = $map['InternetPrinter'];
+        }
+
         if (isset($map['LocalDrive'])) {
             $model->localDrive = $map['LocalDrive'];
         }
@@ -1491,6 +1515,10 @@ class CreateCenterPolicyRequest extends Model
 
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+
+        if (isset($map['SafeMenu'])) {
+            $model->safeMenu = $map['SafeMenu'];
         }
 
         if (isset($map['Scope'])) {

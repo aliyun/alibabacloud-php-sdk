@@ -1,3 +1,21 @@
+2025-04-25 Version: 4.4.4
+- Update API CreateCenterPolicy: add request parameters InternetPrinter.
+- Update API CreateCenterPolicy: add request parameters SafeMenu.
+- Update API CreateCenterPolicy: add request parameters DeviceRules.$.Platforms.
+- Update API CreatePolicyGroup: add request parameters DeviceRules.$.Platforms.
+- Update API DescribeCenterPolicyList: add response parameters Body.DescribePolicyGroups.$.InternetPrinter.
+- Update API DescribeCenterPolicyList: add response parameters Body.DescribePolicyGroups.$.SafeMenu.
+- Update API DescribeCenterPolicyList: add response parameters Body.DescribePolicyGroups.$.DeviceRules.$.Platforms.
+- Update API DescribeImageModifiedRecords: add response parameters Body.ImageModifiedRecords.$.Reason.
+- Update API DescribePolicyGroups: add response parameters Body.DescribePolicyGroups.$.InternetPrinter.
+- Update API DescribePolicyGroups: add response parameters Body.DescribePolicyGroups.$.SafeMenu.
+- Update API DescribePolicyGroups: add response parameters Body.DescribePolicyGroups.$.DeviceRules.$.Platforms.
+- Update API ModifyCenterPolicy: add request parameters InternetPrinter.
+- Update API ModifyCenterPolicy: add request parameters SafeMenu.
+- Update API ModifyCenterPolicy: add request parameters DeviceRules.$.Platforms.
+- Update API ModifyPolicyGroup: add request parameters DeviceRules.$.Platforms.
+
+
 2025-04-25 Version: 4.4.3
 - Update API DescribeClientEvents: add request parameters FillHardwareInfo.
 - Update API DescribeClientEvents: add request parameters Language.

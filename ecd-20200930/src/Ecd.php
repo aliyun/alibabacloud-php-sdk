@@ -3132,6 +3132,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * 创建无地域策略.
+     *
      * @param request - CreateCenterPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3264,6 +3266,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->internetCommunicationProtocol) {
             @$query['InternetCommunicationProtocol'] = $request->internetCommunicationProtocol;
+        }
+
+        if (null !== $request->internetPrinter) {
+            @$query['InternetPrinter'] = $request->internetPrinter;
         }
 
         if (null !== $request->localDrive) {
@@ -3414,6 +3420,10 @@ class Ecd extends OpenApiClient
             @$query['ResourceType'] = $request->resourceType;
         }
 
+        if (null !== $request->safeMenu) {
+            @$query['SafeMenu'] = $request->safeMenu;
+        }
+
         if (null !== $request->scope) {
             @$query['Scope'] = $request->scope;
         }
@@ -3561,6 +3571,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * 创建无地域策略.
+     *
      * @param request - CreateCenterPolicyRequest
      *
      * @returns CreateCenterPolicyResponse
@@ -14377,6 +14389,10 @@ class Ecd extends OpenApiClient
             @$query['InternetCommunicationProtocol'] = $request->internetCommunicationProtocol;
         }
 
+        if (null !== $request->internetPrinter) {
+            @$query['InternetPrinter'] = $request->internetPrinter;
+        }
+
         if (null !== $request->localDrive) {
             @$query['LocalDrive'] = $request->localDrive;
         }
@@ -14535,6 +14551,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->revokeSecurityPolicyRule) {
             @$query['RevokeSecurityPolicyRule'] = $request->revokeSecurityPolicyRule;
+        }
+
+        if (null !== $request->safeMenu) {
+            @$query['SafeMenu'] = $request->safeMenu;
         }
 
         if (null !== $request->scope) {
