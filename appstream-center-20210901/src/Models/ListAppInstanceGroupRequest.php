@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupRequest\tag;
 
 class ListAppInstanceGroupRequest extends Model
 {
@@ -62,6 +63,11 @@ class ListAppInstanceGroupRequest extends Model
      * @var string[]
      */
     public $status;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'appCenterImageId' => 'AppCenterImageId',
         'appInstanceGroupId' => 'AppInstanceGroupId',
@@ -74,12 +80,16 @@ class ListAppInstanceGroupRequest extends Model
         'productType' => 'ProductType',
         'regionId' => 'RegionId',
         'status' => 'Status',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
         if (\is_array($this->status)) {
             Model::validateArray($this->status);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
         }
         parent::validate();
     }
@@ -133,6 +143,16 @@ class ListAppInstanceGroupRequest extends Model
                 $n1 = 0;
                 foreach ($this->status as $item1) {
                     $res['Status'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -194,6 +214,16 @@ class ListAppInstanceGroupRequest extends Model
                 $n1 = 0;
                 foreach ($map['Status'] as $item1) {
                     $model->status[$n1++] = $item1;
+                }
+            }
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }

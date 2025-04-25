@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupRespon
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponseBody\appInstanceGroupModels\nodePool;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponseBody\appInstanceGroupModels\otaInfo;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponseBody\appInstanceGroupModels\resourceTags;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponseBody\appInstanceGroupModels\tags;
 
 class appInstanceGroupModels extends Model
 {
@@ -176,6 +177,11 @@ class appInstanceGroupModels extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'amount' => 'Amount',
         'appCenterImageId' => 'AppCenterImageId',
@@ -210,6 +216,7 @@ class appInstanceGroupModels extends Model
         'skipUserAuthCheck' => 'SkipUserAuthCheck',
         'specId' => 'SpecId',
         'status' => 'Status',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -225,6 +232,9 @@ class appInstanceGroupModels extends Model
         }
         if (\is_array($this->resourceTags)) {
             Model::validateArray($this->resourceTags);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -380,6 +390,16 @@ class appInstanceGroupModels extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         return $res;
@@ -541,6 +561,16 @@ class appInstanceGroupModels extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
+                }
+            }
         }
 
         return $model;
