@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeClientEventsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeClientEventsResponseBody\events\terminalInfo;
 
 class events extends Model
 {
@@ -122,6 +123,11 @@ class events extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var terminalInfo
+     */
+    public $terminalInfo;
     protected $_name = [
         'aliUid' => 'AliUid',
         'bytesReceived' => 'BytesReceived',
@@ -146,10 +152,14 @@ class events extends Model
         'officeSiteType' => 'OfficeSiteType',
         'regionId' => 'RegionId',
         'status' => 'Status',
+        'terminalInfo' => 'TerminalInfo',
     ];
 
     public function validate()
     {
+        if (null !== $this->terminalInfo) {
+            $this->terminalInfo->validate();
+        }
         parent::validate();
     }
 
@@ -246,6 +256,10 @@ class events extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->terminalInfo) {
+            $res['TerminalInfo'] = null !== $this->terminalInfo ? $this->terminalInfo->toArray($noStream) : $this->terminalInfo;
         }
 
         return $res;
@@ -349,6 +363,10 @@ class events extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['TerminalInfo'])) {
+            $model->terminalInfo = terminalInfo::fromMap($map['TerminalInfo']);
         }
 
         return $model;

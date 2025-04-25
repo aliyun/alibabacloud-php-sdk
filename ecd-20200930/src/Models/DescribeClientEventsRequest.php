@@ -49,6 +49,16 @@ class DescribeClientEventsRequest extends Model
     public $eventTypes;
 
     /**
+     * @var bool
+     */
+    public $fillHardwareInfo;
+
+    /**
+     * @var string
+     */
+    public $language;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -86,6 +96,8 @@ class DescribeClientEventsRequest extends Model
         'endUserId' => 'EndUserId',
         'eventType' => 'EventType',
         'eventTypes' => 'EventTypes',
+        'fillHardwareInfo' => 'FillHardwareInfo',
+        'language' => 'Language',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'officeSiteId' => 'OfficeSiteId',
@@ -141,6 +153,14 @@ class DescribeClientEventsRequest extends Model
                     $res['EventTypes'][$n1++] = $item1;
                 }
             }
+        }
+
+        if (null !== $this->fillHardwareInfo) {
+            $res['FillHardwareInfo'] = $this->fillHardwareInfo;
+        }
+
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
 
         if (null !== $this->maxResults) {
@@ -214,6 +234,14 @@ class DescribeClientEventsRequest extends Model
                     $model->eventTypes[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['FillHardwareInfo'])) {
+            $model->fillHardwareInfo = $map['FillHardwareInfo'];
+        }
+
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
 
         if (isset($map['MaxResults'])) {
