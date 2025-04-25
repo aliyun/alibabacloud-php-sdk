@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class UpdateNodeGroupRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $fileSystemMountEnabled;
+
+    /**
+     * @var string
+     */
+    public $keyPairName;
+
+    /**
      * @var string
      */
     public $newNodeGroupName;
@@ -23,6 +33,8 @@ class UpdateNodeGroupRequest extends Model
      */
     public $userData;
     protected $_name = [
+        'fileSystemMountEnabled' => 'FileSystemMountEnabled',
+        'keyPairName' => 'KeyPairName',
         'newNodeGroupName' => 'NewNodeGroupName',
         'nodeGroupId' => 'NodeGroupId',
         'userData' => 'UserData',
@@ -36,6 +48,14 @@ class UpdateNodeGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->fileSystemMountEnabled) {
+            $res['FileSystemMountEnabled'] = $this->fileSystemMountEnabled;
+        }
+
+        if (null !== $this->keyPairName) {
+            $res['KeyPairName'] = $this->keyPairName;
+        }
+
         if (null !== $this->newNodeGroupName) {
             $res['NewNodeGroupName'] = $this->newNodeGroupName;
         }
@@ -59,6 +79,14 @@ class UpdateNodeGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FileSystemMountEnabled'])) {
+            $model->fileSystemMountEnabled = $map['FileSystemMountEnabled'];
+        }
+
+        if (isset($map['KeyPairName'])) {
+            $model->keyPairName = $map['KeyPairName'];
+        }
+
         if (isset($map['NewNodeGroupName'])) {
             $model->newNodeGroupName = $map['NewNodeGroupName'];
         }

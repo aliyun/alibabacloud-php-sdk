@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateNodeGroupResponseBody extends Model
+class CreateVscResponseBody extends Model
 {
     /**
      * @var string
@@ -16,10 +16,10 @@ class UpdateNodeGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $vscId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'taskId' => 'TaskId',
+        'vscId' => 'VscId',
     ];
 
     public function validate()
@@ -34,8 +34,8 @@ class UpdateNodeGroupResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
 
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->vscId) {
+            $res['VscId'] = $this->vscId;
         }
 
         return $res;
@@ -53,8 +53,8 @@ class UpdateNodeGroupResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
 
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['VscId'])) {
+            $model->vscId = $map['VscId'];
         }
 
         return $model;

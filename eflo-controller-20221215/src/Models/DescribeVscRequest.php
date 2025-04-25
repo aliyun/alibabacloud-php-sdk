@@ -6,20 +6,14 @@ namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateNodeGroupResponseBody extends Model
+class DescribeVscRequest extends Model
 {
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $taskId;
+    public $vscId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'taskId' => 'TaskId',
+        'vscId' => 'VscId',
     ];
 
     public function validate()
@@ -30,12 +24,8 @@ class UpdateNodeGroupResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->vscId) {
+            $res['VscId'] = $this->vscId;
         }
 
         return $res;
@@ -49,12 +39,8 @@ class UpdateNodeGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['VscId'])) {
+            $model->vscId = $map['VscId'];
         }
 
         return $model;

@@ -11,9 +11,19 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest\nodeGr
 class nodeGroups extends Model
 {
     /**
+     * @var bool
+     */
+    public $fileSystemMountEnabled;
+
+    /**
      * @var string
      */
     public $imageId;
+
+    /**
+     * @var string
+     */
+    public $keyPairName;
 
     /**
      * @var string
@@ -50,7 +60,9 @@ class nodeGroups extends Model
      */
     public $zoneId;
     protected $_name = [
+        'fileSystemMountEnabled' => 'FileSystemMountEnabled',
         'imageId' => 'ImageId',
+        'keyPairName' => 'KeyPairName',
         'machineType' => 'MachineType',
         'nodeGroupDescription' => 'NodeGroupDescription',
         'nodeGroupName' => 'NodeGroupName',
@@ -74,8 +86,16 @@ class nodeGroups extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->fileSystemMountEnabled) {
+            $res['FileSystemMountEnabled'] = $this->fileSystemMountEnabled;
+        }
+
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+
+        if (null !== $this->keyPairName) {
+            $res['KeyPairName'] = $this->keyPairName;
         }
 
         if (null !== $this->machineType) {
@@ -123,8 +143,16 @@ class nodeGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FileSystemMountEnabled'])) {
+            $model->fileSystemMountEnabled = $map['FileSystemMountEnabled'];
+        }
+
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+
+        if (isset($map['KeyPairName'])) {
+            $model->keyPairName = $map['KeyPairName'];
         }
 
         if (isset($map['MachineType'])) {

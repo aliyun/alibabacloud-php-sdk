@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
+namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListVscsResponseBody\vscs;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateNodeGroupResponseBody extends Model
+class tags extends Model
 {
     /**
      * @var string
      */
-    public $requestId;
+    public $tagKey;
 
     /**
      * @var string
      */
-    public $taskId;
+    public $tagValue;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'taskId' => 'TaskId',
+        'tagKey' => 'TagKey',
+        'tagValue' => 'TagValue',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class UpdateNodeGroupResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->tagKey) {
+            $res['TagKey'] = $this->tagKey;
         }
 
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->tagValue) {
+            $res['TagValue'] = $this->tagValue;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class UpdateNodeGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['TagKey'])) {
+            $model->tagKey = $map['TagKey'];
         }
 
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['TagValue'])) {
+            $model->tagValue = $map['TagValue'];
         }
 
         return $model;

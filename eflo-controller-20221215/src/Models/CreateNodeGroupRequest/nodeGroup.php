@@ -15,9 +15,19 @@ class nodeGroup extends Model
     public $az;
 
     /**
+     * @var bool
+     */
+    public $fileSystemMountEnabled;
+
+    /**
      * @var string
      */
     public $imageId;
+
+    /**
+     * @var string
+     */
+    public $keyPairName;
 
     /**
      * @var string
@@ -45,7 +55,9 @@ class nodeGroup extends Model
     public $userData;
     protected $_name = [
         'az' => 'Az',
+        'fileSystemMountEnabled' => 'FileSystemMountEnabled',
         'imageId' => 'ImageId',
+        'keyPairName' => 'KeyPairName',
         'machineType' => 'MachineType',
         'nodeGroupDescription' => 'NodeGroupDescription',
         'nodeGroupName' => 'NodeGroupName',
@@ -68,8 +80,16 @@ class nodeGroup extends Model
             $res['Az'] = $this->az;
         }
 
+        if (null !== $this->fileSystemMountEnabled) {
+            $res['FileSystemMountEnabled'] = $this->fileSystemMountEnabled;
+        }
+
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+
+        if (null !== $this->keyPairName) {
+            $res['KeyPairName'] = $this->keyPairName;
         }
 
         if (null !== $this->machineType) {
@@ -107,8 +127,16 @@ class nodeGroup extends Model
             $model->az = $map['Az'];
         }
 
+        if (isset($map['FileSystemMountEnabled'])) {
+            $model->fileSystemMountEnabled = $map['FileSystemMountEnabled'];
+        }
+
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+
+        if (isset($map['KeyPairName'])) {
+            $model->keyPairName = $map['KeyPairName'];
         }
 
         if (isset($map['MachineType'])) {

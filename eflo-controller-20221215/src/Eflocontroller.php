@@ -25,10 +25,14 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateNodeGroupResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateNodeGroupShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateSessionRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateSessionResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateVscRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateVscResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteClusterResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteNodeGroupRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteNodeGroupResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteVscRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteVscResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeClusterRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeClusterResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeDiagnosticResultRequest;
@@ -45,6 +49,8 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeSendFileResultsRequ
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeSendFileResultsResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeTaskRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeTaskResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeVscRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeVscResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeZonesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ExtendClusterRequest;
@@ -72,6 +78,9 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNodeGroupsResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListUserClusterTypesResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListVscsRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListVscsResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListVscsShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RebootNodesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RebootNodesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RebootNodesShrinkRequest;
@@ -793,6 +802,85 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
+     * 创建Vsc.
+     *
+     * @param request - CreateVscRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVscResponse
+     *
+     * @param CreateVscRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateVscResponse
+     */
+    public function createVscWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->vscName) {
+            @$body['VscName'] = $request->vscName;
+        }
+
+        if (null !== $request->vscType) {
+            @$body['VscType'] = $request->vscType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVsc',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVscResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Vsc.
+     *
+     * @param request - CreateVscRequest
+     *
+     * @returns CreateVscResponse
+     *
+     * @param CreateVscRequest $request
+     *
+     * @return CreateVscResponse
+     */
+    public function createVsc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVscWithOptions($request, $runtime);
+    }
+
+    /**
      * Delete cluster instance.
      *
      * @param request - DeleteClusterRequest
@@ -914,6 +1002,69 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteNodeGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除Vsc.
+     *
+     * @param request - DeleteVscRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVscResponse
+     *
+     * @param DeleteVscRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteVscResponse
+     */
+    public function deleteVscWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->vscId) {
+            @$body['VscId'] = $request->vscId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteVsc',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteVscResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除Vsc.
+     *
+     * @param request - DeleteVscRequest
+     *
+     * @returns DeleteVscResponse
+     *
+     * @param DeleteVscRequest $request
+     *
+     * @return DeleteVscResponse
+     */
+    public function deleteVsc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVscWithOptions($request, $runtime);
     }
 
     /**
@@ -1398,6 +1549,63 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取单个Vsc详情.
+     *
+     * @param request - DescribeVscRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVscResponse
+     *
+     * @param DescribeVscRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DescribeVscResponse
+     */
+    public function describeVscWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->vscId) {
+            @$body['VscId'] = $request->vscId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVsc',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVscResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取单个Vsc详情.
+     *
+     * @param request - DescribeVscRequest
+     *
+     * @returns DescribeVscResponse
+     *
+     * @param DescribeVscRequest $request
+     *
+     * @return DescribeVscResponse
+     */
+    public function describeVsc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVscWithOptions($request, $runtime);
     }
 
     /**
@@ -2315,6 +2523,91 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
+     * 查询Vsc列表.
+     *
+     * @param tmpReq - ListVscsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVscsResponse
+     *
+     * @param ListVscsRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListVscsResponse
+     */
+    public function listVscsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListVscsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodeIds) {
+            $request->nodeIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeIds, 'NodeIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $body = [];
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->nodeIdsShrink) {
+            @$body['NodeIds'] = $request->nodeIdsShrink;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->vscName) {
+            @$body['VscName'] = $request->vscName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListVscs',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVscsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Vsc列表.
+     *
+     * @param request - ListVscsRequest
+     *
+     * @returns ListVscsResponse
+     *
+     * @param ListVscsRequest $request
+     *
+     * @return ListVscsResponse
+     */
+    public function listVscs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVscsWithOptions($request, $runtime);
+    }
+
+    /**
      * Reboot Machine.
      *
      * @param tmpReq - RebootNodesRequest
@@ -3057,6 +3350,14 @@ class Eflocontroller extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->fileSystemMountEnabled) {
+            @$body['FileSystemMountEnabled'] = $request->fileSystemMountEnabled;
+        }
+
+        if (null !== $request->keyPairName) {
+            @$body['KeyPairName'] = $request->keyPairName;
+        }
+
         if (null !== $request->newNodeGroupName) {
             @$body['NewNodeGroupName'] = $request->newNodeGroupName;
         }

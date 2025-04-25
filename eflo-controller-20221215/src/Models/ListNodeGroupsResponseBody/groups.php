@@ -29,6 +29,11 @@ class groups extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $fileSystemMountEnabled;
+
+    /**
      * @var string
      */
     public $groupId;
@@ -72,6 +77,7 @@ class groups extends Model
         'clusterName' => 'ClusterName',
         'createTime' => 'CreateTime',
         'description' => 'Description',
+        'fileSystemMountEnabled' => 'FileSystemMountEnabled',
         'groupId' => 'GroupId',
         'groupName' => 'GroupName',
         'imageId' => 'ImageId',
@@ -104,6 +110,10 @@ class groups extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->fileSystemMountEnabled) {
+            $res['FileSystemMountEnabled'] = $this->fileSystemMountEnabled;
         }
 
         if (null !== $this->groupId) {
@@ -163,6 +173,10 @@ class groups extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['FileSystemMountEnabled'])) {
+            $model->fileSystemMountEnabled = $map['FileSystemMountEnabled'];
         }
 
         if (isset($map['GroupId'])) {

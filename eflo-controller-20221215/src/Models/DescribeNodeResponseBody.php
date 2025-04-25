@@ -36,6 +36,11 @@ class DescribeNodeResponseBody extends Model
     public $expiredTime;
 
     /**
+     * @var bool
+     */
+    public $fileSystemMountEnabled;
+
+    /**
      * @var string
      */
     public $hostname;
@@ -115,6 +120,7 @@ class DescribeNodeResponseBody extends Model
         'createTime' => 'CreateTime',
         'disks' => 'Disks',
         'expiredTime' => 'ExpiredTime',
+        'fileSystemMountEnabled' => 'FileSystemMountEnabled',
         'hostname' => 'Hostname',
         'hpnZone' => 'HpnZone',
         'imageId' => 'ImageId',
@@ -170,6 +176,10 @@ class DescribeNodeResponseBody extends Model
 
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
+        }
+
+        if (null !== $this->fileSystemMountEnabled) {
+            $res['FileSystemMountEnabled'] = $this->fileSystemMountEnabled;
         }
 
         if (null !== $this->hostname) {
@@ -273,6 +283,10 @@ class DescribeNodeResponseBody extends Model
 
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
+        }
+
+        if (isset($map['FileSystemMountEnabled'])) {
+            $model->fileSystemMountEnabled = $map['FileSystemMountEnabled'];
         }
 
         if (isset($map['Hostname'])) {
