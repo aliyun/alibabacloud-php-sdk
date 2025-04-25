@@ -19,6 +19,7 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBod
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkRocketMQCheckpointParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkRocketMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkSLSParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkBaiLianParameters;
 
 class sink extends Model
 {
@@ -26,6 +27,11 @@ class sink extends Model
      * @var sinkApacheRocketMQCheckpointParameters
      */
     public $sinkApacheRocketMQCheckpointParameters;
+
+    /**
+     * @var SinkBaiLianParameters
+     */
+    public $sinkBaiLianParameters;
 
     /**
      * @var sinkCustomizedKafkaConnectorParameters
@@ -93,6 +99,7 @@ class sink extends Model
     public $sinkSLSParameters;
     protected $_name = [
         'sinkApacheRocketMQCheckpointParameters' => 'SinkApacheRocketMQCheckpointParameters',
+        'sinkBaiLianParameters' => 'SinkBaiLianParameters',
         'sinkCustomizedKafkaConnectorParameters' => 'SinkCustomizedKafkaConnectorParameters',
         'sinkCustomizedKafkaParameters' => 'SinkCustomizedKafkaParameters',
         'sinkDashVectorParameters' => 'SinkDashVectorParameters',
@@ -112,6 +119,9 @@ class sink extends Model
     {
         if (null !== $this->sinkApacheRocketMQCheckpointParameters) {
             $this->sinkApacheRocketMQCheckpointParameters->validate();
+        }
+        if (null !== $this->sinkBaiLianParameters) {
+            $this->sinkBaiLianParameters->validate();
         }
         if (null !== $this->sinkCustomizedKafkaConnectorParameters) {
             $this->sinkCustomizedKafkaConnectorParameters->validate();
@@ -160,6 +170,10 @@ class sink extends Model
         $res = [];
         if (null !== $this->sinkApacheRocketMQCheckpointParameters) {
             $res['SinkApacheRocketMQCheckpointParameters'] = null !== $this->sinkApacheRocketMQCheckpointParameters ? $this->sinkApacheRocketMQCheckpointParameters->toArray($noStream) : $this->sinkApacheRocketMQCheckpointParameters;
+        }
+
+        if (null !== $this->sinkBaiLianParameters) {
+            $res['SinkBaiLianParameters'] = null !== $this->sinkBaiLianParameters ? $this->sinkBaiLianParameters->toArray($noStream) : $this->sinkBaiLianParameters;
         }
 
         if (null !== $this->sinkCustomizedKafkaConnectorParameters) {
@@ -227,6 +241,10 @@ class sink extends Model
         $model = new self();
         if (isset($map['SinkApacheRocketMQCheckpointParameters'])) {
             $model->sinkApacheRocketMQCheckpointParameters = sinkApacheRocketMQCheckpointParameters::fromMap($map['SinkApacheRocketMQCheckpointParameters']);
+        }
+
+        if (isset($map['SinkBaiLianParameters'])) {
+            $model->sinkBaiLianParameters = SinkBaiLianParameters::fromMap($map['SinkBaiLianParameters']);
         }
 
         if (isset($map['SinkCustomizedKafkaConnectorParameters'])) {

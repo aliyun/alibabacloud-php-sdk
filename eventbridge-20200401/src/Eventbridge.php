@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Eventbridge\V20200401;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CheckServiceLinkedRoleForProductRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CheckServiceLinkedRoleForProductResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateApiDestinationRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateApiDestinationResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateApiDestinationShrinkRequest;
@@ -144,6 +146,63 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * 检查账号是否存在ServiceLinkedRole授权.
+     *
+     * @param request - CheckServiceLinkedRoleForProductRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckServiceLinkedRoleForProductResponse
+     *
+     * @param CheckServiceLinkedRoleForProductRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CheckServiceLinkedRoleForProductResponse
+     */
+    public function checkServiceLinkedRoleForProductWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->productName) {
+            @$query['ProductName'] = $request->productName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckServiceLinkedRoleForProduct',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckServiceLinkedRoleForProductResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检查账号是否存在ServiceLinkedRole授权.
+     *
+     * @param request - CheckServiceLinkedRoleForProductRequest
+     *
+     * @returns CheckServiceLinkedRoleForProductResponse
+     *
+     * @param CheckServiceLinkedRoleForProductRequest $request
+     *
+     * @return CheckServiceLinkedRoleForProductResponse
+     */
+    public function checkServiceLinkedRoleForProduct($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkServiceLinkedRoleForProductWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an API destination.
      *
      * @remarks
@@ -199,11 +258,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateApiDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateApiDestinationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateApiDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -287,11 +343,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -357,11 +410,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateEventBusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateEventBusResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateEventBusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -505,11 +555,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateEventSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateEventSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateEventSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -617,11 +664,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateEventStreamingResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -709,11 +753,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -775,11 +816,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateServiceLinkedRoleForProductResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateServiceLinkedRoleForProductResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateServiceLinkedRoleForProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -841,11 +879,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteApiDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteApiDestinationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteApiDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -907,11 +942,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -973,11 +1005,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteEventBusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteEventBusResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteEventBusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1043,11 +1072,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteEventSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteEventSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteEventSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1109,11 +1135,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteEventStreamingResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1179,11 +1202,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1259,11 +1279,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTargetsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1329,11 +1346,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1399,11 +1413,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1482,11 +1493,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EventCenterQueryEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EventCenterQueryEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return EventCenterQueryEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1545,11 +1553,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetApiDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApiDestinationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApiDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1611,11 +1616,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1677,11 +1679,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetEventBusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetEventBusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetEventBusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1743,11 +1742,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetEventStreamingResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1813,11 +1809,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1870,11 +1863,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAliyunOfficialEventSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAliyunOfficialEventSourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAliyunOfficialEventSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1944,11 +1934,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListApiDestinationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApiDestinationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApiDestinationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2018,11 +2005,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListConnectionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2092,11 +2076,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListEventBusesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEventBusesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEventBusesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2178,11 +2159,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListEventStreamingsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEventStreamingsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEventStreamingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2256,11 +2234,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2335,11 +2310,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTargetsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2410,11 +2382,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListUserDefinedEventSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUserDefinedEventSourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUserDefinedEventSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2476,11 +2445,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PauseEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PauseEventStreamingResponse::fromMap($this->execute($params, $req, $runtime));
+        return PauseEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2556,11 +2522,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PutTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PutTargetsResponse::fromMap($this->execute($params, $req, $runtime));
+        return PutTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2630,11 +2593,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryEventResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryEventResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2700,11 +2660,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryEventTracesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryEventTracesResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryEventTracesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2774,11 +2731,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryTracedEventByEventIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryTracedEventByEventIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryTracedEventByEventIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2868,11 +2822,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return QueryTracedEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryTracedEventsResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryTracedEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2934,11 +2885,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartEventStreamingResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3004,11 +2952,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TestEventPatternResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TestEventPatternResponse::fromMap($this->execute($params, $req, $runtime));
+        return TestEventPatternResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3088,11 +3033,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateApiDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateApiDestinationResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateApiDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3176,11 +3118,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateConnectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3246,11 +3185,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateEventBusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateEventBusResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateEventBusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3394,11 +3330,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateEventSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateEventSourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateEventSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3502,11 +3435,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateEventStreamingResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateEventStreamingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3584,11 +3514,8 @@ class Eventbridge extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

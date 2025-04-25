@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SourceMySQLParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\source\sourceApacheRocketMQCheckpointParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\source\sourceCustomizedKafkaConnectorParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\source\sourceCustomizedKafkaParameters;
@@ -64,6 +65,11 @@ class source extends Model
     public $sourceMQTTParameters;
 
     /**
+     * @var SourceMySQLParameters
+     */
+    public $sourceMySQLParameters;
+
+    /**
      * @var sourceOSSParameters
      */
     public $sourceOSSParameters;
@@ -106,6 +112,7 @@ class source extends Model
         'sourceKafkaParameters' => 'SourceKafkaParameters',
         'sourceMNSParameters' => 'SourceMNSParameters',
         'sourceMQTTParameters' => 'SourceMQTTParameters',
+        'sourceMySQLParameters' => 'SourceMySQLParameters',
         'sourceOSSParameters' => 'SourceOSSParameters',
         'sourceOpenSourceRabbitMQParameters' => 'SourceOpenSourceRabbitMQParameters',
         'sourcePrometheusParameters' => 'SourcePrometheusParameters',
@@ -140,6 +147,9 @@ class source extends Model
         }
         if (null !== $this->sourceMQTTParameters) {
             $this->sourceMQTTParameters->validate();
+        }
+        if (null !== $this->sourceMySQLParameters) {
+            $this->sourceMySQLParameters->validate();
         }
         if (null !== $this->sourceOSSParameters) {
             $this->sourceOSSParameters->validate();
@@ -198,6 +208,10 @@ class source extends Model
 
         if (null !== $this->sourceMQTTParameters) {
             $res['SourceMQTTParameters'] = null !== $this->sourceMQTTParameters ? $this->sourceMQTTParameters->toArray($noStream) : $this->sourceMQTTParameters;
+        }
+
+        if (null !== $this->sourceMySQLParameters) {
+            $res['SourceMySQLParameters'] = null !== $this->sourceMySQLParameters ? $this->sourceMySQLParameters->toArray($noStream) : $this->sourceMySQLParameters;
         }
 
         if (null !== $this->sourceOSSParameters) {
@@ -269,6 +283,10 @@ class source extends Model
 
         if (isset($map['SourceMQTTParameters'])) {
             $model->sourceMQTTParameters = sourceMQTTParameters::fromMap($map['SourceMQTTParameters']);
+        }
+
+        if (isset($map['SourceMySQLParameters'])) {
+            $model->sourceMySQLParameters = SourceMySQLParameters::fromMap($map['SourceMySQLParameters']);
         }
 
         if (isset($map['SourceOSSParameters'])) {
