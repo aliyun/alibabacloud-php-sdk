@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreateUsersResponseBody\createResu
 class CreateUsersResponseBody extends Model
 {
     /**
+     * @var bool
+     */
+    public $allSucceed;
+
+    /**
      * @var createResult
      */
     public $createResult;
@@ -19,6 +24,7 @@ class CreateUsersResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'allSucceed' => 'AllSucceed',
         'createResult' => 'CreateResult',
         'requestId' => 'RequestId',
     ];
@@ -34,6 +40,10 @@ class CreateUsersResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allSucceed) {
+            $res['AllSucceed'] = $this->allSucceed;
+        }
+
         if (null !== $this->createResult) {
             $res['CreateResult'] = null !== $this->createResult ? $this->createResult->toArray($noStream) : $this->createResult;
         }
@@ -53,6 +63,10 @@ class CreateUsersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllSucceed'])) {
+            $model->allSucceed = $map['AllSucceed'];
+        }
+
         if (isset($map['CreateResult'])) {
             $model->createResult = createResult::fromMap($map['CreateResult']);
         }
