@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupRequest\netRedirectPolicy;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupRequest\watermark;
 
 class ModifyPolicyGroupRequest extends Model
 {
@@ -58,6 +59,11 @@ class ModifyPolicyGroupRequest extends Model
      * @var int
      */
     public $resolutionWidth;
+
+    /**
+     * @var watermark
+     */
+    public $watermark;
     protected $_name = [
         'cameraRedirect' => 'CameraRedirect',
         'clipboard' => 'Clipboard',
@@ -69,12 +75,16 @@ class ModifyPolicyGroupRequest extends Model
         'policyGroupName' => 'PolicyGroupName',
         'resolutionHeight' => 'ResolutionHeight',
         'resolutionWidth' => 'ResolutionWidth',
+        'watermark' => 'Watermark',
     ];
 
     public function validate()
     {
         if (null !== $this->netRedirectPolicy) {
             $this->netRedirectPolicy->validate();
+        }
+        if (null !== $this->watermark) {
+            $this->watermark->validate();
         }
         parent::validate();
     }
@@ -120,6 +130,10 @@ class ModifyPolicyGroupRequest extends Model
 
         if (null !== $this->resolutionWidth) {
             $res['ResolutionWidth'] = $this->resolutionWidth;
+        }
+
+        if (null !== $this->watermark) {
+            $res['Watermark'] = null !== $this->watermark ? $this->watermark->toArray($noStream) : $this->watermark;
         }
 
         return $res;
@@ -171,6 +185,10 @@ class ModifyPolicyGroupRequest extends Model
 
         if (isset($map['ResolutionWidth'])) {
             $model->resolutionWidth = $map['ResolutionWidth'];
+        }
+
+        if (isset($map['Watermark'])) {
+            $model->watermark = watermark::fromMap($map['Watermark']);
         }
 
         return $model;

@@ -11,6 +11,11 @@ class RenewCloudPhoneNodesRequest extends Model
     /**
      * @var bool
      */
+    public $autoPay;
+
+    /**
+     * @var bool
+     */
     public $autoRenew;
 
     /**
@@ -28,6 +33,7 @@ class RenewCloudPhoneNodesRequest extends Model
      */
     public $periodUnit;
     protected $_name = [
+        'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
         'nodeIds' => 'NodeIds',
         'period' => 'Period',
@@ -45,6 +51,10 @@ class RenewCloudPhoneNodesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
+
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
@@ -78,6 +88,10 @@ class RenewCloudPhoneNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
+
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }

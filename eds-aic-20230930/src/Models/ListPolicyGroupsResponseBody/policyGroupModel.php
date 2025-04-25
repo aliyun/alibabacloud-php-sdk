@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponseBody;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponseBody\policyGroupModel\netRedirectPolicy;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponseBody\policyGroupModel\policyRelatedResources;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponseBody\policyGroupModel\watermark;
 
 class policyGroupModel extends Model
 {
@@ -69,6 +70,11 @@ class policyGroupModel extends Model
      * @var int
      */
     public $sessionResolutionWidth;
+
+    /**
+     * @var watermark
+     */
+    public $watermark;
     protected $_name = [
         'cameraRedirect' => 'CameraRedirect',
         'clipboard' => 'Clipboard',
@@ -82,6 +88,7 @@ class policyGroupModel extends Model
         'policyRelatedResources' => 'PolicyRelatedResources',
         'sessionResolutionHeight' => 'SessionResolutionHeight',
         'sessionResolutionWidth' => 'SessionResolutionWidth',
+        'watermark' => 'Watermark',
     ];
 
     public function validate()
@@ -91,6 +98,9 @@ class policyGroupModel extends Model
         }
         if (null !== $this->policyRelatedResources) {
             $this->policyRelatedResources->validate();
+        }
+        if (null !== $this->watermark) {
+            $this->watermark->validate();
         }
         parent::validate();
     }
@@ -144,6 +154,10 @@ class policyGroupModel extends Model
 
         if (null !== $this->sessionResolutionWidth) {
             $res['SessionResolutionWidth'] = $this->sessionResolutionWidth;
+        }
+
+        if (null !== $this->watermark) {
+            $res['Watermark'] = null !== $this->watermark ? $this->watermark->toArray($noStream) : $this->watermark;
         }
 
         return $res;
@@ -203,6 +217,10 @@ class policyGroupModel extends Model
 
         if (isset($map['SessionResolutionWidth'])) {
             $model->sessionResolutionWidth = $map['SessionResolutionWidth'];
+        }
+
+        if (isset($map['Watermark'])) {
+            $model->watermark = watermark::fromMap($map['Watermark']);
         }
 
         return $model;

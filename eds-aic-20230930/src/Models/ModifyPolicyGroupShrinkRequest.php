@@ -57,6 +57,11 @@ class ModifyPolicyGroupShrinkRequest extends Model
      * @var int
      */
     public $resolutionWidth;
+
+    /**
+     * @var string
+     */
+    public $watermarkShrink;
     protected $_name = [
         'cameraRedirect' => 'CameraRedirect',
         'clipboard' => 'Clipboard',
@@ -68,6 +73,7 @@ class ModifyPolicyGroupShrinkRequest extends Model
         'policyGroupName' => 'PolicyGroupName',
         'resolutionHeight' => 'ResolutionHeight',
         'resolutionWidth' => 'ResolutionWidth',
+        'watermarkShrink' => 'Watermark',
     ];
 
     public function validate()
@@ -116,6 +122,10 @@ class ModifyPolicyGroupShrinkRequest extends Model
 
         if (null !== $this->resolutionWidth) {
             $res['ResolutionWidth'] = $this->resolutionWidth;
+        }
+
+        if (null !== $this->watermarkShrink) {
+            $res['Watermark'] = $this->watermarkShrink;
         }
 
         return $res;
@@ -167,6 +177,10 @@ class ModifyPolicyGroupShrinkRequest extends Model
 
         if (isset($map['ResolutionWidth'])) {
             $model->resolutionWidth = $map['ResolutionWidth'];
+        }
+
+        if (isset($map['Watermark'])) {
+            $model->watermarkShrink = $map['Watermark'];
         }
 
         return $model;

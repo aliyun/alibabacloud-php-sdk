@@ -134,6 +134,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateCustomImageNameRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateCustomImageNameResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateInstanceGroupImageRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateInstanceGroupImageResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateInstanceImageRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateInstanceImageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpgradeAndroidInstanceGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpgradeAndroidInstanceGroupResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1181,6 +1183,10 @@ class Edsaic extends OpenApiClient
             $request->netRedirectPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->netRedirectPolicy, 'NetRedirectPolicy', 'json');
         }
 
+        if (null !== $tmpReq->watermark) {
+            $request->watermarkShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->watermark, 'Watermark', 'json');
+        }
+
         $body = [];
         if (null !== $request->cameraRedirect) {
             @$body['CameraRedirect'] = $request->cameraRedirect;
@@ -1220,6 +1226,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->resolutionWidth) {
             @$body['ResolutionWidth'] = $request->resolutionWidth;
+        }
+
+        if (null !== $request->watermarkShrink) {
+            @$body['Watermark'] = $request->watermarkShrink;
         }
 
         $req = new OpenApiRequest([
@@ -3165,7 +3175,7 @@ class Edsaic extends OpenApiClient
      * Generates a collaboration code for the cloud phone being accessed by using the current convenience account, and shares this code with other convenience accounts to allow them to access the same cloud phone.
      *
      * @remarks
-     * You can call this operation to generate a collaboration code for a cloud phone accessed by your current account and share this code with other convenience users to allow them to access the same cloud phone over the desktop, mobile, or web client. They can then call the [ApplyCoordinationWithCode](https://help.aliyun.com/zh/wuying-workspace/developer-reference/api-metaspace-2022-03-07-applycoordinationwithcode?spm=a2c4g.11174283.help-menu-68242.d_5_3_2_1.70e5e380fUFgOH\\&scm=20140722.H_2863194._.OR_help-T_cn~zh-V_1) operation to initiate a coordination request, which will provide them with a connection token.
+     * You can call this operation to generate a collaboration code for a cloud phone accessed by your current account and share this code with other convenience users to allow them to access the same cloud phone over the desktop, mobile, or web client.
      *
      * @param request - GenerateCoordinationCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3211,7 +3221,7 @@ class Edsaic extends OpenApiClient
      * Generates a collaboration code for the cloud phone being accessed by using the current convenience account, and shares this code with other convenience accounts to allow them to access the same cloud phone.
      *
      * @remarks
-     * You can call this operation to generate a collaboration code for a cloud phone accessed by your current account and share this code with other convenience users to allow them to access the same cloud phone over the desktop, mobile, or web client. They can then call the [ApplyCoordinationWithCode](https://help.aliyun.com/zh/wuying-workspace/developer-reference/api-metaspace-2022-03-07-applycoordinationwithcode?spm=a2c4g.11174283.help-menu-68242.d_5_3_2_1.70e5e380fUFgOH\\&scm=20140722.H_2863194._.OR_help-T_cn~zh-V_1) operation to initiate a coordination request, which will provide them with a connection token.
+     * You can call this operation to generate a collaboration code for a cloud phone accessed by your current account and share this code with other convenience users to allow them to access the same cloud phone over the desktop, mobile, or web client.
      *
      * @param request - GenerateCoordinationCodeRequest
      *
@@ -3847,6 +3857,10 @@ class Edsaic extends OpenApiClient
             $request->netRedirectPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->netRedirectPolicy, 'NetRedirectPolicy', 'json');
         }
 
+        if (null !== $tmpReq->watermark) {
+            $request->watermarkShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->watermark, 'Watermark', 'json');
+        }
+
         $body = [];
         if (null !== $request->cameraRedirect) {
             @$body['CameraRedirect'] = $request->cameraRedirect;
@@ -3886,6 +3900,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->resolutionWidth) {
             @$body['ResolutionWidth'] = $request->resolutionWidth;
+        }
+
+        if (null !== $request->watermarkShrink) {
+            @$body['Watermark'] = $request->watermarkShrink;
         }
 
         $req = new OpenApiRequest([
@@ -4234,6 +4252,11 @@ class Edsaic extends OpenApiClient
     public function renewCloudPhoneNodesWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
         $body = [];
         if (null !== $request->autoRenew) {
             @$body['AutoRenew'] = $request->autoRenew;
@@ -4252,6 +4275,7 @@ class Edsaic extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -4908,6 +4932,67 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateInstanceGroupImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新实例镜像.
+     *
+     * @param request - UpdateInstanceImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstanceImageResponse
+     *
+     * @param UpdateInstanceImageRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateInstanceImageResponse
+     */
+    public function updateInstanceImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->instanceIdList) {
+            @$query['InstanceIdList'] = $request->instanceIdList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateInstanceImage',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateInstanceImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新实例镜像.
+     *
+     * @param request - UpdateInstanceImageRequest
+     *
+     * @returns UpdateInstanceImageResponse
+     *
+     * @param UpdateInstanceImageRequest $request
+     *
+     * @return UpdateInstanceImageResponse
+     */
+    public function updateInstanceImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateInstanceImageWithOptions($request, $runtime);
     }
 
     /**
