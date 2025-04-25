@@ -16,6 +16,11 @@ class content extends Model
     /**
      * @var string
      */
+    public $flowFailover;
+
+    /**
+     * @var string
+     */
     public $flowId;
 
     /**
@@ -34,6 +39,7 @@ class content extends Model
     public $startTime;
     protected $_name = [
         'createTime' => 'CreateTime',
+        'flowFailover' => 'FlowFailover',
         'flowId' => 'FlowId',
         'flowName' => 'FlowName',
         'flowStatus' => 'FlowStatus',
@@ -50,6 +56,10 @@ class content extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->flowFailover) {
+            $res['FlowFailover'] = $this->flowFailover;
         }
 
         if (null !== $this->flowId) {
@@ -81,6 +91,10 @@ class content extends Model
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['FlowFailover'])) {
+            $model->flowFailover = $map['FlowFailover'];
         }
 
         if (isset($map['FlowId'])) {

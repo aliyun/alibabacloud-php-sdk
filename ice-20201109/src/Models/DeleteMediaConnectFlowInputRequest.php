@@ -12,8 +12,14 @@ class DeleteMediaConnectFlowInputRequest extends Model
      * @var string
      */
     public $flowId;
+
+    /**
+     * @var string
+     */
+    public $inputName;
     protected $_name = [
         'flowId' => 'FlowId',
+        'inputName' => 'InputName',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class DeleteMediaConnectFlowInputRequest extends Model
         $res = [];
         if (null !== $this->flowId) {
             $res['FlowId'] = $this->flowId;
+        }
+
+        if (null !== $this->inputName) {
+            $res['InputName'] = $this->inputName;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class DeleteMediaConnectFlowInputRequest extends Model
         $model = new self();
         if (isset($map['FlowId'])) {
             $model->flowId = $map['FlowId'];
+        }
+
+        if (isset($map['InputName'])) {
+            $model->inputName = $map['InputName'];
         }
 
         return $model;

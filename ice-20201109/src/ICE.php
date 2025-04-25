@@ -5396,6 +5396,10 @@ class ICE extends OpenApiClient
             @$query['FlowId'] = $request->flowId;
         }
 
+        if (null !== $request->inputName) {
+            @$query['InputName'] = $request->inputName;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -23150,6 +23154,10 @@ class ICE extends OpenApiClient
 
         if (null !== $request->inputFromUrl) {
             @$query['InputFromUrl'] = $request->inputFromUrl;
+        }
+
+        if (null !== $request->inputName) {
+            @$query['InputName'] = $request->inputName;
         }
 
         if (null !== $request->maxBitrate) {

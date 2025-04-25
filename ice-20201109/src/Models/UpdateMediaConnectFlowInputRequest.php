@@ -24,6 +24,11 @@ class UpdateMediaConnectFlowInputRequest extends Model
     public $inputFromUrl;
 
     /**
+     * @var string
+     */
+    public $inputName;
+
+    /**
      * @var int
      */
     public $maxBitrate;
@@ -46,6 +51,7 @@ class UpdateMediaConnectFlowInputRequest extends Model
         'cidrs' => 'Cidrs',
         'flowId' => 'FlowId',
         'inputFromUrl' => 'InputFromUrl',
+        'inputName' => 'InputName',
         'maxBitrate' => 'MaxBitrate',
         'srtLatency' => 'SrtLatency',
         'srtPassphrase' => 'SrtPassphrase',
@@ -70,6 +76,10 @@ class UpdateMediaConnectFlowInputRequest extends Model
 
         if (null !== $this->inputFromUrl) {
             $res['InputFromUrl'] = $this->inputFromUrl;
+        }
+
+        if (null !== $this->inputName) {
+            $res['InputName'] = $this->inputName;
         }
 
         if (null !== $this->maxBitrate) {
@@ -109,6 +119,10 @@ class UpdateMediaConnectFlowInputRequest extends Model
 
         if (isset($map['InputFromUrl'])) {
             $model->inputFromUrl = $map['InputFromUrl'];
+        }
+
+        if (isset($map['InputName'])) {
+            $model->inputName = $map['InputName'];
         }
 
         if (isset($map['MaxBitrate'])) {

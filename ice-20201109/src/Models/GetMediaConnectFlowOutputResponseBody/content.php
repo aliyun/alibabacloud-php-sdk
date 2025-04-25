@@ -21,6 +21,11 @@ class content extends Model
     /**
      * @var string
      */
+    public $forbid;
+
+    /**
+     * @var string
+     */
     public $outputName;
 
     /**
@@ -65,6 +70,7 @@ class content extends Model
     protected $_name = [
         'cidrs' => 'Cidrs',
         'createTime' => 'CreateTime',
+        'forbid' => 'Forbid',
         'outputName' => 'OutputName',
         'outputProtocol' => 'OutputProtocol',
         'outputUrl' => 'OutputUrl',
@@ -90,6 +96,10 @@ class content extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->forbid) {
+            $res['Forbid'] = $this->forbid;
         }
 
         if (null !== $this->outputName) {
@@ -145,6 +155,10 @@ class content extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['Forbid'])) {
+            $model->forbid = $map['Forbid'];
         }
 
         if (isset($map['OutputName'])) {

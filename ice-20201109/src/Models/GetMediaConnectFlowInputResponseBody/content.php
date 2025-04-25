@@ -11,6 +11,51 @@ class content extends Model
     /**
      * @var string
      */
+    public $backupCidrs;
+
+    /**
+     * @var string
+     */
+    public $backupCreateTime;
+
+    /**
+     * @var string
+     */
+    public $backupInputName;
+
+    /**
+     * @var string
+     */
+    public $backupInputStatus;
+
+    /**
+     * @var string
+     */
+    public $backupInputUrl;
+
+    /**
+     * @var int
+     */
+    public $backupMaxBitrate;
+
+    /**
+     * @var int
+     */
+    public $backupSrtLatency;
+
+    /**
+     * @var string
+     */
+    public $backupSrtPassphrase;
+
+    /**
+     * @var int
+     */
+    public $backupSrtPbkeyLen;
+
+    /**
+     * @var string
+     */
     public $cidrs;
 
     /**
@@ -27,6 +72,11 @@ class content extends Model
      * @var string
      */
     public $inputProtocol;
+
+    /**
+     * @var string
+     */
+    public $inputStatus;
 
     /**
      * @var string
@@ -63,10 +113,20 @@ class content extends Model
      */
     public $srtPbkeyLen;
     protected $_name = [
+        'backupCidrs' => 'BackupCidrs',
+        'backupCreateTime' => 'BackupCreateTime',
+        'backupInputName' => 'BackupInputName',
+        'backupInputStatus' => 'BackupInputStatus',
+        'backupInputUrl' => 'BackupInputUrl',
+        'backupMaxBitrate' => 'BackupMaxBitrate',
+        'backupSrtLatency' => 'BackupSrtLatency',
+        'backupSrtPassphrase' => 'BackupSrtPassphrase',
+        'backupSrtPbkeyLen' => 'BackupSrtPbkeyLen',
         'cidrs' => 'Cidrs',
         'createTime' => 'CreateTime',
         'inputName' => 'InputName',
         'inputProtocol' => 'InputProtocol',
+        'inputStatus' => 'InputStatus',
         'inputUrl' => 'InputUrl',
         'maxBitrate' => 'MaxBitrate',
         'pairFlowId' => 'PairFlowId',
@@ -84,6 +144,42 @@ class content extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->backupCidrs) {
+            $res['BackupCidrs'] = $this->backupCidrs;
+        }
+
+        if (null !== $this->backupCreateTime) {
+            $res['BackupCreateTime'] = $this->backupCreateTime;
+        }
+
+        if (null !== $this->backupInputName) {
+            $res['BackupInputName'] = $this->backupInputName;
+        }
+
+        if (null !== $this->backupInputStatus) {
+            $res['BackupInputStatus'] = $this->backupInputStatus;
+        }
+
+        if (null !== $this->backupInputUrl) {
+            $res['BackupInputUrl'] = $this->backupInputUrl;
+        }
+
+        if (null !== $this->backupMaxBitrate) {
+            $res['BackupMaxBitrate'] = $this->backupMaxBitrate;
+        }
+
+        if (null !== $this->backupSrtLatency) {
+            $res['BackupSrtLatency'] = $this->backupSrtLatency;
+        }
+
+        if (null !== $this->backupSrtPassphrase) {
+            $res['BackupSrtPassphrase'] = $this->backupSrtPassphrase;
+        }
+
+        if (null !== $this->backupSrtPbkeyLen) {
+            $res['BackupSrtPbkeyLen'] = $this->backupSrtPbkeyLen;
+        }
+
         if (null !== $this->cidrs) {
             $res['Cidrs'] = $this->cidrs;
         }
@@ -98,6 +194,10 @@ class content extends Model
 
         if (null !== $this->inputProtocol) {
             $res['InputProtocol'] = $this->inputProtocol;
+        }
+
+        if (null !== $this->inputStatus) {
+            $res['InputStatus'] = $this->inputStatus;
         }
 
         if (null !== $this->inputUrl) {
@@ -139,6 +239,42 @@ class content extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupCidrs'])) {
+            $model->backupCidrs = $map['BackupCidrs'];
+        }
+
+        if (isset($map['BackupCreateTime'])) {
+            $model->backupCreateTime = $map['BackupCreateTime'];
+        }
+
+        if (isset($map['BackupInputName'])) {
+            $model->backupInputName = $map['BackupInputName'];
+        }
+
+        if (isset($map['BackupInputStatus'])) {
+            $model->backupInputStatus = $map['BackupInputStatus'];
+        }
+
+        if (isset($map['BackupInputUrl'])) {
+            $model->backupInputUrl = $map['BackupInputUrl'];
+        }
+
+        if (isset($map['BackupMaxBitrate'])) {
+            $model->backupMaxBitrate = $map['BackupMaxBitrate'];
+        }
+
+        if (isset($map['BackupSrtLatency'])) {
+            $model->backupSrtLatency = $map['BackupSrtLatency'];
+        }
+
+        if (isset($map['BackupSrtPassphrase'])) {
+            $model->backupSrtPassphrase = $map['BackupSrtPassphrase'];
+        }
+
+        if (isset($map['BackupSrtPbkeyLen'])) {
+            $model->backupSrtPbkeyLen = $map['BackupSrtPbkeyLen'];
+        }
+
         if (isset($map['Cidrs'])) {
             $model->cidrs = $map['Cidrs'];
         }
@@ -153,6 +289,10 @@ class content extends Model
 
         if (isset($map['InputProtocol'])) {
             $model->inputProtocol = $map['InputProtocol'];
+        }
+
+        if (isset($map['InputStatus'])) {
+            $model->inputStatus = $map['InputStatus'];
         }
 
         if (isset($map['InputUrl'])) {
