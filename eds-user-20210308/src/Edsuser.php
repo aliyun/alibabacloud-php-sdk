@@ -17,8 +17,12 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreateOrgRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreateOrgResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreatePropertyRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreatePropertyResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreateResourceGroupRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreateResourceGroupResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreateUsersRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreateUsersResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DeleteResourceGroupRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DeleteResourceGroupResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DeleteUserPropertyValueRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DeleteUserPropertyValueResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeMfaDevicesRequest;
@@ -27,6 +31,8 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgByLayerRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgByLayerResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgsRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgsResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersShrinkRequest;
@@ -478,6 +484,71 @@ class Edsuser extends OpenApiClient
     }
 
     /**
+     * 创建资源组.
+     *
+     * @param request - CreateResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateResourceGroupResponse
+     *
+     * @param CreateResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateResourceGroupResponse
+     */
+    public function createResourceGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->isResourceGroupWithOfficeSite) {
+            @$query['IsResourceGroupWithOfficeSite'] = $request->isResourceGroupWithOfficeSite;
+        }
+
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->resourceGroupName) {
+            @$query['ResourceGroupName'] = $request->resourceGroupName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateResourceGroup',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建资源组.
+     *
+     * @param request - CreateResourceGroupRequest
+     *
+     * @returns CreateResourceGroupResponse
+     *
+     * @param CreateResourceGroupRequest $request
+     *
+     * @return CreateResourceGroupResponse
+     */
+    public function createResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a convenience user.
      *
      * @remarks
@@ -556,6 +627,67 @@ class Edsuser extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除资源组.
+     *
+     * @param request - DeleteResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteResourceGroupResponse
+     *
+     * @param DeleteResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteResourceGroupResponse
+     */
+    public function deleteResourceGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceGroupIds) {
+            @$query['ResourceGroupIds'] = $request->resourceGroupIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteResourceGroup',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除资源组.
+     *
+     * @param request - DeleteResourceGroupRequest
+     *
+     * @returns DeleteResourceGroupResponse
+     *
+     * @param DeleteResourceGroupRequest $request
+     *
+     * @return DeleteResourceGroupResponse
+     */
+    public function deleteResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -836,6 +968,83 @@ class Edsuser extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeOrgsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看资源组.
+     *
+     * @param request - DescribeResourceGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResourceGroupsResponse
+     *
+     * @param DescribeResourceGroupsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeResourceGroupsResponse
+     */
+    public function describeResourceGroupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->needContainResourceGroupWithOfficeSite) {
+            @$query['NeedContainResourceGroupWithOfficeSite'] = $request->needContainResourceGroupWithOfficeSite;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->resourceGroupIds) {
+            @$query['ResourceGroupIds'] = $request->resourceGroupIds;
+        }
+
+        if (null !== $request->resourceGroupName) {
+            @$query['ResourceGroupName'] = $request->resourceGroupName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeResourceGroups',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看资源组.
+     *
+     * @param request - DescribeResourceGroupsRequest
+     *
+     * @returns DescribeResourceGroupsResponse
+     *
+     * @param DescribeResourceGroupsRequest $request
+     *
+     * @return DescribeResourceGroupsResponse
+     */
+    public function describeResourceGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResourceGroupsWithOptions($request, $runtime);
     }
 
     /**
