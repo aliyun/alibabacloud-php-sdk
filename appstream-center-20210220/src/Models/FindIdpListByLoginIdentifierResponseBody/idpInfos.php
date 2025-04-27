@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\FindIdpListByLoginIdentifierResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class idpInfos extends Model
 {
     /**
-     * @example simple
-     *
      * @var string
      */
     public $accountType;
 
     /**
-     * @example null
-     *
      * @var string
      */
     public $cookies;
 
     /**
-     * @example idp-hlyexfvwert9m8****
-     *
      * @var string
      */
     public $idpId;
@@ -45,15 +39,11 @@ class idpInfos extends Model
     public $idpProvider;
 
     /**
-     * @example true
-     *
      * @var string
      */
     public $jumpSwitch;
 
     /**
-     * @example SAML
-     *
      * @var string
      */
     public $ssoProtocol;
@@ -63,48 +53,57 @@ class idpInfos extends Model
      */
     public $ssoServiceUrl;
     protected $_name = [
-        'accountType'   => 'AccountType',
-        'cookies'       => 'Cookies',
-        'idpId'         => 'IdpId',
-        'idpName'       => 'IdpName',
-        'idpNameEN'     => 'IdpNameEN',
-        'idpProvider'   => 'IdpProvider',
-        'jumpSwitch'    => 'JumpSwitch',
-        'ssoProtocol'   => 'SsoProtocol',
+        'accountType' => 'AccountType',
+        'cookies' => 'Cookies',
+        'idpId' => 'IdpId',
+        'idpName' => 'IdpName',
+        'idpNameEN' => 'IdpNameEN',
+        'idpProvider' => 'IdpProvider',
+        'jumpSwitch' => 'JumpSwitch',
+        'ssoProtocol' => 'SsoProtocol',
         'ssoServiceUrl' => 'SsoServiceUrl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
         }
+
         if (null !== $this->cookies) {
             $res['Cookies'] = $this->cookies;
         }
+
         if (null !== $this->idpId) {
             $res['IdpId'] = $this->idpId;
         }
+
         if (null !== $this->idpName) {
             $res['IdpName'] = $this->idpName;
         }
+
         if (null !== $this->idpNameEN) {
             $res['IdpNameEN'] = $this->idpNameEN;
         }
+
         if (null !== $this->idpProvider) {
             $res['IdpProvider'] = $this->idpProvider;
         }
+
         if (null !== $this->jumpSwitch) {
             $res['JumpSwitch'] = $this->jumpSwitch;
         }
+
         if (null !== $this->ssoProtocol) {
             $res['SsoProtocol'] = $this->ssoProtocol;
         }
+
         if (null !== $this->ssoServiceUrl) {
             $res['SsoServiceUrl'] = $this->ssoServiceUrl;
         }
@@ -112,38 +111,46 @@ class idpInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return idpInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
         }
+
         if (isset($map['Cookies'])) {
             $model->cookies = $map['Cookies'];
         }
+
         if (isset($map['IdpId'])) {
             $model->idpId = $map['IdpId'];
         }
+
         if (isset($map['IdpName'])) {
             $model->idpName = $map['IdpName'];
         }
+
         if (isset($map['IdpNameEN'])) {
             $model->idpNameEN = $map['IdpNameEN'];
         }
+
         if (isset($map['IdpProvider'])) {
             $model->idpProvider = $map['IdpProvider'];
         }
+
         if (isset($map['JumpSwitch'])) {
             $model->jumpSwitch = $map['JumpSwitch'];
         }
+
         if (isset($map['SsoProtocol'])) {
             $model->ssoProtocol = $map['SsoProtocol'];
         }
+
         if (isset($map['SsoServiceUrl'])) {
             $model->ssoServiceUrl = $map['SsoServiceUrl'];
         }

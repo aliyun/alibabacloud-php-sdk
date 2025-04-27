@@ -4,80 +4,60 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210220\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetLoginTokenResponseBody\mfaTypeList;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetLoginTokenResponseBody\passwordStrategy;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetLoginTokenResponseBody\riskVerifyInfo;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetLoginTokenResponseBody\tenantInfos;
-use AlibabaCloud\Tea\Model;
 
 class GetLoginTokenResponseBody extends Model
 {
     /**
-     * @example INTERNET
-     *
      * @var string
      */
     public $accessType;
 
     /**
-     * @example ad
-     *
      * @var string
      */
     public $accountType;
 
     /**
-     * @example easthp***.com
-     *
      * @var string
      */
     public $adDomain;
 
     /**
-     * @example alice***@aliyun.com
-     *
      * @var string
      */
     public $email;
 
     /**
-     * @example alice
-     *
      * @var string
      */
     public $endUserId;
 
     /**
-     * @example idp-7ttvs4ove8bo5***
-     *
      * @var string
      */
     public $idpId;
 
     /**
-     * @example edu
-     *
      * @var string
      */
     public $industry;
 
     /**
-     * @example 006YwvYMsesWWsDBZnVB+Wq9AvJDVIqOY3YCktvtb7+KxMb3ClnNlV8+l/knhZYrXUmeP06IzkjF+IgcZ3vZKOyMprDyFHjCy1r27FRE/U7+geWCl8iQ+yF8GaCRHfJEkC2+ROs93HkT4tfHxyY1J8W7O7ZQGUC/cdCvm+cCP6FIy73IUuPuVR6PcKYXIp***
-     *
      * @var string
      */
     public $keepAliveToken;
 
     /**
-     * @example test:wuying
-     *
      * @var string
      */
     public $label;
 
     /**
-     * @example v185fdd7f6d39fa7861981639366085772e150a390a5bb7b43c4e62440d94fc392b945770e1596cebe90085ce0af4d****
-     *
      * @var string
      */
     public $loginToken;
@@ -88,11 +68,14 @@ class GetLoginTokenResponseBody extends Model
     public $mfaTypeList;
 
     /**
-     * @example MFABind
-     *
      * @var string
      */
     public $nextStage;
+
+    /**
+     * @var string
+     */
+    public $nickName;
 
     /**
      * @var string[]
@@ -105,8 +88,6 @@ class GetLoginTokenResponseBody extends Model
     public $passwordStrategy;
 
     /**
-     * @example 1826717****
-     *
      * @var string
      */
     public $phone;
@@ -117,22 +98,16 @@ class GetLoginTokenResponseBody extends Model
     public $props;
 
     /**
-     * @example 5OCLLKKOJU5HPBX66H3QCTWY******
-     *
      * @var string
      */
     public $qrCodePng;
 
     /**
-     * @example PasswordExpired
-     *
      * @var string
      */
     public $reason;
 
     /**
-     * @example EEA72491-B731-53D6-83ED-209769D6****
-     *
      * @var string
      */
     public $requestId;
@@ -143,29 +118,21 @@ class GetLoginTokenResponseBody extends Model
     public $riskVerifyInfo;
 
     /**
-     * @example 4JZNSDHDM3T6AZ4G2O5OWXBLLE4P****
-     *
      * @var string
      */
     public $secret;
 
     /**
-     * @example cc15c91c-821b-4edd-9af2-6df66cc****
-     *
      * @var string
      */
     public $sessionId;
 
     /**
-     * @example Rq201***
-     *
      * @var string
      */
     public $tenantAlias;
 
     /**
-     * @example 13747924304****
-     *
      * @var int
      */
     public $tenantId;
@@ -176,156 +143,212 @@ class GetLoginTokenResponseBody extends Model
     public $tenantInfos;
 
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $vpcRegionId;
 
     /**
-     * @example Windowed
-     *
      * @var string
      */
     public $windowDisplayMode;
 
     /**
-     * @example 0aba1403b337a***
-     *
      * @var string
      */
     public $wyId;
     protected $_name = [
-        'accessType'        => 'AccessType',
-        'accountType'       => 'AccountType',
-        'adDomain'          => 'AdDomain',
-        'email'             => 'Email',
-        'endUserId'         => 'EndUserId',
-        'idpId'             => 'IdpId',
-        'industry'          => 'Industry',
-        'keepAliveToken'    => 'KeepAliveToken',
-        'label'             => 'Label',
-        'loginToken'        => 'LoginToken',
-        'mfaTypeList'       => 'MfaTypeList',
-        'nextStage'         => 'NextStage',
-        'officeSites'       => 'OfficeSites',
-        'passwordStrategy'  => 'PasswordStrategy',
-        'phone'             => 'Phone',
-        'props'             => 'Props',
-        'qrCodePng'         => 'QrCodePng',
-        'reason'            => 'Reason',
-        'requestId'         => 'RequestId',
-        'riskVerifyInfo'    => 'RiskVerifyInfo',
-        'secret'            => 'Secret',
-        'sessionId'         => 'SessionId',
-        'tenantAlias'       => 'TenantAlias',
-        'tenantId'          => 'TenantId',
-        'tenantInfos'       => 'TenantInfos',
-        'vpcRegionId'       => 'VpcRegionId',
+        'accessType' => 'AccessType',
+        'accountType' => 'AccountType',
+        'adDomain' => 'AdDomain',
+        'email' => 'Email',
+        'endUserId' => 'EndUserId',
+        'idpId' => 'IdpId',
+        'industry' => 'Industry',
+        'keepAliveToken' => 'KeepAliveToken',
+        'label' => 'Label',
+        'loginToken' => 'LoginToken',
+        'mfaTypeList' => 'MfaTypeList',
+        'nextStage' => 'NextStage',
+        'nickName' => 'NickName',
+        'officeSites' => 'OfficeSites',
+        'passwordStrategy' => 'PasswordStrategy',
+        'phone' => 'Phone',
+        'props' => 'Props',
+        'qrCodePng' => 'QrCodePng',
+        'reason' => 'Reason',
+        'requestId' => 'RequestId',
+        'riskVerifyInfo' => 'RiskVerifyInfo',
+        'secret' => 'Secret',
+        'sessionId' => 'SessionId',
+        'tenantAlias' => 'TenantAlias',
+        'tenantId' => 'TenantId',
+        'tenantInfos' => 'TenantInfos',
+        'vpcRegionId' => 'VpcRegionId',
         'windowDisplayMode' => 'WindowDisplayMode',
-        'wyId'              => 'WyId',
+        'wyId' => 'WyId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->mfaTypeList)) {
+            Model::validateArray($this->mfaTypeList);
+        }
+        if (\is_array($this->officeSites)) {
+            Model::validateArray($this->officeSites);
+        }
+        if (null !== $this->passwordStrategy) {
+            $this->passwordStrategy->validate();
+        }
+        if (\is_array($this->props)) {
+            Model::validateArray($this->props);
+        }
+        if (null !== $this->riskVerifyInfo) {
+            $this->riskVerifyInfo->validate();
+        }
+        if (\is_array($this->tenantInfos)) {
+            Model::validateArray($this->tenantInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessType) {
             $res['AccessType'] = $this->accessType;
         }
+
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
         }
+
         if (null !== $this->adDomain) {
             $res['AdDomain'] = $this->adDomain;
         }
+
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
+
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
+
         if (null !== $this->idpId) {
             $res['IdpId'] = $this->idpId;
         }
+
         if (null !== $this->industry) {
             $res['Industry'] = $this->industry;
         }
+
         if (null !== $this->keepAliveToken) {
             $res['KeepAliveToken'] = $this->keepAliveToken;
         }
+
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->loginToken) {
             $res['LoginToken'] = $this->loginToken;
         }
+
         if (null !== $this->mfaTypeList) {
-            $res['MfaTypeList'] = [];
-            if (null !== $this->mfaTypeList && \is_array($this->mfaTypeList)) {
-                $n = 0;
-                foreach ($this->mfaTypeList as $item) {
-                    $res['MfaTypeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mfaTypeList)) {
+                $res['MfaTypeList'] = [];
+                $n1 = 0;
+                foreach ($this->mfaTypeList as $item1) {
+                    $res['MfaTypeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextStage) {
             $res['NextStage'] = $this->nextStage;
         }
+
+        if (null !== $this->nickName) {
+            $res['NickName'] = $this->nickName;
+        }
+
         if (null !== $this->officeSites) {
-            $res['OfficeSites'] = $this->officeSites;
-        }
-        if (null !== $this->passwordStrategy) {
-            $res['PasswordStrategy'] = null !== $this->passwordStrategy ? $this->passwordStrategy->toMap() : null;
-        }
-        if (null !== $this->phone) {
-            $res['Phone'] = $this->phone;
-        }
-        if (null !== $this->props) {
-            $res['Props'] = $this->props;
-        }
-        if (null !== $this->qrCodePng) {
-            $res['QrCodePng'] = $this->qrCodePng;
-        }
-        if (null !== $this->reason) {
-            $res['Reason'] = $this->reason;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->riskVerifyInfo) {
-            $res['RiskVerifyInfo'] = null !== $this->riskVerifyInfo ? $this->riskVerifyInfo->toMap() : null;
-        }
-        if (null !== $this->secret) {
-            $res['Secret'] = $this->secret;
-        }
-        if (null !== $this->sessionId) {
-            $res['SessionId'] = $this->sessionId;
-        }
-        if (null !== $this->tenantAlias) {
-            $res['TenantAlias'] = $this->tenantAlias;
-        }
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
-        }
-        if (null !== $this->tenantInfos) {
-            $res['TenantInfos'] = [];
-            if (null !== $this->tenantInfos && \is_array($this->tenantInfos)) {
-                $n = 0;
-                foreach ($this->tenantInfos as $item) {
-                    $res['TenantInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->officeSites)) {
+                $res['OfficeSites'] = [];
+                $n1 = 0;
+                foreach ($this->officeSites as $item1) {
+                    $res['OfficeSites'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->passwordStrategy) {
+            $res['PasswordStrategy'] = null !== $this->passwordStrategy ? $this->passwordStrategy->toArray($noStream) : $this->passwordStrategy;
+        }
+
+        if (null !== $this->phone) {
+            $res['Phone'] = $this->phone;
+        }
+
+        if (null !== $this->props) {
+            if (\is_array($this->props)) {
+                $res['Props'] = [];
+                foreach ($this->props as $key1 => $value1) {
+                    $res['Props'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->qrCodePng) {
+            $res['QrCodePng'] = $this->qrCodePng;
+        }
+
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
+        }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->riskVerifyInfo) {
+            $res['RiskVerifyInfo'] = null !== $this->riskVerifyInfo ? $this->riskVerifyInfo->toArray($noStream) : $this->riskVerifyInfo;
+        }
+
+        if (null !== $this->secret) {
+            $res['Secret'] = $this->secret;
+        }
+
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
+        }
+
+        if (null !== $this->tenantAlias) {
+            $res['TenantAlias'] = $this->tenantAlias;
+        }
+
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
+        }
+
+        if (null !== $this->tenantInfos) {
+            if (\is_array($this->tenantInfos)) {
+                $res['TenantInfos'] = [];
+                $n1 = 0;
+                foreach ($this->tenantInfos as $item1) {
+                    $res['TenantInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->vpcRegionId) {
             $res['VpcRegionId'] = $this->vpcRegionId;
         }
+
         if (null !== $this->windowDisplayMode) {
             $res['WindowDisplayMode'] = $this->windowDisplayMode;
         }
+
         if (null !== $this->wyId) {
             $res['WyId'] = $this->wyId;
         }
@@ -333,109 +356,149 @@ class GetLoginTokenResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetLoginTokenResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessType'])) {
             $model->accessType = $map['AccessType'];
         }
+
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
         }
+
         if (isset($map['AdDomain'])) {
             $model->adDomain = $map['AdDomain'];
         }
+
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
+
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
+
         if (isset($map['IdpId'])) {
             $model->idpId = $map['IdpId'];
         }
+
         if (isset($map['Industry'])) {
             $model->industry = $map['Industry'];
         }
+
         if (isset($map['KeepAliveToken'])) {
             $model->keepAliveToken = $map['KeepAliveToken'];
         }
+
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['LoginToken'])) {
             $model->loginToken = $map['LoginToken'];
         }
+
         if (isset($map['MfaTypeList'])) {
             if (!empty($map['MfaTypeList'])) {
                 $model->mfaTypeList = [];
-                $n                  = 0;
-                foreach ($map['MfaTypeList'] as $item) {
-                    $model->mfaTypeList[$n++] = null !== $item ? mfaTypeList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MfaTypeList'] as $item1) {
+                    $model->mfaTypeList[$n1++] = mfaTypeList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextStage'])) {
             $model->nextStage = $map['NextStage'];
         }
+
+        if (isset($map['NickName'])) {
+            $model->nickName = $map['NickName'];
+        }
+
         if (isset($map['OfficeSites'])) {
             if (!empty($map['OfficeSites'])) {
-                $model->officeSites = $map['OfficeSites'];
-            }
-        }
-        if (isset($map['PasswordStrategy'])) {
-            $model->passwordStrategy = passwordStrategy::fromMap($map['PasswordStrategy']);
-        }
-        if (isset($map['Phone'])) {
-            $model->phone = $map['Phone'];
-        }
-        if (isset($map['Props'])) {
-            $model->props = $map['Props'];
-        }
-        if (isset($map['QrCodePng'])) {
-            $model->qrCodePng = $map['QrCodePng'];
-        }
-        if (isset($map['Reason'])) {
-            $model->reason = $map['Reason'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['RiskVerifyInfo'])) {
-            $model->riskVerifyInfo = riskVerifyInfo::fromMap($map['RiskVerifyInfo']);
-        }
-        if (isset($map['Secret'])) {
-            $model->secret = $map['Secret'];
-        }
-        if (isset($map['SessionId'])) {
-            $model->sessionId = $map['SessionId'];
-        }
-        if (isset($map['TenantAlias'])) {
-            $model->tenantAlias = $map['TenantAlias'];
-        }
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
-        }
-        if (isset($map['TenantInfos'])) {
-            if (!empty($map['TenantInfos'])) {
-                $model->tenantInfos = [];
-                $n                  = 0;
-                foreach ($map['TenantInfos'] as $item) {
-                    $model->tenantInfos[$n++] = null !== $item ? tenantInfos::fromMap($item) : $item;
+                $model->officeSites = [];
+                $n1 = 0;
+                foreach ($map['OfficeSites'] as $item1) {
+                    $model->officeSites[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['PasswordStrategy'])) {
+            $model->passwordStrategy = passwordStrategy::fromMap($map['PasswordStrategy']);
+        }
+
+        if (isset($map['Phone'])) {
+            $model->phone = $map['Phone'];
+        }
+
+        if (isset($map['Props'])) {
+            if (!empty($map['Props'])) {
+                $model->props = [];
+                foreach ($map['Props'] as $key1 => $value1) {
+                    $model->props[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['QrCodePng'])) {
+            $model->qrCodePng = $map['QrCodePng'];
+        }
+
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['RiskVerifyInfo'])) {
+            $model->riskVerifyInfo = riskVerifyInfo::fromMap($map['RiskVerifyInfo']);
+        }
+
+        if (isset($map['Secret'])) {
+            $model->secret = $map['Secret'];
+        }
+
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
+        }
+
+        if (isset($map['TenantAlias'])) {
+            $model->tenantAlias = $map['TenantAlias'];
+        }
+
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
+        }
+
+        if (isset($map['TenantInfos'])) {
+            if (!empty($map['TenantInfos'])) {
+                $model->tenantInfos = [];
+                $n1 = 0;
+                foreach ($map['TenantInfos'] as $item1) {
+                    $model->tenantInfos[$n1++] = tenantInfos::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['VpcRegionId'])) {
             $model->vpcRegionId = $map['VpcRegionId'];
         }
+
         if (isset($map['WindowDisplayMode'])) {
             $model->windowDisplayMode = $map['WindowDisplayMode'];
         }
+
         if (isset($map['WyId'])) {
             $model->wyId = $map['WyId'];
         }

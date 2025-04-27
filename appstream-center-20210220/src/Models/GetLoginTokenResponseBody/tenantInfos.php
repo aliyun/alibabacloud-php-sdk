@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetLoginTokenResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tenantInfos extends Model
 {
     /**
-     * @example INTERNET
-     *
      * @var string
      */
     public $accessType;
 
     /**
-     * @example Up830***
-     *
      * @var string
      */
     public $tenantAlias;
     protected $_name = [
-        'accessType'  => 'AccessType',
+        'accessType' => 'AccessType',
         'tenantAlias' => 'TenantAlias',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessType) {
             $res['AccessType'] = $this->accessType;
         }
+
         if (null !== $this->tenantAlias) {
             $res['TenantAlias'] = $this->tenantAlias;
         }
@@ -43,17 +41,18 @@ class tenantInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tenantInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessType'])) {
             $model->accessType = $map['AccessType'];
         }
+
         if (isset($map['TenantAlias'])) {
             $model->tenantAlias = $map['TenantAlias'];
         }

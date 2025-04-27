@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210220;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\FindIdpListByLoginIdentifierRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\FindIdpListByLoginIdentifierResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\FindIdpListByLoginIdentifierShrinkRequest;
@@ -16,11 +15,10 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetStsTokenRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetStsTokenResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\RefreshLoginTokenRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\RefreshLoginTokenResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Appstreamcenter extends OpenApiClient
 {
@@ -28,7 +26,7 @@ class Appstreamcenter extends OpenApiClient
     {
         parent::__construct($config);
         $this->_signatureAlgorithm = 'v2';
-        $this->_endpointRule       = '';
+        $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('appstream-center', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -46,86 +44,106 @@ class Appstreamcenter extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 身份认证查询接口
-     *  *
-     * @param FindIdpListByLoginIdentifierRequest $tmpReq  FindIdpListByLoginIdentifierRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 身份认证查询接口.
      *
-     * @return FindIdpListByLoginIdentifierResponse FindIdpListByLoginIdentifierResponse
+     * @param tmpReq - FindIdpListByLoginIdentifierRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FindIdpListByLoginIdentifierResponse
+     *
+     * @param FindIdpListByLoginIdentifierRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return FindIdpListByLoginIdentifierResponse
      */
     public function findIdpListByLoginIdentifierWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new FindIdpListByLoginIdentifierShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->availableFeatures)) {
-            $request->availableFeaturesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->availableFeatures, 'AvailableFeatures', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->availableFeatures) {
+            $request->availableFeaturesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->availableFeatures, 'AvailableFeatures', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->availableFeaturesShrink)) {
-            $query['AvailableFeatures'] = $request->availableFeaturesShrink;
+        if (null !== $request->availableFeaturesShrink) {
+            @$query['AvailableFeatures'] = $request->availableFeaturesShrink;
         }
-        if (!Utils::isUnset($request->clientIp)) {
-            $query['ClientIp'] = $request->clientIp;
+
+        if (null !== $request->clientIp) {
+            @$query['ClientIp'] = $request->clientIp;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clientChannel)) {
-            $body['ClientChannel'] = $request->clientChannel;
+        if (null !== $request->clientChannel) {
+            @$body['ClientChannel'] = $request->clientChannel;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $body['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientOS) {
+            @$body['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $body['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$body['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->loginIdentifier)) {
-            $body['LoginIdentifier'] = $request->loginIdentifier;
+
+        if (null !== $request->loginIdentifier) {
+            @$body['LoginIdentifier'] = $request->loginIdentifier;
         }
-        if (!Utils::isUnset($request->supportTypes)) {
-            $body['SupportTypes'] = $request->supportTypes;
+
+        if (null !== $request->supportTypes) {
+            @$body['SupportTypes'] = $request->supportTypes;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FindIdpListByLoginIdentifier',
-            'version'     => '2021-02-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'FindIdpListByLoginIdentifier',
+            'version' => '2021-02-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FindIdpListByLoginIdentifierResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 身份认证查询接口
-     *  *
-     * @param FindIdpListByLoginIdentifierRequest $request FindIdpListByLoginIdentifierRequest
+     * 身份认证查询接口.
      *
-     * @return FindIdpListByLoginIdentifierResponse FindIdpListByLoginIdentifierResponse
+     * @param request - FindIdpListByLoginIdentifierRequest
+     *
+     * @returns FindIdpListByLoginIdentifierResponse
+     *
+     * @param FindIdpListByLoginIdentifierRequest $request
+     *
+     * @return FindIdpListByLoginIdentifierResponse
      */
     public function findIdpListByLoginIdentifier($request)
     {
@@ -135,148 +153,200 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @summary GetLoginToken
-     *  *
-     * @param GetLoginTokenRequest $tmpReq  GetLoginTokenRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * GetLoginToken.
      *
-     * @return GetLoginTokenResponse GetLoginTokenResponse
+     * @param tmpReq - GetLoginTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLoginTokenResponse
+     *
+     * @param GetLoginTokenRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetLoginTokenResponse
      */
     public function getLoginTokenWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetLoginTokenShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->availableFeatures)) {
-            $request->availableFeaturesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->availableFeatures, 'AvailableFeatures', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->availableFeatures) {
+            $request->availableFeaturesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->availableFeatures, 'AvailableFeatures', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->authenticationCode)) {
-            $query['AuthenticationCode'] = $request->authenticationCode;
+        if (null !== $request->authenticationCode) {
+            @$query['AuthenticationCode'] = $request->authenticationCode;
         }
-        if (!Utils::isUnset($request->availableFeaturesShrink)) {
-            $query['AvailableFeatures'] = $request->availableFeaturesShrink;
+
+        if (null !== $request->availableFeaturesShrink) {
+            @$query['AvailableFeatures'] = $request->availableFeaturesShrink;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $query['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientName) {
+            @$query['ClientName'] = $request->clientName;
         }
-        if (!Utils::isUnset($request->clientType)) {
-            $query['ClientType'] = $request->clientType;
+
+        if (null !== $request->clientOS) {
+            @$query['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $query['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientType) {
+            @$query['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->currentStage)) {
-            $query['CurrentStage'] = $request->currentStage;
+
+        if (null !== $request->clientVersion) {
+            @$query['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->directoryId)) {
-            $query['DirectoryId'] = $request->directoryId;
+
+        if (null !== $request->currentStage) {
+            @$query['CurrentStage'] = $request->currentStage;
         }
-        if (!Utils::isUnset($request->encryptedFingerPrintData)) {
-            $query['EncryptedFingerPrintData'] = $request->encryptedFingerPrintData;
+
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
         }
-        if (!Utils::isUnset($request->encryptedKey)) {
-            $query['EncryptedKey'] = $request->encryptedKey;
+
+        if (null !== $request->encryptedFingerPrintData) {
+            @$query['EncryptedFingerPrintData'] = $request->encryptedFingerPrintData;
         }
-        if (!Utils::isUnset($request->encryptedPassword)) {
-            $query['EncryptedPassword'] = $request->encryptedPassword;
+
+        if (null !== $request->encryptedKey) {
+            @$query['EncryptedKey'] = $request->encryptedKey;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $query['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->encryptedPassword) {
+            @$query['EncryptedPassword'] = $request->encryptedPassword;
         }
-        if (!Utils::isUnset($request->fingerPrintData)) {
-            $query['FingerPrintData'] = $request->fingerPrintData;
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->idpId)) {
-            $query['IdpId'] = $request->idpId;
+
+        if (null !== $request->fingerPrintData) {
+            @$query['FingerPrintData'] = $request->fingerPrintData;
         }
-        if (!Utils::isUnset($request->imageUrl)) {
-            $query['ImageUrl'] = $request->imageUrl;
+
+        if (null !== $request->idpId) {
+            @$query['IdpId'] = $request->idpId;
         }
-        if (!Utils::isUnset($request->keepAlive)) {
-            $query['KeepAlive'] = $request->keepAlive;
+
+        if (null !== $request->imageUrl) {
+            @$query['ImageUrl'] = $request->imageUrl;
         }
-        if (!Utils::isUnset($request->keepAliveToken)) {
-            $query['KeepAliveToken'] = $request->keepAliveToken;
+
+        if (null !== $request->keepAlive) {
+            @$query['KeepAlive'] = $request->keepAlive;
         }
-        if (!Utils::isUnset($request->loginIdentifier)) {
-            $query['LoginIdentifier'] = $request->loginIdentifier;
+
+        if (null !== $request->keepAliveToken) {
+            @$query['KeepAliveToken'] = $request->keepAliveToken;
         }
-        if (!Utils::isUnset($request->loginName)) {
-            $query['LoginName'] = $request->loginName;
+
+        if (null !== $request->loginIdentifier) {
+            @$query['LoginIdentifier'] = $request->loginIdentifier;
         }
-        if (!Utils::isUnset($request->mfaType)) {
-            $query['MfaType'] = $request->mfaType;
+
+        if (null !== $request->loginName) {
+            @$query['LoginName'] = $request->loginName;
         }
-        if (!Utils::isUnset($request->networkType)) {
-            $query['NetworkType'] = $request->networkType;
+
+        if (null !== $request->mfaType) {
+            @$query['MfaType'] = $request->mfaType;
         }
-        if (!Utils::isUnset($request->newPassword)) {
-            $query['NewPassword'] = $request->newPassword;
+
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
         }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
+
+        if (null !== $request->newPassword) {
+            @$query['NewPassword'] = $request->newPassword;
         }
-        if (!Utils::isUnset($request->oldPassword)) {
-            $query['OldPassword'] = $request->oldPassword;
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->oldPassword) {
+            @$query['OldPassword'] = $request->oldPassword;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $query['Phone'] = $request->phone;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->phoneVerifyCode)) {
-            $query['PhoneVerifyCode'] = $request->phoneVerifyCode;
+
+        if (null !== $request->phone) {
+            @$query['Phone'] = $request->phone;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->phoneVerifyCode) {
+            @$query['PhoneVerifyCode'] = $request->phoneVerifyCode;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->profileRegion) {
+            @$query['ProfileRegion'] = $request->profileRegion;
         }
-        if (!Utils::isUnset($request->ssoExtendsCookies)) {
-            $query['SsoExtendsCookies'] = $request->ssoExtendsCookies;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->ssoSessionToken)) {
-            $query['SsoSessionToken'] = $request->ssoSessionToken;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->tokenCode)) {
-            $query['TokenCode'] = $request->tokenCode;
+
+        if (null !== $request->ssoExtendsCookies) {
+            @$query['SsoExtendsCookies'] = $request->ssoExtendsCookies;
         }
-        if (!Utils::isUnset($request->umidToken)) {
-            $query['UmidToken'] = $request->umidToken;
+
+        if (null !== $request->ssoSessionToken) {
+            @$query['SsoSessionToken'] = $request->ssoSessionToken;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $query['Uuid'] = $request->uuid;
+
+        if (null !== $request->tokenCode) {
+            @$query['TokenCode'] = $request->tokenCode;
         }
+
+        if (null !== $request->umidToken) {
+            @$query['UmidToken'] = $request->umidToken;
+        }
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetLoginToken',
-            'version'     => '2021-02-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'GetLoginToken',
+            'version' => '2021-02-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetLoginTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary GetLoginToken
-     *  *
-     * @param GetLoginTokenRequest $request GetLoginTokenRequest
+     * GetLoginToken.
      *
-     * @return GetLoginTokenResponse GetLoginTokenResponse
+     * @param request - GetLoginTokenRequest
+     *
+     * @returns GetLoginTokenResponse
+     *
+     * @param GetLoginTokenRequest $request
+     *
+     * @return GetLoginTokenResponse
      */
     public function getLoginToken($request)
     {
@@ -286,59 +356,74 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @summary 获取无影StsToken
-     *  *
-     * @param GetStsTokenRequest $request GetStsTokenRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 获取无影StsToken.
      *
-     * @return GetStsTokenResponse GetStsTokenResponse
+     * @param request - GetStsTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStsTokenResponse
+     *
+     * @param GetStsTokenRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetStsTokenResponse
      */
     public function getStsTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->authCode)) {
-            $body['AuthCode'] = $request->authCode;
+        if (null !== $request->authCode) {
+            @$body['AuthCode'] = $request->authCode;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientIp)) {
-            $body['ClientIp'] = $request->clientIp;
+
+        if (null !== $request->clientIp) {
+            @$body['ClientIp'] = $request->clientIp;
         }
-        if (!Utils::isUnset($request->clientOS)) {
-            $body['ClientOS'] = $request->clientOS;
+
+        if (null !== $request->clientOS) {
+            @$body['ClientOS'] = $request->clientOS;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $body['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$body['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetStsToken',
-            'version'     => '2021-02-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'GetStsToken',
+            'version' => '2021-02-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetStsTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取无影StsToken
-     *  *
-     * @param GetStsTokenRequest $request GetStsTokenRequest
+     * 获取无影StsToken.
      *
-     * @return GetStsTokenResponse GetStsTokenResponse
+     * @param request - GetStsTokenRequest
+     *
+     * @returns GetStsTokenResponse
+     *
+     * @param GetStsTokenRequest $request
+     *
+     * @return GetStsTokenResponse
      */
     public function getStsToken($request)
     {
@@ -348,64 +433,82 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * @param RefreshLoginTokenRequest $request RefreshLoginTokenRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - RefreshLoginTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RefreshLoginTokenResponse RefreshLoginTokenResponse
+     * @returns RefreshLoginTokenResponse
+     *
+     * @param RefreshLoginTokenRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RefreshLoginTokenResponse
      */
     public function refreshLoginTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientType)) {
-            $query['ClientType'] = $request->clientType;
+
+        if (null !== $request->clientType) {
+            @$query['ClientType'] = $request->clientType;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $query['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->loginIdentifier)) {
-            $query['LoginIdentifier'] = $request->loginIdentifier;
+
+        if (null !== $request->loginIdentifier) {
+            @$query['LoginIdentifier'] = $request->loginIdentifier;
         }
-        if (!Utils::isUnset($request->loginToken)) {
-            $query['LoginToken'] = $request->loginToken;
+
+        if (null !== $request->loginToken) {
+            @$query['LoginToken'] = $request->loginToken;
         }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
         }
-        if (!Utils::isUnset($request->profileRegion)) {
-            $query['ProfileRegion'] = $request->profileRegion;
+
+        if (null !== $request->profileRegion) {
+            @$query['ProfileRegion'] = $request->profileRegion;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['SessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $query['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RefreshLoginToken',
-            'version'     => '2021-02-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'RPC',
+            'action' => 'RefreshLoginToken',
+            'version' => '2021-02-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RefreshLoginTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RefreshLoginTokenRequest $request RefreshLoginTokenRequest
+     * @param request - RefreshLoginTokenRequest
      *
-     * @return RefreshLoginTokenResponse RefreshLoginTokenResponse
+     * @returns RefreshLoginTokenResponse
+     *
+     * @param RefreshLoginTokenRequest $request
+     *
+     * @return RefreshLoginTokenResponse
      */
     public function refreshLoginToken($request)
     {

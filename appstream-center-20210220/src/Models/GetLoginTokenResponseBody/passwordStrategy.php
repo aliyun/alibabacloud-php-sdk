@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetLoginTokenResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class passwordStrategy extends Model
 {
@@ -14,26 +14,35 @@ class passwordStrategy extends Model
     public $tenantAlternativeChars;
 
     /**
-     * @example 12
-     *
      * @var int
      */
     public $tenantPasswordLength;
     protected $_name = [
         'tenantAlternativeChars' => 'TenantAlternativeChars',
-        'tenantPasswordLength'   => 'TenantPasswordLength',
+        'tenantPasswordLength' => 'TenantPasswordLength',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tenantAlternativeChars)) {
+            Model::validateArray($this->tenantAlternativeChars);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tenantAlternativeChars) {
-            $res['TenantAlternativeChars'] = $this->tenantAlternativeChars;
+            if (\is_array($this->tenantAlternativeChars)) {
+                $res['TenantAlternativeChars'] = [];
+                $n1 = 0;
+                foreach ($this->tenantAlternativeChars as $item1) {
+                    $res['TenantAlternativeChars'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->tenantPasswordLength) {
             $res['TenantPasswordLength'] = $this->tenantPasswordLength;
         }
@@ -41,19 +50,24 @@ class passwordStrategy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return passwordStrategy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantAlternativeChars'])) {
             if (!empty($map['TenantAlternativeChars'])) {
-                $model->tenantAlternativeChars = $map['TenantAlternativeChars'];
+                $model->tenantAlternativeChars = [];
+                $n1 = 0;
+                foreach ($map['TenantAlternativeChars'] as $item1) {
+                    $model->tenantAlternativeChars[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['TenantPasswordLength'])) {
             $model->tenantPasswordLength = $map['TenantPasswordLength'];
         }

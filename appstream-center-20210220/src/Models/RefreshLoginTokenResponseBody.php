@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210220\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RefreshLoginTokenResponseBody extends Model
 {
     /**
-     * @example v12369636c721ba6b3ddb1683341016775c3f63e4d0e78f120f9a0544ed826b7af7daf747c402f0d0730b52f451b70****
-     *
      * @var string
      */
     public $loginToken;
 
     /**
-     * @example 419F31B9-1FDF-5644-ABA3-D00026FA****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'loginToken' => 'LoginToken',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loginToken) {
             $res['LoginToken'] = $this->loginToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class RefreshLoginTokenResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RefreshLoginTokenResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LoginToken'])) {
             $model->loginToken = $map['LoginToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
