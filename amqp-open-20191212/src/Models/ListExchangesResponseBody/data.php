@@ -4,63 +4,56 @@
 
 namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListExchangesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListExchangesResponseBody\data\exchanges;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The exchanges.
-     *
      * @var exchanges[]
      */
     public $exchanges;
 
     /**
-     * @description The maximum number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that marks the end of the current returned page.``
-     *
-     *   If the value of this parameter is empty, the next query is not required and the token used to start the next query is unavailable.``
-     *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.``
-     *
-     * @example AAAANDQBYW1xcC1jbi03cHAybXdiY3AwMGEBdmhvc3QBAXNkZndhYWJhATE2NDkzMTM4OTU5NDIB4o3z1pPwWzk4aYuiRffi8R6-****
-     *
      * @var string
      */
     public $nextToken;
     protected $_name = [
-        'exchanges'  => 'Exchanges',
+        'exchanges' => 'Exchanges',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()
     {
+        if (\is_array($this->exchanges)) {
+            Model::validateArray($this->exchanges);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exchanges) {
-            $res['Exchanges'] = [];
-            if (null !== $this->exchanges && \is_array($this->exchanges)) {
-                $n = 0;
-                foreach ($this->exchanges as $item) {
-                    $res['Exchanges'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->exchanges)) {
+                $res['Exchanges'] = [];
+                $n1 = 0;
+                foreach ($this->exchanges as $item1) {
+                    $res['Exchanges'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -68,26 +61,28 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Exchanges'])) {
             if (!empty($map['Exchanges'])) {
                 $model->exchanges = [];
-                $n                = 0;
-                foreach ($map['Exchanges'] as $item) {
-                    $model->exchanges[$n++] = null !== $item ? exchanges::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Exchanges'] as $item1) {
+                    $model->exchanges[$n1++] = exchanges::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

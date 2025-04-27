@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Amqpopen\V20191212\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMetadataAmountRequest extends Model
 {
     /**
-     * @description The ID of the ApsaraMQ for RabbitMQ instance.
-     *
-     * @example amqp-cn-v0h1kb9n***
-     *
      * @var string
      */
     public $instanceId;
@@ -22,9 +18,10 @@ class GetMetadataAmountRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -34,11 +31,11 @@ class GetMetadataAmountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMetadataAmountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
