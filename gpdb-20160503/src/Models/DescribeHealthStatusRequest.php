@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeHealthStatusRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
-     *
-     * This parameter is required.
-     *
-     * @example gp-bp12ga6v69h86****
-     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description The performance metric that you want to query. Separate multiple values with commas (,). For more information, see [Performance parameters](https://help.aliyun.com/document_detail/86943.html).
-     *
-     * This parameter is required.
-     *
-     * @example node_master_status,node_master_connection_status,node_segment_connection_status,node_segment_disk_status
-     *
      * @var string
      */
     public $key;
@@ -36,14 +22,18 @@ class DescribeHealthStatusRequest extends Model
         'key' => 'Key',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
@@ -51,17 +41,18 @@ class DescribeHealthStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHealthStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }

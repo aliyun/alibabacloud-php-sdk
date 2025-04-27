@@ -4,46 +4,26 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetDBInstancePlanStatusResponseBody extends Model
 {
     /**
-     * @description The error message returned.
-     *
-     * This parameter is returned only when the operation fails.
-     *
-     * @example ****
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description The ID of the plan.
-     *
-     * @example 1234
-     *
      * @var string
      */
     public $planId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 34b32a0a-08ef-4a87-b6be-cdd988888888
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The state of the operation.
-     *
-     * If the operation is successful, **success** is returned. If the operation fails, this parameter is not returned.
-     *
-     * @example success
-     *
      * @var string
      */
     public $status;
@@ -54,20 +34,26 @@ class SetDBInstancePlanStatusResponseBody extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->planId) {
             $res['PlanId'] = $this->planId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -75,23 +61,26 @@ class SetDBInstancePlanStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetDBInstancePlanStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['PlanId'])) {
             $model->planId = $map['PlanId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

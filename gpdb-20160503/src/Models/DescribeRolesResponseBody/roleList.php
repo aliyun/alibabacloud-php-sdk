@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRolesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class roleList extends Model
 {
@@ -16,29 +16,45 @@ class roleList extends Model
         'role' => 'Role',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->role)) {
+            Model::validateArray($this->role);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->role) {
-            $res['Role'] = $this->role;
+            if (\is_array($this->role)) {
+                $res['Role'] = [];
+                $n1 = 0;
+                foreach ($this->role as $item1) {
+                    $res['Role'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return roleList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Role'])) {
             if (!empty($map['Role'])) {
-                $model->role = $map['Role'];
+                $model->role = [];
+                $n1 = 0;
+                foreach ($map['Role'] as $item1) {
+                    $model->role[$n1++] = $item1;
+                }
             }
         }
 

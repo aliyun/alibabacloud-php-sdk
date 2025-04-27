@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BindDBResourceGroupWithRoleRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
-     *
-     * This parameter is required.
-     *
-     * @example gp-xxxxxxxxx
-     *
      * @var string
      */
     public $DBInstanceId;
@@ -27,21 +19,11 @@ class BindDBResourceGroupWithRoleRequest extends Model
     public $ownerId;
 
     /**
-     * @description The name of the resource group.
-     *
-     * This parameter is required.
-     *
-     * @example testgroup
-     *
      * @var string
      */
     public $resourceGroupName;
 
     /**
-     * @description The roles.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $roleList;
@@ -52,47 +34,69 @@ class BindDBResourceGroupWithRoleRequest extends Model
         'roleList' => 'RoleList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->roleList)) {
+            Model::validateArray($this->roleList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceGroupName) {
             $res['ResourceGroupName'] = $this->resourceGroupName;
         }
+
         if (null !== $this->roleList) {
-            $res['RoleList'] = $this->roleList;
+            if (\is_array($this->roleList)) {
+                $res['RoleList'] = [];
+                $n1 = 0;
+                foreach ($this->roleList as $item1) {
+                    $res['RoleList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BindDBResourceGroupWithRoleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceGroupName'])) {
             $model->resourceGroupName = $map['ResourceGroupName'];
         }
+
         if (isset($map['RoleList'])) {
             if (!empty($map['RoleList'])) {
-                $model->roleList = $map['RoleList'];
+                $model->roleList = [];
+                $n1 = 0;
+                foreach ($map['RoleList'] as $item1) {
+                    $model->roleList[$n1++] = $item1;
+                }
             }
         }
 

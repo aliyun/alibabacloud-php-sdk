@@ -4,35 +4,22 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceNetInfoResponseBody\DBInstanceNetInfos;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDBInstanceNetInfoResponseBody extends Model
 {
     /**
-     * @description The connection information of the instance.
-     *
      * @var DBInstanceNetInfos
      */
     public $DBInstanceNetInfos;
 
     /**
-     * @description The network type of the instance. Valid values:
-     *
-     *   Classic: classic network.
-     *   VPC: VPC.
-     *
-     * @example Classic
-     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
-     * @description The request ID.
-     *
-     * @example 7565770E-7C45-462D-BA4A-8A5396F2CAD1
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +29,25 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->DBInstanceNetInfos) {
+            $this->DBInstanceNetInfos->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceNetInfos) {
-            $res['DBInstanceNetInfos'] = null !== $this->DBInstanceNetInfos ? $this->DBInstanceNetInfos->toMap() : null;
+            $res['DBInstanceNetInfos'] = null !== $this->DBInstanceNetInfos ? $this->DBInstanceNetInfos->toArray($noStream) : $this->DBInstanceNetInfos;
         }
+
         if (null !== $this->instanceNetworkType) {
             $res['InstanceNetworkType'] = $this->instanceNetworkType;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +55,22 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBInstanceNetInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceNetInfos'])) {
             $model->DBInstanceNetInfos = DBInstanceNetInfos::fromMap($map['DBInstanceNetInfos']);
         }
+
         if (isset($map['InstanceNetworkType'])) {
             $model->instanceNetworkType = $map['InstanceNetworkType'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

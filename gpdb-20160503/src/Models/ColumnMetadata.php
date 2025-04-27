@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ColumnMetadata extends Model
 {
@@ -100,53 +100,70 @@ class ColumnMetadata extends Model
         'udtName' => 'UdtName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnDefault) {
             $res['ColumnDefault'] = $this->columnDefault;
         }
+
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+
         if (null !== $this->dataType) {
             $res['DataType'] = $this->dataType;
         }
+
         if (null !== $this->isCaseSensitive) {
             $res['IsCaseSensitive'] = $this->isCaseSensitive;
         }
+
         if (null !== $this->isCurrency) {
             $res['IsCurrency'] = $this->isCurrency;
         }
+
         if (null !== $this->isPrimaryKey) {
             $res['IsPrimaryKey'] = $this->isPrimaryKey;
         }
+
         if (null !== $this->isSigned) {
             $res['IsSigned'] = $this->isSigned;
         }
+
         if (null !== $this->maxLength) {
             $res['MaxLength'] = $this->maxLength;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->nullable) {
             $res['Nullable'] = $this->nullable;
         }
+
         if (null !== $this->precision) {
             $res['Precision'] = $this->precision;
         }
+
         if (null !== $this->scale) {
             $res['Scale'] = $this->scale;
         }
+
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
+
         if (null !== $this->udtName) {
             $res['UdtName'] = $this->udtName;
         }
@@ -154,56 +171,70 @@ class ColumnMetadata extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ColumnMetadata
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnDefault'])) {
             $model->columnDefault = $map['ColumnDefault'];
         }
+
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+
         if (isset($map['DataType'])) {
             $model->dataType = $map['DataType'];
         }
+
         if (isset($map['IsCaseSensitive'])) {
             $model->isCaseSensitive = $map['IsCaseSensitive'];
         }
+
         if (isset($map['IsCurrency'])) {
             $model->isCurrency = $map['IsCurrency'];
         }
+
         if (isset($map['IsPrimaryKey'])) {
             $model->isPrimaryKey = $map['IsPrimaryKey'];
         }
+
         if (isset($map['IsSigned'])) {
             $model->isSigned = $map['IsSigned'];
         }
+
         if (isset($map['MaxLength'])) {
             $model->maxLength = $map['MaxLength'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Nullable'])) {
             $model->nullable = $map['Nullable'];
         }
+
         if (isset($map['Precision'])) {
             $model->precision = $map['Precision'];
         }
+
         if (isset($map['Scale'])) {
             $model->scale = $map['Scale'];
         }
+
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }
+
         if (isset($map['UdtName'])) {
             $model->udtName = $map['UdtName'];
         }

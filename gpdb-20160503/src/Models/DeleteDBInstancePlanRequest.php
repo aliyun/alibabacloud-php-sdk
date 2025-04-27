@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDBInstancePlanRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
-     *
-     * This parameter is required.
-     *
-     * @example gp-bp12ga6v69h86****
-     *
      * @var string
      */
     public $DBInstanceId;
@@ -27,14 +19,6 @@ class DeleteDBInstancePlanRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the plan.
-     *
-     * >  You can call the [DescribeDBInstancePlans](https://help.aliyun.com/document_detail/449398.html) operation to query the details of plans, including plan IDs.
-     *
-     * This parameter is required.
-     *
-     * @example 1234
-     *
      * @var string
      */
     public $planId;
@@ -44,17 +28,22 @@ class DeleteDBInstancePlanRequest extends Model
         'planId' => 'PlanId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->planId) {
             $res['PlanId'] = $this->planId;
         }
@@ -62,20 +51,22 @@ class DeleteDBInstancePlanRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDBInstancePlanRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PlanId'])) {
             $model->planId = $map['PlanId'];
         }

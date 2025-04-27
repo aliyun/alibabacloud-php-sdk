@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDocumentsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDocumentsResponseBody\items\documentList;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -17,17 +17,23 @@ class items extends Model
         'documentList' => 'DocumentList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->documentList)) {
+            Model::validateArray($this->documentList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->documentList) {
-            $res['DocumentList'] = [];
-            if (null !== $this->documentList && \is_array($this->documentList)) {
-                $n = 0;
-                foreach ($this->documentList as $item) {
-                    $res['DocumentList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->documentList)) {
+                $res['DocumentList'] = [];
+                $n1 = 0;
+                foreach ($this->documentList as $item1) {
+                    $res['DocumentList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocumentList'])) {
             if (!empty($map['DocumentList'])) {
                 $model->documentList = [];
-                $n = 0;
-                foreach ($map['DocumentList'] as $item) {
-                    $model->documentList[$n++] = null !== $item ? documentList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DocumentList'] as $item1) {
+                    $model->documentList[$n1++] = documentList::fromMap($item1);
                 }
             }
         }

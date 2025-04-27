@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataRequest\rows\sparseVector;
-use AlibabaCloud\Tea\Model;
 
 class rows extends Model
 {
@@ -25,8 +25,6 @@ class rows extends Model
     public $sparseVector;
 
     /**
-     * @description This parameter is required.
-     *
      * @var float[]
      */
     public $vector;
@@ -37,47 +35,85 @@ class rows extends Model
         'vector' => 'Vector',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->metadata)) {
+            Model::validateArray($this->metadata);
+        }
+        if (null !== $this->sparseVector) {
+            $this->sparseVector->validate();
+        }
+        if (\is_array($this->vector)) {
+            Model::validateArray($this->vector);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->metadata) {
-            $res['Metadata'] = $this->metadata;
+            if (\is_array($this->metadata)) {
+                $res['Metadata'] = [];
+                foreach ($this->metadata as $key1 => $value1) {
+                    $res['Metadata'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->sparseVector) {
-            $res['SparseVector'] = null !== $this->sparseVector ? $this->sparseVector->toMap() : null;
+            $res['SparseVector'] = null !== $this->sparseVector ? $this->sparseVector->toArray($noStream) : $this->sparseVector;
         }
+
         if (null !== $this->vector) {
-            $res['Vector'] = $this->vector;
+            if (\is_array($this->vector)) {
+                $res['Vector'] = [];
+                $n1 = 0;
+                foreach ($this->vector as $item1) {
+                    $res['Vector'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rows
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Metadata'])) {
-            $model->metadata = $map['Metadata'];
+            if (!empty($map['Metadata'])) {
+                $model->metadata = [];
+                foreach ($map['Metadata'] as $key1 => $value1) {
+                    $model->metadata[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['SparseVector'])) {
             $model->sparseVector = sparseVector::fromMap($map['SparseVector']);
         }
+
         if (isset($map['Vector'])) {
             if (!empty($map['Vector'])) {
-                $model->vector = $map['Vector'];
+                $model->vector = [];
+                $n1 = 0;
+                foreach ($map['Vector'] as $item1) {
+                    $model->vector[$n1++] = $item1;
+                }
             }
         }
 

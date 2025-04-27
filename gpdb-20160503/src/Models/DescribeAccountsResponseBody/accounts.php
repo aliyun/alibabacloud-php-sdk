@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAccountsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAccountsResponseBody\accounts\DBInstanceAccount;
-use AlibabaCloud\Tea\Model;
 
 class accounts extends Model
 {
@@ -17,17 +17,23 @@ class accounts extends Model
         'DBInstanceAccount' => 'DBInstanceAccount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->DBInstanceAccount)) {
+            Model::validateArray($this->DBInstanceAccount);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceAccount) {
-            $res['DBInstanceAccount'] = [];
-            if (null !== $this->DBInstanceAccount && \is_array($this->DBInstanceAccount)) {
-                $n = 0;
-                foreach ($this->DBInstanceAccount as $item) {
-                    $res['DBInstanceAccount'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->DBInstanceAccount)) {
+                $res['DBInstanceAccount'] = [];
+                $n1 = 0;
+                foreach ($this->DBInstanceAccount as $item1) {
+                    $res['DBInstanceAccount'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class accounts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceAccount'])) {
             if (!empty($map['DBInstanceAccount'])) {
                 $model->DBInstanceAccount = [];
-                $n = 0;
-                foreach ($map['DBInstanceAccount'] as $item) {
-                    $model->DBInstanceAccount[$n++] = null !== $item ? DBInstanceAccount::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DBInstanceAccount'] as $item1) {
+                    $model->DBInstanceAccount[$n1++] = DBInstanceAccount::fromMap($item1);
                 }
             }
         }

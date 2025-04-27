@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePlansResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePlansResponseBody\items\planList;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -17,17 +17,23 @@ class items extends Model
         'planList' => 'PlanList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->planList)) {
+            Model::validateArray($this->planList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->planList) {
-            $res['PlanList'] = [];
-            if (null !== $this->planList && \is_array($this->planList)) {
-                $n = 0;
-                foreach ($this->planList as $item) {
-                    $res['PlanList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->planList)) {
+                $res['PlanList'] = [];
+                $n1 = 0;
+                foreach ($this->planList as $item1) {
+                    $res['PlanList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PlanList'])) {
             if (!empty($map['PlanList'])) {
                 $model->planList = [];
-                $n = 0;
-                foreach ($map['PlanList'] as $item) {
-                    $model->planList[$n++] = null !== $item ? planList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PlanList'] as $item1) {
+                    $model->planList[$n1++] = planList::fromMap($item1);
                 }
             }
         }

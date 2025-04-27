@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody\matches\matchList;
-use AlibabaCloud\Tea\Model;
 
 class matches extends Model
 {
@@ -17,17 +17,23 @@ class matches extends Model
         'matchList' => 'MatchList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->matchList)) {
+            Model::validateArray($this->matchList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->matchList) {
-            $res['MatchList'] = [];
-            if (null !== $this->matchList && \is_array($this->matchList)) {
-                $n = 0;
-                foreach ($this->matchList as $item) {
-                    $res['MatchList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->matchList)) {
+                $res['MatchList'] = [];
+                $n1 = 0;
+                foreach ($this->matchList as $item1) {
+                    $res['MatchList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -35,20 +41,20 @@ class matches extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return matches
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MatchList'])) {
             if (!empty($map['MatchList'])) {
                 $model->matchList = [];
-                $n = 0;
-                foreach ($map['MatchList'] as $item) {
-                    $model->matchList[$n++] = null !== $item ? matchList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MatchList'] as $item1) {
+                    $model->matchList[$n1++] = matchList::fromMap($item1);
                 }
             }
         }

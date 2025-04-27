@@ -4,45 +4,26 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateCollectionDataMetadataResponseBody extends Model
 {
     /**
-     * @description Number of effective entries.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $appliedRows;
 
     /**
-     * @description Detailed information when the request fails.
-     *
-     * @example failed to connect database, detailMsg: getConnection fail::SQL State: 28P01, Error Code: 0, Error Message: FATAL: password
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Request ID.
-     *
-     * @example ABB39CC3-4488-4857-905D-2E4A051D0521
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Status, with the following values:
-     *
-     * - **success**: Success.
-     * - **fail**: Failure.
-     *
-     * @example success
-     *
      * @var string
      */
     public $status;
@@ -53,20 +34,26 @@ class UpdateCollectionDataMetadataResponseBody extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appliedRows) {
             $res['AppliedRows'] = $this->appliedRows;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -74,23 +61,26 @@ class UpdateCollectionDataMetadataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateCollectionDataMetadataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppliedRows'])) {
             $model->appliedRows = $map['AppliedRows'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

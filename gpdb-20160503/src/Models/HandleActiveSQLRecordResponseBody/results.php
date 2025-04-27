@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\HandleActiveSQLRecordResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class results extends Model
 {
     /**
-     * @description The process ID, which is a unique identifier of the query.
-     *
-     * @example 3003925
-     *
      * @var string
      */
     public $pid;
 
     /**
-     * @description Indicates whether the processing was successful. Valid values:
-     *
-     *   **false**
-     *   **true**
-     *
-     * @example true
-     *
      * @var string
      */
     public $status;
@@ -33,14 +22,18 @@ class results extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -48,17 +41,18 @@ class results extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
