@@ -61,6 +61,16 @@ class ListServicesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $resourceAliasName;
+
+    /**
+     * @var string
+     */
+    public $resourceId;
+
+    /**
+     * @var string
+     */
     public $resourceName;
 
     /**
@@ -113,6 +123,8 @@ class ListServicesShrinkRequest extends Model
         'pageSize' => 'PageSize',
         'parentServiceUid' => 'ParentServiceUid',
         'quotaId' => 'QuotaId',
+        'resourceAliasName' => 'ResourceAliasName',
+        'resourceId' => 'ResourceId',
         'resourceName' => 'ResourceName',
         'resourceType' => 'ResourceType',
         'role' => 'Role',
@@ -170,6 +182,14 @@ class ListServicesShrinkRequest extends Model
 
         if (null !== $this->quotaId) {
             $res['QuotaId'] = $this->quotaId;
+        }
+
+        if (null !== $this->resourceAliasName) {
+            $res['ResourceAliasName'] = $this->resourceAliasName;
+        }
+
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
 
         if (null !== $this->resourceName) {
@@ -257,6 +277,14 @@ class ListServicesShrinkRequest extends Model
 
         if (isset($map['QuotaId'])) {
             $model->quotaId = $map['QuotaId'];
+        }
+
+        if (isset($map['ResourceAliasName'])) {
+            $model->resourceAliasName = $map['ResourceAliasName'];
+        }
+
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
 
         if (isset($map['ResourceName'])) {

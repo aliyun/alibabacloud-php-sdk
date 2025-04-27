@@ -5170,6 +5170,14 @@ class Eas extends OpenApiClient
             @$query['QuotaId'] = $request->quotaId;
         }
 
+        if (null !== $request->resourceAliasName) {
+            @$query['ResourceAliasName'] = $request->resourceAliasName;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
         if (null !== $request->resourceName) {
             @$query['ResourceName'] = $request->resourceName;
         }
