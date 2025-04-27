@@ -10,9 +10,11 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessResponseBody\pro
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessResponseBody\process\dlpSendPolicies;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessResponseBody\process\domainBlacklistPolicies;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessResponseBody\process\domainWhitelistPolicies;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessResponseBody\process\endpointHardeningPolicies;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessResponseBody\process\peripheraBlockPolicies;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessResponseBody\process\processNodes;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessResponseBody\process\softwareBlockPolicies;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessResponseBody\process\softwareHardeningPolicies;
 
 class process extends Model
 {
@@ -52,6 +54,11 @@ class process extends Model
     public $domainWhitelistPolicies;
 
     /**
+     * @var endpointHardeningPolicies
+     */
+    public $endpointHardeningPolicies;
+
+    /**
      * @var peripheraBlockPolicies
      */
     public $peripheraBlockPolicies;
@@ -75,6 +82,11 @@ class process extends Model
      * @var softwareBlockPolicies
      */
     public $softwareBlockPolicies;
+
+    /**
+     * @var softwareHardeningPolicies
+     */
+    public $softwareHardeningPolicies;
     protected $_name = [
         'appUninstallPolicies' => 'AppUninstallPolicies',
         'createTime' => 'CreateTime',
@@ -83,11 +95,13 @@ class process extends Model
         'dlpSendPolicies' => 'DlpSendPolicies',
         'domainBlacklistPolicies' => 'DomainBlacklistPolicies',
         'domainWhitelistPolicies' => 'DomainWhitelistPolicies',
+        'endpointHardeningPolicies' => 'EndpointHardeningPolicies',
         'peripheraBlockPolicies' => 'PeripheraBlockPolicies',
         'processId' => 'ProcessId',
         'processName' => 'ProcessName',
         'processNodes' => 'ProcessNodes',
         'softwareBlockPolicies' => 'SoftwareBlockPolicies',
+        'softwareHardeningPolicies' => 'SoftwareHardeningPolicies',
     ];
 
     public function validate()
@@ -107,6 +121,9 @@ class process extends Model
         if (null !== $this->domainWhitelistPolicies) {
             $this->domainWhitelistPolicies->validate();
         }
+        if (null !== $this->endpointHardeningPolicies) {
+            $this->endpointHardeningPolicies->validate();
+        }
         if (null !== $this->peripheraBlockPolicies) {
             $this->peripheraBlockPolicies->validate();
         }
@@ -115,6 +132,9 @@ class process extends Model
         }
         if (null !== $this->softwareBlockPolicies) {
             $this->softwareBlockPolicies->validate();
+        }
+        if (null !== $this->softwareHardeningPolicies) {
+            $this->softwareHardeningPolicies->validate();
         }
         parent::validate();
     }
@@ -150,6 +170,10 @@ class process extends Model
             $res['DomainWhitelistPolicies'] = null !== $this->domainWhitelistPolicies ? $this->domainWhitelistPolicies->toArray($noStream) : $this->domainWhitelistPolicies;
         }
 
+        if (null !== $this->endpointHardeningPolicies) {
+            $res['EndpointHardeningPolicies'] = null !== $this->endpointHardeningPolicies ? $this->endpointHardeningPolicies->toArray($noStream) : $this->endpointHardeningPolicies;
+        }
+
         if (null !== $this->peripheraBlockPolicies) {
             $res['PeripheraBlockPolicies'] = null !== $this->peripheraBlockPolicies ? $this->peripheraBlockPolicies->toArray($noStream) : $this->peripheraBlockPolicies;
         }
@@ -180,6 +204,10 @@ class process extends Model
 
         if (null !== $this->softwareBlockPolicies) {
             $res['SoftwareBlockPolicies'] = null !== $this->softwareBlockPolicies ? $this->softwareBlockPolicies->toArray($noStream) : $this->softwareBlockPolicies;
+        }
+
+        if (null !== $this->softwareHardeningPolicies) {
+            $res['SoftwareHardeningPolicies'] = null !== $this->softwareHardeningPolicies ? $this->softwareHardeningPolicies->toArray($noStream) : $this->softwareHardeningPolicies;
         }
 
         return $res;
@@ -221,6 +249,10 @@ class process extends Model
             $model->domainWhitelistPolicies = domainWhitelistPolicies::fromMap($map['DomainWhitelistPolicies']);
         }
 
+        if (isset($map['EndpointHardeningPolicies'])) {
+            $model->endpointHardeningPolicies = endpointHardeningPolicies::fromMap($map['EndpointHardeningPolicies']);
+        }
+
         if (isset($map['PeripheraBlockPolicies'])) {
             $model->peripheraBlockPolicies = peripheraBlockPolicies::fromMap($map['PeripheraBlockPolicies']);
         }
@@ -251,6 +283,10 @@ class process extends Model
 
         if (isset($map['SoftwareBlockPolicies'])) {
             $model->softwareBlockPolicies = softwareBlockPolicies::fromMap($map['SoftwareBlockPolicies']);
+        }
+
+        if (isset($map['SoftwareHardeningPolicies'])) {
+            $model->softwareHardeningPolicies = softwareHardeningPolicies::fromMap($map['SoftwareHardeningPolicies']);
         }
 
         return $model;

@@ -36,20 +36,32 @@ class matchSchemas extends Model
     /**
      * @var string
      */
+    public $endpointHardeningSchemaId;
+
+    /**
+     * @var string
+     */
     public $peripheralBlockSchemaId;
 
     /**
      * @var string
      */
     public $softwareBlockSchemaId;
+
+    /**
+     * @var string
+     */
+    public $softwareHardeningSchemaId;
     protected $_name = [
         'appUninstallSchemaId' => 'AppUninstallSchemaId',
         'deviceRegistrationSchemaId' => 'DeviceRegistrationSchemaId',
         'dlpSendSchemaId' => 'DlpSendSchemaId',
         'domainBlacklistSchemaId' => 'DomainBlacklistSchemaId',
         'domainWhitelistSchemaId' => 'DomainWhitelistSchemaId',
+        'endpointHardeningSchemaId' => 'EndpointHardeningSchemaId',
         'peripheralBlockSchemaId' => 'PeripheralBlockSchemaId',
         'softwareBlockSchemaId' => 'SoftwareBlockSchemaId',
+        'softwareHardeningSchemaId' => 'SoftwareHardeningSchemaId',
     ];
 
     public function validate()
@@ -80,12 +92,20 @@ class matchSchemas extends Model
             $res['DomainWhitelistSchemaId'] = $this->domainWhitelistSchemaId;
         }
 
+        if (null !== $this->endpointHardeningSchemaId) {
+            $res['EndpointHardeningSchemaId'] = $this->endpointHardeningSchemaId;
+        }
+
         if (null !== $this->peripheralBlockSchemaId) {
             $res['PeripheralBlockSchemaId'] = $this->peripheralBlockSchemaId;
         }
 
         if (null !== $this->softwareBlockSchemaId) {
             $res['SoftwareBlockSchemaId'] = $this->softwareBlockSchemaId;
+        }
+
+        if (null !== $this->softwareHardeningSchemaId) {
+            $res['SoftwareHardeningSchemaId'] = $this->softwareHardeningSchemaId;
         }
 
         return $res;
@@ -119,12 +139,20 @@ class matchSchemas extends Model
             $model->domainWhitelistSchemaId = $map['DomainWhitelistSchemaId'];
         }
 
+        if (isset($map['EndpointHardeningSchemaId'])) {
+            $model->endpointHardeningSchemaId = $map['EndpointHardeningSchemaId'];
+        }
+
         if (isset($map['PeripheralBlockSchemaId'])) {
             $model->peripheralBlockSchemaId = $map['PeripheralBlockSchemaId'];
         }
 
         if (isset($map['SoftwareBlockSchemaId'])) {
             $model->softwareBlockSchemaId = $map['SoftwareBlockSchemaId'];
+        }
+
+        if (isset($map['SoftwareHardeningSchemaId'])) {
+            $model->softwareHardeningSchemaId = $map['SoftwareHardeningSchemaId'];
         }
 
         return $model;
