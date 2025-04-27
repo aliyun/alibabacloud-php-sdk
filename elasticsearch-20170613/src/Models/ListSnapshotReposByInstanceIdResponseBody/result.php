@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListSnapshotReposByInstanceIdResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description Reference instance ID.
-     *
-     * @example es-cn-6ja1ro4jt000c****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The address of the repository.
-     *
-     * @example es-cn-6ja1ro4jt000c****
-     *
      * @var string
      */
     public $repoPath;
 
     /**
-     * @description Reference warehouse name.
-     *
-     * @example aliyun_snapshot_from_es-cn-6ja1ro4jt000c****
-     *
      * @var string
      */
     public $snapWarehouse;
 
     /**
-     * @description Reference warehouse status. available indicates that it is valid. unavailable indicates that it is invalid.
-     *
-     * @example available
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'instanceId'    => 'instanceId',
-        'repoPath'      => 'repoPath',
+        'instanceId' => 'instanceId',
+        'repoPath' => 'repoPath',
         'snapWarehouse' => 'snapWarehouse',
-        'status'        => 'status',
+        'status' => 'status',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
+
         if (null !== $this->repoPath) {
             $res['repoPath'] = $this->repoPath;
         }
+
         if (null !== $this->snapWarehouse) {
             $res['snapWarehouse'] = $this->snapWarehouse;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -73,23 +61,26 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
+
         if (isset($map['repoPath'])) {
             $model->repoPath = $map['repoPath'];
         }
+
         if (isset($map['snapWarehouse'])) {
             $model->snapWarehouse = $map['snapWarehouse'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

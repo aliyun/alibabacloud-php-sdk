@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListComponentIndicesRequest extends Model
 {
     /**
-     * @example template
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example 5
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $size;
@@ -36,17 +30,20 @@ class ListComponentIndicesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
+
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
@@ -54,20 +51,22 @@ class ListComponentIndicesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListComponentIndicesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }
+
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }

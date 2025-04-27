@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetOpenStoreUsageResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The current OpenStore storage capacity (estimated value based on actual indexes). Unit: Byte.
-     *
-     * @example 204800
-     *
      * @var int
      */
     public $currentUsage;
 
     /**
-     * @description The storage capacity of OpenStore yesterday. Unit: bytes.
-     *
-     * @example 184320
-     *
      * @var int
      */
     public $lastDayUsage;
@@ -32,14 +24,16 @@ class result extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentUsage) {
             $res['currentUsage'] = $this->currentUsage;
         }
+
         if (null !== $this->lastDayUsage) {
             $res['lastDayUsage'] = $this->lastDayUsage;
         }
@@ -47,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['currentUsage'])) {
             $model->currentUsage = $map['currentUsage'];
         }
+
         if (isset($map['lastDayUsage'])) {
             $model->lastDayUsage = $map['lastDayUsage'];
         }

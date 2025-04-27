@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListComponentIndicesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListComponentIndicesResponseBody\result\content;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -20,30 +20,43 @@ class result extends Model
     public $content;
 
     /**
-     * @example synthetics-settings
-     *
      * @var string
      */
     public $name;
     protected $_name = [
         'composed' => 'composed',
-        'content'  => 'content',
-        'name'     => 'name',
+        'content' => 'content',
+        'name' => 'name',
     ];
 
     public function validate()
     {
+        if (\is_array($this->composed)) {
+            Model::validateArray($this->composed);
+        }
+        if (null !== $this->content) {
+            $this->content->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->composed) {
-            $res['composed'] = $this->composed;
+            if (\is_array($this->composed)) {
+                $res['composed'] = [];
+                $n1 = 0;
+                foreach ($this->composed as $item1) {
+                    $res['composed'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->content) {
-            $res['content'] = null !== $this->content ? $this->content->toMap() : null;
+            $res['content'] = null !== $this->content ? $this->content->toArray($noStream) : $this->content;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -51,22 +64,28 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['composed'])) {
             if (!empty($map['composed'])) {
-                $model->composed = $map['composed'];
+                $model->composed = [];
+                $n1 = 0;
+                foreach ($map['composed'] as $item1) {
+                    $model->composed[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['content'])) {
             $model->content = content::fromMap($map['content']);
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

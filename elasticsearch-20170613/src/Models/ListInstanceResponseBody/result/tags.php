@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
     /**
-     * @description The size of the node storage space. Unit: GB.
-     *
-     * @example env
-     *
      * @var string
      */
     public $tagKey;
 
     /**
-     * @description The storage type of the node. Only ultra disks (cloud_efficiency) are supported.
-     *
-     * @example dev
-     *
      * @var string
      */
     public $tagValue;
     protected $_name = [
-        'tagKey'   => 'tagKey',
+        'tagKey' => 'tagKey',
         'tagValue' => 'tagValue',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagKey) {
             $res['tagKey'] = $this->tagKey;
         }
+
         if (null !== $this->tagValue) {
             $res['tagValue'] = $this->tagValue;
         }
@@ -47,17 +41,18 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['tagKey'])) {
             $model->tagKey = $map['tagKey'];
         }
+
         if (isset($map['tagValue'])) {
             $model->tagValue = $map['tagValue'];
         }

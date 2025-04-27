@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddConnectableClusterRequest extends Model
 {
     /**
-     * @example {     "instanceId":"es-cn-09k1rgid9000g****" }
-     *
      * @var string
      */
     public $body;
 
     /**
-     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
-     *
      * @var string
      */
     public $clientToken;
     protected $_name = [
-        'body'        => 'body',
+        'body' => 'body',
         'clientToken' => 'clientToken',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
+
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
@@ -43,17 +41,18 @@ class AddConnectableClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddConnectableClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }
+
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }

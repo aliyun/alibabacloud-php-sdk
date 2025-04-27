@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAckNamespacesRequest extends Model
 {
     /**
-     * @description The number of the page to return.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $size;
@@ -32,14 +24,16 @@ class ListAckNamespacesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
+
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
@@ -47,17 +41,18 @@ class ListAckNamespacesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAckNamespacesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }
+
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }

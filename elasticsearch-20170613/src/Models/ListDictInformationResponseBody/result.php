@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDictInformationResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDictInformationResponseBody\result\ossObject;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @example 2202301
-     *
      * @var int
      */
     public $fileSize;
@@ -22,30 +20,34 @@ class result extends Model
     public $ossObject;
 
     /**
-     * @example STOP
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'fileSize'  => 'fileSize',
+        'fileSize' => 'fileSize',
         'ossObject' => 'ossObject',
-        'type'      => 'type',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        if (null !== $this->ossObject) {
+            $this->ossObject->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileSize) {
             $res['fileSize'] = $this->fileSize;
         }
+
         if (null !== $this->ossObject) {
-            $res['ossObject'] = null !== $this->ossObject ? $this->ossObject->toMap() : null;
+            $res['ossObject'] = null !== $this->ossObject ? $this->ossObject->toArray($noStream) : $this->ossObject;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -53,20 +55,22 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fileSize'])) {
             $model->fileSize = $map['fileSize'];
         }
+
         if (isset($map['ossObject'])) {
             $model->ossObject = ossObject::fromMap($map['ossObject']);
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

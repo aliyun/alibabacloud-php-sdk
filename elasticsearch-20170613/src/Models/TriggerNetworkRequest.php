@@ -4,66 +4,56 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TriggerNetworkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example OPEN
-     *
      * @var string
      */
     public $actionType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example PUBLIC
-     *
      * @var string
      */
     public $networkType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example KIBANA
-     *
      * @var string
      */
     public $nodeType;
 
     /**
-     * @example 407d02b74c49beb5bfdac7ec8bde2488
-     *
      * @var string
      */
     public $clientToken;
     protected $_name = [
-        'actionType'  => 'actionType',
+        'actionType' => 'actionType',
         'networkType' => 'networkType',
-        'nodeType'    => 'nodeType',
+        'nodeType' => 'nodeType',
         'clientToken' => 'clientToken',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionType) {
             $res['actionType'] = $this->actionType;
         }
+
         if (null !== $this->networkType) {
             $res['networkType'] = $this->networkType;
         }
+
         if (null !== $this->nodeType) {
             $res['nodeType'] = $this->nodeType;
         }
+
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
@@ -71,23 +61,26 @@ class TriggerNetworkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TriggerNetworkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['actionType'])) {
             $model->actionType = $map['actionType'];
         }
+
         if (isset($map['networkType'])) {
             $model->networkType = $map['networkType'];
         }
+
         if (isset($map['nodeType'])) {
             $model->nodeType = $map['nodeType'];
         }
+
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }

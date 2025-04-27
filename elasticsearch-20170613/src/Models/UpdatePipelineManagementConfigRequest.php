@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdatePipelineManagementConfigRequest extends Model
 {
@@ -19,8 +19,6 @@ class UpdatePipelineManagementConfigRequest extends Model
     public $esInstanceId;
 
     /**
-     * @example ******
-     *
      * @var string
      */
     public $password;
@@ -31,60 +29,79 @@ class UpdatePipelineManagementConfigRequest extends Model
     public $pipelineIds;
 
     /**
-     * @example ES
-     *
      * @var string
      */
     public $pipelineManagementType;
 
     /**
-     * @example elastic
-     *
      * @var string
      */
     public $userName;
 
     /**
-     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
-     *
      * @var string
      */
     public $clientToken;
     protected $_name = [
-        'endpoints'              => 'endpoints',
-        'esInstanceId'           => 'esInstanceId',
-        'password'               => 'password',
-        'pipelineIds'            => 'pipelineIds',
+        'endpoints' => 'endpoints',
+        'esInstanceId' => 'esInstanceId',
+        'password' => 'password',
+        'pipelineIds' => 'pipelineIds',
         'pipelineManagementType' => 'pipelineManagementType',
-        'userName'               => 'userName',
-        'clientToken'            => 'clientToken',
+        'userName' => 'userName',
+        'clientToken' => 'clientToken',
     ];
 
     public function validate()
     {
+        if (\is_array($this->endpoints)) {
+            Model::validateArray($this->endpoints);
+        }
+        if (\is_array($this->pipelineIds)) {
+            Model::validateArray($this->pipelineIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpoints) {
-            $res['endpoints'] = $this->endpoints;
+            if (\is_array($this->endpoints)) {
+                $res['endpoints'] = [];
+                $n1 = 0;
+                foreach ($this->endpoints as $item1) {
+                    $res['endpoints'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->esInstanceId) {
             $res['esInstanceId'] = $this->esInstanceId;
         }
+
         if (null !== $this->password) {
             $res['password'] = $this->password;
         }
+
         if (null !== $this->pipelineIds) {
-            $res['pipelineIds'] = $this->pipelineIds;
+            if (\is_array($this->pipelineIds)) {
+                $res['pipelineIds'] = [];
+                $n1 = 0;
+                foreach ($this->pipelineIds as $item1) {
+                    $res['pipelineIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->pipelineManagementType) {
             $res['pipelineManagementType'] = $this->pipelineManagementType;
         }
+
         if (null !== $this->userName) {
             $res['userName'] = $this->userName;
         }
+
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
@@ -92,36 +109,50 @@ class UpdatePipelineManagementConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdatePipelineManagementConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['endpoints'])) {
             if (!empty($map['endpoints'])) {
-                $model->endpoints = $map['endpoints'];
+                $model->endpoints = [];
+                $n1 = 0;
+                foreach ($map['endpoints'] as $item1) {
+                    $model->endpoints[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['esInstanceId'])) {
             $model->esInstanceId = $map['esInstanceId'];
         }
+
         if (isset($map['password'])) {
             $model->password = $map['password'];
         }
+
         if (isset($map['pipelineIds'])) {
             if (!empty($map['pipelineIds'])) {
-                $model->pipelineIds = $map['pipelineIds'];
+                $model->pipelineIds = [];
+                $n1 = 0;
+                foreach ($map['pipelineIds'] as $item1) {
+                    $model->pipelineIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['pipelineManagementType'])) {
             $model->pipelineManagementType = $map['pipelineManagementType'];
         }
+
         if (isset($map['userName'])) {
             $model->userName = $map['userName'];
         }
+
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }

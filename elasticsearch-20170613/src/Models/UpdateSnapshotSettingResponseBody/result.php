@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateSnapshotSettingResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description Specifies whether to enable automatic backup.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description The start time of automatic backup.
-     *
-     * @example 0 0 01 ? * * *
-     *
      * @var string
      */
     public $quartzRegex;
     protected $_name = [
-        'enable'      => 'enable',
+        'enable' => 'enable',
         'quartzRegex' => 'quartzRegex',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
         }
+
         if (null !== $this->quartzRegex) {
             $res['quartzRegex'] = $this->quartzRegex;
         }
@@ -47,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
         }
+
         if (isset($map['quartzRegex'])) {
             $model->quartzRegex = $map['quartzRegex'];
         }

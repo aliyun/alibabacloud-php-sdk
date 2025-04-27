@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ZoneInfo extends Model
 {
@@ -24,14 +24,16 @@ class ZoneInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->zoneId) {
             $res['zoneId'] = $this->zoneId;
         }
@@ -39,17 +41,18 @@ class ZoneInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ZoneInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['zoneId'])) {
             $model->zoneId = $map['zoneId'];
         }

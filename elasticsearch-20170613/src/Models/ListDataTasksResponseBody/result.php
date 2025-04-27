@@ -4,79 +4,74 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDataTasksResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDataTasksResponseBody\result\sinkCluster;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDataTasksResponseBody\result\sourceCluster;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description The time when the site monitoring task was created.
-     *
-     * @example 2020-07-30 06:32:18
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description The information of the target cluster.
-     *
      * @var sinkCluster
      */
     public $sinkCluster;
 
     /**
-     * @description The information about the source cluster.
-     *
      * @var sourceCluster
      */
     public $sourceCluster;
 
     /**
-     * @description The status of the task.
-     *
-     * @example SUCCESS
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The ID of the task.
-     *
-     * @example et_cn_mfv1233r47272****
-     *
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'createTime'    => 'createTime',
-        'sinkCluster'   => 'sinkCluster',
+        'createTime' => 'createTime',
+        'sinkCluster' => 'sinkCluster',
         'sourceCluster' => 'sourceCluster',
-        'status'        => 'status',
-        'taskId'        => 'taskId',
+        'status' => 'status',
+        'taskId' => 'taskId',
     ];
 
     public function validate()
     {
+        if (null !== $this->sinkCluster) {
+            $this->sinkCluster->validate();
+        }
+        if (null !== $this->sourceCluster) {
+            $this->sourceCluster->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+
         if (null !== $this->sinkCluster) {
-            $res['sinkCluster'] = null !== $this->sinkCluster ? $this->sinkCluster->toMap() : null;
+            $res['sinkCluster'] = null !== $this->sinkCluster ? $this->sinkCluster->toArray($noStream) : $this->sinkCluster;
         }
+
         if (null !== $this->sourceCluster) {
-            $res['sourceCluster'] = null !== $this->sourceCluster ? $this->sourceCluster->toMap() : null;
+            $res['sourceCluster'] = null !== $this->sourceCluster ? $this->sourceCluster->toArray($noStream) : $this->sourceCluster;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
         }
@@ -84,26 +79,30 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+
         if (isset($map['sinkCluster'])) {
             $model->sinkCluster = sinkCluster::fromMap($map['sinkCluster']);
         }
+
         if (isset($map['sourceCluster'])) {
             $model->sourceCluster = sourceCluster::fromMap($map['sourceCluster']);
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
         }

@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListShardRecoveriesRequest extends Model
 {
     /**
-     * @description Specifies whether to return information about data restoration of shards. Valid values:
-     *
-     *   true: returns information about data restoration of shards that are being restored.
-     *   false: returns information about data restoration of all shards.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $activeOnly;
@@ -25,9 +18,10 @@ class ListShardRecoveriesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->activeOnly) {
@@ -37,11 +31,11 @@ class ListShardRecoveriesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListShardRecoveriesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

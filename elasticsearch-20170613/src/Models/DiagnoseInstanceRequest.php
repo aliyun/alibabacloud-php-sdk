@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DiagnoseInstanceRequest extends Model
 {
     /**
-     * @description The timestamp when the diagnostic report was generated.
-     *
-     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
-     *
      * @var string
      */
     public $clientToken;
@@ -28,47 +24,64 @@ class DiagnoseInstanceRequest extends Model
     public $indices;
 
     /**
-     * @example ALL
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The returned data.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
     protected $_name = [
-        'clientToken'   => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'diagnoseItems' => 'diagnoseItems',
-        'indices'       => 'indices',
-        'type'          => 'type',
-        'lang'          => 'lang',
+        'indices' => 'indices',
+        'type' => 'type',
+        'lang' => 'lang',
     ];
 
     public function validate()
     {
+        if (\is_array($this->diagnoseItems)) {
+            Model::validateArray($this->diagnoseItems);
+        }
+        if (\is_array($this->indices)) {
+            Model::validateArray($this->indices);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->diagnoseItems) {
-            $res['diagnoseItems'] = $this->diagnoseItems;
+            if (\is_array($this->diagnoseItems)) {
+                $res['diagnoseItems'] = [];
+                $n1 = 0;
+                foreach ($this->diagnoseItems as $item1) {
+                    $res['diagnoseItems'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->indices) {
-            $res['indices'] = $this->indices;
+            if (\is_array($this->indices)) {
+                $res['indices'] = [];
+                $n1 = 0;
+                foreach ($this->indices as $item1) {
+                    $res['indices'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->lang) {
             $res['lang'] = $this->lang;
         }
@@ -76,30 +89,42 @@ class DiagnoseInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DiagnoseInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['diagnoseItems'])) {
             if (!empty($map['diagnoseItems'])) {
-                $model->diagnoseItems = $map['diagnoseItems'];
+                $model->diagnoseItems = [];
+                $n1 = 0;
+                foreach ($map['diagnoseItems'] as $item1) {
+                    $model->diagnoseItems[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['indices'])) {
             if (!empty($map['indices'])) {
-                $model->indices = $map['indices'];
+                $model->indices = [];
+                $n1 = 0;
+                foreach ($map['indices'] as $item1) {
+                    $model->indices[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['lang'])) {
             $model->lang = $map['lang'];
         }

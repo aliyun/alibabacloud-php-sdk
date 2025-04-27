@@ -4,54 +4,46 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpgradeEngineVersionResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class validateResult extends Model
 {
     /**
-     * @example ClusterStatusNotHealth
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example The cluster status is not health
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @description The verification is passed. Valid values:
-     *
-     *   success: through
-     *   failed: failed
-     *
-     * @example clusterStatus
-     *
      * @var string
      */
     public $errorType;
     protected $_name = [
         'errorCode' => 'errorCode',
-        'errorMsg'  => 'errorMsg',
+        'errorMsg' => 'errorMsg',
         'errorType' => 'errorType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMsg) {
             $res['errorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->errorType) {
             $res['errorType'] = $this->errorType;
         }
@@ -59,20 +51,22 @@ class validateResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return validateResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
+
         if (isset($map['errorMsg'])) {
             $model->errorMsg = $map['errorMsg'];
         }
+
         if (isset($map['errorType'])) {
             $model->errorType = $map['errorType'];
         }

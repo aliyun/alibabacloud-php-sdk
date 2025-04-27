@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\MigrationJob;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class statusResult extends Model
 {
@@ -18,20 +18,22 @@ class statusResult extends Model
      */
     public $success;
     protected $_name = [
-        'code'    => 'code',
+        'code' => 'code',
         'success' => 'success',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -39,17 +41,18 @@ class statusResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return statusResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

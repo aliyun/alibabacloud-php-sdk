@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateInstanceSettingsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example BB1C321A-211C-4FD7-BD8B-7F2FABE2****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateInstanceSettingsResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateInstanceSettingsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateInstanceSettingsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

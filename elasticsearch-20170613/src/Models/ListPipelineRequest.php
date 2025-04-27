@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListPipelineRequest extends Model
 {
     /**
-     * @description The header of the response.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example pipeline_test
-     *
      * @var string
      */
     public $pipelineId;
 
     /**
-     * @description The total number of returned entries.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $size;
     protected $_name = [
-        'page'       => 'page',
+        'page' => 'page',
         'pipelineId' => 'pipelineId',
-        'size'       => 'size',
+        'size' => 'size',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
+
         if (null !== $this->pipelineId) {
             $res['pipelineId'] = $this->pipelineId;
         }
+
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
@@ -60,20 +51,22 @@ class ListPipelineRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPipelineRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }
+
         if (isset($map['pipelineId'])) {
             $model->pipelineId = $map['pipelineId'];
         }
+
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }

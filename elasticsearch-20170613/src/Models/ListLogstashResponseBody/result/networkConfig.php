@@ -4,62 +4,56 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListLogstashResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class networkConfig extends Model
 {
     /**
-     * @example vpc
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The ID of the vSwitch.
-     *
-     * @example vpc-abc
-     *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @example cn-hangzhou-*
-     *
      * @var string
      */
     public $vsArea;
 
     /**
-     * @example vsw-def
-     *
      * @var string
      */
     public $vswitchId;
     protected $_name = [
-        'type'      => 'type',
-        'vpcId'     => 'vpcId',
-        'vsArea'    => 'vsArea',
+        'type' => 'type',
+        'vpcId' => 'vpcId',
+        'vsArea' => 'vsArea',
         'vswitchId' => 'vswitchId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->vpcId) {
             $res['vpcId'] = $this->vpcId;
         }
+
         if (null !== $this->vsArea) {
             $res['vsArea'] = $this->vsArea;
         }
+
         if (null !== $this->vswitchId) {
             $res['vswitchId'] = $this->vswitchId;
         }
@@ -67,23 +61,26 @@ class networkConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['vpcId'])) {
             $model->vpcId = $map['vpcId'];
         }
+
         if (isset($map['vsArea'])) {
             $model->vsArea = $map['vsArea'];
         }
+
         if (isset($map['vswitchId'])) {
             $model->vswitchId = $map['vswitchId'];
         }

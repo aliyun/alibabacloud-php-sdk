@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\EstimatedLogstashRestartTimeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The unit.
-     *
-     * @example second
-     *
      * @var string
      */
     public $unit;
 
     /**
-     * @description The estimated restart time.
-     *
-     * @example 600
-     *
      * @var int
      */
     public $value;
     protected $_name = [
-        'unit'  => 'unit',
+        'unit' => 'unit',
         'value' => 'value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->unit) {
             $res['unit'] = $this->unit;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -47,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['unit'])) {
             $model->unit = $map['unit'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

@@ -4,62 +4,56 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class masterConfiguration extends Model
 {
     /**
-     * @example 3
-     *
      * @var int
      */
     public $amount;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $disk;
 
     /**
-     * @example cloud_ssd
-     *
      * @var string
      */
     public $diskType;
 
     /**
-     * @description The storage type of the node. Only cloud_ssd(SSD cloud disk) is supported.
-     *
-     * @example elasticsearch.sn2ne.large
-     *
      * @var string
      */
     public $spec;
     protected $_name = [
-        'amount'   => 'amount',
-        'disk'     => 'disk',
+        'amount' => 'amount',
+        'disk' => 'disk',
         'diskType' => 'diskType',
-        'spec'     => 'spec',
+        'spec' => 'spec',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->amount) {
             $res['amount'] = $this->amount;
         }
+
         if (null !== $this->disk) {
             $res['disk'] = $this->disk;
         }
+
         if (null !== $this->diskType) {
             $res['diskType'] = $this->diskType;
         }
+
         if (null !== $this->spec) {
             $res['spec'] = $this->spec;
         }
@@ -67,23 +61,26 @@ class masterConfiguration extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return masterConfiguration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['amount'])) {
             $model->amount = $map['amount'];
         }
+
         if (isset($map['disk'])) {
             $model->disk = $map['disk'];
         }
+
         if (isset($map['diskType'])) {
             $model->diskType = $map['diskType'];
         }
+
         if (isset($map['spec'])) {
             $model->spec = $map['spec'];
         }

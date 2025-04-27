@@ -4,68 +4,46 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDefaultCollectorConfigurationsRequest extends Model
 {
     /**
-     * @description The shipper type. Valid values:
-     *
-     *   fileBeat
-     *   metricBeat
-     *   heartBeat
-     *   auditBeat
-     *
-     * This parameter is required.
-     * @example fileBeat
-     *
      * @var string
      */
     public $resType;
 
     /**
-     * @description The shipper version. The shipper version varies based on the type of the machine on which the shipper is deployed. Valid values:
-     *
-     *   ECS: 6.8.5_with_community
-     *   ACK: 6.8.13_with_community
-     *
-     * This parameter is required.
-     * @example 6.8.5_with_community
-     *
      * @var string
      */
     public $resVersion;
 
     /**
-     * @description The type of the machine on which the shipper is deployed. If you do not configure this parameter, the default configuration files of shippers deployed on all types of machines are returned. Valid values:
-     *
-     *   ECS: ECS instance
-     *   ACK: ACK cluster
-     *
-     * @example ECS
-     *
      * @var string
      */
     public $sourceType;
     protected $_name = [
-        'resType'    => 'resType',
+        'resType' => 'resType',
         'resVersion' => 'resVersion',
         'sourceType' => 'sourceType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resType) {
             $res['resType'] = $this->resType;
         }
+
         if (null !== $this->resVersion) {
             $res['resVersion'] = $this->resVersion;
         }
+
         if (null !== $this->sourceType) {
             $res['sourceType'] = $this->sourceType;
         }
@@ -73,20 +51,22 @@ class ListDefaultCollectorConfigurationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDefaultCollectorConfigurationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['resType'])) {
             $model->resType = $map['resType'];
         }
+
         if (isset($map['resVersion'])) {
             $model->resVersion = $map['resVersion'];
         }
+
         if (isset($map['sourceType'])) {
             $model->sourceType = $map['sourceType'];
         }

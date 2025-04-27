@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDiagnoseIndicesResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example F05ED12E-140A-4ACB-B059-3A508A69F2E1
-     *
      * @var string
      */
     public $requestId;
@@ -23,40 +19,56 @@ class ListDiagnoseIndicesResponseBody extends Model
     public $result;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
+        'result' => 'Result',
     ];
 
     public function validate()
     {
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['Result'] = $this->result;
+            if (\is_array($this->result)) {
+                $res['Result'] = [];
+                $n1 = 0;
+                foreach ($this->result as $item1) {
+                    $res['Result'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDiagnoseIndicesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
-                $model->result = $map['Result'];
+                $model->result = [];
+                $n1 = 0;
+                foreach ($map['Result'] as $item1) {
+                    $model->result[$n1++] = $item1;
+                }
             }
         }
 

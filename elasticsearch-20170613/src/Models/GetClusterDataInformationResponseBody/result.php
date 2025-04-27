@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetClusterDataInformationResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetClusterDataInformationResponseBody\result\metaInfo;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description Whether it is connectable.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $connectable;
 
     /**
-     * @description The metadata of the cluster.
-     *
      * @var metaInfo
      */
     public $metaInfo;
     protected $_name = [
         'connectable' => 'connectable',
-        'metaInfo'    => 'metaInfo',
+        'metaInfo' => 'metaInfo',
     ];
 
     public function validate()
     {
+        if (null !== $this->metaInfo) {
+            $this->metaInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectable) {
             $res['connectable'] = $this->connectable;
         }
+
         if (null !== $this->metaInfo) {
-            $res['metaInfo'] = null !== $this->metaInfo ? $this->metaInfo->toMap() : null;
+            $res['metaInfo'] = null !== $this->metaInfo ? $this->metaInfo->toArray($noStream) : $this->metaInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['connectable'])) {
             $model->connectable = $map['connectable'];
         }
+
         if (isset($map['metaInfo'])) {
             $model->metaInfo = metaInfo::fromMap($map['metaInfo']);
         }

@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListEcsInstancesResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ipAddress extends Model
 {
     /**
-     * @description The information about the collectors on the ECS instance.
-     *
-     * @example 172.16.xx.xx
-     *
      * @var string
      */
     public $host;
 
     /**
-     * @description The IP address of the endpoint.
-     *
-     * @example private
-     *
      * @var string
      */
     public $ipType;
     protected $_name = [
-        'host'   => 'host',
+        'host' => 'host',
         'ipType' => 'ipType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->host) {
             $res['host'] = $this->host;
         }
+
         if (null !== $this->ipType) {
             $res['ipType'] = $this->ipType;
         }
@@ -47,17 +41,18 @@ class ipAddress extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipAddress
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['host'])) {
             $model->host = $map['host'];
         }
+
         if (isset($map['ipType'])) {
             $model->ipType = $map['ipType'];
         }

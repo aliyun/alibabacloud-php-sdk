@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReadWritePolicy extends Model
 {
@@ -24,23 +24,26 @@ class ReadWritePolicy extends Model
     public $writePolicy;
     protected $_name = [
         'autoGeneratePk' => 'autoGeneratePk',
-        'writeHa'        => 'writeHa',
-        'writePolicy'    => 'writePolicy',
+        'writeHa' => 'writeHa',
+        'writePolicy' => 'writePolicy',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoGeneratePk) {
             $res['autoGeneratePk'] = $this->autoGeneratePk;
         }
+
         if (null !== $this->writeHa) {
             $res['writeHa'] = $this->writeHa;
         }
+
         if (null !== $this->writePolicy) {
             $res['writePolicy'] = $this->writePolicy;
         }
@@ -48,20 +51,22 @@ class ReadWritePolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReadWritePolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['autoGeneratePk'])) {
             $model->autoGeneratePk = $map['autoGeneratePk'];
         }
+
         if (isset($map['writeHa'])) {
             $model->writeHa = $map['writeHa'];
         }
+
         if (isset($map['writePolicy'])) {
             $model->writePolicy = $map['writePolicy'];
         }

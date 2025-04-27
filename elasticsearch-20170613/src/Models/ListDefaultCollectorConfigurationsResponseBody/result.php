@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDefaultCollectorConfigurationsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The content of the configuration file.
-     *
-     * @example - key: log\\n  title: Log file content\\n  description: >\\n    Contains log file lines.\\n  fields:\\n ......
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The name of the configuration file.
-     *
-     * @example fields.yml
-     *
      * @var string
      */
     public $fileName;
     protected $_name = [
-        'content'  => 'content',
+        'content' => 'content',
         'fileName' => 'fileName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->fileName) {
             $res['fileName'] = $this->fileName;
         }
@@ -47,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['fileName'])) {
             $model->fileName = $map['fileName'];
         }

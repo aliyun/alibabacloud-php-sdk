@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionConfigurationResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionConfigurationResponseBody\result\warmNodeProperties\amountRange;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionConfigurationResponseBody\result\warmNodeProperties\diskList;
-use AlibabaCloud\Tea\Model;
 
 class warmNodeProperties extends Model
 {
@@ -26,59 +26,83 @@ class warmNodeProperties extends Model
     public $spec;
     protected $_name = [
         'amountRange' => 'amountRange',
-        'diskList'    => 'diskList',
-        'spec'        => 'spec',
+        'diskList' => 'diskList',
+        'spec' => 'spec',
     ];
 
     public function validate()
     {
+        if (null !== $this->amountRange) {
+            $this->amountRange->validate();
+        }
+        if (\is_array($this->diskList)) {
+            Model::validateArray($this->diskList);
+        }
+        if (\is_array($this->spec)) {
+            Model::validateArray($this->spec);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->amountRange) {
-            $res['amountRange'] = null !== $this->amountRange ? $this->amountRange->toMap() : null;
+            $res['amountRange'] = null !== $this->amountRange ? $this->amountRange->toArray($noStream) : $this->amountRange;
         }
+
         if (null !== $this->diskList) {
-            $res['diskList'] = [];
-            if (null !== $this->diskList && \is_array($this->diskList)) {
-                $n = 0;
-                foreach ($this->diskList as $item) {
-                    $res['diskList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->diskList)) {
+                $res['diskList'] = [];
+                $n1 = 0;
+                foreach ($this->diskList as $item1) {
+                    $res['diskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->spec) {
-            $res['spec'] = $this->spec;
+            if (\is_array($this->spec)) {
+                $res['spec'] = [];
+                $n1 = 0;
+                foreach ($this->spec as $item1) {
+                    $res['spec'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return warmNodeProperties
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['amountRange'])) {
             $model->amountRange = amountRange::fromMap($map['amountRange']);
         }
+
         if (isset($map['diskList'])) {
             if (!empty($map['diskList'])) {
                 $model->diskList = [];
-                $n               = 0;
-                foreach ($map['diskList'] as $item) {
-                    $model->diskList[$n++] = null !== $item ? diskList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['diskList'] as $item1) {
+                    $model->diskList[$n1++] = diskList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['spec'])) {
             if (!empty($map['spec'])) {
-                $model->spec = $map['spec'];
+                $model->spec = [];
+                $n1 = 0;
+                foreach ($map['spec'] as $item1) {
+                    $model->spec[$n1++] = $item1;
+                }
             }
         }
 

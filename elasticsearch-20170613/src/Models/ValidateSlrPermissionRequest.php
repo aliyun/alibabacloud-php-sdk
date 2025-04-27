@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ValidateSlrPermissionRequest extends Model
 {
     /**
-     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example AliyunServiceRoleForElasticsearchCollector
-     *
      * @var string
      */
     public $rolename;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'rolename'    => 'rolename',
+        'rolename' => 'rolename',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->rolename) {
             $res['rolename'] = $this->rolename;
         }
@@ -45,17 +41,18 @@ class ValidateSlrPermissionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ValidateSlrPermissionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['rolename'])) {
             $model->rolename = $map['rolename'];
         }

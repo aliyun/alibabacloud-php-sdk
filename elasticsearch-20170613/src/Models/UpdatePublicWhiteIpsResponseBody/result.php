@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdatePublicWhiteIpsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
@@ -18,29 +18,43 @@ class result extends Model
 
     public function validate()
     {
+        if (\is_array($this->publicIpWhitelist)) {
+            Model::validateArray($this->publicIpWhitelist);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->publicIpWhitelist) {
-            $res['publicIpWhitelist'] = $this->publicIpWhitelist;
+            if (\is_array($this->publicIpWhitelist)) {
+                $res['publicIpWhitelist'] = [];
+                $n1 = 0;
+                foreach ($this->publicIpWhitelist as $item1) {
+                    $res['publicIpWhitelist'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['publicIpWhitelist'])) {
             if (!empty($map['publicIpWhitelist'])) {
-                $model->publicIpWhitelist = $map['publicIpWhitelist'];
+                $model->publicIpWhitelist = [];
+                $n1 = 0;
+                foreach ($map['publicIpWhitelist'] as $item1) {
+                    $model->publicIpWhitelist[$n1++] = $item1;
+                }
             }
         }
 

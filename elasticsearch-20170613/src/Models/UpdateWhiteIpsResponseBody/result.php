@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateWhiteIpsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateWhiteIpsResponseBody\result\networkConfig;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description The list of whitelists.
-     *
      * @var string[]
      */
     public $esIPWhitelist;
 
     /**
-     * @description The name of the whitelist. By default, the default whitelist is included.
-     *
      * @var networkConfig
      */
     public $networkConfig;
@@ -29,34 +25,53 @@ class result extends Model
 
     public function validate()
     {
+        if (\is_array($this->esIPWhitelist)) {
+            Model::validateArray($this->esIPWhitelist);
+        }
+        if (null !== $this->networkConfig) {
+            $this->networkConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->esIPWhitelist) {
-            $res['esIPWhitelist'] = $this->esIPWhitelist;
+            if (\is_array($this->esIPWhitelist)) {
+                $res['esIPWhitelist'] = [];
+                $n1 = 0;
+                foreach ($this->esIPWhitelist as $item1) {
+                    $res['esIPWhitelist'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->networkConfig) {
-            $res['networkConfig'] = null !== $this->networkConfig ? $this->networkConfig->toMap() : null;
+            $res['networkConfig'] = null !== $this->networkConfig ? $this->networkConfig->toArray($noStream) : $this->networkConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['esIPWhitelist'])) {
             if (!empty($map['esIPWhitelist'])) {
-                $model->esIPWhitelist = $map['esIPWhitelist'];
+                $model->esIPWhitelist = [];
+                $n1 = 0;
+                foreach ($map['esIPWhitelist'] as $item1) {
+                    $model->esIPWhitelist[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['networkConfig'])) {
             $model->networkConfig = networkConfig::fromMap($map['networkConfig']);
         }

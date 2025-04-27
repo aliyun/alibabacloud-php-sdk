@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdatePrivateNetworkWhiteIpsResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class UpdatePrivateNetworkWhiteIpsResponseBody extends Model
 {
     /**
-     * @example 6DEBE5EE-0368-4757-8F82-EF9C3972****
-     *
      * @var string
      */
     public $requestId;
@@ -22,37 +20,43 @@ class UpdatePrivateNetworkWhiteIpsResponseBody extends Model
     public $result;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
+        'result' => 'Result',
     ];
 
     public function validate()
     {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['Result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdatePrivateNetworkWhiteIpsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             $model->result = result::fromMap($map['Result']);
         }

@@ -4,41 +4,31 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nodeSpec extends Model
 {
     /**
-     * @example 50
-     *
      * @var int
      */
     public $disk;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $diskEncryption;
 
     /**
-     * @example cloud_ssd
-     *
      * @var string
      */
     public $diskType;
 
     /**
-     * @example PL1
-     *
      * @var string
      */
     public $performanceLevel;
 
     /**
-     * @example elasticsearch.n4.small
-     *
      * @var string
      */
     public $spec;
@@ -48,36 +38,42 @@ class nodeSpec extends Model
      */
     public $specInfo;
     protected $_name = [
-        'disk'             => 'disk',
-        'diskEncryption'   => 'diskEncryption',
-        'diskType'         => 'diskType',
+        'disk' => 'disk',
+        'diskEncryption' => 'diskEncryption',
+        'diskType' => 'diskType',
         'performanceLevel' => 'performanceLevel',
-        'spec'             => 'spec',
-        'specInfo'         => 'specInfo',
+        'spec' => 'spec',
+        'specInfo' => 'specInfo',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->disk) {
             $res['disk'] = $this->disk;
         }
+
         if (null !== $this->diskEncryption) {
             $res['diskEncryption'] = $this->diskEncryption;
         }
+
         if (null !== $this->diskType) {
             $res['diskType'] = $this->diskType;
         }
+
         if (null !== $this->performanceLevel) {
             $res['performanceLevel'] = $this->performanceLevel;
         }
+
         if (null !== $this->spec) {
             $res['spec'] = $this->spec;
         }
+
         if (null !== $this->specInfo) {
             $res['specInfo'] = $this->specInfo;
         }
@@ -85,29 +81,34 @@ class nodeSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodeSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['disk'])) {
             $model->disk = $map['disk'];
         }
+
         if (isset($map['diskEncryption'])) {
             $model->diskEncryption = $map['diskEncryption'];
         }
+
         if (isset($map['diskType'])) {
             $model->diskType = $map['diskType'];
         }
+
         if (isset($map['performanceLevel'])) {
             $model->performanceLevel = $map['performanceLevel'];
         }
+
         if (isset($map['spec'])) {
             $model->spec = $map['spec'];
         }
+
         if (isset($map['specInfo'])) {
             $model->specInfo = $map['specInfo'];
         }

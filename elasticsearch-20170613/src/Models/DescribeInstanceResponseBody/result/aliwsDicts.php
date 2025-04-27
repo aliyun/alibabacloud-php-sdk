@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class aliwsDicts extends Model
 {
     /**
-     * @example 2782602
-     *
      * @var int
      */
     public $fileSize;
 
     /**
-     * @example aliws_ext_dict.txt
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example OSS
-     *
      * @var string
      */
     public $sourceType;
 
     /**
-     * @example ALI_WS
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'fileSize'   => 'fileSize',
-        'name'       => 'name',
+        'fileSize' => 'fileSize',
+        'name' => 'name',
         'sourceType' => 'sourceType',
-        'type'       => 'type',
+        'type' => 'type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileSize) {
             $res['fileSize'] = $this->fileSize;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->sourceType) {
             $res['sourceType'] = $this->sourceType;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -65,23 +61,26 @@ class aliwsDicts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aliwsDicts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fileSize'])) {
             $model->fileSize = $map['fileSize'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['sourceType'])) {
             $model->sourceType = $map['sourceType'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

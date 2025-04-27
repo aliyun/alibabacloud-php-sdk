@@ -4,25 +4,16 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListVpcEndpointsRequest extends Model
 {
     /**
-     * @description The number of the page to return.
-     *
-     * Pages start from page 1. Default value: 1.
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @description The number of entries to return on each page. Default value: 20.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $size;
@@ -33,14 +24,16 @@ class ListVpcEndpointsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
+
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
@@ -48,17 +41,18 @@ class ListVpcEndpointsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListVpcEndpointsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }
+
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }

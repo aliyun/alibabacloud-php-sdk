@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListComponentIndicesResponseBody\result\content\template\settings;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListComponentIndicesResponseBody\result\content\template\settings\index\lifecycle;
-use AlibabaCloud\Tea\Model;
 
 class index extends Model
 {
     /**
-     * @example best_compression
-     *
      * @var string
      */
     public $codec;
@@ -21,38 +19,44 @@ class index extends Model
      */
     public $lifecycle;
     protected $_name = [
-        'codec'     => 'codec',
+        'codec' => 'codec',
         'lifecycle' => 'lifecycle',
     ];
 
     public function validate()
     {
+        if (null !== $this->lifecycle) {
+            $this->lifecycle->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->codec) {
             $res['codec'] = $this->codec;
         }
+
         if (null !== $this->lifecycle) {
-            $res['lifecycle'] = null !== $this->lifecycle ? $this->lifecycle->toMap() : null;
+            $res['lifecycle'] = null !== $this->lifecycle ? $this->lifecycle->toArray($noStream) : $this->lifecycle;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return index
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['codec'])) {
             $model->codec = $map['codec'];
         }
+
         if (isset($map['lifecycle'])) {
             $model->lifecycle = lifecycle::fromMap($map['lifecycle']);
         }

@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListKibanaPvlNetworkResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vSwitchIdsZone extends Model
 {
     /**
-     * @example vsw-xdefafns***
-     *
      * @var string
      */
     public $vswitchId;
 
     /**
-     * @example cn-hangzhou-e
-     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'vswitchId' => 'vswitchId',
-        'zoneId'    => 'zoneId',
+        'zoneId' => 'zoneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vswitchId) {
             $res['vswitchId'] = $this->vswitchId;
         }
+
         if (null !== $this->zoneId) {
             $res['zoneId'] = $this->zoneId;
         }
@@ -43,17 +41,18 @@ class vSwitchIdsZone extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vSwitchIdsZone
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['vswitchId'])) {
             $model->vswitchId = $map['vswitchId'];
         }
+
         if (isset($map['zoneId'])) {
             $model->zoneId = $map['zoneId'];
         }

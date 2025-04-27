@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateLogstashSettingsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 71D0D1DA-B22F-58CB-AF5B-D1657A6A****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateLogstashSettingsResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateLogstashSettingsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateLogstashSettingsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

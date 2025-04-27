@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionalInstanceConfigResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class warmNodeAmountRange extends Model
 {
@@ -24,14 +24,16 @@ class warmNodeAmountRange extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxAmount) {
             $res['maxAmount'] = $this->maxAmount;
         }
+
         if (null !== $this->minAmount) {
             $res['minAmount'] = $this->minAmount;
         }
@@ -39,17 +41,18 @@ class warmNodeAmountRange extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return warmNodeAmountRange
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxAmount'])) {
             $model->maxAmount = $map['maxAmount'];
         }
+
         if (isset($map['minAmount'])) {
             $model->minAmount = $map['minAmount'];
         }

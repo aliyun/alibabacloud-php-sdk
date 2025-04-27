@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateExtendfilesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The size of the driver file. Unit: byte.
-     *
-     * @example 1853083
-     *
      * @var int
      */
     public $fileSize;
 
     /**
-     * @description The name of the driver file.
-     *
-     * @example mysql-connector-java-6.0.2.jar
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The source of the driver file. This parameter is fixed as ORIGIN, which indicates that the driver file is retained.
-     *
-     * @example ORIGIN
-     *
      * @var string
      */
     public $sourceType;
     protected $_name = [
-        'fileSize'   => 'fileSize',
-        'name'       => 'name',
+        'fileSize' => 'fileSize',
+        'name' => 'name',
         'sourceType' => 'sourceType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileSize) {
             $res['fileSize'] = $this->fileSize;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->sourceType) {
             $res['sourceType'] = $this->sourceType;
         }
@@ -60,20 +51,22 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fileSize'])) {
             $model->fileSize = $map['fileSize'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['sourceType'])) {
             $model->sourceType = $map['sourceType'];
         }

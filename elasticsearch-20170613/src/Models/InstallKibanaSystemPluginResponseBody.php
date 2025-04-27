@@ -4,61 +4,71 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InstallKibanaSystemPluginResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example F99407AB-2FA9-489E-A259-40CF6DC****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The list of plug-ins to be installed.
-     *
      * @var string[]
      */
     public $result;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
+        'result' => 'Result',
     ];
 
     public function validate()
     {
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['Result'] = $this->result;
+            if (\is_array($this->result)) {
+                $res['Result'] = [];
+                $n1 = 0;
+                foreach ($this->result as $item1) {
+                    $res['Result'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InstallKibanaSystemPluginResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
-                $model->result = $map['Result'];
+                $model->result = [];
+                $n1 = 0;
+                foreach ($map['Result'] as $item1) {
+                    $model->result[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListIndexTemplatesRequest extends Model
 {
     /**
-     * @example my-template
-     *
      * @var string
      */
     public $indexTemplate;
 
     /**
-     * @example 5
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @example 50
-     *
      * @var int
      */
     public $size;
     protected $_name = [
         'indexTemplate' => 'indexTemplate',
-        'page'          => 'page',
-        'size'          => 'size',
+        'page' => 'page',
+        'size' => 'size',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->indexTemplate) {
             $res['indexTemplate'] = $this->indexTemplate;
         }
+
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
+
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
@@ -54,20 +51,22 @@ class ListIndexTemplatesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIndexTemplatesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['indexTemplate'])) {
             $model->indexTemplate = $map['indexTemplate'];
         }
+
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }
+
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }

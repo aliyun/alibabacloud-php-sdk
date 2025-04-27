@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListComponentIndicesResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListComponentIndicesResponseBody\result\content\template;
-use AlibabaCloud\Tea\Model;
 
 class content extends Model
 {
     /**
-     * @example { "description": "set number of shards to one" }
-     *
      * @var mixed[]
      */
     public $meta;
@@ -22,30 +20,42 @@ class content extends Model
     public $template;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $version;
     protected $_name = [
-        'meta'     => '_meta',
+        'meta' => '_meta',
         'template' => 'template',
-        'version'  => 'version',
+        'version' => 'version',
     ];
 
     public function validate()
     {
+        if (\is_array($this->meta)) {
+            Model::validateArray($this->meta);
+        }
+        if (null !== $this->template) {
+            $this->template->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->meta) {
-            $res['_meta'] = $this->meta;
+            if (\is_array($this->meta)) {
+                $res['_meta'] = [];
+                foreach ($this->meta as $key1 => $value1) {
+                    $res['_meta'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->template) {
-            $res['template'] = null !== $this->template ? $this->template->toMap() : null;
+            $res['template'] = null !== $this->template ? $this->template->toArray($noStream) : $this->template;
         }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -53,20 +63,27 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['_meta'])) {
-            $model->meta = $map['_meta'];
+            if (!empty($map['_meta'])) {
+                $model->meta = [];
+                foreach ($map['_meta'] as $key1 => $value1) {
+                    $model->meta[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['template'])) {
             $model->template = template::fromMap($map['template']);
         }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

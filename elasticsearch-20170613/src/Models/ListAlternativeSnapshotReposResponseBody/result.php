@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAlternativeSnapshotReposResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * @example es-cn-6ja1ro4jt000c****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The address of the repository.
-     *
-     * @example RepoPath
-     *
      * @var string
      */
     public $repoPath;
     protected $_name = [
         'instanceId' => 'instanceId',
-        'repoPath'   => 'repoPath',
+        'repoPath' => 'repoPath',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
+
         if (null !== $this->repoPath) {
             $res['repoPath'] = $this->repoPath;
         }
@@ -47,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
+
         if (isset($map['repoPath'])) {
             $model->repoPath = $map['repoPath'];
         }

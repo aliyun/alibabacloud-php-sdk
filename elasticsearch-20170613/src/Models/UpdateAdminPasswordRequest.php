@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateAdminPasswordRequest extends Model
 {
     /**
-     * @example es_password
-     *
      * @var string
      */
     public $esAdminPassword;
 
     /**
-     * @description Indicates whether the password was updated. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
-     *
-     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
-     *
      * @var string
      */
     public $clientToken;
     protected $_name = [
         'esAdminPassword' => 'esAdminPassword',
-        'clientToken'     => 'clientToken',
+        'clientToken' => 'clientToken',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->esAdminPassword) {
             $res['esAdminPassword'] = $this->esAdminPassword;
         }
+
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
@@ -48,17 +41,18 @@ class UpdateAdminPasswordRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateAdminPasswordRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['esAdminPassword'])) {
             $model->esAdminPassword = $map['esAdminPassword'];
         }
+
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }

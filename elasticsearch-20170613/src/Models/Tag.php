@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Tag extends Model
 {
@@ -18,20 +18,22 @@ class Tag extends Model
      */
     public $tagValue;
     protected $_name = [
-        'tagKey'   => 'tagKey',
+        'tagKey' => 'tagKey',
         'tagValue' => 'tagValue',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagKey) {
             $res['tagKey'] = $this->tagKey;
         }
+
         if (null !== $this->tagValue) {
             $res['tagValue'] = $this->tagValue;
         }
@@ -39,17 +41,18 @@ class Tag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Tag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['tagKey'])) {
             $model->tagKey = $map['tagKey'];
         }
+
         if (isset($map['tagValue'])) {
             $model->tagValue = $map['tagValue'];
         }

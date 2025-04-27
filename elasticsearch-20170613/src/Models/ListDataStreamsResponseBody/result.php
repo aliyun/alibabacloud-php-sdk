@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDataStreamsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDataStreamsResponseBody\result\indices;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @example Green
-     *
      * @var string
      */
     public $health;
 
     /**
-     * @example rollver1
-     *
      * @var string
      */
     public $ilmPolicyName;
 
     /**
-     * @example template1
-     *
      * @var string
      */
     public $indexTemplateName;
@@ -36,66 +30,70 @@ class result extends Model
     public $indices;
 
     /**
-     * @example 1788239393298
-     *
      * @var int
      */
     public $managedStorageSize;
 
     /**
-     * @example my-index-0001
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example 1788239393298
-     *
      * @var int
      */
     public $totalStorageSize;
     protected $_name = [
-        'health'             => 'health',
-        'ilmPolicyName'      => 'ilmPolicyName',
-        'indexTemplateName'  => 'indexTemplateName',
-        'indices'            => 'indices',
+        'health' => 'health',
+        'ilmPolicyName' => 'ilmPolicyName',
+        'indexTemplateName' => 'indexTemplateName',
+        'indices' => 'indices',
         'managedStorageSize' => 'managedStorageSize',
-        'name'               => 'name',
-        'totalStorageSize'   => 'totalStorageSize',
+        'name' => 'name',
+        'totalStorageSize' => 'totalStorageSize',
     ];
 
     public function validate()
     {
+        if (\is_array($this->indices)) {
+            Model::validateArray($this->indices);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->health) {
             $res['health'] = $this->health;
         }
+
         if (null !== $this->ilmPolicyName) {
             $res['ilmPolicyName'] = $this->ilmPolicyName;
         }
+
         if (null !== $this->indexTemplateName) {
             $res['indexTemplateName'] = $this->indexTemplateName;
         }
+
         if (null !== $this->indices) {
-            $res['indices'] = [];
-            if (null !== $this->indices && \is_array($this->indices)) {
-                $n = 0;
-                foreach ($this->indices as $item) {
-                    $res['indices'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->indices)) {
+                $res['indices'] = [];
+                $n1 = 0;
+                foreach ($this->indices as $item1) {
+                    $res['indices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->managedStorageSize) {
             $res['managedStorageSize'] = $this->managedStorageSize;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->totalStorageSize) {
             $res['totalStorageSize'] = $this->totalStorageSize;
         }
@@ -103,38 +101,44 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['health'])) {
             $model->health = $map['health'];
         }
+
         if (isset($map['ilmPolicyName'])) {
             $model->ilmPolicyName = $map['ilmPolicyName'];
         }
+
         if (isset($map['indexTemplateName'])) {
             $model->indexTemplateName = $map['indexTemplateName'];
         }
+
         if (isset($map['indices'])) {
             if (!empty($map['indices'])) {
                 $model->indices = [];
-                $n              = 0;
-                foreach ($map['indices'] as $item) {
-                    $model->indices[$n++] = null !== $item ? indices::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['indices'] as $item1) {
+                    $model->indices[$n1++] = indices::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['managedStorageSize'])) {
             $model->managedStorageSize = $map['managedStorageSize'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['totalStorageSize'])) {
             $model->totalStorageSize = $map['totalStorageSize'];
         }

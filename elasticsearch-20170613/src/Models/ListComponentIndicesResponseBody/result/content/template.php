@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListComponentIndicesResponseBody\result\content;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListComponentIndicesResponseBody\result\content\template\settings;
-use AlibabaCloud\Tea\Model;
 
 class template extends Model
 {
@@ -19,23 +19,27 @@ class template extends Model
 
     public function validate()
     {
+        if (null !== $this->settings) {
+            $this->settings->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->settings) {
-            $res['settings'] = null !== $this->settings ? $this->settings->toMap() : null;
+            $res['settings'] = null !== $this->settings ? $this->settings->toArray($noStream) : $this->settings;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return template
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

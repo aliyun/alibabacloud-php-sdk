@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDataStreamsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class headers extends Model
 {
     /**
-     * @example 100
-     *
      * @var int
      */
     public $xManagedCount;
 
     /**
-     * @example 143993923932990
-     *
      * @var int
      */
     public $xManagedStorageSize;
     protected $_name = [
-        'xManagedCount'       => 'X-Managed-Count',
+        'xManagedCount' => 'X-Managed-Count',
         'xManagedStorageSize' => 'X-Managed-StorageSize',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->xManagedCount) {
             $res['X-Managed-Count'] = $this->xManagedCount;
         }
+
         if (null !== $this->xManagedStorageSize) {
             $res['X-Managed-StorageSize'] = $this->xManagedStorageSize;
         }
@@ -43,17 +41,18 @@ class headers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return headers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['X-Managed-Count'])) {
             $model->xManagedCount = $map['X-Managed-Count'];
         }
+
         if (isset($map['X-Managed-StorageSize'])) {
             $model->xManagedStorageSize = $map['X-Managed-StorageSize'];
         }

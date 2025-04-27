@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetTransferableNodesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The IP address of the node.
-     *
-     * @example ``192.168.**.**``
-     *
      * @var string
      */
     public $host;
 
     /**
-     * @description The access port of the node.
-     *
-     * @example 9200
-     *
      * @var int
      */
     public $port;
@@ -32,14 +24,16 @@ class result extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->host) {
             $res['host'] = $this->host;
         }
+
         if (null !== $this->port) {
             $res['port'] = $this->port;
         }
@@ -47,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['host'])) {
             $model->host = $map['host'];
         }
+
         if (isset($map['port'])) {
             $model->port = $map['port'];
         }

@@ -4,109 +4,143 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetClusterDataInformationResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class metaInfo extends Model
 {
     /**
-     * @description The fields in the Mapping for the index.
-     *
      * @var string[]
      */
     public $fields;
 
     /**
-     * @description The index list of the cluster.
-     *
      * @var string[]
      */
     public $indices;
 
     /**
-     * @description The Mapping configuration of the cluster.
-     *
-     * @example {\\"_doc\\":{\\"properties\\":{\\"user\\":{\\"properties\\":{\\"last\\":{\\"type\\":\\"text\\",...}}}}}}
-     *
      * @var string
      */
     public $mapping;
 
     /**
-     * @description The Settings of the cluster.
-     *
-     * @example {\\n  \\"index\\": {\\n    \\"replication\\": {\\n}.....}}
-     *
      * @var string
      */
     public $settings;
 
     /**
-     * @description Specifies the type of the index.
-     *
      * @var string[]
      */
     public $typeName;
     protected $_name = [
-        'fields'   => 'fields',
-        'indices'  => 'indices',
-        'mapping'  => 'mapping',
+        'fields' => 'fields',
+        'indices' => 'indices',
+        'mapping' => 'mapping',
         'settings' => 'settings',
         'typeName' => 'typeName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->fields)) {
+            Model::validateArray($this->fields);
+        }
+        if (\is_array($this->indices)) {
+            Model::validateArray($this->indices);
+        }
+        if (\is_array($this->typeName)) {
+            Model::validateArray($this->typeName);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fields) {
-            $res['fields'] = $this->fields;
+            if (\is_array($this->fields)) {
+                $res['fields'] = [];
+                $n1 = 0;
+                foreach ($this->fields as $item1) {
+                    $res['fields'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->indices) {
-            $res['indices'] = $this->indices;
+            if (\is_array($this->indices)) {
+                $res['indices'] = [];
+                $n1 = 0;
+                foreach ($this->indices as $item1) {
+                    $res['indices'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->mapping) {
             $res['mapping'] = $this->mapping;
         }
+
         if (null !== $this->settings) {
             $res['settings'] = $this->settings;
         }
+
         if (null !== $this->typeName) {
-            $res['typeName'] = $this->typeName;
+            if (\is_array($this->typeName)) {
+                $res['typeName'] = [];
+                $n1 = 0;
+                foreach ($this->typeName as $item1) {
+                    $res['typeName'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metaInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fields'])) {
             if (!empty($map['fields'])) {
-                $model->fields = $map['fields'];
+                $model->fields = [];
+                $n1 = 0;
+                foreach ($map['fields'] as $item1) {
+                    $model->fields[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['indices'])) {
             if (!empty($map['indices'])) {
-                $model->indices = $map['indices'];
+                $model->indices = [];
+                $n1 = 0;
+                foreach ($map['indices'] as $item1) {
+                    $model->indices[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['mapping'])) {
             $model->mapping = $map['mapping'];
         }
+
         if (isset($map['settings'])) {
             $model->settings = $map['settings'];
         }
+
         if (isset($map['typeName'])) {
             if (!empty($map['typeName'])) {
-                $model->typeName = $map['typeName'];
+                $model->typeName = [];
+                $n1 = 0;
+                foreach ($map['typeName'] as $item1) {
+                    $model->typeName[$n1++] = $item1;
+                }
             }
         }
 

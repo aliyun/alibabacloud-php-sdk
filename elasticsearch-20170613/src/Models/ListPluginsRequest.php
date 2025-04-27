@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListPluginsRequest extends Model
 {
     /**
-     * @description SYSTEM
-     *
-     * @example analysis-ik
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $page;
 
     /**
-     * @description The header of the response.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $size;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example SYSTEM
-     *
      * @var string
      */
     public $source;
     protected $_name = [
-        'name'   => 'name',
-        'page'   => 'page',
-        'size'   => 'size',
+        'name' => 'name',
+        'page' => 'page',
+        'size' => 'size',
         'source' => 'source',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
+
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
+
         if (null !== $this->source) {
             $res['source'] = $this->source;
         }
@@ -73,23 +61,26 @@ class ListPluginsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPluginsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }
+
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }
+
         if (isset($map['source'])) {
             $model->source = $map['source'];
         }

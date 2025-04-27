@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateWhiteIpsResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateWhiteIpsResponseBody\result\networkConfig\whiteIpGroupList;
-use AlibabaCloud\Tea\Model;
 
 class networkConfig extends Model
 {
     /**
-     * @description The IP addresses in the whitelist.
-     *
      * @var whiteIpGroupList[]
      */
     public $whiteIpGroupList;
@@ -21,17 +19,21 @@ class networkConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->whiteIpGroupList)) {
+            Model::validateArray($this->whiteIpGroupList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->whiteIpGroupList) {
-            $res['whiteIpGroupList'] = [];
-            if (null !== $this->whiteIpGroupList && \is_array($this->whiteIpGroupList)) {
-                $n = 0;
-                foreach ($this->whiteIpGroupList as $item) {
-                    $res['whiteIpGroupList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->whiteIpGroupList)) {
+                $res['whiteIpGroupList'] = [];
+                $n1 = 0;
+                foreach ($this->whiteIpGroupList as $item1) {
+                    $res['whiteIpGroupList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class networkConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['whiteIpGroupList'])) {
             if (!empty($map['whiteIpGroupList'])) {
                 $model->whiteIpGroupList = [];
-                $n                       = 0;
-                foreach ($map['whiteIpGroupList'] as $item) {
-                    $model->whiteIpGroupList[$n++] = null !== $item ? whiteIpGroupList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['whiteIpGroupList'] as $item1) {
+                    $model->whiteIpGroupList[$n1++] = whiteIpGroupList::fromMap($item1);
                 }
             }
         }

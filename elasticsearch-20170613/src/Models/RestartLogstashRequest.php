@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RestartLogstashRequest extends Model
 {
     /**
-     * @example 20%
-     *
      * @var float
      */
     public $batchCount;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $blueGreenDep;
@@ -33,60 +29,79 @@ class RestartLogstashRequest extends Model
     public $nodes;
 
     /**
-     * @example instance
-     *
      * @var string
      */
     public $restartType;
 
     /**
-     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $force;
     protected $_name = [
-        'batchCount'   => 'batchCount',
+        'batchCount' => 'batchCount',
         'blueGreenDep' => 'blueGreenDep',
-        'nodeTypes'    => 'nodeTypes',
-        'nodes'        => 'nodes',
-        'restartType'  => 'restartType',
-        'clientToken'  => 'clientToken',
-        'force'        => 'force',
+        'nodeTypes' => 'nodeTypes',
+        'nodes' => 'nodes',
+        'restartType' => 'restartType',
+        'clientToken' => 'clientToken',
+        'force' => 'force',
     ];
 
     public function validate()
     {
+        if (\is_array($this->nodeTypes)) {
+            Model::validateArray($this->nodeTypes);
+        }
+        if (\is_array($this->nodes)) {
+            Model::validateArray($this->nodes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->batchCount) {
             $res['batchCount'] = $this->batchCount;
         }
+
         if (null !== $this->blueGreenDep) {
             $res['blueGreenDep'] = $this->blueGreenDep;
         }
+
         if (null !== $this->nodeTypes) {
-            $res['nodeTypes'] = $this->nodeTypes;
+            if (\is_array($this->nodeTypes)) {
+                $res['nodeTypes'] = [];
+                $n1 = 0;
+                foreach ($this->nodeTypes as $item1) {
+                    $res['nodeTypes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->nodes) {
-            $res['nodes'] = $this->nodes;
+            if (\is_array($this->nodes)) {
+                $res['nodes'] = [];
+                $n1 = 0;
+                foreach ($this->nodes as $item1) {
+                    $res['nodes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->restartType) {
             $res['restartType'] = $this->restartType;
         }
+
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
+
         if (null !== $this->force) {
             $res['force'] = $this->force;
         }
@@ -94,36 +109,50 @@ class RestartLogstashRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RestartLogstashRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['batchCount'])) {
             $model->batchCount = $map['batchCount'];
         }
+
         if (isset($map['blueGreenDep'])) {
             $model->blueGreenDep = $map['blueGreenDep'];
         }
+
         if (isset($map['nodeTypes'])) {
             if (!empty($map['nodeTypes'])) {
-                $model->nodeTypes = $map['nodeTypes'];
+                $model->nodeTypes = [];
+                $n1 = 0;
+                foreach ($map['nodeTypes'] as $item1) {
+                    $model->nodeTypes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['nodes'])) {
             if (!empty($map['nodes'])) {
-                $model->nodes = $map['nodes'];
+                $model->nodes = [];
+                $n1 = 0;
+                foreach ($map['nodes'] as $item1) {
+                    $model->nodes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['restartType'])) {
             $model->restartType = $map['restartType'];
         }
+
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }
+
         if (isset($map['force'])) {
             $model->force = $map['force'];
         }

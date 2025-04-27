@@ -4,58 +4,56 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpgradeEngineVersionResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpgradeEngineVersionResponseBody\result\validateResult;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @example success
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The error message returned.
-     *
      * @var validateResult[]
      */
     public $validateResult;
 
     /**
-     * @description The error code returned if the request failed.
-     *
-     * @example checkClusterHealth
-     *
      * @var string
      */
     public $validateType;
     protected $_name = [
-        'status'         => 'status',
+        'status' => 'status',
         'validateResult' => 'validateResult',
-        'validateType'   => 'validateType',
+        'validateType' => 'validateType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->validateResult)) {
+            Model::validateArray($this->validateResult);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->validateResult) {
-            $res['validateResult'] = [];
-            if (null !== $this->validateResult && \is_array($this->validateResult)) {
-                $n = 0;
-                foreach ($this->validateResult as $item) {
-                    $res['validateResult'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->validateResult)) {
+                $res['validateResult'] = [];
+                $n1 = 0;
+                foreach ($this->validateResult as $item1) {
+                    $res['validateResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->validateType) {
             $res['validateType'] = $this->validateType;
         }
@@ -63,26 +61,28 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['validateResult'])) {
             if (!empty($map['validateResult'])) {
                 $model->validateResult = [];
-                $n                     = 0;
-                foreach ($map['validateResult'] as $item) {
-                    $model->validateResult[$n++] = null !== $item ? validateResult::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['validateResult'] as $item1) {
+                    $model->validateResult[$n1++] = validateResult::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['validateType'])) {
             $model->validateType = $map['validateType'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListActionRecordsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListActionRecordsResponseBody\result\statusInfo;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -99,168 +99,258 @@ class result extends Model
      */
     public $userType;
     protected $_name = [
-        'actionName'             => 'ActionName',
-        'actionParams'           => 'ActionParams',
-        'actionResultAccessList' => 'ActionResultAccessList',
-        'endTime'                => 'EndTime',
-        'instanceId'             => 'InstanceId',
-        'metaNow'                => 'MetaNow',
-        'metaOld'                => 'MetaOld',
-        'ownerId'                => 'OwnerId',
-        'process'                => 'Process',
-        'recordDiff'             => 'RecordDiff',
-        'recordIds'              => 'RecordIds',
-        'requestId'              => 'RequestId',
-        'startTime'              => 'StartTime',
-        'stateType'              => 'StateType',
-        'statusInfo'             => 'StatusInfo',
-        'userId'                 => 'UserId',
-        'userInfo'               => 'UserInfo',
-        'userType'               => 'UserType',
+        'actionName' => 'actionName',
+        'actionParams' => 'actionParams',
+        'actionResultAccessList' => 'actionResultAccessList',
+        'endTime' => 'endTime',
+        'instanceId' => 'instanceId',
+        'metaNow' => 'metaNow',
+        'metaOld' => 'metaOld',
+        'ownerId' => 'ownerId',
+        'process' => 'process',
+        'recordDiff' => 'recordDiff',
+        'recordIds' => 'recordIds',
+        'requestId' => 'requestId',
+        'startTime' => 'startTime',
+        'stateType' => 'stateType',
+        'statusInfo' => 'statusInfo',
+        'userId' => 'userId',
+        'userInfo' => 'userInfo',
+        'userType' => 'userType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->actionParams)) {
+            Model::validateArray($this->actionParams);
+        }
+        if (\is_array($this->actionResultAccessList)) {
+            Model::validateArray($this->actionResultAccessList);
+        }
+        if (\is_array($this->recordDiff)) {
+            Model::validateArray($this->recordDiff);
+        }
+        if (\is_array($this->recordIds)) {
+            Model::validateArray($this->recordIds);
+        }
+        if (\is_array($this->statusInfo)) {
+            Model::validateArray($this->statusInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionName) {
-            $res['ActionName'] = $this->actionName;
+            $res['actionName'] = $this->actionName;
         }
+
         if (null !== $this->actionParams) {
-            $res['ActionParams'] = $this->actionParams;
-        }
-        if (null !== $this->actionResultAccessList) {
-            $res['ActionResultAccessList'] = $this->actionResultAccessList;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->metaNow) {
-            $res['MetaNow'] = $this->metaNow;
-        }
-        if (null !== $this->metaOld) {
-            $res['MetaOld'] = $this->metaOld;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->process) {
-            $res['Process'] = $this->process;
-        }
-        if (null !== $this->recordDiff) {
-            $res['RecordDiff'] = $this->recordDiff;
-        }
-        if (null !== $this->recordIds) {
-            $res['RecordIds'] = $this->recordIds;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->stateType) {
-            $res['StateType'] = $this->stateType;
-        }
-        if (null !== $this->statusInfo) {
-            $res['StatusInfo'] = [];
-            if (null !== $this->statusInfo && \is_array($this->statusInfo)) {
-                $n = 0;
-                foreach ($this->statusInfo as $item) {
-                    $res['StatusInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->actionParams)) {
+                $res['actionParams'] = [];
+                foreach ($this->actionParams as $key1 => $value1) {
+                    $res['actionParams'][$key1] = $value1;
                 }
             }
         }
+
+        if (null !== $this->actionResultAccessList) {
+            if (\is_array($this->actionResultAccessList)) {
+                $res['actionResultAccessList'] = [];
+                $n1 = 0;
+                foreach ($this->actionResultAccessList as $item1) {
+                    $res['actionResultAccessList'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->endTime) {
+            $res['endTime'] = $this->endTime;
+        }
+
+        if (null !== $this->instanceId) {
+            $res['instanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->metaNow) {
+            $res['metaNow'] = $this->metaNow;
+        }
+
+        if (null !== $this->metaOld) {
+            $res['metaOld'] = $this->metaOld;
+        }
+
+        if (null !== $this->ownerId) {
+            $res['ownerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->process) {
+            $res['process'] = $this->process;
+        }
+
+        if (null !== $this->recordDiff) {
+            if (\is_array($this->recordDiff)) {
+                $res['recordDiff'] = [];
+                foreach ($this->recordDiff as $key1 => $value1) {
+                    $res['recordDiff'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->recordIds) {
+            if (\is_array($this->recordIds)) {
+                $res['recordIds'] = [];
+                $n1 = 0;
+                foreach ($this->recordIds as $item1) {
+                    $res['recordIds'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->startTime) {
+            $res['startTime'] = $this->startTime;
+        }
+
+        if (null !== $this->stateType) {
+            $res['stateType'] = $this->stateType;
+        }
+
+        if (null !== $this->statusInfo) {
+            if (\is_array($this->statusInfo)) {
+                $res['statusInfo'] = [];
+                $n1 = 0;
+                foreach ($this->statusInfo as $item1) {
+                    $res['statusInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+            $res['userId'] = $this->userId;
         }
+
         if (null !== $this->userInfo) {
-            $res['UserInfo'] = $this->userInfo;
+            $res['userInfo'] = $this->userInfo;
         }
+
         if (null !== $this->userType) {
-            $res['UserType'] = $this->userType;
+            $res['userType'] = $this->userType;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ActionName'])) {
-            $model->actionName = $map['ActionName'];
+        if (isset($map['actionName'])) {
+            $model->actionName = $map['actionName'];
         }
-        if (isset($map['ActionParams'])) {
-            $model->actionParams = $map['ActionParams'];
-        }
-        if (isset($map['ActionResultAccessList'])) {
-            if (!empty($map['ActionResultAccessList'])) {
-                $model->actionResultAccessList = $map['ActionResultAccessList'];
-            }
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['MetaNow'])) {
-            $model->metaNow = $map['MetaNow'];
-        }
-        if (isset($map['MetaOld'])) {
-            $model->metaOld = $map['MetaOld'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['Process'])) {
-            $model->process = $map['Process'];
-        }
-        if (isset($map['RecordDiff'])) {
-            $model->recordDiff = $map['RecordDiff'];
-        }
-        if (isset($map['RecordIds'])) {
-            if (!empty($map['RecordIds'])) {
-                $model->recordIds = $map['RecordIds'];
-            }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['StateType'])) {
-            $model->stateType = $map['StateType'];
-        }
-        if (isset($map['StatusInfo'])) {
-            if (!empty($map['StatusInfo'])) {
-                $model->statusInfo = [];
-                $n                 = 0;
-                foreach ($map['StatusInfo'] as $item) {
-                    $model->statusInfo[$n++] = null !== $item ? statusInfo::fromMap($item) : $item;
+
+        if (isset($map['actionParams'])) {
+            if (!empty($map['actionParams'])) {
+                $model->actionParams = [];
+                foreach ($map['actionParams'] as $key1 => $value1) {
+                    $model->actionParams[$key1] = $value1;
                 }
             }
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+
+        if (isset($map['actionResultAccessList'])) {
+            if (!empty($map['actionResultAccessList'])) {
+                $model->actionResultAccessList = [];
+                $n1 = 0;
+                foreach ($map['actionResultAccessList'] as $item1) {
+                    $model->actionResultAccessList[$n1++] = $item1;
+                }
+            }
         }
-        if (isset($map['UserInfo'])) {
-            $model->userInfo = $map['UserInfo'];
+
+        if (isset($map['endTime'])) {
+            $model->endTime = $map['endTime'];
         }
-        if (isset($map['UserType'])) {
-            $model->userType = $map['UserType'];
+
+        if (isset($map['instanceId'])) {
+            $model->instanceId = $map['instanceId'];
+        }
+
+        if (isset($map['metaNow'])) {
+            $model->metaNow = $map['metaNow'];
+        }
+
+        if (isset($map['metaOld'])) {
+            $model->metaOld = $map['metaOld'];
+        }
+
+        if (isset($map['ownerId'])) {
+            $model->ownerId = $map['ownerId'];
+        }
+
+        if (isset($map['process'])) {
+            $model->process = $map['process'];
+        }
+
+        if (isset($map['recordDiff'])) {
+            if (!empty($map['recordDiff'])) {
+                $model->recordDiff = [];
+                foreach ($map['recordDiff'] as $key1 => $value1) {
+                    $model->recordDiff[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['recordIds'])) {
+            if (!empty($map['recordIds'])) {
+                $model->recordIds = [];
+                $n1 = 0;
+                foreach ($map['recordIds'] as $item1) {
+                    $model->recordIds[$n1++] = $item1;
+                }
+            }
+        }
+
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['startTime'])) {
+            $model->startTime = $map['startTime'];
+        }
+
+        if (isset($map['stateType'])) {
+            $model->stateType = $map['stateType'];
+        }
+
+        if (isset($map['statusInfo'])) {
+            if (!empty($map['statusInfo'])) {
+                $model->statusInfo = [];
+                $n1 = 0;
+                foreach ($map['statusInfo'] as $item1) {
+                    $model->statusInfo[$n1++] = statusInfo::fromMap($item1);
+                }
+            }
+        }
+
+        if (isset($map['userId'])) {
+            $model->userId = $map['userId'];
+        }
+
+        if (isset($map['userInfo'])) {
+            $model->userInfo = $map['userInfo'];
+        }
+
+        if (isset($map['userType'])) {
+            $model->userType = $map['userType'];
         }
 
         return $model;

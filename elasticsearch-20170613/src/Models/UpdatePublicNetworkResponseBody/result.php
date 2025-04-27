@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdatePublicNetworkResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The status of the public network access switch.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enablePublic;
@@ -22,9 +18,10 @@ class result extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enablePublic) {
@@ -34,11 +31,11 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

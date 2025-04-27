@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EstimatedLogstashRestartTimeRequest extends Model
 {
@@ -14,28 +14,26 @@ class EstimatedLogstashRestartTimeRequest extends Model
     public $body;
 
     /**
-     * @description Specifies whether to forcibly restart the cluster. Default value: false.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $force;
     protected $_name = [
-        'body'  => 'body',
+        'body' => 'body',
         'force' => 'force',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
+
         if (null !== $this->force) {
             $res['force'] = $this->force;
         }
@@ -43,17 +41,18 @@ class EstimatedLogstashRestartTimeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EstimatedLogstashRestartTimeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }
+
         if (isset($map['force'])) {
             $model->force = $map['force'];
         }

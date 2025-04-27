@@ -4,58 +4,70 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeILMPolicyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @example ilm-history-ilm-policy
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example {"cold":{"minAge":"30d","actions":{"allocate":{"numberOfReplicas":1,"require":{"boxType":"warm"}},"setPriority":{"priority":100}}},"hot":{"minAge":"0s","actions":{"rollover":{"maxAge":"30d","maxDocs":10000,"maxSize":"50gb"},"setPriority":{"priority":1000}}},"delete":{"minAge":"30d","actions":{"delete":{}}}}
-     *
      * @var mixed[]
      */
     public $phases;
     protected $_name = [
-        'name'   => 'name',
+        'name' => 'name',
         'phases' => 'phases',
     ];
 
     public function validate()
     {
+        if (\is_array($this->phases)) {
+            Model::validateArray($this->phases);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->phases) {
-            $res['phases'] = $this->phases;
+            if (\is_array($this->phases)) {
+                $res['phases'] = [];
+                foreach ($this->phases as $key1 => $value1) {
+                    $res['phases'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['phases'])) {
-            $model->phases = $map['phases'];
+            if (!empty($map['phases'])) {
+                $model->phases = [];
+                foreach ($map['phases'] as $key1 => $value1) {
+                    $model->phases[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

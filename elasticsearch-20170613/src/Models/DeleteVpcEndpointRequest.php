@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteVpcEndpointRequest extends Model
 {
     /**
-     * @example 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D***
-     *
      * @var string
      */
     public $clientToken;
@@ -20,9 +18,10 @@ class DeleteVpcEndpointRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
@@ -32,11 +31,11 @@ class DeleteVpcEndpointRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteVpcEndpointRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

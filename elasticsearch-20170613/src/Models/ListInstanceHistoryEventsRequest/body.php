@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceHistoryEventsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class body extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $desc;
 
     /**
-     * @example event_time
-     *
      * @var string
      */
     public $sortField;
     protected $_name = [
-        'desc'      => 'desc',
+        'desc' => 'desc',
         'sortField' => 'sortField',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desc) {
             $res['desc'] = $this->desc;
         }
+
         if (null !== $this->sortField) {
             $res['sortField'] = $this->sortField;
         }
@@ -43,17 +41,18 @@ class body extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return body
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['desc'])) {
             $model->desc = $map['desc'];
         }
+
         if (isset($map['sortField'])) {
             $model->sortField = $map['sortField'];
         }

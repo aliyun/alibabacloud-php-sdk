@@ -4,42 +4,32 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListKibanaPvlNetworkResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListKibanaPvlNetworkResponseBody\result\vSwitchIdsZone;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @example 2024-03-07T06:26:28Z
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @example ep-bp1tah7zbrwmkjef****
-     *
      * @var string
      */
     public $endpointId;
 
     /**
-     * @example es-cn-xxdjfia****-kibana
-     *
      * @var string
      */
     public $endpointName;
 
     /**
-     * @example Connected
-     *
      * @var string
      */
     public $endpointStatus;
 
     /**
-     * @example es-cn-27a3mul6l***-kibana-internal
-     *
      * @var string
      */
     public $pvlId;
@@ -55,56 +45,74 @@ class result extends Model
     public $vSwitchIdsZone;
 
     /**
-     * @example vpc-bp16k1dvzxtma*****
-     *
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'createTime'     => 'createTime',
-        'endpointId'     => 'endpointId',
-        'endpointName'   => 'endpointName',
+        'createTime' => 'createTime',
+        'endpointId' => 'endpointId',
+        'endpointName' => 'endpointName',
         'endpointStatus' => 'endpointStatus',
-        'pvlId'          => 'pvlId',
+        'pvlId' => 'pvlId',
         'securityGroups' => 'securityGroups',
         'vSwitchIdsZone' => 'vSwitchIdsZone',
-        'vpcId'          => 'vpcId',
+        'vpcId' => 'vpcId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->securityGroups)) {
+            Model::validateArray($this->securityGroups);
+        }
+        if (\is_array($this->vSwitchIdsZone)) {
+            Model::validateArray($this->vSwitchIdsZone);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+
         if (null !== $this->endpointId) {
             $res['endpointId'] = $this->endpointId;
         }
+
         if (null !== $this->endpointName) {
             $res['endpointName'] = $this->endpointName;
         }
+
         if (null !== $this->endpointStatus) {
             $res['endpointStatus'] = $this->endpointStatus;
         }
+
         if (null !== $this->pvlId) {
             $res['pvlId'] = $this->pvlId;
         }
+
         if (null !== $this->securityGroups) {
-            $res['securityGroups'] = $this->securityGroups;
-        }
-        if (null !== $this->vSwitchIdsZone) {
-            $res['vSwitchIdsZone'] = [];
-            if (null !== $this->vSwitchIdsZone && \is_array($this->vSwitchIdsZone)) {
-                $n = 0;
-                foreach ($this->vSwitchIdsZone as $item) {
-                    $res['vSwitchIdsZone'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->securityGroups)) {
+                $res['securityGroups'] = [];
+                $n1 = 0;
+                foreach ($this->securityGroups as $item1) {
+                    $res['securityGroups'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->vSwitchIdsZone) {
+            if (\is_array($this->vSwitchIdsZone)) {
+                $res['vSwitchIdsZone'] = [];
+                $n1 = 0;
+                foreach ($this->vSwitchIdsZone as $item1) {
+                    $res['vSwitchIdsZone'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->vpcId) {
             $res['vpcId'] = $this->vpcId;
         }
@@ -112,43 +120,54 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+
         if (isset($map['endpointId'])) {
             $model->endpointId = $map['endpointId'];
         }
+
         if (isset($map['endpointName'])) {
             $model->endpointName = $map['endpointName'];
         }
+
         if (isset($map['endpointStatus'])) {
             $model->endpointStatus = $map['endpointStatus'];
         }
+
         if (isset($map['pvlId'])) {
             $model->pvlId = $map['pvlId'];
         }
+
         if (isset($map['securityGroups'])) {
             if (!empty($map['securityGroups'])) {
-                $model->securityGroups = $map['securityGroups'];
-            }
-        }
-        if (isset($map['vSwitchIdsZone'])) {
-            if (!empty($map['vSwitchIdsZone'])) {
-                $model->vSwitchIdsZone = [];
-                $n                     = 0;
-                foreach ($map['vSwitchIdsZone'] as $item) {
-                    $model->vSwitchIdsZone[$n++] = null !== $item ? vSwitchIdsZone::fromMap($item) : $item;
+                $model->securityGroups = [];
+                $n1 = 0;
+                foreach ($map['securityGroups'] as $item1) {
+                    $model->securityGroups[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['vSwitchIdsZone'])) {
+            if (!empty($map['vSwitchIdsZone'])) {
+                $model->vSwitchIdsZone = [];
+                $n1 = 0;
+                foreach ($map['vSwitchIdsZone'] as $item1) {
+                    $model->vSwitchIdsZone[$n1++] = vSwitchIdsZone::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['vpcId'])) {
             $model->vpcId = $map['vpcId'];
         }

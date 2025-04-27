@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MigrateToOtherZoneRequest extends Model
 {
@@ -14,29 +14,26 @@ class MigrateToOtherZoneRequest extends Model
     public $body;
 
     /**
-     * @description Verify whether the zone node can be migrated. true indicates that the data is only verified and the migration task is not executed. false indicates that the migration task is executed after the verification is successful.
-     *
-     * This parameter is required.
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;
     protected $_name = [
-        'body'   => 'body',
+        'body' => 'body',
         'dryRun' => 'dryRun',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
+
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
         }
@@ -44,17 +41,18 @@ class MigrateToOtherZoneRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MigrateToOtherZoneRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }
+
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class NodeInfo extends Model
 {
@@ -28,28 +28,32 @@ class NodeInfo extends Model
      */
     public $zoneId;
     protected $_name = [
-        'host'     => 'host',
+        'host' => 'host',
         'hostName' => 'hostName',
-        'port'     => 'port',
-        'zoneId'   => 'zoneId',
+        'port' => 'port',
+        'zoneId' => 'zoneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->host) {
             $res['host'] = $this->host;
         }
+
         if (null !== $this->hostName) {
             $res['hostName'] = $this->hostName;
         }
+
         if (null !== $this->port) {
             $res['port'] = $this->port;
         }
+
         if (null !== $this->zoneId) {
             $res['zoneId'] = $this->zoneId;
         }
@@ -57,23 +61,26 @@ class NodeInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return NodeInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['host'])) {
             $model->host = $map['host'];
         }
+
         if (isset($map['hostName'])) {
             $model->hostName = $map['hostName'];
         }
+
         if (isset($map['port'])) {
             $model->port = $map['port'];
         }
+
         if (isset($map['zoneId'])) {
             $model->zoneId = $map['zoneId'];
         }

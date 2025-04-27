@@ -4,80 +4,76 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CapacityPlanRequest\dataInfo;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CapacityPlanRequest\metric;
-use AlibabaCloud\Tea\Model;
 
 class CapacityPlanRequest extends Model
 {
     /**
-     * @description Indicates whether there is a need for complex aggregation queries. Options:
-     *
-     * - false (default): No
-     * @example true
-     *
      * @var bool
      */
     public $complexQueryAvailable;
 
     /**
-     * @description Disk usage status.
-     *
      * @var dataInfo[]
      */
     public $dataInfo;
 
     /**
-     * @description Metrics information including disk usage, search and write operations, aggregation requests, etc.
-     *
      * @var metric[]
      */
     public $metric;
 
     /**
-     * @description Usage scenarios, options:
-     *
-     * - log: Log scenario
-     * @example general
-     *
      * @var string
      */
     public $usageScenario;
     protected $_name = [
         'complexQueryAvailable' => 'complexQueryAvailable',
-        'dataInfo'              => 'dataInfo',
-        'metric'                => 'metric',
-        'usageScenario'         => 'usageScenario',
+        'dataInfo' => 'dataInfo',
+        'metric' => 'metric',
+        'usageScenario' => 'usageScenario',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dataInfo)) {
+            Model::validateArray($this->dataInfo);
+        }
+        if (\is_array($this->metric)) {
+            Model::validateArray($this->metric);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->complexQueryAvailable) {
             $res['complexQueryAvailable'] = $this->complexQueryAvailable;
         }
+
         if (null !== $this->dataInfo) {
-            $res['dataInfo'] = [];
-            if (null !== $this->dataInfo && \is_array($this->dataInfo)) {
-                $n = 0;
-                foreach ($this->dataInfo as $item) {
-                    $res['dataInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataInfo)) {
+                $res['dataInfo'] = [];
+                $n1 = 0;
+                foreach ($this->dataInfo as $item1) {
+                    $res['dataInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->metric) {
-            $res['metric'] = [];
-            if (null !== $this->metric && \is_array($this->metric)) {
-                $n = 0;
-                foreach ($this->metric as $item) {
-                    $res['metric'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->metric)) {
+                $res['metric'] = [];
+                $n1 = 0;
+                foreach ($this->metric as $item1) {
+                    $res['metric'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->usageScenario) {
             $res['usageScenario'] = $this->usageScenario;
         }
@@ -85,35 +81,38 @@ class CapacityPlanRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CapacityPlanRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['complexQueryAvailable'])) {
             $model->complexQueryAvailable = $map['complexQueryAvailable'];
         }
+
         if (isset($map['dataInfo'])) {
             if (!empty($map['dataInfo'])) {
                 $model->dataInfo = [];
-                $n               = 0;
-                foreach ($map['dataInfo'] as $item) {
-                    $model->dataInfo[$n++] = null !== $item ? dataInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['dataInfo'] as $item1) {
+                    $model->dataInfo[$n1++] = dataInfo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['metric'])) {
             if (!empty($map['metric'])) {
                 $model->metric = [];
-                $n             = 0;
-                foreach ($map['metric'] as $item) {
-                    $model->metric[$n++] = null !== $item ? metric::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['metric'] as $item1) {
+                    $model->metric[$n1++] = metric::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['usageScenario'])) {
             $model->usageScenario = $map['usageScenario'];
         }

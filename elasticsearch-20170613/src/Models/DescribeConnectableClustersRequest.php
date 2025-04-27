@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeConnectableClustersRequest extends Model
 {
     /**
-     * @description The ID of the instance that can communicate with each other.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $alreadySetItems;
@@ -22,9 +18,10 @@ class DescribeConnectableClustersRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alreadySetItems) {
@@ -34,11 +31,11 @@ class DescribeConnectableClustersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeConnectableClustersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

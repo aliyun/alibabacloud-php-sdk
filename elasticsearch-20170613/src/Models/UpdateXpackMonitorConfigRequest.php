@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateXpackMonitorConfigRequest extends Model
 {
     /**
-     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enable;
@@ -28,45 +24,55 @@ class UpdateXpackMonitorConfigRequest extends Model
     public $endpoints;
 
     /**
-     * @example ******
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @example elastic
-     *
      * @var string
      */
     public $userName;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'enable'      => 'enable',
-        'endpoints'   => 'endpoints',
-        'password'    => 'password',
-        'userName'    => 'userName',
+        'enable' => 'enable',
+        'endpoints' => 'endpoints',
+        'password' => 'password',
+        'userName' => 'userName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->endpoints)) {
+            Model::validateArray($this->endpoints);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
         }
+
         if (null !== $this->endpoints) {
-            $res['endpoints'] = $this->endpoints;
+            if (\is_array($this->endpoints)) {
+                $res['endpoints'] = [];
+                $n1 = 0;
+                foreach ($this->endpoints as $item1) {
+                    $res['endpoints'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->password) {
             $res['password'] = $this->password;
         }
+
         if (null !== $this->userName) {
             $res['userName'] = $this->userName;
         }
@@ -74,28 +80,36 @@ class UpdateXpackMonitorConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateXpackMonitorConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
         }
+
         if (isset($map['endpoints'])) {
             if (!empty($map['endpoints'])) {
-                $model->endpoints = $map['endpoints'];
+                $model->endpoints = [];
+                $n1 = 0;
+                foreach ($map['endpoints'] as $item1) {
+                    $model->endpoints[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['password'])) {
             $model->password = $map['password'];
         }
+
         if (isset($map['userName'])) {
             $model->userName = $map['userName'];
         }

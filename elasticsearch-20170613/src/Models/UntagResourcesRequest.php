@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to delete all parts. Default value: **false** . This parameter is valid only when **TagKeys** is not specified.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $all;
 
     /**
-     * @description The resource list that you want to delete.
-     *
-     * @example ["es-cn-09k1rocex0006****","es-cn-oew1rgiev0009****"]
-     *
      * @var string
      */
     public $resourceIds;
 
     /**
-     * @description The type of the resource. Fixed to **INSTANCE** .
-     *
-     * @example INSTANCE
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description The list of tags that you want to delete. The list can contain up to 20 subitems.
-     *
-     * @example ["tagKey1","tagKey2"]
-     *
      * @var string
      */
     public $tagKeys;
@@ -49,32 +33,37 @@ class UntagResourcesRequest extends Model
      */
     public $body;
     protected $_name = [
-        'all'          => 'All',
-        'resourceIds'  => 'ResourceIds',
+        'all' => 'All',
+        'resourceIds' => 'ResourceIds',
         'resourceType' => 'ResourceType',
-        'tagKeys'      => 'TagKeys',
-        'body'         => 'body',
+        'tagKeys' => 'TagKeys',
+        'body' => 'body',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->all) {
             $res['All'] = $this->all;
         }
+
         if (null !== $this->resourceIds) {
             $res['ResourceIds'] = $this->resourceIds;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tagKeys) {
             $res['TagKeys'] = $this->tagKeys;
         }
+
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
@@ -82,26 +71,30 @@ class UntagResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UntagResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['All'])) {
             $model->all = $map['All'];
         }
+
         if (isset($map['ResourceIds'])) {
             $model->resourceIds = $map['ResourceIds'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['TagKeys'])) {
             $model->tagKeys = $map['TagKeys'];
         }
+
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }

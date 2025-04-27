@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDescriptionRequest extends Model
 {
     /**
-     * @example aliyunes_name_test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The new name of the instance.
-     *
-     * @example 5A2CFF0E-5718-45B5-9D4D-70B350****
-     *
      * @var string
      */
     public $clientToken;
@@ -30,14 +24,16 @@ class UpdateDescriptionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
@@ -45,17 +41,18 @@ class UpdateDescriptionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDescriptionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }

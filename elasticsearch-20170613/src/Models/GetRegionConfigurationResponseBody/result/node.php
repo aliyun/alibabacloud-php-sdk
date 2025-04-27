@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionConfigurationResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class node extends Model
 {
     /**
-     * @example 50
-     *
      * @var int
      */
     public $maxAmount;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $minAmount;
@@ -28,14 +24,16 @@ class node extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxAmount) {
             $res['maxAmount'] = $this->maxAmount;
         }
+
         if (null !== $this->minAmount) {
             $res['minAmount'] = $this->minAmount;
         }
@@ -43,17 +41,18 @@ class node extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return node
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxAmount'])) {
             $model->maxAmount = $map['maxAmount'];
         }
+
         if (isset($map['minAmount'])) {
             $model->minAmount = $map['minAmount'];
         }

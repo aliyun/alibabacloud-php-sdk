@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateLogstashRequest\nodeSpec;
-use AlibabaCloud\Tea\Model;
 
 class UpdateLogstashRequest extends Model
 {
     /**
-     * @example 3
-     *
      * @var int
      */
     public $nodeAmount;
@@ -22,30 +20,34 @@ class UpdateLogstashRequest extends Model
     public $nodeSpec;
 
     /**
-     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
-     *
      * @var string
      */
     public $clientToken;
     protected $_name = [
-        'nodeAmount'  => 'nodeAmount',
-        'nodeSpec'    => 'nodeSpec',
+        'nodeAmount' => 'nodeAmount',
+        'nodeSpec' => 'nodeSpec',
         'clientToken' => 'clientToken',
     ];
 
     public function validate()
     {
+        if (null !== $this->nodeSpec) {
+            $this->nodeSpec->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeAmount) {
             $res['nodeAmount'] = $this->nodeAmount;
         }
+
         if (null !== $this->nodeSpec) {
-            $res['nodeSpec'] = null !== $this->nodeSpec ? $this->nodeSpec->toMap() : null;
+            $res['nodeSpec'] = null !== $this->nodeSpec ? $this->nodeSpec->toArray($noStream) : $this->nodeSpec;
         }
+
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
@@ -53,20 +55,22 @@ class UpdateLogstashRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateLogstashRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['nodeAmount'])) {
             $model->nodeAmount = $map['nodeAmount'];
         }
+
         if (isset($map['nodeSpec'])) {
             $model->nodeSpec = nodeSpec::fromMap($map['nodeSpec']);
         }
+
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }

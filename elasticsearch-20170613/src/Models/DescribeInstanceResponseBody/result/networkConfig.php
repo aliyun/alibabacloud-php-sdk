@@ -4,35 +4,27 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\networkConfig\whiteIpGroupList;
-use AlibabaCloud\Tea\Model;
 
 class networkConfig extends Model
 {
     /**
-     * @example vpc
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example vpc-abc
-     *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @example cn-hangzhou-b
-     *
      * @var string
      */
     public $vsArea;
 
     /**
-     * @example vsw-abc
-     *
      * @var string
      */
     public $vswitchId;
@@ -42,38 +34,46 @@ class networkConfig extends Model
      */
     public $whiteIpGroupList;
     protected $_name = [
-        'type'             => 'type',
-        'vpcId'            => 'vpcId',
-        'vsArea'           => 'vsArea',
-        'vswitchId'        => 'vswitchId',
+        'type' => 'type',
+        'vpcId' => 'vpcId',
+        'vsArea' => 'vsArea',
+        'vswitchId' => 'vswitchId',
         'whiteIpGroupList' => 'whiteIpGroupList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->whiteIpGroupList)) {
+            Model::validateArray($this->whiteIpGroupList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->vpcId) {
             $res['vpcId'] = $this->vpcId;
         }
+
         if (null !== $this->vsArea) {
             $res['vsArea'] = $this->vsArea;
         }
+
         if (null !== $this->vswitchId) {
             $res['vswitchId'] = $this->vswitchId;
         }
+
         if (null !== $this->whiteIpGroupList) {
-            $res['whiteIpGroupList'] = [];
-            if (null !== $this->whiteIpGroupList && \is_array($this->whiteIpGroupList)) {
-                $n = 0;
-                foreach ($this->whiteIpGroupList as $item) {
-                    $res['whiteIpGroupList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->whiteIpGroupList)) {
+                $res['whiteIpGroupList'] = [];
+                $n1 = 0;
+                foreach ($this->whiteIpGroupList as $item1) {
+                    $res['whiteIpGroupList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -81,32 +81,36 @@ class networkConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['vpcId'])) {
             $model->vpcId = $map['vpcId'];
         }
+
         if (isset($map['vsArea'])) {
             $model->vsArea = $map['vsArea'];
         }
+
         if (isset($map['vswitchId'])) {
             $model->vswitchId = $map['vswitchId'];
         }
+
         if (isset($map['whiteIpGroupList'])) {
             if (!empty($map['whiteIpGroupList'])) {
                 $model->whiteIpGroupList = [];
-                $n                       = 0;
-                foreach ($map['whiteIpGroupList'] as $item) {
-                    $model->whiteIpGroupList[$n++] = null !== $item ? whiteIpGroupList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['whiteIpGroupList'] as $item1) {
+                    $model->whiteIpGroupList[$n1++] = whiteIpGroupList::fromMap($item1);
                 }
             }
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\networkConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class whiteIpGroupList extends Model
 {
     /**
-     * @example default
-     *
      * @var string
      */
     public $groupName;
@@ -21,30 +19,40 @@ class whiteIpGroupList extends Model
     public $ips;
 
     /**
-     * @example PRIVATE_ES
-     *
      * @var string
      */
     public $whiteIpType;
     protected $_name = [
-        'groupName'   => 'groupName',
-        'ips'         => 'ips',
+        'groupName' => 'groupName',
+        'ips' => 'ips',
         'whiteIpType' => 'whiteIpType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ips)) {
+            Model::validateArray($this->ips);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupName) {
             $res['groupName'] = $this->groupName;
         }
+
         if (null !== $this->ips) {
-            $res['ips'] = $this->ips;
+            if (\is_array($this->ips)) {
+                $res['ips'] = [];
+                $n1 = 0;
+                foreach ($this->ips as $item1) {
+                    $res['ips'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->whiteIpType) {
             $res['whiteIpType'] = $this->whiteIpType;
         }
@@ -52,22 +60,28 @@ class whiteIpGroupList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return whiteIpGroupList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['groupName'])) {
             $model->groupName = $map['groupName'];
         }
+
         if (isset($map['ips'])) {
             if (!empty($map['ips'])) {
-                $model->ips = $map['ips'];
+                $model->ips = [];
+                $n1 = 0;
+                foreach ($map['ips'] as $item1) {
+                    $model->ips[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['whiteIpType'])) {
             $model->whiteIpType = $map['whiteIpType'];
         }

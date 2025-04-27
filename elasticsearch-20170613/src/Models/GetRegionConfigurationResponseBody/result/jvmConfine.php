@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\GetRegionConfigurationResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class jvmConfine extends Model
 {
     /**
-     * @example 32
-     *
      * @var int
      */
     public $memory;
@@ -25,50 +23,81 @@ class jvmConfine extends Model
      */
     public $supportGcs;
     protected $_name = [
-        'memory'            => 'memory',
+        'memory' => 'memory',
         'supportEsVersions' => 'supportEsVersions',
-        'supportGcs'        => 'supportGcs',
+        'supportGcs' => 'supportGcs',
     ];
 
     public function validate()
     {
+        if (\is_array($this->supportEsVersions)) {
+            Model::validateArray($this->supportEsVersions);
+        }
+        if (\is_array($this->supportGcs)) {
+            Model::validateArray($this->supportGcs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->memory) {
             $res['memory'] = $this->memory;
         }
+
         if (null !== $this->supportEsVersions) {
-            $res['supportEsVersions'] = $this->supportEsVersions;
+            if (\is_array($this->supportEsVersions)) {
+                $res['supportEsVersions'] = [];
+                $n1 = 0;
+                foreach ($this->supportEsVersions as $item1) {
+                    $res['supportEsVersions'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->supportGcs) {
-            $res['supportGcs'] = $this->supportGcs;
+            if (\is_array($this->supportGcs)) {
+                $res['supportGcs'] = [];
+                $n1 = 0;
+                foreach ($this->supportGcs as $item1) {
+                    $res['supportGcs'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return jvmConfine
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['memory'])) {
             $model->memory = $map['memory'];
         }
+
         if (isset($map['supportEsVersions'])) {
             if (!empty($map['supportEsVersions'])) {
-                $model->supportEsVersions = $map['supportEsVersions'];
+                $model->supportEsVersions = [];
+                $n1 = 0;
+                foreach ($map['supportEsVersions'] as $item1) {
+                    $model->supportEsVersions[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['supportGcs'])) {
             if (!empty($map['supportGcs'])) {
-                $model->supportGcs = $map['supportGcs'];
+                $model->supportGcs = [];
+                $n1 = 0;
+                foreach ($map['supportGcs'] as $item1) {
+                    $model->supportGcs[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,38 +4,45 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UninstallLogstashPluginRequest extends Model
 {
     /**
-     * @example ["logstash-input-datahub", "logstash-input-maxcompute" ]
-     *
      * @var string[]
      */
     public $body;
 
     /**
-     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF****
-     *
      * @var string
      */
     public $clientToken;
     protected $_name = [
-        'body'        => 'body',
+        'body' => 'body',
         'clientToken' => 'clientToken',
     ];
 
     public function validate()
     {
+        if (\is_array($this->body)) {
+            Model::validateArray($this->body);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = $this->body;
+            if (\is_array($this->body)) {
+                $res['body'] = [];
+                $n1 = 0;
+                foreach ($this->body as $item1) {
+                    $res['body'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
@@ -43,19 +50,24 @@ class UninstallLogstashPluginRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UninstallLogstashPluginRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
             if (!empty($map['body'])) {
-                $model->body = $map['body'];
+                $model->body = [];
+                $n1 = 0;
+                foreach ($map['body'] as $item1) {
+                    $model->body[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }

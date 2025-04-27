@@ -4,51 +4,46 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateLogstashRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nodeSpec extends Model
 {
     /**
-     * @example 50
-     *
      * @var int
      */
     public $disk;
 
     /**
-     * @example cloud_ssd
-     *
      * @var string
      */
     public $diskType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example logstash.n4.small
-     *
      * @var string
      */
     public $spec;
     protected $_name = [
-        'disk'     => 'disk',
+        'disk' => 'disk',
         'diskType' => 'diskType',
-        'spec'     => 'spec',
+        'spec' => 'spec',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->disk) {
             $res['disk'] = $this->disk;
         }
+
         if (null !== $this->diskType) {
             $res['diskType'] = $this->diskType;
         }
+
         if (null !== $this->spec) {
             $res['spec'] = $this->spec;
         }
@@ -56,20 +51,22 @@ class nodeSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodeSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['disk'])) {
             $model->disk = $map['disk'];
         }
+
         if (isset($map['diskType'])) {
             $model->diskType = $map['diskType'];
         }
+
         if (isset($map['spec'])) {
             $model->spec = $map['spec'];
         }

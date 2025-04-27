@@ -4,45 +4,36 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InitializeOperationRoleResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 29101430-4797-4D1D-96C3-9FCBCCA8F845
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the service-linked role is created. Valid values:
-     *
-     *   true: The service-linked role is created.
-     *   false: The service-linked role fails to be created.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $result;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
+        'result' => 'Result',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
@@ -50,17 +41,18 @@ class InitializeOperationRoleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InitializeOperationRoleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }

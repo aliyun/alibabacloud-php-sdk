@@ -4,12 +4,12 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListConnectedClustersResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListConnectedClustersResponseBody\result\result[]
+     * @var result\result[]
      */
     public $result;
     protected $_name = [
@@ -18,17 +18,21 @@ class result extends Model
 
     public function validate()
     {
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->result) {
-            $res['Result'] = [];
-            if (null !== $this->result && \is_array($this->result)) {
-                $n = 0;
-                foreach ($this->result as $item) {
-                    $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->result)) {
+                $res['Result'] = [];
+                $n1 = 0;
+                foreach ($this->result as $item1) {
+                    $res['Result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +40,20 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
-                foreach ($map['Result'] as $item) {
-                    $model->result[$n++] = null !== $item ? \AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListConnectedClustersResponseBody\result\result::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Result'] as $item1) {
+                    $model->result[$n1++] = result\result::fromMap($item1);
                 }
             }
         }
