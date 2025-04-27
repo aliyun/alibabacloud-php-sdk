@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptRespon
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\pointDeductionRuleList;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\points;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\sampleDialogueList;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\scoreConfig;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponseBody\weights;
 
 class GetAICoachScriptResponseBody extends Model
@@ -156,6 +157,11 @@ class GetAICoachScriptResponseBody extends Model
     public $sampleDialogueList;
 
     /**
+     * @var scoreConfig
+     */
+    public $scoreConfig;
+
+    /**
      * @var string
      */
     public $scriptRecordId;
@@ -223,6 +229,7 @@ class GetAICoachScriptResponseBody extends Model
         'points' => 'points',
         'requestId' => 'requestId',
         'sampleDialogueList' => 'sampleDialogueList',
+        'scoreConfig' => 'scoreConfig',
         'scriptRecordId' => 'scriptRecordId',
         'sparringTipContent' => 'sparringTipContent',
         'sparringTipTitle' => 'sparringTipTitle',
@@ -258,6 +265,9 @@ class GetAICoachScriptResponseBody extends Model
         }
         if (\is_array($this->sampleDialogueList)) {
             Model::validateArray($this->sampleDialogueList);
+        }
+        if (null !== $this->scoreConfig) {
+            $this->scoreConfig->validate();
         }
         if (null !== $this->weights) {
             $this->weights->validate();
@@ -413,6 +423,10 @@ class GetAICoachScriptResponseBody extends Model
                     $res['sampleDialogueList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->scoreConfig) {
+            $res['scoreConfig'] = null !== $this->scoreConfig ? $this->scoreConfig->toArray($noStream) : $this->scoreConfig;
         }
 
         if (null !== $this->scriptRecordId) {
@@ -603,6 +617,10 @@ class GetAICoachScriptResponseBody extends Model
                     $model->sampleDialogueList[$n1++] = sampleDialogueList::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['scoreConfig'])) {
+            $model->scoreConfig = scoreConfig::fromMap($map['scoreConfig']);
         }
 
         if (isset($map['scriptRecordId'])) {
