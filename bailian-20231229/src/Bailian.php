@@ -2559,12 +2559,28 @@ class Bailian extends OpenApiClient
             @$query['CategoryIds'] = $request->categoryIdsShrink;
         }
 
+        if (null !== $request->chunkMode) {
+            @$query['ChunkMode'] = $request->chunkMode;
+        }
+
+        if (null !== $request->chunkSize) {
+            @$query['ChunkSize'] = $request->chunkSize;
+        }
+
         if (null !== $request->documentIdsShrink) {
             @$query['DocumentIds'] = $request->documentIdsShrink;
         }
 
         if (null !== $request->indexId) {
             @$query['IndexId'] = $request->indexId;
+        }
+
+        if (null !== $request->overlapSize) {
+            @$query['OverlapSize'] = $request->overlapSize;
+        }
+
+        if (null !== $request->separator) {
+            @$query['Separator'] = $request->separator;
         }
 
         if (null !== $request->sourceType) {

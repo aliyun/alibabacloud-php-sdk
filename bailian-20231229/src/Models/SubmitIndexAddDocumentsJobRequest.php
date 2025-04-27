@@ -14,6 +14,16 @@ class SubmitIndexAddDocumentsJobRequest extends Model
     public $categoryIds;
 
     /**
+     * @var string
+     */
+    public $chunkMode;
+
+    /**
+     * @var int
+     */
+    public $chunkSize;
+
+    /**
      * @var string[]
      */
     public $documentIds;
@@ -24,13 +34,27 @@ class SubmitIndexAddDocumentsJobRequest extends Model
     public $indexId;
 
     /**
+     * @var int
+     */
+    public $overlapSize;
+
+    /**
+     * @var string
+     */
+    public $separator;
+
+    /**
      * @var string
      */
     public $sourceType;
     protected $_name = [
         'categoryIds' => 'CategoryIds',
+        'chunkMode' => 'ChunkMode',
+        'chunkSize' => 'ChunkSize',
         'documentIds' => 'DocumentIds',
         'indexId' => 'IndexId',
+        'overlapSize' => 'OverlapSize',
+        'separator' => 'Separator',
         'sourceType' => 'SourceType',
     ];
 
@@ -58,6 +82,14 @@ class SubmitIndexAddDocumentsJobRequest extends Model
             }
         }
 
+        if (null !== $this->chunkMode) {
+            $res['ChunkMode'] = $this->chunkMode;
+        }
+
+        if (null !== $this->chunkSize) {
+            $res['ChunkSize'] = $this->chunkSize;
+        }
+
         if (null !== $this->documentIds) {
             if (\is_array($this->documentIds)) {
                 $res['DocumentIds'] = [];
@@ -70,6 +102,14 @@ class SubmitIndexAddDocumentsJobRequest extends Model
 
         if (null !== $this->indexId) {
             $res['IndexId'] = $this->indexId;
+        }
+
+        if (null !== $this->overlapSize) {
+            $res['OverlapSize'] = $this->overlapSize;
+        }
+
+        if (null !== $this->separator) {
+            $res['Separator'] = $this->separator;
         }
 
         if (null !== $this->sourceType) {
@@ -97,6 +137,14 @@ class SubmitIndexAddDocumentsJobRequest extends Model
             }
         }
 
+        if (isset($map['ChunkMode'])) {
+            $model->chunkMode = $map['ChunkMode'];
+        }
+
+        if (isset($map['ChunkSize'])) {
+            $model->chunkSize = $map['ChunkSize'];
+        }
+
         if (isset($map['DocumentIds'])) {
             if (!empty($map['DocumentIds'])) {
                 $model->documentIds = [];
@@ -109,6 +157,14 @@ class SubmitIndexAddDocumentsJobRequest extends Model
 
         if (isset($map['IndexId'])) {
             $model->indexId = $map['IndexId'];
+        }
+
+        if (isset($map['OverlapSize'])) {
+            $model->overlapSize = $map['OverlapSize'];
+        }
+
+        if (isset($map['Separator'])) {
+            $model->separator = $map['Separator'];
         }
 
         if (isset($map['SourceType'])) {

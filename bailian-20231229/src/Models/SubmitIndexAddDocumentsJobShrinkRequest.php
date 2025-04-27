@@ -16,6 +16,16 @@ class SubmitIndexAddDocumentsJobShrinkRequest extends Model
     /**
      * @var string
      */
+    public $chunkMode;
+
+    /**
+     * @var int
+     */
+    public $chunkSize;
+
+    /**
+     * @var string
+     */
     public $documentIdsShrink;
 
     /**
@@ -24,13 +34,27 @@ class SubmitIndexAddDocumentsJobShrinkRequest extends Model
     public $indexId;
 
     /**
+     * @var int
+     */
+    public $overlapSize;
+
+    /**
+     * @var string
+     */
+    public $separator;
+
+    /**
      * @var string
      */
     public $sourceType;
     protected $_name = [
         'categoryIdsShrink' => 'CategoryIds',
+        'chunkMode' => 'ChunkMode',
+        'chunkSize' => 'ChunkSize',
         'documentIdsShrink' => 'DocumentIds',
         'indexId' => 'IndexId',
+        'overlapSize' => 'OverlapSize',
+        'separator' => 'Separator',
         'sourceType' => 'SourceType',
     ];
 
@@ -46,12 +70,28 @@ class SubmitIndexAddDocumentsJobShrinkRequest extends Model
             $res['CategoryIds'] = $this->categoryIdsShrink;
         }
 
+        if (null !== $this->chunkMode) {
+            $res['ChunkMode'] = $this->chunkMode;
+        }
+
+        if (null !== $this->chunkSize) {
+            $res['ChunkSize'] = $this->chunkSize;
+        }
+
         if (null !== $this->documentIdsShrink) {
             $res['DocumentIds'] = $this->documentIdsShrink;
         }
 
         if (null !== $this->indexId) {
             $res['IndexId'] = $this->indexId;
+        }
+
+        if (null !== $this->overlapSize) {
+            $res['OverlapSize'] = $this->overlapSize;
+        }
+
+        if (null !== $this->separator) {
+            $res['Separator'] = $this->separator;
         }
 
         if (null !== $this->sourceType) {
@@ -73,12 +113,28 @@ class SubmitIndexAddDocumentsJobShrinkRequest extends Model
             $model->categoryIdsShrink = $map['CategoryIds'];
         }
 
+        if (isset($map['ChunkMode'])) {
+            $model->chunkMode = $map['ChunkMode'];
+        }
+
+        if (isset($map['ChunkSize'])) {
+            $model->chunkSize = $map['ChunkSize'];
+        }
+
         if (isset($map['DocumentIds'])) {
             $model->documentIdsShrink = $map['DocumentIds'];
         }
 
         if (isset($map['IndexId'])) {
             $model->indexId = $map['IndexId'];
+        }
+
+        if (isset($map['OverlapSize'])) {
+            $model->overlapSize = $map['OverlapSize'];
+        }
+
+        if (isset($map['Separator'])) {
+            $model->separator = $map['Separator'];
         }
 
         if (isset($map['SourceType'])) {
