@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Rds\V20140815;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Rds\V20140815\Models\AcceptRCInquiredSystemEventRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\AcceptRCInquiredSystemEventResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ActivateMigrationTargetInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ActivateMigrationTargetInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\AddTagsToResourceRequest;
@@ -385,6 +387,12 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCImageListRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCImageListResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceDdosCountRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceDdosCountResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceHistoryEventsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceHistoryEventsResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceIpAddressRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceIpAddressResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstancesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstancesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceTypeFamiliesRequest;
@@ -829,6 +837,67 @@ class Rds extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 接受并授权执行系统事件操作.
+     *
+     * @param request - AcceptRCInquiredSystemEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AcceptRCInquiredSystemEventResponse
+     *
+     * @param AcceptRCInquiredSystemEventRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AcceptRCInquiredSystemEventResponse
+     */
+    public function acceptRCInquiredSystemEventWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AcceptRCInquiredSystemEvent',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AcceptRCInquiredSystemEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 接受并授权执行系统事件操作.
+     *
+     * @param request - AcceptRCInquiredSystemEventRequest
+     *
+     * @returns AcceptRCInquiredSystemEventResponse
+     *
+     * @param AcceptRCInquiredSystemEventRequest $request
+     *
+     * @return AcceptRCInquiredSystemEventResponse
+     */
+    public function acceptRCInquiredSystemEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->acceptRCInquiredSystemEventWithOptions($request, $runtime);
     }
 
     /**
@@ -4846,12 +4915,8 @@ class Rds extends OpenApiClient
      * Creates an ApsaraDB RDS global active database cluster.
      *
      * @remarks
-     * ### [](#)Supported database engine
+     * ### [](#)Supported database engines
      * *   MySQL
-     * <props="china">
-     * ### [](#)References
-     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     * [Create and release an ApsaraDB RDS global active database cluster](https://help.aliyun.com/document_detail/328592.html)
      *
      * @param request - CreateGADInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4925,12 +4990,8 @@ class Rds extends OpenApiClient
      * Creates an ApsaraDB RDS global active database cluster.
      *
      * @remarks
-     * ### [](#)Supported database engine
+     * ### [](#)Supported database engines
      * *   MySQL
-     * <props="china">
-     * ### [](#)References
-     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     * [Create and release an ApsaraDB RDS global active database cluster](https://help.aliyun.com/document_detail/328592.html)
      *
      * @param request - CreateGADInstanceRequest
      *
@@ -19152,6 +19213,281 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRCInstanceAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询RDS Custom实例被DDos攻击的数量.
+     *
+     * @param request - DescribeRCInstanceDdosCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRCInstanceDdosCountResponse
+     *
+     * @param DescribeRCInstanceDdosCountRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeRCInstanceDdosCountResponse
+     */
+    public function describeRCInstanceDdosCountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ddosRegionId) {
+            @$query['DdosRegionId'] = $request->ddosRegionId;
+        }
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRCInstanceDdosCount',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRCInstanceDdosCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询RDS Custom实例被DDos攻击的数量.
+     *
+     * @param request - DescribeRCInstanceDdosCountRequest
+     *
+     * @returns DescribeRCInstanceDdosCountResponse
+     *
+     * @param DescribeRCInstanceDdosCountRequest $request
+     *
+     * @return DescribeRCInstanceDdosCountResponse
+     */
+    public function describeRCInstanceDdosCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRCInstanceDdosCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询指定实例系统事件信息.
+     *
+     * @param request - DescribeRCInstanceHistoryEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRCInstanceHistoryEventsResponse
+     *
+     * @param DescribeRCInstanceHistoryEventsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeRCInstanceHistoryEventsResponse
+     */
+    public function describeRCInstanceHistoryEventsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->eventCycleStatus) {
+            @$query['EventCycleStatus'] = $request->eventCycleStatus;
+        }
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
+        }
+
+        if (null !== $request->impactLevel) {
+            @$query['ImpactLevel'] = $request->impactLevel;
+        }
+
+        if (null !== $request->instanceEventCycleStatus) {
+            @$query['InstanceEventCycleStatus'] = $request->instanceEventCycleStatus;
+        }
+
+        if (null !== $request->instanceEventType) {
+            @$query['InstanceEventType'] = $request->instanceEventType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->eventPublishTime) {
+            @$query['EventPublishTime'] = $request->eventPublishTime;
+        }
+
+        if (null !== $request->notBefore) {
+            @$query['NotBefore'] = $request->notBefore;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRCInstanceHistoryEvents',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRCInstanceHistoryEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指定实例系统事件信息.
+     *
+     * @param request - DescribeRCInstanceHistoryEventsRequest
+     *
+     * @returns DescribeRCInstanceHistoryEventsResponse
+     *
+     * @param DescribeRCInstanceHistoryEventsRequest $request
+     *
+     * @return DescribeRCInstanceHistoryEventsResponse
+     */
+    public function describeRCInstanceHistoryEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRCInstanceHistoryEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询RDS Custom实例的公网IP.
+     *
+     * @param request - DescribeRCInstanceIpAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRCInstanceIpAddressResponse
+     *
+     * @param DescribeRCInstanceIpAddressRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeRCInstanceIpAddressResponse
+     */
+    public function describeRCInstanceIpAddressWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->ddosRegionId) {
+            @$query['DdosRegionId'] = $request->ddosRegionId;
+        }
+
+        if (null !== $request->ddosStatus) {
+            @$query['DdosStatus'] = $request->ddosStatus;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceIp) {
+            @$query['InstanceIp'] = $request->instanceIp;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRCInstanceIpAddress',
+            'version' => '2014-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRCInstanceIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询RDS Custom实例的公网IP.
+     *
+     * @param request - DescribeRCInstanceIpAddressRequest
+     *
+     * @returns DescribeRCInstanceIpAddressResponse
+     *
+     * @param DescribeRCInstanceIpAddressRequest $request
+     *
+     * @return DescribeRCInstanceIpAddressResponse
+     */
+    public function describeRCInstanceIpAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRCInstanceIpAddressWithOptions($request, $runtime);
     }
 
     /**
@@ -34671,7 +35007,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 流量切换.
+     * Performs a zero-downtime workload switchover after the major engine version upgrade of an ApsaraDB RDS for PostgreSQL instance.
+     *
+     * @remarks
+     * Supported database engine
+     * *   PostgreSQL
      *
      * @param request - SwitchOverMajorVersionUpgradeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -34726,7 +35066,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * 流量切换.
+     * Performs a zero-downtime workload switchover after the major engine version upgrade of an ApsaraDB RDS for PostgreSQL instance.
+     *
+     * @remarks
+     * Supported database engine
+     * *   PostgreSQL
      *
      * @param request - SwitchOverMajorVersionUpgradeRequest
      *
