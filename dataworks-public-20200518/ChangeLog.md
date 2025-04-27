@@ -1,3 +1,6 @@
+2025-04-27 Version: 8.0.0
+- Generated php 2020-05-18 for dataworks-public.
+
 2025-03-28 Version: 7.0.0
 - Delete API MountDirectory.
 - Delete API RevokeColumnPermission.
