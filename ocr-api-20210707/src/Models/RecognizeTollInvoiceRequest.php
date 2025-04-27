@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class RecognizeTollInvoiceRequest extends Model
 {
     /**
-     * @example https://img.alicdn.com/imgextra/i3/O1CN01uUHo411DCwPsBWDMJ_!!6000000000181-0-tps-199-254.jpg
-     *
      * @var string
      */
     public $url;
@@ -21,20 +19,22 @@ class RecognizeTollInvoiceRequest extends Model
      */
     public $body;
     protected $_name = [
-        'url'  => 'Url',
+        'url' => 'Url',
         'body' => 'body',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
+
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
@@ -42,17 +42,18 @@ class RecognizeTollInvoiceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecognizeTollInvoiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
+
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }

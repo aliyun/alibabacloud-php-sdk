@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class internationalIdCardConfig extends Model
 {
     /**
-     * @example India
-     *
      * @var string
      */
     public $country;
@@ -20,9 +18,10 @@ class internationalIdCardConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->country) {
@@ -32,11 +31,11 @@ class internationalIdCardConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return internationalIdCardConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

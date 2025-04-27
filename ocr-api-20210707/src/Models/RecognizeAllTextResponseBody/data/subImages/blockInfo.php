@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextResponseBody\data\subImages;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextResponseBody\data\subImages\blockInfo\blockDetails;
-use AlibabaCloud\Tea\Model;
 
 class blockInfo extends Model
 {
     /**
-     * @example 12
-     *
      * @var int
      */
     public $blockCount;
@@ -21,26 +19,31 @@ class blockInfo extends Model
      */
     public $blockDetails;
     protected $_name = [
-        'blockCount'   => 'BlockCount',
+        'blockCount' => 'BlockCount',
         'blockDetails' => 'BlockDetails',
     ];
 
     public function validate()
     {
+        if (\is_array($this->blockDetails)) {
+            Model::validateArray($this->blockDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->blockCount) {
             $res['BlockCount'] = $this->blockCount;
         }
+
         if (null !== $this->blockDetails) {
-            $res['BlockDetails'] = [];
-            if (null !== $this->blockDetails && \is_array($this->blockDetails)) {
-                $n = 0;
-                foreach ($this->blockDetails as $item) {
-                    $res['BlockDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->blockDetails)) {
+                $res['BlockDetails'] = [];
+                $n1 = 0;
+                foreach ($this->blockDetails as $item1) {
+                    $res['BlockDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -48,23 +51,24 @@ class blockInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return blockInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BlockCount'])) {
             $model->blockCount = $map['BlockCount'];
         }
+
         if (isset($map['BlockDetails'])) {
             if (!empty($map['BlockDetails'])) {
                 $model->blockDetails = [];
-                $n                   = 0;
-                foreach ($map['BlockDetails'] as $item) {
-                    $model->blockDetails[$n++] = null !== $item ? blockDetails::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BlockDetails'] as $item1) {
+                    $model->blockDetails[$n1++] = blockDetails::fromMap($item1);
                 }
             }
         }

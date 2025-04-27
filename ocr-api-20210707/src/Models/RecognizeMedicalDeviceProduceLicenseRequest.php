@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class RecognizeMedicalDeviceProduceLicenseRequest extends Model
 {
     /**
-     * @example https://img.alicdn.com/tfs/TB13MJ.MuT2gK0jSZFvXXXnFXXa-1417-994.png
-     *
      * @var string
      */
     public $url;
@@ -21,20 +19,22 @@ class RecognizeMedicalDeviceProduceLicenseRequest extends Model
      */
     public $body;
     protected $_name = [
-        'url'  => 'Url',
+        'url' => 'Url',
         'body' => 'body',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
+
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
@@ -42,17 +42,18 @@ class RecognizeMedicalDeviceProduceLicenseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecognizeMedicalDeviceProduceLicenseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
+
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextResponseBody\data\subImages;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextResponseBody\data\subImages\tableInfo\tableDetails;
-use AlibabaCloud\Tea\Model;
 
 class tableInfo extends Model
 {
     /**
-     * @example 2
-     *
      * @var int
      */
     public $tableCount;
@@ -22,47 +20,50 @@ class tableInfo extends Model
     public $tableDetails;
 
     /**
-     * @example https://example.xlsx
-     *
      * @var string
      */
     public $tableExcel;
 
     /**
-     * @example https://example.html
-     *
      * @var string
      */
     public $tableHtml;
     protected $_name = [
-        'tableCount'   => 'TableCount',
+        'tableCount' => 'TableCount',
         'tableDetails' => 'TableDetails',
-        'tableExcel'   => 'TableExcel',
-        'tableHtml'    => 'TableHtml',
+        'tableExcel' => 'TableExcel',
+        'tableHtml' => 'TableHtml',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tableDetails)) {
+            Model::validateArray($this->tableDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tableCount) {
             $res['TableCount'] = $this->tableCount;
         }
+
         if (null !== $this->tableDetails) {
-            $res['TableDetails'] = [];
-            if (null !== $this->tableDetails && \is_array($this->tableDetails)) {
-                $n = 0;
-                foreach ($this->tableDetails as $item) {
-                    $res['TableDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tableDetails)) {
+                $res['TableDetails'] = [];
+                $n1 = 0;
+                foreach ($this->tableDetails as $item1) {
+                    $res['TableDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->tableExcel) {
             $res['TableExcel'] = $this->tableExcel;
         }
+
         if (null !== $this->tableHtml) {
             $res['TableHtml'] = $this->tableHtml;
         }
@@ -70,29 +71,32 @@ class tableInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TableCount'])) {
             $model->tableCount = $map['TableCount'];
         }
+
         if (isset($map['TableDetails'])) {
             if (!empty($map['TableDetails'])) {
                 $model->tableDetails = [];
-                $n                   = 0;
-                foreach ($map['TableDetails'] as $item) {
-                    $model->tableDetails[$n++] = null !== $item ? tableDetails::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TableDetails'] as $item1) {
+                    $model->tableDetails[$n1++] = tableDetails::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TableExcel'])) {
             $model->tableExcel = $map['TableExcel'];
         }
+
         if (isset($map['TableHtml'])) {
             $model->tableHtml = $map['TableHtml'];
         }

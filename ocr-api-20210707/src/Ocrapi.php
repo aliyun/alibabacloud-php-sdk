@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAdvancedRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAdvancedResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAirItineraryRequest;
@@ -159,11 +158,10 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\VerifyBusinessLicenseRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\VerifyBusinessLicenseResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\VerifyVATInvoiceRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\VerifyVATInvoiceResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Ocrapi extends OpenApiClient
 {
@@ -188,81 +186,100 @@ class Ocrapi extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 全文识别高精版
-     *  *
-     * @param RecognizeAdvancedRequest $request RecognizeAdvancedRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 全文识别高精版.
      *
-     * @return RecognizeAdvancedResponse RecognizeAdvancedResponse
+     * @param request - RecognizeAdvancedRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeAdvancedResponse
+     *
+     * @param RecognizeAdvancedRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RecognizeAdvancedResponse
      */
     public function recognizeAdvancedWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->needRotate)) {
-            $query['NeedRotate'] = $request->needRotate;
+        if (null !== $request->needRotate) {
+            @$query['NeedRotate'] = $request->needRotate;
         }
-        if (!Utils::isUnset($request->needSortPage)) {
-            $query['NeedSortPage'] = $request->needSortPage;
+
+        if (null !== $request->needSortPage) {
+            @$query['NeedSortPage'] = $request->needSortPage;
         }
-        if (!Utils::isUnset($request->noStamp)) {
-            $query['NoStamp'] = $request->noStamp;
+
+        if (null !== $request->noStamp) {
+            @$query['NoStamp'] = $request->noStamp;
         }
-        if (!Utils::isUnset($request->outputCharInfo)) {
-            $query['OutputCharInfo'] = $request->outputCharInfo;
+
+        if (null !== $request->outputCharInfo) {
+            @$query['OutputCharInfo'] = $request->outputCharInfo;
         }
-        if (!Utils::isUnset($request->outputFigure)) {
-            $query['OutputFigure'] = $request->outputFigure;
+
+        if (null !== $request->outputFigure) {
+            @$query['OutputFigure'] = $request->outputFigure;
         }
-        if (!Utils::isUnset($request->outputTable)) {
-            $query['OutputTable'] = $request->outputTable;
+
+        if (null !== $request->outputTable) {
+            @$query['OutputTable'] = $request->outputTable;
         }
-        if (!Utils::isUnset($request->paragraph)) {
-            $query['Paragraph'] = $request->paragraph;
+
+        if (null !== $request->paragraph) {
+            @$query['Paragraph'] = $request->paragraph;
         }
-        if (!Utils::isUnset($request->row)) {
-            $query['Row'] = $request->row;
+
+        if (null !== $request->row) {
+            @$query['Row'] = $request->row;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeAdvanced',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeAdvanced',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeAdvancedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 全文识别高精版
-     *  *
-     * @param RecognizeAdvancedRequest $request RecognizeAdvancedRequest
+     * 全文识别高精版.
      *
-     * @return RecognizeAdvancedResponse RecognizeAdvancedResponse
+     * @param request - RecognizeAdvancedRequest
+     *
+     * @returns RecognizeAdvancedResponse
+     *
+     * @param RecognizeAdvancedRequest $request
+     *
+     * @return RecognizeAdvancedResponse
      */
     public function recognizeAdvanced($request)
     {
@@ -272,46 +289,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 航空行程单
-     *  *
-     * @param RecognizeAirItineraryRequest $request RecognizeAirItineraryRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 航空行程单.
      *
-     * @return RecognizeAirItineraryResponse RecognizeAirItineraryResponse
+     * @param request - RecognizeAirItineraryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeAirItineraryResponse
+     *
+     * @param RecognizeAirItineraryRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RecognizeAirItineraryResponse
      */
     public function recognizeAirItineraryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeAirItinerary',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeAirItinerary',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeAirItineraryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 航空行程单
-     *  *
-     * @param RecognizeAirItineraryRequest $request RecognizeAirItineraryRequest
+     * 航空行程单.
      *
-     * @return RecognizeAirItineraryResponse RecognizeAirItineraryResponse
+     * @param request - RecognizeAirItineraryRequest
+     *
+     * @returns RecognizeAirItineraryResponse
+     *
+     * @param RecognizeAirItineraryRequest $request
+     *
+     * @return RecognizeAirItineraryResponse
      */
     public function recognizeAirItinerary($request)
     {
@@ -321,111 +348,142 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 统一Api
-     *  *
-     * @param RecognizeAllTextRequest $tmpReq  RecognizeAllTextRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 统一Api.
      *
-     * @return RecognizeAllTextResponse RecognizeAllTextResponse
+     * @param tmpReq - RecognizeAllTextRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeAllTextResponse
+     *
+     * @param RecognizeAllTextRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RecognizeAllTextResponse
      */
     public function recognizeAllTextWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RecognizeAllTextShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->advancedConfig)) {
-            $request->advancedConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->advancedConfig, 'AdvancedConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->advancedConfig) {
+            $request->advancedConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->advancedConfig, 'AdvancedConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->idCardConfig)) {
-            $request->idCardConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->idCardConfig, 'IdCardConfig', 'json');
+
+        if (null !== $tmpReq->idCardConfig) {
+            $request->idCardConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->idCardConfig, 'IdCardConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->internationalBusinessLicenseConfig)) {
-            $request->internationalBusinessLicenseConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->internationalBusinessLicenseConfig, 'InternationalBusinessLicenseConfig', 'json');
+
+        if (null !== $tmpReq->internationalBusinessLicenseConfig) {
+            $request->internationalBusinessLicenseConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->internationalBusinessLicenseConfig, 'InternationalBusinessLicenseConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->internationalIdCardConfig)) {
-            $request->internationalIdCardConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->internationalIdCardConfig, 'InternationalIdCardConfig', 'json');
+
+        if (null !== $tmpReq->internationalIdCardConfig) {
+            $request->internationalIdCardConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->internationalIdCardConfig, 'InternationalIdCardConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->multiLanConfig)) {
-            $request->multiLanConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->multiLanConfig, 'MultiLanConfig', 'json');
+
+        if (null !== $tmpReq->multiLanConfig) {
+            $request->multiLanConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->multiLanConfig, 'MultiLanConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tableConfig)) {
-            $request->tableConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tableConfig, 'TableConfig', 'json');
+
+        if (null !== $tmpReq->tableConfig) {
+            $request->tableConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tableConfig, 'TableConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->advancedConfigShrink)) {
-            $query['AdvancedConfig'] = $request->advancedConfigShrink;
+        if (null !== $request->advancedConfigShrink) {
+            @$query['AdvancedConfig'] = $request->advancedConfigShrink;
         }
-        if (!Utils::isUnset($request->idCardConfigShrink)) {
-            $query['IdCardConfig'] = $request->idCardConfigShrink;
+
+        if (null !== $request->idCardConfigShrink) {
+            @$query['IdCardConfig'] = $request->idCardConfigShrink;
         }
-        if (!Utils::isUnset($request->internationalBusinessLicenseConfigShrink)) {
-            $query['InternationalBusinessLicenseConfig'] = $request->internationalBusinessLicenseConfigShrink;
+
+        if (null !== $request->internationalBusinessLicenseConfigShrink) {
+            @$query['InternationalBusinessLicenseConfig'] = $request->internationalBusinessLicenseConfigShrink;
         }
-        if (!Utils::isUnset($request->internationalIdCardConfigShrink)) {
-            $query['InternationalIdCardConfig'] = $request->internationalIdCardConfigShrink;
+
+        if (null !== $request->internationalIdCardConfigShrink) {
+            @$query['InternationalIdCardConfig'] = $request->internationalIdCardConfigShrink;
         }
-        if (!Utils::isUnset($request->multiLanConfigShrink)) {
-            $query['MultiLanConfig'] = $request->multiLanConfigShrink;
+
+        if (null !== $request->multiLanConfigShrink) {
+            @$query['MultiLanConfig'] = $request->multiLanConfigShrink;
         }
-        if (!Utils::isUnset($request->outputBarCode)) {
-            $query['OutputBarCode'] = $request->outputBarCode;
+
+        if (null !== $request->outputBarCode) {
+            @$query['OutputBarCode'] = $request->outputBarCode;
         }
-        if (!Utils::isUnset($request->outputCoordinate)) {
-            $query['OutputCoordinate'] = $request->outputCoordinate;
+
+        if (null !== $request->outputCoordinate) {
+            @$query['OutputCoordinate'] = $request->outputCoordinate;
         }
-        if (!Utils::isUnset($request->outputFigure)) {
-            $query['OutputFigure'] = $request->outputFigure;
+
+        if (null !== $request->outputFigure) {
+            @$query['OutputFigure'] = $request->outputFigure;
         }
-        if (!Utils::isUnset($request->outputKVExcel)) {
-            $query['OutputKVExcel'] = $request->outputKVExcel;
+
+        if (null !== $request->outputKVExcel) {
+            @$query['OutputKVExcel'] = $request->outputKVExcel;
         }
-        if (!Utils::isUnset($request->outputOricoord)) {
-            $query['OutputOricoord'] = $request->outputOricoord;
+
+        if (null !== $request->outputOricoord) {
+            @$query['OutputOricoord'] = $request->outputOricoord;
         }
-        if (!Utils::isUnset($request->outputQrcode)) {
-            $query['OutputQrcode'] = $request->outputQrcode;
+
+        if (null !== $request->outputQrcode) {
+            @$query['OutputQrcode'] = $request->outputQrcode;
         }
-        if (!Utils::isUnset($request->outputStamp)) {
-            $query['OutputStamp'] = $request->outputStamp;
+
+        if (null !== $request->outputStamp) {
+            @$query['OutputStamp'] = $request->outputStamp;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->tableConfigShrink)) {
-            $query['TableConfig'] = $request->tableConfigShrink;
+
+        if (null !== $request->tableConfigShrink) {
+            @$query['TableConfig'] = $request->tableConfigShrink;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $tmpReq->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeAllText',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeAllText',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeAllTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 统一Api
-     *  *
-     * @param RecognizeAllTextRequest $request RecognizeAllTextRequest
+     * 统一Api.
      *
-     * @return RecognizeAllTextResponse RecognizeAllTextResponse
+     * @param request - RecognizeAllTextRequest
+     *
+     * @returns RecognizeAllTextResponse
+     *
+     * @param RecognizeAllTextRequest $request
+     *
+     * @return RecognizeAllTextResponse
      */
     public function recognizeAllText($request)
     {
@@ -435,46 +493,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 银承汇票识别
-     *  *
-     * @param RecognizeBankAcceptanceRequest $request RecognizeBankAcceptanceRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 银承汇票识别.
      *
-     * @return RecognizeBankAcceptanceResponse RecognizeBankAcceptanceResponse
+     * @param request - RecognizeBankAcceptanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeBankAcceptanceResponse
+     *
+     * @param RecognizeBankAcceptanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RecognizeBankAcceptanceResponse
      */
     public function recognizeBankAcceptanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeBankAcceptance',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeBankAcceptance',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeBankAcceptanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 银承汇票识别
-     *  *
-     * @param RecognizeBankAcceptanceRequest $request RecognizeBankAcceptanceRequest
+     * 银承汇票识别.
      *
-     * @return RecognizeBankAcceptanceResponse RecognizeBankAcceptanceResponse
+     * @param request - RecognizeBankAcceptanceRequest
+     *
+     * @returns RecognizeBankAcceptanceResponse
+     *
+     * @param RecognizeBankAcceptanceRequest $request
+     *
+     * @return RecognizeBankAcceptanceResponse
      */
     public function recognizeBankAcceptance($request)
     {
@@ -484,46 +552,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 银行开户许可证识别
-     *  *
-     * @param RecognizeBankAccountLicenseRequest $request RecognizeBankAccountLicenseRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 银行开户许可证识别.
      *
-     * @return RecognizeBankAccountLicenseResponse RecognizeBankAccountLicenseResponse
+     * @param request - RecognizeBankAccountLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeBankAccountLicenseResponse
+     *
+     * @param RecognizeBankAccountLicenseRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RecognizeBankAccountLicenseResponse
      */
     public function recognizeBankAccountLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeBankAccountLicense',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeBankAccountLicense',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeBankAccountLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 银行开户许可证识别
-     *  *
-     * @param RecognizeBankAccountLicenseRequest $request RecognizeBankAccountLicenseRequest
+     * 银行开户许可证识别.
      *
-     * @return RecognizeBankAccountLicenseResponse RecognizeBankAccountLicenseResponse
+     * @param request - RecognizeBankAccountLicenseRequest
+     *
+     * @returns RecognizeBankAccountLicenseResponse
+     *
+     * @param RecognizeBankAccountLicenseRequest $request
+     *
+     * @return RecognizeBankAccountLicenseResponse
      */
     public function recognizeBankAccountLicense($request)
     {
@@ -533,46 +611,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 银行卡识别
-     *  *
-     * @param RecognizeBankCardRequest $request RecognizeBankCardRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 银行卡识别.
      *
-     * @return RecognizeBankCardResponse RecognizeBankCardResponse
+     * @param request - RecognizeBankCardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeBankCardResponse
+     *
+     * @param RecognizeBankCardRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RecognizeBankCardResponse
      */
     public function recognizeBankCardWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeBankCard',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeBankCard',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeBankCardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 银行卡识别
-     *  *
-     * @param RecognizeBankCardRequest $request RecognizeBankCardRequest
+     * 银行卡识别.
      *
-     * @return RecognizeBankCardResponse RecognizeBankCardResponse
+     * @param request - RecognizeBankCardRequest
+     *
+     * @returns RecognizeBankCardResponse
+     *
+     * @param RecognizeBankCardRequest $request
+     *
+     * @return RecognizeBankCardResponse
      */
     public function recognizeBankCard($request)
     {
@@ -582,49 +670,60 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 电商图片文字识别
-     *  *
-     * @param RecognizeBasicRequest $request RecognizeBasicRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 电商图片文字识别.
      *
-     * @return RecognizeBasicResponse RecognizeBasicResponse
+     * @param request - RecognizeBasicRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeBasicResponse
+     *
+     * @param RecognizeBasicRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RecognizeBasicResponse
      */
     public function recognizeBasicWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->needRotate)) {
-            $query['NeedRotate'] = $request->needRotate;
+        if (null !== $request->needRotate) {
+            @$query['NeedRotate'] = $request->needRotate;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeBasic',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeBasic',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeBasicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 电商图片文字识别
-     *  *
-     * @param RecognizeBasicRequest $request RecognizeBasicRequest
+     * 电商图片文字识别.
      *
-     * @return RecognizeBasicResponse RecognizeBasicResponse
+     * @param request - RecognizeBasicRequest
+     *
+     * @returns RecognizeBasicResponse
+     *
+     * @param RecognizeBasicRequest $request
+     *
+     * @return RecognizeBasicResponse
      */
     public function recognizeBasic($request)
     {
@@ -634,46 +733,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 出生证明
-     *  *
-     * @param RecognizeBirthCertificationRequest $request RecognizeBirthCertificationRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 出生证明.
      *
-     * @return RecognizeBirthCertificationResponse RecognizeBirthCertificationResponse
+     * @param request - RecognizeBirthCertificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeBirthCertificationResponse
+     *
+     * @param RecognizeBirthCertificationRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RecognizeBirthCertificationResponse
      */
     public function recognizeBirthCertificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeBirthCertification',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeBirthCertification',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeBirthCertificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 出生证明
-     *  *
-     * @param RecognizeBirthCertificationRequest $request RecognizeBirthCertificationRequest
+     * 出生证明.
      *
-     * @return RecognizeBirthCertificationResponse RecognizeBirthCertificationResponse
+     * @param request - RecognizeBirthCertificationRequest
+     *
+     * @returns RecognizeBirthCertificationResponse
+     *
+     * @param RecognizeBirthCertificationRequest $request
+     *
+     * @return RecognizeBirthCertificationResponse
      */
     public function recognizeBirthCertification($request)
     {
@@ -683,46 +792,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 客运车船票识别
-     *  *
-     * @param RecognizeBusShipTicketRequest $request RecognizeBusShipTicketRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 客运车船票识别.
      *
-     * @return RecognizeBusShipTicketResponse RecognizeBusShipTicketResponse
+     * @param request - RecognizeBusShipTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeBusShipTicketResponse
+     *
+     * @param RecognizeBusShipTicketRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RecognizeBusShipTicketResponse
      */
     public function recognizeBusShipTicketWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeBusShipTicket',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeBusShipTicket',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeBusShipTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 客运车船票识别
-     *  *
-     * @param RecognizeBusShipTicketRequest $request RecognizeBusShipTicketRequest
+     * 客运车船票识别.
      *
-     * @return RecognizeBusShipTicketResponse RecognizeBusShipTicketResponse
+     * @param request - RecognizeBusShipTicketRequest
+     *
+     * @returns RecognizeBusShipTicketResponse
+     *
+     * @param RecognizeBusShipTicketRequest $request
+     *
+     * @return RecognizeBusShipTicketResponse
      */
     public function recognizeBusShipTicket($request)
     {
@@ -732,46 +851,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 营业执照识别
-     *  *
-     * @param RecognizeBusinessLicenseRequest $request RecognizeBusinessLicenseRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 营业执照识别.
      *
-     * @return RecognizeBusinessLicenseResponse RecognizeBusinessLicenseResponse
+     * @param request - RecognizeBusinessLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeBusinessLicenseResponse
+     *
+     * @param RecognizeBusinessLicenseRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RecognizeBusinessLicenseResponse
      */
     public function recognizeBusinessLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeBusinessLicense',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeBusinessLicense',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeBusinessLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 营业执照识别
-     *  *
-     * @param RecognizeBusinessLicenseRequest $request RecognizeBusinessLicenseRequest
+     * 营业执照识别.
      *
-     * @return RecognizeBusinessLicenseResponse RecognizeBusinessLicenseResponse
+     * @param request - RecognizeBusinessLicenseRequest
+     *
+     * @returns RecognizeBusinessLicenseResponse
+     *
+     * @param RecognizeBusinessLicenseRequest $request
+     *
+     * @return RecognizeBusinessLicenseResponse
      */
     public function recognizeBusinessLicense($request)
     {
@@ -781,46 +910,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 机动车销售发票
-     *  *
-     * @param RecognizeCarInvoiceRequest $request RecognizeCarInvoiceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 机动车销售发票.
      *
-     * @return RecognizeCarInvoiceResponse RecognizeCarInvoiceResponse
+     * @param request - RecognizeCarInvoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeCarInvoiceResponse
+     *
+     * @param RecognizeCarInvoiceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RecognizeCarInvoiceResponse
      */
     public function recognizeCarInvoiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeCarInvoice',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeCarInvoice',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeCarInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机动车销售发票
-     *  *
-     * @param RecognizeCarInvoiceRequest $request RecognizeCarInvoiceRequest
+     * 机动车销售发票.
      *
-     * @return RecognizeCarInvoiceResponse RecognizeCarInvoiceResponse
+     * @param request - RecognizeCarInvoiceRequest
+     *
+     * @returns RecognizeCarInvoiceResponse
+     *
+     * @param RecognizeCarInvoiceRequest $request
+     *
+     * @return RecognizeCarInvoiceResponse
      */
     public function recognizeCarInvoice($request)
     {
@@ -830,46 +969,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 车牌识别
-     *  *
-     * @param RecognizeCarNumberRequest $request RecognizeCarNumberRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 车牌识别.
      *
-     * @return RecognizeCarNumberResponse RecognizeCarNumberResponse
+     * @param request - RecognizeCarNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeCarNumberResponse
+     *
+     * @param RecognizeCarNumberRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RecognizeCarNumberResponse
      */
     public function recognizeCarNumberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeCarNumber',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeCarNumber',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeCarNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 车牌识别
-     *  *
-     * @param RecognizeCarNumberRequest $request RecognizeCarNumberRequest
+     * 车牌识别.
      *
-     * @return RecognizeCarNumberResponse RecognizeCarNumberResponse
+     * @param request - RecognizeCarNumberRequest
+     *
+     * @returns RecognizeCarNumberResponse
+     *
+     * @param RecognizeCarNumberRequest $request
+     *
+     * @return RecognizeCarNumberResponse
      */
     public function recognizeCarNumber($request)
     {
@@ -879,46 +1028,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 车辆vin码识别
-     *  *
-     * @param RecognizeCarVinCodeRequest $request RecognizeCarVinCodeRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 车辆vin码识别.
      *
-     * @return RecognizeCarVinCodeResponse RecognizeCarVinCodeResponse
+     * @param request - RecognizeCarVinCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeCarVinCodeResponse
+     *
+     * @param RecognizeCarVinCodeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RecognizeCarVinCodeResponse
      */
     public function recognizeCarVinCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeCarVinCode',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeCarVinCode',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeCarVinCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 车辆vin码识别
-     *  *
-     * @param RecognizeCarVinCodeRequest $request RecognizeCarVinCodeRequest
+     * 车辆vin码识别.
      *
-     * @return RecognizeCarVinCodeResponse RecognizeCarVinCodeResponse
+     * @param request - RecognizeCarVinCodeRequest
+     *
+     * @returns RecognizeCarVinCodeResponse
+     *
+     * @param RecognizeCarVinCodeRequest $request
+     *
+     * @return RecognizeCarVinCodeResponse
      */
     public function recognizeCarVinCode($request)
     {
@@ -928,49 +1087,60 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 中国护照识别
-     *  *
-     * @param RecognizeChinesePassportRequest $request RecognizeChinesePassportRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 中国护照识别.
      *
-     * @return RecognizeChinesePassportResponse RecognizeChinesePassportResponse
+     * @param request - RecognizeChinesePassportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeChinesePassportResponse
+     *
+     * @param RecognizeChinesePassportRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RecognizeChinesePassportResponse
      */
     public function recognizeChinesePassportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->outputFigure)) {
-            $query['OutputFigure'] = $request->outputFigure;
+        if (null !== $request->outputFigure) {
+            @$query['OutputFigure'] = $request->outputFigure;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeChinesePassport',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeChinesePassport',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeChinesePassportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 中国护照识别
-     *  *
-     * @param RecognizeChinesePassportRequest $request RecognizeChinesePassportRequest
+     * 中国护照识别.
      *
-     * @return RecognizeChinesePassportResponse RecognizeChinesePassportResponse
+     * @param request - RecognizeChinesePassportRequest
+     *
+     * @returns RecognizeChinesePassportResponse
+     *
+     * @param RecognizeChinesePassportRequest $request
+     *
+     * @return RecognizeChinesePassportResponse
      */
     public function recognizeChinesePassport($request)
     {
@@ -980,46 +1150,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 通用机打发票识别
-     *  *
-     * @param RecognizeCommonPrintedInvoiceRequest $request RecognizeCommonPrintedInvoiceRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 通用机打发票识别.
      *
-     * @return RecognizeCommonPrintedInvoiceResponse RecognizeCommonPrintedInvoiceResponse
+     * @param request - RecognizeCommonPrintedInvoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeCommonPrintedInvoiceResponse
+     *
+     * @param RecognizeCommonPrintedInvoiceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RecognizeCommonPrintedInvoiceResponse
      */
     public function recognizeCommonPrintedInvoiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeCommonPrintedInvoice',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeCommonPrintedInvoice',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeCommonPrintedInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通用机打发票识别
-     *  *
-     * @param RecognizeCommonPrintedInvoiceRequest $request RecognizeCommonPrintedInvoiceRequest
+     * 通用机打发票识别.
      *
-     * @return RecognizeCommonPrintedInvoiceResponse RecognizeCommonPrintedInvoiceResponse
+     * @param request - RecognizeCommonPrintedInvoiceRequest
+     *
+     * @returns RecognizeCommonPrintedInvoiceResponse
+     *
+     * @param RecognizeCommonPrintedInvoiceRequest $request
+     *
+     * @return RecognizeCommonPrintedInvoiceResponse
      */
     public function recognizeCommonPrintedInvoice($request)
     {
@@ -1029,46 +1209,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 化妆品生产许可证识别
-     *  *
-     * @param RecognizeCosmeticProduceLicenseRequest $request RecognizeCosmeticProduceLicenseRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 化妆品生产许可证识别.
      *
-     * @return RecognizeCosmeticProduceLicenseResponse RecognizeCosmeticProduceLicenseResponse
+     * @param request - RecognizeCosmeticProduceLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeCosmeticProduceLicenseResponse
+     *
+     * @param RecognizeCosmeticProduceLicenseRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return RecognizeCosmeticProduceLicenseResponse
      */
     public function recognizeCosmeticProduceLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeCosmeticProduceLicense',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeCosmeticProduceLicense',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeCosmeticProduceLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 化妆品生产许可证识别
-     *  *
-     * @param RecognizeCosmeticProduceLicenseRequest $request RecognizeCosmeticProduceLicenseRequest
+     * 化妆品生产许可证识别.
      *
-     * @return RecognizeCosmeticProduceLicenseResponse RecognizeCosmeticProduceLicenseResponse
+     * @param request - RecognizeCosmeticProduceLicenseRequest
+     *
+     * @returns RecognizeCosmeticProduceLicenseResponse
+     *
+     * @param RecognizeCosmeticProduceLicenseRequest $request
+     *
+     * @return RecognizeCosmeticProduceLicenseResponse
      */
     public function recognizeCosmeticProduceLicense($request)
     {
@@ -1078,49 +1268,60 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 核算检测报告识别
-     *  *
-     * @param RecognizeCovidTestReportRequest $request RecognizeCovidTestReportRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 核算检测报告识别.
      *
-     * @return RecognizeCovidTestReportResponse RecognizeCovidTestReportResponse
+     * @param request - RecognizeCovidTestReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeCovidTestReportResponse
+     *
+     * @param RecognizeCovidTestReportRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RecognizeCovidTestReportResponse
      */
     public function recognizeCovidTestReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->multipleResult)) {
-            $query['MultipleResult'] = $request->multipleResult;
+        if (null !== $request->multipleResult) {
+            @$query['MultipleResult'] = $request->multipleResult;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeCovidTestReport',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeCovidTestReport',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeCovidTestReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 核算检测报告识别
-     *  *
-     * @param RecognizeCovidTestReportRequest $request RecognizeCovidTestReportRequest
+     * 核算检测报告识别.
      *
-     * @return RecognizeCovidTestReportResponse RecognizeCovidTestReportResponse
+     * @param request - RecognizeCovidTestReportRequest
+     *
+     * @returns RecognizeCovidTestReportResponse
+     *
+     * @param RecognizeCovidTestReportRequest $request
+     *
+     * @return RecognizeCovidTestReportResponse
      */
     public function recognizeCovidTestReport($request)
     {
@@ -1130,46 +1331,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 第二类医疗器械经营备案凭证
-     *  *
-     * @param RecognizeCtwoMedicalDeviceManageLicenseRequest $request RecognizeCtwoMedicalDeviceManageLicenseRequest
-     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
+     * 第二类医疗器械经营备案凭证
      *
-     * @return RecognizeCtwoMedicalDeviceManageLicenseResponse RecognizeCtwoMedicalDeviceManageLicenseResponse
+     * @param request - RecognizeCtwoMedicalDeviceManageLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeCtwoMedicalDeviceManageLicenseResponse
+     *
+     * @param RecognizeCtwoMedicalDeviceManageLicenseRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return RecognizeCtwoMedicalDeviceManageLicenseResponse
      */
     public function recognizeCtwoMedicalDeviceManageLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeCtwoMedicalDeviceManageLicense',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeCtwoMedicalDeviceManageLicense',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeCtwoMedicalDeviceManageLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 第二类医疗器械经营备案凭证
-     *  *
-     * @param RecognizeCtwoMedicalDeviceManageLicenseRequest $request RecognizeCtwoMedicalDeviceManageLicenseRequest
+     * 第二类医疗器械经营备案凭证
      *
-     * @return RecognizeCtwoMedicalDeviceManageLicenseResponse RecognizeCtwoMedicalDeviceManageLicenseResponse
+     * @param request - RecognizeCtwoMedicalDeviceManageLicenseRequest
+     *
+     * @returns RecognizeCtwoMedicalDeviceManageLicenseResponse
+     *
+     * @param RecognizeCtwoMedicalDeviceManageLicenseRequest $request
+     *
+     * @return RecognizeCtwoMedicalDeviceManageLicenseResponse
      */
     public function recognizeCtwoMedicalDeviceManageLicense($request)
     {
@@ -1179,73 +1390,92 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 文档结构化识别
-     *  *
-     * @param RecognizeDocumentStructureRequest $request RecognizeDocumentStructureRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 文档结构化识别.
      *
-     * @return RecognizeDocumentStructureResponse RecognizeDocumentStructureResponse
+     * @param request - RecognizeDocumentStructureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeDocumentStructureResponse
+     *
+     * @param RecognizeDocumentStructureRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RecognizeDocumentStructureResponse
      */
     public function recognizeDocumentStructureWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->needRotate)) {
-            $query['NeedRotate'] = $request->needRotate;
+        if (null !== $request->needRotate) {
+            @$query['NeedRotate'] = $request->needRotate;
         }
-        if (!Utils::isUnset($request->needSortPage)) {
-            $query['NeedSortPage'] = $request->needSortPage;
+
+        if (null !== $request->needSortPage) {
+            @$query['NeedSortPage'] = $request->needSortPage;
         }
-        if (!Utils::isUnset($request->noStamp)) {
-            $query['NoStamp'] = $request->noStamp;
+
+        if (null !== $request->noStamp) {
+            @$query['NoStamp'] = $request->noStamp;
         }
-        if (!Utils::isUnset($request->outputCharInfo)) {
-            $query['OutputCharInfo'] = $request->outputCharInfo;
+
+        if (null !== $request->outputCharInfo) {
+            @$query['OutputCharInfo'] = $request->outputCharInfo;
         }
-        if (!Utils::isUnset($request->outputTable)) {
-            $query['OutputTable'] = $request->outputTable;
+
+        if (null !== $request->outputTable) {
+            @$query['OutputTable'] = $request->outputTable;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->paragraph)) {
-            $query['Paragraph'] = $request->paragraph;
+
+        if (null !== $request->paragraph) {
+            @$query['Paragraph'] = $request->paragraph;
         }
-        if (!Utils::isUnset($request->row)) {
-            $query['Row'] = $request->row;
+
+        if (null !== $request->row) {
+            @$query['Row'] = $request->row;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
-        if (!Utils::isUnset($request->useNewStyleOutput)) {
-            $query['UseNewStyleOutput'] = $request->useNewStyleOutput;
+
+        if (null !== $request->useNewStyleOutput) {
+            @$query['UseNewStyleOutput'] = $request->useNewStyleOutput;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeDocumentStructure',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeDocumentStructure',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeDocumentStructureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 文档结构化识别
-     *  *
-     * @param RecognizeDocumentStructureRequest $request RecognizeDocumentStructureRequest
+     * 文档结构化识别.
      *
-     * @return RecognizeDocumentStructureResponse RecognizeDocumentStructureResponse
+     * @param request - RecognizeDocumentStructureRequest
+     *
+     * @returns RecognizeDocumentStructureResponse
+     *
+     * @param RecognizeDocumentStructureRequest $request
+     *
+     * @return RecognizeDocumentStructureResponse
      */
     public function recognizeDocumentStructure($request)
     {
@@ -1255,46 +1485,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 驾驶证识别
-     *  *
-     * @param RecognizeDrivingLicenseRequest $request RecognizeDrivingLicenseRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 驾驶证识别.
      *
-     * @return RecognizeDrivingLicenseResponse RecognizeDrivingLicenseResponse
+     * @param request - RecognizeDrivingLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeDrivingLicenseResponse
+     *
+     * @param RecognizeDrivingLicenseRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RecognizeDrivingLicenseResponse
      */
     public function recognizeDrivingLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeDrivingLicense',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeDrivingLicense',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeDrivingLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 驾驶证识别
-     *  *
-     * @param RecognizeDrivingLicenseRequest $request RecognizeDrivingLicenseRequest
+     * 驾驶证识别.
      *
-     * @return RecognizeDrivingLicenseResponse RecognizeDrivingLicenseResponse
+     * @param request - RecognizeDrivingLicenseRequest
+     *
+     * @returns RecognizeDrivingLicenseResponse
+     *
+     * @param RecognizeDrivingLicenseRequest $request
+     *
+     * @return RecognizeDrivingLicenseResponse
      */
     public function recognizeDrivingLicense($request)
     {
@@ -1304,46 +1544,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 印刷体数学公式识别
-     *  *
-     * @param RecognizeEduFormulaRequest $request RecognizeEduFormulaRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 印刷体数学公式识别.
      *
-     * @return RecognizeEduFormulaResponse RecognizeEduFormulaResponse
+     * @param request - RecognizeEduFormulaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeEduFormulaResponse
+     *
+     * @param RecognizeEduFormulaRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RecognizeEduFormulaResponse
      */
     public function recognizeEduFormulaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeEduFormula',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeEduFormula',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeEduFormulaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 印刷体数学公式识别
-     *  *
-     * @param RecognizeEduFormulaRequest $request RecognizeEduFormulaRequest
+     * 印刷体数学公式识别.
      *
-     * @return RecognizeEduFormulaResponse RecognizeEduFormulaResponse
+     * @param request - RecognizeEduFormulaRequest
+     *
+     * @returns RecognizeEduFormulaResponse
+     *
+     * @param RecognizeEduFormulaRequest $request
+     *
+     * @return RecognizeEduFormulaResponse
      */
     public function recognizeEduFormula($request)
     {
@@ -1353,46 +1603,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 口算判题
-     *  *
-     * @param RecognizeEduOralCalculationRequest $request RecognizeEduOralCalculationRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 口算判题.
      *
-     * @return RecognizeEduOralCalculationResponse RecognizeEduOralCalculationResponse
+     * @param request - RecognizeEduOralCalculationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeEduOralCalculationResponse
+     *
+     * @param RecognizeEduOralCalculationRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RecognizeEduOralCalculationResponse
      */
     public function recognizeEduOralCalculationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeEduOralCalculation',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeEduOralCalculation',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeEduOralCalculationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 口算判题
-     *  *
-     * @param RecognizeEduOralCalculationRequest $request RecognizeEduOralCalculationRequest
+     * 口算判题.
      *
-     * @return RecognizeEduOralCalculationResponse RecognizeEduOralCalculationResponse
+     * @param request - RecognizeEduOralCalculationRequest
+     *
+     * @returns RecognizeEduOralCalculationResponse
+     *
+     * @param RecognizeEduOralCalculationRequest $request
+     *
+     * @return RecognizeEduOralCalculationResponse
      */
     public function recognizeEduOralCalculation($request)
     {
@@ -1402,58 +1662,72 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 试卷切题识别
-     *  *
-     * @param RecognizeEduPaperCutRequest $request RecognizeEduPaperCutRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 试卷切题识别.
      *
-     * @return RecognizeEduPaperCutResponse RecognizeEduPaperCutResponse
+     * @param request - RecognizeEduPaperCutRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeEduPaperCutResponse
+     *
+     * @param RecognizeEduPaperCutRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RecognizeEduPaperCutResponse
      */
     public function recognizeEduPaperCutWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cutType)) {
-            $query['CutType'] = $request->cutType;
+        if (null !== $request->cutType) {
+            @$query['CutType'] = $request->cutType;
         }
-        if (!Utils::isUnset($request->imageType)) {
-            $query['ImageType'] = $request->imageType;
+
+        if (null !== $request->imageType) {
+            @$query['ImageType'] = $request->imageType;
         }
-        if (!Utils::isUnset($request->outputOricoord)) {
-            $query['OutputOricoord'] = $request->outputOricoord;
+
+        if (null !== $request->outputOricoord) {
+            @$query['OutputOricoord'] = $request->outputOricoord;
         }
-        if (!Utils::isUnset($request->subject)) {
-            $query['Subject'] = $request->subject;
+
+        if (null !== $request->subject) {
+            @$query['Subject'] = $request->subject;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeEduPaperCut',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeEduPaperCut',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeEduPaperCutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 试卷切题识别
-     *  *
-     * @param RecognizeEduPaperCutRequest $request RecognizeEduPaperCutRequest
+     * 试卷切题识别.
      *
-     * @return RecognizeEduPaperCutResponse RecognizeEduPaperCutResponse
+     * @param request - RecognizeEduPaperCutRequest
+     *
+     * @returns RecognizeEduPaperCutResponse
+     *
+     * @param RecognizeEduPaperCutRequest $request
+     *
+     * @return RecognizeEduPaperCutResponse
      */
     public function recognizeEduPaperCut($request)
     {
@@ -1463,55 +1737,68 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 整页试卷识别
-     *  *
-     * @param RecognizeEduPaperOcrRequest $request RecognizeEduPaperOcrRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 整页试卷识别.
      *
-     * @return RecognizeEduPaperOcrResponse RecognizeEduPaperOcrResponse
+     * @param request - RecognizeEduPaperOcrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeEduPaperOcrResponse
+     *
+     * @param RecognizeEduPaperOcrRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RecognizeEduPaperOcrResponse
      */
     public function recognizeEduPaperOcrWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->imageType)) {
-            $query['ImageType'] = $request->imageType;
+        if (null !== $request->imageType) {
+            @$query['ImageType'] = $request->imageType;
         }
-        if (!Utils::isUnset($request->outputOricoord)) {
-            $query['OutputOricoord'] = $request->outputOricoord;
+
+        if (null !== $request->outputOricoord) {
+            @$query['OutputOricoord'] = $request->outputOricoord;
         }
-        if (!Utils::isUnset($request->subject)) {
-            $query['Subject'] = $request->subject;
+
+        if (null !== $request->subject) {
+            @$query['Subject'] = $request->subject;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeEduPaperOcr',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeEduPaperOcr',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeEduPaperOcrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 整页试卷识别
-     *  *
-     * @param RecognizeEduPaperOcrRequest $request RecognizeEduPaperOcrRequest
+     * 整页试卷识别.
      *
-     * @return RecognizeEduPaperOcrResponse RecognizeEduPaperOcrResponse
+     * @param request - RecognizeEduPaperOcrRequest
+     *
+     * @returns RecognizeEduPaperOcrResponse
+     *
+     * @param RecognizeEduPaperOcrRequest $request
+     *
+     * @return RecognizeEduPaperOcrResponse
      */
     public function recognizeEduPaperOcr($request)
     {
@@ -1521,55 +1808,68 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 精细版结构化切题
-     *  *
-     * @param RecognizeEduPaperStructedRequest $request RecognizeEduPaperStructedRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 精细版结构化切题.
      *
-     * @return RecognizeEduPaperStructedResponse RecognizeEduPaperStructedResponse
+     * @param request - RecognizeEduPaperStructedRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeEduPaperStructedResponse
+     *
+     * @param RecognizeEduPaperStructedRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RecognizeEduPaperStructedResponse
      */
     public function recognizeEduPaperStructedWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->needRotate)) {
-            $query['NeedRotate'] = $request->needRotate;
+        if (null !== $request->needRotate) {
+            @$query['NeedRotate'] = $request->needRotate;
         }
-        if (!Utils::isUnset($request->outputOricoord)) {
-            $query['OutputOricoord'] = $request->outputOricoord;
+
+        if (null !== $request->outputOricoord) {
+            @$query['OutputOricoord'] = $request->outputOricoord;
         }
-        if (!Utils::isUnset($request->subject)) {
-            $query['Subject'] = $request->subject;
+
+        if (null !== $request->subject) {
+            @$query['Subject'] = $request->subject;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeEduPaperStructed',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeEduPaperStructed',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeEduPaperStructedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 精细版结构化切题
-     *  *
-     * @param RecognizeEduPaperStructedRequest $request RecognizeEduPaperStructedRequest
+     * 精细版结构化切题.
      *
-     * @return RecognizeEduPaperStructedResponse RecognizeEduPaperStructedResponse
+     * @param request - RecognizeEduPaperStructedRequest
+     *
+     * @returns RecognizeEduPaperStructedResponse
+     *
+     * @param RecognizeEduPaperStructedRequest $request
+     *
+     * @return RecognizeEduPaperStructedResponse
      */
     public function recognizeEduPaperStructed($request)
     {
@@ -1579,49 +1879,60 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 题目识别
-     *  *
-     * @param RecognizeEduQuestionOcrRequest $request RecognizeEduQuestionOcrRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 题目识别.
      *
-     * @return RecognizeEduQuestionOcrResponse RecognizeEduQuestionOcrResponse
+     * @param request - RecognizeEduQuestionOcrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeEduQuestionOcrResponse
+     *
+     * @param RecognizeEduQuestionOcrRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RecognizeEduQuestionOcrResponse
      */
     public function recognizeEduQuestionOcrWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->needRotate)) {
-            $query['NeedRotate'] = $request->needRotate;
+        if (null !== $request->needRotate) {
+            @$query['NeedRotate'] = $request->needRotate;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeEduQuestionOcr',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeEduQuestionOcr',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeEduQuestionOcrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 题目识别
-     *  *
-     * @param RecognizeEduQuestionOcrRequest $request RecognizeEduQuestionOcrRequest
+     * 题目识别.
      *
-     * @return RecognizeEduQuestionOcrResponse RecognizeEduQuestionOcrResponse
+     * @param request - RecognizeEduQuestionOcrRequest
+     *
+     * @returns RecognizeEduQuestionOcrResponse
+     *
+     * @param RecognizeEduQuestionOcrRequest $request
+     *
+     * @return RecognizeEduQuestionOcrResponse
      */
     public function recognizeEduQuestionOcr($request)
     {
@@ -1631,52 +1942,64 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 英语专项识别
-     *  *
-     * @param RecognizeEnglishRequest $request RecognizeEnglishRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 英语专项识别.
      *
-     * @return RecognizeEnglishResponse RecognizeEnglishResponse
+     * @param request - RecognizeEnglishRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeEnglishResponse
+     *
+     * @param RecognizeEnglishRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RecognizeEnglishResponse
      */
     public function recognizeEnglishWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->needRotate)) {
-            $query['NeedRotate'] = $request->needRotate;
+        if (null !== $request->needRotate) {
+            @$query['NeedRotate'] = $request->needRotate;
         }
-        if (!Utils::isUnset($request->outputTable)) {
-            $query['OutputTable'] = $request->outputTable;
+
+        if (null !== $request->outputTable) {
+            @$query['OutputTable'] = $request->outputTable;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeEnglish',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeEnglish',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeEnglishResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 英语专项识别
-     *  *
-     * @param RecognizeEnglishRequest $request RecognizeEnglishRequest
+     * 英语专项识别.
      *
-     * @return RecognizeEnglishResponse RecognizeEnglishResponse
+     * @param request - RecognizeEnglishRequest
+     *
+     * @returns RecognizeEnglishResponse
+     *
+     * @param RecognizeEnglishRequest $request
+     *
+     * @return RecognizeEnglishResponse
      */
     public function recognizeEnglish($request)
     {
@@ -1686,46 +2009,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 不动产权证
-     *  *
-     * @param RecognizeEstateCertificationRequest $request RecognizeEstateCertificationRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 不动产权证
      *
-     * @return RecognizeEstateCertificationResponse RecognizeEstateCertificationResponse
+     * @param request - RecognizeEstateCertificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeEstateCertificationResponse
+     *
+     * @param RecognizeEstateCertificationRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RecognizeEstateCertificationResponse
      */
     public function recognizeEstateCertificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeEstateCertification',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeEstateCertification',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeEstateCertificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 不动产权证
-     *  *
-     * @param RecognizeEstateCertificationRequest $request RecognizeEstateCertificationRequest
+     * 不动产权证
      *
-     * @return RecognizeEstateCertificationResponse RecognizeEstateCertificationResponse
+     * @param request - RecognizeEstateCertificationRequest
+     *
+     * @returns RecognizeEstateCertificationResponse
+     *
+     * @param RecognizeEstateCertificationRequest $request
+     *
+     * @return RecognizeEstateCertificationResponse
      */
     public function recognizeEstateCertification($request)
     {
@@ -1735,49 +2068,60 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 来往港澳台通行证识别
-     *  *
-     * @param RecognizeExitEntryPermitToHKRequest $request RecognizeExitEntryPermitToHKRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 来往港澳台通行证识别.
      *
-     * @return RecognizeExitEntryPermitToHKResponse RecognizeExitEntryPermitToHKResponse
+     * @param request - RecognizeExitEntryPermitToHKRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeExitEntryPermitToHKResponse
+     *
+     * @param RecognizeExitEntryPermitToHKRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RecognizeExitEntryPermitToHKResponse
      */
     public function recognizeExitEntryPermitToHKWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->outputFigure)) {
-            $query['OutputFigure'] = $request->outputFigure;
+        if (null !== $request->outputFigure) {
+            @$query['OutputFigure'] = $request->outputFigure;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeExitEntryPermitToHK',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeExitEntryPermitToHK',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeExitEntryPermitToHKResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 来往港澳台通行证识别
-     *  *
-     * @param RecognizeExitEntryPermitToHKRequest $request RecognizeExitEntryPermitToHKRequest
+     * 来往港澳台通行证识别.
      *
-     * @return RecognizeExitEntryPermitToHKResponse RecognizeExitEntryPermitToHKResponse
+     * @param request - RecognizeExitEntryPermitToHKRequest
+     *
+     * @returns RecognizeExitEntryPermitToHKResponse
+     *
+     * @param RecognizeExitEntryPermitToHKRequest $request
+     *
+     * @return RecognizeExitEntryPermitToHKResponse
      */
     public function recognizeExitEntryPermitToHK($request)
     {
@@ -1787,49 +2131,60 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 来往大陆(内地)通行证识别
-     *  *
-     * @param RecognizeExitEntryPermitToMainlandRequest $request RecognizeExitEntryPermitToMainlandRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * 来往大陆(内地)通行证识别.
      *
-     * @return RecognizeExitEntryPermitToMainlandResponse RecognizeExitEntryPermitToMainlandResponse
+     * @param request - RecognizeExitEntryPermitToMainlandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeExitEntryPermitToMainlandResponse
+     *
+     * @param RecognizeExitEntryPermitToMainlandRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return RecognizeExitEntryPermitToMainlandResponse
      */
     public function recognizeExitEntryPermitToMainlandWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->outputFigure)) {
-            $query['OutputFigure'] = $request->outputFigure;
+        if (null !== $request->outputFigure) {
+            @$query['OutputFigure'] = $request->outputFigure;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeExitEntryPermitToMainland',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeExitEntryPermitToMainland',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeExitEntryPermitToMainlandResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 来往大陆(内地)通行证识别
-     *  *
-     * @param RecognizeExitEntryPermitToMainlandRequest $request RecognizeExitEntryPermitToMainlandRequest
+     * 来往大陆(内地)通行证识别.
      *
-     * @return RecognizeExitEntryPermitToMainlandResponse RecognizeExitEntryPermitToMainlandResponse
+     * @param request - RecognizeExitEntryPermitToMainlandRequest
+     *
+     * @returns RecognizeExitEntryPermitToMainlandResponse
+     *
+     * @param RecognizeExitEntryPermitToMainlandRequest $request
+     *
+     * @return RecognizeExitEntryPermitToMainlandResponse
      */
     public function recognizeExitEntryPermitToMainland($request)
     {
@@ -1839,46 +2194,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 食品经营许可证
-     *  *
-     * @param RecognizeFoodManageLicenseRequest $request RecognizeFoodManageLicenseRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 食品经营许可证
      *
-     * @return RecognizeFoodManageLicenseResponse RecognizeFoodManageLicenseResponse
+     * @param request - RecognizeFoodManageLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeFoodManageLicenseResponse
+     *
+     * @param RecognizeFoodManageLicenseRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RecognizeFoodManageLicenseResponse
      */
     public function recognizeFoodManageLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeFoodManageLicense',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeFoodManageLicense',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeFoodManageLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 食品经营许可证
-     *  *
-     * @param RecognizeFoodManageLicenseRequest $request RecognizeFoodManageLicenseRequest
+     * 食品经营许可证
      *
-     * @return RecognizeFoodManageLicenseResponse RecognizeFoodManageLicenseResponse
+     * @param request - RecognizeFoodManageLicenseRequest
+     *
+     * @returns RecognizeFoodManageLicenseResponse
+     *
+     * @param RecognizeFoodManageLicenseRequest $request
+     *
+     * @return RecognizeFoodManageLicenseResponse
      */
     public function recognizeFoodManageLicense($request)
     {
@@ -1888,46 +2253,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 食品生产许可证
-     *  *
-     * @param RecognizeFoodProduceLicenseRequest $request RecognizeFoodProduceLicenseRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 食品生产许可证
      *
-     * @return RecognizeFoodProduceLicenseResponse RecognizeFoodProduceLicenseResponse
+     * @param request - RecognizeFoodProduceLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeFoodProduceLicenseResponse
+     *
+     * @param RecognizeFoodProduceLicenseRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RecognizeFoodProduceLicenseResponse
      */
     public function recognizeFoodProduceLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeFoodProduceLicense',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeFoodProduceLicense',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeFoodProduceLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 食品生产许可证
-     *  *
-     * @param RecognizeFoodProduceLicenseRequest $request RecognizeFoodProduceLicenseRequest
+     * 食品生产许可证
      *
-     * @return RecognizeFoodProduceLicenseResponse RecognizeFoodProduceLicenseResponse
+     * @param request - RecognizeFoodProduceLicenseRequest
+     *
+     * @returns RecognizeFoodProduceLicenseResponse
+     *
+     * @param RecognizeFoodProduceLicenseRequest $request
+     *
+     * @return RecognizeFoodProduceLicenseResponse
      */
     public function recognizeFoodProduceLicense($request)
     {
@@ -1937,46 +2312,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 通用文字识别
-     *  *
-     * @param RecognizeGeneralRequest $request RecognizeGeneralRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 通用文字识别.
      *
-     * @return RecognizeGeneralResponse RecognizeGeneralResponse
+     * @param request - RecognizeGeneralRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeGeneralResponse
+     *
+     * @param RecognizeGeneralRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RecognizeGeneralResponse
      */
     public function recognizeGeneralWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeGeneral',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeGeneral',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeGeneralResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通用文字识别
-     *  *
-     * @param RecognizeGeneralRequest $request RecognizeGeneralRequest
+     * 通用文字识别.
      *
-     * @return RecognizeGeneralResponse RecognizeGeneralResponse
+     * @param request - RecognizeGeneralRequest
+     *
+     * @returns RecognizeGeneralResponse
+     *
+     * @param RecognizeGeneralRequest $request
+     *
+     * @return RecognizeGeneralResponse
      */
     public function recognizeGeneral($request)
     {
@@ -1986,54 +2371,66 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary DocMaster
-     *  *
-     * @param RecognizeGeneralStructureRequest $tmpReq  RecognizeGeneralStructureRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * DocMaster.
      *
-     * @return RecognizeGeneralStructureResponse RecognizeGeneralStructureResponse
+     * @param tmpReq - RecognizeGeneralStructureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeGeneralStructureResponse
+     *
+     * @param RecognizeGeneralStructureRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RecognizeGeneralStructureResponse
      */
     public function recognizeGeneralStructureWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RecognizeGeneralStructureShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->keys)) {
-            $request->keysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->keys) {
+            $request->keysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->keysShrink)) {
-            $query['Keys'] = $request->keysShrink;
+        if (null !== $request->keysShrink) {
+            @$query['Keys'] = $request->keysShrink;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $tmpReq->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeGeneralStructure',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeGeneralStructure',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeGeneralStructureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary DocMaster
-     *  *
-     * @param RecognizeGeneralStructureRequest $request RecognizeGeneralStructureRequest
+     * DocMaster.
      *
-     * @return RecognizeGeneralStructureResponse RecognizeGeneralStructureResponse
+     * @param request - RecognizeGeneralStructureRequest
+     *
+     * @returns RecognizeGeneralStructureResponse
+     *
+     * @param RecognizeGeneralStructureRequest $request
+     *
+     * @return RecognizeGeneralStructureResponse
      */
     public function recognizeGeneralStructure($request)
     {
@@ -2043,46 +2440,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 香港身份证识别
-     *  *
-     * @param RecognizeHKIdcardRequest $request RecognizeHKIdcardRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 香港身份证识别.
      *
-     * @return RecognizeHKIdcardResponse RecognizeHKIdcardResponse
+     * @param request - RecognizeHKIdcardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeHKIdcardResponse
+     *
+     * @param RecognizeHKIdcardRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RecognizeHKIdcardResponse
      */
     public function recognizeHKIdcardWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeHKIdcard',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeHKIdcard',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeHKIdcardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 香港身份证识别
-     *  *
-     * @param RecognizeHKIdcardRequest $request RecognizeHKIdcardRequest
+     * 香港身份证识别.
      *
-     * @return RecognizeHKIdcardResponse RecognizeHKIdcardResponse
+     * @param request - RecognizeHKIdcardRequest
+     *
+     * @returns RecognizeHKIdcardResponse
+     *
+     * @param RecognizeHKIdcardRequest $request
+     *
+     * @return RecognizeHKIdcardResponse
      */
     public function recognizeHKIdcard($request)
     {
@@ -2092,61 +2499,76 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 通用手写体识别
-     *  *
-     * @param RecognizeHandwritingRequest $request RecognizeHandwritingRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 通用手写体识别.
      *
-     * @return RecognizeHandwritingResponse RecognizeHandwritingResponse
+     * @param request - RecognizeHandwritingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeHandwritingResponse
+     *
+     * @param RecognizeHandwritingRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RecognizeHandwritingResponse
      */
     public function recognizeHandwritingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->needRotate)) {
-            $query['NeedRotate'] = $request->needRotate;
+        if (null !== $request->needRotate) {
+            @$query['NeedRotate'] = $request->needRotate;
         }
-        if (!Utils::isUnset($request->needSortPage)) {
-            $query['NeedSortPage'] = $request->needSortPage;
+
+        if (null !== $request->needSortPage) {
+            @$query['NeedSortPage'] = $request->needSortPage;
         }
-        if (!Utils::isUnset($request->outputCharInfo)) {
-            $query['OutputCharInfo'] = $request->outputCharInfo;
+
+        if (null !== $request->outputCharInfo) {
+            @$query['OutputCharInfo'] = $request->outputCharInfo;
         }
-        if (!Utils::isUnset($request->outputTable)) {
-            $query['OutputTable'] = $request->outputTable;
+
+        if (null !== $request->outputTable) {
+            @$query['OutputTable'] = $request->outputTable;
         }
-        if (!Utils::isUnset($request->paragraph)) {
-            $query['Paragraph'] = $request->paragraph;
+
+        if (null !== $request->paragraph) {
+            @$query['Paragraph'] = $request->paragraph;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeHandwriting',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeHandwriting',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeHandwritingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通用手写体识别
-     *  *
-     * @param RecognizeHandwritingRequest $request RecognizeHandwritingRequest
+     * 通用手写体识别.
      *
-     * @return RecognizeHandwritingResponse RecognizeHandwritingResponse
+     * @param request - RecognizeHandwritingRequest
+     *
+     * @returns RecognizeHandwritingResponse
+     *
+     * @param RecognizeHandwritingRequest $request
+     *
+     * @return RecognizeHandwritingResponse
      */
     public function recognizeHandwriting($request)
     {
@@ -2156,46 +2578,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 防疫健康码识别
-     *  *
-     * @param RecognizeHealthCodeRequest $request RecognizeHealthCodeRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 防疫健康码识别.
      *
-     * @return RecognizeHealthCodeResponse RecognizeHealthCodeResponse
+     * @param request - RecognizeHealthCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeHealthCodeResponse
+     *
+     * @param RecognizeHealthCodeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RecognizeHealthCodeResponse
      */
     public function recognizeHealthCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeHealthCode',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeHealthCode',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeHealthCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 防疫健康码识别
-     *  *
-     * @param RecognizeHealthCodeRequest $request RecognizeHealthCodeRequest
+     * 防疫健康码识别.
      *
-     * @return RecognizeHealthCodeResponse RecognizeHealthCodeResponse
+     * @param request - RecognizeHealthCodeRequest
+     *
+     * @returns RecognizeHealthCodeResponse
+     *
+     * @param RecognizeHealthCodeRequest $request
+     *
+     * @return RecognizeHealthCodeResponse
      */
     public function recognizeHealthCode($request)
     {
@@ -2205,46 +2637,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 酒店流水识别
-     *  *
-     * @param RecognizeHotelConsumeRequest $request RecognizeHotelConsumeRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 酒店流水识别.
      *
-     * @return RecognizeHotelConsumeResponse RecognizeHotelConsumeResponse
+     * @param request - RecognizeHotelConsumeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeHotelConsumeResponse
+     *
+     * @param RecognizeHotelConsumeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RecognizeHotelConsumeResponse
      */
     public function recognizeHotelConsumeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeHotelConsume',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeHotelConsume',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeHotelConsumeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 酒店流水识别
-     *  *
-     * @param RecognizeHotelConsumeRequest $request RecognizeHotelConsumeRequest
+     * 酒店流水识别.
      *
-     * @return RecognizeHotelConsumeResponse RecognizeHotelConsumeResponse
+     * @param request - RecognizeHotelConsumeRequest
+     *
+     * @returns RecognizeHotelConsumeResponse
+     *
+     * @param RecognizeHotelConsumeRequest $request
+     *
+     * @return RecognizeHotelConsumeResponse
      */
     public function recognizeHotelConsume($request)
     {
@@ -2254,49 +2696,60 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 户口本识别
-     *  *
-     * @param RecognizeHouseholdRequest $request RecognizeHouseholdRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 户口本识别.
      *
-     * @return RecognizeHouseholdResponse RecognizeHouseholdResponse
+     * @param request - RecognizeHouseholdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeHouseholdResponse
+     *
+     * @param RecognizeHouseholdRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RecognizeHouseholdResponse
      */
     public function recognizeHouseholdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isResidentPage)) {
-            $query['IsResidentPage'] = $request->isResidentPage;
+        if (null !== $request->isResidentPage) {
+            @$query['IsResidentPage'] = $request->isResidentPage;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeHousehold',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeHousehold',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeHouseholdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 户口本识别
-     *  *
-     * @param RecognizeHouseholdRequest $request RecognizeHouseholdRequest
+     * 户口本识别.
      *
-     * @return RecognizeHouseholdResponse RecognizeHouseholdResponse
+     * @param request - RecognizeHouseholdRequest
+     *
+     * @returns RecognizeHouseholdResponse
+     *
+     * @param RecognizeHouseholdRequest $request
+     *
+     * @return RecognizeHouseholdResponse
      */
     public function recognizeHousehold($request)
     {
@@ -2306,52 +2759,68 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 身份证识别
-     *  *
-     * @param RecognizeIdcardRequest $request RecognizeIdcardRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 身份证识别.
      *
-     * @return RecognizeIdcardResponse RecognizeIdcardResponse
+     * @param request - RecognizeIdcardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeIdcardResponse
+     *
+     * @param RecognizeIdcardRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RecognizeIdcardResponse
      */
     public function recognizeIdcardWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->outputFigure)) {
-            $query['OutputFigure'] = $request->outputFigure;
+        if (null !== $request->llmRec) {
+            @$query['Llm_rec'] = $request->llmRec;
         }
-        if (!Utils::isUnset($request->outputQualityInfo)) {
-            $query['OutputQualityInfo'] = $request->outputQualityInfo;
+
+        if (null !== $request->outputFigure) {
+            @$query['OutputFigure'] = $request->outputFigure;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->outputQualityInfo) {
+            @$query['OutputQualityInfo'] = $request->outputQualityInfo;
         }
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
+        }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeIdcard',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeIdcard',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeIdcardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 身份证识别
-     *  *
-     * @param RecognizeIdcardRequest $request RecognizeIdcardRequest
+     * 身份证识别.
      *
-     * @return RecognizeIdcardResponse RecognizeIdcardResponse
+     * @param request - RecognizeIdcardRequest
+     *
+     * @returns RecognizeIdcardResponse
+     *
+     * @param RecognizeIdcardRequest $request
+     *
+     * @return RecognizeIdcardResponse
      */
     public function recognizeIdcard($request)
     {
@@ -2361,49 +2830,60 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 国际营业执照识别
-     *  *
-     * @param RecognizeInternationalBusinessLicenseRequest $request RecognizeInternationalBusinessLicenseRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * 国际营业执照识别.
      *
-     * @return RecognizeInternationalBusinessLicenseResponse RecognizeInternationalBusinessLicenseResponse
+     * @param request - RecognizeInternationalBusinessLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeInternationalBusinessLicenseResponse
+     *
+     * @param RecognizeInternationalBusinessLicenseRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return RecognizeInternationalBusinessLicenseResponse
      */
     public function recognizeInternationalBusinessLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->country)) {
-            $query['Country'] = $request->country;
+        if (null !== $request->country) {
+            @$query['Country'] = $request->country;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeInternationalBusinessLicense',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeInternationalBusinessLicense',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeInternationalBusinessLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际营业执照识别
-     *  *
-     * @param RecognizeInternationalBusinessLicenseRequest $request RecognizeInternationalBusinessLicenseRequest
+     * 国际营业执照识别.
      *
-     * @return RecognizeInternationalBusinessLicenseResponse RecognizeInternationalBusinessLicenseResponse
+     * @param request - RecognizeInternationalBusinessLicenseRequest
+     *
+     * @returns RecognizeInternationalBusinessLicenseResponse
+     *
+     * @param RecognizeInternationalBusinessLicenseRequest $request
+     *
+     * @return RecognizeInternationalBusinessLicenseResponse
      */
     public function recognizeInternationalBusinessLicense($request)
     {
@@ -2413,49 +2893,60 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 国际身份证识别
-     *  *
-     * @param RecognizeInternationalIdcardRequest $request RecognizeInternationalIdcardRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 国际身份证识别.
      *
-     * @return RecognizeInternationalIdcardResponse RecognizeInternationalIdcardResponse
+     * @param request - RecognizeInternationalIdcardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeInternationalIdcardResponse
+     *
+     * @param RecognizeInternationalIdcardRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RecognizeInternationalIdcardResponse
      */
     public function recognizeInternationalIdcardWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->country)) {
-            $query['Country'] = $request->country;
+        if (null !== $request->country) {
+            @$query['Country'] = $request->country;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeInternationalIdcard',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeInternationalIdcard',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeInternationalIdcardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际身份证识别
-     *  *
-     * @param RecognizeInternationalIdcardRequest $request RecognizeInternationalIdcardRequest
+     * 国际身份证识别.
      *
-     * @return RecognizeInternationalIdcardResponse RecognizeInternationalIdcardResponse
+     * @param request - RecognizeInternationalIdcardRequest
+     *
+     * @returns RecognizeInternationalIdcardResponse
+     *
+     * @param RecognizeInternationalIdcardRequest $request
+     *
+     * @return RecognizeInternationalIdcardResponse
      */
     public function recognizeInternationalIdcard($request)
     {
@@ -2465,49 +2956,60 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 增值税发票识别
-     *  *
-     * @param RecognizeInvoiceRequest $request RecognizeInvoiceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 增值税发票识别.
      *
-     * @return RecognizeInvoiceResponse RecognizeInvoiceResponse
+     * @param request - RecognizeInvoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeInvoiceResponse
+     *
+     * @param RecognizeInvoiceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RecognizeInvoiceResponse
      */
     public function recognizeInvoiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeInvoice',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeInvoice',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 增值税发票识别
-     *  *
-     * @param RecognizeInvoiceRequest $request RecognizeInvoiceRequest
+     * 增值税发票识别.
      *
-     * @return RecognizeInvoiceResponse RecognizeInvoiceResponse
+     * @param request - RecognizeInvoiceRequest
+     *
+     * @returns RecognizeInvoiceResponse
+     *
+     * @param RecognizeInvoiceRequest $request
+     *
+     * @return RecognizeInvoiceResponse
      */
     public function recognizeInvoice($request)
     {
@@ -2517,55 +3019,68 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 日语识别
-     *  *
-     * @param RecognizeJanpaneseRequest $request RecognizeJanpaneseRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 日语识别.
      *
-     * @return RecognizeJanpaneseResponse RecognizeJanpaneseResponse
+     * @param request - RecognizeJanpaneseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeJanpaneseResponse
+     *
+     * @param RecognizeJanpaneseRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RecognizeJanpaneseResponse
      */
     public function recognizeJanpaneseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->needRotate)) {
-            $query['NeedRotate'] = $request->needRotate;
+        if (null !== $request->needRotate) {
+            @$query['NeedRotate'] = $request->needRotate;
         }
-        if (!Utils::isUnset($request->outputCharInfo)) {
-            $query['OutputCharInfo'] = $request->outputCharInfo;
+
+        if (null !== $request->outputCharInfo) {
+            @$query['OutputCharInfo'] = $request->outputCharInfo;
         }
-        if (!Utils::isUnset($request->outputTable)) {
-            $query['OutputTable'] = $request->outputTable;
+
+        if (null !== $request->outputTable) {
+            @$query['OutputTable'] = $request->outputTable;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeJanpanese',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeJanpanese',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeJanpaneseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 日语识别
-     *  *
-     * @param RecognizeJanpaneseRequest $request RecognizeJanpaneseRequest
+     * 日语识别.
      *
-     * @return RecognizeJanpaneseResponse RecognizeJanpaneseResponse
+     * @param request - RecognizeJanpaneseRequest
+     *
+     * @returns RecognizeJanpaneseResponse
+     *
+     * @param RecognizeJanpaneseRequest $request
+     *
+     * @return RecognizeJanpaneseResponse
      */
     public function recognizeJanpanese($request)
     {
@@ -2575,55 +3090,68 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 韩语识别
-     *  *
-     * @param RecognizeKoreanRequest $request RecognizeKoreanRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 韩语识别.
      *
-     * @return RecognizeKoreanResponse RecognizeKoreanResponse
+     * @param request - RecognizeKoreanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeKoreanResponse
+     *
+     * @param RecognizeKoreanRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RecognizeKoreanResponse
      */
     public function recognizeKoreanWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->needRotate)) {
-            $query['NeedRotate'] = $request->needRotate;
+        if (null !== $request->needRotate) {
+            @$query['NeedRotate'] = $request->needRotate;
         }
-        if (!Utils::isUnset($request->outputCharInfo)) {
-            $query['OutputCharInfo'] = $request->outputCharInfo;
+
+        if (null !== $request->outputCharInfo) {
+            @$query['OutputCharInfo'] = $request->outputCharInfo;
         }
-        if (!Utils::isUnset($request->outputTable)) {
-            $query['OutputTable'] = $request->outputTable;
+
+        if (null !== $request->outputTable) {
+            @$query['OutputTable'] = $request->outputTable;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeKorean',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeKorean',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeKoreanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 韩语识别
-     *  *
-     * @param RecognizeKoreanRequest $request RecognizeKoreanRequest
+     * 韩语识别.
      *
-     * @return RecognizeKoreanResponse RecognizeKoreanResponse
+     * @param request - RecognizeKoreanRequest
+     *
+     * @returns RecognizeKoreanResponse
+     *
+     * @param RecognizeKoreanRequest $request
+     *
+     * @return RecognizeKoreanResponse
      */
     public function recognizeKorean($request)
     {
@@ -2633,55 +3161,68 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 拉丁语识别
-     *  *
-     * @param RecognizeLatinRequest $request RecognizeLatinRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 拉丁语识别.
      *
-     * @return RecognizeLatinResponse RecognizeLatinResponse
+     * @param request - RecognizeLatinRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeLatinResponse
+     *
+     * @param RecognizeLatinRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RecognizeLatinResponse
      */
     public function recognizeLatinWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->needRotate)) {
-            $query['NeedRotate'] = $request->needRotate;
+        if (null !== $request->needRotate) {
+            @$query['NeedRotate'] = $request->needRotate;
         }
-        if (!Utils::isUnset($request->outputCharInfo)) {
-            $query['OutputCharInfo'] = $request->outputCharInfo;
+
+        if (null !== $request->outputCharInfo) {
+            @$query['OutputCharInfo'] = $request->outputCharInfo;
         }
-        if (!Utils::isUnset($request->outputTable)) {
-            $query['OutputTable'] = $request->outputTable;
+
+        if (null !== $request->outputTable) {
+            @$query['OutputTable'] = $request->outputTable;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeLatin',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeLatin',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeLatinResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 拉丁语识别
-     *  *
-     * @param RecognizeLatinRequest $request RecognizeLatinRequest
+     * 拉丁语识别.
      *
-     * @return RecognizeLatinResponse RecognizeLatinResponse
+     * @param request - RecognizeLatinRequest
+     *
+     * @returns RecognizeLatinResponse
+     *
+     * @param RecognizeLatinRequest $request
+     *
+     * @return RecognizeLatinResponse
      */
     public function recognizeLatin($request)
     {
@@ -2691,46 +3232,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 医疗器械经营许可证
-     *  *
-     * @param RecognizeMedicalDeviceManageLicenseRequest $request RecognizeMedicalDeviceManageLicenseRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * 医疗器械经营许可证
      *
-     * @return RecognizeMedicalDeviceManageLicenseResponse RecognizeMedicalDeviceManageLicenseResponse
+     * @param request - RecognizeMedicalDeviceManageLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeMedicalDeviceManageLicenseResponse
+     *
+     * @param RecognizeMedicalDeviceManageLicenseRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return RecognizeMedicalDeviceManageLicenseResponse
      */
     public function recognizeMedicalDeviceManageLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeMedicalDeviceManageLicense',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeMedicalDeviceManageLicense',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeMedicalDeviceManageLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 医疗器械经营许可证
-     *  *
-     * @param RecognizeMedicalDeviceManageLicenseRequest $request RecognizeMedicalDeviceManageLicenseRequest
+     * 医疗器械经营许可证
      *
-     * @return RecognizeMedicalDeviceManageLicenseResponse RecognizeMedicalDeviceManageLicenseResponse
+     * @param request - RecognizeMedicalDeviceManageLicenseRequest
+     *
+     * @returns RecognizeMedicalDeviceManageLicenseResponse
+     *
+     * @param RecognizeMedicalDeviceManageLicenseRequest $request
+     *
+     * @return RecognizeMedicalDeviceManageLicenseResponse
      */
     public function recognizeMedicalDeviceManageLicense($request)
     {
@@ -2740,46 +3291,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 医疗器械生产许可证
-     *  *
-     * @param RecognizeMedicalDeviceProduceLicenseRequest $request RecognizeMedicalDeviceProduceLicenseRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * 医疗器械生产许可证
      *
-     * @return RecognizeMedicalDeviceProduceLicenseResponse RecognizeMedicalDeviceProduceLicenseResponse
+     * @param request - RecognizeMedicalDeviceProduceLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeMedicalDeviceProduceLicenseResponse
+     *
+     * @param RecognizeMedicalDeviceProduceLicenseRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return RecognizeMedicalDeviceProduceLicenseResponse
      */
     public function recognizeMedicalDeviceProduceLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeMedicalDeviceProduceLicense',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeMedicalDeviceProduceLicense',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeMedicalDeviceProduceLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 医疗器械生产许可证
-     *  *
-     * @param RecognizeMedicalDeviceProduceLicenseRequest $request RecognizeMedicalDeviceProduceLicenseRequest
+     * 医疗器械生产许可证
      *
-     * @return RecognizeMedicalDeviceProduceLicenseResponse RecognizeMedicalDeviceProduceLicenseResponse
+     * @param request - RecognizeMedicalDeviceProduceLicenseRequest
+     *
+     * @returns RecognizeMedicalDeviceProduceLicenseResponse
+     *
+     * @param RecognizeMedicalDeviceProduceLicenseRequest $request
+     *
+     * @return RecognizeMedicalDeviceProduceLicenseResponse
      */
     public function recognizeMedicalDeviceProduceLicense($request)
     {
@@ -2789,52 +3350,64 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 混贴发票识别
-     *  *
-     * @param RecognizeMixedInvoicesRequest $request RecognizeMixedInvoicesRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 混贴发票识别.
      *
-     * @return RecognizeMixedInvoicesResponse RecognizeMixedInvoicesResponse
+     * @param request - RecognizeMixedInvoicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeMixedInvoicesResponse
+     *
+     * @param RecognizeMixedInvoicesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RecognizeMixedInvoicesResponse
      */
     public function recognizeMixedInvoicesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mergePdfPages)) {
-            $query['MergePdfPages'] = $request->mergePdfPages;
+        if (null !== $request->mergePdfPages) {
+            @$query['MergePdfPages'] = $request->mergePdfPages;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeMixedInvoices',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeMixedInvoices',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeMixedInvoicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 混贴发票识别
-     *  *
-     * @param RecognizeMixedInvoicesRequest $request RecognizeMixedInvoicesRequest
+     * 混贴发票识别.
      *
-     * @return RecognizeMixedInvoicesResponse RecognizeMixedInvoicesResponse
+     * @param request - RecognizeMixedInvoicesRequest
+     *
+     * @returns RecognizeMixedInvoicesResponse
+     *
+     * @param RecognizeMixedInvoicesRequest $request
+     *
+     * @return RecognizeMixedInvoicesResponse
      */
     public function recognizeMixedInvoices($request)
     {
@@ -2844,66 +3417,82 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 通用多语言识别
-     *  *
-     * @param RecognizeMultiLanguageRequest $tmpReq  RecognizeMultiLanguageRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 通用多语言识别.
      *
-     * @return RecognizeMultiLanguageResponse RecognizeMultiLanguageResponse
+     * @param tmpReq - RecognizeMultiLanguageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeMultiLanguageResponse
+     *
+     * @param RecognizeMultiLanguageRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RecognizeMultiLanguageResponse
      */
     public function recognizeMultiLanguageWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RecognizeMultiLanguageShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->languages)) {
-            $request->languagesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->languages, 'Languages', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->languages) {
+            $request->languagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->languages, 'Languages', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->languagesShrink)) {
-            $query['Languages'] = $request->languagesShrink;
+        if (null !== $request->languagesShrink) {
+            @$query['Languages'] = $request->languagesShrink;
         }
-        if (!Utils::isUnset($request->needRotate)) {
-            $query['NeedRotate'] = $request->needRotate;
+
+        if (null !== $request->needRotate) {
+            @$query['NeedRotate'] = $request->needRotate;
         }
-        if (!Utils::isUnset($request->needSortPage)) {
-            $query['NeedSortPage'] = $request->needSortPage;
+
+        if (null !== $request->needSortPage) {
+            @$query['NeedSortPage'] = $request->needSortPage;
         }
-        if (!Utils::isUnset($request->outputCharInfo)) {
-            $query['OutputCharInfo'] = $request->outputCharInfo;
+
+        if (null !== $request->outputCharInfo) {
+            @$query['OutputCharInfo'] = $request->outputCharInfo;
         }
-        if (!Utils::isUnset($request->outputTable)) {
-            $query['OutputTable'] = $request->outputTable;
+
+        if (null !== $request->outputTable) {
+            @$query['OutputTable'] = $request->outputTable;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $tmpReq->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeMultiLanguage',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeMultiLanguage',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeMultiLanguageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 通用多语言识别
-     *  *
-     * @param RecognizeMultiLanguageRequest $request RecognizeMultiLanguageRequest
+     * 通用多语言识别.
      *
-     * @return RecognizeMultiLanguageResponse RecognizeMultiLanguageResponse
+     * @param request - RecognizeMultiLanguageRequest
+     *
+     * @returns RecognizeMultiLanguageResponse
+     *
+     * @param RecognizeMultiLanguageRequest $request
+     *
+     * @return RecognizeMultiLanguageResponse
      */
     public function recognizeMultiLanguage($request)
     {
@@ -2913,46 +3502,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 非税收入票据识别
-     *  *
-     * @param RecognizeNonTaxInvoiceRequest $request RecognizeNonTaxInvoiceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 非税收入票据识别.
      *
-     * @return RecognizeNonTaxInvoiceResponse RecognizeNonTaxInvoiceResponse
+     * @param request - RecognizeNonTaxInvoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeNonTaxInvoiceResponse
+     *
+     * @param RecognizeNonTaxInvoiceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RecognizeNonTaxInvoiceResponse
      */
     public function recognizeNonTaxInvoiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeNonTaxInvoice',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeNonTaxInvoice',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeNonTaxInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 非税收入票据识别
-     *  *
-     * @param RecognizeNonTaxInvoiceRequest $request RecognizeNonTaxInvoiceRequest
+     * 非税收入票据识别.
      *
-     * @return RecognizeNonTaxInvoiceResponse RecognizeNonTaxInvoiceResponse
+     * @param request - RecognizeNonTaxInvoiceRequest
+     *
+     * @returns RecognizeNonTaxInvoiceResponse
+     *
+     * @param RecognizeNonTaxInvoiceRequest $request
+     *
+     * @return RecognizeNonTaxInvoiceResponse
      */
     public function recognizeNonTaxInvoice($request)
     {
@@ -2962,46 +3561,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 护照识别
-     *  *
-     * @param RecognizePassportRequest $request RecognizePassportRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 护照识别.
      *
-     * @return RecognizePassportResponse RecognizePassportResponse
+     * @param request - RecognizePassportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizePassportResponse
+     *
+     * @param RecognizePassportRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RecognizePassportResponse
      */
     public function recognizePassportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizePassport',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizePassport',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizePassportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 护照识别
-     *  *
-     * @param RecognizePassportRequest $request RecognizePassportRequest
+     * 护照识别.
      *
-     * @return RecognizePassportResponse RecognizePassportResponse
+     * @param request - RecognizePassportRequest
+     *
+     * @returns RecognizePassportResponse
+     *
+     * @param RecognizePassportRequest $request
+     *
+     * @return RecognizePassportResponse
      */
     public function recognizePassport($request)
     {
@@ -3011,46 +3620,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 支付详情页识别
-     *  *
-     * @param RecognizePaymentRecordRequest $request RecognizePaymentRecordRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 支付详情页识别.
      *
-     * @return RecognizePaymentRecordResponse RecognizePaymentRecordResponse
+     * @param request - RecognizePaymentRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizePaymentRecordResponse
+     *
+     * @param RecognizePaymentRecordRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RecognizePaymentRecordResponse
      */
     public function recognizePaymentRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizePaymentRecord',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizePaymentRecord',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizePaymentRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 支付详情页识别
-     *  *
-     * @param RecognizePaymentRecordRequest $request RecognizePaymentRecordRequest
+     * 支付详情页识别.
      *
-     * @return RecognizePaymentRecordResponse RecognizePaymentRecordResponse
+     * @param request - RecognizePaymentRecordRequest
+     *
+     * @returns RecognizePaymentRecordResponse
+     *
+     * @param RecognizePaymentRecordRequest $request
+     *
+     * @return RecognizePaymentRecordResponse
      */
     public function recognizePaymentRecord($request)
     {
@@ -3060,49 +3679,60 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 电商订单页识别
-     *  *
-     * @param RecognizePurchaseRecordRequest $request RecognizePurchaseRecordRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 电商订单页识别.
      *
-     * @return RecognizePurchaseRecordResponse RecognizePurchaseRecordResponse
+     * @param request - RecognizePurchaseRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizePurchaseRecordResponse
+     *
+     * @param RecognizePurchaseRecordRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RecognizePurchaseRecordResponse
      */
     public function recognizePurchaseRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->outputMultiOrders)) {
-            $query['OutputMultiOrders'] = $request->outputMultiOrders;
+        if (null !== $request->outputMultiOrders) {
+            @$query['OutputMultiOrders'] = $request->outputMultiOrders;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizePurchaseRecord',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizePurchaseRecord',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizePurchaseRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 电商订单页识别
-     *  *
-     * @param RecognizePurchaseRecordRequest $request RecognizePurchaseRecordRequest
+     * 电商订单页识别.
      *
-     * @return RecognizePurchaseRecordResponse RecognizePurchaseRecordResponse
+     * @param request - RecognizePurchaseRecordRequest
+     *
+     * @returns RecognizePurchaseRecordResponse
+     *
+     * @param RecognizePurchaseRecordRequest $request
+     *
+     * @return RecognizePurchaseRecordResponse
      */
     public function recognizePurchaseRecord($request)
     {
@@ -3112,46 +3742,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 定额发票
-     *  *
-     * @param RecognizeQuotaInvoiceRequest $request RecognizeQuotaInvoiceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 定额发票.
      *
-     * @return RecognizeQuotaInvoiceResponse RecognizeQuotaInvoiceResponse
+     * @param request - RecognizeQuotaInvoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeQuotaInvoiceResponse
+     *
+     * @param RecognizeQuotaInvoiceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RecognizeQuotaInvoiceResponse
      */
     public function recognizeQuotaInvoiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeQuotaInvoice',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeQuotaInvoice',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeQuotaInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 定额发票
-     *  *
-     * @param RecognizeQuotaInvoiceRequest $request RecognizeQuotaInvoiceRequest
+     * 定额发票.
      *
-     * @return RecognizeQuotaInvoiceResponse RecognizeQuotaInvoiceResponse
+     * @param request - RecognizeQuotaInvoiceRequest
+     *
+     * @returns RecognizeQuotaInvoiceResponse
+     *
+     * @param RecognizeQuotaInvoiceRequest $request
+     *
+     * @return RecognizeQuotaInvoiceResponse
      */
     public function recognizeQuotaInvoice($request)
     {
@@ -3161,46 +3801,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 网约车行程单识别
-     *  *
-     * @param RecognizeRideHailingItineraryRequest $request RecognizeRideHailingItineraryRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 网约车行程单识别.
      *
-     * @return RecognizeRideHailingItineraryResponse RecognizeRideHailingItineraryResponse
+     * @param request - RecognizeRideHailingItineraryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeRideHailingItineraryResponse
+     *
+     * @param RecognizeRideHailingItineraryRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RecognizeRideHailingItineraryResponse
      */
     public function recognizeRideHailingItineraryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeRideHailingItinerary',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeRideHailingItinerary',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeRideHailingItineraryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 网约车行程单识别
-     *  *
-     * @param RecognizeRideHailingItineraryRequest $request RecognizeRideHailingItineraryRequest
+     * 网约车行程单识别.
      *
-     * @return RecognizeRideHailingItineraryResponse RecognizeRideHailingItineraryResponse
+     * @param request - RecognizeRideHailingItineraryRequest
+     *
+     * @returns RecognizeRideHailingItineraryResponse
+     *
+     * @param RecognizeRideHailingItineraryRequest $request
+     *
+     * @return RecognizeRideHailingItineraryResponse
      */
     public function recognizeRideHailingItinerary($request)
     {
@@ -3210,46 +3860,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 增值税发票卷票
-     *  *
-     * @param RecognizeRollTicketRequest $request RecognizeRollTicketRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 增值税发票卷票.
      *
-     * @return RecognizeRollTicketResponse RecognizeRollTicketResponse
+     * @param request - RecognizeRollTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeRollTicketResponse
+     *
+     * @param RecognizeRollTicketRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RecognizeRollTicketResponse
      */
     public function recognizeRollTicketWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeRollTicket',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeRollTicket',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeRollTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 增值税发票卷票
-     *  *
-     * @param RecognizeRollTicketRequest $request RecognizeRollTicketRequest
+     * 增值税发票卷票.
      *
-     * @return RecognizeRollTicketResponse RecognizeRollTicketResponse
+     * @param request - RecognizeRollTicketRequest
+     *
+     * @returns RecognizeRollTicketResponse
+     *
+     * @param RecognizeRollTicketRequest $request
+     *
+     * @return RecognizeRollTicketResponse
      */
     public function recognizeRollTicket($request)
     {
@@ -3259,55 +3919,68 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 俄语识别
-     *  *
-     * @param RecognizeRussianRequest $request RecognizeRussianRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 俄语识别.
      *
-     * @return RecognizeRussianResponse RecognizeRussianResponse
+     * @param request - RecognizeRussianRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeRussianResponse
+     *
+     * @param RecognizeRussianRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RecognizeRussianResponse
      */
     public function recognizeRussianWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->needRotate)) {
-            $query['NeedRotate'] = $request->needRotate;
+        if (null !== $request->needRotate) {
+            @$query['NeedRotate'] = $request->needRotate;
         }
-        if (!Utils::isUnset($request->outputCharInfo)) {
-            $query['OutputCharInfo'] = $request->outputCharInfo;
+
+        if (null !== $request->outputCharInfo) {
+            @$query['OutputCharInfo'] = $request->outputCharInfo;
         }
-        if (!Utils::isUnset($request->outputTable)) {
-            $query['OutputTable'] = $request->outputTable;
+
+        if (null !== $request->outputTable) {
+            @$query['OutputTable'] = $request->outputTable;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeRussian',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeRussian',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeRussianResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 俄语识别
-     *  *
-     * @param RecognizeRussianRequest $request RecognizeRussianRequest
+     * 俄语识别.
      *
-     * @return RecognizeRussianResponse RecognizeRussianResponse
+     * @param request - RecognizeRussianRequest
+     *
+     * @returns RecognizeRussianResponse
+     *
+     * @param RecognizeRussianRequest $request
+     *
+     * @return RecognizeRussianResponse
      */
     public function recognizeRussian($request)
     {
@@ -3317,46 +3990,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 购物小票识别
-     *  *
-     * @param RecognizeShoppingReceiptRequest $request RecognizeShoppingReceiptRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 购物小票识别.
      *
-     * @return RecognizeShoppingReceiptResponse RecognizeShoppingReceiptResponse
+     * @param request - RecognizeShoppingReceiptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeShoppingReceiptResponse
+     *
+     * @param RecognizeShoppingReceiptRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RecognizeShoppingReceiptResponse
      */
     public function recognizeShoppingReceiptWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeShoppingReceipt',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeShoppingReceipt',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeShoppingReceiptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 购物小票识别
-     *  *
-     * @param RecognizeShoppingReceiptRequest $request RecognizeShoppingReceiptRequest
+     * 购物小票识别.
      *
-     * @return RecognizeShoppingReceiptResponse RecognizeShoppingReceiptResponse
+     * @param request - RecognizeShoppingReceiptRequest
+     *
+     * @returns RecognizeShoppingReceiptResponse
+     *
+     * @param RecognizeShoppingReceiptRequest $request
+     *
+     * @return RecognizeShoppingReceiptResponse
      */
     public function recognizeShoppingReceipt($request)
     {
@@ -3366,46 +4049,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 社会保障卡识别
-     *  *
-     * @param RecognizeSocialSecurityCardRequest $request RecognizeSocialSecurityCardRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 社会保障卡识别.
      *
-     * @return RecognizeSocialSecurityCardResponse RecognizeSocialSecurityCardResponse
+     * @param request - RecognizeSocialSecurityCardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeSocialSecurityCardResponse
+     *
+     * @param RecognizeSocialSecurityCardRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RecognizeSocialSecurityCardResponse
      */
     public function recognizeSocialSecurityCardWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeSocialSecurityCard',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeSocialSecurityCard',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeSocialSecurityCardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 社会保障卡识别
-     *  *
-     * @param RecognizeSocialSecurityCardRequest $request RecognizeSocialSecurityCardRequest
+     * 社会保障卡识别.
      *
-     * @return RecognizeSocialSecurityCardResponse RecognizeSocialSecurityCardResponse
+     * @param request - RecognizeSocialSecurityCardRequest
+     *
+     * @returns RecognizeSocialSecurityCardResponse
+     *
+     * @param RecognizeSocialSecurityCardRequest $request
+     *
+     * @return RecognizeSocialSecurityCardResponse
      */
     public function recognizeSocialSecurityCard($request)
     {
@@ -3415,46 +4108,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 社保卡识别
-     *  *
-     * @param RecognizeSocialSecurityCardVersionIIRequest $request RecognizeSocialSecurityCardVersionIIRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * 社保卡识别.
      *
-     * @return RecognizeSocialSecurityCardVersionIIResponse RecognizeSocialSecurityCardVersionIIResponse
+     * @param request - RecognizeSocialSecurityCardVersionIIRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeSocialSecurityCardVersionIIResponse
+     *
+     * @param RecognizeSocialSecurityCardVersionIIRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return RecognizeSocialSecurityCardVersionIIResponse
      */
     public function recognizeSocialSecurityCardVersionIIWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeSocialSecurityCardVersionII',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeSocialSecurityCardVersionII',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeSocialSecurityCardVersionIIResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 社保卡识别
-     *  *
-     * @param RecognizeSocialSecurityCardVersionIIRequest $request RecognizeSocialSecurityCardVersionIIRequest
+     * 社保卡识别.
      *
-     * @return RecognizeSocialSecurityCardVersionIIResponse RecognizeSocialSecurityCardVersionIIResponse
+     * @param request - RecognizeSocialSecurityCardVersionIIRequest
+     *
+     * @returns RecognizeSocialSecurityCardVersionIIResponse
+     *
+     * @param RecognizeSocialSecurityCardVersionIIRequest $request
+     *
+     * @return RecognizeSocialSecurityCardVersionIIResponse
      */
     public function recognizeSocialSecurityCardVersionII($request)
     {
@@ -3464,58 +4167,72 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 表格识别
-     *  *
-     * @param RecognizeTableOcrRequest $request RecognizeTableOcrRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 表格识别.
      *
-     * @return RecognizeTableOcrResponse RecognizeTableOcrResponse
+     * @param request - RecognizeTableOcrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeTableOcrResponse
+     *
+     * @param RecognizeTableOcrRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RecognizeTableOcrResponse
      */
     public function recognizeTableOcrWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isHandWriting)) {
-            $query['IsHandWriting'] = $request->isHandWriting;
+        if (null !== $request->isHandWriting) {
+            @$query['IsHandWriting'] = $request->isHandWriting;
         }
-        if (!Utils::isUnset($request->lineLess)) {
-            $query['LineLess'] = $request->lineLess;
+
+        if (null !== $request->lineLess) {
+            @$query['LineLess'] = $request->lineLess;
         }
-        if (!Utils::isUnset($request->needRotate)) {
-            $query['NeedRotate'] = $request->needRotate;
+
+        if (null !== $request->needRotate) {
+            @$query['NeedRotate'] = $request->needRotate;
         }
-        if (!Utils::isUnset($request->skipDetection)) {
-            $query['SkipDetection'] = $request->skipDetection;
+
+        if (null !== $request->skipDetection) {
+            @$query['SkipDetection'] = $request->skipDetection;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeTableOcr',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeTableOcr',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeTableOcrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 表格识别
-     *  *
-     * @param RecognizeTableOcrRequest $request RecognizeTableOcrRequest
+     * 表格识别.
      *
-     * @return RecognizeTableOcrResponse RecognizeTableOcrResponse
+     * @param request - RecognizeTableOcrRequest
+     *
+     * @returns RecognizeTableOcrResponse
+     *
+     * @param RecognizeTableOcrRequest $request
+     *
+     * @return RecognizeTableOcrResponse
      */
     public function recognizeTableOcr($request)
     {
@@ -3525,46 +4242,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 税收完税证明识别
-     *  *
-     * @param RecognizeTaxClearanceCertificateRequest $request RecognizeTaxClearanceCertificateRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 税收完税证明识别.
      *
-     * @return RecognizeTaxClearanceCertificateResponse RecognizeTaxClearanceCertificateResponse
+     * @param request - RecognizeTaxClearanceCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeTaxClearanceCertificateResponse
+     *
+     * @param RecognizeTaxClearanceCertificateRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return RecognizeTaxClearanceCertificateResponse
      */
     public function recognizeTaxClearanceCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeTaxClearanceCertificate',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeTaxClearanceCertificate',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeTaxClearanceCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 税收完税证明识别
-     *  *
-     * @param RecognizeTaxClearanceCertificateRequest $request RecognizeTaxClearanceCertificateRequest
+     * 税收完税证明识别.
      *
-     * @return RecognizeTaxClearanceCertificateResponse RecognizeTaxClearanceCertificateResponse
+     * @param request - RecognizeTaxClearanceCertificateRequest
+     *
+     * @returns RecognizeTaxClearanceCertificateResponse
+     *
+     * @param RecognizeTaxClearanceCertificateRequest $request
+     *
+     * @return RecognizeTaxClearanceCertificateResponse
      */
     public function recognizeTaxClearanceCertificate($request)
     {
@@ -3574,46 +4301,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 出租车发票
-     *  *
-     * @param RecognizeTaxiInvoiceRequest $request RecognizeTaxiInvoiceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 出租车发票.
      *
-     * @return RecognizeTaxiInvoiceResponse RecognizeTaxiInvoiceResponse
+     * @param request - RecognizeTaxiInvoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeTaxiInvoiceResponse
+     *
+     * @param RecognizeTaxiInvoiceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RecognizeTaxiInvoiceResponse
      */
     public function recognizeTaxiInvoiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeTaxiInvoice',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeTaxiInvoice',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeTaxiInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 出租车发票
-     *  *
-     * @param RecognizeTaxiInvoiceRequest $request RecognizeTaxiInvoiceRequest
+     * 出租车发票.
      *
-     * @return RecognizeTaxiInvoiceResponse RecognizeTaxiInvoiceResponse
+     * @param request - RecognizeTaxiInvoiceRequest
+     *
+     * @returns RecognizeTaxiInvoiceResponse
+     *
+     * @param RecognizeTaxiInvoiceRequest $request
+     *
+     * @return RecognizeTaxiInvoiceResponse
      */
     public function recognizeTaxiInvoice($request)
     {
@@ -3623,55 +4360,68 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 泰语识别
-     *  *
-     * @param RecognizeThaiRequest $request RecognizeThaiRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 泰语识别.
      *
-     * @return RecognizeThaiResponse RecognizeThaiResponse
+     * @param request - RecognizeThaiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeThaiResponse
+     *
+     * @param RecognizeThaiRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RecognizeThaiResponse
      */
     public function recognizeThaiWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->needRotate)) {
-            $query['NeedRotate'] = $request->needRotate;
+        if (null !== $request->needRotate) {
+            @$query['NeedRotate'] = $request->needRotate;
         }
-        if (!Utils::isUnset($request->outputCharInfo)) {
-            $query['OutputCharInfo'] = $request->outputCharInfo;
+
+        if (null !== $request->outputCharInfo) {
+            @$query['OutputCharInfo'] = $request->outputCharInfo;
         }
-        if (!Utils::isUnset($request->outputTable)) {
-            $query['OutputTable'] = $request->outputTable;
+
+        if (null !== $request->outputTable) {
+            @$query['OutputTable'] = $request->outputTable;
         }
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeThai',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeThai',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeThaiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 泰语识别
-     *  *
-     * @param RecognizeThaiRequest $request RecognizeThaiRequest
+     * 泰语识别.
      *
-     * @return RecognizeThaiResponse RecognizeThaiResponse
+     * @param request - RecognizeThaiRequest
+     *
+     * @returns RecognizeThaiResponse
+     *
+     * @param RecognizeThaiRequest $request
+     *
+     * @return RecognizeThaiResponse
      */
     public function recognizeThai($request)
     {
@@ -3681,46 +4431,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 过路过桥费发票识别
-     *  *
-     * @param RecognizeTollInvoiceRequest $request RecognizeTollInvoiceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 过路过桥费发票识别.
      *
-     * @return RecognizeTollInvoiceResponse RecognizeTollInvoiceResponse
+     * @param request - RecognizeTollInvoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeTollInvoiceResponse
+     *
+     * @param RecognizeTollInvoiceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RecognizeTollInvoiceResponse
      */
     public function recognizeTollInvoiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeTollInvoice',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeTollInvoice',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeTollInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 过路过桥费发票识别
-     *  *
-     * @param RecognizeTollInvoiceRequest $request RecognizeTollInvoiceRequest
+     * 过路过桥费发票识别.
      *
-     * @return RecognizeTollInvoiceResponse RecognizeTollInvoiceResponse
+     * @param request - RecognizeTollInvoiceRequest
+     *
+     * @returns RecognizeTollInvoiceResponse
+     *
+     * @param RecognizeTollInvoiceRequest $request
+     *
+     * @return RecognizeTollInvoiceResponse
      */
     public function recognizeTollInvoice($request)
     {
@@ -3730,46 +4490,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 商标注册证
-     *  *
-     * @param RecognizeTradeMarkCertificationRequest $request RecognizeTradeMarkCertificationRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 商标注册证
      *
-     * @return RecognizeTradeMarkCertificationResponse RecognizeTradeMarkCertificationResponse
+     * @param request - RecognizeTradeMarkCertificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeTradeMarkCertificationResponse
+     *
+     * @param RecognizeTradeMarkCertificationRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return RecognizeTradeMarkCertificationResponse
      */
     public function recognizeTradeMarkCertificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeTradeMarkCertification',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeTradeMarkCertification',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeTradeMarkCertificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 商标注册证
-     *  *
-     * @param RecognizeTradeMarkCertificationRequest $request RecognizeTradeMarkCertificationRequest
+     * 商标注册证
      *
-     * @return RecognizeTradeMarkCertificationResponse RecognizeTradeMarkCertificationResponse
+     * @param request - RecognizeTradeMarkCertificationRequest
+     *
+     * @returns RecognizeTradeMarkCertificationResponse
+     *
+     * @param RecognizeTradeMarkCertificationRequest $request
+     *
+     * @return RecognizeTradeMarkCertificationResponse
      */
     public function recognizeTradeMarkCertification($request)
     {
@@ -3779,46 +4549,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 火车票
-     *  *
-     * @param RecognizeTrainInvoiceRequest $request RecognizeTrainInvoiceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 火车票.
      *
-     * @return RecognizeTrainInvoiceResponse RecognizeTrainInvoiceResponse
+     * @param request - RecognizeTrainInvoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeTrainInvoiceResponse
+     *
+     * @param RecognizeTrainInvoiceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RecognizeTrainInvoiceResponse
      */
     public function recognizeTrainInvoiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeTrainInvoice',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeTrainInvoice',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeTrainInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 火车票
-     *  *
-     * @param RecognizeTrainInvoiceRequest $request RecognizeTrainInvoiceRequest
+     * 火车票.
      *
-     * @return RecognizeTrainInvoiceResponse RecognizeTrainInvoiceResponse
+     * @param request - RecognizeTrainInvoiceRequest
+     *
+     * @returns RecognizeTrainInvoiceResponse
+     *
+     * @param RecognizeTrainInvoiceRequest $request
+     *
+     * @return RecognizeTrainInvoiceResponse
      */
     public function recognizeTrainInvoice($request)
     {
@@ -3828,46 +4608,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 二手车统一销售发票识别
-     *  *
-     * @param RecognizeUsedCarInvoiceRequest $request RecognizeUsedCarInvoiceRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 二手车统一销售发票识别.
      *
-     * @return RecognizeUsedCarInvoiceResponse RecognizeUsedCarInvoiceResponse
+     * @param request - RecognizeUsedCarInvoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeUsedCarInvoiceResponse
+     *
+     * @param RecognizeUsedCarInvoiceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RecognizeUsedCarInvoiceResponse
      */
     public function recognizeUsedCarInvoiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeUsedCarInvoice',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeUsedCarInvoice',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeUsedCarInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 二手车统一销售发票识别
-     *  *
-     * @param RecognizeUsedCarInvoiceRequest $request RecognizeUsedCarInvoiceRequest
+     * 二手车统一销售发票识别.
      *
-     * @return RecognizeUsedCarInvoiceResponse RecognizeUsedCarInvoiceResponse
+     * @param request - RecognizeUsedCarInvoiceRequest
+     *
+     * @returns RecognizeUsedCarInvoiceResponse
+     *
+     * @param RecognizeUsedCarInvoiceRequest $request
+     *
+     * @return RecognizeUsedCarInvoiceResponse
      */
     public function recognizeUsedCarInvoice($request)
     {
@@ -3877,46 +4667,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 车辆合格证识别
-     *  *
-     * @param RecognizeVehicleCertificationRequest $request RecognizeVehicleCertificationRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 车辆合格证识别.
      *
-     * @return RecognizeVehicleCertificationResponse RecognizeVehicleCertificationResponse
+     * @param request - RecognizeVehicleCertificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeVehicleCertificationResponse
+     *
+     * @param RecognizeVehicleCertificationRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RecognizeVehicleCertificationResponse
      */
     public function recognizeVehicleCertificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeVehicleCertification',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeVehicleCertification',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeVehicleCertificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 车辆合格证识别
-     *  *
-     * @param RecognizeVehicleCertificationRequest $request RecognizeVehicleCertificationRequest
+     * 车辆合格证识别.
      *
-     * @return RecognizeVehicleCertificationResponse RecognizeVehicleCertificationResponse
+     * @param request - RecognizeVehicleCertificationRequest
+     *
+     * @returns RecognizeVehicleCertificationResponse
+     *
+     * @param RecognizeVehicleCertificationRequest $request
+     *
+     * @return RecognizeVehicleCertificationResponse
      */
     public function recognizeVehicleCertification($request)
     {
@@ -3926,46 +4726,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 行驶证识别
-     *  *
-     * @param RecognizeVehicleLicenseRequest $request RecognizeVehicleLicenseRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 行驶证识别.
      *
-     * @return RecognizeVehicleLicenseResponse RecognizeVehicleLicenseResponse
+     * @param request - RecognizeVehicleLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeVehicleLicenseResponse
+     *
+     * @param RecognizeVehicleLicenseRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RecognizeVehicleLicenseResponse
      */
     public function recognizeVehicleLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeVehicleLicense',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeVehicleLicense',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeVehicleLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 行驶证识别
-     *  *
-     * @param RecognizeVehicleLicenseRequest $request RecognizeVehicleLicenseRequest
+     * 行驶证识别.
      *
-     * @return RecognizeVehicleLicenseResponse RecognizeVehicleLicenseResponse
+     * @param request - RecognizeVehicleLicenseRequest
+     *
+     * @returns RecognizeVehicleLicenseResponse
+     *
+     * @param RecognizeVehicleLicenseRequest $request
+     *
+     * @return RecognizeVehicleLicenseResponse
      */
     public function recognizeVehicleLicense($request)
     {
@@ -3975,46 +4785,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 机动车注册登记证识别
-     *  *
-     * @param RecognizeVehicleRegistrationRequest $request RecognizeVehicleRegistrationRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 机动车注册登记证识别.
      *
-     * @return RecognizeVehicleRegistrationResponse RecognizeVehicleRegistrationResponse
+     * @param request - RecognizeVehicleRegistrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeVehicleRegistrationResponse
+     *
+     * @param RecognizeVehicleRegistrationRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RecognizeVehicleRegistrationResponse
      */
     public function recognizeVehicleRegistrationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeVehicleRegistration',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeVehicleRegistration',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeVehicleRegistrationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 机动车注册登记证识别
-     *  *
-     * @param RecognizeVehicleRegistrationRequest $request RecognizeVehicleRegistrationRequest
+     * 机动车注册登记证识别.
      *
-     * @return RecognizeVehicleRegistrationResponse RecognizeVehicleRegistrationResponse
+     * @param request - RecognizeVehicleRegistrationRequest
+     *
+     * @returns RecognizeVehicleRegistrationResponse
+     *
+     * @param RecognizeVehicleRegistrationRequest $request
+     *
+     * @return RecognizeVehicleRegistrationResponse
      */
     public function recognizeVehicleRegistration($request)
     {
@@ -4024,46 +4844,56 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 电子面单识别
-     *  *
-     * @param RecognizeWaybillRequest $request RecognizeWaybillRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 电子面单识别.
      *
-     * @return RecognizeWaybillResponse RecognizeWaybillResponse
+     * @param request - RecognizeWaybillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecognizeWaybillResponse
+     *
+     * @param RecognizeWaybillRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RecognizeWaybillResponse
      */
     public function recognizeWaybillWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
             'stream' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'RecognizeWaybill',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecognizeWaybill',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RecognizeWaybillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 电子面单识别
-     *  *
-     * @param RecognizeWaybillRequest $request RecognizeWaybillRequest
+     * 电子面单识别.
      *
-     * @return RecognizeWaybillResponse RecognizeWaybillResponse
+     * @param request - RecognizeWaybillRequest
+     *
+     * @returns RecognizeWaybillResponse
+     *
+     * @param RecognizeWaybillRequest $request
+     *
+     * @return RecognizeWaybillResponse
      */
     public function recognizeWaybill($request)
     {
@@ -4073,50 +4903,62 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 营业执照核验
-     *  *
-     * @param VerifyBusinessLicenseRequest $request VerifyBusinessLicenseRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 营业执照核验.
      *
-     * @return VerifyBusinessLicenseResponse VerifyBusinessLicenseResponse
+     * @param request - VerifyBusinessLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyBusinessLicenseResponse
+     *
+     * @param VerifyBusinessLicenseRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return VerifyBusinessLicenseResponse
      */
     public function verifyBusinessLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->companyName)) {
-            $query['CompanyName'] = $request->companyName;
+        if (null !== $request->companyName) {
+            @$query['CompanyName'] = $request->companyName;
         }
-        if (!Utils::isUnset($request->creditCode)) {
-            $query['CreditCode'] = $request->creditCode;
+
+        if (null !== $request->creditCode) {
+            @$query['CreditCode'] = $request->creditCode;
         }
-        if (!Utils::isUnset($request->legalPerson)) {
-            $query['LegalPerson'] = $request->legalPerson;
+
+        if (null !== $request->legalPerson) {
+            @$query['LegalPerson'] = $request->legalPerson;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifyBusinessLicense',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyBusinessLicense',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VerifyBusinessLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 营业执照核验
-     *  *
-     * @param VerifyBusinessLicenseRequest $request VerifyBusinessLicenseRequest
+     * 营业执照核验.
      *
-     * @return VerifyBusinessLicenseResponse VerifyBusinessLicenseResponse
+     * @param request - VerifyBusinessLicenseRequest
+     *
+     * @returns VerifyBusinessLicenseResponse
+     *
+     * @param VerifyBusinessLicenseRequest $request
+     *
+     * @return VerifyBusinessLicenseResponse
      */
     public function verifyBusinessLicense($request)
     {
@@ -4126,59 +4968,74 @@ class Ocrapi extends OpenApiClient
     }
 
     /**
-     * @summary 增值税发票核验
-     *  *
-     * @param VerifyVATInvoiceRequest $request VerifyVATInvoiceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 增值税发票核验.
      *
-     * @return VerifyVATInvoiceResponse VerifyVATInvoiceResponse
+     * @param request - VerifyVATInvoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyVATInvoiceResponse
+     *
+     * @param VerifyVATInvoiceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return VerifyVATInvoiceResponse
      */
     public function verifyVATInvoiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->invoiceCode)) {
-            $query['InvoiceCode'] = $request->invoiceCode;
+        if (null !== $request->invoiceCode) {
+            @$query['InvoiceCode'] = $request->invoiceCode;
         }
-        if (!Utils::isUnset($request->invoiceDate)) {
-            $query['InvoiceDate'] = $request->invoiceDate;
+
+        if (null !== $request->invoiceDate) {
+            @$query['InvoiceDate'] = $request->invoiceDate;
         }
-        if (!Utils::isUnset($request->invoiceKind)) {
-            $query['InvoiceKind'] = $request->invoiceKind;
+
+        if (null !== $request->invoiceKind) {
+            @$query['InvoiceKind'] = $request->invoiceKind;
         }
-        if (!Utils::isUnset($request->invoiceNo)) {
-            $query['InvoiceNo'] = $request->invoiceNo;
+
+        if (null !== $request->invoiceNo) {
+            @$query['InvoiceNo'] = $request->invoiceNo;
         }
-        if (!Utils::isUnset($request->invoiceSum)) {
-            $query['InvoiceSum'] = $request->invoiceSum;
+
+        if (null !== $request->invoiceSum) {
+            @$query['InvoiceSum'] = $request->invoiceSum;
         }
-        if (!Utils::isUnset($request->verifyCode)) {
-            $query['VerifyCode'] = $request->verifyCode;
+
+        if (null !== $request->verifyCode) {
+            @$query['VerifyCode'] = $request->verifyCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifyVATInvoice',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyVATInvoice',
+            'version' => '2021-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VerifyVATInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 增值税发票核验
-     *  *
-     * @param VerifyVATInvoiceRequest $request VerifyVATInvoiceRequest
+     * 增值税发票核验.
      *
-     * @return VerifyVATInvoiceResponse VerifyVATInvoiceResponse
+     * @param request - VerifyVATInvoiceRequest
+     *
+     * @returns VerifyVATInvoiceResponse
+     *
+     * @param VerifyVATInvoiceRequest $request
+     *
+     * @return VerifyVATInvoiceResponse
      */
     public function verifyVATInvoice($request)
     {

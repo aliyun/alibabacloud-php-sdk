@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeGeneralStructureResponseBody\data\subImages;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class kvInfo extends Model
 {
@@ -14,26 +14,26 @@ class kvInfo extends Model
     public $data;
 
     /**
-     * @example 6
-     *
      * @var int
      */
     public $kvCount;
     protected $_name = [
-        'data'    => 'Data',
+        'data' => 'Data',
         'kvCount' => 'KvCount',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->kvCount) {
             $res['KvCount'] = $this->kvCount;
         }
@@ -41,17 +41,18 @@ class kvInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return kvInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['KvCount'])) {
             $model->kvCount = $map['KvCount'];
         }

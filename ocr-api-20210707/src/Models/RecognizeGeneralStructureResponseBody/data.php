@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeGeneralStructureResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeGeneralStructureResponseBody\data\subImages;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 2000
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $subImageCount;
@@ -29,40 +25,45 @@ class data extends Model
     public $subImages;
 
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $width;
     protected $_name = [
-        'height'        => 'Height',
+        'height' => 'Height',
         'subImageCount' => 'SubImageCount',
-        'subImages'     => 'SubImages',
-        'width'         => 'Width',
+        'subImages' => 'SubImages',
+        'width' => 'Width',
     ];
 
     public function validate()
     {
+        if (\is_array($this->subImages)) {
+            Model::validateArray($this->subImages);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
+
         if (null !== $this->subImageCount) {
             $res['SubImageCount'] = $this->subImageCount;
         }
+
         if (null !== $this->subImages) {
-            $res['SubImages'] = [];
-            if (null !== $this->subImages && \is_array($this->subImages)) {
-                $n = 0;
-                foreach ($this->subImages as $item) {
-                    $res['SubImages'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subImages)) {
+                $res['SubImages'] = [];
+                $n1 = 0;
+                foreach ($this->subImages as $item1) {
+                    $res['SubImages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->width) {
             $res['Width'] = $this->width;
         }
@@ -70,29 +71,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
+
         if (isset($map['SubImageCount'])) {
             $model->subImageCount = $map['SubImageCount'];
         }
+
         if (isset($map['SubImages'])) {
             if (!empty($map['SubImages'])) {
                 $model->subImages = [];
-                $n                = 0;
-                foreach ($map['SubImages'] as $item) {
-                    $model->subImages[$n++] = null !== $item ? subImages::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SubImages'] as $item1) {
+                    $model->subImages[$n1++] = subImages::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
         }

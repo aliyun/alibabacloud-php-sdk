@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextResponseBody\data\subImages\barCodeInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextResponseBody\data\subImages\barCodeInfo\barCodeDetails\barCodePoints;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextResponseBody\data\subImages\barCodeInfo\barCodeDetails\barCodeRect;
-use AlibabaCloud\Tea\Model;
 
 class barCodeDetails extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $barCodeAngle;
@@ -28,51 +26,58 @@ class barCodeDetails extends Model
     public $barCodeRect;
 
     /**
-     * @example "1100011XXXXXX"
-     *
      * @var mixed
      */
     public $data;
 
     /**
-     * @example Code128
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'barCodeAngle'  => 'BarCodeAngle',
+        'barCodeAngle' => 'BarCodeAngle',
         'barCodePoints' => 'BarCodePoints',
-        'barCodeRect'   => 'BarCodeRect',
-        'data'          => 'Data',
-        'type'          => 'Type',
+        'barCodeRect' => 'BarCodeRect',
+        'data' => 'Data',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->barCodePoints)) {
+            Model::validateArray($this->barCodePoints);
+        }
+        if (null !== $this->barCodeRect) {
+            $this->barCodeRect->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->barCodeAngle) {
             $res['BarCodeAngle'] = $this->barCodeAngle;
         }
+
         if (null !== $this->barCodePoints) {
-            $res['BarCodePoints'] = [];
-            if (null !== $this->barCodePoints && \is_array($this->barCodePoints)) {
-                $n = 0;
-                foreach ($this->barCodePoints as $item) {
-                    $res['BarCodePoints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->barCodePoints)) {
+                $res['BarCodePoints'] = [];
+                $n1 = 0;
+                foreach ($this->barCodePoints as $item1) {
+                    $res['BarCodePoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->barCodeRect) {
-            $res['BarCodeRect'] = null !== $this->barCodeRect ? $this->barCodeRect->toMap() : null;
+            $res['BarCodeRect'] = null !== $this->barCodeRect ? $this->barCodeRect->toArray($noStream) : $this->barCodeRect;
         }
+
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -80,32 +85,36 @@ class barCodeDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return barCodeDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BarCodeAngle'])) {
             $model->barCodeAngle = $map['BarCodeAngle'];
         }
+
         if (isset($map['BarCodePoints'])) {
             if (!empty($map['BarCodePoints'])) {
                 $model->barCodePoints = [];
-                $n                    = 0;
-                foreach ($map['BarCodePoints'] as $item) {
-                    $model->barCodePoints[$n++] = null !== $item ? barCodePoints::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BarCodePoints'] as $item1) {
+                    $model->barCodePoints[$n1++] = barCodePoints::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['BarCodeRect'])) {
             $model->barCodeRect = barCodeRect::fromMap($map['BarCodeRect']);
         }
+
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

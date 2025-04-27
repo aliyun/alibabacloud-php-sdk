@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextResponseBody\data\subImages\qrCodeInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextResponseBody\data\subImages\qrCodeInfo\qrCodeDetails\qrCodePoints;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextResponseBody\data\subImages\qrCodeInfo\qrCodeDetails\qrCodeRect;
-use AlibabaCloud\Tea\Model;
 
 class qrCodeDetails extends Model
 {
     /**
-     * @example “http://www.gsxt.gov.cn/indeXXX”
-     *
      * @var mixed
      */
     public $data;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $qrCodeAngle;
@@ -34,64 +30,77 @@ class qrCodeDetails extends Model
      */
     public $qrCodeRect;
     protected $_name = [
-        'data'         => 'Data',
-        'qrCodeAngle'  => 'QrCodeAngle',
+        'data' => 'Data',
+        'qrCodeAngle' => 'QrCodeAngle',
         'qrCodePoints' => 'QrCodePoints',
-        'qrCodeRect'   => 'QrCodeRect',
+        'qrCodeRect' => 'QrCodeRect',
     ];
 
     public function validate()
     {
+        if (\is_array($this->qrCodePoints)) {
+            Model::validateArray($this->qrCodePoints);
+        }
+        if (null !== $this->qrCodeRect) {
+            $this->qrCodeRect->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->qrCodeAngle) {
             $res['QrCodeAngle'] = $this->qrCodeAngle;
         }
+
         if (null !== $this->qrCodePoints) {
-            $res['QrCodePoints'] = [];
-            if (null !== $this->qrCodePoints && \is_array($this->qrCodePoints)) {
-                $n = 0;
-                foreach ($this->qrCodePoints as $item) {
-                    $res['QrCodePoints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->qrCodePoints)) {
+                $res['QrCodePoints'] = [];
+                $n1 = 0;
+                foreach ($this->qrCodePoints as $item1) {
+                    $res['QrCodePoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->qrCodeRect) {
-            $res['QrCodeRect'] = null !== $this->qrCodeRect ? $this->qrCodeRect->toMap() : null;
+            $res['QrCodeRect'] = null !== $this->qrCodeRect ? $this->qrCodeRect->toArray($noStream) : $this->qrCodeRect;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return qrCodeDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['QrCodeAngle'])) {
             $model->qrCodeAngle = $map['QrCodeAngle'];
         }
+
         if (isset($map['QrCodePoints'])) {
             if (!empty($map['QrCodePoints'])) {
                 $model->qrCodePoints = [];
-                $n                   = 0;
-                foreach ($map['QrCodePoints'] as $item) {
-                    $model->qrCodePoints[$n++] = null !== $item ? qrCodePoints::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['QrCodePoints'] as $item1) {
+                    $model->qrCodePoints[$n1++] = qrCodePoints::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['QrCodeRect'])) {
             $model->qrCodeRect = qrCodeRect::fromMap($map['QrCodeRect']);
         }

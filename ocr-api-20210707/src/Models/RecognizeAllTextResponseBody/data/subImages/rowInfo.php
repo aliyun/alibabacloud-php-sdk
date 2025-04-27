@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextResponseBody\data\subImages;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextResponseBody\data\subImages\rowInfo\rowDetails;
-use AlibabaCloud\Tea\Model;
 
 class rowInfo extends Model
 {
     /**
-     * @example 9
-     *
      * @var int
      */
     public $rowCount;
@@ -21,26 +19,31 @@ class rowInfo extends Model
      */
     public $rowDetails;
     protected $_name = [
-        'rowCount'   => 'RowCount',
+        'rowCount' => 'RowCount',
         'rowDetails' => 'RowDetails',
     ];
 
     public function validate()
     {
+        if (\is_array($this->rowDetails)) {
+            Model::validateArray($this->rowDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rowCount) {
             $res['RowCount'] = $this->rowCount;
         }
+
         if (null !== $this->rowDetails) {
-            $res['RowDetails'] = [];
-            if (null !== $this->rowDetails && \is_array($this->rowDetails)) {
-                $n = 0;
-                foreach ($this->rowDetails as $item) {
-                    $res['RowDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->rowDetails)) {
+                $res['RowDetails'] = [];
+                $n1 = 0;
+                foreach ($this->rowDetails as $item1) {
+                    $res['RowDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -48,23 +51,24 @@ class rowInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rowInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RowCount'])) {
             $model->rowCount = $map['RowCount'];
         }
+
         if (isset($map['RowDetails'])) {
             if (!empty($map['RowDetails'])) {
                 $model->rowDetails = [];
-                $n                 = 0;
-                foreach ($map['RowDetails'] as $item) {
-                    $model->rowDetails[$n++] = null !== $item ? rowDetails::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RowDetails'] as $item1) {
+                    $model->rowDetails[$n1++] = rowDetails::fromMap($item1);
                 }
             }
         }

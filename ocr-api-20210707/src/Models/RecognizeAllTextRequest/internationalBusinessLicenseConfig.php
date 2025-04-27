@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class internationalBusinessLicenseConfig extends Model
 {
@@ -18,9 +18,10 @@ class internationalBusinessLicenseConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->country) {
@@ -30,11 +31,11 @@ class internationalBusinessLicenseConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return internationalBusinessLicenseConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

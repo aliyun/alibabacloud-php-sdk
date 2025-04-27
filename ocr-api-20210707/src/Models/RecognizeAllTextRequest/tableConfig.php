@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tableConfig extends Model
 {
@@ -29,27 +29,31 @@ class tableConfig extends Model
     public $outputTableHtml;
     protected $_name = [
         'isHandWritingTable' => 'IsHandWritingTable',
-        'isLineLessTable'    => 'IsLineLessTable',
-        'outputTableExcel'   => 'OutputTableExcel',
-        'outputTableHtml'    => 'OutputTableHtml',
+        'isLineLessTable' => 'IsLineLessTable',
+        'outputTableExcel' => 'OutputTableExcel',
+        'outputTableHtml' => 'OutputTableHtml',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isHandWritingTable) {
             $res['IsHandWritingTable'] = $this->isHandWritingTable;
         }
+
         if (null !== $this->isLineLessTable) {
             $res['IsLineLessTable'] = $this->isLineLessTable;
         }
+
         if (null !== $this->outputTableExcel) {
             $res['OutputTableExcel'] = $this->outputTableExcel;
         }
+
         if (null !== $this->outputTableHtml) {
             $res['OutputTableHtml'] = $this->outputTableHtml;
         }
@@ -57,23 +61,26 @@ class tableConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsHandWritingTable'])) {
             $model->isHandWritingTable = $map['IsHandWritingTable'];
         }
+
         if (isset($map['IsLineLessTable'])) {
             $model->isLineLessTable = $map['IsLineLessTable'];
         }
+
         if (isset($map['OutputTableExcel'])) {
             $model->outputTableExcel = $map['OutputTableExcel'];
         }
+
         if (isset($map['OutputTableHtml'])) {
             $model->outputTableHtml = $map['OutputTableHtml'];
         }

@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VerifyBusinessLicenseRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $companyName;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $creditCode;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $legalPerson;
     protected $_name = [
         'companyName' => 'CompanyName',
-        'creditCode'  => 'CreditCode',
+        'creditCode' => 'CreditCode',
         'legalPerson' => 'LegalPerson',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->companyName) {
             $res['CompanyName'] = $this->companyName;
         }
+
         if (null !== $this->creditCode) {
             $res['CreditCode'] = $this->creditCode;
         }
+
         if (null !== $this->legalPerson) {
             $res['LegalPerson'] = $this->legalPerson;
         }
@@ -54,20 +51,22 @@ class VerifyBusinessLicenseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VerifyBusinessLicenseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CompanyName'])) {
             $model->companyName = $map['CompanyName'];
         }
+
         if (isset($map['CreditCode'])) {
             $model->creditCode = $map['CreditCode'];
         }
+
         if (isset($map['LegalPerson'])) {
             $model->legalPerson = $map['LegalPerson'];
         }

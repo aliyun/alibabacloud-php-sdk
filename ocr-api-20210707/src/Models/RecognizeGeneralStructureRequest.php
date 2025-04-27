@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class RecognizeGeneralStructureRequest extends Model
@@ -15,8 +15,6 @@ class RecognizeGeneralStructureRequest extends Model
     public $keys;
 
     /**
-     * @example https://example.png
-     *
      * @var string
      */
     public $url;
@@ -27,23 +25,35 @@ class RecognizeGeneralStructureRequest extends Model
     public $body;
     protected $_name = [
         'keys' => 'Keys',
-        'url'  => 'Url',
+        'url' => 'Url',
         'body' => 'body',
     ];
 
     public function validate()
     {
+        if (\is_array($this->keys)) {
+            Model::validateArray($this->keys);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keys) {
-            $res['Keys'] = $this->keys;
+            if (\is_array($this->keys)) {
+                $res['Keys'] = [];
+                $n1 = 0;
+                foreach ($this->keys as $item1) {
+                    $res['Keys'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
+
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
@@ -51,22 +61,28 @@ class RecognizeGeneralStructureRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecognizeGeneralStructureRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Keys'])) {
             if (!empty($map['Keys'])) {
-                $model->keys = $map['Keys'];
+                $model->keys = [];
+                $n1 = 0;
+                foreach ($map['Keys'] as $item1) {
+                    $model->keys[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
+
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }

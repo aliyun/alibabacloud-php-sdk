@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models\DataSubImagesFigureInfoValue\figureDetails;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class figureRect extends Model
 {
     /**
-     * @example 100
-     *
      * @var int
      */
     public $centerX;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $centerY;
 
     /**
-     * @example 50
-     *
      * @var int
      */
     public $width;
 
     /**
-     * @example 50
-     *
      * @var int
      */
     public $height;
     protected $_name = [
         'centerX' => 'CenterX',
         'centerY' => 'CenterY',
-        'width'   => 'Width',
-        'height'  => 'Height',
+        'width' => 'Width',
+        'height' => 'Height',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->centerX) {
             $res['CenterX'] = $this->centerX;
         }
+
         if (null !== $this->centerY) {
             $res['CenterY'] = $this->centerY;
         }
+
         if (null !== $this->width) {
             $res['Width'] = $this->width;
         }
+
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
@@ -65,23 +61,26 @@ class figureRect extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return figureRect
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CenterX'])) {
             $model->centerX = $map['CenterX'];
         }
+
         if (isset($map['CenterY'])) {
             $model->centerY = $map['CenterY'];
         }
+
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
         }
+
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }

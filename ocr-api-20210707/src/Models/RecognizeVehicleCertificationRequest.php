@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class RecognizeVehicleCertificationRequest extends Model
 {
     /**
-     * @example https://img.alicdn.com/imgextra/i1/O1CN0196uE7i1FXD9TpYqLy_!!6000000000496-0-tps-3024-4032.jpg
-     *
      * @var string
      */
     public $url;
@@ -21,20 +19,22 @@ class RecognizeVehicleCertificationRequest extends Model
      */
     public $body;
     protected $_name = [
-        'url'  => 'Url',
+        'url' => 'Url',
         'body' => 'body',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
+
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
@@ -42,17 +42,18 @@ class RecognizeVehicleCertificationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecognizeVehicleCertificationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
+
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }

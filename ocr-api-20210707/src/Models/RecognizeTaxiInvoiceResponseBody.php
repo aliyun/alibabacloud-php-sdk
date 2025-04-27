@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RecognizeTaxiInvoiceResponseBody extends Model
 {
     /**
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example { 	"data": { 		"licensePlateNumber": "B-30T76", 		"date": "2018-09-28", 		"invoiceCode": "150001583910", 		"invoiceNumber": "22566685", 		"mileage": "22.8", 		"fare": "¥57.00", 		"dropOffTime": "01：40", 		"pickUpTime": "01：19" 	}, 	"ftype": 0, 	"height": 982, 	"orgHeight": 982, 	"orgWidth": 364,  	"width": 364 }
-     *
      * @var string
      */
     public $data;
 
     /**
-     * @example message
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example 43A29C77-405E-4CC0-BC55-EE694AD00655
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'data' => 'Data',
+        'message' => 'Message',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,23 +61,26 @@ class RecognizeTaxiInvoiceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecognizeTaxiInvoiceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

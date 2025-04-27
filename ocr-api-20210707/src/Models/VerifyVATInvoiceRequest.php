@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VerifyVATInvoiceRequest extends Model
 {
@@ -14,8 +14,6 @@ class VerifyVATInvoiceRequest extends Model
     public $invoiceCode;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $invoiceDate;
@@ -26,8 +24,6 @@ class VerifyVATInvoiceRequest extends Model
     public $invoiceKind;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $invoiceNo;
@@ -45,33 +41,39 @@ class VerifyVATInvoiceRequest extends Model
         'invoiceCode' => 'InvoiceCode',
         'invoiceDate' => 'InvoiceDate',
         'invoiceKind' => 'InvoiceKind',
-        'invoiceNo'   => 'InvoiceNo',
-        'invoiceSum'  => 'InvoiceSum',
-        'verifyCode'  => 'VerifyCode',
+        'invoiceNo' => 'InvoiceNo',
+        'invoiceSum' => 'InvoiceSum',
+        'verifyCode' => 'VerifyCode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->invoiceCode) {
             $res['InvoiceCode'] = $this->invoiceCode;
         }
+
         if (null !== $this->invoiceDate) {
             $res['InvoiceDate'] = $this->invoiceDate;
         }
+
         if (null !== $this->invoiceKind) {
             $res['InvoiceKind'] = $this->invoiceKind;
         }
+
         if (null !== $this->invoiceNo) {
             $res['InvoiceNo'] = $this->invoiceNo;
         }
+
         if (null !== $this->invoiceSum) {
             $res['InvoiceSum'] = $this->invoiceSum;
         }
+
         if (null !== $this->verifyCode) {
             $res['VerifyCode'] = $this->verifyCode;
         }
@@ -79,29 +81,34 @@ class VerifyVATInvoiceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VerifyVATInvoiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InvoiceCode'])) {
             $model->invoiceCode = $map['InvoiceCode'];
         }
+
         if (isset($map['InvoiceDate'])) {
             $model->invoiceDate = $map['InvoiceDate'];
         }
+
         if (isset($map['InvoiceKind'])) {
             $model->invoiceKind = $map['InvoiceKind'];
         }
+
         if (isset($map['InvoiceNo'])) {
             $model->invoiceNo = $map['InvoiceNo'];
         }
+
         if (isset($map['InvoiceSum'])) {
             $model->invoiceSum = $map['InvoiceSum'];
         }
+
         if (isset($map['VerifyCode'])) {
             $model->verifyCode = $map['VerifyCode'];
         }

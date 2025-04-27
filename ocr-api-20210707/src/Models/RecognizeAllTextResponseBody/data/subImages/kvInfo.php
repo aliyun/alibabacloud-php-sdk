@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextResponseBody\data\subImages;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\DataSubImagesKvInfoKvDetailsValue;
-use AlibabaCloud\Tea\Model;
 
 class kvInfo extends Model
 {
@@ -15,8 +15,6 @@ class kvInfo extends Model
     public $data;
 
     /**
-     * @example 6
-     *
      * @var int
      */
     public $kvCount;
@@ -26,29 +24,35 @@ class kvInfo extends Model
      */
     public $kvDetails;
     protected $_name = [
-        'data'      => 'Data',
-        'kvCount'   => 'KvCount',
+        'data' => 'Data',
+        'kvCount' => 'KvCount',
         'kvDetails' => 'KvDetails',
     ];
 
     public function validate()
     {
+        if (\is_array($this->kvDetails)) {
+            Model::validateArray($this->kvDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->kvCount) {
             $res['KvCount'] = $this->kvCount;
         }
+
         if (null !== $this->kvDetails) {
-            $res['KvDetails'] = [];
-            if (null !== $this->kvDetails && \is_array($this->kvDetails)) {
-                foreach ($this->kvDetails as $key => $val) {
-                    $res['KvDetails'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->kvDetails)) {
+                $res['KvDetails'] = [];
+                foreach ($this->kvDetails as $key1 => $value1) {
+                    $res['KvDetails'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
@@ -56,22 +60,29 @@ class kvInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return kvInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['KvCount'])) {
             $model->kvCount = $map['KvCount'];
         }
+
         if (isset($map['KvDetails'])) {
-            $model->kvDetails = $map['KvDetails'];
+            if (!empty($map['KvDetails'])) {
+                $model->kvDetails = [];
+                foreach ($map['KvDetails'] as $key1 => $value1) {
+                    $model->kvDetails[$key1] = DataSubImagesKvInfoKvDetailsValue::fromMap($value1);
+                }
+            }
         }
 
         return $model;
