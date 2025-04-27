@@ -56,6 +56,9 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaStandardVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaStandardVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaVerifyWithOCRAdvanceRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaVerifyWithOCRRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaVerifyWithOCRResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitFaceVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitFaceVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InsertWhiteListSettingRequest;
@@ -2147,6 +2150,182 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->id2MetaVerifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 身份二要素图片核验.
+     *
+     * @param request - Id2MetaVerifyWithOCRRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns Id2MetaVerifyWithOCRResponse
+     *
+     * @param Id2MetaVerifyWithOCRRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return Id2MetaVerifyWithOCRResponse
+     */
+    public function id2MetaVerifyWithOCRWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->certFile) {
+            @$body['CertFile'] = $request->certFile;
+        }
+
+        if (null !== $request->certNationalFile) {
+            @$body['CertNationalFile'] = $request->certNationalFile;
+        }
+
+        if (null !== $request->certNationalUrl) {
+            @$body['CertNationalUrl'] = $request->certNationalUrl;
+        }
+
+        if (null !== $request->certUrl) {
+            @$body['CertUrl'] = $request->certUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'Id2MetaVerifyWithOCR',
+            'version' => '2019-03-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return Id2MetaVerifyWithOCRResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 身份二要素图片核验.
+     *
+     * @param request - Id2MetaVerifyWithOCRRequest
+     *
+     * @returns Id2MetaVerifyWithOCRResponse
+     *
+     * @param Id2MetaVerifyWithOCRRequest $request
+     *
+     * @return Id2MetaVerifyWithOCRResponse
+     */
+    public function id2MetaVerifyWithOCR($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->id2MetaVerifyWithOCRWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param Id2MetaVerifyWithOCRAdvanceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return Id2MetaVerifyWithOCRResponse
+     */
+    public function id2MetaVerifyWithOCRAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product' => 'Cloudauth',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        Utils::convert($runtime, $ossRuntime);
+        $id2MetaVerifyWithOCRReq = new Id2MetaVerifyWithOCRRequest([]);
+        Utils::convert($request, $id2MetaVerifyWithOCRReq);
+        if (null !== $request->certFileObject) {
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->certFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header' => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $id2MetaVerifyWithOCRReq->certFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        if (null !== $request->certNationalFileObject) {
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->certNationalFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header' => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $id2MetaVerifyWithOCRReq->certNationalFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->id2MetaVerifyWithOCRWithOptions($id2MetaVerifyWithOCRReq, $runtime);
     }
 
     /**
