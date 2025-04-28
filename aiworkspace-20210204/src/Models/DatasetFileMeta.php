@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DatasetFileMeta extends Model
 {
     /**
+     * @var string
+     */
+    public $contentType;
+
+    /**
      * @var int
      */
     public $dataSize;
@@ -37,6 +42,11 @@ class DatasetFileMeta extends Model
      * @var string
      */
     public $fileName;
+
+    /**
+     * @var string
+     */
+    public $fileType;
 
     /**
      * @var string
@@ -78,12 +88,14 @@ class DatasetFileMeta extends Model
      */
     public $uri;
     protected $_name = [
+        'contentType' => 'ContentType',
         'dataSize' => 'DataSize',
         'datasetFileMetaId' => 'DatasetFileMetaId',
         'downloadUrl' => 'DownloadUrl',
         'fileCreateTime' => 'FileCreateTime',
         'fileFingerPrint' => 'FileFingerPrint',
         'fileName' => 'FileName',
+        'fileType' => 'FileType',
         'fileUpdateTime' => 'FileUpdateTime',
         'metaAttributes' => 'MetaAttributes',
         'score' => 'Score',
@@ -102,6 +114,10 @@ class DatasetFileMeta extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->contentType) {
+            $res['ContentType'] = $this->contentType;
+        }
+
         if (null !== $this->dataSize) {
             $res['DataSize'] = $this->dataSize;
         }
@@ -124,6 +140,10 @@ class DatasetFileMeta extends Model
 
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
+        }
+
+        if (null !== $this->fileType) {
+            $res['FileType'] = $this->fileType;
         }
 
         if (null !== $this->fileUpdateTime) {
@@ -169,6 +189,10 @@ class DatasetFileMeta extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContentType'])) {
+            $model->contentType = $map['ContentType'];
+        }
+
         if (isset($map['DataSize'])) {
             $model->dataSize = $map['DataSize'];
         }
@@ -191,6 +215,10 @@ class DatasetFileMeta extends Model
 
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
+        }
+
+        if (isset($map['FileType'])) {
+            $model->fileType = $map['FileType'];
         }
 
         if (isset($map['FileUpdateTime'])) {

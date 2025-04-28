@@ -52,6 +52,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResourceRequest
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteCodeSourceResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteConfigRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteConfigResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetFileMetasRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetFileMetasResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteDatasetJobConfigRequest;
@@ -81,6 +83,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResourceRequest
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetCodeSourceResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetConfigRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetConfigResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetFileMetaRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetFileMetaResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetDatasetFileMetasStatisticsRequest;
@@ -110,6 +114,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetWorkspaceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListCodeSourcesRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListCodeSourcesResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListConfigsRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListConfigsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetFileMetasRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetFileMetasResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListDatasetFileMetasShrinkRequest;
@@ -168,6 +174,10 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\StopDatasetJobRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\StopDatasetJobResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateCodeSourceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateCodeSourceResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateConfigRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateConfigResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateConfigsRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateConfigsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDatasetFileMetasRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDatasetFileMetasResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateDatasetJobConfigRequest;
@@ -2140,6 +2150,75 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * Deletes workspace configurations.
+     *
+     * @param request - DeleteConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConfigResponse
+     *
+     * @param string              $WorkspaceId
+     * @param string              $ConfigKey
+     * @param DeleteConfigRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteConfigResponse
+     */
+    public function deleteConfigWithOptions($WorkspaceId, $ConfigKey, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->categoryName) {
+            @$query['CategoryName'] = $request->categoryName;
+        }
+
+        if (null !== $request->labels) {
+            @$query['Labels'] = $request->labels;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteConfig',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/configs/' . Url::percentEncode($ConfigKey) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes workspace configurations.
+     *
+     * @param request - DeleteConfigRequest
+     *
+     * @returns DeleteConfigResponse
+     *
+     * @param string              $WorkspaceId
+     * @param string              $ConfigKey
+     * @param DeleteConfigRequest $request
+     *
+     * @return DeleteConfigResponse
+     */
+    public function deleteConfig($WorkspaceId, $ConfigKey, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteConfigWithOptions($WorkspaceId, $ConfigKey, $request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a dataset.
      *
      * @param headers - map
@@ -3312,6 +3391,77 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
+     * 获取配置.
+     *
+     * @param request - GetConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConfigResponse
+     *
+     * @param string           $WorkspaceId
+     * @param GetConfigRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetConfigResponse
+     */
+    public function getConfigWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->categoryName) {
+            @$query['CategoryName'] = $request->categoryName;
+        }
+
+        if (null !== $request->configKey) {
+            @$query['ConfigKey'] = $request->configKey;
+        }
+
+        if (null !== $request->verbose) {
+            @$query['Verbose'] = $request->verbose;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetConfig',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/config',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取配置.
+     *
+     * @param request - GetConfigRequest
+     *
+     * @returns GetConfigResponse
+     *
+     * @param string           $WorkspaceId
+     * @param GetConfigRequest $request
+     *
+     * @return GetConfigResponse
+     */
+    public function getConfig($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getConfigWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Obtains a dataset.
      *
      * @param headers - map
@@ -3432,7 +3582,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取数据集下元数据的统计信息。
+     * Obtains metadata statistics of a dataset.
      *
      * @param request - GetDatasetFileMetasStatisticsRequest
      * @param headers - map
@@ -3487,7 +3637,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 获取数据集下元数据的统计信息。
+     * Obtains metadata statistics of a dataset.
      *
      * @param request - GetDatasetFileMetasStatisticsRequest
      *
@@ -4343,6 +4493,81 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->listCodeSourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取配置.
+     *
+     * @param request - ListConfigsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConfigsResponse
+     *
+     * @param string             $WorkspaceId
+     * @param ListConfigsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListConfigsResponse
+     */
+    public function listConfigsWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->categoryName) {
+            @$query['CategoryName'] = $request->categoryName;
+        }
+
+        if (null !== $request->configKeys) {
+            @$query['ConfigKeys'] = $request->configKeys;
+        }
+
+        if (null !== $request->labels) {
+            @$query['Labels'] = $request->labels;
+        }
+
+        if (null !== $request->verbose) {
+            @$query['Verbose'] = $request->verbose;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListConfigs',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/configs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取配置.
+     *
+     * @param request - ListConfigsRequest
+     *
+     * @returns ListConfigsResponse
+     *
+     * @param string             $WorkspaceId
+     * @param ListConfigsRequest $request
+     *
+     * @return ListConfigsResponse
+     */
+    public function listConfigs($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listConfigsWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -5941,7 +6166,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains the user configurations.
+     * Queries user information.
      *
      * @param request - ListUserConfigsRequest
      * @param headers - map
@@ -5987,7 +6212,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains the user configurations.
+     * Queries user information.
      *
      * @param request - ListUserConfigsRequest
      *
@@ -6836,6 +7061,144 @@ class AIWorkSpace extends OpenApiClient
         $headers = [];
 
         return $this->updateCodeSourceWithOptions($CodeSourceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新配置.
+     *
+     * @param request - UpdateConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConfigResponse
+     *
+     * @param string              $WorkspaceId
+     * @param UpdateConfigRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateConfigResponse
+     */
+    public function updateConfigWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->categoryName) {
+            @$body['CategoryName'] = $request->categoryName;
+        }
+
+        if (null !== $request->configKey) {
+            @$body['ConfigKey'] = $request->configKey;
+        }
+
+        if (null !== $request->configValue) {
+            @$body['ConfigValue'] = $request->configValue;
+        }
+
+        if (null !== $request->labels) {
+            @$body['Labels'] = $request->labels;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateConfig',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/config',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新配置.
+     *
+     * @param request - UpdateConfigRequest
+     *
+     * @returns UpdateConfigResponse
+     *
+     * @param string              $WorkspaceId
+     * @param UpdateConfigRequest $request
+     *
+     * @return UpdateConfigResponse
+     */
+    public function updateConfig($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateConfigWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新配置.
+     *
+     * @param request - UpdateConfigsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConfigsResponse
+     *
+     * @param string               $WorkspaceId
+     * @param UpdateConfigsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateConfigsResponse
+     */
+    public function updateConfigsWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->configs) {
+            @$body['Configs'] = $request->configs;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateConfigs',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/configs',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新配置.
+     *
+     * @param request - UpdateConfigsRequest
+     *
+     * @returns UpdateConfigsResponse
+     *
+     * @param string               $WorkspaceId
+     * @param UpdateConfigsRequest $request
+     *
+     * @return UpdateConfigsResponse
+     */
+    public function updateConfigs($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateConfigsWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
