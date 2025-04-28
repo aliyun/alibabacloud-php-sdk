@@ -193,6 +193,11 @@ class DBCluster extends Model
     /**
      * @var string
      */
+    public $productForm;
+
+    /**
+     * @var string
+     */
     public $productVersion;
 
     /**
@@ -204,6 +209,16 @@ class DBCluster extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $reservedNodeCount;
+
+    /**
+     * @var string
+     */
+    public $reservedNodeSize;
 
     /**
      * @var string
@@ -296,9 +311,12 @@ class DBCluster extends Model
         'mode' => 'Mode',
         'payType' => 'PayType',
         'port' => 'Port',
+        'productForm' => 'ProductForm',
         'productVersion' => 'ProductVersion',
         'rdsInstanceId' => 'RdsInstanceId',
         'regionId' => 'RegionId',
+        'reservedNodeCount' => 'ReservedNodeCount',
+        'reservedNodeSize' => 'ReservedNodeSize',
         'resourceGroupId' => 'ResourceGroupId',
         'secondaryVSwitchId' => 'SecondaryVSwitchId',
         'secondaryZoneId' => 'SecondaryZoneId',
@@ -470,6 +488,10 @@ class DBCluster extends Model
             $res['Port'] = $this->port;
         }
 
+        if (null !== $this->productForm) {
+            $res['ProductForm'] = $this->productForm;
+        }
+
         if (null !== $this->productVersion) {
             $res['ProductVersion'] = $this->productVersion;
         }
@@ -480,6 +502,14 @@ class DBCluster extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->reservedNodeCount) {
+            $res['ReservedNodeCount'] = $this->reservedNodeCount;
+        }
+
+        if (null !== $this->reservedNodeSize) {
+            $res['ReservedNodeSize'] = $this->reservedNodeSize;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -681,6 +711,10 @@ class DBCluster extends Model
             $model->port = $map['Port'];
         }
 
+        if (isset($map['ProductForm'])) {
+            $model->productForm = $map['ProductForm'];
+        }
+
         if (isset($map['ProductVersion'])) {
             $model->productVersion = $map['ProductVersion'];
         }
@@ -691,6 +725,14 @@ class DBCluster extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ReservedNodeCount'])) {
+            $model->reservedNodeCount = $map['ReservedNodeCount'];
+        }
+
+        if (isset($map['ReservedNodeSize'])) {
+            $model->reservedNodeSize = $map['ReservedNodeSize'];
         }
 
         if (isset($map['ResourceGroupId'])) {
