@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeepfakeDetectIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeepfakeDetectIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteVerifyResultRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteVerifyResultResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrMaxRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrMaxResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\EkycVerifyRequest;
@@ -714,6 +716,103 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->docOcrWithOptions($request, $runtime);
+    }
+
+    /**
+     * 全球证件ocr识别接口.
+     *
+     * @param request - DocOcrMaxRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DocOcrMaxResponse
+     *
+     * @param DocOcrMaxRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DocOcrMaxResponse
+     */
+    public function docOcrMaxWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->docType) {
+            @$body['DocType'] = $request->docType;
+        }
+
+        if (null !== $request->idOcrPictureBase64) {
+            @$body['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
+        }
+
+        if (null !== $request->idOcrPictureUrl) {
+            @$body['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
+        }
+
+        if (null !== $request->idThreshold) {
+            @$body['IdThreshold'] = $request->idThreshold;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$body['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->merchantUserId) {
+            @$body['MerchantUserId'] = $request->merchantUserId;
+        }
+
+        if (null !== $request->ocrModel) {
+            @$body['OcrModel'] = $request->ocrModel;
+        }
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->sceneCode) {
+            @$body['SceneCode'] = $request->sceneCode;
+        }
+
+        if (null !== $request->spoof) {
+            @$body['Spoof'] = $request->spoof;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DocOcrMax',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DocOcrMaxResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 全球证件ocr识别接口.
+     *
+     * @param request - DocOcrMaxRequest
+     *
+     * @returns DocOcrMaxResponse
+     *
+     * @param DocOcrMaxRequest $request
+     *
+     * @return DocOcrMaxResponse
+     */
+    public function docOcrMax($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->docOcrMaxWithOptions($request, $runtime);
     }
 
     /**
