@@ -37,6 +37,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizUnitShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataDomainRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataDomainResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataDomainShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceApiRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceApiResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceApiShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceShrinkRequest;
@@ -49,6 +52,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateNodeSupplementShrinkR
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineNodeRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineNodeResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineNodeShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRowPermissionRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRowPermissionResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRowPermissionShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStreamBatchJobMappingRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStreamBatchJobMappingResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStreamBatchJobMappingShrinkRequest;
@@ -71,6 +77,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDirectoryRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDirectoryResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteRowPermissionRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteRowPermissionResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteRowPermissionShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteUserGroupRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteUserGroupResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteAdHocTaskRequest;
@@ -82,6 +91,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteManualNodeShrinkRequ
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\FixDataRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\FixDataResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\FixDataShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAccountByRowPermissionIdRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAccountByRowPermissionIdResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAccountByRowPermissionIdShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocFileRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocFileResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocTaskLogRequest;
@@ -153,6 +165,12 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunInstance
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunInstanceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableColumnLineageByTaskIdRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableColumnLineageByTaskIdResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableColumnLineageByTaskIdShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableLineageByTaskIdRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableLineageByTaskIdResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableLineageByTaskIdShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUserBySourceIdRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUserBySourceIdResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUserGroupRequest;
@@ -212,6 +230,12 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionOpera
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionByUserIdRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionByUserIdResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionByUserIdShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSubmitRecordsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSubmitRecordsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSubmitRecordsShrinkRequest;
@@ -261,6 +285,12 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StopAdHocTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentUserRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentUserResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentUserShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAdHocFileRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAdHocFileResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAdHocFileShrinkRequest;
@@ -289,6 +319,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateFileDirectoryRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateFileDirectoryResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateFileNameRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateFileNameResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateRowPermissionRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateRowPermissionResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateRowPermissionShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateTenantMemberRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateTenantMemberResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateTenantMemberShrinkRequest;
@@ -1088,6 +1121,75 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 创建新的数据服务API并提交。
+     *
+     * @param tmpReq - CreateDataServiceApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataServiceApiResponse
+     *
+     * @param CreateDataServiceApiRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDataServiceApiResponse
+     */
+    public function createDataServiceApiWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateDataServiceApiShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataServiceApi',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataServiceApiResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建新的数据服务API并提交。
+     *
+     * @param request - CreateDataServiceApiRequest
+     *
+     * @returns CreateDataServiceApiResponse
+     *
+     * @param CreateDataServiceApiRequest $request
+     *
+     * @return CreateDataServiceApiResponse
+     */
+    public function createDataServiceApi($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataServiceApiWithOptions($request, $runtime);
+    }
+
+    /**
      * 新建数据源.
      *
      * @param tmpReq - CreateDataSourceRequest
@@ -1365,6 +1467,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPipelineNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建行级权限.
+     *
+     * @param tmpReq - CreateRowPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRowPermissionResponse
+     *
+     * @param CreateRowPermissionRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateRowPermissionResponse
+     */
+    public function createRowPermissionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateRowPermissionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createRowPermissionCommand) {
+            $request->createRowPermissionCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createRowPermissionCommand, 'CreateRowPermissionCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createRowPermissionCommandShrink) {
+            @$body['CreateRowPermissionCommand'] = $request->createRowPermissionCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRowPermission',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRowPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建行级权限.
+     *
+     * @param request - CreateRowPermissionRequest
+     *
+     * @returns CreateRowPermissionResponse
+     *
+     * @param CreateRowPermissionRequest $request
+     *
+     * @return CreateRowPermissionResponse
+     */
+    public function createRowPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRowPermissionWithOptions($request, $runtime);
     }
 
     /**
@@ -1969,6 +2140,75 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 删除行级权限.
+     *
+     * @param tmpReq - DeleteRowPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRowPermissionResponse
+     *
+     * @param DeleteRowPermissionRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteRowPermissionResponse
+     */
+    public function deleteRowPermissionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteRowPermissionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deleteRowPermissionCommand) {
+            $request->deleteRowPermissionCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteRowPermissionCommand, 'DeleteRowPermissionCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->deleteRowPermissionCommandShrink) {
+            @$body['DeleteRowPermissionCommand'] = $request->deleteRowPermissionCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRowPermission',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRowPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除行级权限.
+     *
+     * @param request - DeleteRowPermissionRequest
+     *
+     * @returns DeleteRowPermissionResponse
+     *
+     * @param DeleteRowPermissionRequest $request
+     *
+     * @return DeleteRowPermissionResponse
+     */
+    public function deleteRowPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRowPermissionWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除用户组.
      *
      * @param request - DeleteUserGroupRequest
@@ -2242,6 +2482,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->fixDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据行级权限ID获取某一行级权限下的所有授权账号.
+     *
+     * @param tmpReq - GetAccountByRowPermissionIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAccountByRowPermissionIdResponse
+     *
+     * @param GetAccountByRowPermissionIdRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetAccountByRowPermissionIdResponse
+     */
+    public function getAccountByRowPermissionIdWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetAccountByRowPermissionIdShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->getAccountByRowPermissionIdQuery) {
+            $request->getAccountByRowPermissionIdQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->getAccountByRowPermissionIdQuery, 'GetAccountByRowPermissionIdQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->getAccountByRowPermissionIdQueryShrink) {
+            @$body['GetAccountByRowPermissionIdQuery'] = $request->getAccountByRowPermissionIdQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAccountByRowPermissionId',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAccountByRowPermissionIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据行级权限ID获取某一行级权限下的所有授权账号.
+     *
+     * @param request - GetAccountByRowPermissionIdRequest
+     *
+     * @returns GetAccountByRowPermissionIdResponse
+     *
+     * @param GetAccountByRowPermissionIdRequest $request
+     *
+     * @return GetAccountByRowPermissionIdResponse
+     */
+    public function getAccountByRowPermissionId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccountByRowPermissionIdWithOptions($request, $runtime);
     }
 
     /**
@@ -4490,6 +4799,144 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 查询表字段血缘信息.
+     *
+     * @param tmpReq - GetTableColumnLineageByTaskIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableColumnLineageByTaskIdResponse
+     *
+     * @param GetTableColumnLineageByTaskIdRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetTableColumnLineageByTaskIdResponse
+     */
+    public function getTableColumnLineageByTaskIdWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetTableColumnLineageByTaskIdShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tableColumnLineageByTaskIdQuery) {
+            $request->tableColumnLineageByTaskIdQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tableColumnLineageByTaskIdQuery, 'TableColumnLineageByTaskIdQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->tableColumnLineageByTaskIdQueryShrink) {
+            @$body['TableColumnLineageByTaskIdQuery'] = $request->tableColumnLineageByTaskIdQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTableColumnLineageByTaskId',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTableColumnLineageByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询表字段血缘信息.
+     *
+     * @param request - GetTableColumnLineageByTaskIdRequest
+     *
+     * @returns GetTableColumnLineageByTaskIdResponse
+     *
+     * @param GetTableColumnLineageByTaskIdRequest $request
+     *
+     * @return GetTableColumnLineageByTaskIdResponse
+     */
+    public function getTableColumnLineageByTaskId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTableColumnLineageByTaskIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询表血缘信息.
+     *
+     * @param tmpReq - GetTableLineageByTaskIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableLineageByTaskIdResponse
+     *
+     * @param GetTableLineageByTaskIdRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetTableLineageByTaskIdResponse
+     */
+    public function getTableLineageByTaskIdWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetTableLineageByTaskIdShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tableLineageByTaskIdQuery) {
+            $request->tableLineageByTaskIdQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tableLineageByTaskIdQuery, 'TableLineageByTaskIdQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->tableLineageByTaskIdQueryShrink) {
+            @$body['TableLineageByTaskIdQuery'] = $request->tableLineageByTaskIdQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTableLineageByTaskId',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTableLineageByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询表血缘信息.
+     *
+     * @param request - GetTableLineageByTaskIdRequest
+     *
+     * @returns GetTableLineageByTaskIdResponse
+     *
+     * @param GetTableLineageByTaskIdRequest $request
+     *
+     * @return GetTableLineageByTaskIdResponse
+     */
+    public function getTableLineageByTaskId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTableLineageByTaskIdWithOptions($request, $runtime);
+    }
+
+    /**
      * 通过用户原始Id（如阿里云Id）获取用户详情.
      *
      * @param request - GetUserBySourceIdRequest
@@ -5911,6 +6358,144 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 分页查询行级权限.
+     *
+     * @param tmpReq - ListRowPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRowPermissionResponse
+     *
+     * @param ListRowPermissionRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListRowPermissionResponse
+     */
+    public function listRowPermissionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListRowPermissionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->pageRowPermissionQuery) {
+            $request->pageRowPermissionQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pageRowPermissionQuery, 'PageRowPermissionQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->pageRowPermissionQueryShrink) {
+            @$body['PageRowPermissionQuery'] = $request->pageRowPermissionQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListRowPermission',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRowPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询行级权限.
+     *
+     * @param request - ListRowPermissionRequest
+     *
+     * @returns ListRowPermissionResponse
+     *
+     * @param ListRowPermissionRequest $request
+     *
+     * @return ListRowPermissionResponse
+     */
+    public function listRowPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRowPermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询指定用户行级权限.
+     *
+     * @param tmpReq - ListRowPermissionByUserIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRowPermissionByUserIdResponse
+     *
+     * @param ListRowPermissionByUserIdRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListRowPermissionByUserIdResponse
+     */
+    public function listRowPermissionByUserIdWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListRowPermissionByUserIdShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listRowPermissionByUserIdQuery) {
+            $request->listRowPermissionByUserIdQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listRowPermissionByUserIdQuery, 'ListRowPermissionByUserIdQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listRowPermissionByUserIdQueryShrink) {
+            @$body['ListRowPermissionByUserIdQuery'] = $request->listRowPermissionByUserIdQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListRowPermissionByUserId',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRowPermissionByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询指定用户行级权限.
+     *
+     * @param request - ListRowPermissionByUserIdRequest
+     *
+     * @returns ListRowPermissionByUserIdResponse
+     *
+     * @param ListRowPermissionByUserIdRequest $request
+     *
+     * @return ListRowPermissionByUserIdResponse
+     */
+    public function listRowPermissionByUserId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRowPermissionByUserIdWithOptions($request, $runtime);
+    }
+
+    /**
      * 分页获取待发布记录列表.
      *
      * @param tmpReq - ListSubmitRecordsRequest
@@ -7092,6 +7677,144 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 同步部门信息.
+     *
+     * @param tmpReq - SyncDepartmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SyncDepartmentResponse
+     *
+     * @param SyncDepartmentRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SyncDepartmentResponse
+     */
+    public function syncDepartmentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SyncDepartmentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->syncDepartmentCommand) {
+            $request->syncDepartmentCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->syncDepartmentCommand, 'SyncDepartmentCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->syncDepartmentCommandShrink) {
+            @$body['SyncDepartmentCommand'] = $request->syncDepartmentCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SyncDepartment',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SyncDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 同步部门信息.
+     *
+     * @param request - SyncDepartmentRequest
+     *
+     * @returns SyncDepartmentResponse
+     *
+     * @param SyncDepartmentRequest $request
+     *
+     * @return SyncDepartmentResponse
+     */
+    public function syncDepartment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->syncDepartmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 同步部门成员信息.
+     *
+     * @param tmpReq - SyncDepartmentUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SyncDepartmentUserResponse
+     *
+     * @param SyncDepartmentUserRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SyncDepartmentUserResponse
+     */
+    public function syncDepartmentUserWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SyncDepartmentUserShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->syncDepartmentUserCommand) {
+            $request->syncDepartmentUserCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->syncDepartmentUserCommand, 'SyncDepartmentUserCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->syncDepartmentUserCommandShrink) {
+            @$body['SyncDepartmentUserCommand'] = $request->syncDepartmentUserCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SyncDepartmentUser',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SyncDepartmentUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 同步部门成员信息.
+     *
+     * @param request - SyncDepartmentUserRequest
+     *
+     * @returns SyncDepartmentUserResponse
+     *
+     * @param SyncDepartmentUserRequest $request
+     *
+     * @return SyncDepartmentUserResponse
+     */
+    public function syncDepartmentUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->syncDepartmentUserWithOptions($request, $runtime);
+    }
+
+    /**
      * 编辑即席查询文件。
      *
      * @param tmpReq - UpdateAdHocFileRequest
@@ -7779,6 +8502,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateFileNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新行级权限.
+     *
+     * @param tmpReq - UpdateRowPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRowPermissionResponse
+     *
+     * @param UpdateRowPermissionRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateRowPermissionResponse
+     */
+    public function updateRowPermissionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateRowPermissionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateRowPermissionCommand) {
+            $request->updateRowPermissionCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateRowPermissionCommand, 'UpdateRowPermissionCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateRowPermissionCommandShrink) {
+            @$body['UpdateRowPermissionCommand'] = $request->updateRowPermissionCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateRowPermission',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateRowPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新行级权限.
+     *
+     * @param request - UpdateRowPermissionRequest
+     *
+     * @returns UpdateRowPermissionResponse
+     *
+     * @param UpdateRowPermissionRequest $request
+     *
+     * @return UpdateRowPermissionResponse
+     */
+    public function updateRowPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRowPermissionWithOptions($request, $runtime);
     }
 
     /**
