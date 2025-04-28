@@ -42,6 +42,11 @@ class RenewNetworkPackagesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resellerOwnerUid;
     protected $_name = [
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
@@ -50,6 +55,7 @@ class RenewNetworkPackagesRequest extends Model
         'periodUnit' => 'PeriodUnit',
         'promotionId' => 'PromotionId',
         'regionId' => 'RegionId',
+        'resellerOwnerUid' => 'ResellerOwnerUid',
     ];
 
     public function validate()
@@ -97,6 +103,10 @@ class RenewNetworkPackagesRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->resellerOwnerUid) {
+            $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
+        }
+
         return $res;
     }
 
@@ -140,6 +150,10 @@ class RenewNetworkPackagesRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResellerOwnerUid'])) {
+            $model->resellerOwnerUid = $map['ResellerOwnerUid'];
         }
 
         return $model;

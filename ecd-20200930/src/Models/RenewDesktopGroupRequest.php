@@ -37,6 +37,11 @@ class RenewDesktopGroupRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resellerOwnerUid;
     protected $_name = [
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
@@ -44,6 +49,7 @@ class RenewDesktopGroupRequest extends Model
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'regionId' => 'RegionId',
+        'resellerOwnerUid' => 'ResellerOwnerUid',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class RenewDesktopGroupRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resellerOwnerUid) {
+            $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class RenewDesktopGroupRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResellerOwnerUid'])) {
+            $model->resellerOwnerUid = $map['ResellerOwnerUid'];
         }
 
         return $model;

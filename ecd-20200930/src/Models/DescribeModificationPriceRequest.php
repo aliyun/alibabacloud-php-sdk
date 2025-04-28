@@ -29,6 +29,11 @@ class DescribeModificationPriceRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $resellerOwnerUid;
+
+    /**
      * @var string
      */
     public $resourceType;
@@ -47,6 +52,7 @@ class DescribeModificationPriceRequest extends Model
         'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
         'regionId' => 'RegionId',
+        'resellerOwnerUid' => 'ResellerOwnerUid',
         'resourceType' => 'ResourceType',
         'rootDiskSizeGib' => 'RootDiskSizeGib',
         'userDiskSizeGib' => 'UserDiskSizeGib',
@@ -74,6 +80,10 @@ class DescribeModificationPriceRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resellerOwnerUid) {
+            $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
         }
 
         if (null !== $this->resourceType) {
@@ -113,6 +123,10 @@ class DescribeModificationPriceRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResellerOwnerUid'])) {
+            $model->resellerOwnerUid = $map['ResellerOwnerUid'];
         }
 
         if (isset($map['ResourceType'])) {

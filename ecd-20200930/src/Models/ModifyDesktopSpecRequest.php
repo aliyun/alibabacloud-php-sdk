@@ -35,6 +35,11 @@ class ModifyDesktopSpecRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $resellerOwnerUid;
+
+    /**
      * @var resourceSpecs[]
      */
     public $resourceSpecs;
@@ -64,6 +69,7 @@ class ModifyDesktopSpecRequest extends Model
         'desktopType' => 'DesktopType',
         'promotionId' => 'PromotionId',
         'regionId' => 'RegionId',
+        'resellerOwnerUid' => 'ResellerOwnerUid',
         'resourceSpecs' => 'ResourceSpecs',
         'resourceType' => 'ResourceType',
         'rootDiskSizeGib' => 'RootDiskSizeGib',
@@ -100,6 +106,10 @@ class ModifyDesktopSpecRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resellerOwnerUid) {
+            $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
         }
 
         if (null !== $this->resourceSpecs) {
@@ -157,6 +167,10 @@ class ModifyDesktopSpecRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResellerOwnerUid'])) {
+            $model->resellerOwnerUid = $map['ResellerOwnerUid'];
         }
 
         if (isset($map['ResourceSpecs'])) {

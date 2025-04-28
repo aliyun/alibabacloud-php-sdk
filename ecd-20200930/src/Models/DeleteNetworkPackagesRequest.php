@@ -17,9 +17,15 @@ class DeleteNetworkPackagesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resellerOwnerUid;
     protected $_name = [
         'networkPackageId' => 'NetworkPackageId',
         'regionId' => 'RegionId',
+        'resellerOwnerUid' => 'ResellerOwnerUid',
     ];
 
     public function validate()
@@ -47,6 +53,10 @@ class DeleteNetworkPackagesRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->resellerOwnerUid) {
+            $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
+        }
+
         return $res;
     }
 
@@ -70,6 +80,10 @@ class DeleteNetworkPackagesRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResellerOwnerUid'])) {
+            $model->resellerOwnerUid = $map['ResellerOwnerUid'];
         }
 
         return $model;

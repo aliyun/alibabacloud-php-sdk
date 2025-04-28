@@ -130,6 +130,11 @@ class CreateDesktopsRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $resellerOwnerUid;
+
+    /**
      * @var string
      */
     public $resourceGroupId;
@@ -207,6 +212,7 @@ class CreateDesktopsRequest extends Model
         'policyGroupId' => 'PolicyGroupId',
         'promotionId' => 'PromotionId',
         'regionId' => 'RegionId',
+        'resellerOwnerUid' => 'ResellerOwnerUid',
         'resourceGroupId' => 'ResourceGroupId',
         'savingPlanId' => 'SavingPlanId',
         'snapshotPolicyId' => 'SnapshotPolicyId',
@@ -357,6 +363,10 @@ class CreateDesktopsRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resellerOwnerUid) {
+            $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -534,6 +544,10 @@ class CreateDesktopsRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResellerOwnerUid'])) {
+            $model->resellerOwnerUid = $map['ResellerOwnerUid'];
         }
 
         if (isset($map['ResourceGroupId'])) {

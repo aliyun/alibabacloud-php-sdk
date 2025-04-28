@@ -34,6 +34,11 @@ class DescribeRenewalPriceRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $resellerOwnerUid;
+
+    /**
      * @var string
      */
     public $resourceType;
@@ -43,6 +48,7 @@ class DescribeRenewalPriceRequest extends Model
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'regionId' => 'RegionId',
+        'resellerOwnerUid' => 'ResellerOwnerUid',
         'resourceType' => 'ResourceType',
     ];
 
@@ -81,6 +87,10 @@ class DescribeRenewalPriceRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resellerOwnerUid) {
+            $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
         }
 
         if (null !== $this->resourceType) {
@@ -122,6 +132,10 @@ class DescribeRenewalPriceRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResellerOwnerUid'])) {
+            $model->resellerOwnerUid = $map['ResellerOwnerUid'];
         }
 
         if (isset($map['ResourceType'])) {

@@ -227,6 +227,11 @@ class CreateDesktopGroupRequest extends Model
     /**
      * @var int
      */
+    public $resellerOwnerUid;
+
+    /**
+     * @var int
+     */
     public $resetType;
 
     /**
@@ -337,6 +342,7 @@ class CreateDesktopGroupRequest extends Model
         'promotionId' => 'PromotionId',
         'ratioThreshold' => 'RatioThreshold',
         'regionId' => 'RegionId',
+        'resellerOwnerUid' => 'ResellerOwnerUid',
         'resetType' => 'ResetType',
         'scaleStrategyId' => 'ScaleStrategyId',
         'sessionType' => 'SessionType',
@@ -543,6 +549,10 @@ class CreateDesktopGroupRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resellerOwnerUid) {
+            $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
         }
 
         if (null !== $this->resetType) {
@@ -794,6 +804,10 @@ class CreateDesktopGroupRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResellerOwnerUid'])) {
+            $model->resellerOwnerUid = $map['ResellerOwnerUid'];
         }
 
         if (isset($map['ResetType'])) {

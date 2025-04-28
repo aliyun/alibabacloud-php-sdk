@@ -44,6 +44,11 @@ class RenewDesktopsRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $resellerOwnerUid;
+
+    /**
      * @var string
      */
     public $resourceType;
@@ -55,6 +60,7 @@ class RenewDesktopsRequest extends Model
         'periodUnit' => 'PeriodUnit',
         'promotionId' => 'PromotionId',
         'regionId' => 'RegionId',
+        'resellerOwnerUid' => 'ResellerOwnerUid',
         'resourceType' => 'ResourceType',
     ];
 
@@ -101,6 +107,10 @@ class RenewDesktopsRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resellerOwnerUid) {
+            $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
         }
 
         if (null !== $this->resourceType) {
@@ -150,6 +160,10 @@ class RenewDesktopsRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResellerOwnerUid'])) {
+            $model->resellerOwnerUid = $map['ResellerOwnerUid'];
         }
 
         if (isset($map['ResourceType'])) {

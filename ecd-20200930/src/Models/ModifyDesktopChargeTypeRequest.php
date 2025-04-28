@@ -46,6 +46,11 @@ class ModifyDesktopChargeTypeRequest extends Model
     /**
      * @var int
      */
+    public $resellerOwnerUid;
+
+    /**
+     * @var int
+     */
     public $useDuration;
     protected $_name = [
         'autoPay' => 'AutoPay',
@@ -55,6 +60,7 @@ class ModifyDesktopChargeTypeRequest extends Model
         'periodUnit' => 'PeriodUnit',
         'promotionId' => 'PromotionId',
         'regionId' => 'RegionId',
+        'resellerOwnerUid' => 'ResellerOwnerUid',
         'useDuration' => 'UseDuration',
     ];
 
@@ -101,6 +107,10 @@ class ModifyDesktopChargeTypeRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resellerOwnerUid) {
+            $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
         }
 
         if (null !== $this->useDuration) {
@@ -150,6 +160,10 @@ class ModifyDesktopChargeTypeRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResellerOwnerUid'])) {
+            $model->resellerOwnerUid = $map['ResellerOwnerUid'];
         }
 
         if (isset($map['UseDuration'])) {

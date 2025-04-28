@@ -3664,6 +3664,10 @@ class Ecd extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
+        }
+
         if (null !== $request->solutionId) {
             @$query['SolutionId'] = $request->solutionId;
         }
@@ -4054,6 +4058,10 @@ class Ecd extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
+        }
+
         if (null !== $request->resetType) {
             @$query['ResetType'] = $request->resetType;
         }
@@ -4389,6 +4397,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
         }
 
         if (null !== $request->resourceGroupId) {
@@ -4786,6 +4798,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
         }
 
         $req = new OpenApiRequest([
@@ -5871,6 +5887,10 @@ class Ecd extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5935,6 +5955,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
         }
 
         $req = new OpenApiRequest([
@@ -6337,6 +6361,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
         }
 
         $req = new OpenApiRequest([
@@ -9690,6 +9718,10 @@ class Ecd extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
+        }
+
         if (null !== $request->resourceType) {
             @$query['ResourceType'] = $request->resourceType;
         }
@@ -10123,6 +10155,10 @@ class Ecd extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
+        }
+
         if (null !== $request->resourceType) {
             @$query['ResourceType'] = $request->resourceType;
         }
@@ -10524,6 +10560,10 @@ class Ecd extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -10656,6 +10696,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
         }
 
         if (null !== $request->resourceType) {
@@ -15124,6 +15168,10 @@ class Ecd extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
+        }
+
         if (null !== $request->useDuration) {
             @$query['UseDuration'] = $request->useDuration;
         }
@@ -15750,6 +15798,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
         }
 
         if (null !== $request->resourceSpecs) {
@@ -16408,6 +16460,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
         }
 
         $req = new OpenApiRequest([
@@ -17887,6 +17943,10 @@ class Ecd extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -18033,6 +18093,10 @@ class Ecd extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
+        }
+
         if (null !== $request->resourceType) {
             @$query['ResourceType'] = $request->resourceType;
         }
@@ -18116,6 +18180,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
         }
 
         $req = new OpenApiRequest([

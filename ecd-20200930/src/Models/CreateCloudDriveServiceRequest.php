@@ -79,6 +79,11 @@ class CreateCloudDriveServiceRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $resellerOwnerUid;
+
+    /**
      * @var string
      */
     public $solutionId;
@@ -107,6 +112,7 @@ class CreateCloudDriveServiceRequest extends Model
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'regionId' => 'RegionId',
+        'resellerOwnerUid' => 'ResellerOwnerUid',
         'solutionId' => 'SolutionId',
         'userCount' => 'UserCount',
         'userMaxSize' => 'UserMaxSize',
@@ -183,6 +189,10 @@ class CreateCloudDriveServiceRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resellerOwnerUid) {
+            $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
         }
 
         if (null !== $this->solutionId) {
@@ -268,6 +278,10 @@ class CreateCloudDriveServiceRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResellerOwnerUid'])) {
+            $model->resellerOwnerUid = $map['ResellerOwnerUid'];
         }
 
         if (isset($map['SolutionId'])) {

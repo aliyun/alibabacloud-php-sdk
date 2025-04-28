@@ -22,10 +22,16 @@ class DescribeRefundPriceRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resellerOwnerUid;
     protected $_name = [
         'desktopId' => 'DesktopId',
         'refundType' => 'RefundType',
         'regionId' => 'RegionId',
+        'resellerOwnerUid' => 'ResellerOwnerUid',
     ];
 
     public function validate()
@@ -57,6 +63,10 @@ class DescribeRefundPriceRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->resellerOwnerUid) {
+            $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
+        }
+
         return $res;
     }
 
@@ -84,6 +94,10 @@ class DescribeRefundPriceRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResellerOwnerUid'])) {
+            $model->resellerOwnerUid = $map['ResellerOwnerUid'];
         }
 
         return $model;
