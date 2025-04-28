@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\content;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\data;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\delta;
 
 class CreateRunResponseBody extends Model
@@ -29,6 +30,11 @@ class CreateRunResponseBody extends Model
      * @var int
      */
     public $createAt;
+
+    /**
+     * @var data
+     */
+    public $data;
 
     /**
      * @var delta
@@ -89,6 +95,7 @@ class CreateRunResponseBody extends Model
         'completedAt' => 'completedAt',
         'content' => 'content',
         'createAt' => 'createAt',
+        'data' => 'data',
         'delta' => 'delta',
         'expiresAt' => 'expiresAt',
         'failedAt' => 'failedAt',
@@ -106,6 +113,9 @@ class CreateRunResponseBody extends Model
     {
         if (null !== $this->content) {
             $this->content->validate();
+        }
+        if (null !== $this->data) {
+            $this->data->validate();
         }
         if (null !== $this->delta) {
             $this->delta->validate();
@@ -133,6 +143,10 @@ class CreateRunResponseBody extends Model
 
         if (null !== $this->createAt) {
             $res['createAt'] = $this->createAt;
+        }
+
+        if (null !== $this->data) {
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         if (null !== $this->delta) {
@@ -209,6 +223,10 @@ class CreateRunResponseBody extends Model
 
         if (isset($map['createAt'])) {
             $model->createAt = $map['createAt'];
+        }
+
+        if (isset($map['data'])) {
+            $model->data = data::fromMap($map['data']);
         }
 
         if (isset($map['delta'])) {

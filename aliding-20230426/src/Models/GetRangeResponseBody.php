@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRangeResponseBody\backgroundColors;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetRangeResponseBody\hyperlinks;
 
 class GetRangeResponseBody extends Model
 {
@@ -25,6 +26,11 @@ class GetRangeResponseBody extends Model
     public $formulas;
 
     /**
+     * @var hyperlinks[][]
+     */
+    public $hyperlinks;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -37,6 +43,7 @@ class GetRangeResponseBody extends Model
         'backgroundColors' => 'backgroundColors',
         'displayValues' => 'displayValues',
         'formulas' => 'formulas',
+        'hyperlinks' => 'hyperlinks',
         'requestId' => 'requestId',
         'values' => 'values',
     ];
@@ -51,6 +58,9 @@ class GetRangeResponseBody extends Model
         }
         if (\is_array($this->formulas)) {
             Model::validateArray($this->formulas);
+        }
+        if (\is_array($this->hyperlinks)) {
+            Model::validateArray($this->hyperlinks);
         }
         if (\is_array($this->values)) {
             Model::validateArray($this->values);
@@ -103,6 +113,22 @@ class GetRangeResponseBody extends Model
                         $n2 = 0;
                         foreach ($item1 as $item2) {
                             $res['formulas'][$n1++][$n2++] = $item2;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (null !== $this->hyperlinks) {
+            if (\is_array($this->hyperlinks)) {
+                $res['hyperlinks'] = [];
+                $n1 = 0;
+                foreach ($this->hyperlinks as $item1) {
+                    if (\is_array($item1)) {
+                        $res['hyperlinks'][$n1++] = [];
+                        $n2 = 0;
+                        foreach ($item1 as $item2) {
+                            $res['hyperlinks'][$n1++][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
                         }
                     }
                 }
@@ -182,6 +208,22 @@ class GetRangeResponseBody extends Model
                         $n2 = 0;
                         foreach ($item1 as $item2) {
                             $model->formulas[$n1++][$n2++] = $item2;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (isset($map['hyperlinks'])) {
+            if (!empty($map['hyperlinks'])) {
+                $model->hyperlinks = [];
+                $n1 = 0;
+                foreach ($map['hyperlinks'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->hyperlinks[$n1++] = [];
+                        $n2 = 0;
+                        foreach ($item1 as $item2) {
+                            $model->hyperlinks[$n1++][$n2++] = hyperlinks::fromMap($item2);
                         }
                     }
                 }
