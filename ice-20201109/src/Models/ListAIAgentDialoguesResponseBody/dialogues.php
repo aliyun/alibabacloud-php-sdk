@@ -22,6 +22,16 @@ class dialogues extends Model
     /**
      * @var string
      */
+    public $extend;
+
+    /**
+     * @var string
+     */
+    public $nodeId;
+
+    /**
+     * @var string
+     */
     public $producer;
 
     /**
@@ -56,6 +66,8 @@ class dialogues extends Model
     protected $_name = [
         'attachedFileList' => 'AttachedFileList',
         'dialogueId' => 'DialogueId',
+        'extend' => 'Extend',
+        'nodeId' => 'NodeId',
         'producer' => 'Producer',
         'reasoningText' => 'ReasoningText',
         'roundId' => 'RoundId',
@@ -88,6 +100,14 @@ class dialogues extends Model
 
         if (null !== $this->dialogueId) {
             $res['DialogueId'] = $this->dialogueId;
+        }
+
+        if (null !== $this->extend) {
+            $res['Extend'] = $this->extend;
+        }
+
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
 
         if (null !== $this->producer) {
@@ -141,6 +161,14 @@ class dialogues extends Model
 
         if (isset($map['DialogueId'])) {
             $model->dialogueId = $map['DialogueId'];
+        }
+
+        if (isset($map['Extend'])) {
+            $model->extend = $map['Extend'];
+        }
+
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
 
         if (isset($map['Producer'])) {

@@ -4076,6 +4076,10 @@ class ICE extends OpenApiClient
             @$query['DialogueId'] = $request->dialogueId;
         }
 
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
+        }
+
         if (null !== $request->sessionId) {
             @$query['SessionId'] = $request->sessionId;
         }
@@ -11356,6 +11360,10 @@ class ICE extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->roundLimit) {
+            @$query['RoundLimit'] = $request->roundLimit;
         }
 
         if (null !== $request->sessionId) {

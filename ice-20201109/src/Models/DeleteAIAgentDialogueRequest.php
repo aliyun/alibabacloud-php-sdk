@@ -16,9 +16,15 @@ class DeleteAIAgentDialogueRequest extends Model
     /**
      * @var string
      */
+    public $nodeId;
+
+    /**
+     * @var string
+     */
     public $sessionId;
     protected $_name = [
         'dialogueId' => 'DialogueId',
+        'nodeId' => 'NodeId',
         'sessionId' => 'SessionId',
     ];
 
@@ -32,6 +38,10 @@ class DeleteAIAgentDialogueRequest extends Model
         $res = [];
         if (null !== $this->dialogueId) {
             $res['DialogueId'] = $this->dialogueId;
+        }
+
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
 
         if (null !== $this->sessionId) {
@@ -51,6 +61,10 @@ class DeleteAIAgentDialogueRequest extends Model
         $model = new self();
         if (isset($map['DialogueId'])) {
             $model->dialogueId = $map['DialogueId'];
+        }
+
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
 
         if (isset($map['SessionId'])) {

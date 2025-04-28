@@ -31,6 +31,11 @@ class ListAIAgentDialoguesRequest extends Model
     /**
      * @var string
      */
+    public $roundLimit;
+
+    /**
+     * @var string
+     */
     public $sessionId;
 
     /**
@@ -42,6 +47,7 @@ class ListAIAgentDialoguesRequest extends Model
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'roundLimit' => 'RoundLimit',
         'sessionId' => 'SessionId',
         'startTime' => 'StartTime',
     ];
@@ -68,6 +74,10 @@ class ListAIAgentDialoguesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->roundLimit) {
+            $res['RoundLimit'] = $this->roundLimit;
         }
 
         if (null !== $this->sessionId) {
@@ -103,6 +113,10 @@ class ListAIAgentDialoguesRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['RoundLimit'])) {
+            $model->roundLimit = $map['RoundLimit'];
         }
 
         if (isset($map['SessionId'])) {
