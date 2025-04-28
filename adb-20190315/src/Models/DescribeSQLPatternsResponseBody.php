@@ -4,86 +4,76 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQLPatternsResponseBody\patternDetails;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSQLPatternsResponseBody extends Model
 {
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The queried SQL patterns.
-     *
      * @var patternDetails[]
      */
     public $patternDetails;
 
     /**
-     * @description The request ID.
-     *
-     * @example 6BE0EDD1-0DE6-3EB6-81BF-BFE4F2******
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'patternDetails' => 'PatternDetails',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->patternDetails)) {
+            Model::validateArray($this->patternDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->patternDetails) {
-            $res['PatternDetails'] = [];
-            if (null !== $this->patternDetails && \is_array($this->patternDetails)) {
-                $n = 0;
-                foreach ($this->patternDetails as $item) {
-                    $res['PatternDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->patternDetails)) {
+                $res['PatternDetails'] = [];
+                $n1 = 0;
+                foreach ($this->patternDetails as $item1) {
+                    $res['PatternDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -91,32 +81,36 @@ class DescribeSQLPatternsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSQLPatternsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['PatternDetails'])) {
             if (!empty($map['PatternDetails'])) {
                 $model->patternDetails = [];
-                $n                     = 0;
-                foreach ($map['PatternDetails'] as $item) {
-                    $model->patternDetails[$n++] = null !== $item ? patternDetails::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PatternDetails'] as $item1) {
+                    $model->patternDetails[$n1++] = patternDetails::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

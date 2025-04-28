@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyMaintenanceActionResponseBody extends Model
 {
     /**
-     * @description The O\\&M event ID.
-     *
-     * @example 11111
-     *
      * @var string
      */
     public $ids;
 
     /**
-     * @description The request ID.
-     *
-     * @example 7856CBE7-5BD0-4EE1-AC62-749392******
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'ids'       => 'Ids',
+        'ids' => 'Ids',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ids) {
             $res['Ids'] = $this->ids;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class ModifyMaintenanceActionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyMaintenanceActionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ids'])) {
             $model->ids = $map['Ids'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

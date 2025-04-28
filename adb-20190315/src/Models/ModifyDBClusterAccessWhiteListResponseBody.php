@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBClusterAccessWhiteListResponseBody extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example rm-uf6wjk5xxxxxxxxxx
-     *
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @description The request ID.
-     *
-     * @example D0CEC6AC-7760-409A-A0D5-E6CD8660E9CC
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The task ID.
-     *
-     * @example 1564657730
-     *
      * @var int
      */
     public $taskId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'requestId'   => 'RequestId',
-        'taskId'      => 'TaskId',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -60,20 +51,22 @@ class ModifyDBClusterAccessWhiteListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBClusterAccessWhiteListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

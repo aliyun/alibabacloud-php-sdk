@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeConnectionCountRecordsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class accessIpRecords extends Model
 {
     /**
-     * @description The IP address of the client.
-     *
-     * @example 42.120.XX.XX
-     *
      * @var string
      */
     public $accessIp;
 
     /**
-     * @description The number of connections.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $count;
     protected $_name = [
         'accessIp' => 'AccessIp',
-        'count'    => 'Count',
+        'count' => 'Count',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessIp) {
             $res['AccessIp'] = $this->accessIp;
         }
+
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
@@ -47,17 +41,18 @@ class accessIpRecords extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accessIpRecords
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessIp'])) {
             $model->accessIp = $map['AccessIp'];
         }
+
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }

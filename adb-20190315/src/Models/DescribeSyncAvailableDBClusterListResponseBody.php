@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSyncAvailableDBClusterListResponseBody\syncAvailableDBClusters;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSyncAvailableDBClusterListResponseBody extends Model
 {
     /**
-     * @example FBD1DD96-AD1D-516C-9D9A-60BA081F66EE
-     *
      * @var string
      */
     public $requestId;
@@ -21,26 +19,31 @@ class DescribeSyncAvailableDBClusterListResponseBody extends Model
      */
     public $syncAvailableDBClusters;
     protected $_name = [
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
         'syncAvailableDBClusters' => 'SyncAvailableDBClusters',
     ];
 
     public function validate()
     {
+        if (\is_array($this->syncAvailableDBClusters)) {
+            Model::validateArray($this->syncAvailableDBClusters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->syncAvailableDBClusters) {
-            $res['SyncAvailableDBClusters'] = [];
-            if (null !== $this->syncAvailableDBClusters && \is_array($this->syncAvailableDBClusters)) {
-                $n = 0;
-                foreach ($this->syncAvailableDBClusters as $item) {
-                    $res['SyncAvailableDBClusters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->syncAvailableDBClusters)) {
+                $res['SyncAvailableDBClusters'] = [];
+                $n1 = 0;
+                foreach ($this->syncAvailableDBClusters as $item1) {
+                    $res['SyncAvailableDBClusters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -48,23 +51,24 @@ class DescribeSyncAvailableDBClusterListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSyncAvailableDBClusterListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SyncAvailableDBClusters'])) {
             if (!empty($map['SyncAvailableDBClusters'])) {
                 $model->syncAvailableDBClusters = [];
-                $n                              = 0;
-                foreach ($map['SyncAvailableDBClusters'] as $item) {
-                    $model->syncAvailableDBClusters[$n++] = null !== $item ? syncAvailableDBClusters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SyncAvailableDBClusters'] as $item1) {
+                    $model->syncAvailableDBClusters[$n1++] = syncAvailableDBClusters::fromMap($item1);
                 }
             }
         }

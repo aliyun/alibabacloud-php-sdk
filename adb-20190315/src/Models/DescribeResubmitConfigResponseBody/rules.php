@@ -4,81 +4,66 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeResubmitConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rules extends Model
 {
     /**
-     * @description Indicates whether out-of-memory (OOM) check is configured.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $exceedMemoryException;
 
     /**
-     * @description The name of the source resource group.
-     *
-     * @example test_group
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description The peak memory usage.
-     *
-     * @example 32
-     *
      * @var string
      */
     public $peakMemory;
 
     /**
-     * @description The duration of the SQL statement. Unit: milliseconds.
-     *
-     * @example 300
-     *
      * @var string
      */
     public $queryTime;
 
     /**
-     * @description The name of the destination resource group.
-     *
-     * @example test_target_group
-     *
      * @var string
      */
     public $targetGroupName;
     protected $_name = [
         'exceedMemoryException' => 'ExceedMemoryException',
-        'groupName'             => 'GroupName',
-        'peakMemory'            => 'PeakMemory',
-        'queryTime'             => 'QueryTime',
-        'targetGroupName'       => 'TargetGroupName',
+        'groupName' => 'GroupName',
+        'peakMemory' => 'PeakMemory',
+        'queryTime' => 'QueryTime',
+        'targetGroupName' => 'TargetGroupName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exceedMemoryException) {
             $res['ExceedMemoryException'] = $this->exceedMemoryException;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->peakMemory) {
             $res['PeakMemory'] = $this->peakMemory;
         }
+
         if (null !== $this->queryTime) {
             $res['QueryTime'] = $this->queryTime;
         }
+
         if (null !== $this->targetGroupName) {
             $res['TargetGroupName'] = $this->targetGroupName;
         }
@@ -86,26 +71,30 @@ class rules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExceedMemoryException'])) {
             $model->exceedMemoryException = $map['ExceedMemoryException'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['PeakMemory'])) {
             $model->peakMemory = $map['PeakMemory'];
         }
+
         if (isset($map['QueryTime'])) {
             $model->queryTime = $map['QueryTime'];
         }
+
         if (isset($map['TargetGroupName'])) {
             $model->targetGroupName = $map['TargetGroupName'];
         }

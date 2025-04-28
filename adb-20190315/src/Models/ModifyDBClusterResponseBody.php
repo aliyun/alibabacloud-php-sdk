@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBClusterResponseBody extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example am-bp1u8c0mgfg58****
-     *
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @description The order ID.
-     *
-     * @example 2035629****
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'orderId'     => 'OrderId',
-        'requestId'   => 'RequestId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +51,22 @@ class ModifyDBClusterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBClusterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

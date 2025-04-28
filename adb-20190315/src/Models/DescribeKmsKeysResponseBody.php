@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeKmsKeysResponseBody\kmsKeys;
-use AlibabaCloud\Tea\Model;
 
 class DescribeKmsKeysResponseBody extends Model
 {
@@ -15,26 +15,29 @@ class DescribeKmsKeysResponseBody extends Model
     public $kmsKeys;
 
     /**
-     * @example 8F91F25F-8BCF-59E3-AF67-3806DB41FD09
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'kmsKeys'   => 'KmsKeys',
+        'kmsKeys' => 'KmsKeys',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->kmsKeys) {
+            $this->kmsKeys->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->kmsKeys) {
-            $res['KmsKeys'] = null !== $this->kmsKeys ? $this->kmsKeys->toMap() : null;
+            $res['KmsKeys'] = null !== $this->kmsKeys ? $this->kmsKeys->toArray($noStream) : $this->kmsKeys;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +45,18 @@ class DescribeKmsKeysResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeKmsKeysResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KmsKeys'])) {
             $model->kmsKeys = kmsKeys::fromMap($map['KmsKeys']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDBResourcePoolRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
-     *
-     * This parameter is required.
-     * @example am-bp11q28kvl688****
-     *
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @description The number of nodes. Default value: 0.
-     *
-     *   Each node provides 16 cores and 64 GB memory.
-     *   The total amount of resources provided by the nodes (number of nodes × 16 cores, number of nodes × 64 GB memory) cannot exceed the total amount of resources in the cluster. Set this parameter to a proper value.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $nodeNum;
@@ -41,29 +29,11 @@ class CreateDBResourcePoolRequest extends Model
     public $ownerId;
 
     /**
-     * @description The name of the resource group.
-     *
-     *   The name can be up to 255 characters in length.
-     *   The name must start with a letter or a digit.
-     *   The name can contain letters, digits, hyphens (_), and underscores (_).
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $poolName;
 
     /**
-     * @description The mode in which to execute SQL statements.
-     *
-     *   **batch**
-     *
-     *   **interactive**
-     *
-     * > For more information, see [Query execution modes](https://help.aliyun.com/document_detail/189502.html).
-     * @example interactive
-     *
      * @var string
      */
     public $queryType;
@@ -78,44 +48,52 @@ class CreateDBResourcePoolRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
-        'nodeNum'              => 'NodeNum',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'poolName'             => 'PoolName',
-        'queryType'            => 'QueryType',
+        'DBClusterId' => 'DBClusterId',
+        'nodeNum' => 'NodeNum',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'poolName' => 'PoolName',
+        'queryType' => 'QueryType',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->nodeNum) {
             $res['NodeNum'] = $this->nodeNum;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->poolName) {
             $res['PoolName'] = $this->poolName;
         }
+
         if (null !== $this->queryType) {
             $res['QueryType'] = $this->queryType;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -123,35 +101,42 @@ class CreateDBResourcePoolRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDBResourcePoolRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['NodeNum'])) {
             $model->nodeNum = $map['NodeNum'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PoolName'])) {
             $model->poolName = $map['PoolName'];
         }
+
         if (isset($map['QueryType'])) {
             $model->queryType = $map['QueryType'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

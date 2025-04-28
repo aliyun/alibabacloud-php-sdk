@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDiagnosisTasksResponseBody\taskList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDiagnosisTasksResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example F0983B43-B2EC-536A-8791-142B5CF1E9B6
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The queried tasks.
-     *
      * @var taskList[]
      */
     public $taskList;
 
     /**
-     * @description The total number of tasks in the stage.
-     *
-     * @example 33
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'taskList'   => 'TaskList',
+        'requestId' => 'RequestId',
+        'taskList' => 'TaskList',
         'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->taskList)) {
+            Model::validateArray($this->taskList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskList) {
-            $res['TaskList'] = [];
-            if (null !== $this->taskList && \is_array($this->taskList)) {
-                $n = 0;
-                foreach ($this->taskList as $item) {
-                    $res['TaskList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskList)) {
+                $res['TaskList'] = [];
+                $n1 = 0;
+                foreach ($this->taskList as $item1) {
+                    $res['TaskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -65,26 +61,28 @@ class DescribeDiagnosisTasksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDiagnosisTasksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskList'])) {
             if (!empty($map['TaskList'])) {
                 $model->taskList = [];
-                $n               = 0;
-                foreach ($map['TaskList'] as $item) {
-                    $model->taskList[$n++] = null !== $item ? taskList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TaskList'] as $item1) {
+                    $model->taskList[$n1++] = taskList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

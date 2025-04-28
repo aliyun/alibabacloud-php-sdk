@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeComputeResourceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class computeResource extends Model
 {
     /**
-     * @description The specifications of computing resources displayed in the console.
-     *
-     * @example 8 Core 32 GB（单机版）
-     *
      * @var string
      */
     public $displayValue;
 
     /**
-     * @description The actual specifications of computing resources.
-     *
-     * @example 8 Core 32 GB
-     *
      * @var string
      */
     public $realValue;
     protected $_name = [
         'displayValue' => 'DisplayValue',
-        'realValue'    => 'RealValue',
+        'realValue' => 'RealValue',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->displayValue) {
             $res['DisplayValue'] = $this->displayValue;
         }
+
         if (null !== $this->realValue) {
             $res['RealValue'] = $this->realValue;
         }
@@ -47,17 +41,18 @@ class computeResource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return computeResource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DisplayValue'])) {
             $model->displayValue = $map['DisplayValue'];
         }
+
         if (isset($map['RealValue'])) {
             $model->realValue = $map['RealValue'];
         }

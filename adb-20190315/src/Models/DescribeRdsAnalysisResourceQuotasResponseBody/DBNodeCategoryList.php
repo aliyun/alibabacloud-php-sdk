@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRdsAnalysisResourceQuotasResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRdsAnalysisResourceQuotasResponseBody\DBNodeCategoryList\DBNodeCategory;
-use AlibabaCloud\Tea\Model;
 
 class DBNodeCategoryList extends Model
 {
@@ -19,17 +19,21 @@ class DBNodeCategoryList extends Model
 
     public function validate()
     {
+        if (\is_array($this->DBNodeCategory)) {
+            Model::validateArray($this->DBNodeCategory);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBNodeCategory) {
-            $res['DBNodeCategory'] = [];
-            if (null !== $this->DBNodeCategory && \is_array($this->DBNodeCategory)) {
-                $n = 0;
-                foreach ($this->DBNodeCategory as $item) {
-                    $res['DBNodeCategory'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->DBNodeCategory)) {
+                $res['DBNodeCategory'] = [];
+                $n1 = 0;
+                foreach ($this->DBNodeCategory as $item1) {
+                    $res['DBNodeCategory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class DBNodeCategoryList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBNodeCategoryList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBNodeCategory'])) {
             if (!empty($map['DBNodeCategory'])) {
                 $model->DBNodeCategory = [];
-                $n                     = 0;
-                foreach ($map['DBNodeCategory'] as $item) {
-                    $model->DBNodeCategory[$n++] = null !== $item ? DBNodeCategory::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DBNodeCategory'] as $item1) {
+                    $model->DBNodeCategory[$n1++] = DBNodeCategory::fromMap($item1);
                 }
             }
         }

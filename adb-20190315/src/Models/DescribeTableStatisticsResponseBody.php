@@ -4,93 +4,90 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeTableStatisticsResponseBody\items;
-use AlibabaCloud\Tea\Model;
 
 class DescribeTableStatisticsResponseBody extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example am-****************
-     *
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @description The queried table statistics.
-     *
      * @var items
      */
     public $items;
 
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 30
-     *
      * @var string
      */
     public $pageSize;
 
     /**
-     * @description The request ID.
-     *
-     * @example 4C4433FF-5D3A-4C3E-A19C-6D93B2******
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
+     * @var string
+     */
+    public $schemaNames;
+
+    /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'items'       => 'Items',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'schemaNames' => 'SchemaNames',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (null !== $this->items) {
+            $this->items->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+            $res['Items'] = null !== $this->items ? $this->items->toArray($noStream) : $this->items;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
+        if (null !== $this->schemaNames) {
+            $res['SchemaNames'] = $this->schemaNames;
+        }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -98,29 +95,38 @@ class DescribeTableStatisticsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTableStatisticsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
+        if (isset($map['SchemaNames'])) {
+            $model->schemaNames = $map['SchemaNames'];
+        }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

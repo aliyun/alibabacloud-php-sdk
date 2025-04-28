@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyLogBackupPolicyRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
-     *
-     * This parameter is required.
-     * @example am-bp1xxxxxxxx47
-     *
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @description Specifies whether to enable log backup. Valid values:
-     *
-     *   **Enable**
-     *   **Disable**
-     *
-     * This parameter is required.
-     * @example Enable
-     *
      * @var string
      */
     public $enableBackupLog;
 
     /**
-     * @description The number of days for which to retain backup files. Valid values: 7 to 730.
-     *
-     * > The default value is 7.
-     * @example 30
-     *
      * @var string
      */
     public $logBackupRetentionPeriod;
@@ -52,10 +34,6 @@ class ModifyLogBackupPolicyRequest extends Model
     public $ownerId;
 
     /**
-     * @description The resource group ID.
-     *
-     * @example rg-acfm4f7oger****
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -70,44 +48,52 @@ class ModifyLogBackupPolicyRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBClusterId'              => 'DBClusterId',
-        'enableBackupLog'          => 'EnableBackupLog',
+        'DBClusterId' => 'DBClusterId',
+        'enableBackupLog' => 'EnableBackupLog',
         'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
-        'ownerAccount'             => 'OwnerAccount',
-        'ownerId'                  => 'OwnerId',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
-        'resourceOwnerId'          => 'ResourceOwnerId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->enableBackupLog) {
             $res['EnableBackupLog'] = $this->enableBackupLog;
         }
+
         if (null !== $this->logBackupRetentionPeriod) {
             $res['LogBackupRetentionPeriod'] = $this->logBackupRetentionPeriod;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -115,35 +101,42 @@ class ModifyLogBackupPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyLogBackupPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['EnableBackupLog'])) {
             $model->enableBackupLog = $map['EnableBackupLog'];
         }
+
         if (isset($map['LogBackupRetentionPeriod'])) {
             $model->logBackupRetentionPeriod = $map['LogBackupRetentionPeriod'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

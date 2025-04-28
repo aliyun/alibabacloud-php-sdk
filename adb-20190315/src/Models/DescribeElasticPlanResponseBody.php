@@ -4,47 +4,46 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeElasticPlanResponseBody\elasticPlanList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeElasticPlanResponseBody extends Model
 {
     /**
-     * @description The queried scaling plans.
-     *
      * @var elasticPlanList[]
      */
     public $elasticPlanList;
 
     /**
-     * @description The request ID.
-     *
-     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'elasticPlanList' => 'ElasticPlanList',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->elasticPlanList)) {
+            Model::validateArray($this->elasticPlanList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->elasticPlanList) {
-            $res['ElasticPlanList'] = [];
-            if (null !== $this->elasticPlanList && \is_array($this->elasticPlanList)) {
-                $n = 0;
-                foreach ($this->elasticPlanList as $item) {
-                    $res['ElasticPlanList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->elasticPlanList)) {
+                $res['ElasticPlanList'] = [];
+                $n1 = 0;
+                foreach ($this->elasticPlanList as $item1) {
+                    $res['ElasticPlanList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +51,24 @@ class DescribeElasticPlanResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeElasticPlanResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ElasticPlanList'])) {
             if (!empty($map['ElasticPlanList'])) {
                 $model->elasticPlanList = [];
-                $n                      = 0;
-                foreach ($map['ElasticPlanList'] as $item) {
-                    $model->elasticPlanList[$n++] = null !== $item ? elasticPlanList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ElasticPlanList'] as $item1) {
+                    $model->elasticPlanList[$n1++] = elasticPlanList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

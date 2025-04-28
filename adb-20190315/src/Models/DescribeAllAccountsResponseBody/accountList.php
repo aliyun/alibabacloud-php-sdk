@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeAllAccountsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class accountList extends Model
 {
     /**
-     * @description The name of the database account.
-     *
-     * @example rdsdt_dts_adb
-     *
      * @var string
      */
     public $user;
@@ -22,9 +18,10 @@ class accountList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->user) {
@@ -34,11 +31,11 @@ class accountList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accountList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

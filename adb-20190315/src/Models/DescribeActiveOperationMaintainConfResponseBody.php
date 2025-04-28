@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeActiveOperationMaintainConfResponseBody\config;
-use AlibabaCloud\Tea\Model;
 
 class DescribeActiveOperationMaintainConfResponseBody extends Model
 {
@@ -15,37 +15,39 @@ class DescribeActiveOperationMaintainConfResponseBody extends Model
     public $config;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $hasConfig;
 
     /**
-     * @example 92B3D2F0-B5E3-5592-9A6F-D0A6C34ACBA9
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'config'    => 'Config',
+        'config' => 'Config',
         'hasConfig' => 'HasConfig',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->config) {
+            $this->config->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
-            $res['Config'] = null !== $this->config ? $this->config->toMap() : null;
+            $res['Config'] = null !== $this->config ? $this->config->toArray($noStream) : $this->config;
         }
+
         if (null !== $this->hasConfig) {
             $res['HasConfig'] = $this->hasConfig;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -53,20 +55,22 @@ class DescribeActiveOperationMaintainConfResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeActiveOperationMaintainConfResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = config::fromMap($map['Config']);
         }
+
         if (isset($map['HasConfig'])) {
             $model->hasConfig = $map['HasConfig'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

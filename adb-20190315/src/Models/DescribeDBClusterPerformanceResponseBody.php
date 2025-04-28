@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterPerformanceResponseBody\performances;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDBClusterPerformanceResponseBody extends Model
 {
@@ -15,84 +15,75 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
-     * @description The cluster ID.
-     *
-     * @example am-************
-     *
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @description The end time of the query. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
-     *
-     * @example 2021-05-03T15:01:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The queried performance metrics.
-     *
      * @var performances[]
      */
     public $performances;
 
     /**
-     * @description The request ID.
-     *
-     * @example 25B56BC7-4978-40B3-9E48-4B7067******
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The start time of the query. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
-     *
-     * @example 2021-05-03T15:00:00Z
-     *
      * @var string
      */
     public $startTime;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'DBClusterId'        => 'DBClusterId',
-        'endTime'            => 'EndTime',
-        'performances'       => 'Performances',
-        'requestId'          => 'RequestId',
-        'startTime'          => 'StartTime',
+        'DBClusterId' => 'DBClusterId',
+        'endTime' => 'EndTime',
+        'performances' => 'Performances',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
     {
+        if (\is_array($this->performances)) {
+            Model::validateArray($this->performances);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->performances) {
-            $res['Performances'] = [];
-            if (null !== $this->performances && \is_array($this->performances)) {
-                $n = 0;
-                foreach ($this->performances as $item) {
-                    $res['Performances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->performances)) {
+                $res['Performances'] = [];
+                $n1 = 0;
+                foreach ($this->performances as $item1) {
+                    $res['Performances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -100,35 +91,40 @@ class DescribeDBClusterPerformanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBClusterPerformanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Performances'])) {
             if (!empty($map['Performances'])) {
                 $model->performances = [];
-                $n                   = 0;
-                foreach ($map['Performances'] as $item) {
-                    $model->performances[$n++] = null !== $item ? performances::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Performances'] as $item1) {
+                    $model->performances[$n1++] = performances::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

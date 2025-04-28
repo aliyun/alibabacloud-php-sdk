@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeLogHubAttributeResponseBody\loghubInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLogHubAttributeResponseBody extends Model
 {
@@ -15,26 +15,29 @@ class DescribeLogHubAttributeResponseBody extends Model
     public $loghubInfo;
 
     /**
-     * @example 8A564B7F-8C00-43C0-8EC5-919FBB70573
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'loghubInfo' => 'LoghubInfo',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->loghubInfo) {
+            $this->loghubInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loghubInfo) {
-            $res['LoghubInfo'] = null !== $this->loghubInfo ? $this->loghubInfo->toMap() : null;
+            $res['LoghubInfo'] = null !== $this->loghubInfo ? $this->loghubInfo->toArray($noStream) : $this->loghubInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +45,18 @@ class DescribeLogHubAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLogHubAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LoghubInfo'])) {
             $model->loghubInfo = loghubInfo::fromMap($map['LoghubInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

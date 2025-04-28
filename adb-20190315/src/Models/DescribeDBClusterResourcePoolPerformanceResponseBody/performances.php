@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterResourcePoolPerformanceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterResourcePoolPerformanceResponseBody\performances\resourcePoolPerformances;
-use AlibabaCloud\Tea\Model;
 
 class performances extends Model
 {
     /**
-     * @description The metric of the resource group.
-     *
-     * @example AnalyticDB_RP_CPU
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The queried monitoring information about the resource groups.
-     *
      * @var resourcePoolPerformances[]
      */
     public $resourcePoolPerformances;
 
     /**
-     * @description The unit of the metric value.
-     *
-     * @example %
-     *
      * @var string
      */
     public $unit;
     protected $_name = [
-        'key'                      => 'Key',
+        'key' => 'Key',
         'resourcePoolPerformances' => 'ResourcePoolPerformances',
-        'unit'                     => 'Unit',
+        'unit' => 'Unit',
     ];
 
     public function validate()
     {
+        if (\is_array($this->resourcePoolPerformances)) {
+            Model::validateArray($this->resourcePoolPerformances);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->resourcePoolPerformances) {
-            $res['ResourcePoolPerformances'] = [];
-            if (null !== $this->resourcePoolPerformances && \is_array($this->resourcePoolPerformances)) {
-                $n = 0;
-                foreach ($this->resourcePoolPerformances as $item) {
-                    $res['ResourcePoolPerformances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourcePoolPerformances)) {
+                $res['ResourcePoolPerformances'] = [];
+                $n1 = 0;
+                foreach ($this->resourcePoolPerformances as $item1) {
+                    $res['ResourcePoolPerformances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
         }
@@ -65,26 +61,28 @@ class performances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return performances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['ResourcePoolPerformances'])) {
             if (!empty($map['ResourcePoolPerformances'])) {
                 $model->resourcePoolPerformances = [];
-                $n                               = 0;
-                foreach ($map['ResourcePoolPerformances'] as $item) {
-                    $model->resourcePoolPerformances[$n++] = null !== $item ? resourcePoolPerformances::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResourcePoolPerformances'] as $item1) {
+                    $model->resourcePoolPerformances[$n1++] = resourcePoolPerformances::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
         }

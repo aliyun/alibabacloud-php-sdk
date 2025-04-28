@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRdsAnalysisResourceQuotasResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRdsAnalysisResourceQuotasResponseBody\storageTypeList\storageType;
-use AlibabaCloud\Tea\Model;
 
 class storageTypeList extends Model
 {
@@ -19,17 +19,21 @@ class storageTypeList extends Model
 
     public function validate()
     {
+        if (\is_array($this->storageType)) {
+            Model::validateArray($this->storageType);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->storageType) {
-            $res['StorageType'] = [];
-            if (null !== $this->storageType && \is_array($this->storageType)) {
-                $n = 0;
-                foreach ($this->storageType as $item) {
-                    $res['StorageType'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->storageType)) {
+                $res['StorageType'] = [];
+                $n1 = 0;
+                foreach ($this->storageType as $item1) {
+                    $res['StorageType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class storageTypeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return storageTypeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StorageType'])) {
             if (!empty($map['StorageType'])) {
                 $model->storageType = [];
-                $n                  = 0;
-                foreach ($map['StorageType'] as $item) {
-                    $model->storageType[$n++] = null !== $item ? storageType::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['StorageType'] as $item1) {
+                    $model->storageType[$n1++] = storageType::fromMap($item1);
                 }
             }
         }

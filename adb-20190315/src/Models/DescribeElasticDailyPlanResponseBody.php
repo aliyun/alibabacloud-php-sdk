@@ -4,47 +4,46 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeElasticDailyPlanResponseBody\elasticDailyPlanList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeElasticDailyPlanResponseBody extends Model
 {
     /**
-     * @description Details of the current-day scaling plans.
-     *
      * @var elasticDailyPlanList[]
      */
     public $elasticDailyPlanList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'elasticDailyPlanList' => 'ElasticDailyPlanList',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->elasticDailyPlanList)) {
+            Model::validateArray($this->elasticDailyPlanList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->elasticDailyPlanList) {
-            $res['ElasticDailyPlanList'] = [];
-            if (null !== $this->elasticDailyPlanList && \is_array($this->elasticDailyPlanList)) {
-                $n = 0;
-                foreach ($this->elasticDailyPlanList as $item) {
-                    $res['ElasticDailyPlanList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->elasticDailyPlanList)) {
+                $res['ElasticDailyPlanList'] = [];
+                $n1 = 0;
+                foreach ($this->elasticDailyPlanList as $item1) {
+                    $res['ElasticDailyPlanList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +51,24 @@ class DescribeElasticDailyPlanResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeElasticDailyPlanResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ElasticDailyPlanList'])) {
             if (!empty($map['ElasticDailyPlanList'])) {
                 $model->elasticDailyPlanList = [];
-                $n                           = 0;
-                foreach ($map['ElasticDailyPlanList'] as $item) {
-                    $model->elasticDailyPlanList[$n++] = null !== $item ? elasticDailyPlanList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ElasticDailyPlanList'] as $item1) {
+                    $model->elasticDailyPlanList[$n1++] = elasticDailyPlanList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\OperateLogHubRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class logHubStores extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example testValue
-     *
      * @var string
      */
     public $fieldKey;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example testKey
-     *
      * @var string
      */
     public $logKey;
     protected $_name = [
         'fieldKey' => 'FieldKey',
-        'logKey'   => 'LogKey',
+        'logKey' => 'LogKey',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fieldKey) {
             $res['FieldKey'] = $this->fieldKey;
         }
+
         if (null !== $this->logKey) {
             $res['LogKey'] = $this->logKey;
         }
@@ -47,17 +41,18 @@ class logHubStores extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logHubStores
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FieldKey'])) {
             $model->fieldKey = $map['FieldKey'];
         }
+
         if (isset($map['LogKey'])) {
             $model->logKey = $map['LogKey'];
         }

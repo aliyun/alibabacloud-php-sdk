@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyActiveOperationMaintainConfResponseBody extends Model
 {
     /**
-     * @example 0A156332-D2AC-5C98-8872-9779EA1CC022
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class ModifyActiveOperationMaintainConfResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class ModifyActiveOperationMaintainConfResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyActiveOperationMaintainConfResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

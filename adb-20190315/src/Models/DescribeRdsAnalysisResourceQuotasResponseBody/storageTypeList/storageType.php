@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRdsAnalysisResourceQuotasResponseBody\storageTypeList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class storageType extends Model
 {
     /**
-     * @example cloud_essd
-     *
      * @var string
      */
     public $text;
 
     /**
-     * @example cloud_essd
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'text'  => 'Text',
+        'text' => 'Text',
         'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -43,17 +41,18 @@ class storageType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return storageType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,105 +4,145 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeAvailableResourceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeAvailableResourceResponseBody\availableZoneList\supportedMode;
-use AlibabaCloud\Tea\Model;
 
 class availableZoneList extends Model
 {
     /**
-     * @description A reserved parameter.
-     *
      * @var string[]
      */
     public $supportedComputeResource;
 
     /**
-     * @description The supported modes.
-     *
      * @var supportedMode[]
      */
     public $supportedMode;
 
     /**
-     * @description A reserved parameter.
-     *
      * @var string[]
      */
     public $supportedStorageResource;
 
     /**
-     * @description The zone ID.
-     *
-     * @example cn-hangzhou-h
-     *
      * @var string
      */
     public $zoneId;
+
+    /**
+     * @var string
+     */
+    public $zoneName;
     protected $_name = [
         'supportedComputeResource' => 'SupportedComputeResource',
-        'supportedMode'            => 'SupportedMode',
+        'supportedMode' => 'SupportedMode',
         'supportedStorageResource' => 'SupportedStorageResource',
-        'zoneId'                   => 'ZoneId',
+        'zoneId' => 'ZoneId',
+        'zoneName' => 'ZoneName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->supportedComputeResource)) {
+            Model::validateArray($this->supportedComputeResource);
+        }
+        if (\is_array($this->supportedMode)) {
+            Model::validateArray($this->supportedMode);
+        }
+        if (\is_array($this->supportedStorageResource)) {
+            Model::validateArray($this->supportedStorageResource);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->supportedComputeResource) {
-            $res['SupportedComputeResource'] = $this->supportedComputeResource;
-        }
-        if (null !== $this->supportedMode) {
-            $res['SupportedMode'] = [];
-            if (null !== $this->supportedMode && \is_array($this->supportedMode)) {
-                $n = 0;
-                foreach ($this->supportedMode as $item) {
-                    $res['SupportedMode'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supportedComputeResource)) {
+                $res['SupportedComputeResource'] = [];
+                $n1 = 0;
+                foreach ($this->supportedComputeResource as $item1) {
+                    $res['SupportedComputeResource'][$n1++] = $item1;
                 }
             }
         }
-        if (null !== $this->supportedStorageResource) {
-            $res['SupportedStorageResource'] = $this->supportedStorageResource;
+
+        if (null !== $this->supportedMode) {
+            if (\is_array($this->supportedMode)) {
+                $res['SupportedMode'] = [];
+                $n1 = 0;
+                foreach ($this->supportedMode as $item1) {
+                    $res['SupportedMode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
+
+        if (null !== $this->supportedStorageResource) {
+            if (\is_array($this->supportedStorageResource)) {
+                $res['SupportedStorageResource'] = [];
+                $n1 = 0;
+                foreach ($this->supportedStorageResource as $item1) {
+                    $res['SupportedStorageResource'][$n1++] = $item1;
+                }
+            }
+        }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
+        }
+
+        if (null !== $this->zoneName) {
+            $res['ZoneName'] = $this->zoneName;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableZoneList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedComputeResource'])) {
             if (!empty($map['SupportedComputeResource'])) {
-                $model->supportedComputeResource = $map['SupportedComputeResource'];
-            }
-        }
-        if (isset($map['SupportedMode'])) {
-            if (!empty($map['SupportedMode'])) {
-                $model->supportedMode = [];
-                $n                    = 0;
-                foreach ($map['SupportedMode'] as $item) {
-                    $model->supportedMode[$n++] = null !== $item ? supportedMode::fromMap($item) : $item;
+                $model->supportedComputeResource = [];
+                $n1 = 0;
+                foreach ($map['SupportedComputeResource'] as $item1) {
+                    $model->supportedComputeResource[$n1++] = $item1;
                 }
             }
         }
-        if (isset($map['SupportedStorageResource'])) {
-            if (!empty($map['SupportedStorageResource'])) {
-                $model->supportedStorageResource = $map['SupportedStorageResource'];
+
+        if (isset($map['SupportedMode'])) {
+            if (!empty($map['SupportedMode'])) {
+                $model->supportedMode = [];
+                $n1 = 0;
+                foreach ($map['SupportedMode'] as $item1) {
+                    $model->supportedMode[$n1++] = supportedMode::fromMap($item1);
+                }
             }
         }
+
+        if (isset($map['SupportedStorageResource'])) {
+            if (!empty($map['SupportedStorageResource'])) {
+                $model->supportedStorageResource = [];
+                $n1 = 0;
+                foreach ($map['SupportedStorageResource'] as $item1) {
+                    $model->supportedStorageResource[$n1++] = $item1;
+                }
+            }
+        }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+
+        if (isset($map['ZoneName'])) {
+            $model->zoneName = $map['ZoneName'];
         }
 
         return $model;

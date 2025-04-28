@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRdsAnalysisResourceQuotasResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRdsAnalysisResourceQuotasResponseBody\engineVersionList\engineVersion;
-use AlibabaCloud\Tea\Model;
 
 class engineVersionList extends Model
 {
@@ -19,17 +19,21 @@ class engineVersionList extends Model
 
     public function validate()
     {
+        if (\is_array($this->engineVersion)) {
+            Model::validateArray($this->engineVersion);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->engineVersion) {
-            $res['EngineVersion'] = [];
-            if (null !== $this->engineVersion && \is_array($this->engineVersion)) {
-                $n = 0;
-                foreach ($this->engineVersion as $item) {
-                    $res['EngineVersion'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->engineVersion)) {
+                $res['EngineVersion'] = [];
+                $n1 = 0;
+                foreach ($this->engineVersion as $item1) {
+                    $res['EngineVersion'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class engineVersionList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return engineVersionList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EngineVersion'])) {
             if (!empty($map['EngineVersion'])) {
                 $model->engineVersion = [];
-                $n                    = 0;
-                foreach ($map['EngineVersion'] as $item) {
-                    $model->engineVersion[$n++] = null !== $item ? engineVersion::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EngineVersion'] as $item1) {
+                    $model->engineVersion[$n1++] = engineVersion::fromMap($item1);
                 }
             }
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeAvailableResourceResponseBody\availableZoneList\supportedMode\supportedSerialList\supportedInstanceClassList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeAvailableResourceResponseBody\availableZoneList\supportedMode\supportedSerialList\supportedInstanceClassList\supportedExecutorList\nodeCount;
-use AlibabaCloud\Tea\Model;
 
 class supportedExecutorList extends Model
 {
     /**
-     * @description The information about the supported compute nodes.
-     *
      * @var nodeCount
      */
     public $nodeCount;
@@ -21,23 +19,27 @@ class supportedExecutorList extends Model
 
     public function validate()
     {
+        if (null !== $this->nodeCount) {
+            $this->nodeCount->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeCount) {
-            $res['NodeCount'] = null !== $this->nodeCount ? $this->nodeCount->toMap() : null;
+            $res['NodeCount'] = null !== $this->nodeCount ? $this->nodeCount->toArray($noStream) : $this->nodeCount;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedExecutorList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

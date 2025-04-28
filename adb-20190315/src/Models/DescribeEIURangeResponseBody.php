@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeEIURangeResponseBody\EIUInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeEIURangeResponseBody extends Model
 {
     /**
-     * @description The queried information about the number of EIUs.
-     *
      * @var EIUInfo
      */
     public $EIUInfo;
 
     /**
-     * @description The request ID.
-     *
-     * @example D65A809F-34CE-4550-9BC1-0ED21ETG380
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'EIUInfo'   => 'EIUInfo',
+        'EIUInfo' => 'EIUInfo',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->EIUInfo) {
+            $this->EIUInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->EIUInfo) {
-            $res['EIUInfo'] = null !== $this->EIUInfo ? $this->EIUInfo->toMap() : null;
+            $res['EIUInfo'] = null !== $this->EIUInfo ? $this->EIUInfo->toArray($noStream) : $this->EIUInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DescribeEIURangeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEIURangeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EIUInfo'])) {
             $model->EIUInfo = EIUInfo::fromMap($map['EIUInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

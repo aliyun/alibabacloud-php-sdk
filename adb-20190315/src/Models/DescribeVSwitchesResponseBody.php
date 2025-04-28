@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeVSwitchesResponseBody\vSwitches;
-use AlibabaCloud\Tea\Model;
 
 class DescribeVSwitchesResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example D65A809F-34CE-4550-9BC1-0ED21ETG380
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The queried vSwitches.
-     *
      * @var vSwitches
      */
     public $vSwitches;
@@ -31,32 +25,38 @@ class DescribeVSwitchesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->vSwitches) {
+            $this->vSwitches->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->vSwitches) {
-            $res['VSwitches'] = null !== $this->vSwitches ? $this->vSwitches->toMap() : null;
+            $res['VSwitches'] = null !== $this->vSwitches ? $this->vSwitches->toArray($noStream) : $this->vSwitches;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVSwitchesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VSwitches'])) {
             $model->vSwitches = vSwitches::fromMap($map['VSwitches']);
         }

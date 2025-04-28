@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAccountResponseBody extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
-     *
-     * @example am-bp1r053byu48p****
-     *
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 2FED790E-FB61-4721-8C1C-07C627FA5A19
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The task ID.
-     *
-     * @example 1564657730
-     *
      * @var int
      */
     public $taskId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'requestId'   => 'RequestId',
-        'taskId'      => 'TaskId',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -60,20 +51,22 @@ class CreateAccountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAccountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

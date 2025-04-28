@@ -4,112 +4,86 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterNetInfoResponseBody\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class address extends Model
 {
     /**
-     * @description The endpoint of the cluster.
-     *
-     * @example am-bpxxxxxxxx.ads.aliyuncs.com
-     *
      * @var string
      */
     public $connectionString;
 
     /**
-     * @description The prefix of the cluster endpoint.
-     *
-     * @example am-bpxxxxxxxx89k51380
-     *
      * @var string
      */
     public $connectionStringPrefix;
 
     /**
-     * @description The IP address.
-     *
-     * @example 192.168.x.x
-     *
      * @var string
      */
     public $IPAddress;
 
     /**
-     * @description The network type of the cluster. Valid values:
-     *
-     *   **Public**: public endpoint.
-     *   **VPC**: Virtual Private Cloud (VPC) endpoint.
-     *
-     * @example VPC
-     *
      * @var string
      */
     public $netType;
 
     /**
-     * @description The port number that is used to connect to the cluster.
-     *
-     * @example 3306
-     *
      * @var string
      */
     public $port;
 
     /**
-     * @description The VPC ID.
-     *
-     * >  If NetType is set to Public, an empty string is returned for this parameter.
-     * @example vpc-xxxxxxxxx
-     *
      * @var string
      */
     public $VPCId;
 
     /**
-     * @description The vSwitch ID.
-     *
-     * >  If NetType is set to Public, an empty string is returned for this parameter.
-     * @example vsw-xxxxxx
-     *
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'connectionString'       => 'ConnectionString',
+        'connectionString' => 'ConnectionString',
         'connectionStringPrefix' => 'ConnectionStringPrefix',
-        'IPAddress'              => 'IPAddress',
-        'netType'                => 'NetType',
-        'port'                   => 'Port',
-        'VPCId'                  => 'VPCId',
-        'vSwitchId'              => 'VSwitchId',
+        'IPAddress' => 'IPAddress',
+        'netType' => 'NetType',
+        'port' => 'Port',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
         }
+
         if (null !== $this->connectionStringPrefix) {
             $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
         }
+
         if (null !== $this->IPAddress) {
             $res['IPAddress'] = $this->IPAddress;
         }
+
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -117,32 +91,38 @@ class address extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return address
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
         }
+
         if (isset($map['ConnectionStringPrefix'])) {
             $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
         }
+
         if (isset($map['IPAddress'])) {
             $model->IPAddress = $map['IPAddress'];
         }
+
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

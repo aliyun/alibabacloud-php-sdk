@@ -4,38 +4,21 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBClusterSSLRequest extends Model
 {
     /**
-     * @description The internal or public endpoint for which the server certificate needs to be created or updated.
-     *
-     * @example am-d7oualxo05x4o5be872***.ads.aliyuncs.com
-     *
      * @var string
      */
     public $connectionString;
 
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition cluster.
-     *
-     * This parameter is required.
-     * @example am-bp1r053byu48p****
-     *
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @description Specifies whether to enable SSL encryption. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * This parameter is required.
-     * @example true
-     *
      * @var bool
      */
     public $enableSSL;
@@ -60,40 +43,47 @@ class ModifyDBClusterSSLRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'connectionString'     => 'ConnectionString',
-        'DBClusterId'          => 'DBClusterId',
-        'enableSSL'            => 'EnableSSL',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'connectionString' => 'ConnectionString',
+        'DBClusterId' => 'DBClusterId',
+        'enableSSL' => 'EnableSSL',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
         }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->enableSSL) {
             $res['EnableSSL'] = $this->enableSSL;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -101,32 +91,38 @@ class ModifyDBClusterSSLRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBClusterSSLRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
         }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['EnableSSL'])) {
             $model->enableSSL = $map['EnableSSL'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

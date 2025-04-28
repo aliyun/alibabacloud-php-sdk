@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeLogStoreKeysResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class logStoreKeys extends Model
 {
@@ -18,29 +18,43 @@ class logStoreKeys extends Model
 
     public function validate()
     {
+        if (\is_array($this->logStoreKey)) {
+            Model::validateArray($this->logStoreKey);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logStoreKey) {
-            $res['LogStoreKey'] = $this->logStoreKey;
+            if (\is_array($this->logStoreKey)) {
+                $res['LogStoreKey'] = [];
+                $n1 = 0;
+                foreach ($this->logStoreKey as $item1) {
+                    $res['LogStoreKey'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logStoreKeys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogStoreKey'])) {
             if (!empty($map['LogStoreKey'])) {
-                $model->logStoreKey = $map['LogStoreKey'];
+                $model->logStoreKey = [];
+                $n1 = 0;
+                foreach ($map['LogStoreKey'] as $item1) {
+                    $model->logStoreKey[$n1++] = $item1;
+                }
             }
         }
 

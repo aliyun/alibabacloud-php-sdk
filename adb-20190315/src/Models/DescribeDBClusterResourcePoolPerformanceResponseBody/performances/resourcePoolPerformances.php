@@ -4,47 +4,46 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterResourcePoolPerformanceResponseBody\performances;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterResourcePoolPerformanceResponseBody\performances\resourcePoolPerformances\resourcePoolSeries;
-use AlibabaCloud\Tea\Model;
 
 class resourcePoolPerformances extends Model
 {
     /**
-     * @description The name of the resource group.
-     *
-     * @example test_pool
-     *
      * @var string
      */
     public $resourcePoolName;
 
     /**
-     * @description The sequential monitoring information about the resource groups.
-     *
      * @var resourcePoolSeries[]
      */
     public $resourcePoolSeries;
     protected $_name = [
-        'resourcePoolName'   => 'ResourcePoolName',
+        'resourcePoolName' => 'ResourcePoolName',
         'resourcePoolSeries' => 'ResourcePoolSeries',
     ];
 
     public function validate()
     {
+        if (\is_array($this->resourcePoolSeries)) {
+            Model::validateArray($this->resourcePoolSeries);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourcePoolName) {
             $res['ResourcePoolName'] = $this->resourcePoolName;
         }
+
         if (null !== $this->resourcePoolSeries) {
-            $res['ResourcePoolSeries'] = [];
-            if (null !== $this->resourcePoolSeries && \is_array($this->resourcePoolSeries)) {
-                $n = 0;
-                foreach ($this->resourcePoolSeries as $item) {
-                    $res['ResourcePoolSeries'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourcePoolSeries)) {
+                $res['ResourcePoolSeries'] = [];
+                $n1 = 0;
+                foreach ($this->resourcePoolSeries as $item1) {
+                    $res['ResourcePoolSeries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +51,24 @@ class resourcePoolPerformances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourcePoolPerformances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourcePoolName'])) {
             $model->resourcePoolName = $map['ResourcePoolName'];
         }
+
         if (isset($map['ResourcePoolSeries'])) {
             if (!empty($map['ResourcePoolSeries'])) {
                 $model->resourcePoolSeries = [];
-                $n                         = 0;
-                foreach ($map['ResourcePoolSeries'] as $item) {
-                    $model->resourcePoolSeries[$n++] = null !== $item ? resourcePoolSeries::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResourcePoolSeries'] as $item1) {
+                    $model->resourcePoolSeries[$n1++] = resourcePoolSeries::fromMap($item1);
                 }
             }
         }

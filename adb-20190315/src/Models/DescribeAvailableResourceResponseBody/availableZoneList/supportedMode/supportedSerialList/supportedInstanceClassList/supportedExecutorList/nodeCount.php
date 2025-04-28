@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeAvailableResourceResponseBody\availableZoneList\supportedMode\supportedSerialList\supportedInstanceClassList\supportedExecutorList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nodeCount extends Model
 {
     /**
-     * @description A reserved parameter.
-     *
-     * @example N/A
-     *
      * @var string
      */
     public $maxCount;
 
     /**
-     * @description A reserved parameter.
-     *
-     * @example N/A
-     *
      * @var string
      */
     public $minCount;
 
     /**
-     * @description A reserved parameter.
-     *
-     * @example N/A
-     *
      * @var string
      */
     public $step;
     protected $_name = [
         'maxCount' => 'MaxCount',
         'minCount' => 'MinCount',
-        'step'     => 'Step',
+        'step' => 'Step',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxCount) {
             $res['MaxCount'] = $this->maxCount;
         }
+
         if (null !== $this->minCount) {
             $res['MinCount'] = $this->minCount;
         }
+
         if (null !== $this->step) {
             $res['Step'] = $this->step;
         }
@@ -60,20 +51,22 @@ class nodeCount extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodeCount
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxCount'])) {
             $model->maxCount = $map['MaxCount'];
         }
+
         if (isset($map['MinCount'])) {
             $model->minCount = $map['MinCount'];
         }
+
         if (isset($map['Step'])) {
             $model->step = $map['Step'];
         }

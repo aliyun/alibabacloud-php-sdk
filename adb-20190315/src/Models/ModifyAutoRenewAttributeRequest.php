@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyAutoRenewAttributeRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
-     *
-     * This parameter is required.
-     * @example am-bp1u389j9zjh5****
-     *
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @description The renewal duration. Default value: **1**.
-     *
-     *   Valid values when PeriodUnit is set to **Month**: 1 to 11. Data type: INTEGER.
-     *   Valid values when PeriodUnit is set to **Year**: 1, 2, 3, and 5. Data type: INTEGER.
-     *
-     * > Longer subscription durations offer more savings. Purchasing a cluster for one year is more cost-effective than purchasing the cluster for 10 or 11 months.
-     * @example 1
-     *
      * @var string
      */
     public $duration;
@@ -42,36 +29,16 @@ class ModifyAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The unit of the renewal period. Default value: **Month**. Valid values:
-     *
-     *   **Year**
-     *   **Month**
-     *
-     * @example Year
-     *
      * @var string
      */
     public $periodUnit;
 
     /**
-     * @description The region ID of the cluster.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The renewal status of the cluster. Valid values:
-     *
-     *   **AutoRenewal**: The cluster is automatically renewed.
-     *   **Normal**: The cluster is manually renewed.
-     *   **NotRenewal**: The cluster is not renewed.
-     *
-     * @example AutoRenewal
-     *
      * @var string
      */
     public $renewalStatus;
@@ -86,48 +53,57 @@ class ModifyAutoRenewAttributeRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
-        'duration'             => 'Duration',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'periodUnit'           => 'PeriodUnit',
-        'regionId'             => 'RegionId',
-        'renewalStatus'        => 'RenewalStatus',
+        'DBClusterId' => 'DBClusterId',
+        'duration' => 'Duration',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'periodUnit' => 'PeriodUnit',
+        'regionId' => 'RegionId',
+        'renewalStatus' => 'RenewalStatus',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->renewalStatus) {
             $res['RenewalStatus'] = $this->renewalStatus;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -135,38 +111,46 @@ class ModifyAutoRenewAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAutoRenewAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RenewalStatus'])) {
             $model->renewalStatus = $map['RenewalStatus'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

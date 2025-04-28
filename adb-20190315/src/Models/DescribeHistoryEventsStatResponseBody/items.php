@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeHistoryEventsStatResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class items extends Model
 {
     /**
-     * @example Exception
-     *
      * @var string
      */
     public $eventCategory;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'eventCategory' => 'EventCategory',
-        'totalCount'    => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventCategory) {
             $res['EventCategory'] = $this->eventCategory;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -43,17 +41,18 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventCategory'])) {
             $model->eventCategory = $map['EventCategory'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

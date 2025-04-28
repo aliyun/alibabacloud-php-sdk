@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRegionsMixedResponseBody\regions;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRegionsMixedResponseBody extends Model
 {
@@ -15,26 +15,29 @@ class DescribeRegionsMixedResponseBody extends Model
     public $regions;
 
     /**
-     * @example 2E9450FF-F8AD-54C6-B3C3-009FBD7C0700
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'regions'   => 'Regions',
+        'regions' => 'Regions',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->regions) {
+            $this->regions->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regions) {
-            $res['Regions'] = null !== $this->regions ? $this->regions->toMap() : null;
+            $res['Regions'] = null !== $this->regions ? $this->regions->toArray($noStream) : $this->regions;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +45,18 @@ class DescribeRegionsMixedResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRegionsMixedResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Regions'])) {
             $model->regions = regions::fromMap($map['Regions']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

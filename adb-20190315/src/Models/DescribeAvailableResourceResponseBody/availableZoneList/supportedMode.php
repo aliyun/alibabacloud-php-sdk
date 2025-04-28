@@ -4,50 +4,46 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeAvailableResourceResponseBody\availableZoneList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeAvailableResourceResponseBody\availableZoneList\supportedMode\supportedSerialList;
-use AlibabaCloud\Tea\Model;
 
 class supportedMode extends Model
 {
     /**
-     * @description The supported mode. Valid values:
-     *
-     *   **flexible**: elastic mode.
-     *   **reserver**: reserved mode.
-     *
-     * @example flexible
-     *
      * @var string
      */
     public $mode;
 
     /**
-     * @description The supported editions.
-     *
      * @var supportedSerialList[]
      */
     public $supportedSerialList;
     protected $_name = [
-        'mode'                => 'Mode',
+        'mode' => 'Mode',
         'supportedSerialList' => 'SupportedSerialList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->supportedSerialList)) {
+            Model::validateArray($this->supportedSerialList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
+
         if (null !== $this->supportedSerialList) {
-            $res['SupportedSerialList'] = [];
-            if (null !== $this->supportedSerialList && \is_array($this->supportedSerialList)) {
-                $n = 0;
-                foreach ($this->supportedSerialList as $item) {
-                    $res['SupportedSerialList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supportedSerialList)) {
+                $res['SupportedSerialList'] = [];
+                $n1 = 0;
+                foreach ($this->supportedSerialList as $item1) {
+                    $res['SupportedSerialList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -55,23 +51,24 @@ class supportedMode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedMode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
+
         if (isset($map['SupportedSerialList'])) {
             if (!empty($map['SupportedSerialList'])) {
                 $model->supportedSerialList = [];
-                $n                          = 0;
-                foreach ($map['SupportedSerialList'] as $item) {
-                    $model->supportedSerialList[$n++] = null !== $item ? supportedSerialList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SupportedSerialList'] as $item1) {
+                    $model->supportedSerialList[$n1++] = supportedSerialList::fromMap($item1);
                 }
             }
         }

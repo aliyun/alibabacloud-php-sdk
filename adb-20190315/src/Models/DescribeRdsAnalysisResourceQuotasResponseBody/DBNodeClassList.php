@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRdsAnalysisResourceQuotasResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRdsAnalysisResourceQuotasResponseBody\DBNodeClassList\DBNodeClass;
-use AlibabaCloud\Tea\Model;
 
 class DBNodeClassList extends Model
 {
@@ -19,17 +19,21 @@ class DBNodeClassList extends Model
 
     public function validate()
     {
+        if (\is_array($this->DBNodeClass)) {
+            Model::validateArray($this->DBNodeClass);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBNodeClass) {
-            $res['DBNodeClass'] = [];
-            if (null !== $this->DBNodeClass && \is_array($this->DBNodeClass)) {
-                $n = 0;
-                foreach ($this->DBNodeClass as $item) {
-                    $res['DBNodeClass'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->DBNodeClass)) {
+                $res['DBNodeClass'] = [];
+                $n1 = 0;
+                foreach ($this->DBNodeClass as $item1) {
+                    $res['DBNodeClass'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class DBNodeClassList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBNodeClassList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBNodeClass'])) {
             if (!empty($map['DBNodeClass'])) {
                 $model->DBNodeClass = [];
-                $n                  = 0;
-                foreach ($map['DBNodeClass'] as $item) {
-                    $model->DBNodeClass[$n++] = null !== $item ? DBNodeClass::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DBNodeClass'] as $item1) {
+                    $model->DBNodeClass[$n1++] = DBNodeClass::fromMap($item1);
                 }
             }
         }

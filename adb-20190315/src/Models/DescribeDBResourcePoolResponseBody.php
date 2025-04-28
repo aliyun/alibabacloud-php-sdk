@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBResourcePoolResponseBody\poolsInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDBResourcePoolResponseBody extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
-     *
-     * @example am-bp11q28kvl688****
-     *
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @description Details of the resource group.
-     *
      * @var poolsInfo[]
      */
     public $poolsInfo;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'poolsInfo'   => 'PoolsInfo',
-        'requestId'   => 'RequestId',
+        'poolsInfo' => 'PoolsInfo',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->poolsInfo)) {
+            Model::validateArray($this->poolsInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->poolsInfo) {
-            $res['PoolsInfo'] = [];
-            if (null !== $this->poolsInfo && \is_array($this->poolsInfo)) {
-                $n = 0;
-                foreach ($this->poolsInfo as $item) {
-                    $res['PoolsInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->poolsInfo)) {
+                $res['PoolsInfo'] = [];
+                $n1 = 0;
+                foreach ($this->poolsInfo as $item1) {
+                    $res['PoolsInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,26 +61,28 @@ class DescribeDBResourcePoolResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBResourcePoolResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['PoolsInfo'])) {
             if (!empty($map['PoolsInfo'])) {
                 $model->poolsInfo = [];
-                $n                = 0;
-                foreach ($map['PoolsInfo'] as $item) {
-                    $model->poolsInfo[$n++] = null !== $item ? poolsInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PoolsInfo'] as $item1) {
+                    $model->poolsInfo[$n1++] = poolsInfo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

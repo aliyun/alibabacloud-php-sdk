@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAvailableResourceRequest extends Model
 {
     /**
-     * @description The language of query results. Valid values:
-     *
-     *   **zh-CN** (default): Chinese.
-     *   **en-US**: English.
-     *
-     * @example zh-CN
-     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
-     * @description The resources available in the supported modes.
-     *
-     * @example PostPaid
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @description The version of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
-     *
-     * @example 3.0
-     *
      * @var string
      */
     public $DBClusterVersion;
@@ -49,11 +34,6 @@ class DescribeAvailableResourceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -69,57 +49,61 @@ class DescribeAvailableResourceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The zone ID.
-     *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent zone list.
-     * @example cn-hangzhou-k
-     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'acceptLanguage'       => 'AcceptLanguage',
-        'chargeType'           => 'ChargeType',
-        'DBClusterVersion'     => 'DBClusterVersion',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'acceptLanguage' => 'AcceptLanguage',
+        'chargeType' => 'ChargeType',
+        'DBClusterVersion' => 'DBClusterVersion',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'zoneId'               => 'ZoneId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+
         if (null !== $this->DBClusterVersion) {
             $res['DBClusterVersion'] = $this->DBClusterVersion;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -127,38 +111,46 @@ class DescribeAvailableResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAvailableResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+
         if (isset($map['DBClusterVersion'])) {
             $model->DBClusterVersion = $map['DBClusterVersion'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBClusterMaintainTimeRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     * @example am-bp111m2cfrdl****
-     *
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @description The maintenance window of the cluster. Specify the maintenance window in the hh:mmZ-hh:mmZ format.
-     *
-     * This parameter is required.
-     * @example 22:00Z-23:00Z
-     *
      * @var string
      */
     public $maintainTime;
@@ -48,36 +38,42 @@ class ModifyDBClusterMaintainTimeRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
-        'maintainTime'         => 'MaintainTime',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'DBClusterId' => 'DBClusterId',
+        'maintainTime' => 'MaintainTime',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->maintainTime) {
             $res['MaintainTime'] = $this->maintainTime;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -85,29 +81,34 @@ class ModifyDBClusterMaintainTimeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBClusterMaintainTimeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['MaintainTime'])) {
             $model->maintainTime = $map['MaintainTime'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

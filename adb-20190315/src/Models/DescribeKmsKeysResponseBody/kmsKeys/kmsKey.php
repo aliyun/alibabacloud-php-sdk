@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeKmsKeysResponseBody\kmsKeys;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class kmsKey extends Model
 {
     /**
-     * @example mykey
-     *
      * @var string
      */
     public $keyAlias;
 
     /**
-     * @example 2e81355b-f8e7-4090-8082-a8f8124a621c
-     *
      * @var string
      */
     public $keyId;
     protected $_name = [
         'keyAlias' => 'KeyAlias',
-        'keyId'    => 'KeyId',
+        'keyId' => 'KeyId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyAlias) {
             $res['KeyAlias'] = $this->keyAlias;
         }
+
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
         }
@@ -43,17 +41,18 @@ class kmsKey extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return kmsKey
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyAlias'])) {
             $model->keyAlias = $map['KeyAlias'];
         }
+
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
         }

@@ -4,101 +4,95 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeAppliedAdvicesResponseBody\items;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAppliedAdvicesResponseBody extends Model
 {
     /**
-     * @description The queried suggestions.
-     *
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The page number. Pages start from page 1. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values:
-     *
-     *   **30** (default)
-     *   **50**
-     *   **100**
-     *
-     * @example 30
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The request ID.
-     *
-     * @example 84489769-3065-5A28-A4CB-977CD426F1C3
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The names of the tables in the DatabaseName.TableName format.
-     *
      * @var string[]
      */
     public $schemaTableNames;
 
     /**
-     * @description The total number of entries returned. The value is an integer that is greater than or equal to 0. Default value: 0.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'items'            => 'Items',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'requestId'        => 'RequestId',
+        'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'schemaTableNames' => 'SchemaTableNames',
-        'totalCount'       => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->items)) {
+            Model::validateArray($this->items);
+        }
+        if (\is_array($this->schemaTableNames)) {
+            Model::validateArray($this->schemaTableNames);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->items) {
-            $res['Items'] = [];
-            if (null !== $this->items && \is_array($this->items)) {
-                $n = 0;
-                foreach ($this->items as $item) {
-                    $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->items)) {
+                $res['Items'] = [];
+                $n1 = 0;
+                foreach ($this->items as $item1) {
+                    $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->schemaTableNames) {
-            $res['SchemaTableNames'] = $this->schemaTableNames;
+            if (\is_array($this->schemaTableNames)) {
+                $res['SchemaTableNames'] = [];
+                $n1 = 0;
+                foreach ($this->schemaTableNames as $item1) {
+                    $res['SchemaTableNames'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -106,37 +100,46 @@ class DescribeAppliedAdvicesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAppliedAdvicesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n            = 0;
-                foreach ($map['Items'] as $item) {
-                    $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Items'] as $item1) {
+                    $model->items[$n1++] = items::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SchemaTableNames'])) {
             if (!empty($map['SchemaTableNames'])) {
-                $model->schemaTableNames = $map['SchemaTableNames'];
+                $model->schemaTableNames = [];
+                $n1 = 0;
+                foreach ($map['SchemaTableNames'] as $item1) {
+                    $model->schemaTableNames[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

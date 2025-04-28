@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRdsAnalysisResourceQuotasResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRdsAnalysisResourceQuotasResponseBody\modeList\mode;
-use AlibabaCloud\Tea\Model;
 
 class modeList extends Model
 {
@@ -19,17 +19,21 @@ class modeList extends Model
 
     public function validate()
     {
+        if (\is_array($this->mode)) {
+            Model::validateArray($this->mode);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mode) {
-            $res['Mode'] = [];
-            if (null !== $this->mode && \is_array($this->mode)) {
-                $n = 0;
-                foreach ($this->mode as $item) {
-                    $res['Mode'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mode)) {
+                $res['Mode'] = [];
+                $n1 = 0;
+                foreach ($this->mode as $item1) {
+                    $res['Mode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class modeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return modeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Mode'])) {
             if (!empty($map['Mode'])) {
                 $model->mode = [];
-                $n           = 0;
-                foreach ($map['Mode'] as $item) {
-                    $model->mode[$n++] = null !== $item ? mode::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Mode'] as $item1) {
+                    $model->mode[$n1++] = mode::fromMap($item1);
                 }
             }
         }

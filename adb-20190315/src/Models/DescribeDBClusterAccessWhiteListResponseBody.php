@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeDBClusterAccessWhiteListResponseBody\items;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDBClusterAccessWhiteListResponseBody extends Model
 {
     /**
-     * @description The queried IP address whitelists.
-     *
      * @var items
      */
     public $items;
 
     /**
-     * @description The request ID.
-     *
-     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'items'     => 'Items',
+        'items' => 'Items',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->items) {
+            $this->items->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+            $res['Items'] = null !== $this->items ? $this->items->toArray($noStream) : $this->items;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DescribeDBClusterAccessWhiteListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBClusterAccessWhiteListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
