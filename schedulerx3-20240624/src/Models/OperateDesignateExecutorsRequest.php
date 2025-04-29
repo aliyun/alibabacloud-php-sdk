@@ -4,56 +4,36 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OperateDesignateExecutorsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $addressList;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example test-app
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example xxljob-b6ec1xxxx
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $designateType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 74
-     *
      * @var int
      */
     public $jobId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $transferable;
@@ -66,26 +46,43 @@ class OperateDesignateExecutorsRequest extends Model
         'transferable' => 'Transferable',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->addressList)) {
+            Model::validateArray($this->addressList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addressList) {
-            $res['AddressList'] = $this->addressList;
+            if (\is_array($this->addressList)) {
+                $res['AddressList'] = [];
+                $n1 = 0;
+                foreach ($this->addressList as $item1) {
+                    $res['AddressList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->designateType) {
             $res['DesignateType'] = $this->designateType;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->transferable) {
             $res['Transferable'] = $this->transferable;
         }
@@ -93,31 +90,40 @@ class OperateDesignateExecutorsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OperateDesignateExecutorsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddressList'])) {
             if (!empty($map['AddressList'])) {
-                $model->addressList = $map['AddressList'];
+                $model->addressList = [];
+                $n1 = 0;
+                foreach ($map['AddressList'] as $item1) {
+                    $model->addressList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['DesignateType'])) {
             $model->designateType = $map['DesignateType'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['Transferable'])) {
             $model->transferable = $map['Transferable'];
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetJobExecutionProgressResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class totalProgress extends Model
 {
     /**
-     * @example 15
-     *
      * @var int
      */
     public $finished;
 
     /**
-     * @example 30
-     *
      * @var int
      */
     public $total;
@@ -26,14 +22,18 @@ class totalProgress extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->finished) {
             $res['Finished'] = $this->finished;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -41,17 +41,18 @@ class totalProgress extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return totalProgress
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Finished'])) {
             $model->finished = $map['Finished'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

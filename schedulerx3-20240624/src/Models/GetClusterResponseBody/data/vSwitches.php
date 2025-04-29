@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetClusterResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vSwitches extends Model
 {
     /**
-     * @example vsw-8vbf1n216nshvfjdyff8a
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @example cn-hangzhou-k
-     *
      * @var string
      */
     public $zoneId;
@@ -26,14 +22,18 @@ class vSwitches extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -41,17 +41,18 @@ class vSwitches extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vSwitches
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

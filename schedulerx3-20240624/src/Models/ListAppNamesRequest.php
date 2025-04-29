@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAppNamesRequest extends Model
 {
     /**
-     * @example test-app
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example xxljob-b6ec1xxxx
-     *
      * @var string
      */
     public $clusterId;
@@ -28,14 +22,18 @@ class ListAppNamesRequest extends Model
         'clusterId' => 'ClusterId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -43,17 +41,18 @@ class ListAppNamesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAppNamesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

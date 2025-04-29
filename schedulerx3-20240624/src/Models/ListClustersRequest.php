@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListClustersRequest extends Model
 {
     /**
-     * @example xxljob-d6a5243b6fa
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @example cluster-test
-     *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @example 5
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -42,20 +34,26 @@ class ListClustersRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
+
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -63,23 +61,26 @@ class ListClustersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListClustersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
+
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

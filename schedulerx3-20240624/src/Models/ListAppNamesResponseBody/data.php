@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListAppNamesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example test-app
-     *
      * @var string
      */
     public $appGroupId;
 
     /**
-     * @example test-app
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @example 15
-     *
      * @var int
      */
     public $id;
@@ -40,20 +34,26 @@ class data extends Model
         'title' => 'Title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appGroupId) {
             $res['AppGroupId'] = $this->appGroupId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -61,23 +61,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppGroupId'])) {
             $model->appGroupId = $map['AppGroupId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
